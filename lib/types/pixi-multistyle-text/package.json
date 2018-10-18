@@ -1,0 +1,77 @@
+{
+  "_from": "pixi-multistyle-text",
+  "_id": "pixi-multistyle-text@0.6.0",
+  "_inBundle": false,
+  "_integrity": "sha512-uk/q6EXNcE3dBsFt2I937nJ/cXnQ5VIWlvbUkHJIg0FQ9dlztv756DzPbNHL3TIcpEeauhDAM+/jNpCAhTsEcQ==",
+  "_location": "/pixi-multistyle-text",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "pixi-multistyle-text",
+    "name": "pixi-multistyle-text",
+    "escapedName": "pixi-multistyle-text",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pixi-multistyle-text/-/pixi-multistyle-text-0.6.0.tgz",
+  "_shasum": "f06e98dac42e0824d75694dd29a6286bf53619e9",
+  "_spec": "pixi-multistyle-text",
+  "_where": "D:\\edge flow\\Pockey - p2 - socket.io",
+  "author": {
+    "name": "Tommy Leunen",
+    "email": "tommy.leunen@gmail.com",
+    "url": "http://tommyleunen.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/tleunen/pixi-multistyle-text/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Multi-Style Text for pixi.js",
+  "devDependencies": {
+    "@types/pixi.js": "^4.5.0",
+    "browserify": "^14.4.0",
+    "standard-version": "^4.2.0",
+    "tsify": "^3.0.1",
+    "typescript": "^2.3.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/tleunen/pixi-multistyle-text",
+  "keywords": [
+    "pixi",
+    "pixi.js",
+    "text",
+    "multistyle",
+    "multi style",
+    "style",
+    "canvas",
+    "webgl",
+    "graphics",
+    "render",
+    "2d"
+  ],
+  "license": "MIT",
+  "main": "dist/pixi-multistyle-text.js",
+  "name": "pixi-multistyle-text",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tleunen/pixi-multistyle-text.git"
+  },
+  "scripts": {
+    "build": "tsc && browserify index.js -p tsify -s MultiStyleText -o dist/pixi-multistyle-text.js -d",
+    "demo": "npm run build && open demo/index.html",
+    "prepublish": "npm run build",
+    "release": "standard-version"
+  },
+  "types": "dist/pixi-multistyle-text.d.ts",
+  "version": "0.6.0"
+}

@@ -1,0 +1,22 @@
+<svg id="rank-normal-shadow" xmlns="http://www.w3.org/2000/svg" width="30" height="54" viewBox="0 0 30 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #011417;
+        opacity: 0.75;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="disc">
+    <path id="shadow" class="cls-1" d="M4,2H26a3,3,0,0,1,3,3V51a3,3,0,0,1-3,3H4a3,3,0,0,1-3-3V5A3,3,0,0,1,4,2ZM29,13L22,24a0.931,0.931,0,0,0,1,1h4a1.909,1.909,0,0,1,2,2V13ZM1,43L8,33a0.931,0.931,0,0,0-1-1H3a1.909,1.909,0,0,1-2-2V43Z"/>
+    <path id="disc-2" data-name="disc" class="cls-2" d="M27,11L3,29H13L3,43,27,26H17ZM25.273,36.223L4.412,51H3V48L27,31v2.232ZM3,21.768l1.727-2.991L25.588,4H27V7L3,24V21.768ZM25,51H10.059l4.235-3H22a2,2,0,0,0,2-2V41.125L27,39V49A2,2,0,0,1,25,51ZM18,6H8A2,2,0,0,0,6,8v6L3,16V5A2,2,0,0,1,5,3H22.5Z"/>
+  </g>
+</svg>

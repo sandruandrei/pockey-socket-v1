@@ -1,0 +1,34 @@
+
+ball.png
+size: 128,64
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+ball-blue
+  rotate: false
+  xy: 37, 26
+  size: 32, 32
+  orig: 34, 34
+  offset: 1, 1
+  index: -1
+ball-decal
+  rotate: false
+  xy: 37, 14
+  size: 10, 10
+  orig: 34, 34
+  offset: 12, 12
+  index: -1
+ball-lighting
+  rotate: false
+  xy: 2, 25
+  size: 33, 33
+  orig: 34, 34
+  offset: 1, 0
+  index: -1
+ball-shading
+  rotate: false
+  xy: 2, 2
+  size: 33, 21
+  orig: 34, 34
+  offset: 1, 0
+  index: -1

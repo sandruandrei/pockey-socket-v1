@@ -1,0 +1,356 @@
+{"frames": {
+
+"ball-black.png":
+{
+	"frame": {"x":1308,"y":292,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-colorme.png":
+{
+	"frame": {"x":1342,"y":292,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-highlight.png":
+{
+	"frame": {"x":1362,"y":609,"w":14,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":14,"h":14},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-puck-01.png":
+{
+	"frame": {"x":1201,"y":480,"w":44,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":3,"w":44,"h":44},
+	"sourceSize": {"w":50,"h":50}
+},
+"ball-puck-02.png":
+{
+	"frame": {"x":1308,"y":201,"w":44,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":3,"w":44,"h":44},
+	"sourceSize": {"w":50,"h":50}
+},
+"ball-puck.png":
+{
+	"frame": {"x":1309,"y":149,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+"ball-puckInvalid.png":
+{
+	"frame": {"x":1500,"y":481,"w":107,"h":107},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":13,"w":107,"h":107},
+	"sourceSize": {"w":120,"h":120}
+},
+"ball-scratch.png":
+{
+	"frame": {"x":1308,"y":326,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-shadow.png":
+{
+	"frame": {"x":1500,"y":590,"w":38,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":37},
+	"sourceSize": {"w":38,"h":37}
+},
+"barrier-corner.png":
+{
+	"frame": {"x":1561,"y":698,"w":80,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":80},
+	"sourceSize": {"w":80,"h":80}
+},
+"barrier-icon.png":
+{
+	"frame": {"x":1308,"y":247,"w":38,"h":43},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":43},
+	"sourceSize": {"w":38,"h":43}
+},
+"barrier-side.png":
+{
+	"frame": {"x":1609,"y":481,"w":84,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":54},
+	"sourceSize": {"w":84,"h":54}
+},
+"goal-shine.png":
+{
+	"frame": {"x":1378,"y":1,"w":296,"h":478},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":296,"h":478},
+	"sourceSize": {"w":296,"h":478}
+},
+"goal_arrowIndicator.png":
+{
+	"frame": {"x":1201,"y":90,"w":106,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":106,"h":84},
+	"sourceSize": {"w":106,"h":84}
+},
+"goalie.png":
+{
+	"frame": {"x":1609,"y":537,"w":64,"h":87},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":87},
+	"sourceSize": {"w":64,"h":87}
+},
+"goalTop_left.png":
+{
+	"frame": {"x":1201,"y":176,"w":105,"h":250},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":0,"w":105,"h":250},
+	"sourceSize": {"w":108,"h":250}
+},
+"goalTop_leftTopper.png":
+{
+	"frame": {"x":1069,"y":950,"w":70,"h":103},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":62,"w":70,"h":103},
+	"sourceSize": {"w":108,"h":250}
+},
+"goalTop_right.png":
+{
+	"frame": {"x":1069,"y":698,"w":104,"h":250},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":250},
+	"sourceSize": {"w":108,"h":250}
+},
+"goalTop_righttTopper.png":
+{
+	"frame": {"x":1079,"y":1055,"w":70,"h":103},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":38,"y":62,"w":70,"h":103},
+	"sourceSize": {"w":108,"h":250}
+},
+"penalty-droppuck.png":
+{
+	"frame": {"x":1275,"y":428,"w":94,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":0,"w":94,"h":98},
+	"sourceSize": {"w":100,"h":100}
+},
+"power-bg.png":
+{
+	"frame": {"x":1115,"y":1,"w":84,"h":546},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":546},
+	"sourceSize": {"w":84,"h":546}
+},
+"power-color.png":
+{
+	"frame": {"x":1019,"y":629,"w":48,"h":497},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":18,"y":17,"w":48,"h":497},
+	"sourceSize": {"w":84,"h":546}
+},
+"powerUp_pocketBlock.png":
+{
+	"frame": {"x":1201,"y":428,"w":40,"h":50},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":0,"w":40,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+"powerUp_speedBuff.png":
+{
+	"frame": {"x":1243,"y":428,"w":30,"h":49},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":1,"w":30,"h":49},
+	"sourceSize": {"w":50,"h":50}
+},
+"puck-icon.png":
+{
+	"frame": {"x":1309,"y":90,"w":58,"h":57},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":57},
+	"sourceSize": {"w":58,"h":57}
+},
+"puck-indicator.png":
+{
+	"frame": {"x":1115,"y":549,"w":80,"h":72},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":15,"y":14,"w":80,"h":72},
+	"sourceSize": {"w":100,"h":100}
+},
+"puck_drop.png":
+{
+	"frame": {"x":1374,"y":481,"w":124,"h":124},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":124,"h":124},
+	"sourceSize": {"w":124,"h":124}
+},
+"roundcomplete.png":
+{
+	"frame": {"x":1069,"y":629,"w":624,"h":67},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":624,"h":67},
+	"sourceSize": {"w":624,"h":67}
+},
+"table-default.png":
+{
+	"frame": {"x":1,"y":629,"w":1016,"h":530},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1016,"h":530},
+	"sourceSize": {"w":1016,"h":530}
+},
+"table_border-1.png":
+{
+	"frame": {"x":1,"y":1,"w":1112,"h":626},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1112,"h":626},
+	"sourceSize": {"w":1112,"h":626}
+},
+"table_english-01.png":
+{
+	"frame": {"x":1201,"y":1,"w":156,"h":87},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":156,"h":87},
+	"sourceSize": {"w":156,"h":90}
+},
+"table_english-reticle.png":
+{
+	"frame": {"x":1676,"y":1,"w":14,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":14},
+	"sourceSize": {"w":14,"h":14}
+},
+"table_power-01a.png":
+{
+	"frame": {"x":1141,"y":950,"w":418,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":418,"h":100},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light1.png":
+{
+	"frame": {"x":1397,"y":1052,"w":284,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":21,"w":284,"h":35},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light2.png":
+{
+	"frame": {"x":1197,"y":549,"w":175,"h":58},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":21,"w":175,"h":58},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light3.png":
+{
+	"frame": {"x":1197,"y":609,"w":163,"h":18},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":41,"w":163,"h":18},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light4.png":
+{
+	"frame": {"x":1397,"y":1089,"w":237,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":115,"y":34,"w":237,"h":32},
+	"sourceSize": {"w":418,"h":100}
+},
+"ui_icon-arrow.png":
+{
+	"frame": {"x":1378,"y":607,"w":18,"h":13},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":13},
+	"sourceSize": {"w":18,"h":13}
+},
+"ui_icon-tipsReg.png":
+{
+	"frame": {"x":1540,"y":590,"w":36,"h":36},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":36},
+	"sourceSize": {"w":36,"h":36}
+},
+"ui_versus-empty.png":
+{
+	"frame": {"x":1019,"y":1128,"w":28,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":28},
+	"sourceSize": {"w":28,"h":28}
+},
+"ui_versus-main.png":
+{
+	"frame": {"x":1175,"y":780,"w":244,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":244,"h":84},
+	"sourceSize": {"w":244,"h":84}
+},
+"ui_versus-won.png":
+{
+	"frame": {"x":1049,"y":1128,"w":28,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":28},
+	"sourceSize": {"w":28,"h":28}
+},
+"vs.png":
+{
+	"frame": {"x":1151,"y":1052,"w":244,"h":86},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":244,"h":86},
+	"sourceSize": {"w":244,"h":86}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "pockey_main.png",
+	"format": "RGBA8888",
+	"size": {"w":1694,"h":1160},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b03630e1d104bd3307873366d500e100:346fbb58f166d3d081123a3d5ad2168f:775ce6e07fbd0b120a973c0c16c83869$"
+}
+}

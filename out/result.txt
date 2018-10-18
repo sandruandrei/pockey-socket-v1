@@ -1,0 +1,58 @@
+///@ts-ignore
+import nodeStatic    = require( 'node-static' );
+//@ts-ignore
+import http            = require( "http" );
+//@ts-ignore
+import socketIO        = require( 'socket.io' );
+import FrameworkSocketChannels = require( "../src/Framework/AbstractModules/Connection/connection-channels-and-messages");
+
+
+export module PockeyServer {
+
+
+    export class App {
+        protected file;
+        protected httpServer;
+        protected socketIo;
+        protected socketIsFree: boolean = true;
+        protected lookingForPartner: boolean = true;
+
+        constructor() {
+            this.file = new nodeStatic.Server('../out', { // bin is the folder containing our html, etc
+                cache: 0,	// don't cache
+                gzip: true	// gzip our assets
+            });
+
+            // create our server
+            this.httpServer = http.createServer((request, response) => {
+                request.addListener('end', () => {
+                    this.file.serve(request, response);
+                });
+                request.resume();
+            }).listen(4000);
+
+            this.socketIo = socketIO();
+            this.socketIo.serveClient(true); // the server will serve the client js file
+            this.socketIo.attach(this.httpServer);
+
+// listen for a connection
+            this.socketIo.on('connection', (socket) => {
+
+                console.log('User ' + socket.id + ' connected');
+                this.socketIo.emit("ConnectionChannel", ["New ID: ", socket.id]);
+
+                this.socketIo.on(FrameworkSocketChannels.onNewConnection, () => {
+
+                });
+                // this.socketIo.on("opponentSearchChannel", (data) => {
+                //     console.log("la app server: " + data);
+                // });
+            });
+
+
+        }
+    }
+}
+
+new PockeyServer.App();
+// new Framework.EntryPoint.ConnectionModule;

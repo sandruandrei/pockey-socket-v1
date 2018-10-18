@@ -1,0 +1,12 @@
+<svg id="checkmark-yes" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="checkbox-bg" class="cls-1" d="M12.978,7H9A2,2,0,0,0,7,9v6a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V14.36l3-2.152V18a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h8.324Z"/>
+  <path id="checkbox-check" class="cls-1" d="M8,13l5,3L22,6,18,3l-5,8L9,10Z"/>
+</svg>

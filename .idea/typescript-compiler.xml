@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TypeScriptCompiler">
+    <option name="recompileOnChanges" value="true" />
+    <option name="hasOutDirectory" value="true" />
+    <option name="outDirectory" value="D:\edge flow\Pockey\out\" />
+    <option name="mainFilePath" value="D:\edge flow\Pockey\src\Main.ts" />
+    <option name="useMainFile" value="true" />
+    <option name="showAllErrors" value="true" />
+  </component>
+</project>

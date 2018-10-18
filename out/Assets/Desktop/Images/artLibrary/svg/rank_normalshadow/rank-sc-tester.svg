@@ -1,0 +1,22 @@
+<svg id="rank-normal-shadow" xmlns="http://www.w3.org/2000/svg" width="30" height="54" viewBox="0 0 30 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #011417;
+        opacity: 0.75;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="test">
+    <path id="shadow" class="cls-1" d="M13,2h4c1.657,0,3,1.093,4,3l8,20.25V51a3,3,0,0,1-3,3H4a3,3,0,0,1-3-3V25.375L9,5C10,3.156,11.343,2,13,2ZM11,27l4-7,4,7H11Z"/>
+    <path id="tester" class="cls-2" d="M26,34v3H20l-1,1v4l1,1h6v3H17l-1-1V35l1-1h9ZM4,43h7V41H4V34.833L5,34h9v3H7v2h7v6l-1,1H5L4,45V43Zm0.5,5h21a1.5,1.5,0,0,1,0,3H4.5A1.5,1.5,0,0,1,4.5,48Zm0-19h21a1.5,1.5,0,0,1,0,3H4.5A1.5,1.5,0,0,1,4.5,29ZM23,26c-2.833,0-3-3-3-3l-1.437-2.875L22,16H17l-2-6-2,6H8l3.438,4.125L10,23s-0.167,3-3,3H3V25s1.333,0,2-2L11,6s0.667-3,3-3h2c2.333,0,3,3,3,3l6,17c0.667,2,2,2,2,2v1H23Z"/>
+  </g>
+</svg>

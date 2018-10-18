@@ -1,0 +1,11 @@
+<svg id="checkmark-yes_copy" data-name="checkmark-yes copy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="checkbox-no" class="cls-1" d="M6,4H18a2,2,0,0,1,2,2V18a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4ZM9,7h6a2,2,0,0,1,2,2v6a2,2,0,0,1-2,2H9a2,2,0,0,1-2-2V9A2,2,0,0,1,9,7Z"/>
+</svg>

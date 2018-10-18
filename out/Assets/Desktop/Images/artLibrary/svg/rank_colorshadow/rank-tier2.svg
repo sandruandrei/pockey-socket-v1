@@ -1,0 +1,27 @@
+<svg id="rank-color_shadow" data-name="rank-color+shadow" xmlns="http://www.w3.org/2000/svg" width="30" height="54" viewBox="0 0 30 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #011417;
+        opacity: 0.75;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #36edc9;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="_2" data-name="2">
+    <path id="shadow" class="cls-1" d="M15,54H5a2.321,2.321,0,0,1-1-1.406A2.738,2.738,0,0,1,5,51c2.969-1.875,3-4,3-4V36L1,30V25.938l3-2.971L6,23l2-2V11S7.917,6.646,5,4V3L6,2h9m0,52H25a2.321,2.321,0,0,0,1-1.406A2.738,2.738,0,0,0,25,51c-2.969-1.875-3-4-3-4V36l7-6V25.938l-3-2.971L24,23l-2-2V11s0.083-4.354,3-7V3L24,2H15"/>
+    <path id="color" class="cls-2" d="M7,51s3-1,3-6V36l4,3V51H7Zm16,0s-3-1-3-6V36l-4,3V51h7ZM7,3s3,1,3,6V19l4-4V3H7ZM23,3s-3,1-3,6V19l-4-4V3h7Z"/>
+    <path id="icon" class="cls-3" d="M15,37L3,28V25.829H3l1.616-1.616L15,32l10.384-7.788L27,25.829V28Zm4-10-4,3-4-3,4-3Zm-4-5-5,4L7,24l8-7,8,7-3,2Z"/>
+  </g>
+</svg>

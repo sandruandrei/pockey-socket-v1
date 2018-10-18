@@ -1,0 +1,16 @@
+<svg id="notification_number" data-name="notification number" xmlns="http://www.w3.org/2000/svg" width="32" height="24" viewBox="0 0 32 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #f52963;
+      }
+    </style>
+  </defs>
+  <path id="overlay-inventory" class="cls-1" d="M19,16h9v1a2.793,2.793,0,0,1-3,3H18l1-3V16Zm-3,2c-0.552,0-1-2.119-1-3.5a5.263,5.263,0,0,1,.2-1.5H16.8a5.269,5.269,0,0,1,.2,1.5C17,15.881,16.552,18,16,18Zm-3-4H7c-2.333-.167-2-4-2-4V8L6,5H16v6a6.7,6.7,0,0,0-3,1v2Zm0,2v1l1,3H7s-3-.167-3-3V14a1.959,1.959,0,0,0,2,2h7Z"/>
+  <rect id="notification" class="cls-2" x="18.063" y="2" width="13" height="10.969" rx="2" ry="2"/>
+</svg>

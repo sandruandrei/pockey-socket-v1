@@ -1,0 +1,276 @@
+{"frames": {
+
+"ball-black.png":
+{
+	"frame": {"x":1327,"y":479,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-colorme.png":
+{
+	"frame": {"x":1327,"y":513,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-highlight.png":
+{
+	"frame": {"x":1273,"y":201,"w":14,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":14,"h":14},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-puck-01.png":
+{
+	"frame": {"x":1222,"y":401,"w":44,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":3,"w":44,"h":44},
+	"sourceSize": {"w":50,"h":50}
+},
+"ball-puck-02.png":
+{
+	"frame": {"x":1222,"y":447,"w":44,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":3,"w":44,"h":44},
+	"sourceSize": {"w":50,"h":50}
+},
+"ball-puck.png":
+{
+	"frame": {"x":1222,"y":349,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+"ball-scratch.png":
+{
+	"frame": {"x":1327,"y":547,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"ball-shadow.png":
+{
+	"frame": {"x":1155,"y":497,"w":38,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":37},
+	"sourceSize": {"w":38,"h":37}
+},
+"barrier-arrow.png":
+{
+	"frame": {"x":1327,"y":641,"w":22,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":15},
+	"sourceSize": {"w":22,"h":15}
+},
+"barrier-corner.png":
+{
+	"frame": {"x":1282,"y":327,"w":76,"h":77},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":77},
+	"sourceSize": {"w":76,"h":77}
+},
+"barrier-icon.png":
+{
+	"frame": {"x":1115,"y":497,"w":38,"h":43},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":43},
+	"sourceSize": {"w":38,"h":43}
+},
+"barrier-side.png":
+{
+	"frame": {"x":1268,"y":406,"w":84,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":54},
+	"sourceSize": {"w":84,"h":54}
+},
+"cursor-gizmo.png":
+{
+	"frame": {"x":1268,"y":462,"w":83,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":83,"h":15},
+	"sourceSize": {"w":83,"h":15}
+},
+"goal-left.png":
+{
+	"frame": {"x":1115,"y":290,"w":105,"h":205},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":0,"w":105,"h":205},
+	"sourceSize": {"w":108,"h":205}
+},
+"goal-right.png":
+{
+	"frame": {"x":1222,"y":493,"w":103,"h":208},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":103,"h":208},
+	"sourceSize": {"w":108,"h":208}
+},
+"goal-top-left.png":
+{
+	"frame": {"x":1292,"y":121,"w":69,"h":101},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":101},
+	"sourceSize": {"w":69,"h":101}
+},
+"goal-top-right.png":
+{
+	"frame": {"x":1289,"y":224,"w":69,"h":101},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":101},
+	"sourceSize": {"w":69,"h":101}
+},
+"poolstick-default.png":
+{
+	"frame": {"x":1,"y":1337,"w":473,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":473,"h":12},
+	"sourceSize": {"w":473,"h":12}
+},
+"puck-icon.png":
+{
+	"frame": {"x":1222,"y":290,"w":58,"h":57},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":57},
+	"sourceSize": {"w":58,"h":57}
+},
+"table-default.png":
+{
+	"frame": {"x":1,"y":703,"w":1016,"h":530},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1016,"h":530},
+	"sourceSize": {"w":1016,"h":530}
+},
+"table_border-01.png":
+{
+	"frame": {"x":1,"y":1,"w":1112,"h":626},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1112,"h":626},
+	"sourceSize": {"w":1112,"h":626}
+},
+"table_english-01.png":
+{
+	"frame": {"x":1115,"y":201,"w":156,"h":87},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":156,"h":87},
+	"sourceSize": {"w":156,"h":90}
+},
+"table_english-reticle.png":
+{
+	"frame": {"x":1273,"y":217,"w":14,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":14},
+	"sourceSize": {"w":14,"h":14}
+},
+"table_graphic-default.png":
+{
+	"frame": {"x":1019,"y":703,"w":343,"h":268},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":343,"h":268},
+	"sourceSize": {"w":343,"h":268}
+},
+"table_power-01a.png":
+{
+	"frame": {"x":1,"y":1235,"w":418,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":418,"h":100},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light1.png":
+{
+	"frame": {"x":1,"y":629,"w":284,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":33,"y":21,"w":284,"h":35},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light2.png":
+{
+	"frame": {"x":1115,"y":121,"w":175,"h":58},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":21,"w":175,"h":58},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light3.png":
+{
+	"frame": {"x":1115,"y":181,"w":163,"h":18},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":41,"w":163,"h":18},
+	"sourceSize": {"w":418,"h":100}
+},
+"table_power-light4.png":
+{
+	"frame": {"x":1115,"y":87,"w":237,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":115,"y":34,"w":237,"h":32},
+	"sourceSize": {"w":418,"h":100}
+},
+"ui_icon-arrow.png":
+{
+	"frame": {"x":1327,"y":658,"w":18,"h":13},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":13},
+	"sourceSize": {"w":18,"h":13}
+},
+"ui_versus-empty.png":
+{
+	"frame": {"x":1327,"y":581,"w":28,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":28},
+	"sourceSize": {"w":28,"h":28}
+},
+"ui_versus-main.png":
+{
+	"frame": {"x":1115,"y":1,"w":244,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":244,"h":84},
+	"sourceSize": {"w":244,"h":84}
+},
+"ui_versus-won.png":
+{
+	"frame": {"x":1327,"y":611,"w":28,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":28},
+	"sourceSize": {"w":28,"h":28}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "pockey-main.png",
+	"format": "RGBA8888",
+	"size": {"w":1363,"h":1363},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6000d3558e693f3daf25194dfa7b94ee:255b598bb3473fb75c0c17fa9c651585:733c8a244ea342e54738d72329bb32cd$"
+}
+}

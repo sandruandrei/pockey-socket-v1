@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-overlay-menu" class="cls-1" d="M1.5,17h21a1.5,1.5,0,0,1,0,3H1.5A1.5,1.5,0,0,1,1.5,17Zm0-12h21a1.5,1.5,0,0,1,0,3H1.5A1.5,1.5,0,0,1,1.5,5Zm0,6h21a1.5,1.5,0,0,1,0,3H1.5A1.5,1.5,0,0,1,1.5,11Z"/>
+</svg>

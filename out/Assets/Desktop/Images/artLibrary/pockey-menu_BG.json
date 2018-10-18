@@ -1,0 +1,20 @@
+{"frames": {
+
+"bg_pockey.png":
+{
+	"frame": {"x":0,"y":0,"w":1920,"h":1080},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
+	"sourceSize": {"w":1920,"h":1080}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "pockey-menu_BG.png",
+	"format": "RGB888",
+	"size": {"w":1920,"h":1080},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b74a1d9bdf9560b25c84e02f8f7f9954:1385aa927fa0575822fc4c9e8ba40cc9:1e8b09449dad6bf6b16bc5b5e523cad1$"
+}
+}
