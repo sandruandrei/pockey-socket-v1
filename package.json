@@ -2,8 +2,7 @@
   "name": "Pockey",
   "version": "0.0.1",
   "scripts": {
-    "watch": "watchify ./app/app.js",
-    "start": "node ./app/app.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@types/express": "^4.16.0",
