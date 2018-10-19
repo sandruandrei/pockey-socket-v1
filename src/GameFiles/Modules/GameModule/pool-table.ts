@@ -693,7 +693,7 @@ namespace Pockey {
                     shape.material = new p2.Material(MaterialType.LINE_MATERIAL);
                 });
                 // let salam = new Sprite();
-                 _.forEach(PockeySettings.MAIN_COLLISION_POLYGON, (lineCoord: number[], id: number) => {
+              /*   _.forEach(PockeySettings.MAIN_COLLISION_POLYGON, (lineCoord: number[], id: number) => {
                                      // x1 = lineCoord[0];
                                      // y1 = lineCoord[1];
                                      // x2 = lineCoord[2];
@@ -708,7 +708,7 @@ namespace Pockey {
                                      // if (id + 1 > PockeySettings.MAIN_COLLISION_POLYGON.length - 1) {
                                      //
                                      // }
-                                 });
+                                 });*/
             }
 
             private createUpperCollisionShadowPolygon(): void {

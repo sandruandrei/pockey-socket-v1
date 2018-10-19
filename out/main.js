@@ -2865,14 +2865,6 @@ var Pockey;
                 _.forEach(upperCollisionPolygon.shapes, (shape) => {
                     shape.material = new p2.Material(GameModule.MaterialType.LINE_MATERIAL);
                 });
-                _.forEach(Pockey.PockeySettings.MAIN_COLLISION_POLYGON, (lineCoord, id) => {
-                    if (id > 0) {
-                        let prevPointCounter = id - 1;
-                        let v1 = new Vector2(lineCoord[0], lineCoord[1]);
-                        let v2 = new Vector2(Pockey.PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][0], Pockey.PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][1]);
-                        this.createLine(v1, v2, GameModule.MaterialType.LINE_MATERIAL);
-                    }
-                });
             }
             createUpperCollisionShadowPolygon() {
                 let vertices = Pockey.PockeySettings.MAIN_COLLISION_SHADOW.slice(0);
