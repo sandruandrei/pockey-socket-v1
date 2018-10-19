@@ -52,13 +52,14 @@ export module PockeyServer {
                 gzip: true	// gzip our assets
             });
 
+            let port = process.env.PORT || 8080;
             // create our server
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {
                     this.file.serve(request, response);
                 });
                 request.resume();
-            }).listen(5000);
+            }).listen(port);
 
             this.socketIo = socketIO();
             // console.log("socket id: " + this.socketIo.id);

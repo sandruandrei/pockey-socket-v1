@@ -41,12 +41,13 @@ var PockeyServer;
                 cache: 0,
                 gzip: true
             });
+            let port = process.env.PORT || 8080;
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {
                     this.file.serve(request, response);
                 });
                 request.resume();
-            }).listen(5000);
+            }).listen(port);
             this.socketIo = socketIO();
             this.socketIo.serveClient(true);
             this.socketIo.attach(this.httpServer);
