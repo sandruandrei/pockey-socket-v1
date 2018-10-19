@@ -1135,14 +1135,11 @@ namespace Pockey {
                             this.poolTable.otherBallReflectionArrow.rotation = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x);
                             this.poolTable.otherBallReflectionArrow.visible = true;
 
-
                         }
                     }
 
-
                     this.poolTable.addChild(this.graph);
                 }
-
 
             };
 

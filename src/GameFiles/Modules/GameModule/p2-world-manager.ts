@@ -1,5 +1,5 @@
 ///<reference path="../../../../lib/types/p2/p2.d.ts"/>
-///<reference path="../../pockey-settings.ts"/>
+///<reference path="../../../PockeyEntryPoint/pockey-settings.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow

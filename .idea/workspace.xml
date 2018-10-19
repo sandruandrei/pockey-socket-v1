@@ -4,7 +4,16 @@
     <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" line="138" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="" />
+    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
+      <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Settings.ts" afterPath="$PROJECT_DIR$/src/Framework/Settings.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -10617,6 +10626,10 @@
     <ignored path="out/Assets/Desktop/Images/balls/balls.json" />
     <ignored path="out/Assets/Desktop/Images/balls/balls.png" />
     <ignored path="out/Assets/Desktop/Images/balls/balls.zip" />
+    <ignored path="2018-09-28 00_48_30-.png" />
+    <ignored path="lib/gamePockey/Pockey GDD.docx" />
+    <ignored path="lib/gamePockey/pockeyImages/iconGeneral/iconItems/reticules.psd" />
+    <ignored path="lib/gamePockey/raw-assets/Untitled-1.png" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10764,7 +10777,7 @@
       <file leaf-file-name="pockey-ui-game-screen.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-game-screen.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2354">
+            <state relative-caret-position="0">
               <caret line="110" column="59" lean-forward="false" selection-start-line="110" selection-start-column="59" selection-end-line="110" selection-end-column="59" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -10826,8 +10839,8 @@
       <file leaf-file-name="pockey-entry-point.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6314">
-              <caret line="296" column="0" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
+            <state relative-caret-position="2575">
+              <caret line="288" column="67" lean-forward="false" selection-start-line="288" selection-start-column="67" selection-end-line="288" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -10843,21 +10856,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pool-table-manager.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pool-table-manager.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="1021" column="53" lean-forward="true" selection-start-line="1021" selection-start-column="53" selection-end-line="1021" selection-end-column="53" />
+            <state relative-caret-position="418">
+              <caret line="1160" column="23" lean-forward="false" selection-start-line="1160" selection-start-column="23" selection-end-line="1160" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pockey-settings.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/pockey-settings.ts">
+      <file leaf-file-name="Settings.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+            <state relative-caret-position="581">
+              <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -10966,7 +10979,6 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Utils/timer.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/DesignElements/pockey-user-game-graphics.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts" />
         <option value="$PROJECT_DIR$/app/app.js" />
@@ -10999,6 +11011,7 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/DesignElements/pockey-ui-match-circle.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/pockey-settings.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
       </list>
     </option>
   </component>
@@ -11071,11 +11084,10 @@
       <path value="$PROJECT_DIR$/node_modules/@types/p2/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1060" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -11094,228 +11106,50 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="app.ts" type="620a8d5e:NestingTreeNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="types" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text.js" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="pixi-multistyle-text.js" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="Assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="Assets" type="462c0819:PsiDirectoryNode" />
-              <item name="Desktop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="Assets" type="462c0819:PsiDirectoryNode" />
-              <item name="Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="Fonts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="Assets" type="462c0819:PsiDirectoryNode" />
-              <item name="Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="Images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="Assets" type="462c0819:PsiDirectoryNode" />
-              <item name="Desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="Images" type="462c0819:PsiDirectoryNode" />
-              <item name="Backgrounds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Framework" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="Loaders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Framework" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="GameModule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="GameModule" type="462c0819:PsiDirectoryNode" />
-              <item name="balls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="SignalsModule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="StateMachine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
-              <item name="DesignElements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
-              <item name="Screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Pockey - p2 - socket.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pockey - p2 - socket.io" type="462c0819:PsiDirectoryNode" />
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PockeyEntryPoint" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -11323,14 +11157,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="game-manager&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/game-manager.ts&#10;gameman&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/game-manager.ts&#10;server&#9;null&#9;null&#10;abstractball&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;stick&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/stick-mobile.ts&#10;ignalsType&#9;null&#9;null&#10;PockeySignalTypes&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts&#10;abstractbal&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;state&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;signals&#9;null&#9;null&#10;game&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/game-manager.ts&#10;textfie&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/Framework/Utils/text-field.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;pool-t&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/pool-table.ts&#10;soc&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/Framework/AbstractModules/Connection/socket-client.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/ConnectionModule/pockey-connection-module.ts&#10;pockeyco&#9;null&#9;null&#10;pock&#9;null&#9;null&#10;connection&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts&#10;{&#9;null&#9;null&#10;p2&#9;FILE&#9;file://C:/Users/sandru/Downloads/p2.js&#10;mousehandler&#9;null&#9;null&#10;greensock&#9;FILE&#9;file://D:/edge flow/Pockey/lib/greensock/greensock.d.ts" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Express-webpack-config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../node-js-getting-started" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
@@ -11346,19 +11179,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\Screens" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\DesignElements" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\Framework\Utils" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\out" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\DesignElements" />
       <recent name="D:\edge flow\Pockey - p2 - socket.io\src\Framework\Utils" />
       <recent name="D:\edge flow\Pockey - p2 - socket.io\lib\types" />
       <recent name="D:\edge flow\Pockey - p2 - socket.io\src\PockeyEntryPoint" />
       <recent name="D:\edge flow\Pockey - p2 - socket.io\node_modules\socket.io\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\edge flow\pockey-socket-v1\src\PockeyEntryPoint" />
+      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\Screens" />
+      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface" />
+      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\DesignElements" />
+      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\Framework\Utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -11628,11 +11461,16 @@
       <workItem from="1539760973585" duration="29754000" />
       <workItem from="1539847285016" duration="5113000" />
       <workItem from="1539864144202" duration="1364000" />
+      <workItem from="1539870295310" duration="1774000" />
+      <workItem from="1539873352591" duration="128000" />
+      <workItem from="1539873546491" duration="101000" />
+      <workItem from="1539876895402" duration="521000" />
+      <workItem from="1539932917412" duration="1938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1859217000" />
+    <option name="totallyTimeSpent" value="1863679000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -11644,18 +11482,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17132115" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31664726" sideWeight="0.50537056" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.4225844" sideWeight="0.59398496" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31664726" sideWeight="0.49462944" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32596043" sideWeight="0.43071964" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18689582" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979977" sideWeight="0.5733333" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4225844" sideWeight="0.59398496" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31664726" sideWeight="0.49462944" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32130384" sideWeight="0.42666668" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1707841" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28088078" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -11738,7 +11575,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
-      <path value="$PROJECT_DIR$" />
+      <path value="D:\edge flow\pockey-socket-v1\pockey-socket-v1" />
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
@@ -11756,7 +11593,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/es6-shim/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="902">
@@ -11870,7 +11706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -11910,13 +11745,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/pixi-multistyle-text/dist/pixi-multistyle-text.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Framework/Utils/multi-style-text.ts" />
@@ -11959,7 +11794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="1754" column="14" lean-forward="false" selection-start-line="1754" selection-start-column="14" selection-end-line="1754" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12002,7 +11836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12025,7 +11858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12053,14 +11885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6314">
-          <caret line="296" column="0" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/DesignElements/pockey-ui-versus-graphics.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -12071,19 +11895,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-game-screen.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2354">
+        <state relative-caret-position="0">
           <caret line="110" column="59" lean-forward="false" selection-start-line="110" selection-start-column="59" selection-end-line="110" selection-end-column="59" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/pockey-settings.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12095,10 +11911,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2575">
+          <caret line="288" column="67" lean-forward="false" selection-start-line="288" selection-start-column="67" selection-end-line="288" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="1021" column="53" lean-forward="true" selection-start-line="1021" selection-start-column="53" selection-end-line="1021" selection-end-column="53" />
+        <state relative-caret-position="418">
+          <caret line="1160" column="23" lean-forward="false" selection-start-line="1160" selection-start-column="23" selection-end-line="1160" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
           <folding />
         </state>
       </provider>
