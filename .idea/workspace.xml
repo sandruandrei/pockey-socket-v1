@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
       <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/Framework/Settings.ts" afterPath="$PROJECT_DIR$/src/Framework/Settings.ts" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -10786,11 +10782,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pool-table.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pool-table.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5588">
-              <caret line="260" column="39" lean-forward="false" selection-start-line="260" selection-start-column="21" selection-end-line="260" selection-end-column="39" />
+            <state relative-caret-position="284">
+              <caret line="712" column="0" lean-forward="true" selection-start-line="712" selection-start-column="0" selection-end-line="712" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -10866,11 +10862,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Settings.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+            <state relative-caret-position="207">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -10972,7 +10968,6 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-searching-screen.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Signals/signal-types.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Abstracts/abstract-module.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick-mobile.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/mobile-stick-power.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
@@ -11012,6 +11007,7 @@
         <option value="$PROJECT_DIR$/src/GameFiles/pockey-settings.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
       </list>
     </option>
   </component>
@@ -11151,6 +11147,21 @@
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
               <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="GameModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PockeyEntryPoint" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -11272,8 +11283,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.Pockey-Socket" />
-        <item index="1" class="java.lang.String" itemvalue="Gulp.js.defaultMain" />
+        <item index="0" class="java.lang.String" itemvalue="Gulp.js.defaultMain" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.Pockey-Socket" />
         <item index="2" class="java.lang.String" itemvalue="Gulp.js.default" />
         <item index="3" class="java.lang.String" itemvalue="Gulp.js.defaultApp" />
         <item index="4" class="java.lang.String" itemvalue="Node.js.bundle.js" />
@@ -11465,12 +11476,20 @@
       <workItem from="1539873352591" duration="128000" />
       <workItem from="1539873546491" duration="101000" />
       <workItem from="1539876895402" duration="521000" />
-      <workItem from="1539932917412" duration="1938000" />
+      <workItem from="1539932917412" duration="3456000" />
     </task>
+    <task id="LOCAL-00001" summary="single player version for mihai">
+      <created>1539946129282</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1539946129282</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1863679000" />
+    <option name="totallyTimeSpent" value="1865197000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -11577,6 +11596,8 @@
     <ignored-roots>
       <path value="D:\edge flow\pockey-socket-v1\pockey-socket-v1" />
     </ignored-roots>
+    <MESSAGE value="single player version for mihai" />
+    <option name="LAST_COMMIT_MESSAGE" value="single player version for mihai" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -11903,14 +11924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5588">
-          <caret line="260" column="39" lean-forward="false" selection-start-line="260" selection-start-column="21" selection-end-line="260" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2575">
@@ -11937,8 +11950,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        <state relative-caret-position="207">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="712" column="0" lean-forward="true" selection-start-line="712" selection-start-column="0" selection-end-line="712" selection-end-column="0" />
           <folding />
         </state>
       </provider>
