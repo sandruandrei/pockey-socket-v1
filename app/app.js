@@ -46,7 +46,7 @@ var PockeyServer;
                     this.file.serve(request, response);
                 });
                 request.resume();
-            }).listen(4000);
+            }).listen(5000);
             this.socketIo = socketIO();
             this.socketIo.serveClient(true);
             this.socketIo.attach(this.httpServer);

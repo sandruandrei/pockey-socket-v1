@@ -58,7 +58,7 @@ export module PockeyServer {
                     this.file.serve(request, response);
                 });
                 request.resume();
-            }).listen(4000);
+            }).listen(5000);
 
             this.socketIo = socketIO();
             // console.log("socket id: " + this.socketIo.id);

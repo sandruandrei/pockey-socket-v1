@@ -49,7 +49,7 @@ gulp.task('defaultApp', function () {
     return gulp.src('app/**/app.ts')
         .pipe(sourcemaps.init()) // This means sourcemaps will be generated
         .pipe(ts({
-            // outFile: 'app.js',
+            // outFile: 'index.js',
             sourceMap: true,
             target: "es2016",
             noImplicitAny: false,
@@ -65,7 +65,7 @@ gulp.task('defaultApp', function () {
 
 gulp.task('deleteAppJS', function () {
     return del([
-        'app/app.js', 'app/app.map',
+        'app/index.js', 'app/app.map',
     ]);
 });
 
