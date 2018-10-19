@@ -384,7 +384,7 @@ var Framework;
     Settings.isMobile = false;
     Settings.backgroundsPath = "Images/Backgrounds/";
     Settings.mainBackgroundName = "MainBackground";
-    Settings.singlePlayer = true;
+    Settings.singlePlayer = false;
     Settings.showSignalsDispatchSignalLog = false;
     Framework.Settings = Settings;
 })(Framework || (Framework = {}));

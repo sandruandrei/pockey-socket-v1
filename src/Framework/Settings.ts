@@ -20,7 +20,7 @@ namespace Framework {
         public static socketID: any;
         public static backgroundsPath: string = "Images/Backgrounds/";
         public static mainBackgroundName: string = "MainBackground";
-        public static singlePlayer: boolean = true;
+        public static singlePlayer: boolean = false;
         public static showSignalsDispatchSignalLog: boolean = false;
 
 
