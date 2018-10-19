@@ -17,8 +17,8 @@ gulp.task('default', function () {
 
 gulp.task('concatenateToApp', function() {
     return gulp.src(filesToConcatanate)
-        .pipe(concat('app.ts'))
-        .pipe(gulp.dest('app/'));
+        .pipe(concat('index.ts'))
+        .pipe(gulp.dest(''));
 });
 
 gulp.task('defaultMain', function () {
@@ -46,7 +46,7 @@ gulp.task('deleteMainJS', function () {
 gulp.task('defaultApp', function () {
     gulp.start('concatenateToApp');
     gulp.start('deleteAppJS');
-    return gulp.src('app/**/app.ts')
+    return gulp.src('index.ts')
         .pipe(sourcemaps.init()) // This means sourcemaps will be generated
         .pipe(ts({
             // outFile: 'index.js',
@@ -60,12 +60,12 @@ gulp.task('defaultApp', function () {
 
         }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('app/'));
+        .pipe(gulp.dest('.'));
 });
 
 gulp.task('deleteAppJS', function () {
     return del([
-        'app/index.js', 'app/app.map',
+        'index.js', 'index.js.map',
     ]);
 });
 
@@ -75,5 +75,5 @@ gulp.task('deleteAppJS', function () {
 
 gulp.task('launchIndex', function(){
     gulp.src(__filename)
-        .pipe(open({uri: 'http://localhost:4000'}));
+        .pipe(open({uri: 'http://localhost:5000'}));
 });

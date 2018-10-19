@@ -47,12 +47,12 @@ export module PockeyServer {
              //     console.log('listening on *:3000');
              // });*/
 //-------------------
-            this.file = new nodeStatic.Server('../out', { // bin is the folder containing our html, etc
+            this.file = new nodeStatic.Server('out', { // bin is the folder containing our html, etc
                 cache: 0,	// don't cache
                 gzip: true	// gzip our assets
             });
 
-            let port = process.env.PORT || 8080;
+            let port = process.env.PORT || 5000;
             // create our server
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {

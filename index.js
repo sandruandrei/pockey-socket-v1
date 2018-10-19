@@ -37,11 +37,11 @@ var PockeyServer;
         constructor() {
             this.socketIsFree = true;
             const app = express();
-            this.file = new nodeStatic.Server('../out', {
+            this.file = new nodeStatic.Server('out', {
                 cache: 0,
                 gzip: true
             });
-            let port = process.env.PORT || 8080;
+            let port = process.env.PORT || 5000;
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {
                     this.file.serve(request, response);
@@ -78,4 +78,4 @@ var PockeyServer;
 })(PockeyServer = exports.PockeyServer || (exports.PockeyServer = {}));
 new PockeyServer.Server();
 
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=index.js.map
