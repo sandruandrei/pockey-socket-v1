@@ -112,15 +112,15 @@ namespace Pockey {
             private playerTurnStarted: boolean = false;
             private ballWasShot: boolean = false;
 
-            private opponentTimeUp: boolean = false;
+            protected opponentTimeUp: boolean = false;
             protected repositionStarted: boolean = false;
 
-            private isFirstShoot: boolean = true;
+            protected isFirstShoot: boolean = true;
 
-            private uiTextOnWatch: string = "";
-            private lineBetweenCirclesPoints: number[];
-            private lineBetweenCirclesVisible: boolean;
-            private graphColor: number = 0xffffff;
+            protected uiTextOnWatch: string = "";
+            protected lineBetweenCirclesPoints: number[];
+            protected lineBetweenCirclesVisible: boolean;
+            protected graphColor: number = 0xffffff;
 
             constructor() {
                 // console.log("%c Pool T Manager: intra la constructor ", "background: red; color: white; font-weight:bold; ");
@@ -521,11 +521,6 @@ namespace Pockey {
 
             protected update(): void {
 
-                // console.log("ball length: " + this.poolTable.balls.length);
-                // if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onStartVersusGame) {
-                //     this.onStartVersusGame();
-                // }else
-
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
                     this.onRepositionWhiteBall();
 
@@ -588,7 +583,6 @@ namespace Pockey {
                         this.drawRayResult(this.raycastResult, this.rayClosest);
                     }
                     this.sendElementsDataToManager();
-
                 }
                 /*// this.graph.lineStyle(2, 0xffffff);
                 // this.graph.moveTo(localPoint.x, localPoint.y);
@@ -753,7 +747,7 @@ namespace Pockey {
                 // console.log("==============");
             }
 
-            private sendElementsDataToManager(): void {
+            protected sendElementsDataToManager(): void {
                 let ballsData: BallData[] = [];
 
                 _.forEach(this.poolTable.balls, (ball: AbstractBall) => {

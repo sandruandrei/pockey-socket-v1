@@ -198,6 +198,9 @@ namespace Pockey {
 
                     // SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
                     this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
+                    if (Settings.isMobile) {
+                        SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
+                    }
                 }
                 else if (state == PockeyStates.onGameEnd) {
 
@@ -691,13 +694,16 @@ namespace Pockey {
                         SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRepositionWhiteBall]);
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.whiteBallFault]);
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+
+                        // if (Settings.isMobile) {
+                        //     SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
+                        // }
                     }
                     else {
 
                         PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
                         if (Settings.isMobile) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
-
                         }
                     }
 

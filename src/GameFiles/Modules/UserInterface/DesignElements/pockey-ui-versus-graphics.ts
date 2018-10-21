@@ -3,6 +3,7 @@ namespace Pockey {
     export module UserInterface {
         import Sprite = PIXI.Sprite;
         import Graphics = PIXI.Graphics;
+        import Settings = Framework.Settings;
 
         export class PockeyUiVersusGraphics extends Container {
             public leftSideMatchCircles: PockeyUiMatchCircle[];
@@ -15,6 +16,10 @@ namespace Pockey {
                 super();
                 this.versusGraphics = new Sprite(PIXI.Texture.fromFrame("vs.png"));
                 this.addChild(this.versusGraphics);
+                if(Settings.isMobile)
+                {
+                    // this.versusGraphics.visible = false;
+                }
 
                 this.leftSideMatchCirclesContainer = new Container();
                 this.addChild(this.leftSideMatchCirclesContainer);

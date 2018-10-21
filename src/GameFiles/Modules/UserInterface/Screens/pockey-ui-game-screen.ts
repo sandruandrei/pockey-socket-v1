@@ -2,6 +2,7 @@
 ///<reference path="../DesignElements/pockey-ui-versus-graphics.ts"/>
 ///<reference path="../../StateMachine/pockey-state-texts.ts"/>
 ///<reference path="../../../../Framework/Utils/pixi-multistyle-text.ts"/>
+///<reference path="../../../../Framework/Settings.ts"/>
 
 namespace Pockey {
     export module UserInterface {
@@ -10,9 +11,9 @@ namespace Pockey {
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import TextField = Framework.utils.TextField;
-        import Settings = Framework.Settings;
         import MultiStyleText = Framework.Utils.MultiStyleText;
         import TextStyle = PIXI.TextStyle;
+        import Settings = Framework.Settings;
 
         export class PockeyUiGameScreen extends Container {
 
@@ -35,6 +36,7 @@ namespace Pockey {
             private defaultTextStyle: TextStyle;
             private warningTextStyle: TextStyle;
             private opponentTextStyle: TextStyle;
+            private textFontSize: number;
 
             constructor() {
                 super();
@@ -105,8 +107,11 @@ namespace Pockey {
                 // if (text != this.tipText.text) {
                 if (text != this.multilineText.text) {
                     this.multilineText.text = text;
-                    this.multilineText.x = -this.multilineText.width;
-
+                    if (!Settings.isMobile)
+                        this.multilineText.x = -this.multilineText.width;
+                    else {
+                        this.multilineText.x = -this.multilineText.width / 2;
+                    }
                     /*this.tipText.setText(text);
                     this.tipText.x = -this.tipText.width;*/
                 }
@@ -194,7 +199,7 @@ namespace Pockey {
                 }
                 this.opponentTextStyle = new TextStyle({
                     fontFamily: 'troika',
-                    fontSize: 56.4,
+                    fontSize: this.textFontSize,
                     fill: color,
                     dropShadow: true,
                     dropShadowColor: '#000000',
@@ -241,7 +246,6 @@ namespace Pockey {
             public handleDesktopLandscape(): void {
                 this.graphicsContainer.height = 0.11 * Settings.stageHeight;
                 this.graphicsContainer.scale.x = this.graphicsContainer.scale.y;
-                // this.graphicsContainer.scale.y = scaleFactor;
 
                 this.graphicsContainer.x = Settings.stageWidth / 2;
                 this.graphicsContainer.y = 0.05 * Settings.stageHeight;
@@ -249,25 +253,19 @@ namespace Pockey {
                 this.tipTextContainer.scale.x = this.tipTextContainer.scale.y = this.poolTableScaleFactor;
                 this.tipTextContainer.y = Settings.stageHeight - Settings.stageHeight * 0.1;
                 this.tipTextContainer.x = Settings.stageWidth / 2 + (this.tipTextWidth / 2) * this.poolTableScaleFactor;
-                // this.tipText.rescale(this.poolTableScaleFactor);
-                // this.tipText.x = -this.tipText.width;
-                this.multilineText.x = -this.multilineText.width;
-                // this.tipText.scale.x = this.tipText.scale.y = this.poolTableScaleFactor;
-                // this.tipText.scale.x = this.tipText.scale.y;
 
-                // this.tipText.x = this.stageWidth / 2 + this.stageWidth * 0.3 - this.tipText.width;
-                // this.tipText.y = Settings.stageHeight - Settings.stageHeight * 0.1;// - this.tipText.height;
-                // this.tipText.x = Settings.stageWidth / 2 + (this.tipTextWidth / 2) * this.poolTableScaleFactor - this.tipText.width;
+                this.multilineText.x = -this.multilineText.width;
             }
 
             public onResizeMobileLandscape(): void {
                 this.rotation = 0;
 
-                this.tipText.height = 0.046 * Settings.stageHeight;
-                this.tipText.scale.x = this.tipText.scale.y;
+                this.tipTextContainer.height = 0.046 * Settings.stageHeight;
+                this.tipTextContainer.scale.x = this.tipTextContainer.scale.y;
+                this.tipTextContainer.y = Settings.stageHeight - Settings.stageHeight * 0.0452;
+                this.tipTextContainer.x = Settings.stageWidth / 2;// + (this.tipTextWidth / 2) * this.poolTableScaleFactor;
 
-                this.tipText.y = Settings.stageHeight - this.tipText.height + 0.002 * Settings.stageHeight;
-                this.tipText.x = Settings.stageWidth / 2 - this.tipText.width / 2 + Settings.stageWidth * 0.0024;
+                this.multilineText.x = -this.multilineText.width / 2;
 
                 this.graphicsContainer.height = 0.13 * Settings.stageHeight;
                 this.graphicsContainer.scale.x = this.graphicsContainer.scale.y;
@@ -278,13 +276,21 @@ namespace Pockey {
 
             public onResizeMobilePortrait(): void {
                 this.rotation = 90 * Math.PI / 180;
-                this.tipText.height = 0.046 * Settings.stageWidth;
+                this.tipTextContainer.height = 0.0448 * Settings.stageWidth;
+                this.tipTextContainer.scale.x = this.tipTextContainer.scale.y;
+
+                this.tipTextContainer.x = Settings.stageHeight / 2;
+                this.tipTextContainer.y = -Settings.stageWidth * 0.046;
+
+                this.multilineText.x = -this.multilineText.width / 2;
+
+                /*this.tipText.height = 0.046 * Settings.stageWidth;
                 this.tipText.scale.x = this.tipText.scale.y;
 
-                this.tipText.y = /*-Settings.stageWidth * 0.05;*/
+                this.tipText.y = /!*-Settings.stageWidth * 0.05;*!/
                     -this.tipText.height + 0.002 * Settings.stageWidth;
                 this.tipText.x = Settings.stageHeight / 2 - this.tipText.width / 2 + Settings.stageHeight * 0.0024;
-
+*/
                 this.graphicsContainer.height = 0.13 * Settings.stageWidth;
                 this.graphicsContainer.scale.x = this.graphicsContainer.scale.y;
                 this.graphicsContainer.x = Settings.stageHeight / 2;
@@ -304,9 +310,13 @@ namespace Pockey {
             }
 
             private defineTextStyles(): void {
+                this.textFontSize = 56.4;
+                if (Settings.isMobile) {
+                    this.textFontSize = 28;
+                }
                 this.defaultTextStyle = new TextStyle({
                     fontFamily: 'troika',
-                    fontSize: 56.4,
+                    fontSize: this.textFontSize,
                     fill: 0xffffff,
                     dropShadow: true,
                     dropShadowColor: '#000000',
@@ -316,7 +326,7 @@ namespace Pockey {
                 });
                 this.warningTextStyle = new TextStyle({
                     fontFamily: 'troika',
-                    fontSize: 56.4,
+                    fontSize: this.textFontSize,
                     fill: 0xff0000,
                     dropShadow: true,
                     dropShadowColor: '#000000',
@@ -335,12 +345,13 @@ namespace Pockey {
                 this.addVersusGraphics();
                 this.addLeftGameGraphics();
                 this.addRightGameGraphics();
-                if (Settings.isMobile) {
-                    this.addTipTextMobile();
-                }
-                else {
-                    this.addTipText();
-                }
+
+                // if (Settings.isMobile) {
+                //     this.addTipTextMobile();
+                // }
+                // else {
+                this.addTipText();
+                // }
             }
 
             private addTipText() {
@@ -372,6 +383,7 @@ namespace Pockey {
                 // this.tipText = new TextField("", style);
 
                 this.tipTextContainer = new Container();
+                this.tipTextContainer.name = "tipTextContainer";
                 this.addChild(this.tipTextContainer);
                 this.multilineText.scale.x = this.multilineText.scale.y = 0.5;
                 this.addChild(this.multilineText);
