@@ -2,3 +2,13 @@
     font-family:"troika";
     src:url("/Assets/Desktop/Fonts/troika.otf") format("woff");
 }
+
+@font-face {
+    font-family:"opensansextrabold";
+    src:url("/Assets/Desktop/Fonts/OpenSansExtraBold.ttf") format("woff");
+}
+
+@font-face {
+    font-family:"midtown";
+    src:url("/Assets/Desktop/Fonts/Midtown.ttf") format("woff");
+}

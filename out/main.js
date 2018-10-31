@@ -4,6 +4,8 @@ var Pockey;
     (function (SignalsModule) {
         class PockeySignalTypes {
         }
+        PockeySignalTypes.PLAYER_SIGNED_OUT = "PockeySignalTypes." + "PLAYER_SIGNED_OUT";
+        PockeySignalTypes.PLAYER_SIGNED_IN = "PockeySignalTypes." + "PLAYER_SIGNED_IN";
         PockeySignalTypes.SHOOT_BALL = "PockeySignalTypes." + "SHOOT_BALL";
         PockeySignalTypes.NEXT_TURN = "PockeySignalTypes." + "NEXT_TURN";
         PockeySignalTypes.BALL_IN_POCKET = "PockeySignalTypes." + "BALL_IN_POCKET";
@@ -386,6 +388,7 @@ var Framework;
     Settings.mainBackgroundName = "MainBackground";
     Settings.singlePlayer = false;
     Settings.showSignalsDispatchSignalLog = false;
+    Settings.playerSignedIn = false;
     Framework.Settings = Settings;
 })(Framework || (Framework = {}));
 var typestate;
@@ -869,11 +872,11 @@ var Framework;
 })(Framework || (Framework = {}));
 var Pockey;
 (function (Pockey) {
+    var Settings = Framework.Settings;
     class PockeySettings {
     }
-    PockeySettings.PLAYER_COLOR = 0xC5384C;
     PockeySettings.PLAYER_SOCKET_ID = "";
-    PockeySettings.PLAYER_NAME = "SandruPlayer";
+    PockeySettings.PLAYER_NAME = "";
     PockeySettings.OPPONENT_COLOR = 0x15D3E9;
     PockeySettings.OPPONENT_SOCKET_ID = "";
     PockeySettings.OPPONENT_NAME = "SandruOpponent";
@@ -884,7 +887,29 @@ var Pockey;
     PockeySettings.PUCK_COLOR = 0xe4b31c;
     PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 7;
     PockeySettings.STICK_MAX_POWER = 108;
-    PockeySettings.COLORS = [0x1BE7FF, 0xBAFF29, 0xFEE505, 0xFFA5AB];
+    PockeySettings.LARGE_COLORS_ARRAY = [0xe92c5a, 0x16e0f8, 0xd6d72a, 0xc32ce9, 0x1584f4, 0x15efaf, 0x24a247, 0x86b009, 0xff8023, 0xe82bc3,];
+    PockeySettings.SMALL_COLORS_ARRAY = [0xe92c5a, 0x16e0f8];
+    PockeySettings.LARGE_AVATARS_ARRAY = [
+        Settings.desktopAssetsPath + "Images/avatar_guest.png",
+        Settings.desktopAssetsPath + "Images/avatar_boi.png",
+        Settings.desktopAssetsPath + "Images/avatar_grrl.png",
+        Settings.desktopAssetsPath + "Images/avatar_nerdist.png",
+        Settings.desktopAssetsPath + "Images/avatar_micky.png",
+        Settings.desktopAssetsPath + "Images/avatar_glenn.png",
+        Settings.desktopAssetsPath + "Images/avatar_sc-izzi.png",
+        Settings.desktopAssetsPath + "Images/avatar_atlas.png",
+        Settings.desktopAssetsPath + "Images/avatar_bear-blue.png",
+        Settings.desktopAssetsPath + "Images/avatar_cate.png",
+        Settings.desktopAssetsPath + "Images/avatar_kooky.png",
+        Settings.desktopAssetsPath + "Images/avatar_r66-z.png",
+        Settings.desktopAssetsPath + "Images/avatar_sc-comet.png",
+        Settings.desktopAssetsPath + "Images/avatar_spooky.png",
+        Settings.desktopAssetsPath + "Images/avatar_xmas-atlas.png",
+        Settings.desktopAssetsPath + "Images/avater_snuggles.png",
+    ];
+    PockeySettings.SMALL_AVATARS_ARRAY = [
+        Settings.desktopAssetsPath + "Images/avatar_guest.png"
+    ];
     PockeySettings.ROUND_DURATION_IN_SECONDS = 25;
     PockeySettings.MAIN_COLLISION_POLYGON = [
         [-559, -98],
@@ -1451,6 +1476,7 @@ var Framework;
         constructor() {
             this.name = "";
             this.name = "AbstractEntryPoint";
+            this.getCookieData();
             this.checkDevice();
             this.setWindowSize();
             this.initializePixi();
@@ -1460,6 +1486,8 @@ var Framework;
             this.addModules();
             this.initializeSingletons();
             this.startLoadingAssets();
+        }
+        getCookieData() {
         }
         setWindowSize() {
             Settings.stageWidth = window.innerWidth;
@@ -1482,6 +1510,7 @@ var Framework;
             AbstractEntryPoint.renderer.view.style.position = "absolute";
             AbstractEntryPoint.renderer.view.style.top = "0px";
             AbstractEntryPoint.renderer.view.style.left = "0px";
+            AbstractEntryPoint.renderer.view.style.zIndex = "-800";
             document.body.appendChild(AbstractEntryPoint.renderer.view);
             this.stage = new Container();
             this.frameAnimate();
@@ -4336,8 +4365,8 @@ var Pockey;
                     this.player.side = "right";
                     this.opponent.side = "left";
                     if (Pockey.PockeySettings.OPPONENT_COLOR == Pockey.PockeySettings.PLAYER_COLOR) {
-                        let randNumber = Math.round(Math.random() * (Pockey.PockeySettings.COLORS.length - 1));
-                        Pockey.PockeySettings.OPPONENT_COLOR = Pockey.PockeySettings.COLORS[randNumber];
+                        let randNumber = Math.round(Math.random() * (Pockey.PockeySettings.LARGE_COLORS_ARRAY.length - 1));
+                        Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber]);
                     }
                     let playerSettings = {
                         opponentName: this.player.name,
@@ -4563,10 +4592,12 @@ var Framework;
     let utils;
     (function (utils) {
         var Graphics = PIXI.Graphics;
+        var TextStyle = PIXI.TextStyle;
         class TextField extends PIXI.Text {
             constructor(text, style, debug) {
                 super(text, style);
-                this.setStyle(style);
+                if (style)
+                    this.setStyle(style);
                 this.updateText();
                 if (debug)
                     this.debug();
@@ -4574,9 +4605,20 @@ var Framework;
             setText(text) {
                 this.text = text;
             }
-            setStyle(style) {
+            setStyle(fontStyle) {
                 this.scale.x = 1;
                 this.scale.y = 1;
+                let style = new TextStyle({});
+                style.fontSize = +fontStyle.fontSize;
+                style.wordWrapWidth = fontStyle.wordWrapWidth;
+                style.wordWrap = fontStyle.wordWrap;
+                style.fontFamily = fontStyle.fontFamily;
+                style.fill = fontStyle.fill;
+                style.dropShadow = fontStyle.dropShadow;
+                style.dropShadowColor = fontStyle.dropShadowColor;
+                style.dropShadowBlur = fontStyle.dropShadowBlur;
+                style.dropShadowAngle = fontStyle.dropShadowAngle;
+                style.dropShadowDistance = fontStyle.dropShadowDistance;
                 if (style && !_.isUndefined(style.fontSize) && !_.isNull(style.fontSize)) {
                     let fontSize = +style.fontSize;
                     fontSize *= 2;
@@ -4660,19 +4702,14 @@ var Framework;
     let UserInterface;
     (function (UserInterface) {
         var TextField = Framework.utils.TextField;
+        var Vector2 = Framework.Utils.Vector2;
         class PixiButton extends PIXI.Sprite {
-            constructor(width, height, backgroundColor, backgroundAlpha) {
-                super();
-                let gfx = new PIXI.Graphics();
-                gfx.beginFill(backgroundColor, backgroundAlpha);
-                gfx.drawRoundedRect(0, 0, width, height, height / 5);
-                gfx.endFill();
-                this.texture = gfx.generateCanvasTexture();
-                this.anchor.x = 0.5;
-                this.anchor.y = 0.5;
+            constructor(texture) {
+                super(texture);
+                this.alignment = "center";
+                this.texture = this.texture;
+                this.textOffset = new Vector2();
                 this._text = new TextField('Basic text in pixi');
-                this._text.anchor.x = 0.5;
-                this._text.anchor.y = 0.5;
                 this.addChild(this._text);
                 this.interactive = true;
                 this.on("mousedown", () => {
@@ -4691,9 +4728,33 @@ var Framework;
                     this.onUp();
                 }, this);
             }
+            setOffset(offset) {
+                this.textOffset = offset;
+            }
+            setAlign(align) {
+                this.alignment = align;
+                if (align == "left") {
+                    this._text.x = 0 + this.textOffset.x;
+                    this._text.y = 0 + this.textOffset.y;
+                }
+                else if (align == "right") {
+                    this._text.x = this.width - this._text.width + this.textOffset.x;
+                    this._text.y = this.height - this._text.height + this.textOffset.y;
+                }
+                else {
+                    this._text.x = this.width / 2 - this._text.width / 2 - this.textOffset.x;
+                    this._text.y = this.height / 2 - this._text.height / 2 - this.textOffset.x;
+                }
+            }
             setText(val, style) {
                 this._text.text = val;
                 this._text.setStyle(style);
+                this._text.x = this.width / 2 - this._text.width / 2;
+                this._text.y = this.height / 2 - this._text.height / 2;
+                this.setAlign(this.alignment);
+            }
+            getText() {
+                return this._text;
             }
             onDown() {
                 this.y += 5;
@@ -4705,12 +4766,14 @@ var Framework;
                 this.y -= 5;
             }
             onHover() {
-                this.scale.x = 1.2;
-                this.scale.y = 1.2;
+                if (this.onMouseOverAnimation) {
+                    this.onMouseOverAnimation();
+                }
             }
             onOut() {
-                this.scale.x = 1;
-                this.scale.y = 1;
+                if (this.onMouseOutAnimation) {
+                    this.onMouseOutAnimation();
+                }
             }
             get clicked() {
                 return this._cb;
@@ -4722,48 +4785,451 @@ var Framework;
         UserInterface.PixiButton = PixiButton;
     })(UserInterface = Framework.UserInterface || (Framework.UserInterface = {}));
 })(Framework || (Framework = {}));
+var Framework;
+(function (Framework) {
+    let Utils;
+    (function (Utils) {
+        function readCookie(c_name) {
+            if (document.cookie.length > 0) {
+                let c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    let c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) {
+                        c_end = document.cookie.length;
+                    }
+                    return (document.cookie.substring(c_start, c_end)).toString();
+                }
+            }
+            return "";
+        }
+        Utils.readCookie = readCookie;
+        function writeCookie(name, value, days) {
+            let expires;
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            else {
+                expires = "";
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+        Utils.writeCookie = writeCookie;
+        function removeCookie(name) {
+            writeCookie(name, "", -1);
+        }
+        Utils.removeCookie = removeCookie;
+    })(Utils = Framework.Utils || (Framework.Utils = {}));
+})(Framework || (Framework = {}));
 var Pockey;
 (function (Pockey) {
     let UserInterface;
     (function (UserInterface) {
-        var Sprite = PIXI.Sprite;
         var Settings = Framework.Settings;
-        var PixiButton = Framework.UserInterface.PixiButton;
+        var writeCookie = Framework.Utils.writeCookie;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        class PlayerColorCustomizer {
+            constructor() {
+                this.currentColorCounter = 0;
+                if (Settings.playerSignedIn) {
+                    this.colorsArray = Pockey.PockeySettings.LARGE_COLORS_ARRAY;
+                }
+                else {
+                    this.colorsArray = Pockey.PockeySettings.SMALL_COLORS_ARRAY;
+                }
+                this.colorCircle = document.getElementById("PlayerColorCircle");
+                if (Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                    this.currentColorCounter = Pockey.PockeySettings.PLAYER_COLOR_ID;
+                    Pockey.PockeySettings.PLAYER_COLOR = this.colorsArray[Pockey.PockeySettings.PLAYER_COLOR_ID];
+                }
+                Pockey.PockeySettings.PLAYER_COLOR_ID = this.currentColorCounter;
+                writeCookie("PockeyUserColorId", Pockey.PockeySettings.PLAYER_COLOR_ID, 30);
+                this.colorCircle.style.backgroundColor = this.parseColor(this.colorsArray[this.currentColorCounter]);
+                this.previousColorButton = document.getElementById("PreviousColorButton");
+                this.nextColorButton = document.getElementById("NextColorButton");
+                this.previousColorButton.onclick = () => {
+                    this.currentColorCounter--;
+                    if (this.currentColorCounter < 0) {
+                        this.currentColorCounter = this.colorsArray.length - 1;
+                    }
+                    Pockey.PockeySettings.PLAYER_COLOR_ID = this.currentColorCounter;
+                    this.colorCircle.style.backgroundColor = this.parseColor(this.colorsArray[this.currentColorCounter]);
+                    writeCookie("PockeyUserColorId", Pockey.PockeySettings.PLAYER_COLOR_ID, 30);
+                };
+                this.nextColorButton.onclick = () => {
+                    this.currentColorCounter++;
+                    if (this.currentColorCounter > this.colorsArray.length - 1) {
+                        this.currentColorCounter = 0;
+                    }
+                    Pockey.PockeySettings.PLAYER_COLOR_ID = this.currentColorCounter;
+                    this.colorCircle.style.backgroundColor = this.parseColor(this.colorsArray[this.currentColorCounter]);
+                    writeCookie("PockeyUserColorId", Pockey.PockeySettings.PLAYER_COLOR_ID, 30);
+                };
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
+            }
+            onPlayerSignedIn() {
+                this.colorsArray = Pockey.PockeySettings.LARGE_COLORS_ARRAY;
+            }
+            onPlayerSignedOut() {
+                this.colorsArray = Pockey.PockeySettings.SMALL_COLORS_ARRAY;
+                if (Pockey.PockeySettings.PLAYER_COLOR_ID > this.colorsArray.length - 1) {
+                    this.currentColorCounter = 0;
+                    Pockey.PockeySettings.PLAYER_COLOR_ID = this.currentColorCounter;
+                }
+                this.colorCircle.style.backgroundColor = this.parseColor(this.colorsArray[this.currentColorCounter]);
+            }
+            parseColor(color) {
+                if (typeof color === 'number') {
+                    color = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
+                }
+                return color;
+            }
+            ;
+        }
+        UserInterface.PlayerColorCustomizer = PlayerColorCustomizer;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        var Settings = Framework.Settings;
+        var writeCookie = Framework.Utils.writeCookie;
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        class PlayerAvatarCustomizer {
+            constructor() {
+                this.currentAvatarCounter = 0;
+                if (Settings.playerSignedIn) {
+                    this.avatarsArray = Pockey.PockeySettings.LARGE_AVATARS_ARRAY;
+                }
+                else {
+                    this.avatarsArray = Pockey.PockeySettings.SMALL_AVATARS_ARRAY;
+                }
+                this.avatarHolder = document.getElementById("AvatarImage");
+                if (Pockey.PockeySettings.PLAYER_AVATAR_ID) {
+                    this.currentAvatarCounter = Pockey.PockeySettings.PLAYER_AVATAR_ID;
+                }
+                Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                writeCookie("PockeyUserAvatarId", Pockey.PockeySettings.PLAYER_AVATAR_ID, 30);
+                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                this.previousAvatarButton = document.getElementById("PreviousAvatarButton");
+                this.nextAvatarButton = document.getElementById("NextAvatarButton");
+                this.previousAvatarButton.onclick = () => {
+                    this.currentAvatarCounter--;
+                    if (this.currentAvatarCounter < 0) {
+                        this.currentAvatarCounter = this.avatarsArray.length - 1;
+                    }
+                    Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                    writeCookie("PockeyUserAvatarId", Pockey.PockeySettings.PLAYER_AVATAR_ID, 30);
+                };
+                this.nextAvatarButton.onclick = () => {
+                    this.currentAvatarCounter++;
+                    if (this.currentAvatarCounter > this.avatarsArray.length - 1) {
+                        this.currentAvatarCounter = 0;
+                    }
+                    Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                    writeCookie("PockeyUserAvatarId", Pockey.PockeySettings.PLAYER_AVATAR_ID, 30);
+                    console.log("this.currentAvatarCounter: " + this.currentAvatarCounter);
+                };
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
+            }
+            onPlayerSignedOut() {
+                this.avatarsArray = Pockey.PockeySettings.SMALL_AVATARS_ARRAY;
+                this.currentAvatarCounter = 0;
+                Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+            }
+            onPlayerSignedIn() {
+                this.avatarsArray = Pockey.PockeySettings.LARGE_AVATARS_ARRAY;
+            }
+        }
+        UserInterface.PlayerAvatarCustomizer = PlayerAvatarCustomizer;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        var writeCookie = Framework.Utils.writeCookie;
+        var removeCookie = Framework.Utils.removeCookie;
+        var Settings = Framework.Settings;
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        class LoginHandler {
+            constructor() {
+                this.correctText = document.getElementById("CorrectText");
+                this.handleInputText();
+                this.handleSignOutButton();
+                this.handleStartButton();
+                this.handleFacebookButton();
+                this.handleGoogleButton();
+                this.checkForPlayerSignIn();
+            }
+            handleInputText() {
+                this.inputText = document.getElementById("InputText");
+                if (Pockey.PockeySettings.PLAYER_NAME != "") {
+                    this.inputText.value = Pockey.PockeySettings.PLAYER_NAME;
+                }
+                this.inputText.addEventListener('input', this.typeHandler.bind(this));
+                this.inputText.addEventListener('propertychange', this.typeHandler.bind(this));
+                this.inputText.addEventListener('change', this.typeHandler.bind(this));
+            }
+            typeHandler() {
+                if (this.inputText.value != "") {
+                    this.correctText.style.visibility = "hidden";
+                }
+            }
+            handleSignOutButton() {
+                this.signOutBtn = document.getElementById("LogoutButton");
+                this.signOutBtn.onclick = () => {
+                    console.log("intra la click");
+                    let pockeyEvent = new Event('PockeyGoogleSignOutEvent');
+                    this.signOutBtn.dispatchEvent(pockeyEvent);
+                    removeCookie("PockeyEmail");
+                    removeCookie("PockeyFacebookID");
+                    removeCookie("PockeyUserColorId");
+                    removeCookie("PockeyUserAvatarId");
+                    SignalsManager.DispatchSignal(PockeySignalTypes.PLAYER_SIGNED_OUT);
+                };
+                this.signOutBtn.addEventListener('PockeyGoogleSignedOutEvent', (e) => {
+                    this.showSignInButtons();
+                });
+                this.signOutBtn.addEventListener('PockeyFacebookSignedOutEvent', (e) => {
+                    this.showSignInButtons();
+                });
+            }
+            showSignInButtons() {
+                this.googleSignIn.style.display = "block";
+                this.facebookSignIn.style.display = "block";
+                this.signOutBtn.style.display = "none";
+                document.getElementById("MainMenuPlayerRankingsHolder").style.display = "none";
+            }
+            hideSignInButtons() {
+                this.googleSignIn.style.display = "none";
+                this.facebookSignIn.style.display = "none";
+                this.signOutBtn.style.display = "block";
+                document.getElementById("MainMenuPlayerRankingsHolder").style.display = "flex";
+            }
+            handleStartButton() {
+                this.startBtn = document.getElementById("StartGameButtonHolder");
+                this.startBtn.onclick = () => {
+                    if (this.inputText.value == "") {
+                        this.correctText.style.visibility = "visible";
+                        TweenMax.to(this.inputText, .2, { css: { borderColor: "#e92c5a" }, yoyo: true, repeat: 3 });
+                    }
+                    else {
+                        writeCookie('PockeyUsername', this.inputText.value, 30);
+                    }
+                };
+            }
+            handleGoogleButton() {
+                this.googleSignIn = document.getElementById("GoogleSignInButtonHolder");
+                this.googleSignIn.addEventListener('PockeyGoogleSignInEvent', (e) => {
+                    writeCookie('PockeyEmail', e.detail.toString(), 30);
+                    this.hideSignInButtons();
+                    SignalsManager.DispatchSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
+                }, false);
+            }
+            handleFacebookButton() {
+                this.facebookSignIn = document.getElementById("FacebookSignInButtonHolder");
+                this.facebookSignIn.addEventListener("PockeyFacebookSignedIn", (e) => {
+                    if (!_.isNull(e.detail["email"]) && !_.isUndefined(e.detail["email"])) {
+                        writeCookie('PockeyEmail', e.detail["email"].toString(), 30);
+                    }
+                    if (!_.isNull(e.detail["id"]) && !_.isUndefined(e.detail["id"])) {
+                        writeCookie('PockeyFacebookID', e.detail["id"].toString(), 30);
+                    }
+                    this.hideSignInButtons();
+                    SignalsManager.DispatchSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
+                });
+            }
+            checkForPlayerSignIn() {
+                if (Settings.playerSignedIn) {
+                    this.hideSignInButtons();
+                }
+            }
+        }
+        UserInterface.LoginHandler = LoginHandler;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        class TutorialMenu {
+            constructor() {
+                this.howToButtonClicked = false;
+                this.howToPlayButton = document.getElementById("HowToPlayButtonHolder");
+                this.howToPlayImage = document.getElementById("HowToPlayImage");
+                let buttonBg = this.howToPlayButton.querySelector('.normalButtonBackground');
+                console.log("how to clicked la constructor: " + this.howToButtonClicked);
+                this.howToPlayButton.onclick = () => {
+                    this.howToButtonClicked = (!this.howToButtonClicked);
+                    console.log("how to clicked la click: " + this.howToButtonClicked);
+                    if (this.howToButtonClicked) {
+                        this.howToPlayButton.style.borderColor = "#ffffff";
+                        buttonBg.style.backgroundColor = "#ffffff";
+                        buttonBg.style.color = "#2D899D";
+                        this.howToPlayImage.style.background = "none";
+                        let random = Math.random() * 50;
+                        this.howToPlayImage.style.background = "url(Assets/Desktop/Images/howtoplay.gif?v=" + random.toString() + ")  center center / 97% no-repeat";
+                        document.getElementById("HowToPlayImage").style.display = "block";
+                        document.getElementById("FbTwitterPromoHolder").style.display = "none";
+                        document.getElementById("ShareButtonsHolder").style.display = "none";
+                    }
+                    else {
+                        this.howToPlayButton.style.borderColor = "";
+                        buttonBg.style.backgroundColor = "";
+                        buttonBg.style.color = "";
+                        this.howToPlayImage.style.background = "none";
+                        document.getElementById("HowToPlayImage").style.display = "none";
+                        document.getElementById("FbTwitterPromoHolder").style.display = "flex";
+                        document.getElementById("ShareButtonsHolder").style.display = "block";
+                    }
+                };
+            }
+        }
+        UserInterface.TutorialMenu = TutorialMenu;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        class PlayGameMenu {
+            constructor() {
+                this.loginHandler = new UserInterface.LoginHandler();
+                this.playerColorCustomizer = new UserInterface.PlayerColorCustomizer();
+                this.playerAvatarCustomizer = new UserInterface.PlayerAvatarCustomizer();
+                this.tutorialMenu = new UserInterface.TutorialMenu();
+            }
+        }
+        UserInterface.PlayGameMenu = PlayGameMenu;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
         class PockeyUiMainScreen extends Container {
             constructor() {
                 super();
-                this.addElements();
+                this.defineElements();
             }
-            addElements() {
-                this.addMenuBackground();
-                this.addStartButton();
-            }
-            addMenuBackground() {
-                this.menuBackground = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/menu_background.svg"));
-                this.menuBackground.x = Settings.stageWidth / 2 - this.menuBackground.width / 2;
-                this.menuBackground.y = Settings.stageHeight / 2 - this.menuBackground.height / 2;
-                this.addChild(this.menuBackground);
-            }
-            onResize() {
-                this.menuBackground.x = Settings.stageWidth / 2 - this.menuBackground.width / 2;
-                this.menuBackground.y = Settings.stageHeight / 2 - this.menuBackground.height / 2;
-            }
-            addStartButton() {
-                let pixiBtn = new PixiButton(100, 50, 0xffffff, 1);
-                let style = new PIXI.TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: 32,
-                    fill: 0x000000,
+            defineElements() {
+                this.loginMenu = document.getElementById("LoginScreen");
+                this.playGameMenu = new UserInterface.PlayGameMenu();
+                this.leftSideLoginMenu = document.getElementById("LeftSide");
+                this.leaderboardMenu = document.getElementById("LeaderBoardScreen");
+                this.hideElement(this.leaderboardMenu);
+                this.inviteMenu = document.getElementById("InviteElementsHolder");
+                this.hideElement(this.inviteMenu);
+                this.tutorialAndShareButtonsMenu = document.getElementById("TutorialAndShareButtonsHolder");
+                this.inventoryMenu = document.getElementById("InventoryScreen");
+                this.hideElement(this.inventoryMenu);
+                this.mainMenuElementsHolder = document.getElementById("MainMenuElementsHolder");
+                this.mainMenuButtons = [];
+                this.playGameButton = document.getElementById("PlayGameButton");
+                this.mainMenuButtons.push(this.playGameButton);
+                this.inventoryButton = document.getElementById("InventoryButton");
+                this.mainMenuButtons.push(this.inventoryButton);
+                this.inviteFriendButton = document.getElementById("InviteFriendsButton");
+                this.mainMenuButtons.push(this.inviteFriendButton);
+                this.leaderboardButton = document.getElementById("LeaderboardButton");
+                this.mainMenuButtons.push(this.leaderboardButton);
+                _.forEach(this.mainMenuButtons, (element) => {
+                    element.setAttribute('clicked', 'false');
+                    element.onclick = () => {
+                        element.setAttribute("clicked", "true");
+                        this.setMainButtonStyleOnClick(element);
+                        switch (element.id) {
+                            case this.playGameButton.id: {
+                                this.showPlayGameMenu();
+                                break;
+                            }
+                            case this.inventoryButton.id: {
+                                this.showInventoryMenu();
+                                break;
+                            }
+                            case this.inviteFriendButton.id: {
+                                this.showInviteMenu();
+                                break;
+                            }
+                            case this.leaderboardButton.id: {
+                                this.showLeaderboardMenu();
+                                break;
+                            }
+                        }
+                        _.forEach(this.mainMenuButtons, (otherElement) => {
+                            if (otherElement != element) {
+                                otherElement.setAttribute("clicked", "false");
+                                this.resetMainButtonStyleOnClick(otherElement);
+                            }
+                        });
+                    };
                 });
-                pixiBtn.setText("START", style);
-                pixiBtn.clicked = () => {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
-                };
-                pixiBtn.x = this.menuBackground.width / 2;
-                pixiBtn.y = this.menuBackground.height / 2;
-                this.menuBackground.addChild(pixiBtn);
+            }
+            showElement(element) {
+                element.style.display = "flex";
+            }
+            hideElement(element) {
+                element.style.display = "none";
+            }
+            showPlayGameMenu() {
+                console.log("intra la show play");
+                this.showElement(this.loginMenu);
+                this.showElement(this.tutorialAndShareButtonsMenu);
+                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.leaderboardMenu);
+                this.hideElement(this.inviteMenu);
+            }
+            showInventoryMenu() {
+                console.log("intra la show inventory");
+                this.hideElement(this.loginMenu);
+                this.hideElement(this.leaderboardMenu);
+                this.showElement(this.inventoryMenu);
+            }
+            showLeaderboardMenu() {
+                console.log("intra la show leaderboard");
+                this.hideElement(this.loginMenu);
+                this.hideElement(this.inventoryMenu);
+                this.showElement(this.leaderboardMenu);
+            }
+            showInviteMenu() {
+                console.log("intra la show invite");
+                this.showElement(this.loginMenu);
+                this.showElement(this.inviteMenu);
+                this.hideElement(this.tutorialAndShareButtonsMenu);
+                this.hideElement(this.leaderboardMenu);
+                this.hideElement(this.inventoryMenu);
+            }
+            setMainButtonStyleOnClick(element) {
+                element.classList.add('simpleBtnOnClick');
+                let arrowDiv = element.querySelector('.simpleBtnArrow');
+                arrowDiv.classList.add('simpleBtnArrowOnClick');
+                let btnHighlight = element.querySelector('.simpleBtnHighlight');
+                btnHighlight.classList.add('simpleBtnHighlightOnClick');
+            }
+            resetMainButtonStyleOnClick(element) {
+                element.classList.remove('simpleBtnOnClick');
+                let arrowDiv = element.querySelector('.simpleBtnArrow');
+                arrowDiv.classList.remove('simpleBtnArrowOnClick');
+                let btnHighlight = element.querySelector('.simpleBtnHighlight');
+                btnHighlight.classList.remove('simpleBtnHighlightOnClick');
+            }
+            setVisibleTrue() {
+                this.mainMenuElementsHolder.style.display = "block";
+            }
+            setVisibleFalse() {
+                this.mainMenuElementsHolder.style.display = "none";
             }
         }
         UserInterface.PockeyUiMainScreen = PockeyUiMainScreen;
@@ -5884,10 +6350,8 @@ var Pockey;
     (function (UserInterface) {
         var Sprite = PIXI.Sprite;
         var Settings = Framework.Settings;
-        var PixiButton = Framework.UserInterface.PixiButton;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
-        var TextField = Framework.utils.TextField;
         class PockeyUiWinningScreen extends Container {
             constructor() {
                 super();
@@ -5900,6 +6364,7 @@ var Pockey;
             }
             addWinningBackground() {
                 this.background = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/menu_background.svg"));
+                console.log("this.background.width, height: " + this.background.width, this.background.height);
                 this.background.x = Settings.stageWidth / 2 - this.background.width / 2;
                 this.background.y = Settings.stageHeight / 2 - this.background.height / 2;
                 this.addChild(this.background);
@@ -5909,23 +6374,6 @@ var Pockey;
                 this.background.y = Settings.stageHeight / 2 - this.background.height / 2;
             }
             addRestartButton() {
-                let pixiBtn = new PixiButton(200, 68, 0x000000, 1);
-                let style = new PIXI.TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: 24,
-                    fill: 0xffffff,
-                });
-                pixiBtn.setText("RESTART", style);
-                pixiBtn.clicked = () => {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.RESTART_GAME);
-                };
-                pixiBtn.x = this.background.width / 2;
-                pixiBtn.y = this.background.height / 2;
-                this.background.addChild(pixiBtn);
-                this.winningTextField = new TextField("You won", style);
-                this.winningTextField.x = this.background.width / 2 - this.winningTextField.width / 2;
-                this.winningTextField.y = 40;
-                this.background.addChild(this.winningTextField);
             }
             registerSignalHandlers() {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_WINNING_MESSAGE, this.onUpdateWinningMessage.bind(this));
@@ -5950,9 +6398,6 @@ var Pockey;
             }
             createElements() {
                 this.mainScreen = new UserInterface.PockeyUiMainScreen();
-                this.searchingScreen = new UserInterface.PockeyUiSearchingScreen();
-                this.gameScreen = new UserInterface.PockeyUiGameScreen();
-                this.winningScreen = new UserInterface.PockeyUiWinningScreen();
                 this.addChild(this.mainScreen);
                 super.createElements();
             }
@@ -5960,12 +6405,6 @@ var Pockey;
                 super.registerSignalsHandlers();
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_MAIN_MENU, this.onShowMainMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_MAIN_MENU, this.onHideMainMenu.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WINNING_SCREEN, this.onShowWinningScreen.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WINNING_SCREEN, this.onHideWinningScreen.bind(this));
             }
             onShowWinningScreen() {
                 this.addChild(this.winningScreen);
@@ -5980,10 +6419,10 @@ var Pockey;
                 this.removeChild(this.searchingScreen);
             }
             onShowMainMenu() {
-                this.addChild(this.mainScreen);
+                this.mainScreen.setVisibleTrue();
             }
             onHideMainMenu() {
-                this.removeChild(this.mainScreen);
+                this.mainScreen.setVisibleFalse();
             }
             onShowGameMenu() {
                 this.addChild(this.gameScreen);
@@ -5993,12 +6432,6 @@ var Pockey;
             }
             onResize(params) {
                 super.onResize(params);
-                if (this.mainScreen)
-                    this.mainScreen.onResize();
-                if (this.searchingScreen)
-                    this.searchingScreen.onResize();
-                if (this.winningScreen)
-                    this.winningScreen.onResize();
             }
             handleDesktopLandscape() {
                 super.handleDesktopLandscape();
@@ -6035,15 +6468,46 @@ var Pockey;
     var PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     var PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     var PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
+    var readCookie = Framework.Utils.readCookie;
     class PockeyEntryPoint extends AbstractEntryPoint {
         constructor() {
             super();
             this.maxSubSteps = 7;
             this.name = "PockeyEntryPoint";
         }
+        getCookieData() {
+            super.getCookieData();
+            if (this.cookieIsAvailable()) {
+                if (readCookie('PockeyUserColorId') != "") {
+                    Pockey.PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
+                }
+                if (readCookie('PockeyUserAvatarId') != "") {
+                    Pockey.PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
+                }
+                if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
+                    Settings.playerSignedIn = true;
+                }
+                else {
+                }
+            }
+            else {
+            }
+        }
+        cookieIsAvailable() {
+            Pockey.PockeySettings.PLAYER_NAME = readCookie('PockeyUsername');
+            return Pockey.PockeySettings.PLAYER_NAME != '';
+        }
+        cookieEmailIsAvailable() {
+            return readCookie('PockeyEmail') != '';
+        }
+        facebookIDisAvailable() {
+            return readCookie('PockeyFacebookID') != '';
+        }
         addFontsToLoad() {
             super.addFontsToLoad();
             this.assetsLoader.addFontToLoad("troika");
+            this.assetsLoader.addFontToLoad("opensansextrabold");
+            this.assetsLoader.addFontToLoad("midtown");
         }
         addModules() {
             this.gameModule = this.getGameModule();
@@ -6075,6 +6539,9 @@ var Pockey;
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.json");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
+            _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, (path) => {
+                uiModule.addAssetToLoad(path);
+            });
             uiModule.Layer = this.getLayer(Layers.UILayer);
             return uiModule;
         }
@@ -6118,6 +6585,8 @@ var Pockey;
         }
         registerSignals() {
             super.registerSignals();
+            SignalsManager.CreateNewSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.PLAYER_SIGNED_OUT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOOT_BALL);
             SignalsManager.CreateNewSignal(PockeySignalTypes.NEXT_TURN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.BALL_IN_POCKET);

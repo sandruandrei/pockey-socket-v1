@@ -1,36 +1,39 @@
 ///<reference path="text-field.ts"/>
+
 namespace Framework {
     export module UserInterface {
         import ObservablePoint = PIXI.ObservablePoint;
         import TextField = Framework.utils.TextField;
         import TextStyleOptions = PIXI.TextStyleOptions;
         import TextStyle = PIXI.TextStyle;
+        import Texture = PIXI.Texture;
+        import Vector2 = Framework.Utils.Vector2;
 
         export class PixiButton extends PIXI.Sprite {
+
+            public onMouseOverAnimation: Function;
+            public onMouseOutAnimation: Function;
 
             private _text: TextField;
 
             private _cb: Function;
 
-            constructor(width: number, height: number, backgroundColor: number, backgroundAlpha: number) {
-                super();
+            private alignment: string = "center";
+            private textOffset: Vector2;
+            // private leftAlign:boolean = false;
+            // private rightAlign:boolean = false;
+            // private centerAlign:boolean = false;
+            // constructor(width: number, height: number, backgroundColor: number, backgroundAlpha: number) {
+            constructor(texture: Texture) {
+                super(texture);
 
                 // generate the texture
-                let gfx = new PIXI.Graphics();
-                gfx.beginFill(backgroundColor, backgroundAlpha);
-                gfx.drawRoundedRect(0, 0, width, height, height / 5);
-                gfx.endFill();
-                this.texture = gfx.generateCanvasTexture();
 
-                // set the x, y and anchor
-                // this.x = x;
-                // this.y = y;
-                this.anchor.x = 0.5;
-                this.anchor.y = 0.5;
+                this.texture = this.texture;
+
+                this.textOffset = new Vector2();
 
                 this._text = new TextField('Basic text in pixi');
-                this._text.anchor.x = 0.5;
-                this._text.anchor.y = 0.5;
                 this.addChild(this._text);
 
                 // set the interactivity to true and assign callback functions
@@ -60,13 +63,27 @@ namespace Framework {
                     this.onUp();
                 }, this);
 
-                /*this.on("mouseover", () => {
-                    this.onHover();
-                }, this);
+            }
 
-                this.on("mouseout", () => {
-                    this.onOut();
-                }, this);*/
+            public setOffset(offset: Vector2): void {
+                this.textOffset = offset;
+            }
+
+            public setAlign(align: string): void {
+                this.alignment = align;
+
+                if (align == "left") {
+                    this._text.x = 0 + this.textOffset.x;//this.width / 2 - this._text.width / 2;
+                    this._text.y = 0 + this.textOffset.y;//this.height / 2 - this._text.height / 2;
+                }
+                else if (align == "right") {
+                    this._text.x = this.width - this._text.width + this.textOffset.x;
+                    this._text.y = this.height - this._text.height + this.textOffset.y;
+                }
+                else {
+                    this._text.x = this.width / 2 - this._text.width / 2 - this.textOffset.x;
+                    this._text.y = this.height / 2 - this._text.height / 2 - this.textOffset.x;
+                }
             }
 
             public setText(val: string, style?: PIXI.TextStyle) {
@@ -74,6 +91,14 @@ namespace Framework {
                 this._text.text = val;
                 // Set style of text to the style passed as a parameter
                 this._text.setStyle(style);
+                this._text.x = this.width / 2 - this._text.width / 2;
+                this._text.y = this.height / 2 - this._text.height / 2;
+
+                this.setAlign(this.alignment);
+            }
+
+            public getText(): TextField {
+                return this._text;
             }
 
             private onDown() {
@@ -94,15 +119,22 @@ namespace Framework {
             private onHover() {
                 // console.log('On Hover');
                 // this.tint = 0xF8A9F9;
-                this.scale.x = 1.2;
-                this.scale.y = 1.2;
+                // this.scale.x = 1.2;
+                // this.scale.y = 1.2;
+                if (this.onMouseOverAnimation) {
+                    this.onMouseOverAnimation();
+                }
             }
 
             private onOut() {
                 // console.log('On Out');
                 // this.tint = 0xffffff;
-                this.scale.x = 1;
-                this.scale.y = 1;
+                // this.scale.x = 1;
+                // this.scale.y = 1;
+
+                if (this.onMouseOutAnimation) {
+                    this.onMouseOutAnimation();
+                }
             }
 
             public get clicked() {

@@ -13,7 +13,9 @@ namespace Framework {
 
                 super(text, style);
 
-                this.setStyle(style);
+                if (style)
+                    this.setStyle(style);
+
                 this.updateText();
 
                 if (debug)
@@ -26,9 +28,21 @@ namespace Framework {
                 // this.setStyle(this.style);
             }
 
-            public setStyle(style: TextStyle) {
+            public setStyle(fontStyle: TextStyle) {
                 this.scale.x = 1;
                 this.scale.y = 1;
+
+                let style: TextStyle = new TextStyle({});
+                style.fontSize = +fontStyle.fontSize;
+                style.wordWrapWidth = fontStyle.wordWrapWidth;
+                style.wordWrap = fontStyle.wordWrap;
+                style.fontFamily = fontStyle.fontFamily;
+                style.fill = fontStyle.fill;
+                style.dropShadow = fontStyle.dropShadow;
+                style.dropShadowColor = fontStyle.dropShadowColor;
+                style.dropShadowBlur = fontStyle.dropShadowBlur;
+                style.dropShadowAngle = fontStyle.dropShadowAngle;
+                style.dropShadowDistance = fontStyle.dropShadowDistance;
 
                 if (style && !_.isUndefined(style.fontSize) && !_.isNull(style.fontSize)) {
                     let fontSize: number = +style.fontSize;

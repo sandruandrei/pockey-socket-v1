@@ -24,6 +24,7 @@ namespace Framework {
     import AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
     import ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
     import Settings = Framework.Settings;
+    // import readCookie = Framework.Utils.readCookie;
 
 
     export class AbstractEntryPoint {
@@ -37,12 +38,13 @@ namespace Framework {
         protected backgroundModule: AbstractModule;
         protected uiModule: AbstractModule;
         protected connectionModule: AbstractModule;
-
         public static renderer: WebGLRenderer | CanvasRenderer;
 
 
         constructor() {
             this.name = "AbstractEntryPoint";
+
+            this.getCookieData();
             this.checkDevice();
             this.setWindowSize();
             this.initializePixi();
@@ -54,9 +56,14 @@ namespace Framework {
             this.startLoadingAssets();
         }
 
+        protected getCookieData():void
+        {
+
+        }
+
         private setWindowSize(): void {
-                Settings.stageWidth = window.innerWidth;
-                Settings.stageHeight = window.innerHeight;
+            Settings.stageWidth = window.innerWidth;
+            Settings.stageHeight = window.innerHeight;
         }
 
         private checkDevice(): void {
@@ -90,6 +97,24 @@ namespace Framework {
             AbstractEntryPoint.renderer.view.style.position = "absolute";
             AbstractEntryPoint.renderer.view.style.top = "0px";
             AbstractEntryPoint.renderer.view.style.left = "0px";
+            AbstractEntryPoint.renderer.view.style.zIndex = "-800";
+
+            // var c = document.getElementById("canvas");
+            // //@ts-ignore
+            // var ctx = c.getContext("2d");
+            //
+            // // ctx.fillStyle="red";
+            // // ctx.fillRect(20,20,75,50);
+            // // ctx.globalCompositeOperation="source-over";
+            // // ctx.fillStyle="blue";
+            // // ctx.fillRect(50,50,75,50);
+            // //
+            // // ctx.fillStyle="red";
+            // // ctx.fillRect(150,20,75,50);
+            // //@ts-ignore
+            // ctx.globalCompositeOperation = "destination-over";
+            // AbstractEntryPoint.renderer.view.style.ctx.globalCompositeOperation='destination-over';
+
             document.body.appendChild(AbstractEntryPoint.renderer.view);
 
             this.stage = new Container();
@@ -210,9 +235,8 @@ namespace Framework {
             return connectionModule;
         }
 
-        public windowResize(stageWidth:number, stageHeight:number) {
-            if(Settings.stageWidth == stageWidth && Settings.stageHeight == stageHeight)
-            {
+        public windowResize(stageWidth: number, stageHeight: number) {
+            if (Settings.stageWidth == stageWidth && Settings.stageHeight == stageHeight) {
                 return;
             }
 

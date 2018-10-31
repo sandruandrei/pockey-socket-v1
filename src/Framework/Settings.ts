@@ -22,7 +22,7 @@ namespace Framework {
         public static mainBackgroundName: string = "MainBackground";
         public static singlePlayer: boolean = false;
         public static showSignalsDispatchSignalLog: boolean = false;
-
+        public static playerSignedIn: boolean = false;
 
         // constructor() {
         //

@@ -2,7 +2,7 @@
 ///<reference path="../SignalsModule/pockey-signal-types.ts"/>
 ///<reference path="../../../Framework/Signals/signals-manager.ts"/>
 ///<reference path="Screens/pockey-ui-searching-screen.ts"/>
-///<reference path="Screens/pockey-ui-main-screen.ts"/>
+///<reference path="Screens/MainScreen/pockey-ui-main-screen.ts"/>
 ///<reference path="Screens/pockey-ui-game-screen.ts"/>
 ///<reference path="Screens/pockey-ui-winning-screen.ts"/>
 /**
@@ -45,9 +45,9 @@ namespace Pockey {
             public createElements(): void {
 
                 this.mainScreen = new PockeyUiMainScreen();
-                this.searchingScreen = new PockeyUiSearchingScreen();
-                this.gameScreen = new PockeyUiGameScreen();
-                this.winningScreen = new PockeyUiWinningScreen();
+                // this.searchingScreen = new PockeyUiSearchingScreen();
+                // this.gameScreen = new PockeyUiGameScreen();
+                // this.winningScreen = new PockeyUiWinningScreen();
 
                 this.addChild(this.mainScreen);
 
@@ -78,14 +78,14 @@ namespace Pockey {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_MAIN_MENU, this.onShowMainMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_MAIN_MENU, this.onHideMainMenu.bind(this));
 
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
-
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
-
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WINNING_SCREEN, this.onShowWinningScreen.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WINNING_SCREEN, this.onHideWinningScreen.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
+                //
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
+                //
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WINNING_SCREEN, this.onShowWinningScreen.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WINNING_SCREEN, this.onHideWinningScreen.bind(this));
 
             }
 
@@ -106,11 +106,13 @@ namespace Pockey {
             }
 
             private onShowMainMenu(): void {
-                this.addChild(this.mainScreen);
+                this.mainScreen.setVisibleTrue();
+                // this.addChild(this.mainScreen);
             }
 
             private onHideMainMenu(): void {
-                this.removeChild(this.mainScreen);
+                this.mainScreen.setVisibleFalse();
+                // this.removeChild(this.mainScreen);
             }
 
             private onShowGameMenu(): void {
@@ -124,13 +126,13 @@ namespace Pockey {
             protected onResize(params: any[]): void {
                 super.onResize(params);
 
-                if (this.mainScreen)
-                    this.mainScreen.onResize();
-                if (this.searchingScreen)
-                    this.searchingScreen.onResize();
-
-                if (this.winningScreen)
-                    this.winningScreen.onResize();
+                // if (this.mainScreen)
+                //     this.mainScreen.onResize();
+                // if (this.searchingScreen)
+                //     this.searchingScreen.onResize();
+                //
+                // if (this.winningScreen)
+                //     this.winningScreen.onResize();
 
             }
 

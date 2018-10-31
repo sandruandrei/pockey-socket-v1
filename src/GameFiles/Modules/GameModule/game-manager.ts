@@ -581,8 +581,8 @@ namespace Pockey {
 
                     if (PockeySettings.OPPONENT_COLOR == PockeySettings.PLAYER_COLOR) {
 
-                        let randNumber: number = Math.round(Math.random() * (PockeySettings.COLORS.length - 1));
-                        PockeySettings.OPPONENT_COLOR = PockeySettings.COLORS[randNumber];
+                        let randNumber: number = Math.round(Math.random() * (PockeySettings.LARGE_COLORS_ARRAY.length - 1));
+                        PockeySettings.OPPONENT_COLOR = parseInt("0x"+PockeySettings.LARGE_COLORS_ARRAY[randNumber]);
 
                     }
 

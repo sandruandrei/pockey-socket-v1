@@ -47,6 +47,7 @@ namespace Pockey {
                 // this.addChild(svg);
 
                 this.background = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/menu_background.svg"));
+                console.log("this.background.width, height: " + this.background.width, this.background.height);
                 this.background.x = Settings.stageWidth / 2 - this.background.width / 2;
                 this.background.y = Settings.stageHeight / 2 - this.background.height / 2;
                 // this.background = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/menu_background.svg"));
@@ -62,24 +63,12 @@ namespace Pockey {
 
             // private o
             private addRestartButton(): void {
-                let pixiBtn: PixiButton = new PixiButton(200, 68, 0x000000, 1);
+                /*let pixiBtn: PixiButton = new PixiButton();
                 // create the text object
                 let style = new PIXI.TextStyle({
                     fontFamily: 'troika',
                     fontSize: 24,
-                    fill: 0xffffff,
-                    // fontStyle: 'italic',
-                    // fontWeight: 'bold',
-                    // fill: ['#ffffff', '#00ff99'], // gradient
-                    // stroke: '#4a1850',
-                    // strokeThickness: 5,
-                    /*  dropShadow: true,
-                      dropShadowColor: '#000000',
-                      dropShadowBlur: 1,
-                      dropShadowAngle: Math.PI / 3,
-                      dropShadowDistance: 10,*/
-                    // wordWrap: true,
-                    // wordWrapWidth: 440
+                    fill: 0xffffff
                 });
                 pixiBtn.setText("RESTART", style);
                 pixiBtn.clicked = () => {
@@ -95,7 +84,7 @@ namespace Pockey {
                 this.winningTextField = new TextField("You won", style);
                 this.winningTextField.x = this.background.width / 2 - this.winningTextField.width / 2;
                 this.winningTextField.y = 40;//this.background.height / 2 - this.winningTextField.height / 2;
-                this.background.addChild(this.winningTextField);
+                this.background.addChild(this.winningTextField);*/
             }
 
             private registerSignalHandlers(): void {

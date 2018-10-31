@@ -8,6 +8,7 @@
 ///<reference path="../Framework/abstract-entry-point.ts"/>
 ///<reference path="../GameFiles/Modules/ConnectionModule/pockey-connection-module.ts"/>
 ///<reference path="../GameFiles/Modules/UserInterface/pockey-user-interface-module.ts"/>
+///<reference path="../Framework/Utils/cookie.ts"/>
 
 namespace Pockey {
 
@@ -26,6 +27,7 @@ namespace Pockey {
     import PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     import PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     import PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
+    import readCookie = Framework.Utils.readCookie;
 
     export class PockeyEntryPoint extends AbstractEntryPoint {
         private gameModule: AbstractModule;
@@ -42,14 +44,56 @@ namespace Pockey {
         constructor() {
             super();
             this.name = "PockeyEntryPoint";
-
         }
 
+        protected getCookieData(): void {
+            super.getCookieData();
+
+            if (this.cookieIsAvailable()) {
+                if (readCookie('PockeyUserColorId') != "") {
+                    PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
+                }
+                if (readCookie('PockeyUserAvatarId') != "") {
+                    PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
+                }
+
+                if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
+                    Settings.playerSignedIn = true;
+                }
+                else {
+
+                }
+                //
+                /* this.userEmail = this.cookieUserEmail;
+
+                 this.checkDatabaseUser();*/
+
+            } else {
+
+                /*this.showEmailPage();*/
+            }
+        }
+
+        private cookieIsAvailable(): boolean {
+            PockeySettings.PLAYER_NAME = readCookie('PockeyUsername');
+
+            return PockeySettings.PLAYER_NAME != '';
+        }
+
+        private cookieEmailIsAvailable(): boolean {
+            return readCookie('PockeyEmail') != '';
+        }
+
+        private facebookIDisAvailable(): boolean {
+            return readCookie('PockeyFacebookID') != '';
+        }
 
         protected addFontsToLoad(): void {
             super.addFontsToLoad();
 
             this.assetsLoader.addFontToLoad("troika");
+            this.assetsLoader.addFontToLoad("opensansextrabold");
+            this.assetsLoader.addFontToLoad("midtown");
 
         }
 
@@ -97,6 +141,11 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.json");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
+
+            _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
+                uiModule.addAssetToLoad(path);
+            });
+
             // uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-menu_BG.png");
             uiModule.Layer = this.getLayer(Layers.UILayer);
 
@@ -233,6 +282,8 @@ namespace Pockey {
         protected registerSignals() {
             super.registerSignals();
 
+            SignalsManager.CreateNewSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.PLAYER_SIGNED_OUT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOOT_BALL);
             SignalsManager.CreateNewSignal(PockeySignalTypes.NEXT_TURN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.BALL_IN_POCKET);

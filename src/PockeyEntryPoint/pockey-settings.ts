@@ -14,12 +14,15 @@
 namespace Pockey {
 
     import Vector2 = Framework.Utils.Vector2;
+    import Settings = Framework.Settings;
 
     export class PockeySettings {
 
-        public static PLAYER_COLOR: number = 0xC5384C;
+        public static PLAYER_COLOR: number;
+        public static PLAYER_COLOR_ID: number;
+        public static PLAYER_AVATAR_ID: number;
         public static PLAYER_SOCKET_ID: string = "";
-        public static PLAYER_NAME: string = "SandruPlayer";
+        public static PLAYER_NAME: string = "";
 
         public static OPPONENT_COLOR: number = 0x15D3E9;
         public static OPPONENT_SOCKET_ID: string = "";
@@ -37,7 +40,31 @@ namespace Pockey {
         public static BALLS_NUMBER_FOR_EACH_PLAYER: number = 7;
         public static STICK_MAX_POWER: number = 108;
 
-        public static COLORS: number[] = [0x1BE7FF, 0xBAFF29, 0xFEE505, 0xFFA5AB];
+        public static LARGE_COLORS_ARRAY: number[] = [0xe92c5a, 0x16e0f8, 0xd6d72a, 0xc32ce9, 0x1584f4, 0x15efaf, 0x24a247, 0x86b009, 0xff8023, 0xe82bc3,];
+        public static SMALL_COLORS_ARRAY: number[] = [0xe92c5a, 0x16e0f8];
+        public static LARGE_AVATARS_ARRAY: string[] = [
+            Settings.desktopAssetsPath + "Images/avatar_guest.png",
+            Settings.desktopAssetsPath + "Images/avatar_boi.png",
+            Settings.desktopAssetsPath + "Images/avatar_grrl.png",
+            Settings.desktopAssetsPath + "Images/avatar_nerdist.png",
+            Settings.desktopAssetsPath + "Images/avatar_micky.png",
+            Settings.desktopAssetsPath + "Images/avatar_glenn.png",
+            Settings.desktopAssetsPath + "Images/avatar_sc-izzi.png",
+            Settings.desktopAssetsPath + "Images/avatar_atlas.png",
+            Settings.desktopAssetsPath + "Images/avatar_bear-blue.png",
+            Settings.desktopAssetsPath + "Images/avatar_cate.png",
+            Settings.desktopAssetsPath + "Images/avatar_kooky.png",
+            Settings.desktopAssetsPath + "Images/avatar_r66-z.png",
+            Settings.desktopAssetsPath + "Images/avatar_sc-comet.png",
+            Settings.desktopAssetsPath + "Images/avatar_spooky.png",
+            Settings.desktopAssetsPath + "Images/avatar_xmas-atlas.png",
+            Settings.desktopAssetsPath + "Images/avater_snuggles.png",];
+
+        public static SMALL_AVATARS_ARRAY: string[] = [
+            Settings.desktopAssetsPath + "Images/avatar_guest.png"
+            // , Settings.desktopAssetsPath + "Images/avatar_boi.png"
+        ];
+
         public static ROUND_DURATION_IN_SECONDS: number = 25;
 
         public static MAIN_COLLISION_POLYGON: number[][] = [
@@ -102,7 +129,6 @@ namespace Pockey {
             [1448 - 978, 561 - 12 - 549],
             [1533 - 978, 561 - 12 - 549],
             [1533 - 978, 277 - 12 - 549]];
-
 
 
     }

@@ -13,6 +13,9 @@ namespace Pockey {
     export module SignalsModule {
         export class PockeySignalTypes {
 
+            public static PLAYER_SIGNED_OUT: string = "PockeySignalTypes." + "PLAYER_SIGNED_OUT";
+            public static PLAYER_SIGNED_IN: string = "PockeySignalTypes." + "PLAYER_SIGNED_IN";
+
             public static SHOOT_BALL: string = "PockeySignalTypes." + "SHOOT_BALL";
             public static NEXT_TURN: string = "PockeySignalTypes." + "NEXT_TURN";
             public static BALL_IN_POCKET: string = "PockeySignalTypes." + "BALL_IN_POCKET";
@@ -55,7 +58,6 @@ namespace Pockey {
             public static CHANGE_OPPONENT_COLOR: string = "PockeySignalTypes." + "CHANGE_OPPONENT_COLOR";
 
             public static SET_SIDES_TYPE: string = "PockeySignalTypes." + "SET_SIDES_TYPE";
-
 
             public static SEND_ELEMENTS_DATA_TO_MANAGER: string = "PockeySignalTypes." + "SEND_ELEMENTS_DATA_TO_MANAGER";
             public static UPDATE_WINNING_MESSAGE: string = "PockeySignalTypes." + "UPDATE_WINNING_MESSAGE";
