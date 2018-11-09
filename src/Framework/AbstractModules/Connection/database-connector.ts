@@ -51,16 +51,17 @@ namespace Framework {
 
             public static checkDatabaseUser(userID:string, listener:EventListener): void {
                 this.checkUserRequest = new XMLHttpRequest(); //New request object
-                this.checkUserRequest.addEventListener("load", listener);
+                this.checkUserRequest.addEventListener("load", this.checkUserIDRequestListener.bind(this));
                 this.checkUserRequest.open("POST", "includes/getData.php", true);
                 this.checkUserRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 this.checkUserRequest.send('idToCheck=' + userID);
             }
 
             private static checkUserIDRequestListener(e: Event): void {
-                if (this.checkUserRequest.responseText != 'false' && this.checkUserRequest.responseText != '') {
-                    // this.seen = _.split(this.checkUserRequest.responseText, ',').map(Number);
-                }
+                console.log("this.checkUserRequest.responseText: " + this.checkUserRequest.responseText);
+                // if (this.checkUserRequest.responseText != 'false' && this.checkUserRequest.responseText != '') {
+                //     // this.seen = _.split(this.checkUserRequest.responseText, ',').map(Number);
+                // }
 
                 this.checkUserRequest.removeEventListener("load", this.checkUserIDRequestListener.bind(this));
             }

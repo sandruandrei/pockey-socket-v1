@@ -1832,14 +1832,13 @@ var Framework;
             }
             static checkDatabaseUser(userID, listener) {
                 this.checkUserRequest = new XMLHttpRequest();
-                this.checkUserRequest.addEventListener("load", listener);
+                this.checkUserRequest.addEventListener("load", this.checkUserIDRequestListener.bind(this));
                 this.checkUserRequest.open("POST", "includes/getData.php", true);
                 this.checkUserRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 this.checkUserRequest.send('idToCheck=' + userID);
             }
             static checkUserIDRequestListener(e) {
-                if (this.checkUserRequest.responseText != 'false' && this.checkUserRequest.responseText != '') {
-                }
+                console.log("this.checkUserRequest.responseText: " + this.checkUserRequest.responseText);
                 this.checkUserRequest.removeEventListener("load", this.checkUserIDRequestListener.bind(this));
             }
         }
