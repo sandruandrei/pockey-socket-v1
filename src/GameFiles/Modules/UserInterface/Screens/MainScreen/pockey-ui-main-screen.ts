@@ -1,12 +1,12 @@
 ///<reference path="../../../../../Framework/Utils/pixi-button.ts"/>
-///<reference path="../../../../../../node_modules/@types/jquery/misc.d.ts"/>
 ///<reference path="play-game-menu.ts"/>
+///<reference path="inventory-menu.ts"/>
 
 
 namespace Pockey {
     export module UserInterface {
 
-        export class PockeyUiMainScreen extends Container {
+        export class PockeyUiMainScreen   {
 
             private mainMenuElementsHolder: HTMLDivElement;
 
@@ -21,12 +21,12 @@ namespace Pockey {
             private leaderboardMenu: HTMLDivElement;
             private inviteMenu: HTMLDivElement;
             private tutorialAndShareButtonsMenu: HTMLDivElement;
-            private inventoryMenu: HTMLDivElement;
+            private inventoryScreen: HTMLDivElement;
 
-            private playGameMenu:PlayGameMenu;
+            private playGameMenu: PlayGameMenu;
+            private inventoryMenu: PockeyInventoryMenu;
 
             constructor() {
-                super();
                 this.defineElements();
             }
 
@@ -34,6 +34,9 @@ namespace Pockey {
                 ////////////
                 this.loginMenu = document.getElementById("LoginScreen") as HTMLDivElement;
                 this.playGameMenu = new PlayGameMenu();
+                this.hideElement(this.loginMenu);
+
+                this.inventoryMenu = new PockeyInventoryMenu();
                 // jQuery(this.loginMenu.id).hide();
 
                 this.leftSideLoginMenu = document.getElementById("LeftSide") as HTMLDivElement;
@@ -46,8 +49,8 @@ namespace Pockey {
                 this.tutorialAndShareButtonsMenu = document.getElementById("TutorialAndShareButtonsHolder") as HTMLDivElement;
                 // this.hideElement(this.tutorialAndShareButtonsMenu);
 
-                this.inventoryMenu = document.getElementById("InventoryScreen") as HTMLDivElement;
-                this.hideElement(this.inventoryMenu);
+                this.inventoryScreen = document.getElementById("InventoryScreen") as HTMLDivElement;
+                // this.hideElement(this.inventoryScreen);
 
                 this.mainMenuElementsHolder = document.getElementById("MainMenuElementsHolder") as HTMLDivElement;
 
@@ -123,7 +126,7 @@ namespace Pockey {
                 console.log("intra la show play");
                 this.showElement(this.loginMenu);
                 this.showElement(this.tutorialAndShareButtonsMenu);
-                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.inventoryScreen);
                 this.hideElement(this.leaderboardMenu);
                 this.hideElement(this.inviteMenu);
                 // this.showElement(this.tutorialAndShareButtonsMenu);
@@ -134,14 +137,14 @@ namespace Pockey {
 
                 this.hideElement(this.loginMenu);
                 this.hideElement(this.leaderboardMenu);
-                this.showElement(this.inventoryMenu);
+                this.showElement(this.inventoryScreen);
             }
 
             private showLeaderboardMenu(): void {
                 console.log("intra la show leaderboard");
 
                 this.hideElement(this.loginMenu);
-                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.inventoryScreen);
                 this.showElement(this.leaderboardMenu);
             }
 
@@ -152,7 +155,7 @@ namespace Pockey {
                 this.showElement(this.inviteMenu);
                 this.hideElement(this.tutorialAndShareButtonsMenu);
                 this.hideElement(this.leaderboardMenu);
-                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.inventoryScreen);
             }
 
             private setMainButtonStyleOnClick(element: HTMLDivElement) {

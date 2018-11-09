@@ -7,6 +7,7 @@
 ///<reference path="AbstractModules/Connection/abstract-connection-module.ts"/>
 ///<reference path="Abstracts/layers.ts"/>
 ///<reference path="../../lib/types/webfontloader/webfontloader.d.ts"/>
+///<reference path="AbstractModules/Connection/database-connector.ts"/>
 
 // Created by: Sandru Andrei for Edgeflow on 7/11/2018
 
@@ -24,7 +25,7 @@ namespace Framework {
     import AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
     import ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
     import Settings = Framework.Settings;
-    // import readCookie = Framework.Utils.readCookie;
+    import DatabaseConnector = Framework.Connection.DatabaseConnector;
 
 
     export class AbstractEntryPoint {
@@ -56,10 +57,13 @@ namespace Framework {
             this.startLoadingAssets();
         }
 
-        protected getCookieData():void
-        {
-
+        protected getCookieData(): void {
+            // this.connectToDataBase();
         }
+
+        // protected connectToDataBase(): void {
+        //     let dbConnector: DatabaseConnector = new DatabaseConnector();
+        // }
 
         private setWindowSize(): void {
             Settings.stageWidth = window.innerWidth;

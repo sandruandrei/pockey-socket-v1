@@ -100,6 +100,7 @@
     /* visibility: hidden; */
     align-items: center;
     justify-content: center;
+    /* display: none; */
 }
 
 #RightSideBackground {
@@ -245,16 +246,26 @@ input[type=text]:hover {
 }
 
 .mainMenuRankingCircle {
-width: 58px;
-height: 58px;
-background-color: #ffffff1a;
-float: left;
-background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
-background-size: 88%;
-background-repeat: no-repeat;
-background-position: center 1px;
-border-radius: 50%;
-margin-bottom: 4px;
+
+width: 58px;
+
+height: 58px;
+
+background-color: #ffffff1a;
+
+float: left;
+
+background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+
+background-size: 88%;
+
+background-repeat: no-repeat;
+
+background-position: center 1px;
+
+border-radius: 50%;
+
+margin-bottom: 4px;
 }
 
 .customizePlayerLine {
@@ -313,17 +324,20 @@ input[type=text]:hover {
     border-radius: 3px;
     border-style: solid;
     box-sizing: border-box;
-    /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
     position: relative;
+    /* cursor: pointer; */
 }
 
-.normalButtonHolder:hover .normalButtonBackground {
-    background: white;
-    color: #2d899d;
-    cursor: pointer;
+.itemsArrows:hover .normalButtonBackground {
+    /* background: white; */
+    /* color: #2d899d; */
+    /* cursor: pointer; */
 }
+/*.itemsArrows:hover{*/
+    /*cursor: pointer;*/
+/*}*/
 
 .shareButton:hover .shareButtonBackground {
     background: white;
@@ -455,7 +469,7 @@ input[type=text]:hover {
 
 #AvatarImage {
     background: url("Assets/Desktop/Images/avatar_guest.png");
-    background-size: 100%;
+    background-size: contain;
     width: 62px;
     height: 62px;
     background-repeat: no-repeat;
@@ -716,61 +730,50 @@ input[type=text]:hover {
 }
 
 #InviteElementsHolder {
-display: block;
-display: none;
-flex-direction: column;
-justify-content: center;
+
+display: block;
+
+display: none;
+
+flex-direction: column;
+
+justify-content: center;
 }
 
 #TutorialAndShareButtonsHolder {
-flex-direction: column;
-justify-content: space-between;
-position: relative;
-display: flex;
-/* display: none; */
+
+flex-direction: column;
+
+justify-content: space-between;
+
+position: relative;
+
+display: flex;
+
+/* display: none; */
 }
 
 #MainMenuElementsHolder {
-
-    width: 1012px;
-
-    height: 420px;
-
-    /* overflow: hidden; */
-
-    /* background: green; */
-
-    /* float: left; */
-
-    left: 50%;
-
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    position: absolute;
-
-    /* margin: auto; */
-
-    /* top: 0; */
-
-    /* right: 0; */
-
-    /* bottom: 0; */
-
-    /* left: 0; */
-
-    /* position: absolute; */
-
-    /* left:50%; */
-
-    /* top:50%; */
-
-    /* margin: auto; */
-
-    /* width: 60%; */
-
-    display: none;
+width: 1012px;
+height: 420px;
+/* overflow: hidden; */
+/* background: green; */
+/* float: left; */
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+position: absolute;
+/* margin: auto; */
+/* top: 0; */
+/* right: 0; */
+/* bottom: 0; */
+/* left: 0; */
+/* position: absolute; */
+/* left:50%; */
+/* top:50%; */
+/* margin: auto; */
+/* width: 60%; */
+display: none;
 }
 
 /*.notVs {*/
@@ -778,18 +781,30 @@ input[type=text]:hover {
 /*}*/
 
 #HowToPlayImage {
-background: url("Assets/Desktop/Images/howtoplay.gif");
-background-position: center;
-background-size: 97%;
-width: auto;
-height: 285px;
-background-repeat: no-repeat;
-float: left;
-border: white 3px solid;
-border-radius: 3px;
-box-sizing: border-box;
-/* margin-top: 7.5%; */
-display: none;
+
+background: url("Assets/Desktop/Images/howtoplay.gif");
+
+background-position: center;
+
+background-size: 97%;
+
+width: auto;
+
+height: 285px;
+
+background-repeat: no-repeat;
+
+float: left;
+
+border: white 3px solid;
+
+border-radius: 3px;
+
+box-sizing: border-box;
+
+/* margin-top: 7.5%; */
+
+display: none;
 }
 
 .hideElement {

@@ -877,6 +877,7 @@ var Pockey;
     }
     PockeySettings.PLAYER_SOCKET_ID = "";
     PockeySettings.PLAYER_NAME = "";
+    PockeySettings.PLAYER_LEVEL = 1;
     PockeySettings.OPPONENT_COLOR = 0x15D3E9;
     PockeySettings.OPPONENT_SOCKET_ID = "";
     PockeySettings.OPPONENT_NAME = "SandruOpponent";
@@ -887,28 +888,381 @@ var Pockey;
     PockeySettings.PUCK_COLOR = 0xe4b31c;
     PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 7;
     PockeySettings.STICK_MAX_POWER = 108;
+    PockeySettings.LARGE_GOALIES_ARRAY = [];
+    PockeySettings.SMALL_GOALIES_ARRAY = [];
+    PockeySettings.LARGE_MISC_ARRAY = [];
+    PockeySettings.SMALL_MISC_ARRAY = [];
     PockeySettings.LARGE_COLORS_ARRAY = [0xe92c5a, 0x16e0f8, 0xd6d72a, 0xc32ce9, 0x1584f4, 0x15efaf, 0x24a247, 0x86b009, 0xff8023, 0xe82bc3,];
     PockeySettings.SMALL_COLORS_ARRAY = [0xe92c5a, 0x16e0f8];
+    PockeySettings.SMALL_DECALS_ARRAY = [
+        {
+            category: "DECALS",
+            id: "decal_default",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
+            level: 1
+        }
+    ];
+    PockeySettings.LARGE_DECALS_ARRAY = [
+        {
+            category: "DECALS",
+            id: "decal_default",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
+            level: 1
+        },
+        {
+            category: "DECALS",
+            id: "decal_welcome",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/dccal_welcome.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/dccal_welcome.png",
+            level: 1
+        },
+        {
+            category: "DECALS",
+            id: "decal_astrojunkie",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_astrojunkie.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_astrojunkie.png",
+            level: 2
+        }, {
+            category: "DECALS",
+            id: "decal_blastoff",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_blastoff.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_blastoff.png",
+            level: 2
+        },
+        {
+            category: "DECALS",
+            id: "decal_cthulu",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_cthulu.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_cthulu.png",
+            level: 3
+        },
+        {
+            category: "DECALS",
+            id: "decal_dice",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_dice.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_dice.png",
+            level: 3
+        },
+        {
+            category: "DECALS",
+            id: "decal_insertcoin",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_insertcoin.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_insertcoin.png",
+            level: 4
+        },
+        {
+            category: "DECALS",
+            id: "decal_knucklesandwhich",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_knucklesandwhich.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_knucklesandwhich.png",
+            level: 4
+        }, {
+            category: "DECALS",
+            id: "decal_looselips",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_looselips.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_looselips.png",
+            level: 5
+        },
+        {
+            category: "DECALS",
+            id: "decal_oneup",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_oneup.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_oneup.png",
+            level: 6
+        },
+        {
+            category: "DECALS",
+            id: "decal_playerone",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_playerone.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_playerone.png",
+            level: 7
+        }, {
+            category: "DECALS",
+            id: "decal_pockey",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_pockey.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_pockey.png",
+            level: 7
+        },
+        {
+            category: "DECALS",
+            id: "decal_ragequit",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_ragequit.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_ragequit.png",
+            level: 8
+        },
+        {
+            category: "DECALS",
+            id: "decal_statTrickshot",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_statTrickshot.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_statTrickshot.png",
+            level: 9
+        },
+        {
+            category: "DECALS",
+            id: "decal_towerking",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_towerking.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_towerking.png",
+            level: 10
+        },
+        {
+            category: "DECALS",
+            id: "decal_wingedsword",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_wingedsword.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_wingedsword.png",
+            level: 11
+        },
+    ];
     PockeySettings.LARGE_AVATARS_ARRAY = [
-        Settings.desktopAssetsPath + "Images/avatar_guest.png",
-        Settings.desktopAssetsPath + "Images/avatar_boi.png",
-        Settings.desktopAssetsPath + "Images/avatar_grrl.png",
-        Settings.desktopAssetsPath + "Images/avatar_nerdist.png",
-        Settings.desktopAssetsPath + "Images/avatar_micky.png",
-        Settings.desktopAssetsPath + "Images/avatar_glenn.png",
-        Settings.desktopAssetsPath + "Images/avatar_sc-izzi.png",
-        Settings.desktopAssetsPath + "Images/avatar_atlas.png",
-        Settings.desktopAssetsPath + "Images/avatar_bear-blue.png",
-        Settings.desktopAssetsPath + "Images/avatar_cate.png",
-        Settings.desktopAssetsPath + "Images/avatar_kooky.png",
-        Settings.desktopAssetsPath + "Images/avatar_r66-z.png",
-        Settings.desktopAssetsPath + "Images/avatar_sc-comet.png",
-        Settings.desktopAssetsPath + "Images/avatar_spooky.png",
-        Settings.desktopAssetsPath + "Images/avatar_xmas-atlas.png",
-        Settings.desktopAssetsPath + "Images/avater_snuggles.png",
+        {
+            category: "AVATARS",
+            id: "avatar_guest",
+            icon: Settings.desktopAssetsPath + "Images/avatar_guest.png",
+            level: 1
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_boi",
+            icon: Settings.desktopAssetsPath + "Images/avatar_boi.png",
+            level: 1
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_grrl",
+            icon: Settings.desktopAssetsPath + "Images/avatar_grrl.png",
+            level: 1
+        },
+        {
+            category: "AVATARS",
+            id: "nerdist",
+            icon: Settings.desktopAssetsPath + "Images/avatar_nerdist.png",
+            level: 2
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_micky",
+            icon: Settings.desktopAssetsPath + "Images/avatar_micky.png",
+            level: 2
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_glenn",
+            icon: Settings.desktopAssetsPath + "Images/avatar_glenn.png",
+            level: 3
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_sc-izzi",
+            icon: Settings.desktopAssetsPath + "Images/avatar_sc-izzi.png",
+            level: 4
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_atlas",
+            icon: Settings.desktopAssetsPath + "Images/avatar_atlas.png",
+            level: 5
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_bear-blue",
+            icon: Settings.desktopAssetsPath + "Images/avatar_bear-blue.png",
+            level: 6
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_cate",
+            icon: Settings.desktopAssetsPath + "Images/avatar_cate.png",
+            level: 7
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_kooky",
+            icon: Settings.desktopAssetsPath + "Images/avatar_kooky.png",
+            level: 8
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_r66-z",
+            icon: Settings.desktopAssetsPath + "Images/avatar_r66-z.png",
+            level: 8
+        },
+        {
+            category: "AVATARS",
+            icon: Settings.desktopAssetsPath + "Images/avatar_sc-comet.png",
+            id: "avatar_sc-comet",
+            level: 8
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_spooky",
+            icon: Settings.desktopAssetsPath + "Images/avatar_spooky.png",
+            level: 9
+        },
+        {
+            category: "AVATARS",
+            id: "avatar_xmas-atlas",
+            icon: Settings.desktopAssetsPath + "Images/avatar_xmas-atlas.png",
+            level: 9
+        },
+        {
+            category: "AVATARS",
+            id: "avater_snuggles",
+            icon: Settings.desktopAssetsPath + "Images/avater_snuggles.png",
+            level: 10
+        }
     ];
     PockeySettings.SMALL_AVATARS_ARRAY = [
-        Settings.desktopAssetsPath + "Images/avatar_guest.png"
+        {
+            category: "AVATARS",
+            id: "guest",
+            icon: Settings.desktopAssetsPath + "Images/avatar_guest.png",
+            level: 1
+        }
+    ];
+    PockeySettings.SMALL_CUES_ARRAY = [
+        {
+            category: "CUES",
+            id: "icon_stick-default",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-default.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_default.png",
+            level: 1
+        }
+    ];
+    PockeySettings.LARGE_CUES_ARRAY = [
+        {
+            category: "CUES",
+            id: "icon_stick-default",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-default.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_default.png",
+            level: 1
+        },
+        {
+            category: "CUES",
+            id: "stick_basic",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-basic.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_basic.png",
+            level: 1
+        },
+        {
+            category: "CUES",
+            id: "stick_asiimowned",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-asiimowned.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_asiimowned.png",
+            level: 1
+        },
+        {
+            category: "CUES",
+            id: "stick_bluesteel",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-bluesteel.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_bluesteel.png",
+            level: 2
+        },
+        {
+            category: "CUES",
+            id: "stick_candycane",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-candycane.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_candycane.png",
+            level: 2
+        },
+        {
+            category: "CUES",
+            id: "stick_dotty",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-dotty.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_dotty.png",
+            level: 2
+        },
+        {
+            category: "CUES",
+            id: "stick_faceybook",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-faceybook.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_faceybook.png",
+            level: 3
+        },
+        {
+            category: "CUES",
+            id: "stick_faceyou",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-faceyou.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_faceyou.png",
+            level: 3
+        },
+        {
+            category: "CUES",
+            id: "stick_ivory",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-ivory.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_ivory.png",
+            level: 4
+        },
+        {
+            category: "CUES",
+            id: "stick_ninja",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-ninja.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_ninja.png",
+            level: 4
+        },
+        {
+            category: "CUES",
+            id: "stick_pinky",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-pinky.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_pinky.png",
+            level: 4
+        },
+        {
+            category: "CUES",
+            id: "stick_purplestripe",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-purplestripe.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_purplestripe.png",
+            level: 5
+        },
+        {
+            category: "CUES",
+            id: "stick_ragequit",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-ragequit.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_ragequit.png",
+            level: 6
+        },
+        {
+            category: "CUES",
+            id: "stick_rawkstar",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-rawkstar.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_rawkstar.png",
+            level: 7
+        },
+        {
+            category: "CUES",
+            id: "stick_rocket",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-rocket.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_rocket.png",
+            level: 7
+        },
+        {
+            category: "CUES",
+            id: "stick_snakeeyes",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-snakeeyes.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_snakeeyes.png",
+            level: 8
+        },
+        {
+            category: "CUES",
+            id: "stick_tiger",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-tiger.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_tiger.png",
+            level: 8
+        },
+        {
+            category: "CUES",
+            id: "stick_tweetybird",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-tweetybird.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_tweetybird.png",
+            level: 9
+        },
+        {
+            category: "CUES",
+            id: "stick_whiteknight",
+            icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-whiteknight.png",
+            model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_whiteknight.png",
+            level: 10
+        },
     ];
     PockeySettings.ROUND_DURATION_IN_SECONDS = 25;
     PockeySettings.MAIN_COLLISION_POLYGON = [
@@ -1459,6 +1813,38 @@ var Framework;
     Layers.UILayer = "UILayer";
     Layers.LayerOrder = [Layers.BackgroundLayer, Layers.GameLayer, Layers.UILayer];
     Framework.Layers = Layers;
+})(Framework || (Framework = {}));
+var Framework;
+(function (Framework) {
+    let Connection;
+    (function (Connection) {
+        class DatabaseConnector {
+            constructor() {
+            }
+            static SaveToDatabase(dataToSend) {
+                this.checkUserRequest = new XMLHttpRequest();
+                this.checkUserRequest.addEventListener("load", this.onPostLoad.bind(this));
+                this.checkUserRequest.open("POST", "includes/postData.php", true);
+                this.checkUserRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                this.checkUserRequest.send(dataToSend);
+            }
+            static onPostLoad() {
+            }
+            static checkDatabaseUser(userID, listener) {
+                this.checkUserRequest = new XMLHttpRequest();
+                this.checkUserRequest.addEventListener("load", listener);
+                this.checkUserRequest.open("POST", "includes/getData.php", true);
+                this.checkUserRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                this.checkUserRequest.send('idToCheck=' + userID);
+            }
+            static checkUserIDRequestListener(e) {
+                if (this.checkUserRequest.responseText != 'false' && this.checkUserRequest.responseText != '') {
+                }
+                this.checkUserRequest.removeEventListener("load", this.checkUserIDRequestListener.bind(this));
+            }
+        }
+        Connection.DatabaseConnector = DatabaseConnector;
+    })(Connection = Framework.Connection || (Framework.Connection = {}));
 })(Framework || (Framework = {}));
 var Framework;
 (function (Framework) {
@@ -4587,6 +4973,44 @@ var Pockey;
         Connection.PockeyConnectionModule = PockeyConnectionModule;
     })(Connection = Pockey.Connection || (Pockey.Connection = {}));
 })(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        class PockeyUiSearchingScreen extends Container {
+            constructor() {
+                super();
+                this.searchScreen = document.getElementById("SearchingScreen");
+            }
+            setVisibleTrue() {
+                this.killTweens();
+                this.searchScreen.style.display = "flex";
+                this.staggerTimeline = new TimelineMax();
+                TweenMax.staggerFrom(".search", 2, {
+                    backgroundColor: '#36edc9',
+                    opacity: 0,
+                    scale: 0.2,
+                    repeat: -1,
+                    ease: SlowMo.ease.config(0.5, 0.4, true)
+                }, 0.4);
+                TweenMax.staggerTo(".search", 2, {
+                    x: 320,
+                    backgroundColor: '#43f9f3',
+                    repeat: -1,
+                    ease: SlowMo.ease.config(0.5, 0.4, false)
+                }, 0.4);
+            }
+            setVisibleFalse() {
+                this.killTweens();
+                this.searchScreen.style.display = "none";
+            }
+            killTweens() {
+                TweenMax.killTweensOf(".search");
+            }
+        }
+        UserInterface.PockeyUiSearchingScreen = PockeyUiSearchingScreen;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
 var Framework;
 (function (Framework) {
     let utils;
@@ -4653,50 +5077,6 @@ var Framework;
         utils.TextField = TextField;
     })(utils = Framework.utils || (Framework.utils = {}));
 })(Framework || (Framework = {}));
-var Pockey;
-(function (Pockey) {
-    let UserInterface;
-    (function (UserInterface) {
-        var Graphics = PIXI.Graphics;
-        var TextField = Framework.utils.TextField;
-        var Settings = Framework.Settings;
-        class PockeyUiSearchingScreen extends Container {
-            constructor() {
-                super();
-                this.addElements();
-            }
-            addElements() {
-                this.addBackground();
-                this.addText();
-            }
-            addBackground() {
-                let bgGraphics = new Graphics();
-                bgGraphics.beginFill(0x000000, 0.8);
-                bgGraphics.drawRect(0, 0, 400, 200);
-                bgGraphics.endFill();
-                this.background = new Container();
-                this.background.addChild(bgGraphics);
-                this.addChild(this.background);
-            }
-            onResize() {
-                this.background.x = Settings.stageWidth / 2 - this.background.width / 2;
-                this.background.y = Settings.stageHeight / 2 - this.background.height / 2;
-            }
-            addText() {
-                let style = new PIXI.TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: 32,
-                    fill: 0xffffff,
-                });
-                this.searchingTextField = new TextField("SEARCHING", style);
-                this.searchingTextField.x = this.background.width / 2 - this.searchingTextField.width / 2;
-                this.searchingTextField.y = this.background.height / 2 - this.searchingTextField.height / 2;
-                this.background.addChild(this.searchingTextField);
-            }
-        }
-        UserInterface.PockeyUiSearchingScreen = PockeyUiSearchingScreen;
-    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
-})(Pockey || (Pockey = {}));
 var Framework;
 (function (Framework) {
     let UserInterface;
@@ -4910,13 +5290,17 @@ var Pockey;
                 else {
                     this.avatarsArray = Pockey.PockeySettings.SMALL_AVATARS_ARRAY;
                 }
-                this.avatarHolder = document.getElementById("AvatarImage");
                 if (Pockey.PockeySettings.PLAYER_AVATAR_ID) {
-                    this.currentAvatarCounter = Pockey.PockeySettings.PLAYER_AVATAR_ID;
+                    _.forEach(this.avatarsArray, (avatar, counter) => {
+                        if (avatar.id == Pockey.PockeySettings.PLAYER_AVATAR_ID) {
+                            this.currentAvatarCounter = counter;
+                        }
+                    });
                 }
-                Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                this.avatarHolder = document.getElementById("AvatarImage");
+                Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
                 writeCookie("PockeyUserAvatarId", Pockey.PockeySettings.PLAYER_AVATAR_ID, 30);
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 this.previousAvatarButton = document.getElementById("PreviousAvatarButton");
                 this.nextAvatarButton = document.getElementById("NextAvatarButton");
                 this.previousAvatarButton.onclick = () => {
@@ -4924,8 +5308,8 @@ var Pockey;
                     if (this.currentAvatarCounter < 0) {
                         this.currentAvatarCounter = this.avatarsArray.length - 1;
                     }
-                    Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
-                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                    Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
+                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                     writeCookie("PockeyUserAvatarId", Pockey.PockeySettings.PLAYER_AVATAR_ID, 30);
                 };
                 this.nextAvatarButton.onclick = () => {
@@ -4933,8 +5317,8 @@ var Pockey;
                     if (this.currentAvatarCounter > this.avatarsArray.length - 1) {
                         this.currentAvatarCounter = 0;
                     }
-                    Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
-                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                    Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
+                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                     writeCookie("PockeyUserAvatarId", Pockey.PockeySettings.PLAYER_AVATAR_ID, 30);
                     console.log("this.currentAvatarCounter: " + this.currentAvatarCounter);
                 };
@@ -4944,8 +5328,8 @@ var Pockey;
             onPlayerSignedOut() {
                 this.avatarsArray = Pockey.PockeySettings.SMALL_AVATARS_ARRAY;
                 this.currentAvatarCounter = 0;
-                Pockey.PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
+                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
             }
             onPlayerSignedIn() {
                 this.avatarsArray = Pockey.PockeySettings.LARGE_AVATARS_ARRAY;
@@ -5026,6 +5410,7 @@ var Pockey;
                         TweenMax.to(this.inputText, .2, { css: { borderColor: "#e92c5a" }, yoyo: true, repeat: 3 });
                     }
                     else {
+                        SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
                         writeCookie('PockeyUsername', this.inputText.value, 30);
                     }
                 };
@@ -5119,22 +5504,564 @@ var Pockey;
 (function (Pockey) {
     let UserInterface;
     (function (UserInterface) {
-        class PockeyUiMainScreen extends Container {
+        var Settings = Framework.Settings;
+        class InventoryButton {
+            constructor(btnDiv, showCategoryCallback, hideCategoryCallback) {
+                this.button = btnDiv;
+                this.id = this.button.id;
+                this.onShowCategoryCallback = showCategoryCallback;
+                this.onHideCategoryCallback = hideCategoryCallback;
+                this.category = this.id.replace("Inventory", "");
+                console.log("categoryElements name: " + this.category);
+                let inventoryButtonLogo = this.button.querySelector('.inventoryButtonLogo');
+                if (Settings.playerSignedIn) {
+                    this.categoryElements = Pockey.PockeySettings["LARGE_" + this.category.toUpperCase() + "_ARRAY"];
+                }
+                else {
+                    this.categoryElements = Pockey.PockeySettings["SMALL_" + this.category.toUpperCase() + "_ARRAY"];
+                }
+                this.clicked = false;
+                this.button.onclick = () => {
+                    this.clicked = !this.clicked;
+                    if (this.clicked) {
+                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
+                        this.button.style.color = "white";
+                        this.onShowCategoryCallback(this.categoryElements);
+                    }
+                    else {
+                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/plus-sign-white.png)";
+                        this.button.style.color = "";
+                        this.onHideCategoryCallback(this.categoryElements);
+                    }
+                };
+                this.button.onmouseover = () => {
+                    if (this.clicked) {
+                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
+                        this.button.style.borderColor = "";
+                        this.button.style.backgroundColor = "";
+                        this.button.style.color = "white";
+                    }
+                };
+                this.button.onmouseout = () => {
+                    if (this.clicked) {
+                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-color.png)";
+                        this.button.style.borderColor = "white";
+                        this.button.style.backgroundColor = "white";
+                        this.button.style.color = "#2d889c";
+                    }
+                    else {
+                        inventoryButtonLogo.style.background = "";
+                    }
+                };
+            }
+            onSignedIn() {
+                if (this.clicked) {
+                    this.onHideCategoryCallback(this.categoryElements);
+                    this.categoryElements = Pockey.PockeySettings["LARGE_" + this.category.toUpperCase() + "_ARRAY"];
+                    this.onShowCategoryCallback(this.categoryElements);
+                }
+                else {
+                    this.categoryElements = Pockey.PockeySettings["LARGE_" + this.category.toUpperCase() + "_ARRAY"];
+                }
+            }
+            onSignedOut() {
+                if (this.clicked) {
+                    this.onHideCategoryCallback(this.categoryElements);
+                    this.categoryElements = Pockey.PockeySettings["SMALL_" + this.category.toUpperCase() + "_ARRAY"];
+                    this.onShowCategoryCallback(this.categoryElements);
+                }
+                else {
+                    this.categoryElements = Pockey.PockeySettings["SMALL_" + this.category.toUpperCase() + "_ARRAY"];
+                }
+            }
+        }
+        UserInterface.InventoryButton = InventoryButton;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        class InventoryBox {
+            constructor(imgDiv, clickFunction) {
+                this.occupied = false;
+                this.clicked = false;
+                this.imageDiv = imgDiv;
+                this.iconDiv = this.imageDiv.querySelector(".inventoryItemBoxBackground");
+                this.imageDiv.onmouseover = () => {
+                    if (this.occupied) {
+                        this.imageDiv.style.cursor = "pointer";
+                        this.imageDiv.style.borderColor = "white";
+                    }
+                    else {
+                        this.imageDiv.style.cursor = "";
+                        this.imageDiv.style.borderColor = "";
+                    }
+                };
+                this.imageDiv.onmouseout = () => {
+                    if (!this.clicked)
+                        this.imageDiv.style.borderColor = "";
+                };
+                this.imageDiv.onclick = () => {
+                    this.clicked = !this.clicked;
+                    if (this.clicked) {
+                        this.imageDiv.style.borderColor = "white";
+                        this.imageDiv.style.borderWidth = "4px";
+                    }
+                    if (this.occupied)
+                        clickFunction(this.inventoryVO);
+                };
+            }
+            click() {
+                this.clicked = true;
+                this.imageDiv.style.borderColor = "white";
+                this.imageDiv.style.borderWidth = "4px";
+            }
+            unClick() {
+                this.stopAnimation();
+                this.imageDiv.style.borderColor = "";
+                this.imageDiv.style.borderWidth = "";
+                this.clicked = false;
+            }
+            addVO(inventoryVO) {
+                this.clearVO();
+                this.occupied = true;
+                this.inventoryVO = inventoryVO;
+                this.iconDiv.style.background = "center / contain no-repeat #062f38 url(" + this.inventoryVO.icon + ")";
+            }
+            clearVO() {
+                this.stopAnimation();
+                this.unClick();
+                this.occupied = false;
+                this.iconDiv.style.background = "center / contain no-repeat #062f38 url('')";
+                this.inventoryVO = null;
+                this.iconDiv.querySelector(".inventoryItemBoxSelected").style.display = "";
+                this.iconDiv.querySelector(".inventoryItemBoxLocked").style.display = "";
+            }
+            stopAnimation() {
+                if (this.borderAnimation && this.borderAnimation.isActive()) {
+                    this.borderAnimation.kill();
+                    this.borderAnimation = null;
+                }
+                this.imageDiv.style.borderColor = "";
+                this.imageDiv.style.borderWidth = "";
+            }
+            animate() {
+                this.stopAnimation();
+                this.borderAnimation = TweenMax.to(this.imageDiv, 0.3, {
+                    css: { borderColor: "white", borderWidth: "5px" },
+                    yoyo: true,
+                    repeat: 1
+                });
+            }
+        }
+        UserInterface.InventoryBox = InventoryBox;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        class InventoryItemsHolderButton {
+            constructor(btn) {
+                this.button = btn;
+                let iconBgID = this.button.getElementsByClassName("buttonArrow")[0].id;
+                this.iconBg = document.getElementById(iconBgID);
+                let iconStyle = this.iconBg.currentStyle || window.getComputedStyle(this.iconBg);
+                let mouseOverBackground = iconStyle.background.toString().replace(".svg", "-reg.svg");
+                this.bg = this.button.getElementsByClassName("normalButtonBackground")[0];
+                this.button.setAttribute("isActive", "true");
+                this.button.onmouseover = () => {
+                    if (this.button.getAttribute("isActive") == "true") {
+                        this.bg.style.background = "white";
+                        this.iconBg.style.background = mouseOverBackground;
+                    }
+                    else {
+                        this.bg.style.background = "";
+                        this.iconBg.style.background = "";
+                    }
+                };
+                this.button.onmouseout = () => {
+                    this.bg.style.background = "";
+                    this.iconBg.style.background = "";
+                };
+                this.disable();
+            }
+            disable() {
+                this.button.style.opacity = "0.5";
+                this.button.style.cursor = "default";
+                this.button.setAttribute("isActive", "false");
+                this.bg.style.background = "";
+                this.iconBg.style.background = "";
+            }
+            enable() {
+                this.button.style.opacity = "";
+                this.button.style.cursor = "";
+                this.button.setAttribute("isActive", "true");
+            }
+        }
+        UserInterface.InventoryItemsHolderButton = InventoryItemsHolderButton;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        class PockeyInventoryMenu {
             constructor() {
-                super();
+                this.currentColumnIndex = 0;
+                this.columnsNumber = 0;
+                this.columnWidth = 0;
+                this.columnPadding = 0;
+                this.itemsArray = [];
+                this.handleItemDescriptionPanel();
+                this.handleInventoryBoxes();
+                this.handleInventoryButtons();
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
+            }
+            onPlayerSignedIn() {
+                _.forEach(this.inventoryButtons, (button) => {
+                    button.onSignedIn();
+                });
+            }
+            onPlayerSignedOut() {
+                _.forEach(this.inventoryButtons, (button) => {
+                    button.onSignedOut();
+                });
+            }
+            handleItemDescriptionPanel() {
+                this.bigAvatar = document.getElementById("InventoryBigAvatar");
+                this.itemNameDiv = document.getElementById("ItemNameText");
+            }
+            handleInventoryBoxes() {
+                this.boxesHolder = document.getElementById("ItemsHolder");
+                this.boxesHolderWrapper = document.getElementById("ItemsHolderWrapper");
+                this.boxesHolderWrapper.classList.add("inventoryRightSideMask");
+                this.boxes = [];
+                let counter = 0;
+                _.forEach(this.boxesHolder.children, (column) => {
+                    this.columnsNumber++;
+                    this.columnPadding = +((column.style.marginRight).replace("px", ""));
+                    _.forEach(column.children, (item) => {
+                        let box = new UserInterface.InventoryBox(item, this.showItemDescription.bind(this));
+                        this.boxes.push(box);
+                        counter++;
+                    });
+                });
+                TweenMax.delayedCall(0.5, () => {
+                    if (this.columnWidth == 0) {
+                        this.columnWidth = this.boxesHolder.offsetWidth / this.boxesHolder.children.length;
+                    }
+                });
+                console.log("curr col index: " + this.currentColumnIndex);
+            }
+            showCategory(category) {
+                _.forEach(category, (inventoryVO, counter) => {
+                    _.remove(this.itemsArray, (item) => {
+                        return item.id == inventoryVO.id;
+                    });
+                    this.itemsArray.push(inventoryVO);
+                });
+                this.reorderItemsArray();
+                let neededColumns = Math.round(this.itemsArray.length / 3);
+                let columnsNo = this.boxesHolder.children.length;
+                if (neededColumns > columnsNo) {
+                    let itm = this.boxesHolder.children[0];
+                    _.forEach(_.range(neededColumns - columnsNo), () => {
+                        let newColumn = itm.cloneNode(true);
+                        this.boxesHolder.appendChild(newColumn);
+                    });
+                    this.boxes = [];
+                    _.forEach(this.boxesHolder.children, (column) => {
+                        _.forEach(column.children, (item) => {
+                            let box = new UserInterface.InventoryBox(item, this.showItemDescription.bind(this));
+                            this.boxes.push(box);
+                        });
+                    });
+                }
+                this.updateBoxes(this.itemsArray, category[0].category);
+                let columnIndex = this.getNewColumnIndexOnShow(category[0].category);
+                let newOffset = columnIndex * this.columnWidth;
+                this.moveHolderToOffset(newOffset);
+            }
+            getNewColumnIndexOnShow(categoryName) {
+                let firstItemIndex = -1;
+                let lastItemIndex = 0;
+                _.forEach(this.itemsArray, (item, counter) => {
+                    if (item.category == categoryName) {
+                        if (firstItemIndex == -1) {
+                            firstItemIndex = counter;
+                            lastItemIndex = firstItemIndex - 1;
+                        }
+                        lastItemIndex++;
+                    }
+                });
+                let columnIndex = Math.floor(firstItemIndex / 3);
+                let maxColumns = this.boxesHolder.children.length;
+                if (columnIndex > maxColumns) {
+                    columnIndex = maxColumns;
+                }
+                console.log("current columns index: " + this.currentColumnIndex);
+                return columnIndex;
+            }
+            reorderItemsArray() {
+                let newArr = [];
+                _.forEach(this.inventoryButtons, (button) => {
+                    _.forEach(this.itemsArray, (item) => {
+                        if (item.category.toUpperCase() == button.category.toUpperCase()) {
+                            newArr.push(item);
+                        }
+                    });
+                });
+                this.itemsArray = newArr;
+            }
+            hideCategory(category) {
+                _.forEach(category, (inventoryVO, counter) => {
+                    _.remove(this.itemsArray, (item) => {
+                        if (item.id == inventoryVO.id) {
+                        }
+                        return item.id == inventoryVO.id;
+                    });
+                });
+                this.reorderItemsArray();
+                let neededColumns = Math.round(this.itemsArray.length / 3);
+                if (neededColumns < this.columnsNumber) {
+                    neededColumns = this.columnsNumber;
+                }
+                let columnsNo = this.boxesHolder.children.length;
+                if (columnsNo > neededColumns) {
+                    console.log("children inainate de remove: " + this.boxesHolder.children.length);
+                    let boxes = this.boxesHolder.children;
+                    for (let i = boxes.length - 1; i >= neededColumns; i--) {
+                        this.boxesHolder.removeChild(boxes[i]);
+                    }
+                    console.log("children dupa remove: " + this.boxesHolder.children.length);
+                }
+                this.updateBoxes(this.itemsArray);
+                let currentRight = this.boxesHolder.style.right;
+                currentRight = currentRight.replace("px", "");
+                let newOffset = +currentRight;
+                if (this.itemsArray.length == 0) {
+                    this.disableEquipBtn(false);
+                    this.moveHolderToOffset(0);
+                }
+                else {
+                    if (this.itemsArray.length < 21) {
+                        this.moveHolderToOffset(0, true);
+                    }
+                    else {
+                        this.moveHolderToOffset(newOffset, true);
+                    }
+                }
+            }
+            handleInventoryButtons() {
+                this.nextColumnBtn = new UserInterface.InventoryItemsHolderButton(document.getElementById("ItemsNextButton"));
+                this.nextColumnBtn.button.onclick = () => {
+                    if (this.nextColumnBtn.button.getAttribute("isActive") == "true") {
+                        let currentRight = this.boxesHolder.style.right;
+                        currentRight = currentRight.replace("px", "");
+                        let newOffset = +currentRight + this.columnWidth * 2;
+                        this.moveHolderToOffset(newOffset);
+                    }
+                };
+                this.prevColumnBtn = new UserInterface.InventoryItemsHolderButton(document.getElementById("ItemsPrevButton"));
+                this.prevColumnBtn.button.onclick = () => {
+                    if (this.prevColumnBtn.button.getAttribute("isActive") == "true") {
+                        let currentRight = this.boxesHolder.style.right;
+                        currentRight = currentRight.replace("px", "");
+                        let newOffset = +currentRight - this.columnWidth * 2;
+                        this.moveHolderToOffset(newOffset);
+                    }
+                };
+                this.inventoryButtonsHolder = document.getElementById("InventoryButtonsHolder");
+                this.inventoryButtons = [];
+                _.forEach(this.inventoryButtonsHolder.children, (button) => {
+                    if (button.className == "inventoryButton") {
+                        let inventoryButton = new UserInterface.InventoryButton(button, this.showCategory.bind(this), this.hideCategory.bind(this));
+                        this.inventoryButtons.push(inventoryButton);
+                    }
+                });
+                this.equipBtn = document.getElementById("EquipButtonHolder");
+                this.equipBtn.style.opacity = "0.5";
+                this.equipBtn.setAttribute('clicked', 'false');
+                this.equipBtn.onclick = () => {
+                    if (this.equipBtn.getAttribute("enabled") == "true") {
+                        let clicked = (this.equipBtn.getAttribute('clicked') == "true") ? "false" : "true";
+                        this.equipBtn.setAttribute('clicked', clicked);
+                        console.log("equip: " + this.equipBtn.getAttribute('clicked'));
+                    }
+                };
+            }
+            moveHolderToOffset(offset, fast) {
+                this.offsetLimit = this.boxesHolder.offsetWidth;
+                if (offset >= this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth) {
+                    offset = this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth;
+                    this.boxesHolderWrapper.classList.remove("inventoryMask");
+                    this.boxesHolderWrapper.classList.remove("inventoryRightSideMask");
+                    this.boxesHolderWrapper.classList.add("inventoryLeftSideMask");
+                    this.nextColumnBtn.disable();
+                    this.prevColumnBtn.enable();
+                }
+                else if (offset <= 0) {
+                    offset = 0;
+                    this.boxesHolderWrapper.classList.remove("inventoryMask");
+                    this.boxesHolderWrapper.classList.remove("inventoryLeftSideMask");
+                    this.boxesHolderWrapper.classList.add("inventoryRightSideMask");
+                    this.nextColumnBtn.enable();
+                    this.prevColumnBtn.disable();
+                }
+                else {
+                    this.boxesHolderWrapper.classList.remove("inventoryLeftSideMask");
+                    this.boxesHolderWrapper.classList.remove("inventoryRightSideMask");
+                    this.boxesHolderWrapper.classList.add("inventoryMask");
+                    this.nextColumnBtn.enable();
+                    this.prevColumnBtn.enable();
+                }
+                if (this.itemsArray.length == 0) {
+                    this.nextColumnBtn.disable();
+                    this.prevColumnBtn.disable();
+                }
+                if (this.holderTween && this.holderTween.isActive()) {
+                    this.holderTween.kill();
+                }
+                let tweenTime = 0.2;
+                if (fast)
+                    tweenTime = 0;
+                this.holderTween = TweenMax.to(this.boxesHolder, tweenTime, { css: { "right": offset.toString() + "px" } });
+            }
+            updateBoxes(itemsToBeDisplayed, categoryToAnimate) {
+                let maxLength = (this.boxes.length <= itemsToBeDisplayed.length) ? this.boxes.length : itemsToBeDisplayed.length;
+                _.forEach(this.boxes, (box) => {
+                    box.clearVO();
+                });
+                _.forEach(_.range(maxLength), (counter) => {
+                    this.boxes[counter].addVO(itemsToBeDisplayed[counter]);
+                    if (this.currentActiveItem && this.boxes[counter].inventoryVO.id == this.currentActiveItem.id) {
+                        this.boxes[counter].click();
+                    }
+                    else {
+                        this.boxes[counter].unClick();
+                    }
+                    if (this.boxes[counter].inventoryVO.level > Pockey.PockeySettings.PLAYER_LEVEL) {
+                        this.boxes[counter].iconDiv.querySelector(".inventoryItemBoxLocked").style.display = "block";
+                    }
+                    else {
+                        this.boxes[counter].iconDiv.querySelector(".inventoryItemBoxLocked").style.display = "";
+                    }
+                    if (categoryToAnimate && this.boxes[counter].inventoryVO.category.toUpperCase() == categoryToAnimate.toUpperCase()) {
+                        this.boxes[counter].animate();
+                    }
+                    if (this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_AVATAR_ID
+                        || this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_DECAL_ID
+                        || this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_CUE_ID) {
+                        this.boxes[counter].iconDiv.querySelector(".inventoryItemBoxSelected").style.display = "block";
+                    }
+                    else {
+                        this.boxes[counter].iconDiv.querySelector(".inventoryItemBoxSelected").style.display = "";
+                    }
+                });
+            }
+            showItemDescription(inventoryVO) {
+                this.bigAvatar.style.background = "center / contain no-repeat #062f38 url(" + inventoryVO.icon + ")";
+                this.itemNameDiv.innerHTML = inventoryVO.id;
+                _.forEach(this.boxes, (box) => {
+                    if (box.occupied) {
+                        if (box.inventoryVO.id != inventoryVO.id) {
+                            box.unClick();
+                        }
+                    }
+                });
+                this.currentActiveItem = inventoryVO;
+                this.checkIfCurrentItemCanBeUsed();
+            }
+            checkIfCurrentItemCanBeUsed() {
+                if (this.currentActiveItem.level > Pockey.PockeySettings.PLAYER_LEVEL) {
+                    this.disableEquipBtn(false);
+                    return;
+                }
+                switch (this.currentActiveItem.category) {
+                    case "AVATARS": {
+                        if (Pockey.PockeySettings.PLAYER_AVATAR_ID != this.currentActiveItem.id) {
+                            this.enableEquipBtn();
+                        }
+                        else {
+                            this.disableEquipBtn();
+                        }
+                        return;
+                    }
+                    case "CUES": {
+                        if (Pockey.PockeySettings.PLAYER_CUE_ID != this.currentActiveItem.id) {
+                            this.enableEquipBtn();
+                        }
+                        else {
+                            this.disableEquipBtn();
+                        }
+                        return;
+                    }
+                    case "DECALS": {
+                        if (Pockey.PockeySettings.PLAYER_DECAL_ID != this.currentActiveItem.id) {
+                            this.enableEquipBtn();
+                        }
+                        else {
+                            this.disableEquipBtn();
+                        }
+                        return;
+                    }
+                    case "GOALIES": {
+                        return;
+                    }
+                    case "MISC": {
+                        return;
+                    }
+                }
+            }
+            enableEquipBtn() {
+                this.equipBtn.setAttribute("enabled", "true");
+                this.equipBtn.style.opacity = "1";
+                this.equipBtn.querySelector(".normalButtonBackground").innerHTML = "EQUIP";
+                this.equipBtn.style.cursor = "pointer";
+            }
+            disableEquipBtn(changeText = true) {
+                this.equipBtn.setAttribute("enabled", "false");
+                this.equipBtn.style.opacity = "0.5";
+                if (changeText)
+                    this.equipBtn.querySelector(".normalButtonBackground").innerHTML = "EQUIPPED";
+                else {
+                    this.equipBtn.querySelector(".normalButtonBackground").innerHTML = "EQUIP";
+                }
+                this.equipBtn.style.cursor = "";
+            }
+            resetItemDescription() {
+                this.bigAvatar.style.background = "center / contain no-repeat #062f38 url('')";
+                this.itemNameDiv.innerHTML = "Item Name";
+            }
+        }
+        UserInterface.PockeyInventoryMenu = PockeyInventoryMenu;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let UserInterface;
+    (function (UserInterface) {
+        class PockeyUiMainScreen {
+            constructor() {
                 this.defineElements();
             }
             defineElements() {
                 this.loginMenu = document.getElementById("LoginScreen");
                 this.playGameMenu = new UserInterface.PlayGameMenu();
+                this.hideElement(this.loginMenu);
+                this.inventoryMenu = new UserInterface.PockeyInventoryMenu();
                 this.leftSideLoginMenu = document.getElementById("LeftSide");
                 this.leaderboardMenu = document.getElementById("LeaderBoardScreen");
                 this.hideElement(this.leaderboardMenu);
                 this.inviteMenu = document.getElementById("InviteElementsHolder");
                 this.hideElement(this.inviteMenu);
                 this.tutorialAndShareButtonsMenu = document.getElementById("TutorialAndShareButtonsHolder");
-                this.inventoryMenu = document.getElementById("InventoryScreen");
-                this.hideElement(this.inventoryMenu);
+                this.inventoryScreen = document.getElementById("InventoryScreen");
                 this.mainMenuElementsHolder = document.getElementById("MainMenuElementsHolder");
                 this.mainMenuButtons = [];
                 this.playGameButton = document.getElementById("PlayGameButton");
@@ -5187,7 +6114,7 @@ var Pockey;
                 console.log("intra la show play");
                 this.showElement(this.loginMenu);
                 this.showElement(this.tutorialAndShareButtonsMenu);
-                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.inventoryScreen);
                 this.hideElement(this.leaderboardMenu);
                 this.hideElement(this.inviteMenu);
             }
@@ -5195,12 +6122,12 @@ var Pockey;
                 console.log("intra la show inventory");
                 this.hideElement(this.loginMenu);
                 this.hideElement(this.leaderboardMenu);
-                this.showElement(this.inventoryMenu);
+                this.showElement(this.inventoryScreen);
             }
             showLeaderboardMenu() {
                 console.log("intra la show leaderboard");
                 this.hideElement(this.loginMenu);
-                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.inventoryScreen);
                 this.showElement(this.leaderboardMenu);
             }
             showInviteMenu() {
@@ -5209,7 +6136,7 @@ var Pockey;
                 this.showElement(this.inviteMenu);
                 this.hideElement(this.tutorialAndShareButtonsMenu);
                 this.hideElement(this.leaderboardMenu);
-                this.hideElement(this.inventoryMenu);
+                this.hideElement(this.inventoryScreen);
             }
             setMainButtonStyleOnClick(element) {
                 element.classList.add('simpleBtnOnClick');
@@ -6398,13 +7325,15 @@ var Pockey;
             }
             createElements() {
                 this.mainScreen = new UserInterface.PockeyUiMainScreen();
-                this.addChild(this.mainScreen);
+                this.searchingScreen = new UserInterface.PockeyUiSearchingScreen();
                 super.createElements();
             }
             registerSignalsHandlers() {
                 super.registerSignalsHandlers();
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_MAIN_MENU, this.onShowMainMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_MAIN_MENU, this.onHideMainMenu.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
             }
             onShowWinningScreen() {
                 this.addChild(this.winningScreen);
@@ -6413,10 +7342,10 @@ var Pockey;
                 this.removeChild(this.winningScreen);
             }
             onShowSearchingScreen() {
-                this.addChild(this.searchingScreen);
+                this.searchingScreen.setVisibleTrue();
             }
             onHideSearchingScreen() {
-                this.removeChild(this.searchingScreen);
+                this.searchingScreen.setVisibleFalse();
             }
             onShowMainMenu() {
                 this.mainScreen.setVisibleTrue();
@@ -6469,6 +7398,7 @@ var Pockey;
     var PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     var PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
     var readCookie = Framework.Utils.readCookie;
+    var DatabaseConnector = Framework.Connection.DatabaseConnector;
     class PockeyEntryPoint extends AbstractEntryPoint {
         constructor() {
             super();
@@ -6477,14 +7407,23 @@ var Pockey;
         }
         getCookieData() {
             super.getCookieData();
+            Pockey.PockeySettings.PLAYER_CUE_ID = Pockey.PockeySettings.SMALL_CUES_ARRAY[0].id;
+            Pockey.PockeySettings.PLAYER_DECAL_ID = Pockey.PockeySettings.SMALL_DECALS_ARRAY[0].id;
             if (this.cookieIsAvailable()) {
-                if (readCookie('PockeyUserColorId') != "") {
-                    Pockey.PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                }
-                if (readCookie('PockeyUserAvatarId') != "") {
-                    Pockey.PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
-                }
                 if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
+                    DatabaseConnector.checkDatabaseUser(readCookie('PockeyEmail'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
+                    if (readCookie('PockeyUserColorId') != "") {
+                        Pockey.PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
+                    }
+                    if (readCookie('PockeyUserAvatarId') != "") {
+                        Pockey.PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
+                    }
+                    if (readCookie('PockeyUserCueId') != "") {
+                        Pockey.PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
+                    }
+                    if (readCookie('PockeyUserDecalId') != "") {
+                        Pockey.PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
+                    }
                     Settings.playerSignedIn = true;
                 }
                 else {
@@ -6492,6 +7431,9 @@ var Pockey;
             }
             else {
             }
+        }
+        static checkUserIDRequestListener(e) {
+            console.log("check user id: " + e.target.responseText);
         }
         cookieIsAvailable() {
             Pockey.PockeySettings.PLAYER_NAME = readCookie('PockeyUsername');
@@ -6539,9 +7481,6 @@ var Pockey;
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.json");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
-            _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, (path) => {
-                uiModule.addAssetToLoad(path);
-            });
             uiModule.Layer = this.getLayer(Layers.UILayer);
             return uiModule;
         }

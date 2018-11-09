@@ -11,7 +11,6 @@
  */
 
 
-
 namespace Pockey {
     export module UserInterface {
         import Settings = Framework.Settings;
@@ -25,10 +24,9 @@ namespace Pockey {
             private nextAvatarButton: HTMLDivElement;
             private avatarHolder: HTMLDivElement;
             private currentAvatarCounter: number = 0;
-            private avatarsArray: string[];
+            private avatarsArray: InventoryVO[];
 
             constructor() {
-
                 if (Settings.playerSignedIn) {
                     this.avatarsArray = PockeySettings.LARGE_AVATARS_ARRAY;
                 }
@@ -36,19 +34,21 @@ namespace Pockey {
                     this.avatarsArray = PockeySettings.SMALL_AVATARS_ARRAY;
                 }
 
-                this.avatarHolder = document.getElementById("AvatarImage") as HTMLDivElement;
-                // this.colorCircle = document.getElementById("PlayerColorCircle") as HTMLDivElement;
-
                 if (PockeySettings.PLAYER_AVATAR_ID) {
-                    this.currentAvatarCounter = PockeySettings.PLAYER_AVATAR_ID;
-                    // PockeySettings.PLA = this.avatarsArray[PockeySettings.PLAYER_COLOR_ID];
+                    _.forEach(this.avatarsArray, (avatar: InventoryVO, counter: number) => {
+                        if (avatar.id == PockeySettings.PLAYER_AVATAR_ID) {
+                            this.currentAvatarCounter = counter;
+                        }
+                    });
                 }
 
-                PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                this.avatarHolder = document.getElementById("AvatarImage") as HTMLDivElement;
+
+
+                PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
                 writeCookie("PockeyUserAvatarId", PockeySettings.PLAYER_AVATAR_ID, 30);
 
-                // this.colorCircle.style.backgroundColor = this.parseColor(this.avatarsArray[this.currentAvatarCounter]);
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
                 //todo writeid
                 this.previousAvatarButton = document.getElementById("PreviousAvatarButton") as HTMLDivElement;
@@ -61,10 +61,9 @@ namespace Pockey {
                         this.currentAvatarCounter = this.avatarsArray.length - 1;
 
                     }
-                    PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
-                    // this.avatarHolder.style.background = "center / contain no-repeat url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
-                    // this.avatarHolder.style.backgroundColor = "#1A4157";
-                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                    PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
+
+                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
                     writeCookie("PockeyUserAvatarId", PockeySettings.PLAYER_AVATAR_ID, 30);
                 };
@@ -74,34 +73,32 @@ namespace Pockey {
                     if (this.currentAvatarCounter > this.avatarsArray.length - 1) {
                         this.currentAvatarCounter = 0;
                     }
-                    PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                    PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
 
-                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
-                    // this.avatarHolder.style.background = "center / contain no-repeat url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
-                    // this.avatarHolder.style.backgroundColor = "#1A4157";
                     writeCookie("PockeyUserAvatarId", PockeySettings.PLAYER_AVATAR_ID, 30);
 
                     console.log("this.currentAvatarCounter: " + this.currentAvatarCounter);
 
                 };
 
-                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this))
-                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this))
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
             }
 
             private onPlayerSignedOut(): void {
                 this.avatarsArray = PockeySettings.SMALL_AVATARS_ARRAY;
                 this.currentAvatarCounter = 0;
-                PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
-
+                PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
+                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
             }
 
             private onPlayerSignedIn(): void {
                 this.avatarsArray = PockeySettings.LARGE_AVATARS_ARRAY;
+
                 // this.currentAvatarCounter = 0;
-                // PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+                // PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
                 // this.avatarHolder.style.background = "center / contain no-repeat url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
             }
         }

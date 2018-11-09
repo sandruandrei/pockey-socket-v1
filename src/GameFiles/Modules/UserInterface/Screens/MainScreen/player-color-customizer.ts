@@ -56,7 +56,6 @@ namespace Pockey {
                     this.currentColorCounter--;
                     if (this.currentColorCounter < 0) {
                         this.currentColorCounter = this.colorsArray.length - 1;
-
                     }
                     PockeySettings.PLAYER_COLOR_ID = this.currentColorCounter;
                     this.colorCircle.style.backgroundColor = this.parseColor(this.colorsArray[this.currentColorCounter]);

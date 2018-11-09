@@ -41,7 +41,7 @@ var PockeyServer;
                 cache: 0,
                 gzip: true
             });
-            let port = process.env.PORT || 5000;
+            let port = process.env.PORT || 4000;
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {
                     this.file.serve(request, response);

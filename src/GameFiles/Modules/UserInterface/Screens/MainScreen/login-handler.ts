@@ -105,6 +105,7 @@ namespace Pockey {
                         TweenMax.to(this.inputText, .2, {css: {borderColor: "#e92c5a"}, yoyo: true, repeat: 3});
                     }
                     else {
+                        SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
                         writeCookie('PockeyUsername', this.inputText.value, 30);
                     }
 

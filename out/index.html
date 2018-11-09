@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="mainMenuScreen.css">
     <link rel="stylesheet" type="text/css" href="inventoryScreen.css">
     <link rel="stylesheet" type="text/css" href="leaderboard.css">
+    <link rel="stylesheet" type="text/css" href="searchingScreen.css">
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
 
@@ -31,7 +32,7 @@
             gapi.load('auth2', function () {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({
-                    client_id: '934645713517-sd1s3p9r0g92mcq1242d2ptut6n4ljr7.apps.googleusercontent.com',
+                    client_id: '934645713517-349l4s7ecpmngpkq12qlp8cgfgbes05k.apps.googleusercontent.com',
                     cookiepolicy: 'single_host_origin',
                     // Request scopes in addition to 'profile' and 'email'
                     //scope: 'additional_scope'
@@ -45,11 +46,11 @@
             auth2.attachClickHandler(element, {},
                 function (googleUser) {
 
-                    var profile = googleUser.getBasicProfile();
+                    let profile = googleUser.getBasicProfile();
                     // console.log('Full Name: ' + profile.getName());
-                    var userEmail = profile.getEmail();
+                    let userEmail = profile.getEmail();
                     console.log("Email: " + userEmail);
-                    var pockeyEvent = new CustomEvent('PockeyGoogleSignInEvent', {detail: userEmail});
+                    let pockeyEvent = new CustomEvent('PockeyGoogleSignInEvent', {detail: userEmail});
 
                     element.dispatchEvent(pockeyEvent);
                     // document.getElementById('name').innerText = "Signed in: " +
@@ -75,7 +76,6 @@
 
     <!--<script src="lodash.min.js"></script>-->
     <script src="pixi-svg.js"></script>
-    <script src="main.js"></script>
 </head>
 <body>
 <script>
@@ -305,22 +305,21 @@
                     <div class="inventoryTitleLine"></div>
                 </div>
 
-
                 <div id="InventoryButtonsHolder">
-                    <div class="inventoryButton">POOL CUES
-                        <div class="inventoryButtonLogo">+</div>
+                    <div class="inventoryButton" id="InventoryCues">POOL CUES
+                        <div class="inventoryButtonLogo"></div>
                     </div>
-                    <div class="inventoryButton">AVATARS
-                        <div class="inventoryButtonLogo">+</div>
+                    <div class="inventoryButton" id="InventoryAvatars">AVATARS
+                        <div class="inventoryButtonLogo"></div>
                     </div>
-                    <div class="inventoryButton">DECALS
-                        <div class="inventoryButtonLogo">+</div>
+                    <div class="inventoryButton" id="InventoryDecals">DECALS
+                        <div class="inventoryButtonLogo"></div>
                     </div>
-                    <div class="inventoryButton">GOALIES
-                        <div class="inventoryButtonLogo">+</div>
+                    <div class="inventoryButton" id="InventoryGoalies">GOALIES
+                        <div class="inventoryButtonLogo"></div>
                     </div>
-                    <div class="inventoryButton">MISC
-                        <div class="inventoryButtonLogo">+</div>
+                    <div class="inventoryButton" id="InventoryMisc">MISC
+                        <div class="inventoryButtonLogo"></div>
                     </div>
                 </div>
                 <div id="ItemPanel">
@@ -328,7 +327,7 @@
                         <div id="ItemAvatarAndName">
                             <div id="ItemAvatar">
                                 <div class="inventoryItemBox">
-                                    <div class="inventoryItemBoxBackground"></div>
+                                    <div class="inventoryItemBoxBackground" id="InventoryBigAvatar"></div>
                                 </div>
                             </div>
                             <div id="ItemNameHolder">
@@ -348,77 +347,189 @@
                         </div>
                         <div class="inventoryTitleLine"></div>
 
-                        <div id="EquipButtonHolder">
+                        <div id="EquipButtonWrapper"><div id="EquipButtonHolder">
                             <div id="" class="normalButtonHolder">
                                 <div class="normalButtonBackground">Equip</div>
                             </div>
+                        </div></div>
+
+                    </div>
+                    <div id="ItemsHolderWrapper">
+                        <div id="ItemsHolder">
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground">
+                                        <div class="inventoryItemBoxSelected"></div>
+                                        <div class="inventoryItemBoxLocked"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="itemsColumn">
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground"></div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground"></div>
+                                </div>
+                                <div class="inventoryItemBox">
+                                    <div class="inventoryItemBoxBackground"></div>
+                                </div>
+                            </div>-->
                         </div>
                     </div>
-                    <div id="ItemsHolder">
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                        <div class="inventoryItemBox">
-                            <div class="inventoryItemBoxBackground"></div>
-                        </div>
-                    </div>
+
                 </div>
                 <div id="WalletAndItemsButtonsHolder">
                     <div id="WalletHolder">
@@ -434,14 +545,14 @@
                         <div id="ItemsPrevButton" class="itemsArrows">
                             <div class="normalButtonHolder">
                                 <div class="normalButtonBackground">
-                                    <div id="ItemsPrevButtonArrow"></div>
+                                    <div id="ItemsPrevButtonArrow" class="buttonArrow"></div>
                                 </div>
                             </div>
                         </div>
                         <div id="ItemsNextButton" class="itemsArrows">
                             <div class="normalButtonHolder">
                                 <div class="normalButtonBackground">
-                                    <div id="ItemsNextButtonArrow"></div>
+                                    <div id="ItemsNextButtonArrow" class="buttonArrow"></div>
                                 </div>
                             </div>
                         </div>
@@ -579,6 +690,17 @@ function signOut() {
     });
 }</script>
 
+<div id="SearchingScreen">
+    <div class="searchingAnimation">
+        <div class="search searchDiv"></div>
+        <div class="search searchDiv"></div>
+        <div class="search searchDiv"></div>
+        <div class="search searchDiv"></div>
+        <div class="search searchDiv"></div>
+        <div class="searchtext">SEARCHING FOR OPPONENT</div>
+    </div>
+</div>
+<script src="main.js"></script>
 
 </body>
 </html>

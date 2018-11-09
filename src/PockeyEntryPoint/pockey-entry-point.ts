@@ -9,6 +9,7 @@
 ///<reference path="../GameFiles/Modules/ConnectionModule/pockey-connection-module.ts"/>
 ///<reference path="../GameFiles/Modules/UserInterface/pockey-user-interface-module.ts"/>
 ///<reference path="../Framework/Utils/cookie.ts"/>
+///<reference path="../Framework/AbstractModules/Connection/database-connector.ts"/>
 
 namespace Pockey {
 
@@ -28,6 +29,7 @@ namespace Pockey {
     import PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     import PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
     import readCookie = Framework.Utils.readCookie;
+    import DatabaseConnector = Framework.Connection.DatabaseConnector;
 
     export class PockeyEntryPoint extends AbstractEntryPoint {
         private gameModule: AbstractModule;
@@ -49,15 +51,34 @@ namespace Pockey {
         protected getCookieData(): void {
             super.getCookieData();
 
+            PockeySettings.PLAYER_CUE_ID = PockeySettings.SMALL_CUES_ARRAY[0].id;
+            PockeySettings.PLAYER_DECAL_ID = PockeySettings.SMALL_DECALS_ARRAY[0].id;
+
             if (this.cookieIsAvailable()) {
-                if (readCookie('PockeyUserColorId') != "") {
+               /* if (readCookie('PockeyUserColorId') != "") {
                     PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
                 }
                 if (readCookie('PockeyUserAvatarId') != "") {
-                    PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
-                }
+                    // PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
+                }*/
 
                 if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
+
+                    DatabaseConnector.checkDatabaseUser(readCookie('PockeyEmail'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
+                    if (readCookie('PockeyUserColorId') != "") {
+                        PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
+                    }
+                    if (readCookie('PockeyUserAvatarId') != "") {
+                        PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
+                    }
+                    if (readCookie('PockeyUserCueId') != "") {
+                        PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
+                    }
+                    if (readCookie('PockeyUserDecalId') != "") {
+                        PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
+                    }
+
+
                     Settings.playerSignedIn = true;
                 }
                 else {
@@ -72,6 +93,15 @@ namespace Pockey {
 
                 /*this.showEmailPage();*/
             }
+        }
+
+        private static checkUserIDRequestListener(e: Event): void {
+            console.log("check user id: " + (e.target as XMLHttpRequest).responseText);
+            // if (this.checkUserRequest.responseText != 'false' && this.checkUserRequest.responseText != '') {
+            //     // this.seen = _.split(this.checkUserRequest.responseText, ',').map(Number);
+            // }
+            //
+            (e.target as XMLHttpRequest).removeEventListener("load", this.checkUserIDRequestListener.bind(this));
         }
 
         private cookieIsAvailable(): boolean {
@@ -104,6 +134,8 @@ namespace Pockey {
             //end of game module instantiation
 
             super.addModules();
+
+
         }
 
 
@@ -142,9 +174,9 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
 
-            _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
-                uiModule.addAssetToLoad(path);
-            });
+            // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
+            //     uiModule.addAssetToLoad(path);
+            // });
 
             // uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-menu_BG.png");
             uiModule.Layer = this.getLayer(Layers.UILayer);

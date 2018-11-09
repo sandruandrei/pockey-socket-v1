@@ -45,11 +45,11 @@ namespace Pockey {
             public createElements(): void {
 
                 this.mainScreen = new PockeyUiMainScreen();
-                // this.searchingScreen = new PockeyUiSearchingScreen();
+                this.searchingScreen = new PockeyUiSearchingScreen();
                 // this.gameScreen = new PockeyUiGameScreen();
                 // this.winningScreen = new PockeyUiWinningScreen();
 
-                this.addChild(this.mainScreen);
+                // this.addChild(this.mainScreen);
 
                 // this.addChild(this.gameScreen);
                 /*this.playerLifeUnitsArray = [];
@@ -81,8 +81,8 @@ namespace Pockey {
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
                 //
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
                 //
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WINNING_SCREEN, this.onShowWinningScreen.bind(this));
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WINNING_SCREEN, this.onHideWinningScreen.bind(this));
@@ -98,11 +98,11 @@ namespace Pockey {
             }
 
             private onShowSearchingScreen(): void {
-                this.addChild(this.searchingScreen);
+                this.searchingScreen.setVisibleTrue();
             }
 
             private onHideSearchingScreen(): void {
-                this.removeChild(this.searchingScreen);
+                this.searchingScreen.setVisibleFalse();
             }
 
             private onShowMainMenu(): void {

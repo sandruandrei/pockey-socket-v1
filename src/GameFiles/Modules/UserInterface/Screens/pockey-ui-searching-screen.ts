@@ -1,69 +1,53 @@
-///<reference path="../../../../Framework/Utils/text-field.ts"/>
-
 namespace Pockey {
     export module UserInterface {
-        import Graphics = PIXI.Graphics;
-        import TextField = Framework.utils.TextField;
-        import Settings = Framework.Settings;
+
 
         export class PockeyUiSearchingScreen extends Container {
-            private background: Container;
-            private searchingTextField: TextField;
+
+            private staggerTimeline: TimelineMax;
+            private searchScreen: HTMLDivElement;
 
             constructor() {
                 super();
-                this.addElements();
+                // this.addElements();
+                this.searchScreen = document.getElementById("SearchingScreen") as HTMLDivElement;
             }
 
-            private addElements(): void {
-                this.addBackground();
-                this.addText();
+            public setVisibleTrue(): void {
+                this.killTweens();
+
+                this.searchScreen.style.display = "flex";
+
+                this.staggerTimeline = new TimelineMax();
+
+                TweenMax.staggerFrom(".search", 2, {
+                    backgroundColor: '#36edc9',
+                    opacity: 0,
+                    scale: 0.2,
+                    repeat: -1,
+                    ease: SlowMo.ease.config(0.5, 0.4, true)
+                }, 0.4);
+
+                TweenMax.staggerTo(".search", 2, {
+                    x: 320,
+                    backgroundColor: '#43f9f3',
+                    repeat: -1,
+                    ease: SlowMo.ease.config(0.5, 0.4, false)
+                }, 0.4);
             }
 
-            private addBackground() {
-                let bgGraphics: Graphics = new Graphics();
-                bgGraphics.beginFill(0x000000, 0.8);
-                bgGraphics.drawRect(0, 0, 400, 200);
-                bgGraphics.endFill();
+            public setVisibleFalse(): void {
+                this.killTweens();
 
-                this.background = new Container();
-                this.background.addChild(bgGraphics);
-                this.addChild(this.background);
+                this.searchScreen.style.display = "none";
+
             }
 
-            public onResize(): void {
-
-                this.background.x = Settings.stageWidth / 2 - this.background.width / 2;
-                this.background.y = Settings.stageHeight / 2 - this.background.height / 2;
+            private killTweens(): void {
+                TweenMax.killTweensOf(".search");
             }
 
-            // private o
-            private addText(): void {
-                // let pixiBtn: PixiButton = new PixiButton(0, 0, 100, 50);
-                // create the text object
-                let style = new PIXI.TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: 32,
-                    fill: 0xffffff,
-                    // fontStyle: 'italic',
-                    // fontWeight: 'bold',
-                    // fill: ['#ffffff', '#00ff99'], // gradient
-                    // stroke: '#4a1850',
-                    // strokeThickness: 5,
-                    /*  dropShadow: true,
-                      dropShadowColor: '#000000',
-                      dropShadowBlur: 1,
-                      dropShadowAngle: Math.PI / 3,
-                      dropShadowDistance: 10,*/
-                    // wordWrap: true,
-                    // wordWrapWidth: 440
-                });
 
-                this.searchingTextField = new TextField("SEARCHING", style);
-                this.searchingTextField.x = this.background.width / 2 - this.searchingTextField.width / 2;
-                this.searchingTextField.y = this.background.height / 2 - this.searchingTextField.height / 2;
-                this.background.addChild(this.searchingTextField);
-            }
         }
     }
 }
