@@ -65,6 +65,8 @@ namespace Pockey {
                 if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
 
                     DatabaseConnector.checkDatabaseUser(readCookie('PockeyEmail'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
+                    console.log("se cere conexiunea");
+
                     if (readCookie('PockeyUserColorId') != "") {
                         PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
                     }

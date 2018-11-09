@@ -7412,6 +7412,7 @@ var Pockey;
             if (this.cookieIsAvailable()) {
                 if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
                     DatabaseConnector.checkDatabaseUser(readCookie('PockeyEmail'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
+                    console.log("se cere conexiunea");
                     if (readCookie('PockeyUserColorId') != "") {
                         Pockey.PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
                     }
@@ -7434,6 +7435,7 @@ var Pockey;
         }
         static checkUserIDRequestListener(e) {
             console.log("check user id: " + e.target.responseText);
+            e.target.removeEventListener("load", this.checkUserIDRequestListener.bind(this));
         }
         cookieIsAvailable() {
             Pockey.PockeySettings.PLAYER_NAME = readCookie('PockeyUsername');
