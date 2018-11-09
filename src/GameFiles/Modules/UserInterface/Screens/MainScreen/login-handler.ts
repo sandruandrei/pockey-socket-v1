@@ -62,8 +62,8 @@ namespace Pockey {
                     console.log("intra la click");
                     let pockeyEvent = new Event('PockeyGoogleSignOutEvent');
                     this.signOutBtn.dispatchEvent(pockeyEvent);
-                    removeCookie("PockeyEmail");
-                    removeCookie("PockeyFacebookID");
+                    removeCookie("PockeyID");
+                    // removeCookie("PockeyFacebookID");
                     removeCookie("PockeyUserColorId");
                     removeCookie("PockeyUserAvatarId");
 
@@ -106,7 +106,7 @@ namespace Pockey {
                     }
                     else {
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
-                        writeCookie('PockeyID', this.inputText.value, 30);
+                        writeCookie('PockeyNickname', this.inputText.value, 30);
                     }
 
                 };
@@ -117,7 +117,7 @@ namespace Pockey {
 
                 this.googleSignIn.addEventListener('PockeyGoogleSignInEvent', (e: CustomEvent) => {
                     // e.target matches elem
-                    writeCookie('PockeyEmail', e.detail.toString(), 30);
+                    writeCookie('PockeyID', e.detail.toString(), 30);
 
                     this.hideSignInButtons();
 
@@ -132,11 +132,11 @@ namespace Pockey {
 
                 this.facebookSignIn.addEventListener("PockeyFacebookSignedIn", (e: CustomEvent) => {
                     if (!_.isNull(e.detail["email"]) && !_.isUndefined(e.detail["email"])) {
-                        writeCookie('PockeyEmail', e.detail["email"].toString(), 30);
+                        writeCookie('PockeyID', e.detail["email"].toString(), 30);
                     }
-                    if (!_.isNull(e.detail["id"]) && !_.isUndefined(e.detail["id"])) {
+                    /*if (!_.isNull(e.detail["id"]) && !_.isUndefined(e.detail["id"])) {
                         writeCookie('PockeyFacebookID', e.detail["id"].toString(), 30);
-                    }
+                    }*/
                     // console.log("s-a semnat cu fb-ul: " + e.detail);
 
                     // writeCookie('PockeyEmail', e.detail.toString(), 30);

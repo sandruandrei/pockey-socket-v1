@@ -55,37 +55,37 @@ namespace Pockey {
             PockeySettings.PLAYER_DECAL_ID = PockeySettings.SMALL_DECALS_ARRAY[0].id;
 
             if (this.cookieIsAvailable()) {
-               /* if (readCookie('PockeyUserColorId') != "") {
+                /* if (readCookie('PockeyUserColorId') != "") {
+                     PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
+                 }
+                 if (readCookie('PockeyUserAvatarId') != "") {
+                     // PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
+                 }*/
+
+                // if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
+
+                DatabaseConnector.checkDatabaseUser(readCookie('PockeyID'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
+                console.log("se cere conexiunea");
+
+                if (readCookie('PockeyUserColorId') != "") {
                     PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
                 }
                 if (readCookie('PockeyUserAvatarId') != "") {
-                    // PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
-                }*/
-
-                if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
-
-                    DatabaseConnector.checkDatabaseUser(readCookie('PockeyEmail'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
-                    console.log("se cere conexiunea");
-
-                    if (readCookie('PockeyUserColorId') != "") {
-                        PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                    }
-                    if (readCookie('PockeyUserAvatarId') != "") {
-                        PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
-                    }
-                    if (readCookie('PockeyUserCueId') != "") {
-                        PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
-                    }
-                    if (readCookie('PockeyUserDecalId') != "") {
-                        PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
-                    }
-
-
-                    Settings.playerSignedIn = true;
+                    PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
                 }
-                else {
-
+                if (readCookie('PockeyUserCueId') != "") {
+                    PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
                 }
+                if (readCookie('PockeyUserDecalId') != "") {
+                    PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
+                }
+
+
+                Settings.playerSignedIn = true;
+                /* }
+                 else {
+
+                 }*/
                 //
                 /* this.userEmail = this.cookieUserEmail;
 

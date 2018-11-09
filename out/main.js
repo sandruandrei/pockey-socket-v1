@@ -5377,8 +5377,7 @@ var Pockey;
                     console.log("intra la click");
                     let pockeyEvent = new Event('PockeyGoogleSignOutEvent');
                     this.signOutBtn.dispatchEvent(pockeyEvent);
-                    removeCookie("PockeyEmail");
-                    removeCookie("PockeyFacebookID");
+                    removeCookie("PockeyID");
                     removeCookie("PockeyUserColorId");
                     removeCookie("PockeyUserAvatarId");
                     SignalsManager.DispatchSignal(PockeySignalTypes.PLAYER_SIGNED_OUT);
@@ -5411,14 +5410,14 @@ var Pockey;
                     }
                     else {
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
-                        writeCookie('PockeyID', this.inputText.value, 30);
+                        writeCookie('PockeyNickname', this.inputText.value, 30);
                     }
                 };
             }
             handleGoogleButton() {
                 this.googleSignIn = document.getElementById("GoogleSignInButtonHolder");
                 this.googleSignIn.addEventListener('PockeyGoogleSignInEvent', (e) => {
-                    writeCookie('PockeyEmail', e.detail.toString(), 30);
+                    writeCookie('PockeyID', e.detail.toString(), 30);
                     this.hideSignInButtons();
                     SignalsManager.DispatchSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
                 }, false);
@@ -5427,10 +5426,7 @@ var Pockey;
                 this.facebookSignIn = document.getElementById("FacebookSignInButtonHolder");
                 this.facebookSignIn.addEventListener("PockeyFacebookSignedIn", (e) => {
                     if (!_.isNull(e.detail["email"]) && !_.isUndefined(e.detail["email"])) {
-                        writeCookie('PockeyEmail', e.detail["email"].toString(), 30);
-                    }
-                    if (!_.isNull(e.detail["id"]) && !_.isUndefined(e.detail["id"])) {
-                        writeCookie('PockeyFacebookID', e.detail["id"].toString(), 30);
+                        writeCookie('PockeyID', e.detail["email"].toString(), 30);
                     }
                     this.hideSignInButtons();
                     SignalsManager.DispatchSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
@@ -7410,25 +7406,21 @@ var Pockey;
             Pockey.PockeySettings.PLAYER_CUE_ID = Pockey.PockeySettings.SMALL_CUES_ARRAY[0].id;
             Pockey.PockeySettings.PLAYER_DECAL_ID = Pockey.PockeySettings.SMALL_DECALS_ARRAY[0].id;
             if (this.cookieIsAvailable()) {
-                if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
-                    DatabaseConnector.checkDatabaseUser(readCookie('PockeyEmail'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
-                    console.log("se cere conexiunea");
-                    if (readCookie('PockeyUserColorId') != "") {
-                        Pockey.PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                    }
-                    if (readCookie('PockeyUserAvatarId') != "") {
-                        Pockey.PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
-                    }
-                    if (readCookie('PockeyUserCueId') != "") {
-                        Pockey.PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
-                    }
-                    if (readCookie('PockeyUserDecalId') != "") {
-                        Pockey.PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
-                    }
-                    Settings.playerSignedIn = true;
+                DatabaseConnector.checkDatabaseUser(readCookie('PockeyID'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
+                console.log("se cere conexiunea");
+                if (readCookie('PockeyUserColorId') != "") {
+                    Pockey.PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
                 }
-                else {
+                if (readCookie('PockeyUserAvatarId') != "") {
+                    Pockey.PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
                 }
+                if (readCookie('PockeyUserCueId') != "") {
+                    Pockey.PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
+                }
+                if (readCookie('PockeyUserDecalId') != "") {
+                    Pockey.PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
+                }
+                Settings.playerSignedIn = true;
             }
             else {
             }
