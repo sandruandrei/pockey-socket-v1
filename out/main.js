@@ -5411,7 +5411,7 @@ var Pockey;
                     }
                     else {
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
-                        writeCookie('PockeyUsername', this.inputText.value, 30);
+                        writeCookie('PockeyID', this.inputText.value, 30);
                     }
                 };
             }
@@ -7438,7 +7438,7 @@ var Pockey;
             e.target.removeEventListener("load", this.checkUserIDRequestListener.bind(this));
         }
         cookieIsAvailable() {
-            Pockey.PockeySettings.PLAYER_NAME = readCookie('PockeyUsername');
+            Pockey.PockeySettings.PLAYER_NAME = readCookie('PockeyID');
             return Pockey.PockeySettings.PLAYER_NAME != '';
         }
         cookieEmailIsAvailable() {

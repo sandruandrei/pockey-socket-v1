@@ -106,7 +106,7 @@ namespace Pockey {
                     }
                     else {
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
-                        writeCookie('PockeyUsername', this.inputText.value, 30);
+                        writeCookie('PockeyID', this.inputText.value, 30);
                     }
 
                 };

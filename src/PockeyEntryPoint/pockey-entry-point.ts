@@ -107,7 +107,7 @@ namespace Pockey {
         }
 
         private cookieIsAvailable(): boolean {
-            PockeySettings.PLAYER_NAME = readCookie('PockeyUsername');
+            PockeySettings.PLAYER_NAME = readCookie('PockeyID');
 
             return PockeySettings.PLAYER_NAME != '';
         }
