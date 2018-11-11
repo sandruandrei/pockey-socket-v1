@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/pixi-multistyle-text.png)](https://nodei.co/npm/pixi-multistyle-text/)
 
-Add a `MultiStyleText` object inside [pixi.js](https://github.com/GoodBoyDigital/pixi.js) to easily create text using different styles.
+Add a `MultiStyleText` object inside [pixi.js](https://github.com/GoodBoyDigital/pixi.js) to easily create text uasing different styles.
 
 ## Example
 
@@ -52,7 +52,7 @@ If text is rendered without any value assigned to a given parameter, Pixi's defa
 
 ## Demo
 
-Open `demo/index.html` in a browser for several helpful examples.
+Open `demo/index-salam.html` in a browser for several helpful examples.
 
 ## License
 
