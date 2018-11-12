@@ -72,19 +72,18 @@ export module PockeyServer {
              //     console.log('listening on *:3000');
              // });*/
 //-------------------
-            this.file = new nodeStatic.Server('out', { // bin is the folder containing our html, etc
+            this.file = new nodeStatic.Server('../out', { // bin is the folder containing our html, etc
                 cache: 0,	// don't cache
                 gzip: true	// gzip our assets
             });
 
-            let port = process.env.PORT || 4000;
             // create our server
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {
                     this.file.serve(request, response);
                 });
                 request.resume();
-            }).listen(port);
+            }).listen(4000);
 
             this.socketIo = socketIO();
             // console.log("socket id: " + this.socketIo.id);
@@ -134,7 +133,7 @@ export module PockeyServer {
                 });
                 // socket.emit(FrameworkSocketEvents.)
             });
-           //-------------------------------------------------
+            //-------------------------------------------------
 
             /*let sleepNamespace = socketIO()
                 .of("/" + FrameworkSocketNamespaces.SEARCH)

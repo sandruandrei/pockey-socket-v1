@@ -27,8 +27,8 @@
     <script>
 
 
-        var googleUser = {};
-        var startApp = function () {
+        let googleUser = {};
+        let startApp = function () {
             gapi.load('auth2', function () {
                 // Retrieve the singleton for the GoogleAuth library and set up the client.
                 auth2 = gapi.auth2.init({
@@ -101,7 +101,7 @@
         // });
     };
     (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+        let js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
             return;
         }
@@ -131,12 +131,12 @@
     // getting basic user info
     function getInfo() {
         FB.api('/me?fields=email,id', 'GET', {}, function (response) {
-            var pockeyCustomEvent = new CustomEvent("PockeyFacebookSignedIn", {
+            let pockeyCustomEvent = new CustomEvent("PockeyFacebookSignedIn", {
                 detail: {
                     email: response.email,
                     id: response.id
                 }
-            })
+            });
             document.getElementById('FacebookSignInButtonHolder').dispatchEvent(pockeyCustomEvent);
             // console.log("raspunsul//-------");
             // console.log(response);

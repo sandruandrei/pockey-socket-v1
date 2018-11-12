@@ -52,7 +52,7 @@ If text is rendered without any value assigned to a given parameter, Pixi's defa
 
 ## Demo
 
-Open `demo/index-salam.html` in a browser for several helpful examples.
+Open `demo/index.html` in a browser for several helpful examples.
 
 ## License
 

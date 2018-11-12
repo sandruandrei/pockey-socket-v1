@@ -30,7 +30,6 @@ namespace Framework {
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.PRIVATE_MESSAGE, this.onPrivateMessage.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.UPDATE_SOCKET_ID, this.onUpdateSocketID.bind(this));
                 }
-
             }
 
             protected onUpdateSocketID(params: any[]): void {
