@@ -16,8 +16,9 @@ namespace Framework {
             public static ASSETS_LOADED: string = "SignalsType." + "ASSETS_LOADED";
             public static ALL_MODULES_ELEMENTS_CREATED: string = "SignalsType." + "ALL_MODULES_ELEMENTS_CREATED";
             public static MODULE_ELEMENTS_CREATED: string = "SignalsType." + "MODULE_ELEMENTS_CREATED";
-            static CHANGE_BACKGROUND: string = "SignalsType." + "CHANGE_BACKGROUND";
-
+            public static CHANGE_BACKGROUND: string = "SignalsType." + "CHANGE_BACKGROUND";
+            public static CHECK_USER_DATA: string = "SignalsType." + "CHECK_USER_DATA";
+            public static USER_DATA_CHECKED: string = "SignalsType." + "USER_DATA_CHECKED";
         }
 
         export class ConnectionSignalsType {

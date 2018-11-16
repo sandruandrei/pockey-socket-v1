@@ -662,8 +662,8 @@ declare module "../index" {
 
     interface LoDashStatic {
         /**
-         * Creates a compiled template function that can interpolate data properties in "interpolate" delimiters,
-         * HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate"
+         * Creates a compiled template function that can interpolate column properties in "interpolate" delimiters,
+         * HTML-escape interpolated column properties in "escape" delimiters, and execute JavaScript in "evaluate"
          * delimiters. Data properties may be accessed as free variables in the template. If a setting object is
          * provided it takes precedence over _.templateSettings values.
          *
@@ -684,7 +684,7 @@ declare module "../index" {
          * @param options.imports An object to import into the template as free variables.
          * @param options.interpolate The "interpolate" delimiter.
          * @param options.sourceURL The sourceURL of the template's compiled source.
-         * @param options.variable The data object variable name.
+         * @param options.variable The column object variable name.
          * @return Returns the compiled template function.
          */
         template(

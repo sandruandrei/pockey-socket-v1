@@ -39,13 +39,13 @@ namespace Framework {
         protected backgroundModule: AbstractModule;
         protected uiModule: AbstractModule;
         protected connectionModule: AbstractModule;
+        protected allElementsCreated: boolean = false;
         public static renderer: WebGLRenderer | CanvasRenderer;
 
 
         constructor() {
             this.name = "AbstractEntryPoint";
 
-            this.getCookieData();
             this.checkDevice();
             this.setWindowSize();
             this.initializePixi();
@@ -58,7 +58,17 @@ namespace Framework {
         }
 
         protected getCookieData(): void {
-            // this.connectToDataBase();
+            SignalsManager.DispatchSignal(SignalsType.CHECK_USER_DATA);
+        }
+
+        protected userDataChecked(): void {
+            if (!this.allElementsCreated) {
+                this.allElementsCreated = true;
+
+                SignalsManager.DispatchSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
+                SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
+            }
+
         }
 
         // protected connectToDataBase(): void {
@@ -299,6 +309,8 @@ namespace Framework {
         }
 
         protected registerSignals() {
+            SignalsManager.CreateNewSignal(SignalsType.CHECK_USER_DATA);
+            SignalsManager.CreateNewSignal(SignalsType.USER_DATA_CHECKED);
             SignalsManager.CreateNewSignal(SignalsType.ASSETS_LOADED);
             SignalsManager.CreateNewSignal(SignalsType.MODULE_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
@@ -312,6 +324,7 @@ namespace Framework {
             SignalsManager.CreateNewSignal(ConnectionSignalsType.PRIVATE_MESSAGE);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.UPDATE_SOCKET_ID);
 
+            SignalsManager.AddSignalCallback(SignalsType.USER_DATA_CHECKED, this.userDataChecked.bind(this));
         }
 
         private onModuleElementsCreated(): void {
@@ -325,9 +338,7 @@ namespace Framework {
             });
 
             if (modulesCounter == this.gameModules.length) {
-                SignalsManager.DispatchSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
-                SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
-
+                this.getCookieData();
             }
 
             // TweenMax.delayedCall(0.05, this.windowResize, [Settings.stageWidth, Settings.stageHeight]);

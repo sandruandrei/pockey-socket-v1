@@ -44,8 +44,8 @@ export module PockeyServer {
                 this.socketIo.on(FrameworkSocketChannels.onNewConnection, () => {
 
                 });
-                // this.socketIo.on("opponentSearchChannel", (data) => {
-                //     console.log("la app server: " + data);
+                // this.socketIo.on("opponentSearchChannel", (column) => {
+                //     console.log("la app server: " + column);
                 // });
             });
 

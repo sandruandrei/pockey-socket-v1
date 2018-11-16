@@ -23,7 +23,8 @@ namespace Pockey {
             public onHideCategoryCallback: Function;
 
             public category: string;
-            private categoryElements: any[];
+            public categoryElements: any[];
+private inventoryButtonLogo:HTMLDivElement;
 
             constructor(btnDiv: HTMLDivElement, showCategoryCallback: Function, hideCategoryCallback: Function) {
                 this.button = btnDiv;
@@ -31,8 +32,8 @@ namespace Pockey {
                 this.onShowCategoryCallback = showCategoryCallback;
                 this.onHideCategoryCallback = hideCategoryCallback;
                 this.category = this.id.replace("Inventory", "");
-                console.log("categoryElements name: " + this.category);
-                let inventoryButtonLogo = this.button.querySelector('.inventoryButtonLogo') as HTMLDivElement;
+                //console.log("categoryElements name: " + this.category);
+                this.inventoryButtonLogo = this.button.querySelector('.inventoryButtonLogo') as HTMLDivElement;
 
                 if (Settings.playerSignedIn) {
                     this.categoryElements = PockeySettings["LARGE_" + this.category.toUpperCase() + "_ARRAY"];
@@ -44,31 +45,14 @@ namespace Pockey {
                 this.clicked = false;
 
                 this.button.onclick = () => {
-                    this.clicked = !this.clicked;
-
-                    if (this.clicked) {
-
-                        /////////////////
-                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
-                        // this.button.style.borderColor = "";
-                        this.button.style.color = "white";
-
-                        this.onShowCategoryCallback(this.categoryElements);
-                    }
-                    else {
-
-                        ////////////////
-                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/plus-sign-white.png)";
-                        // this.button.style.borderColor = "";
-                        this.button.style.color = "";
-
-                        this.onHideCategoryCallback(this.categoryElements);
-                    }
+                   this.clickHandler();
                 };
+
+
 
                 this.button.onmouseover = () => {
                     if (this.clicked) {
-                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
+                        this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
                         this.button.style.borderColor = "";
                         this.button.style.backgroundColor = "";
 
@@ -79,16 +63,41 @@ namespace Pockey {
 
                 this.button.onmouseout = () => {
                     if (this.clicked) {
-                        inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-color.png)";
+                        this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-color.png)";
                         this.button.style.borderColor = "white";
                         this.button.style.backgroundColor = "white";
                         this.button.style.color = "#2d889c";
                     }
                     else {
-                        inventoryButtonLogo.style.background = "";
+                        this.inventoryButtonLogo.style.background = "";
                     }
                 };
+
             }
+
+            private clickHandler():void
+            {
+                this.clicked = !this.clicked;
+
+                if (this.clicked) {
+
+                    /////////////////
+                    this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
+                    // this.button.style.borderColor = "";
+                    this.button.style.color = "white";
+
+                    this.onShowCategoryCallback(this.categoryElements);
+                }
+                else {
+
+                    ////////////////
+                    this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/plus-sign-white.png)";
+                    // this.button.style.borderColor = "";
+                    this.button.style.color = "";
+
+                    this.onHideCategoryCallback(this.categoryElements);
+                }
+            };
 
             public onSignedIn(): void {
                 if (this.clicked) {
@@ -113,6 +122,17 @@ namespace Pockey {
 
             }
 
+            public activate():void {
+                if(this.categoryElements.length > 0)
+                {
+                    this.clickHandler();
+
+                    this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-color.png)";
+                    this.button.style.borderColor = "white";
+                    this.button.style.backgroundColor = "white";
+                    this.button.style.color = "#2d889c";
+                }
+            }
         }
     }
 }

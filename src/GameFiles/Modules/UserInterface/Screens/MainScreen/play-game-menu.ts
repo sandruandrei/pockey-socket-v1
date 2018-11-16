@@ -1,6 +1,6 @@
 ///<reference path="player-color-customizer.ts"/>
 ///<reference path="player-avatar-customizer.ts"/>
-///<reference path="login-handler.ts"/>
+///<reference path="login-elements.ts"/>
 ///<reference path="tutorial-menu.ts"/>
 
 /**
@@ -18,14 +18,13 @@ namespace Pockey {
     export module UserInterface {
         export class PlayGameMenu {
 
-
             private playerColorCustomizer: PlayerColorCustomizer;
             private playerAvatarCustomizer: PlayerAvatarCustomizer;
-            private loginHandler: LoginHandler;
+            private loginElements: LoginElements;
             private tutorialMenu: TutorialMenu;
 
             constructor() {
-                this.loginHandler = new LoginHandler();
+                this.loginElements = new LoginElements();
                 this.playerColorCustomizer = new PlayerColorCustomizer();
                 this.playerAvatarCustomizer = new PlayerAvatarCustomizer();
                 this.tutorialMenu = new TutorialMenu();

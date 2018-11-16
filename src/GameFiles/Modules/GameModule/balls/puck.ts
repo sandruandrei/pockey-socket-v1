@@ -19,7 +19,7 @@ namespace Pockey {
                 this.delta += 0.994;
 
                 this.mass = 0.3;
-                console.log("puck body id: " + this.p2Body.id);
+//                 console.log("puck body id: " + this.p2Body.id);
             }
 
             protected worldPreSolveHandler(): void {

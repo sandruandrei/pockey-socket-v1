@@ -29,7 +29,6 @@ namespace Pockey {
     import PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     import PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
     import readCookie = Framework.Utils.readCookie;
-    import DatabaseConnector = Framework.Connection.DatabaseConnector;
 
     export class PockeyEntryPoint extends AbstractEntryPoint {
         private gameModule: AbstractModule;
@@ -48,68 +47,11 @@ namespace Pockey {
             this.name = "PockeyEntryPoint";
         }
 
-        protected getCookieData(): void {
-            super.getCookieData();
-
-            PockeySettings.PLAYER_CUE_ID = PockeySettings.SMALL_CUES_ARRAY[0].id;
-            PockeySettings.PLAYER_DECAL_ID = PockeySettings.SMALL_DECALS_ARRAY[0].id;
-
-            if (this.cookieIsAvailable()) {
-                /* if (readCookie('PockeyUserColorId') != "") {
-                     PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                 }
-                 if (readCookie('PockeyUserAvatarId') != "") {
-                     // PockeySettings.PLAYER_AVATAR_ID = parseInt(readCookie('PockeyUserAvatarId'));
-                 }*/
-
-                // if (this.cookieEmailIsAvailable() || this.facebookIDisAvailable()) {
-
-                DatabaseConnector.checkDatabaseUser(readCookie('PockeyID'), PockeyEntryPoint.checkUserIDRequestListener.bind(this));
-                console.log("se cere conexiunea");
-
-                if (readCookie('PockeyUserColorId') != "") {
-                    PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                }
-                if (readCookie('PockeyUserAvatarId') != "") {
-                    PockeySettings.PLAYER_AVATAR_ID = readCookie('PockeyUserAvatarId');
-                }
-                if (readCookie('PockeyUserCueId') != "") {
-                    PockeySettings.PLAYER_CUE_ID = readCookie('PockeyUserCueId');
-                }
-                if (readCookie('PockeyUserDecalId') != "") {
-                    PockeySettings.PLAYER_DECAL_ID = readCookie('PockeyUserDecalId');
-                }
-
-
-                Settings.playerSignedIn = true;
-                /* }
-                 else {
-
-                 }*/
-                //
-                /* this.userEmail = this.cookieUserEmail;
-
-                 this.checkDatabaseUser();*/
-
-            } else {
-
-                /*this.showEmailPage();*/
-            }
-        }
-
-        private static checkUserIDRequestListener(e: Event): void {
-            console.log("check user id: " + (e.target as XMLHttpRequest).responseText);
-            // if (this.checkUserRequest.responseText != 'false' && this.checkUserRequest.responseText != '') {
-            //     // this.seen = _.split(this.checkUserRequest.responseText, ',').map(Number);
-            // }
-            //
-            (e.target as XMLHttpRequest).removeEventListener("load", this.checkUserIDRequestListener.bind(this));
-        }
 
         private cookieIsAvailable(): boolean {
-            PockeySettings.PLAYER_NAME = readCookie('PockeyID');
+            PockeySettings.PLAYER_NICKNAME = readCookie('PockeyID');
 
-            return PockeySettings.PLAYER_NAME != '';
+            return PockeySettings.PLAYER_NICKNAME != '';
         }
 
         private cookieEmailIsAvailable(): boolean {
@@ -316,8 +258,14 @@ namespace Pockey {
         protected registerSignals() {
             super.registerSignals();
 
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHECK_USER_DATA);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
             SignalsManager.CreateNewSignal(PockeySignalTypes.PLAYER_SIGNED_IN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.PLAYER_SIGNED_OUT);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.GOOGLE_SIGN_IN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.GOOGLE_SIGN_OUT);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.FACEBOOK_SIGN_IN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.FACEBOOK_SIGN_OUT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOOT_BALL);
             SignalsManager.CreateNewSignal(PockeySignalTypes.NEXT_TURN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.BALL_IN_POCKET);
@@ -380,6 +328,7 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_UI_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_COLOR);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL_STOP);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER);

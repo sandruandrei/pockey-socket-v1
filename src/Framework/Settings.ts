@@ -21,7 +21,7 @@ namespace Framework {
         public static backgroundsPath: string = "Images/Backgrounds/";
         public static mainBackgroundName: string = "MainBackground";
         public static singlePlayer: boolean = false;
-        public static showSignalsDispatchSignalLog: boolean = false;
+        public static showSignalsDispatchSignalLog: boolean = true;
         public static playerSignedIn: boolean = false;
 
         // constructor() {

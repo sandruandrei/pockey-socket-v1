@@ -20,7 +20,7 @@ namespace Pockey {
                 this.howToPlayButton = document.getElementById("HowToPlayButtonHolder") as HTMLDivElement;
                 this.howToPlayImage = document.getElementById("HowToPlayImage") as HTMLDivElement;
                 let buttonBg: HTMLDivElement = this.howToPlayButton.querySelector('.normalButtonBackground') as HTMLDivElement;
-                console.log("how to clicked la constructor: " + this.howToButtonClicked);
+//                 console.log("how to clicked la constructor: " + this.howToButtonClicked);
 
                 this.howToPlayButton.onclick = () => {
                     this.howToButtonClicked = (!this.howToButtonClicked);
