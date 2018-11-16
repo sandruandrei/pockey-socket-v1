@@ -16,6 +16,13 @@ namespace Pockey {
             public static PLAYER_SIGNED_OUT: string = "PockeySignalTypes." + "PLAYER_SIGNED_OUT";
             public static PLAYER_SIGNED_IN: string = "PockeySignalTypes." + "PLAYER_SIGNED_IN";
 
+            public static GOOGLE_SIGN_IN: string = "PockeySignalTypes." + "GOOGLE_SIGN_IN";
+            public static GOOGLE_SIGN_OUT: string = "PockeySignalTypes." + "GOOGLE_SIGN_OUT";
+            public static FACEBOOK_SIGN_IN: string = "PockeySignalTypes." + "FACEBOOK_SIGN_IN";
+            public static FACEBOOK_SIGN_OUT: string = "PockeySignalTypes." + "FACEBOOK_SIGN_OUT";
+
+            public static GET_PLAYER_INFO: string = "PockeySignalTypes." + "GET_PLAYER_INFO";
+
             public static SHOOT_BALL: string = "PockeySignalTypes." + "SHOOT_BALL";
             public static NEXT_TURN: string = "PockeySignalTypes." + "NEXT_TURN";
             public static BALL_IN_POCKET: string = "PockeySignalTypes." + "BALL_IN_POCKET";
@@ -75,6 +82,10 @@ namespace Pockey {
             public static ANIMATE_PUCK_GOAL: string = "PockeySignalTypes." + "ANIMATE_PUCK_GOAL";
             public static ANIMATE_PUCK_GOAL_STOP: string = "PockeySignalTypes." + "ANIMATE_PUCK_GOAL_STOP";
             public static UPDATE_MATCH_CIRCLES: string = "PockeySignalTypes." + "UPDATE_MATCH_CIRCLES";
+            public static UPDATE_PLAYER_COLOR: string = "PockeySignalTypes." + "UPDATE_PLAYER_COLOR";
+            public static CHECK_USER_DATA: string = "PockeySignalTypes." + "CHECK_USER_DATA";
+            public static INVENTORY_ITEM_UPDATED: string = "PockeySignalTypes." + "INVENTORY_ITEM_UPDATED";
+
             // public static UPDATE_PLAYERS_NAMES: string = "PockeySignalTypes." + "UPDATE_PLAYERS_NAMES";
 
             // static UPDATE_PLAYERS_NAMES: string;

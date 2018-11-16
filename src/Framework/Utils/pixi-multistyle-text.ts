@@ -294,7 +294,7 @@ namespace Framework{
 
                                 let properties: { [key: string]: string } = {};
                                 let propertyRegex = this.getPropertyRegex();
-                                let propertyMatch: RegExpMatchArray;
+                                let propertyMatch: any;
 
                                 //@ts-ignore
                                 while (propertyMatch = propertyRegex.exec(matches[j][0])) {
@@ -370,7 +370,7 @@ namespace Framework{
                 // split text into lines
                 let lines = outputText.split(/(?:\r\n|\r|\n)/);
 
-                // get the text data with specific styles
+                // get the text column with specific styles
                 let outputTextData = this._getTextDataPerLine(lines);
 
                 // calculate text width and height
@@ -454,7 +454,7 @@ namespace Framework{
 
                 let drawingData: TextDrawingData[] = [];
 
-                // Compute the drawing data
+                // Compute the drawing column
                 for (let i = 0; i < outputTextData.length; i++) {
                     let line = outputTextData[i];
                     let linePositionX: number;

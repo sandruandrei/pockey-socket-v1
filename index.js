@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var Framework;
 (function (Framework) {
@@ -16,6 +24,8 @@ var Framework;
         FrameworkSocketEvents.joinRoom = "FrameworkSocketEvents" + "joinRoom";
         FrameworkSocketEvents.joinedRoom = "FrameworkSocketEvents" + "joinedRoom";
         FrameworkSocketEvents.privateMessage = "FrameworkSocketEvents" + "privateMessage";
+        FrameworkSocketEvents.getUserFromDatabase = "FrameworkSocketEvents" + "getUserFromDatabase";
+        FrameworkSocketEvents.updateUserData = "FrameworkSocketEvents" + "updateUserData";
         Connection.FrameworkSocketEvents = FrameworkSocketEvents;
         class FrameworkSocketMessages {
         }
@@ -28,7 +38,7 @@ var Framework;
 const nodeStatic = require("node-static");
 const http = require("http");
 const socketIO = require("socket.io");
-const express = require("express");
+const pg = require("pg");
 var PockeyServer;
 (function (PockeyServer) {
     var FrameworkSocketNamespaces = Framework.Connection.FrameworkSocketNamespaces;
@@ -36,7 +46,29 @@ var PockeyServer;
     class Server {
         constructor() {
             this.socketIsFree = true;
-            const app = express();
+            this.databaseConnected = false;
+            this.databasePool = new pg.Pool({
+                user: 'npvswhggxgsgxk',
+                host: 'ec2-54-225-98-131.compute-1.amazonaws.com',
+                database: 'd1uk2vnpdjl28q',
+                password: '556e5013ea1dec59d2daa5d7bff223ec028c16da4ac577db94e78dbc75471965',
+                port: 5432,
+                ssl: true
+            });
+            this.databasePool.on('error', (err, client) => {
+                console.error('Unexpected error on idle client', err);
+                process.exit(-1);
+            });
+            console.log("bla");
+            this.databasePool.connect((err, client, done) => {
+                if (err) {
+                    throw err;
+                }
+                else {
+                    console.log("s-a logat, merge.");
+                    this.databaseConnected = true;
+                }
+            });
             this.file = new nodeStatic.Server('out', {
                 cache: 0,
                 gzip: true
@@ -47,10 +79,31 @@ var PockeyServer;
                     this.file.serve(request, response);
                 });
                 request.resume();
-            }).listen(port);
+            });
+            this.httpServer.on('listening', function () {
+                console.log('ok, server is running');
+            });
+            this.httpServer.listen(port);
             this.socketIo = socketIO();
             this.socketIo.serveClient(true);
             this.socketIo.attach(this.httpServer);
+            this.socketIo.on('connection', (socket) => {
+                console.log('a user connected');
+                socket.on('disconnect', function () {
+                    console.log('user disconnected');
+                });
+                socket.on(FrameworkSocketEvents.getUserFromDatabase, (username) => {
+                    console.log('someone wants some db in');
+                    if (this.databaseConnected) {
+                        this.checkForUserID(username);
+                    }
+                });
+                socket.on(FrameworkSocketEvents.updateUserData, (data) => {
+                    if (this.databaseConnected) {
+                        this.updateUserDb(data);
+                    }
+                });
+            });
             let lookingForPartnerNamespace = this.socketIo.of(FrameworkSocketNamespaces.SEARCH);
             lookingForPartnerNamespace.on('connection', function (socket) {
                 let id = socket.id.toString().replace(FrameworkSocketNamespaces.SEARCH, '');
@@ -71,6 +124,57 @@ var PockeyServer;
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {
                     socket.broadcast.to(room).emit(FrameworkSocketEvents.privateMessage, messageType, messageData);
                 });
+            });
+        }
+        updateUserDb(data) {
+            let sqlText = "UPDATE pockey_table SET " + data["column"] + "='" + data["value"] + "' WHERE user_id='" + data["userID"] + "'";
+            console.log("sqlText: " + sqlText);
+            (() => __awaiter(this, void 0, void 0, function* () {
+                const client = yield this.databasePool.connect();
+                try {
+                    const res = yield client.query(sqlText);
+                    this.socketIo.emit(FrameworkSocketEvents.updateUserData);
+                }
+                finally {
+                    client.release();
+                    console.log("client");
+                }
+            }))().catch(e => console.log(e.stack));
+        }
+        checkForUserID(username) {
+            console.log("checking db for user_id: " + username);
+            const query = {
+                name: 'fetch-user',
+                text: 'SELECT * FROM pockey_table WHERE USER_ID = $1',
+                values: [username]
+            };
+            this.databasePool.query(query)
+                .then(res => {
+                console.log("user retrieved: " + res.rows[0]);
+                if (res.rows[0] == undefined || res.rows[0] == "undefined" || res.rows[0] == null) {
+                    this.createNewUser(username);
+                }
+                else {
+                    this.socketIo.emit(FrameworkSocketEvents.getUserFromDatabase, res.rows[0]);
+                }
+            })
+                .catch(e => {
+                console.error(e.stack);
+            });
+        }
+        createNewUser(username) {
+            console.log("creating new user: " + username);
+            const createNewUserQuery = {
+                name: 'create-new-user',
+                text: 'INSERT INTO pockey_table(user_id) VALUES($1)',
+                values: [username]
+            };
+            this.databasePool.query(createNewUserQuery)
+                .then(res => {
+                this.checkForUserID(username);
+            })
+                .catch(e => {
+                console.error(e.stack);
             });
         }
     }

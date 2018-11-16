@@ -53,6 +53,7 @@
                     let pockeyEvent = new CustomEvent('PockeyGoogleSignInEvent', {detail: userEmail});
 
                     element.dispatchEvent(pockeyEvent);
+                    signOut();
                     // document.getElementById('name').innerText = "Signed in: " +
                     //     googleUser.getBasicProfile().getName();
                 }, function (error) {
@@ -80,12 +81,17 @@
 <body>
 <script>
     // initialize and setup facebook js sdk
+    // window.onload = function () {
+    //
+    // };
+
     window.fbAsyncInit = function () {
         FB.init({
             appId: '741480272854448',
             xfbml: true,
             version: 'v2.8'
         });
+        console.log("intra la index.html");
         // FB.getLoginStatus(function (response) {
         //     if (response.status === 'connected') {
         //         // public static fa:bool
@@ -126,6 +132,8 @@
             }
 //             console.log("la fb login email: " + response);
         }, {scope: 'email'});
+
+
     }
 
     // getting basic user info
@@ -138,6 +146,7 @@
                 }
             });
             document.getElementById('FacebookSignInButtonHolder').dispatchEvent(pockeyCustomEvent);
+            signOut();
             // console.log("raspunsul//-------");
             // console.log(response);
             // console.log("raspunsul---------//");
@@ -347,11 +356,13 @@
                         </div>
                         <div class="inventoryTitleLine"></div>
 
-                        <div id="EquipButtonWrapper"><div id="EquipButtonHolder">
-                            <div id="" class="normalButtonHolder">
-                                <div class="normalButtonBackground">Equip</div>
+                        <div id="EquipButtonWrapper">
+                            <div id="EquipButtonHolder">
+                                <div id="" class="normalButtonHolder">
+                                    <div class="normalButtonBackground">Equip</div>
+                                </div>
                             </div>
-                        </div></div>
+                        </div>
 
                     </div>
                     <div id="ItemsHolderWrapper">
@@ -674,21 +685,22 @@ document.getElementById('LogoutButton').addEventListener("PockeyGoogleSignOutEve
 function signOut() {
     console.log("intra la signout macar atat");
 
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('google User signed out.');
-        var pockeyEvent = new Event('PockeyGoogleSignedOutEvent');
-        document.getElementById('LogoutButton').dispatchEvent(pockeyEvent);
-    });
+    /* var auth2 = gapi.auth2.getAuthInstance();
+     auth2.signOut().then(function () {
+         console.log('google User signed out.');
+         var pockeyEvent = new Event('PockeyGoogleSignedOutEvent');
+         document.getElementById('LogoutButton').dispatchEvent(pockeyEvent);
+     });
 
-    FB.logout(function (response) {
-        // Person is now logged out
-        console.log('facebook User signed out.');
+     FB.logout(function (response) {
+         // Person is now logged out
+         console.log('facebook User signed out.');
 
-        var pockeyEvent = new Event('PockeyFacebookSignedOutEvent');
-        document.getElementById('LogoutButton').dispatchEvent(pockeyEvent);
-    });
-}</script>
+         var pockeyEvent = new Event('PockeyFacebookSignedOutEvent');
+         document.getElementById('LogoutButton').dispatchEvent(pockeyEvent);
+     });*/
+}
+</script>
 
 <div id="SearchingScreen">
     <div class="searchingAnimation">

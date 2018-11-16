@@ -34,7 +34,7 @@ namespace Pockey {
                 ////////////
                 this.loginMenu = document.getElementById("LoginScreen") as HTMLDivElement;
                 this.playGameMenu = new PlayGameMenu();
-                this.hideElement(this.loginMenu);
+//                 this.hideElement(this.loginMenu);
 
                 this.inventoryMenu = new PockeyInventoryMenu();
                 // jQuery(this.loginMenu.id).hide();
@@ -50,7 +50,7 @@ namespace Pockey {
                 // this.hideElement(this.tutorialAndShareButtonsMenu);
 
                 this.inventoryScreen = document.getElementById("InventoryScreen") as HTMLDivElement;
-                // this.hideElement(this.inventoryScreen);
+                this.hideElement(this.inventoryScreen);
 
                 this.mainMenuElementsHolder = document.getElementById("MainMenuElementsHolder") as HTMLDivElement;
 

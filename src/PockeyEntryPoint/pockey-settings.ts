@@ -17,49 +17,111 @@ namespace Pockey {
     import Settings = Framework.Settings;
 
     export interface InventoryVO {
-        id: string,
-        icon: string,
+        id?: string,
+        icon?: string,
         model?: string,
-        category: string,
-        level: number
+        category?: string,
+        level?: number,
+        color?: number
     }
 
     export class PockeySettings {
 
         public static PLAYER_COLOR: number;
-        public static PLAYER_COLOR_ID: number;
-        public static PLAYER_AVATAR_ID: string;
-        public static PLAYER_CUE_ID: string;
-        public static PLAYER_DECAL_ID: string;
-        public static PLAYER_SOCKET_ID: string = "";
-        public static PLAYER_NAME: string = "";
-        public static PLAYER_LEVEL: number = 1;
 
+        public static PLAYER_AVATAR_ID: string;
+        public static PLAYER_SOCKET_ID: string = "";
+        public static PLAYER_NICKNAME: string = "";
+        public static PLAYER_ID: string = "guest";
+        public static PLAYER_LEVEL: number = 1;
         public static OPPONENT_COLOR: number = 0x15D3E9;
+
         public static OPPONENT_SOCKET_ID: string = "";
         public static OPPONENT_NAME: string = "SandruOpponent";
-
         public static DELTA: number = 0.98;
+
         public static BALL_RADIUS: number = 17;
         public static P2_WORLD_STEP: number = 1 / 60;
-
         public static POCKEY_CUSTOM_BACKGROUND_NAME: string = "pockey_custom_background_name";
+
         public static PUCK_COLOR: number = 0xe4b31c;
         public static MIDDLE_TABLE_POS: Vector2;
         public static MIDDLE_TABLE_LEFT_POS: Vector2;
         public static MIDDLE_TABLE_RIGHT_POS: Vector2;
         public static BALLS_NUMBER_FOR_EACH_PLAYER: number = 7;
         public static STICK_MAX_POWER: number = 108;
-
-
         public static LARGE_GOALIES_ARRAY: number[] = [];
+
+
         public static SMALL_GOALIES_ARRAY: number[] = [];
 
-        public static LARGE_MISC_ARRAY: number[] = [];
-        public static SMALL_MISC_ARRAY: number[] = [];
+        public static LARGE_COLORS_ARRAY: InventoryVO[] = [
+            {
+                category: "COLORS",
+                id: "0xe92c5a",
+                color: 0xe92c5a
+            },
+            {
+                category: "COLORS",
+                id: "0x16e0f8",
+                color: 0x16e0f8
+            },
+            {
+                category: "COLORS",
+                id: "0xd6d72a",
+                color: 0xd6d72a
+            },
+            {
+                category: "COLORS",
+                id: "0xc32ce9",
+                color: 0xc32ce9
+            },
+            {
+                category: "COLORS",
+                id: "0x1584f4",
+                color: 0x1584f4
+            },
+            {
+                category: "COLORS",
+                id: "0x15efaf",
+                color: 0x15efaf
+            },
+            {
+                category: "COLORS",
+                id: "0x24a247",
+                color: 0x24a247
+            },
+            {
+                category: "COLORS",
+                id: "0x86b009",
+                color: 0x86b009
+            },
+            {
+                category: "COLORS",
+                id: "0xff8023",
+                color: 0xff8023
+            },
+            {
+                category: "COLORS",
+                id: "0xe82bc3",
+                color: 0xE82BC3
+            }
+        ];
 
-        public static LARGE_COLORS_ARRAY: number[] = [0xe92c5a, 0x16e0f8, 0xd6d72a, 0xc32ce9, 0x1584f4, 0x15efaf, 0x24a247, 0x86b009, 0xff8023, 0xe82bc3,];
-        public static SMALL_COLORS_ARRAY: number[] = [0xe92c5a, 0x16e0f8];
+        public static SMALL_COLORS_ARRAY: InventoryVO[] = [
+            {
+                category: "COLORS",
+                id: "0xe92c5a",
+                color: 0xe92c5a
+            },
+            {
+                category: "COLORS",
+                id: "0x16e0f8",
+                color: 0x16e0f8
+            }
+        ];
+
+        public static PLAYER_COLOR_ID: string = PockeySettings.SMALL_COLORS_ARRAY[0].id;
 
         public static SMALL_DECALS_ARRAY: InventoryVO[] = [
             {
@@ -183,6 +245,8 @@ namespace Pockey {
             },
         ];
 
+        public static PLAYER_DECAL_ID: string = PockeySettings.SMALL_DECALS_ARRAY[0].id;
+
         public static LARGE_AVATARS_ARRAY: InventoryVO[] = [
             {
                 category: "AVATARS",
@@ -286,16 +350,88 @@ namespace Pockey {
         public static SMALL_AVATARS_ARRAY: InventoryVO[] = [
             {
                 category: "AVATARS",
-                id: "guest",
+                id: "avatar_guest",
                 icon: Settings.desktopAssetsPath + "Images/avatar_guest.png",
                 level: 1
             }
         ];
 
+        //////////////////
+        public static LARGE_MISC_ARRAY: InventoryVO[] = [
+            {
+                category: "MISC",
+                id: "feltcolor-blue",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-blue.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-orange",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-orange.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-pink",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-pink.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-purple",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-purple.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-red",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-red.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-silver",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-silver.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-teal",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-teal.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-tope",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-tope.png",
+                level: 1
+            },
+            {
+                category: "MISC",
+                id: "feltcolor-yellow",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-blue.png",
+                level: 1
+            }
+        ];
+
+
+        public static SMALL_MISC_ARRAY: InventoryVO[] = [
+            {
+                category: "MISC",
+                id: "feltcolor-blue",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-blue.png",
+                level: 1
+            }
+        ];
+
+        public static PLAYER_MISC_ID:string = PockeySettings.SMALL_MISC_ARRAY[0].id;
+
+            //////////////////
+
         public static SMALL_CUES_ARRAY: InventoryVO[] = [
             {
                 category: "CUES",
-                id: "icon_stick-default",
+                id: "icon_stick_default",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-default.png",
                 model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_default.png",
                 level: 1
@@ -439,6 +575,9 @@ namespace Pockey {
 
         ];
 
+        public static PLAYER_CUE_ID: string = PockeySettings.SMALL_CUES_ARRAY[0].id;
+
+
         public static ROUND_DURATION_IN_SECONDS: number = 25;
 
         public static MAIN_COLLISION_POLYGON: number[][] = [
@@ -503,6 +642,8 @@ namespace Pockey {
             [1448 - 978, 561 - 12 - 549],
             [1533 - 978, 561 - 12 - 549],
             [1533 - 978, 277 - 12 - 549]];
+
+        public static PLAYER_TOTAL_POINTS: number = 1;
 
 
     }

@@ -272,8 +272,8 @@ var main = function() {
             this.angle = angle;
         }
 
-        static fromServerData(data) {
-            return new PlayerState(Coord.convert(data.pos), data.angle);
+        static fromServerData(column) {
+            return new PlayerState(Coord.convert(column.pos), column.angle);
         }
 
         copy() {
@@ -442,27 +442,27 @@ var main = function() {
                 this.guid.length*4 + 4);
         }
 
-        static fromData(data) {
+        static fromData(column) {
             let playerInfo = new PlayerInfo();
-            playerInfo.userName = data.userName;
-            playerInfo.privilige = data.privilige;
-            playerInfo.rank = data.rank;
-            playerInfo.score = data.score;
-            playerInfo.color = data.color;
-            playerInfo.maxWinStreak = data.maxWinStreak;
-            playerInfo.maxLoseStreak = data.maxLoseStreak;
-            playerInfo.playTime = data.playTime;
-            playerInfo.avatar = data.avatar;
-            playerInfo.wins = data.wins;
-            playerInfo.losses = data.losses;
-            playerInfo.fouls = data.fouls;
-            playerInfo.stick = data.stick;
-            playerInfo.decal = data.decal;
-            playerInfo.felt = data.felt;
-            playerInfo.registered = data.registered;
-            playerInfo.lastLogin = data.lastLogin;
-            playerInfo.country = data.country;
-            playerInfo.guid = data.guid;
+            playerInfo.userName = column.userName;
+            playerInfo.privilige = column.privilige;
+            playerInfo.rank = column.rank;
+            playerInfo.score = column.score;
+            playerInfo.color = column.color;
+            playerInfo.maxWinStreak = column.maxWinStreak;
+            playerInfo.maxLoseStreak = column.maxLoseStreak;
+            playerInfo.playTime = column.playTime;
+            playerInfo.avatar = column.avatar;
+            playerInfo.wins = column.wins;
+            playerInfo.losses = column.losses;
+            playerInfo.fouls = column.fouls;
+            playerInfo.stick = column.stick;
+            playerInfo.decal = column.decal;
+            playerInfo.felt = column.felt;
+            playerInfo.registered = column.registered;
+            playerInfo.lastLogin = column.lastLogin;
+            playerInfo.country = column.country;
+            playerInfo.guid = column.guid;
             return playerInfo;
         }
 
@@ -787,12 +787,12 @@ var main = function() {
             request.responseType = "arraybuffer";
 
             request.onload = () => {
-                // Asynchronously decode the audio file data in request.response
+                // Asynchronously decode the audio file column in request.response
                 this.context.decodeAudioData(
                     request.response,
                     (buffer) => {
                         if (!buffer) {
-                            alert('error decoding file data: ' + sound.url);
+                            alert('error decoding file column: ' + sound.url);
                             return;
                         }
                         sound.buffer = buffer;
@@ -2172,38 +2172,38 @@ var main = function() {
 
 
         getItemInfo(item) {
-            let data = {};
-            data.iconFilename = "assets/itemicon_stick-ph.png";
-            data.equipped = false;
-            data.rarity = getRarityName(item.rarity);
-            data.rarityColor = getRarityColor(item.rarity);
+            let column = {};
+            column.iconFilename = "assets/itemicon_stick-ph.png";
+            column.equipped = false;
+            column.rarity = getRarityName(item.rarity);
+            column.rarityColor = getRarityColor(item.rarity);
             if (item.type == "avatar") {
                 if (game.self.playerInfo.avatar == item.id) {
-                    data.equipped = true;
+                    column.equipped = true;
                 }
-                data.iconFilename = "assets/avatars/"+item.fileName;
+                column.iconFilename = "assets/avatars/"+item.fileName;
             } else if (item.type == "color") {
                 if (game.self.playerInfo.color == item.id) {
-                    data.equipped = true;
+                    column.equipped = true;
                 }
             } else if (item.type == "stick") {
                 if (game.self.playerInfo.stick == item.id) {
-                    data.equipped = true;
+                    column.equipped = true;
                 }
-                data.iconFilename = "assets/itemicons/"+item.fileName;
+                column.iconFilename = "assets/itemicons/"+item.fileName;
             } else if (item.type == "decal") {
                 if (game.self.playerInfo.decal == item.id) {
-                    data.equipped = true;
+                    column.equipped = true;
                 }
-                data.iconFilename = "assets/itemdecal.png";
+                column.iconFilename = "assets/itemdecal.png";
             } else if (item.type == "felt") {
                 if (game.self.playerInfo.felt == item.id) {
-                    data.equipped = true;
+                    column.equipped = true;
                 }
-                data.iconFilename = "assets/itemicons/felt"+item.id+".png";
+                column.iconFilename = "assets/itemicons/felt"+item.id+".png";
             }
 
-            return data;
+            return column;
         }
 
 
@@ -2805,7 +2805,7 @@ var main = function() {
         get size() {
             let size = 1;
             switch(this.eventType) {
-                case MatchEventTypes.NewMatch: size += this.sizeNewMatch(); break;//data.playerInfo1.size + data.playerInfo2.size;
+                case MatchEventTypes.NewMatch: size += this.sizeNewMatch(); break;//column.playerInfo1.size + column.playerInfo2.size;
                 case MatchEventTypes.HealthUpdate: size += this.sizeHealthUpdate(); break;
                 case MatchEventTypes.ShooterIndex: size += this.sizeShooterIndex(); break;
                 case MatchEventTypes.BallEvent: size += this.sizeBallEvent(); break;
@@ -4309,7 +4309,7 @@ var main = function() {
                 this.touchShoot = true;
             });
             this.table.touchStickContainer.on('pointermove', (event) => {
-                this.mouse.moveTarget(event.data.global.x, event.data.global.y);
+                this.mouse.moveTarget(event.column.global.x, event.column.global.y);
             });
             this.table.touchStickContainer.on('pointerup', (event) => {
                 this.touchShoot = false;
@@ -4317,9 +4317,9 @@ var main = function() {
 
             this.table.table.interactive = true;
             this.table.table.on('pointerdown', (event) => {
-                this.mouse.moveTarget(event.data.global.x - 30, event.data.global.y);
+                this.mouse.moveTarget(event.column.global.x - 30, event.column.global.y);
                 if (this.table.state == MatchStates.aim && this.shooter && window.mobileAndTabletcheck()) {
-                    let modelCoord = this.mouse.screenToModel(event.data.global);
+                    let modelCoord = this.mouse.screenToModel(event.column.global);
                     let angle = modelCoord.sub(this.table.white.position).angle();
                     this.touchAim = {
                         stickStart: this.table.stickAngle,
@@ -4329,7 +4329,7 @@ var main = function() {
                 }
             });
             this.table.table.on('pointermove', (event) => {
-                this.mouse.moveTarget(event.data.global.x - 30, event.data.global.y);
+                this.mouse.moveTarget(event.column.global.x - 30, event.column.global.y);
             });
             this.table.table.on('pointerup', (event) => {
                 delete this.touchAim;
@@ -4381,7 +4381,7 @@ var main = function() {
                 twttr.widgets.load();
 
                 twttr.events.bind('follow', (event) => {
-                    var followedScreenName = event.data.screen_name;
+                    var followedScreenName = event.column.screen_name;
                     if (followedScreenName == "starcadeio")
                         this.sendCustomCode("twfollow");
                 });
@@ -4431,10 +4431,10 @@ var main = function() {
         var effects = [];
         this.assetManager.texts.forEach(file => {
             if (file.name.startsWith('effects') && file.name.endsWith('json')) {
-                let data = JSON.parse(file.text);
-                for (let path in data.frames) {
+                let column = JSON.parse(file.text);
+                for (let path in column.frames) {
                     let parts = path.split('/');
-                    let frame = data.frames[path];
+                    let frame = column.frames[path];
                     let name = parts[0];
                     frame.index = parts[1].substring(name.length + 1, name.length + 1 + 2);
                     var effect = effects.find(e => e.name == name);
@@ -4453,7 +4453,7 @@ var main = function() {
                     frame.uvY1 = (frame.frame.y+effect.height)/2048.0;
                     effect.frames.push(frame);
                 }
-                //this.effects[name].push({ frame: data.frames[path], index: index, path: path });
+                //this.effects[name].push({ frame: column.frames[path], index: index, path: path });
             }
         });
 
@@ -4552,16 +4552,16 @@ var main = function() {
 
                         if (!this.client_logged_in) {
                             var userName = document.getElementById("login_name").value.trim();
-                            let data = {
+                            let column = {
                                 userName: userName,
                                 color: game.self.playerInfo.color,
                                 avatar: game.self.playerInfo.avatar
                             }
                             if (this.inviteId) {
-                                data.inviteId = game.inviteId;
+                                column.inviteId = game.inviteId;
                             }
                             if (this.portalsocket && this.portalsocket.connected)
-                                this.portalsocket.emit("enterAttempt", data);
+                                this.portalsocket.emit("enterAttempt", column);
                         } else {
                             game.requestNewMatch();
                         }
@@ -4648,11 +4648,11 @@ var main = function() {
             }
         }
 
-        client_loginSuccess(data) {
-            document.getElementById("login_name").value = data.playerInfo.userName;
-            this.self.playerInfo = PlayerInfo.fromData(data.playerInfo);
-            this.inventory = data.inventory;
-            this.coins = data.coins;
+        client_loginSuccess(column) {
+            document.getElementById("login_name").value = column.playerInfo.userName;
+            this.self.playerInfo = PlayerInfo.fromData(column.playerInfo);
+            this.inventory = column.inventory;
+            this.coins = column.coins;
             this.customizer.playerInfoUpdated();
             this.gui.inventoryScreen.inventoryPage = 0;
             this.gui.inventoryScreen.setup();
@@ -4743,12 +4743,12 @@ var main = function() {
         }
 
 
-        client_enterSuccess(data) {
+        client_enterSuccess(column) {
             this.client_logged_in = true;
-            this.self.playerInfo = PlayerInfo.fromData(data.playerInfo);
+            this.self.playerInfo = PlayerInfo.fromData(column.playerInfo);
             this.changeStick(this.self.playerInfo);
             this.changeTable(this.self.playerInfo);
-            this.sessionId = data.sessionId;
+            this.sessionId = column.sessionId;
             if (this.inviteId){
                 delete this.inviteId;
             }
@@ -5269,7 +5269,7 @@ var main = function() {
             this.refreshLoginScreen();
         }
 
-        client_ondisconnect(data) {
+        client_ondisconnect(column) {
             this.self.online = false;
             this.self.alive = false;
             this.client_logged_in = false;
@@ -5286,13 +5286,13 @@ var main = function() {
 //		document.getElementById("chatcontainer").style.display = 'none';
         }
 
-        client_onping(data) {
-            this.net_ping = Date.now() - parseFloat(data);
+        client_onping(column) {
+            this.net_ping = Date.now() - parseFloat(column);
             this.net_latency = this.net_ping / 2;
         }
 
-        client_onnetmessage(data) {
-            var commands = data.split('.', 3);
+        client_onnetmessage(column) {
+            var commands = column.split('.', 3);
             var command = commands[0];
             var subcommand = commands[1] || null;
             var commanddata = commands[2] || null;
@@ -5342,20 +5342,20 @@ var main = function() {
             game.chatSystem.addAnnouncement(message);
         }
 
-        client_selfInfo(data) {
-            game.self.playerInfo = data;
+        client_selfInfo(column) {
+            game.self.playerInfo = column;
             game.customizer.playerInfoUpdated();
             this.gui.inventoryScreen.setup();
         }
 
-        client_inventory(data) {
-            game.inventory = data;
+        client_inventory(column) {
+            game.inventory = column;
             game.customizer.playerInfoUpdated();
             this.gui.inventoryScreen.setup();
         }
 
-        client_itemReceived(data) {
-            let item = this.items.find(i => i.itemGuid == data);
+        client_itemReceived(column) {
+            let item = this.items.find(i => i.itemGuid == column);
             if (item) {
                 this.gui.notificator.itemReceived(item);
             }
@@ -5425,9 +5425,9 @@ var main = function() {
             this.updateItems(items);
         }
 
-        client_globalInfoResp(data) {
+        client_globalInfoResp(column) {
             if (this.globalInfoRespFunc) {
-                this.globalInfoRespFunc(data);
+                this.globalInfoRespFunc(column);
             }
         }
 
@@ -5436,22 +5436,22 @@ var main = function() {
             this.gui.setupInviteScreen(inviteId);
         }
 
-        client_matchStarted(data) {
-            this.startingMatchData = data;
-            this.client_connect_to_server(data.address);
+        client_matchStarted(column) {
+            this.startingMatchData = column;
+            this.client_connect_to_server(column.address);
         }
 
 
-        client_onconnected(data) {
-            this.self.clientId = data.clientId;
+        client_onconnected(column) {
+            this.self.clientId = column.clientId;
             this.self.state = 'connected';
             this.self.online = true;
             if (this.startingMatchData) {
-                let data = {
+                let column = {
                     matchId: this.startingMatchData.matchId,
                     sessionId: this.sessionId
                 }
-                this.socket.emit('joinMatch', data);
+                this.socket.emit('joinMatch', column);
                 delete this.startingMatchData;
             }
         }
@@ -5571,8 +5571,8 @@ var main = function() {
                 let row = this.createLeaderboardRow(127, game.self.playerInfo, true, "placement");
                 list.appendChild(row);
                 row.style.marginTop = "10px";
-                game.requestGlobalInfo(game.self.playerInfo.guid,  (data) => {
-                    document.getElementById("placement").innerHTML = ordinalSuffix(data.globalPlacement);
+                game.requestGlobalInfo(game.self.playerInfo.guid,  (column) => {
+                    document.getElementById("placement").innerHTML = ordinalSuffix(column.globalPlacement);
                 });
             } else if (game.self.playerInfo && game.self.playerInfo.rank == 0)  {
                 let row = document.createElement("div");
@@ -5731,15 +5731,15 @@ var main = function() {
     function loadAnimationFrames(resources, renderer) {
         for (let resource in resources) {
             if (resource.startsWith('assets/images/effects') && resource.endsWith('json')) {
-                let data = resources[resource].data;
-                for (let path in data.frames) {
+                let column = resources[resource].column;
+                for (let path in column.frames) {
                     let parts = path.split('/');
                     let name = parts[0];
                     let index = parts[1].substring(name.length + 1, name.length + 1 + 2);
                     if (!animationFrames[name]) {
                         animationFrames[name] = [];
                     }
-                    animationFrames[name].push({ frame: data.frames[path], index: index, path: path });
+                    animationFrames[name].push({ frame: column.frames[path], index: index, path: path });
                 }
             }
         }

@@ -231,7 +231,7 @@ declare module SocketIO {
 		 * @param event The event that we want to emit
 		 * @param args Any number of optional arguments to pass with the event. If the
 		 * last argument is a function, it will be called as an ack. The ack should
-		 * take whatever data was sent with the packet
+		 * take whatever column was sent with the packet
 		 * @return The default '/' Namespace
 		 */
 		emit( event: string, ...args: any[]): Namespace;
@@ -329,7 +329,7 @@ declare module SocketIO {
 		/**
 		 * Parameters of the http compression for the polling transports (see zlib).
 		 * Set to false to disable, or set an object with parameter "threshold:number"
-		 * to only compress data if the byte size is above this value (1024) (engine.io)
+		 * to only compress column if the byte size is above this value (1024) (engine.io)
 		 * @default true|1024
 		 */
 		httpCompression?: Object|boolean;
@@ -591,7 +591,7 @@ declare module SocketIO {
 		 * @param event The event that we want to emit
 		 * @param args Any number of optional arguments to pass with the event. If the
 		 * last argument is a function, it will be called as an ack. The ack should
-		 * take whatever data was sent with the packet
+		 * take whatever column was sent with the packet
 		 * @return This Socket
 		 */
 		emit( event: string, ...args: any[]): Socket;

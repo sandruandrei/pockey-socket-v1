@@ -7,8 +7,10 @@ namespace Framework {
     export module Connection {
         import SignalsManager = Framework.Signals.SignalsManager;
         import ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
+        import PockeySettings = Pockey.PockeySettings;
 
         export class SocketClient {
+            protected socket: any;
             protected searchingSocket: any;
             protected playingSocket: any;
             protected lookingForPartner: boolean = false;
@@ -17,8 +19,31 @@ namespace Framework {
             protected connectionID: string;
             public socketConnectionCreated: boolean = false;
 
-            public initializeClientSockets(): void {
-                this.initializeSearchingSocket();
+            public initializeClientSocket(onSocketInitialiazed: Function): void {
+                this.socket = io();
+                this.socket.on('connect', () => {
+                    onSocketInitialiazed();
+                    /* */
+                    /* console.log("%c socket client connected", "background: #ff9900; color: black; font-weight:bold; ");*/
+                });
+
+
+                // this.initializeSearchingSocket();
+            }
+
+            public getUserFromDataBase(username: string, callback:Function): void {
+                this.socket.on(FrameworkSocketEvents.getUserFromDatabase, (usernameData: JSON) => {
+                    callback(usernameData);
+                });
+                this.socket.emit(FrameworkSocketEvents.getUserFromDatabase, username);
+            }
+
+            public updateUserData( dbObject:DatabaseObject, callback:Function): void {
+                this.socket.on(FrameworkSocketEvents.updateUserData, (data) => {
+                    callback(data);
+                });
+                this.socket.emit(FrameworkSocketEvents.updateUserData, dbObject);
+                console.log("intra la socket client updateUserData");
             }
 
             protected initializeSearchingSocket(): void {
@@ -92,8 +117,8 @@ namespace Framework {
 
                             SignalsManager.DispatchSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED, [this.myID, this.partnerID, this.connectionID]);
                             this.playingSocket.emit(FrameworkSocketEvents.privateMessage, this.connectionID, FrameworkSocketMessages.HELLO);
-
                         }
+
                         break;
                     }
                 }

@@ -231,7 +231,7 @@ declare module SocketIOClient {
 		 * 
 		 * If the last argument is a function, then it will be called
 		 * as an 'ack' when the response is received. The parameter(s) of the
-		 * ack will be whatever data is returned from the event
+		 * ack will be whatever column is returned from the event
 		 * @param event The event that we're emitting
 		 * @param args Optional arguments to send with the event
 		 * @return This Socket

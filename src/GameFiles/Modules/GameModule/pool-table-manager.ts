@@ -823,7 +823,7 @@ namespace Pockey {
 
                     }
 
-                    // console.log("pool table data: " + poolTableData);
+                    // console.log("pool table column: " + poolTableData);
                     this.poolTable.poolStick.x = poolTableData.poolstickPositionX;
                     this.poolTable.poolStick.y = poolTableData.poolstickPositionY;
                     this.poolTable.poolStick.rotation = poolTableData.poolstickRotation;

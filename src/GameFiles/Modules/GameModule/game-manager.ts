@@ -246,7 +246,7 @@ namespace Pockey {
                 poolTableData.opponentState = PockeyStateMachine.Instance().fsm.currentState;
 
                 poolTableData.opponentTimerText = this.timerText;
-                // console.log("timerText la send data: " + this.timerText);
+                // console.log("timerText la send column: " + this.timerText);
 
                 poolTableData.opponentTimerAnimate = this.animateOpponentTimer;
                 if (this.countdownEnded) {

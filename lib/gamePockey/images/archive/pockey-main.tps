@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data version="1.0">
+<column version="1.0">
     <struct type="Settings">
         <key>fileFormatVersion</key>
         <int>4</int>
@@ -147,7 +147,7 @@
         </struct>
         <key>dataFileNames</key>
         <map type="GFileNameMap">
-            <key>data</key>
+            <key>column</key>
             <struct type="DataFile">
                 <key>name</key>
                 <filename>pockey/images/pockey-main.json</filename>
@@ -384,4 +384,4 @@
         <key>exporterProperties</key>
         <map type="ExporterProperties"/>
     </struct>
-</data>
+</column>

@@ -2519,15 +2519,15 @@ declare module "../index" {
          * @example
          *
          * var users = {
-         *   'data': [{ 'user': 'barney' }, { 'user': 'fred' }]
+         *   'column': [{ 'user': 'barney' }, { 'user': 'fred' }]
          * };
          *
          * var ages = {
-         *   'data': [{ 'age': 36 }, { 'age': 40 }]
+         *   'column': [{ 'age': 36 }, { 'age': 40 }]
          * };
          *
          * _.merge(users, ages);
-         * // => { 'data': [{ 'user': 'barney', 'age': 36 }, { 'user': 'fred', 'age': 40 }] }
+         * // => { 'column': [{ 'user': 'barney', 'age': 36 }, { 'user': 'fred', 'age': 40 }] }
          */
         merge<TObject, TSource>(
             object: TObject,

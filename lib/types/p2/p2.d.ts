@@ -124,7 +124,7 @@ declare namespace p2 {
     // }
     //
     // /!**
-    //  * Reset all result data. Must be done before re-using the result object.
+    //  * Reset all result column. Must be done before re-using the result object.
     //  * @method reset
     //  *!/
 

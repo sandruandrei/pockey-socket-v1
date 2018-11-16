@@ -1,6 +1,7 @@
 ///<reference path="inventory-button.ts"/>
 ///<reference path="inventory-box.ts"/>
 ///<reference path="inventory-items-holder-buttons.ts"/>
+///<reference path="../../../../../Framework/Signals/signal-types.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -18,6 +19,9 @@ namespace Pockey {
         import InventoryVO = Pockey.InventoryVO;
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        import DatabaseConnector = Framework.Connection.DatabaseConnector;
+        import DatabaseObject = Framework.Connection.DatabaseObject;
+        import SignalsType = Framework.Signals.SignalsType;
 
         export class PockeyInventoryMenu {
             private inventoryButtonsHolder: HTMLDivElement;
@@ -53,6 +57,24 @@ namespace Pockey {
 
                 SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.INVENTORY_ITEM_UPDATED, this.onInventoryItemUpdated.bind(this));
+                SignalsManager.AddSignalCallback(SignalsType.ALL_MODULES_ELEMENTS_CREATED, this.onAllModulesElementsCreated.bind(this));
+            }
+
+            private onAllModulesElementsCreated(): void {
+                for (let i = this.inventoryButtons.length; i--; i >= 0) {
+                    this.inventoryButtons[i].activate();
+                }
+
+                // this.moveHolderToOffset(0, true);
+            }
+
+            private onInventoryItemUpdated(params: string[]): void {
+                // if(params[0] == "true")
+                // {
+                //     return;
+                // }
+                this.updateBoxes(this.itemsArray);
             }
 
             private onPlayerSignedIn(): void {
@@ -64,7 +86,11 @@ namespace Pockey {
             private onPlayerSignedOut(): void {
                 _.forEach(this.inventoryButtons, (button: InventoryButton) => {
                     button.onSignedOut();
-                })
+                });
+
+                this.updateBoxes(this.itemsArray);
+
+                this.moveHolderToOffset(0, true);
             }
 
             private handleItemDescriptionPanel(): void {
@@ -106,7 +132,7 @@ namespace Pockey {
 
                 TweenMax.delayedCall(0.5, () => {
                     if (this.columnWidth == 0) {
-                        this.columnWidth = this.boxesHolder.offsetWidth / this.boxesHolder.children.length;
+                        this.columnWidth = this.boxesHolder.scrollWidth / this.boxesHolder.children.length;
                     }
                 });
 
@@ -114,10 +140,13 @@ namespace Pockey {
                 // holderWidth = holderWidth.replace("px", "");
 
 
-                console.log("curr col index: " + this.currentColumnIndex);
+                //console.log("curr col index: " + this.currentColumnIndex);
             }
 
             private showCategory(category: InventoryVO[]): void {
+                if (this.columnWidth == 0) {
+                    this.columnWidth = this.boxesHolder.scrollWidth / this.boxesHolder.children.length;
+                }
 
                 _.forEach(category, (inventoryVO: InventoryVO, counter) => {
                     _.remove(this.itemsArray, (item: InventoryVO) => {
@@ -157,6 +186,7 @@ namespace Pockey {
 
 
                 let columnIndex = this.getNewColumnIndexOnShow(category[0].category);
+
                 let newOffset: number = columnIndex * this.columnWidth;
                 this.moveHolderToOffset(newOffset);
                 /*
@@ -341,17 +371,16 @@ namespace Pockey {
                 // this.handleArrowBtn(this.nextColumnBtn);
                 this.nextColumnBtn.button.onclick = () => {
                     if (this.nextColumnBtn.button.getAttribute("isActive") == "true") {
-                        // if (this.columnWidth == 0) {
-                        //     this.columnWidth = this.boxesHolder.scrollWidth / this.boxesHolder.children.length;
-                        // }
-                        let currentRight: string = this.boxesHolder.style.right;
-                        currentRight = currentRight.replace("px", "");
+                        if (this.columnWidth == 0) {
+                            this.columnWidth = this.boxesHolder.scrollWidth / this.boxesHolder.children.length;
+                        }
+                        let currentRightPos: string = this.boxesHolder.style.right;
+                        currentRightPos = currentRightPos.replace("px", "");
 
-                        let newOffset: number = +currentRight + this.columnWidth * 2;
+                        let newOffset: number = +currentRightPos + this.columnWidth * 2;
 
                         this.moveHolderToOffset(newOffset);
                     }
-
 
                 };
 
@@ -359,13 +388,13 @@ namespace Pockey {
                 // this.handleArrowBtn(this.prevColumnBtn);
                 this.prevColumnBtn.button.onclick = () => {
                     if (this.prevColumnBtn.button.getAttribute("isActive") == "true") {
-                        // if (this.columnWidth == 0) {
-                        //     this.columnWidth = this.boxesHolder.scrollWidth / this.boxesHolder.children.length;
-                        // }
-                        let currentRight: string = this.boxesHolder.style.right;
-                        currentRight = currentRight.replace("px", "");
+                        if (this.columnWidth == 0) {
+                            this.columnWidth = this.boxesHolder.scrollWidth / this.boxesHolder.children.length;
+                        }
+                        let currentRightPos: string = this.boxesHolder.style.right;
+                        currentRightPos = currentRightPos.replace("px", "");
 
-                        let newOffset: number = +currentRight - this.columnWidth * 2;
+                        let newOffset: number = +currentRightPos - this.columnWidth * 2;
                         this.moveHolderToOffset(newOffset);
                     }
 
@@ -381,9 +410,13 @@ namespace Pockey {
                         let inventoryButton: InventoryButton = new InventoryButton(button, this.showCategory.bind(this), this.hideCategory.bind(this));
                         this.inventoryButtons.push(inventoryButton);
 
-
                     }
                 });
+
+                //todo la start game signals callback si abia atunci sa dai show category
+                // this.showCategory(this.inventoryButtons[0].categoryElements);
+                // this.updateBoxes(this.itemsArray)
+
 
                 this.equipBtn = document.getElementById("EquipButtonHolder") as HTMLDivElement;
                 this.equipBtn.style.opacity = "0.5";
@@ -391,25 +424,114 @@ namespace Pockey {
 
                 this.equipBtn.onclick = () => {
                     if (this.equipBtn.getAttribute("enabled") == "true") {
-                        let clicked: string = (this.equipBtn.getAttribute('clicked') == "true") ? "false" : "true";
-                        this.equipBtn.setAttribute('clicked', clicked);
+                        // let clicked: string = (this.equipBtn.getAttribute('clicked') == "true") ? "false" : "true";
+                        // this.equipBtn.setAttribute('clicked', clicked);
 
-                        console.log("equip: " + this.equipBtn.getAttribute('clicked'));
+                        // if(this.equipBtn.getAttribute('clicked') == "true")
+                        // {
+                        // this.currentActiveItem
+                        switch (this.currentActiveItem.category) {
+
+                            case "AVATARS": {
+                                // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY)
+                                // if (PockeySettings.PLAYER_AVATAR_ID != this.currentActiveItem.id) {
+                                //     this.enableEquipBtn();
+                                // }
+                                // else {
+                                //     this.disableEquipBtn();
+                                // }
+                                PockeySettings.PLAYER_AVATAR_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
+                                this.checkIfCurrentItemCanBeUsed();
+                                let dbObject: DatabaseObject = {
+                                    userID: PockeySettings.PLAYER_ID,
+                                    column: "avatar",
+                                    value: PockeySettings.PLAYER_AVATAR_ID
+                                };
+                                DatabaseConnector.updateUserData(dbObject, null);
+                                return;
+                            }
+                            case "CUES": {
+                                // if (PockeySettings.PLAYER_CUE_ID != this.currentActiveItem.id) {
+                                //     this.enableEquipBtn();
+                                // }
+                                // else {
+                                //     this.disableEquipBtn();
+                                // }
+                                PockeySettings.PLAYER_CUE_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
+                                this.checkIfCurrentItemCanBeUsed();
+                                let dbObject: DatabaseObject = {
+                                    userID: PockeySettings.PLAYER_ID,
+                                    column: "stick",
+                                    value: PockeySettings.PLAYER_CUE_ID
+                                };
+                                DatabaseConnector.updateUserData(dbObject, null);
+
+                                return;
+                            }
+                            case "DECALS": {
+                                // if (PockeySettings.PLAYER_DECAL_ID != this.currentActiveItem.id) {
+                                //     this.enableEquipBtn();
+                                // }
+                                // else {
+                                //     this.disableEquipBtn();
+                                // }
+                                PockeySettings.PLAYER_DECAL_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
+                                this.checkIfCurrentItemCanBeUsed();
+                                let dbObject: DatabaseObject = {
+                                    userID: PockeySettings.PLAYER_ID,
+                                    column: "decal",
+                                    value: PockeySettings.PLAYER_DECAL_ID
+                                };
+                                DatabaseConnector.updateUserData(dbObject, null);
+                                return;
+                            }
+                            case "GOALIES": {
+                                return;
+                            }
+                            case "MISC": {
+                                /*PockeySettings.PLAYER_DECAL_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);*/
+                                this.checkIfCurrentItemCanBeUsed();
+                                /*let dbObject: DatabaseObject = {
+                                    userID: PockeySettings.PLAYER_ID,
+                                    column: "decal",
+                                    value: PockeySettings.PLAYER_DECAL_ID
+                                };
+                                DatabaseConnector.updateUserData(dbObject, null);*/
+                                return;
+                            }
+                        }
                     }
+                    /*else
+                    {
+
+                    }*/
+                    console.log("equip: " + this.equipBtn.getAttribute('clicked'));
+                    // }
 
                 }
             }
 
             private moveHolderToOffset(offset: number, fast?: boolean): void {
                 this.offsetLimit = this.boxesHolder.offsetWidth;
+                // this.prevColumnBtn.enable();
+                // this.prevColumnBtn.enable();
 
-                if (offset >= this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth) {
+                if (offset > this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth) {
+                    console.log("cazul 1: " + offset, this.boxesHolder.scrollWidth, this.boxesHolder.offsetWidth);
+
                     offset = this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth;
-                    this.boxesHolderWrapper.classList.remove("inventoryMask");
-                    this.boxesHolderWrapper.classList.remove("inventoryRightSideMask");
-                    this.boxesHolderWrapper.classList.add("inventoryLeftSideMask");
-                    this.nextColumnBtn.disable();
-                    this.prevColumnBtn.enable();
+                    if (offset != 0) {
+                        this.boxesHolderWrapper.classList.remove("inventoryMask");
+                        this.boxesHolderWrapper.classList.remove("inventoryRightSideMask");
+                        this.boxesHolderWrapper.classList.add("inventoryLeftSideMask");
+                        this.nextColumnBtn.disable();
+                        this.prevColumnBtn.enable();
+                    }
+
 
                     // this.disableArrow(this.nextColumnBtn);
                     // this.nextColumnBtn.classList.add("disabledInventoryBtn");
@@ -423,6 +545,8 @@ namespace Pockey {
                     this.nextColumnBtn.enable();
                     this.prevColumnBtn.disable();
 
+                    console.log("cazul 2");
+
                     // this.nextColumnBtn.classList.remove("disabledInventoryBtn");
                     // this.prevColumnBtn.classList.add("disabledInventoryBtn");
                 }
@@ -432,6 +556,8 @@ namespace Pockey {
                     this.boxesHolderWrapper.classList.add("inventoryMask");
                     this.nextColumnBtn.enable();
                     this.prevColumnBtn.enable();
+
+                    console.log("cazul 3");
 
                     // this.nextColumnBtn.classList.remove("disabledInventoryBtn");
                     // this.prevColumnBtn.classList.remove("disabledInventoryBtn");
@@ -565,9 +691,18 @@ namespace Pockey {
                         return;
                     }
                     case "GOALIES": {
+
                         return;
                     }
                     case "MISC": {
+                        /*
+                        if (PockeySettings.PLAYER_DECAL_ID != this.currentActiveItem.id) {
+                            this.enableEquipBtn();
+                        }
+                        else {
+                            this.disableEquipBtn();
+                        }
+                        */
                         return;
                     }
                 }
