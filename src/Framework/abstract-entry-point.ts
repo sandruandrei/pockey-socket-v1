@@ -318,7 +318,7 @@ namespace Framework {
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
             /*SignalsManager.CreateNewSignal(SignalsType.REGISTER_MAIN_BACKGROUND);
             SignalsManager.CreateNewSignal(SignalsType.REGISTER_CUSTOM_BACKGROUND);*/
-            SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SOCKET_IO_CONNECTION);
+            SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_DISCONNECTED);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.PRIVATE_MESSAGE);

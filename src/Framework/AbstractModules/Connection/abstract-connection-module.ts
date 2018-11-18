@@ -47,11 +47,16 @@ namespace Framework {
             protected registerSignalsHandlers(): void {
                 super.registerSignalsHandlers();
                 if (!Settings.singlePlayer) {
-                    /*SignalsManager.AddSignalCallback(ConnectionSignalsType.CREATE_SOCKET_IO_CONNECTION, this.onCreateSocketIoConnection.bind(this));*/
+                    SignalsManager.AddSignalCallback(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION, this.onCreateSearchForPartnerConnection.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_DISCONNECTED, this.onSocketIoDisconnected.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.PRIVATE_MESSAGE, this.onPrivateMessage.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.UPDATE_SOCKET_ID, this.onUpdateSocketID.bind(this));
                 }
+            }
+
+            protected onCreateSearchForPartnerConnection():void
+            {
+                this.socketClient.initializeSearchingSocket();
             }
 
             protected onUpdateSocketID(params: any[]): void {

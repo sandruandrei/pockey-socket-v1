@@ -354,7 +354,7 @@ namespace Pockey {
                 else {
                     PockeyStateMachine.Instance().changeState(PockeyStates.onSearchForPartner);
                     SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_SEARCHING_SCREEN);
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.CREATE_SOCKET_IO_CONNECTION);
+                    SignalsManager.DispatchSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
                 }
 
             }

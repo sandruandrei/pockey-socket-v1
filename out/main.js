@@ -312,7 +312,7 @@ var Framework;
         Signals.SignalsType = SignalsType;
         class ConnectionSignalsType {
         }
-        ConnectionSignalsType.CREATE_SOCKET_IO_CONNECTION = "ConnectionSignalsType." + 'CREATE_SOCKET_IO_CONNECTION';
+        ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION = "ConnectionSignalsType." + 'CREATE_SEARCH_FOR_PARTNER_CONNECTION';
         ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED = "ConnectionSignalsType." + 'SOCKET_IO_CONNECTION_CREATED';
         ConnectionSignalsType.SOCKET_IO_DISCONNECTED = "ConnectionSignalsType." + "SOCKET_IO_DISCONNECTED";
         ConnectionSignalsType.PRIVATE_MESSAGE = "ConnectionSignalsType." + "PRIVATE_MESSAGE";
@@ -1831,6 +1831,7 @@ var Framework;
             }
             initializeClientSocket(onSocketInitialiazed) {
                 this.socket = io();
+                this.socket.binaryType = "blob";
                 this.socket.on('connect', () => {
                     onSocketInitialiazed();
                 });
@@ -1965,10 +1966,14 @@ var Framework;
             registerSignalsHandlers() {
                 super.registerSignalsHandlers();
                 if (!Framework.Settings.singlePlayer) {
+                    SignalsManager.AddSignalCallback(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION, this.onCreateSearchForPartnerConnection.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_DISCONNECTED, this.onSocketIoDisconnected.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.PRIVATE_MESSAGE, this.onPrivateMessage.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.UPDATE_SOCKET_ID, this.onUpdateSocketID.bind(this));
                 }
+            }
+            onCreateSearchForPartnerConnection() {
+                this.socketClient.initializeSearchingSocket();
             }
             onUpdateSocketID(params) {
                 Framework.Settings.socketID = params[0];
@@ -2198,7 +2203,7 @@ var Framework;
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.WINDOW_RESIZE);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
-            SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SOCKET_IO_CONNECTION);
+            SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_DISCONNECTED);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.PRIVATE_MESSAGE);
@@ -4831,7 +4836,7 @@ var Pockey;
                 else {
                     PockeyStateMachine.Instance().changeState(PockeyStates.onSearchForPartner);
                     SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_SEARCHING_SCREEN);
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.CREATE_SOCKET_IO_CONNECTION);
+                    SignalsManager.DispatchSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
                 }
             }
             onWatch(params) {

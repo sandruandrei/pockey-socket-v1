@@ -87,10 +87,13 @@ var PockeyServer;
             this.socketIo = socketIO();
             this.socketIo.serveClient(true);
             this.socketIo.attach(this.httpServer);
+            let connectCounter = 0;
             this.socketIo.on('connection', (socket) => {
-                console.log('a user connected');
+                connectCounter++;
+                console.log('a user connected. users connected: ' + connectCounter);
                 socket.on('disconnect', function () {
-                    console.log('user disconnected');
+                    connectCounter--;
+                    console.log('a user left. users connected: ' + connectCounter);
                 });
                 socket.on(FrameworkSocketEvents.getUserFromDatabase, (username) => {
                     console.log('someone wants some db in');

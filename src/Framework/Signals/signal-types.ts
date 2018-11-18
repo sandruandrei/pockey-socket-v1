@@ -22,7 +22,7 @@ namespace Framework {
         }
 
         export class ConnectionSignalsType {
-            public static CREATE_SOCKET_IO_CONNECTION: string = "ConnectionSignalsType." + 'CREATE_SOCKET_IO_CONNECTION';
+            public static CREATE_SEARCH_FOR_PARTNER_CONNECTION: string = "ConnectionSignalsType." + 'CREATE_SEARCH_FOR_PARTNER_CONNECTION';
             public static SOCKET_IO_CONNECTION_CREATED: string = "ConnectionSignalsType." + 'SOCKET_IO_CONNECTION_CREATED';
             public static SOCKET_IO_DISCONNECTED: string = "ConnectionSignalsType." + "SOCKET_IO_DISCONNECTED";
             public static PRIVATE_MESSAGE: string = "ConnectionSignalsType." + "PRIVATE_MESSAGE";

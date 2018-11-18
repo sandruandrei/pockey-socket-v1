@@ -47,7 +47,7 @@ namespace Pockey {
             poolstickRotation?: number,
             poolstickPositionX?: number,
             poolstickPositionY?: number,
-            opponentTimerText?: string;
+            opponentTimerText?: string,
             opponentTimerAnimate?: boolean,
             opponentState?: PockeyStates,
             opponentTimeFinished?: boolean,

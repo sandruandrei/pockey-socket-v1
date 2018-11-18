@@ -21,6 +21,7 @@ namespace Framework {
 
             public initializeClientSocket(onSocketInitialiazed: Function): void {
                 this.socket = io();
+                this.socket.binaryType = "blob";
                 this.socket.on('connect', () => {
                     onSocketInitialiazed();
                     /* */
@@ -46,7 +47,7 @@ namespace Framework {
                 console.log("intra la socket client updateUserData");
             }
 
-            protected initializeSearchingSocket(): void {
+            public initializeSearchingSocket(): void {
                 this.searchingSocket = io(FrameworkSocketNamespaces.SEARCH);
                 this.searchingSocket.on('connect', () => {
                     this.myID = this.searchingSocket.id.replace(FrameworkSocketNamespaces.SEARCH, '');

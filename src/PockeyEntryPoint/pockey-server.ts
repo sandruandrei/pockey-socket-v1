@@ -80,7 +80,7 @@ export module PockeyServer {
             //     res.end('test');
             // });
 
-            this.httpServer.on('listening',function(){
+            this.httpServer.on('listening', function () {
                 console.log('ok, server is running');
             });
 
@@ -91,11 +91,17 @@ export module PockeyServer {
             this.socketIo.serveClient(true); // the server will serve the client js file
             this.socketIo.attach(this.httpServer);
 
+            let connectCounter: number = 0;
+
             this.socketIo.on('connection', (socket) => {
-                console.log('a user connected');
+
+                connectCounter++;
+                console.log('a user connected. users connected: ' + connectCounter);
                 //todo aici trebuie sa te ocupi de disconnect dar si pe celalalte socketuri
                 socket.on('disconnect', function () {
-                    console.log('user disconnected');
+                    // console.log('user disconnected');
+                    connectCounter--;
+                    console.log('a user left. users connected: ' + connectCounter);
                 });
                 socket.on(FrameworkSocketEvents.getUserFromDatabase, (username) => {
                     console.log('someone wants some db in');
@@ -111,6 +117,9 @@ export module PockeyServer {
 
             });
 
+            // this.socketIo.on('disconnect', (socket) => {
+            //
+            // });
             let lookingForPartnerNamespace = this.socketIo.of(FrameworkSocketNamespaces.SEARCH);
             lookingForPartnerNamespace.on('connection', function (socket) {
                 let id: string = socket.id.toString().replace(FrameworkSocketNamespaces.SEARCH, '');
