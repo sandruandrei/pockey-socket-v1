@@ -324,9 +324,9 @@ namespace Pockey {
                 SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, orderArray);
                 // this.player.side = "left";
                 // this.opponent.side = "right";
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [PockeySettings.PLAYER_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [this.player.id]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
 
             }
@@ -345,9 +345,9 @@ namespace Pockey {
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
                     this.player.side = "left";
                     this.opponent.side = "right";
-                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [PockeySettings.PLAYER_COLOR]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [this.player.id]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
 
                 }
@@ -488,9 +488,7 @@ namespace Pockey {
                         // PockeyStateMachine.Instance().changeState(PockeyStates.onGameEnd);
 
                     }
-
                 }
-
             }
 
             private onAllModuleElementsCreated(): void {
@@ -511,8 +509,8 @@ namespace Pockey {
                     this.currentPlayer = this.player;
 
                     let playerSettings: PlayerSettings = {
-                        opponentName: this.player.name,
-                        opponentColor: PockeySettings.PLAYER_COLOR
+                        opponentName: PockeySettings.PLAYER_NICKNAME,
+                        opponentColor: +PockeySettings.PLAYER_COLOR_ID
                     };
                     playerSettings.firstToStart = this.player.id;
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
@@ -556,13 +554,20 @@ namespace Pockey {
 
 
             private onOpponentSettings(params: any[]): void {
-                console.log("on opponent settings");
+
+                console.log(("%c culorilefmm: my color id " + PockeySettings.PLAYER_COLOR_ID + ", " + +PockeySettings.PLAYER_COLOR_ID), "color:black; background:" + PockeySettings.PLAYER_COLOR_ID.replace("0x", "#"));
+
+                console.log("culorilefmm: opponent color la enter " + PockeySettings.OPPONENT_COLOR);
 
                 let opponentSettings: PlayerSettings = params[0] as PlayerSettings;
                 PockeySettings.OPPONENT_COLOR = opponentSettings.opponentColor;
+                console.log("culorilefmm: opponent color la dupa " + PockeySettings.OPPONENT_COLOR);
 
                 if (opponentSettings.firstToStart == this.player.id) {
                     this.setCurrentPlayer(this.player);
+
+                    // console.log("on opponent settings on player: " + +PockeySettings.PLAYER_COLOR_ID, PockeySettings.OPPONENT_COLOR, opponentSettings.opponentColor);
+                    console.log("culorilefmm: la player " + PockeySettings.OPPONENT_COLOR, +PockeySettings.PLAYER_COLOR_ID);
 
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
                     this.player.side = "left";
@@ -575,20 +580,26 @@ namespace Pockey {
 
                     this.setCurrentPlayer(this.opponent);
 
+                    // console.log("on opponent settings on opponent: " + +PockeySettings.PLAYER_COLOR_ID, PockeySettings.OPPONENT_COLOR);
+
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.opponent.type, this.player.type]);
                     this.player.side = "right";
                     this.opponent.side = "left";
 
-                    if (PockeySettings.OPPONENT_COLOR == PockeySettings.PLAYER_COLOR) {
+                    console.log("culorilefmm: la opp " + PockeySettings.OPPONENT_COLOR, +PockeySettings.PLAYER_COLOR_ID);
+
+                    if (PockeySettings.OPPONENT_COLOR == +PockeySettings.PLAYER_COLOR_ID) {
+
+                        console.log("culorilefmm: sunt la fel in plm ");
 
                         let randNumber: number = Math.round(Math.random() * (PockeySettings.LARGE_COLORS_ARRAY.length - 1));
-                        PockeySettings.OPPONENT_COLOR = parseInt("0x"+PockeySettings.LARGE_COLORS_ARRAY[randNumber]);
+                        PockeySettings.OPPONENT_COLOR = parseInt("0x" + PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
 
                     }
 
                     let playerSettings: PlayerSettings = {
-                        opponentName: this.player.name,
-                        opponentColor: PockeySettings.OPPONENT_COLOR,
+                        opponentName: PockeySettings.PLAYER_NICKNAME,
+                        opponentColor: +PockeySettings.PLAYER_COLOR_ID,
                         firstToStart: this.opponent.id
                     };
 
@@ -603,9 +614,9 @@ namespace Pockey {
 
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
 
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [PockeySettings.PLAYER_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [this.player.id]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
                 /**/
 

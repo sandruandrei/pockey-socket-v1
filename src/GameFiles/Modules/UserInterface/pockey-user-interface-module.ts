@@ -46,7 +46,7 @@ namespace Pockey {
 
                 this.mainScreen = new PockeyUiMainScreen();
                 this.searchingScreen = new PockeyUiSearchingScreen();
-                // this.gameScreen = new PockeyUiGameScreen();
+                this.gameScreen = new PockeyUiGameScreen();
                 // this.winningScreen = new PockeyUiWinningScreen();
 
                 // this.addChild(this.mainScreen);
@@ -78,9 +78,9 @@ namespace Pockey {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_MAIN_MENU, this.onShowMainMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_MAIN_MENU, this.onHideMainMenu.bind(this));
 
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
-                //
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
+
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
                 //

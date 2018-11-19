@@ -259,16 +259,16 @@ namespace Pockey {
                 // this.poolTable.rightGoalTop.tint = color;
             }
 
-            protected onChangePlayerColor(color: number): void {
+            protected onChangePlayerColor(color: string): void {
                 if (this.poolTable.leftGoal.type == BallType.Player) {
-                    this.poolTable.leftGoal.tint = color;
+                    this.poolTable.leftGoal.tint = +color;
                 }
                 else {
-                    this.poolTable.rightGoal.tint = color;
+                    this.poolTable.rightGoal.tint = +color;
                 }
                 _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
                     if (ball.ballType == BallType.Player) {
-                        ball.tintBall(color);
+                        ball.tintBall(+color);
                     }
                 });
                 // this.poolTable.rightGoalTop.tint = color;

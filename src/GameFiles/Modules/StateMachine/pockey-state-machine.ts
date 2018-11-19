@@ -94,7 +94,7 @@ namespace Pockey {
 
             public changeState(state): void {
                 if (!PockeyStates[state]) {
-                    console.log("%c StateMachine -> state does not exist: " + state, "color: #000000; bacground:#ff9900");
+                    console.log("%c StateMachine -> state does not exist: " + state, "color: #000000; background:#ff9900");
 
                 }
                 if(state == PockeyStates.onShoot)

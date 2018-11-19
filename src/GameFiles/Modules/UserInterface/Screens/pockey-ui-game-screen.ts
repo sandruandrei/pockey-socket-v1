@@ -80,12 +80,12 @@ namespace Pockey {
                 let rightSideColor: number;
 
                 if (this.leftGameGraphics.type == BallType.Player) {
-                    leftSideColor = PockeySettings.PLAYER_COLOR;
+                    leftSideColor = +PockeySettings.PLAYER_COLOR_ID;
                     rightSideColor = PockeySettings.OPPONENT_COLOR;
                 }
                 else {
                     leftSideColor = PockeySettings.OPPONENT_COLOR;
-                    rightSideColor = PockeySettings.PLAYER_COLOR;
+                    rightSideColor = +PockeySettings.PLAYER_COLOR_ID;
                 }
 
                 let leftSideMatchesWon: number = params[0];
@@ -178,7 +178,7 @@ namespace Pockey {
 
             public onChangePlayerColor(color: number): void {
                 if (this.playerGameGraphics)
-                    this.playerGameGraphics.tint(color);
+                    this.playerGameGraphics.tint(+color);
             }
 
             private onUpdateOpponentScore(score: number) {

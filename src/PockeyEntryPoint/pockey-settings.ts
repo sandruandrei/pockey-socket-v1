@@ -27,17 +27,15 @@ namespace Pockey {
 
     export class PockeySettings {
 
-        public static PLAYER_COLOR: number;
-
         public static PLAYER_AVATAR_ID: string;
         public static PLAYER_SOCKET_ID: string = "";
         public static PLAYER_NICKNAME: string = "";
         public static PLAYER_ID: string = "guest";
         public static PLAYER_LEVEL: number = 1;
-        public static OPPONENT_COLOR: number = 0x15D3E9;
+        public static OPPONENT_COLOR: number;
 
         public static OPPONENT_SOCKET_ID: string = "";
-        public static OPPONENT_NAME: string = "SandruOpponent";
+        public static OPPONENT_NICKNAME: string = "SandruOpponent";
         public static DELTA: number = 0.98;
 
         public static BALL_RADIUS: number = 17;

@@ -397,7 +397,7 @@ var Framework;
     Settings.backgroundsPath = "Images/Backgrounds/";
     Settings.mainBackgroundName = "MainBackground";
     Settings.singlePlayer = false;
-    Settings.showSignalsDispatchSignalLog = true;
+    Settings.showSignalsDispatchSignalLog = false;
     Settings.playerSignedIn = false;
     Framework.Settings = Settings;
 })(Framework || (Framework = {}));
@@ -617,7 +617,7 @@ var Pockey;
             }
             changeState(state) {
                 if (!PockeyStates[state]) {
-                    console.log("%c StateMachine -> state does not exist: " + state, "color: #000000; bacground:#ff9900");
+                    console.log("%c StateMachine -> state does not exist: " + state, "color: #000000; background:#ff9900");
                 }
                 if (state == PockeyStates.onShoot) {
                     console.log("current state=======");
@@ -889,7 +889,6 @@ var Pockey;
     PockeySettings.PLAYER_NICKNAME = "";
     PockeySettings.PLAYER_ID = "guest";
     PockeySettings.PLAYER_LEVEL = 1;
-    PockeySettings.OPPONENT_COLOR = 0x15D3E9;
     PockeySettings.OPPONENT_SOCKET_ID = "";
     PockeySettings.OPPONENT_NAME = "SandruOpponent";
     PockeySettings.DELTA = 0.98;
@@ -2432,7 +2431,11 @@ var Pockey;
                     this.defaultColor = Pockey.PockeySettings.OPPONENT_COLOR;
                 }
                 else if (this.ballType == BallType.Player) {
-                    this.defaultColor = Pockey.PockeySettings.PLAYER_COLOR;
+                    _.forEach(Pockey.PockeySettings.LARGE_COLORS_ARRAY, (inventoryVO) => {
+                        if (inventoryVO.id == Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                            this.defaultColor = inventoryVO.color;
+                        }
+                    });
                 }
                 else if (this.ballType == BallType.Puck) {
                     this.defaultColor = Pockey.PockeySettings.PUCK_COLOR;
@@ -3713,14 +3716,14 @@ var Pockey;
             }
             onChangePlayerColor(color) {
                 if (this.poolTable.leftGoal.type == GameModule.BallType.Player) {
-                    this.poolTable.leftGoal.tint = color;
+                    this.poolTable.leftGoal.tint = +color;
                 }
                 else {
-                    this.poolTable.rightGoal.tint = color;
+                    this.poolTable.rightGoal.tint = +color;
                 }
                 _.forEach(this.poolTable.balls, (ball) => {
                     if (ball.ballType == GameModule.BallType.Player) {
-                        ball.tintBall(color);
+                        ball.tintBall(+color);
                     }
                 });
             }
@@ -4812,9 +4815,9 @@ var Pockey;
                     this.beginPlay();
                 }
                 SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, orderArray);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [Pockey.PockeySettings.PLAYER_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [this.player.id]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
             }
             onStartGame() {
@@ -4828,9 +4831,9 @@ var Pockey;
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
                     this.player.side = "left";
                     this.opponent.side = "right";
-                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [Pockey.PockeySettings.PLAYER_COLOR]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [this.player.id]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
                 }
                 else {
@@ -4930,19 +4933,22 @@ var Pockey;
                 if (connectionID.startsWith(this.player.id)) {
                     this.currentPlayer = this.player;
                     let playerSettings = {
-                        opponentName: this.player.name,
-                        opponentColor: Pockey.PockeySettings.PLAYER_COLOR
+                        opponentName: Pockey.PockeySettings.PLAYER_NICKNAME,
+                        opponentColor: +Pockey.PockeySettings.PLAYER_COLOR_ID
                     };
                     playerSettings.firstToStart = this.player.id;
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
                 }
             }
             onOpponentSettings(params) {
-                console.log("on opponent settings");
+                console.log(("%c culorilefmm: my color id " + Pockey.PockeySettings.PLAYER_COLOR_ID + ", " + +Pockey.PockeySettings.PLAYER_COLOR_ID), "color:black; background:" + Pockey.PockeySettings.PLAYER_COLOR_ID.replace("0x", "#"));
+                console.log("culorilefmm: opponent color la enter " + Pockey.PockeySettings.OPPONENT_COLOR);
                 let opponentSettings = params[0];
                 Pockey.PockeySettings.OPPONENT_COLOR = opponentSettings.opponentColor;
+                console.log("culorilefmm: opponent color la dupa " + Pockey.PockeySettings.OPPONENT_COLOR);
                 if (opponentSettings.firstToStart == this.player.id) {
                     this.setCurrentPlayer(this.player);
+                    console.log("culorilefmm: la player " + Pockey.PockeySettings.OPPONENT_COLOR, +Pockey.PockeySettings.PLAYER_COLOR_ID);
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
                     this.player.side = "left";
                     this.opponent.side = "right";
@@ -4954,13 +4960,15 @@ var Pockey;
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.opponent.type, this.player.type]);
                     this.player.side = "right";
                     this.opponent.side = "left";
-                    if (Pockey.PockeySettings.OPPONENT_COLOR == Pockey.PockeySettings.PLAYER_COLOR) {
+                    console.log("culorilefmm: la opp " + Pockey.PockeySettings.OPPONENT_COLOR, +Pockey.PockeySettings.PLAYER_COLOR_ID);
+                    if (Pockey.PockeySettings.OPPONENT_COLOR == +Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                        console.log("culorilefmm: sunt la fel in plm ");
                         let randNumber = Math.round(Math.random() * (Pockey.PockeySettings.LARGE_COLORS_ARRAY.length - 1));
-                        Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber]);
+                        Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
                     }
                     let playerSettings = {
-                        opponentName: this.player.name,
-                        opponentColor: Pockey.PockeySettings.OPPONENT_COLOR,
+                        opponentName: Pockey.PockeySettings.PLAYER_NICKNAME,
+                        opponentColor: +Pockey.PockeySettings.PLAYER_COLOR_ID,
                         firstToStart: this.opponent.id
                     };
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
@@ -4968,9 +4976,9 @@ var Pockey;
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
                 }
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [Pockey.PockeySettings.PLAYER_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [this.player.id]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
             }
             onShoot() {
@@ -7571,12 +7579,12 @@ var Pockey;
                 let leftSideColor;
                 let rightSideColor;
                 if (this.leftGameGraphics.type == BallType.Player) {
-                    leftSideColor = Pockey.PockeySettings.PLAYER_COLOR;
+                    leftSideColor = +Pockey.PockeySettings.PLAYER_COLOR_ID;
                     rightSideColor = Pockey.PockeySettings.OPPONENT_COLOR;
                 }
                 else {
                     leftSideColor = Pockey.PockeySettings.OPPONENT_COLOR;
-                    rightSideColor = Pockey.PockeySettings.PLAYER_COLOR;
+                    rightSideColor = +Pockey.PockeySettings.PLAYER_COLOR_ID;
                 }
                 let leftSideMatchesWon = params[0];
                 let rightSideMatchesWon = params[1];
@@ -7644,7 +7652,7 @@ var Pockey;
             }
             onChangePlayerColor(color) {
                 if (this.playerGameGraphics)
-                    this.playerGameGraphics.tint(color);
+                    this.playerGameGraphics.tint(+color);
             }
             onUpdateOpponentScore(score) {
                 if (this.opponentGameGraphics)
@@ -7848,12 +7856,15 @@ var Pockey;
             createElements() {
                 this.mainScreen = new UserInterface.PockeyUiMainScreen();
                 this.searchingScreen = new UserInterface.PockeyUiSearchingScreen();
+                this.gameScreen = new UserInterface.PockeyUiGameScreen();
                 super.createElements();
             }
             registerSignalsHandlers() {
                 super.registerSignalsHandlers();
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_MAIN_MENU, this.onShowMainMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_MAIN_MENU, this.onHideMainMenu.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameMenu.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
             }

@@ -243,7 +243,14 @@ namespace Pockey {
                     // this.g.beginFill(this.defaultColor);
                 }
                 else if (this.ballType == BallType.Player) {
-                    this.defaultColor = PockeySettings.PLAYER_COLOR;
+                    _.forEach(PockeySettings.LARGE_COLORS_ARRAY, (inventoryVO: InventoryVO) => {
+
+                        if (inventoryVO.id == PockeySettings.PLAYER_COLOR_ID) {
+                            this.defaultColor = inventoryVO.color;
+                        }
+                    });
+
+                    // this.defaultColor = PockeySettings.PLAYER_COLOR_ID;
                     // this.g.beginFill(this.defaultColor);
                 }
                 else if (this.ballType == BallType.Puck) {
