@@ -28,6 +28,7 @@ namespace Pockey {
         import Settings = Framework.Settings;
         import PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
         import PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
+        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
 
         export interface PlayerSettings {
             opponentNickname?: string,
@@ -146,6 +147,11 @@ namespace Pockey {
                     // let animateTimerText: boolean = true;
 
                     if (counter <= 5) {
+                        if(counter == 5)
+                        {
+                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.LAST_FIVE_SECONDS}]);
+
+                        }
                         this.animateOpponentTimer = true;
                     }
 
@@ -639,6 +645,7 @@ namespace Pockey {
                 }
 
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.OPPONENT_FOUND}]);
 
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [PockeySettings.PLAYER_AVATAR_ID]);

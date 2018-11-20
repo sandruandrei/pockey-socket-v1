@@ -1,5 +1,8 @@
 ///<reference path="../../../../lib/types/p2/p2.d.ts"/>
 ///<reference path="../../../PockeyEntryPoint/pockey-settings.ts"/>
+///<reference path="../../../Framework/Signals/signals-manager.ts"/>
+///<reference path="../../../Framework/Signals/signal-types.ts"/>
+///<reference path="../SoundModule/pockey-sound-names.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -13,6 +16,11 @@
 
 namespace Pockey {
     export module GameModule {
+        import SignalsManager = Framework.Signals.SignalsManager;
+        import SignalsType = Framework.Signals.SignalsType;
+        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        import Vector2 = Framework.Utils.Vector2;
+
         export enum MaterialType {
             BALL_MATERIAL = 1,
             SHADOW_MATERIAL = 2,
@@ -179,6 +187,28 @@ namespace Pockey {
                             || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_MATERIAL)
                         ) {
                             ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_MATERIAL)) {
+
+                            let maxPower: number = 1200;
+                            let velocityVectorA: Vector2 = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
+                            let speedA: number = velocityVectorA.getMagnitude();
+                            let velocityVectorB: Vector2 = new Vector2(ce.bodyB.velocity[0], ce.bodyB.velocity[1]);
+                            let speedB: number = velocityVectorB.getMagnitude();
+                            let higherVelocity: number = (speedB > speedA) ? speedB : speedA;
+                            let hitVolume: number = Math.round((higherVelocity / maxPower) * 100) / 100;
+                            if (hitVolume > 1)
+                                hitVolume = 1;
+                            else if(hitVolume < 0.5)
+                                hitVolume = 0.5;
+                            console.log("velocity: " + hitVolume);
+                            // let velocity:number = ce.bodyA.velocity
+                            // ce.bodyA.velocity
+                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                                soundName: PockeySoundNames.BALL_TO_BALL_HIT,
+                                volume: hitVolume
+                            }]);
+
                         }
                     });
                 }, this);

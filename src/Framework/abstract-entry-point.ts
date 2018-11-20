@@ -330,6 +330,9 @@ namespace Framework {
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.WINDOW_RESIZE);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
+            SignalsManager.CreateNewSignal(SignalsType.PLAY_SOUND);
+            SignalsManager.CreateNewSignal(SignalsType.STOP_SOUND);
+            SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
             /*SignalsManager.CreateNewSignal(SignalsType.REGISTER_MAIN_BACKGROUND);
             SignalsManager.CreateNewSignal(SignalsType.REGISTER_CUSTOM_BACKGROUND);*/
             SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);

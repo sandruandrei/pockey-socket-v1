@@ -19,6 +19,8 @@ namespace Framework {
             public static CHANGE_BACKGROUND: string = "SignalsType." + "CHANGE_BACKGROUND";
             public static CHECK_USER_DATA: string = "SignalsType." + "CHECK_USER_DATA";
             public static USER_DATA_CHECKED: string = "SignalsType." + "USER_DATA_CHECKED";
+            public static PLAY_SOUND: string = "SignalsType." + "PLAY_SOUND";
+            public static STOP_SOUND: string = "SignalsType." + "STOP_SOUND";
         }
 
         export class ConnectionSignalsType {

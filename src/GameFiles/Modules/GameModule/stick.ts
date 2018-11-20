@@ -1,6 +1,7 @@
 ///<reference path="../../../Framework/Utils/mouse-handler.ts"/>
 ///<reference path="../../../Framework/Signals/signal-types.ts"/>
 ///<reference path="../ConnectionModule/pocket-connection-channels-and-messages.ts"/>
+///<reference path="../SoundModule/pockey-sound-names.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -22,6 +23,8 @@ namespace Pockey {
         import Vector2 = Framework.Utils.Vector2;
         import PointLike = PIXI.PointLike;
         import MouseHandler = Framework.Utils.MouseHandler;
+        import SignalsType = Framework.Signals.SignalsType;
+        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
 
         export enum StickType {
             Basic = "stick_basic.png",
@@ -257,6 +260,8 @@ namespace Pockey {
                 // this.power = 0;
                 // console.log("stick power: " + this.power);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOOT_BALL);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.SHOOT_BALL}]);
+
                 // this.isActive = false;
             }
 

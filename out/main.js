@@ -311,6 +311,8 @@ var Framework;
         SignalsType.CHANGE_BACKGROUND = "SignalsType." + "CHANGE_BACKGROUND";
         SignalsType.CHECK_USER_DATA = "SignalsType." + "CHECK_USER_DATA";
         SignalsType.USER_DATA_CHECKED = "SignalsType." + "USER_DATA_CHECKED";
+        SignalsType.PLAY_SOUND = "SignalsType." + "PLAY_SOUND";
+        SignalsType.STOP_SOUND = "SignalsType." + "STOP_SOUND";
         Signals.SignalsType = SignalsType;
         class ConnectionSignalsType {
         }
@@ -1465,8 +1467,28 @@ var Pockey;
 })(Pockey || (Pockey = {}));
 var Pockey;
 (function (Pockey) {
+    let Sound;
+    (function (Sound) {
+        var Settings = Framework.Settings;
+        class PockeySoundNames {
+        }
+        PockeySoundNames.MAIN_MENU_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "pockey_main_menu.ogg";
+        PockeySoundNames.IN_GAME_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "ambient.ogg";
+        PockeySoundNames.SHOOT_BALL = Settings.desktopAssetsPath + "Sounds/" + "shoot_ball.ogg";
+        PockeySoundNames.LAST_FIVE_SECONDS = Settings.desktopAssetsPath + "Sounds/" + "5sec.ogg";
+        PockeySoundNames.OPPONENT_FOUND = Settings.desktopAssetsPath + "Sounds/" + "opponent_found.ogg";
+        PockeySoundNames.BALL_TO_BALL_HIT = Settings.desktopAssetsPath + "Sounds/" + "ball2ball_hit.ogg";
+        Sound.PockeySoundNames = PockeySoundNames;
+    })(Sound = Pockey.Sound || (Pockey.Sound = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
     let GameModule;
     (function (GameModule) {
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var SignalsType = Framework.Signals.SignalsType;
+        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        var Vector2 = Framework.Utils.Vector2;
         let MaterialType;
         (function (MaterialType) {
             MaterialType[MaterialType["BALL_MATERIAL"] = 1] = "BALL_MATERIAL";
@@ -1563,6 +1585,25 @@ var Pockey;
                             || (ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.SHADOW_MATERIAL)
                             || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_MATERIAL)) {
                             ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_MATERIAL)) {
+                            let maxPower = 1200;
+                            let velocityVectorA = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
+                            let speedA = velocityVectorA.getMagnitude();
+                            let velocityVectorB = new Vector2(ce.bodyB.velocity[0], ce.bodyB.velocity[1]);
+                            let speedB = velocityVectorB.getMagnitude();
+                            let higherVelocity = (speedB > speedA) ? speedB : speedA;
+                            let hitVolume = Math.round((higherVelocity / maxPower) * 100) / 100;
+                            hitVolume *= 2;
+                            if (hitVolume > 1)
+                                hitVolume = 1;
+                            else if (hitVolume < 0.5)
+                                hitVolume = 0.5;
+                            console.log("velocity: " + hitVolume);
+                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                                    soundName: PockeySoundNames.BALL_TO_BALL_HIT,
+                                    volume: hitVolume
+                                }]);
                         }
                     });
                 }, this);
@@ -2047,10 +2088,33 @@ var Framework;
     let Sound;
     (function (Sound) {
         var AbstractModule = Framework.Abstracts.AbstractModule;
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var SignalsType = Framework.Signals.SignalsType;
+        var PixiSound = PIXI.sound;
         class AbstractSoundModule extends AbstractModule {
             constructor() {
                 super();
                 this.Name = "AbstractSoundModule";
+            }
+            registerSignalsHandlers() {
+                super.registerSignalsHandlers();
+                SignalsManager.AddSignalCallback(SignalsType.PLAY_SOUND, this.onPlaySound.bind(this));
+                SignalsManager.AddSignalCallback(SignalsType.STOP_SOUND, this.onStopSound.bind(this));
+            }
+            onStopSound(params) {
+                let soundVO = params[0];
+                PixiSound.stop(soundVO.soundName);
+            }
+            onPlaySound(params) {
+                let soundVO = params[0];
+                if (_.isNull(soundVO.volume) || _.isUndefined(soundVO.volume)) {
+                    soundVO.volume = 1;
+                }
+                let sound = PIXI.sound.Sound.from({
+                    url: soundVO.soundName,
+                    volume: soundVO.volume
+                });
+                sound.play();
             }
         }
         Sound.AbstractSoundModule = AbstractSoundModule;
@@ -2228,6 +2292,9 @@ var Framework;
             SignalsManager.CreateNewSignal(SignalsType.MODULE_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.WINDOW_RESIZE);
+            SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
+            SignalsManager.CreateNewSignal(SignalsType.PLAY_SOUND);
+            SignalsManager.CreateNewSignal(SignalsType.STOP_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED);
@@ -2871,6 +2938,8 @@ var Pockey;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var Vector2 = Framework.Utils.Vector2;
         var MouseHandler = Framework.Utils.MouseHandler;
+        var SignalsType = Framework.Signals.SignalsType;
+        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
         let StickType;
         (function (StickType) {
             StickType["Basic"] = "stick_basic.png";
@@ -3005,6 +3074,7 @@ var Pockey;
             }
             shoot() {
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOOT_BALL);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.SHOOT_BALL }]);
             }
             dist2(v, w) {
                 return (v.x - w.x) * (v.x - w.x) + (v.y - w.y) * (v.y - w.y);
@@ -4659,6 +4729,7 @@ var Pockey;
         var Settings = Framework.Settings;
         var PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
         var PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
+        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
         let WinStatus;
         (function (WinStatus) {
             WinStatus[WinStatus["WIN"] = 0] = "WIN";
@@ -4723,6 +4794,9 @@ var Pockey;
                     counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
                     this.timerText = counterText;
                     if (counter <= 5) {
+                        if (counter == 5) {
+                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.LAST_FIVE_SECONDS }]);
+                        }
                         this.animateOpponentTimer = true;
                     }
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, this.animateOpponentTimer]);
@@ -5018,6 +5092,7 @@ var Pockey;
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
                 }
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.OPPONENT_FOUND }]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
@@ -7680,12 +7755,6 @@ var Pockey;
                 if (text.includes("{opponent"))
                     text = text.replace("{opponent}", Pockey.PockeySettings.OPPONENT_NICKNAME);
                 if (text != this.multilineText.text) {
-                    this.multilineText.text = text;
-                    if (!Settings.isMobile)
-                        this.multilineText.x = -this.multilineText.width;
-                    else {
-                        this.multilineText.x = -this.multilineText.width / 2;
-                    }
                 }
             }
             onUpdateCurrentPlayerTimer(params) {
@@ -7937,6 +8006,8 @@ var Pockey;
         var AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        var SignalsType = Framework.Signals.SignalsType;
+        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
         class PockeyUserInterfaceModule extends AbstractUserInterfaceModule {
             constructor() {
                 super();
@@ -7970,12 +8041,16 @@ var Pockey;
             }
             onShowMainMenu() {
                 this.mainScreen.setVisibleTrue();
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.MAIN_MENU_AMBIANCE }]);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundNames.IN_GAME_AMBIANCE }]);
             }
             onHideMainMenu() {
                 this.mainScreen.setVisibleFalse();
             }
             onShowGameMenu() {
                 this.addChild(this.gameScreen);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundNames.MAIN_MENU_AMBIANCE }]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.IN_GAME_AMBIANCE, loop: true }]);
             }
             onHideGameMenu() {
                 this.removeChild(this.gameScreen);
@@ -8018,22 +8093,13 @@ var Pockey;
     var PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     var PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     var PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
-    var readCookie = Framework.Utils.readCookie;
+    var AbstractSoundModule = Framework.Sound.AbstractSoundModule;
+    var PockeySoundNames = Pockey.Sound.PockeySoundNames;
     class PockeyEntryPoint extends AbstractEntryPoint {
         constructor() {
             super();
             this.maxSubSteps = 7;
             this.name = "PockeyEntryPoint";
-        }
-        cookieIsAvailable() {
-            Pockey.PockeySettings.PLAYER_NICKNAME = readCookie('PockeyID');
-            return Pockey.PockeySettings.PLAYER_NICKNAME != '';
-        }
-        cookieEmailIsAvailable() {
-            return readCookie('PockeyEmail') != '';
-        }
-        facebookIDisAvailable() {
-            return readCookie('PockeyFacebookID') != '';
         }
         addFontsToLoad() {
             super.addFontsToLoad();
@@ -8087,6 +8153,17 @@ var Pockey;
             connectionModule.Name = 'PockeyConnectionModule';
             return connectionModule;
         }
+        getSoundModule() {
+            let soundModule = new AbstractSoundModule();
+            soundModule.Layer = this.getLayer(Layers.DefaultLayer);
+            soundModule.addAssetToLoad(PockeySoundNames.MAIN_MENU_AMBIANCE);
+            soundModule.addAssetToLoad(PockeySoundNames.IN_GAME_AMBIANCE);
+            soundModule.addAssetToLoad(PockeySoundNames.SHOOT_BALL);
+            soundModule.addAssetToLoad(PockeySoundNames.LAST_FIVE_SECONDS);
+            soundModule.addAssetToLoad(PockeySoundNames.OPPONENT_FOUND);
+            soundModule.addAssetToLoad(PockeySoundNames.BALL_TO_BALL_HIT);
+            return soundModule;
+        }
         initializeSingletons() {
             super.initializeSingletons();
             PockeyStateMachine.Instance();
@@ -8103,11 +8180,10 @@ var Pockey;
         }
         frameAnimate() {
             super.frameAnimate();
-            var d = new Date();
         }
         animate(time) {
             requestAnimationFrame(this.animate.bind(this));
-            var deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
+            let deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
             if (P2WorldManager.Instance().world)
                 P2WorldManager.Instance().world.step(Pockey.PockeySettings.P2_WORLD_STEP, deltaTime, this.maxSubSteps);
             this.lastTime = time;

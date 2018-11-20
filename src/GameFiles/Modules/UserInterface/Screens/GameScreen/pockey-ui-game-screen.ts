@@ -109,14 +109,13 @@ namespace Pockey {
                 // console.log("se inlocuieste textul: " + PockeySettings.OPPONENT_NICKNAME);
                 // if (text != this.tipText.text) {
                 if (text != this.multilineText.text) {
-                    this.multilineText.text = text;
+                   /* this.multilineText.text = text;
                     if (!Settings.isMobile)
                         this.multilineText.x = -this.multilineText.width;
                     else {
                         this.multilineText.x = -this.multilineText.width / 2;
-                    }
-                    /*this.tipText.setText(text);
-                    this.tipText.x = -this.tipText.width;*/
+                    }*/
+
                 }
             }
 

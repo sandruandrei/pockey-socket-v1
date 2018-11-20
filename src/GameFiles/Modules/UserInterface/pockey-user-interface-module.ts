@@ -5,6 +5,7 @@
 ///<reference path="Screens/MainScreen/pockey-ui-main-screen.ts"/>
 ///<reference path="Screens/GameScreen/pockey-ui-game-screen.ts"/>
 ///<reference path="Screens/pockey-ui-winning-screen.ts"/>
+///<reference path="../SoundModule/pockey-sound-names.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -22,6 +23,8 @@ namespace Pockey {
         import AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        import SignalsType = Framework.Signals.SignalsType;
+        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
 
         export class PockeyUserInterfaceModule extends AbstractUserInterfaceModule {
 
@@ -107,6 +110,9 @@ namespace Pockey {
 
             private onShowMainMenu(): void {
                 this.mainScreen.setVisibleTrue();
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.MAIN_MENU_AMBIANCE}]);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundNames.IN_GAME_AMBIANCE}]);
+
                 // this.addChild(this.mainScreen);
             }
 
@@ -117,6 +123,8 @@ namespace Pockey {
 
             private onShowGameMenu(): void {
                 this.addChild(this.gameScreen);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundNames.MAIN_MENU_AMBIANCE}]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.IN_GAME_AMBIANCE, loop:true}]);
             }
 
             private onHideGameMenu(): void {

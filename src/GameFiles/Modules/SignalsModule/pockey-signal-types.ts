@@ -59,7 +59,6 @@ namespace Pockey {
             public static UPDATE_PLAYER_SCORE: string = "PockeySignalTypes." + "UPDATE_PLAYER_SCORE";
             public static CHANGE_PLAYER_COLOR: string = "PockeySignalTypes." + "CHANGE_PLAYER_COLOR";
 
-
             public static UPDATE_OPPONENT_NAME: string = "PockeySignalTypes." + "UPDATE_OPPONENT_NAME";
             public static UPDATE_OPPONENT_SCORE: string = "PockeySignalTypes." + "UPDATE_OPPONENT_SCORE";
             public static CHANGE_OPPONENT_COLOR: string = "PockeySignalTypes." + "CHANGE_OPPONENT_COLOR";

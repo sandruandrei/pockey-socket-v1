@@ -28,7 +28,8 @@ namespace Pockey {
     import PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     import PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     import PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
-    import readCookie = Framework.Utils.readCookie;
+    import AbstractSoundModule = Framework.Sound.AbstractSoundModule;
+    import PockeySoundNames = Pockey.Sound.PockeySoundNames;
 
     export class PockeyEntryPoint extends AbstractEntryPoint {
         private gameModule: AbstractModule;
@@ -47,20 +48,6 @@ namespace Pockey {
             this.name = "PockeyEntryPoint";
         }
 
-
-        private cookieIsAvailable(): boolean {
-            PockeySettings.PLAYER_NICKNAME = readCookie('PockeyID');
-
-            return PockeySettings.PLAYER_NICKNAME != '';
-        }
-
-        private cookieEmailIsAvailable(): boolean {
-            return readCookie('PockeyEmail') != '';
-        }
-
-        private facebookIDisAvailable(): boolean {
-            return readCookie('PockeyFacebookID') != '';
-        }
 
         protected addFontsToLoad(): void {
             super.addFontsToLoad();
@@ -146,6 +133,21 @@ namespace Pockey {
             return connectionModule;
         }
 
+        protected getSoundModule(): Framework.Abstracts.AbstractModule {
+            let soundModule: AbstractSoundModule = new AbstractSoundModule();
+
+            soundModule.Layer = this.getLayer(Layers.DefaultLayer);
+
+            soundModule.addAssetToLoad(PockeySoundNames.MAIN_MENU_AMBIANCE);
+            soundModule.addAssetToLoad(PockeySoundNames.IN_GAME_AMBIANCE);
+            soundModule.addAssetToLoad(PockeySoundNames.SHOOT_BALL);
+            soundModule.addAssetToLoad(PockeySoundNames.LAST_FIVE_SECONDS);
+            soundModule.addAssetToLoad(PockeySoundNames.OPPONENT_FOUND);
+            soundModule.addAssetToLoad(PockeySoundNames.BALL_TO_BALL_HIT);
+
+            return soundModule;
+        }
+
         protected initializeSingletons(): void {
             super.initializeSingletons();
 
@@ -209,7 +211,7 @@ namespace Pockey {
             // if (P2WorldManager.Instance().world)
             //     P2WorldManager.Instance().world.step(PockeySettings.P2_WORLD_STEP);
 
-            var d = new Date();
+            // let d = new Date();
             // var n = d.getTime();
             // this.animate(d.getTime());
 
@@ -241,7 +243,7 @@ namespace Pockey {
         private animate(time) {
             requestAnimationFrame(this.animate.bind(this));
             // Compute elapsed time since last render frame
-            var deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
+            let deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
 
             // Move bodies forward in time
             if (P2WorldManager.Instance().world)
