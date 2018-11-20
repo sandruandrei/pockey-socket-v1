@@ -1579,7 +1579,7 @@ declare namespace PIXI {
         type: string;
         value: V;
 
-        // name is set by pixi if uniforms were automatically extracted from shader code, but not used anywhere
+        // nickname is set by pixi if uniforms were automatically extracted from shader code, but not used anywhere
         name?: string;
     }
     type UniformDataMap<U> = { [K in keyof U]: UniformData<U[K]> };
@@ -4084,7 +4084,7 @@ declare namespace PIXI {
             /**
              * Return the listeners registered for a given event.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @returns {Function[]}
              */
             //tslint:disable-next-line:ban-types forbidden-types
@@ -4093,7 +4093,7 @@ declare namespace PIXI {
              * Check if there listeners for a given event.
              * If `exists` argument is not `true` lists listeners.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @param {boolean} exists Only check if there are listeners.
              * @returns {boolean}
              */
@@ -4101,7 +4101,7 @@ declare namespace PIXI {
             /**
              * Calls each of the listeners registered for a given event.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @param {...*} args Arguments that are passed to registered listeners
              * @returns {boolean} `true` if the event had listeners, else `false`.
              */
@@ -4109,7 +4109,7 @@ declare namespace PIXI {
             /**
              * Add a listener for a given event.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @param {Function} fn The listener function.
              * @param {*} [context=this] The context to invoke the listener with.
              * @returns {EventEmitter} `this`.
@@ -4119,7 +4119,7 @@ declare namespace PIXI {
             /**
              * Add a one-time listener for a given event.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @param {Function} fn The listener function.
              * @param {*} [context=this] The context to invoke the listener with.
              * @returns {EventEmitter} `this`.
@@ -4129,7 +4129,7 @@ declare namespace PIXI {
             /**
              * Remove the listeners of a given event.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @param {Function} fn Only remove the listeners that match this function.
              * @param {*} context Only remove the listeners that have this context.
              * @param {boolean} once Only remove one-time listeners.
@@ -4145,7 +4145,7 @@ declare namespace PIXI {
             /**
              * Remove all listeners, or those of the specified event.
              *
-             * @param {(string | symbol)} event The event name.
+             * @param {(string | symbol)} event The event nickname.
              * @returns {EventEmitter} `this`.
              */
             removeAllListeners(event?: string | symbol): this;
@@ -4183,7 +4183,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name SpriteBatch
+         * @nickname SpriteBatch
          * @memberof PIXI
          * @see PIXI.ParticleContainer
          * @throws {ReferenceError} SpriteBatch does not exist any more, please use the new ParticleContainer instead.
@@ -4194,7 +4194,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name AssetLoader
+         * @nickname AssetLoader
          * @memberof PIXI
          * @see PIXI.loaders.Loader
          * @throws {ReferenceError} The loader system was overhauled in pixi v3, please see the new PIXI.loaders.Loader class.
@@ -4205,7 +4205,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name Stage
+         * @nickname Stage
          * @memberof PIXI
          * @see PIXI.Container
          * @deprecated since version 3.0.0
@@ -4215,7 +4215,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name DisplayObjectContainer
+         * @nickname DisplayObjectContainer
          * @memberof PIXI
          * @see PIXI.Container
          * @deprecated since version 3.0.0
@@ -4225,7 +4225,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name Strip
+         * @nickname Strip
          * @memberof PIXI
          * @see PIXI.mesh.Mesh
          * @deprecated since version 3.0.0
@@ -4235,7 +4235,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name Rope
+         * @nickname Rope
          * @memberof PIXI
          * @see PIXI.mesh.Rope
          * @deprecated since version 3.0.0
@@ -4245,7 +4245,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name ParticleContainer
+         * @nickname ParticleContainer
          * @memberof PIXI
          * @see PIXI.particles.ParticleContainer
          * @deprecated since version 4.0.0
@@ -4255,7 +4255,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name MovieClip
+         * @nickname MovieClip
          * @memberof PIXI
          * @see PIXI.extras.MovieClip
          * @deprecated since version 3.0.0
@@ -4265,7 +4265,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name TilingSprite
+         * @nickname TilingSprite
          * @memberof PIXI
          * @see PIXI.extras.TilingSprite
          * @deprecated since version 3.0.0
@@ -4275,7 +4275,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name BaseTextureCache
+         * @nickname BaseTextureCache
          * @memberof PIXI
          * @see PIXI.utils.BaseTextureCache
          * @deprecated since version 3.0.0
@@ -4285,7 +4285,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name BitmapText
+         * @nickname BitmapText
          * @memberof PIXI
          * @see PIXI.extras.BitmapText
          * @deprecated since version 3.0.0
@@ -4295,7 +4295,7 @@ declare namespace PIXI {
         /**
          * @namespace
          * @private
-         * @name math
+         * @nickname math
          * @memberof PIXI
          * @see PIXI
          * @deprecated since version 3.0.6
@@ -4305,7 +4305,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name PIXI.AbstractFilter
+         * @nickname PIXI.AbstractFilter
          * @see PIXI.Filter
          * @deprecated since version 3.0.6
          */
@@ -4314,7 +4314,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name PIXI.TransformManual
+         * @nickname PIXI.TransformManual
          * @see PIXI.TransformBase
          * @deprecated since version 4.0.0
          */
@@ -4323,7 +4323,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.TARGET_FPMS
+         * @nickname PIXI.TARGET_FPMS
          * @see PIXI.settings.TARGET_FPMS
          * @deprecated since version 4.2.0
          */
@@ -4332,7 +4332,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.FILTER_RESOLUTION
+         * @nickname PIXI.FILTER_RESOLUTION
          * @see PIXI.settings.FILTER_RESOLUTION
          * @deprecated since version 4.2.0
          */
@@ -4341,7 +4341,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.RESOLUTION
+         * @nickname PIXI.RESOLUTION
          * @see PIXI.settings.RESOLUTION
          * @deprecated since version 4.2.0
          */
@@ -4350,7 +4350,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.MIPMAP_TEXTURES
+         * @nickname PIXI.MIPMAP_TEXTURES
          * @see PIXI.settings.MIPMAP_TEXTURES
          * @deprecated since version 4.2.0
          */
@@ -4359,7 +4359,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.SPRITE_BATCH_SIZE
+         * @nickname PIXI.SPRITE_BATCH_SIZE
          * @see PIXI.settings.SPRITE_BATCH_SIZE
          * @deprecated since version 4.2.0
          */
@@ -4368,7 +4368,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.SPRITE_MAX_TEXTURES
+         * @nickname PIXI.SPRITE_MAX_TEXTURES
          * @see PIXI.settings.SPRITE_MAX_TEXTURES
          * @deprecated since version 4.2.0
          */
@@ -4377,7 +4377,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.RETINA_PREFIX
+         * @nickname PIXI.RETINA_PREFIX
          * @see PIXI.settings.RETINA_PREFIX
          * @deprecated since version 4.2.0
          */
@@ -4386,7 +4386,7 @@ declare namespace PIXI {
         /**
          * @static
          * @constant
-         * @name PIXI.DEFAULT_RENDER_OPTIONS
+         * @nickname PIXI.DEFAULT_RENDER_OPTIONS
          * @see PIXI.settings.RENDER_OPTIONS
          * @deprecated since version 4.2.0
          */
@@ -4394,7 +4394,7 @@ declare namespace PIXI {
 
         /**
          * @static
-         * @name PRECISION
+         * @nickname PRECISION
          * @memberof PIXI.settings
          * @see PIXI.PRECISION
          * @deprecated since version 4.4.0
@@ -4404,7 +4404,7 @@ declare namespace PIXI {
 
     namespace GroupD8 {
         /**
-         * @name PIXI.GroupD8.isSwapWidthHeight
+         * @nickname PIXI.GroupD8.isSwapWidthHeight
          * @see PIXI.GroupD8.isVertical
          * @deprecated since version 4.6.0
          */
@@ -4414,7 +4414,7 @@ declare namespace PIXI {
     namespace extras {
         /**
          * @class
-         * @name MovieClip
+         * @nickname MovieClip
          * @memberof PIXI.extras
          * @see PIXI.extras.AnimatedSprite
          * @deprecated since version 4.2.0
@@ -4423,7 +4423,7 @@ declare namespace PIXI {
 
         /**
          * @class
-         * @name TextureTransform
+         * @nickname TextureTransform
          * @memberof PIXI.extras
          * @see PIXI.TextureMatrix
          * @deprecated since version 4.6.0
@@ -4435,7 +4435,7 @@ declare namespace PIXI {
         /**
          * @class
          * @private
-         * @name PIXI.filters.VoidFilter
+         * @nickname PIXI.filters.VoidFilter
          * @see PIXI.filters.AlphaFilter
          * @deprecated since version 4.5.7
          */
@@ -4445,7 +4445,7 @@ declare namespace PIXI {
     namespace settings {
         /**
          * @static
-         * @name PRECISION
+         * @nickname PRECISION
          * @memberof PIXI.settings
          * @see PIXI.PRECISION
          * @deprecated since version 4.4.0

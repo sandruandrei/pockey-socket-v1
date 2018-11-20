@@ -35,6 +35,7 @@ namespace Pockey {
         public static OPPONENT_COLOR: number;
 
         public static OPPONENT_SOCKET_ID: string = "";
+        public static OPPONENT_AVATAR_ID: string;
         public static OPPONENT_NICKNAME: string = "SandruOpponent";
         public static DELTA: number = 0.98;
 
@@ -422,9 +423,9 @@ namespace Pockey {
             }
         ];
 
-        public static PLAYER_MISC_ID:string = PockeySettings.SMALL_MISC_ARRAY[0].id;
+        public static PLAYER_MISC_ID: string = PockeySettings.SMALL_MISC_ARRAY[0].id;
 
-            //////////////////
+        //////////////////
 
         public static SMALL_CUES_ARRAY: InventoryVO[] = [
             {

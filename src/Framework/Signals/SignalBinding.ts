@@ -25,7 +25,7 @@ namespace Framework {
          * @author Miller Medeiros
          * @constructor
          * @internal
-         * @name SignalBinding
+         * @nickname SignalBinding
          * @param {Signal} signal Reference to Signal object that listener is currently bound to.
          * @param {Function} listener Handler function bound to the signal.
          * @param {boolean} isOnce If binding should be executed just once.
@@ -59,7 +59,7 @@ namespace Framework {
         /**
          * Context on which listener will be executed (object that should represent the `this` variable inside listener function).
          * @memberOf SignalBinding.prototype
-         * @name context
+         * @nickname context
          * @type Object|undefined|null
          */
         public context;

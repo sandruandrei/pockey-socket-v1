@@ -19,7 +19,7 @@ export module
     }
 }*/
 /**!
- * name: pixi.TextInput.js
+ * nickname: pixi.TextInput.js
  * repository: https://gist.github.com/Fishrock123/7ce7da8cacd762a56542
  * @author Jeremiah Senkpiel - https://searchbeam.jit.su
  * @version 0.2
@@ -101,7 +101,7 @@ export module Utils
     /**!
      * The following function is a slightly modified version of jQuery.getChar
      *
-     * name: jQuery getChar
+     * nickname: jQuery getChar
      * repository: https://github.com/bpeacock/key-to-charCode
      * @author Brian Peacock
      * @version 0.3 [Modified]

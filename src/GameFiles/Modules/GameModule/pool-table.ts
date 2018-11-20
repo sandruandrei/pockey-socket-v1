@@ -157,11 +157,11 @@ namespace Pockey {
 
                 //play ground
                 this.playGround = new Rectangle(-970 / 2, -484 / 2, 970, 484);//Container();
-                // this.playGround.name = "playGround";
+                // this.playGround.nickname = "playGround";
                 // this.playGround.interactive = true;
 
                 // let playGroundGraphics: Graphics = new Graphics();
-                // playGroundGraphics.name = "playGroundGraphics";
+                // playGroundGraphics.nickname = "playGroundGraphics";
                 // playGroundGraphics.beginFill(0xff9900, 1);
                 // playGroundGraphics.drawRect(0, 0, 970, 484);
                 // playGroundGraphics.endFill();
@@ -199,7 +199,7 @@ namespace Pockey {
                 this.puck.ballAnimationHolder = this.ballAnimationHolder;
 
                 this.puck.createBallShadow();
-                // this.puck.name = "puck";
+                // this.puck.nickname = "puck";
                 this.puck.tintBall(PockeySettings.PUCK_COLOR);
 
                 // this.puck.anchor.set(0.5, 0.5);
@@ -226,7 +226,7 @@ namespace Pockey {
 
                 // rightGoalTop
                 // this.rightGoalTop = new Sprite(PIXI.Texture.fromFrame("goalTop_righttTopper.png"));
-                // this.rightGoalTop.name = "rightGoalTop";
+                // this.rightGoalTop.nickname = "rightGoalTop";
                 // this.rightGoalTop.x = this.rightGoal.x;
                 // this.rightGoalTop.y = this.rightGoal.y;
                 // this.addChild(this.rightGoalTop);
@@ -251,7 +251,7 @@ namespace Pockey {
 
                 // leftGoalTop
                 // this.leftGoalTop = new Sprite(PIXI.Texture.fromFrame("goalTop_leftTopper.png"));
-                // this.leftGoalTop.name = "leftGoalTop";
+                // this.leftGoalTop.nickname = "leftGoalTop";
                 // this.leftGoalTop.x = this.leftGoal.x;
                 // this.leftGoalTop.y = this.leftGoal.y;
                 // this.addChild(this.leftGoalTop);
@@ -320,7 +320,7 @@ namespace Pockey {
                     ball.setPockets(this.pockets);
 
 
-                    // ball.name = "PlayerBall_" + id.toString();
+                    // ball.nickname = "PlayerBall_" + id.toString();
                     this.balls.push(ball);
                     this.rightBallsArray.push(ball);
                     angle = (id / (PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER / 2)) * Math.PI;
@@ -350,7 +350,7 @@ namespace Pockey {
                     // ball.setLineLimits(this.limits);
                     ball.setPockets(this.pockets);
 
-                    // ball.name = "OpponentBall_" + id.toString();
+                    // ball.nickname = "OpponentBall_" + id.toString();
                     this.balls.push(ball);
                     this.leftBallsArray.push(ball);
                     angle = (id / (PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER / 2)) * Math.PI + Math.PI / PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
@@ -589,7 +589,7 @@ namespace Pockey {
                 pocket1.addPoints(this);
 
                 /*let pocketHolder1: Sprite = new Sprite();
-                pocketHolder1.name = "pocket1";
+                pocketHolder1.nickname = "pocket1";
                 let pocket1Gr: Graphics = new Graphics();
                 pocket1Gr.beginFill(0x00ff00, 0.5);
                 pocket1Gr.drawCircle(0, 0, 5);
@@ -606,7 +606,7 @@ namespace Pockey {
 
 
                 /*let pocketHolder2: Sprite = new Sprite();
-                pocketHolder2.name = "pocket2";
+                pocketHolder2.nickname = "pocket2";
                 let pocket2Gr: Graphics = new Graphics();
                 pocket2Gr.beginFill(0x00ff00, 0.5);
                 pocket2Gr.drawCircle(0, 0, 5);
@@ -622,7 +622,7 @@ namespace Pockey {
                 pocket3.addPoints(this);
 
                 /*let pocketHolder3: Sprite = new Sprite();
-                pocketHolder3.name = "pocket2";
+                pocketHolder3.nickname = "pocket2";
                 let pocket3Gr: Graphics = new Graphics();
                 pocket3Gr.beginFill(0x00ff00, 0.5);
                 pocket3Gr.drawCircle(0, 0, 5);
@@ -638,7 +638,7 @@ namespace Pockey {
                 pocket4.addPoints(this);
 
                 /*let pocketHolder4: Sprite = new Sprite();
-                pocketHolder4.name = "pocket4";
+                pocketHolder4.nickname = "pocket4";
                 let pocket4Gr: Graphics = new Graphics();
                 pocket4Gr.beginFill(0x00ff00, 0.5);
                 pocket4Gr.drawCircle(0, 0, 5);
@@ -654,7 +654,7 @@ namespace Pockey {
                 pocket5.addPoints(this);
 
                 /* let pocketHolder5: Sprite = new Sprite();
-                 pocketHolder5.name = "pocket5";
+                 pocketHolder5.nickname = "pocket5";
                  let pocket5Gr: Graphics = new Graphics();
                  pocket5Gr.beginFill(0x00ff00, 0.5);
                  pocket5Gr.drawCircle(0, 0, 5);
@@ -670,7 +670,7 @@ namespace Pockey {
                 pocket6.addPoints(this);
 
                 /* let pocketHolder6: Sprite = new Sprite();
-                 pocketHolder6.name = "pocket6";
+                 pocketHolder6.nickname = "pocket6";
                  let pocket6Gr: Graphics = new Graphics();
                  pocket6Gr.beginFill(0x00ff00, 0.5);
                  pocket6Gr.drawCircle(0, 0, 5);
@@ -834,7 +834,7 @@ namespace Pockey {
                 // graphics.x = body.position[0];// - 600;
                 // graphics.y = body.position[1];// - 102;
 
-                // this.cacat.name = "cacat";
+                // this.cacat.nickname = "cacat";
                 // this.cacat.addChild(graphics);
                 // this.cacat.y = 513;
                 // this.cacat.x = 513;
@@ -857,14 +857,14 @@ namespace Pockey {
                 this.whiteBall.ballPosition = this.whiteBall.initialPosition;
                 this.addBallToBallsHolder(this.whiteBall);
                 this.balls.push(this.whiteBall);
-                // console.log(this.whiteBall.name);
+                // console.log(this.whiteBall.nickname);
 
                 this.puck.reset();
                 this.puck.ballPosition = this.puck.initialPosition;//.x;
                 this.balls.push(this.puck);
                 this.addBallToBallsHolder(this.puck);
 
-                // console.log(this.puck.name);
+                // console.log(this.puck.nickname);
 
                 _.forEach(this.leftBallsArray, (ball: AbstractBall) => {
                     ball.reset();
@@ -872,7 +872,7 @@ namespace Pockey {
                     this.balls.push(ball);
 
                     this.addBallToBallsHolder(ball);
-                    // console.log(ball.name);
+                    // console.log(ball.nickname);
                     // ball.y = ball.initialPosition.y;
 
                     // if (ball.ballType == BallType.Player) {
@@ -903,7 +903,7 @@ namespace Pockey {
                 graphics.drawRect(-rectangle.width / 2, -rectangle.height / 2, rectangle.width, rectangle.height);
                 graphics.endFill();
                 let s: Sprite = new Sprite();
-                s.name = id;
+                s.nickname = id;
 
                 s.addChild(graphics);
 

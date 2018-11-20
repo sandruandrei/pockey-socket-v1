@@ -149,7 +149,7 @@
         <map type="GFileNameMap">
             <key>column</key>
             <struct type="DataFile">
-                <key>name</key>
+                <key>nickname</key>
                 <filename>pockey/images/pockey-main.json</filename>
             </struct>
         </map>

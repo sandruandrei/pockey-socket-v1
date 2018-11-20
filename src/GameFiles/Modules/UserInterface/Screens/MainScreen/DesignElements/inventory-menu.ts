@@ -1,7 +1,7 @@
 ///<reference path="inventory-button.ts"/>
 ///<reference path="inventory-box.ts"/>
 ///<reference path="inventory-items-holder-buttons.ts"/>
-///<reference path="../../../../../Framework/Signals/signal-types.ts"/>
+///<reference path="../../../../../../Framework/Signals/signal-types.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow

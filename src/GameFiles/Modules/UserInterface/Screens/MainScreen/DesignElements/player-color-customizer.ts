@@ -1,4 +1,4 @@
-///<reference path="../../../../../Framework/Utils/cookie.ts"/>
+///<reference path="../../../../../../Framework/Utils/cookie.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -88,6 +88,16 @@ namespace Pockey {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
                 /*
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_COLOR, this.updateCurrentColor.bind(this));*/
+                SignalsManager.AddSignalCallback(PockeySignalTypes.INVENTORY_ITEM_UPDATED, this.onInventoryItemUpdated.bind(this));
+
+            }
+
+            private onInventoryItemUpdated():void
+            {
+                if(this.colorsArray[this.currentColorCounter].id != PockeySettings.PLAYER_COLOR_ID)
+                {
+                    this.updateCurrentColor();
+                }
             }
 
             private updateCurrentColor(): void {

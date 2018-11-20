@@ -317,10 +317,12 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_NAME);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_STATE_TEXT);

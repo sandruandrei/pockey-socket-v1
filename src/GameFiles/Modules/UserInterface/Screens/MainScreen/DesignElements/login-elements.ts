@@ -1,5 +1,5 @@
-///<reference path="../../../../../Framework/Utils/cookie.ts"/>
-///<reference path="../../../../../Framework/AbstractModules/Connection/database-connector.ts"/>
+///<reference path="../../../../../../Framework/Utils/cookie.ts"/>
+///<reference path="../../../../../../Framework/AbstractModules/Connection/database-connector.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -156,6 +156,7 @@ namespace Pockey {
                             DatabaseConnector.updateUserData(nicknameDb, null);
                         }
                         else {
+                            PockeySettings.PLAYER_NICKNAME = this.inputText.value;
                             writeCookie('PockeyNickname', this.inputText.value, 30);
                         }
 

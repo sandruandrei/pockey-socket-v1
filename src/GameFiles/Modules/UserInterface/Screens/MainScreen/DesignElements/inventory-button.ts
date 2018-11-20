@@ -32,7 +32,7 @@ private inventoryButtonLogo:HTMLDivElement;
                 this.onShowCategoryCallback = showCategoryCallback;
                 this.onHideCategoryCallback = hideCategoryCallback;
                 this.category = this.id.replace("Inventory", "");
-                //console.log("categoryElements name: " + this.category);
+                //console.log("categoryElements nickname: " + this.category);
                 this.inventoryButtonLogo = this.button.querySelector('.inventoryButtonLogo') as HTMLDivElement;
 
                 if (Settings.playerSignedIn) {

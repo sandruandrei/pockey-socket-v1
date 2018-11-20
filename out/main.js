@@ -64,6 +64,8 @@ var Pockey;
         PockeySignalTypes.UPDATE_PLAYER_COLOR = "PockeySignalTypes." + "UPDATE_PLAYER_COLOR";
         PockeySignalTypes.CHECK_USER_DATA = "PockeySignalTypes." + "CHECK_USER_DATA";
         PockeySignalTypes.INVENTORY_ITEM_UPDATED = "PockeySignalTypes." + "INVENTORY_ITEM_UPDATED";
+        PockeySignalTypes.CHANGE_PLAYER_AVATAR = "PockeySignalTypes." + "CHANGE_PLAYER_AVATAR";
+        PockeySignalTypes.CHANGE_OPPONENT_AVATAR = "PockeySignalTypes." + "CHANGE_OPPONENT_AVATAR";
         SignalsModule.PockeySignalTypes = PockeySignalTypes;
         class PockeyConnectionSignals {
         }
@@ -890,7 +892,7 @@ var Pockey;
     PockeySettings.PLAYER_ID = "guest";
     PockeySettings.PLAYER_LEVEL = 1;
     PockeySettings.OPPONENT_SOCKET_ID = "";
-    PockeySettings.OPPONENT_NAME = "SandruOpponent";
+    PockeySettings.OPPONENT_NICKNAME = "SandruOpponent";
     PockeySettings.DELTA = 0.98;
     PockeySettings.BALL_RADIUS = 17;
     PockeySettings.P2_WORLD_STEP = 1 / 60;
@@ -2042,6 +2044,20 @@ var Framework;
 })(Framework || (Framework = {}));
 var Framework;
 (function (Framework) {
+    let Sound;
+    (function (Sound) {
+        var AbstractModule = Framework.Abstracts.AbstractModule;
+        class AbstractSoundModule extends AbstractModule {
+            constructor() {
+                super();
+                this.Name = "AbstractSoundModule";
+            }
+        }
+        Sound.AbstractSoundModule = AbstractSoundModule;
+    })(Sound = Framework.Sound || (Framework.Sound = {}));
+})(Framework || (Framework = {}));
+var Framework;
+(function (Framework) {
     var AssetsLoader = Framework.Loaders.AssetsLoader;
     var Container = PIXI.Container;
     var SignalsManager = Framework.Signals.SignalsManager;
@@ -2052,6 +2068,7 @@ var Framework;
     var AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
     var ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
     var Settings = Framework.Settings;
+    var AbstractSoundModule = Framework.Sound.AbstractSoundModule;
     class AbstractEntryPoint {
         constructor() {
             this.name = "";
@@ -2107,6 +2124,11 @@ var Framework;
             this.addConnectionModule();
             this.addBackgroundModule();
             this.addUIModule();
+            this.addSoundModule();
+        }
+        addSoundModule() {
+            this.soundModule = this.getSoundModule();
+            this.registerModule(this.soundModule);
         }
         addBackgroundModule() {
             this.backgroundModule = this.getBackgroundModule();
@@ -2154,6 +2176,11 @@ var Framework;
             let backgroundModule = new AbstractBackgroundModule();
             backgroundModule.Layer = this.getLayer(Framework.Layers.BackgroundLayer);
             return backgroundModule;
+        }
+        getSoundModule() {
+            let soundModule = new AbstractSoundModule();
+            soundModule.Layer = this.getLayer(Framework.Layers.DefaultLayer);
+            return soundModule;
         }
         getUIModule() {
             let uiModule = new AbstractUserInterfaceModule();
@@ -4816,9 +4843,11 @@ var Pockey;
                 }
                 SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, orderArray);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
             }
             onStartGame() {
                 SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, 0.4]);
@@ -4834,7 +4863,9 @@ var Pockey;
                     SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
                 }
                 else {
                     PockeyStateMachine.Instance().changeState(PockeyStates.onSearchForPartner);
@@ -4933,19 +4964,24 @@ var Pockey;
                 if (connectionID.startsWith(this.player.id)) {
                     this.currentPlayer = this.player;
                     let playerSettings = {
-                        opponentName: Pockey.PockeySettings.PLAYER_NICKNAME,
+                        opponentAvatarId: Pockey.PockeySettings.PLAYER_AVATAR_ID,
+                        opponentNickname: Pockey.PockeySettings.PLAYER_NICKNAME,
+                        opponentSocketId: Pockey.PockeySettings.PLAYER_SOCKET_ID,
                         opponentColor: +Pockey.PockeySettings.PLAYER_COLOR_ID
                     };
+                    console.log("opponent avatar socket connection created: " + Pockey.PockeySettings.PLAYER_AVATAR_ID);
+                    console.log(playerSettings);
                     playerSettings.firstToStart = this.player.id;
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
                 }
             }
             onOpponentSettings(params) {
-                console.log(("%c culorilefmm: my color id " + Pockey.PockeySettings.PLAYER_COLOR_ID + ", " + +Pockey.PockeySettings.PLAYER_COLOR_ID), "color:black; background:" + Pockey.PockeySettings.PLAYER_COLOR_ID.replace("0x", "#"));
-                console.log("culorilefmm: opponent color la enter " + Pockey.PockeySettings.OPPONENT_COLOR);
                 let opponentSettings = params[0];
                 Pockey.PockeySettings.OPPONENT_COLOR = opponentSettings.opponentColor;
-                console.log("culorilefmm: opponent color la dupa " + Pockey.PockeySettings.OPPONENT_COLOR);
+                Pockey.PockeySettings.OPPONENT_SOCKET_ID = opponentSettings.opponentSocketId;
+                Pockey.PockeySettings.OPPONENT_NICKNAME = opponentSettings.opponentNickname;
+                Pockey.PockeySettings.OPPONENT_AVATAR_ID = opponentSettings.opponentAvatarId;
+                console.log("opponent avatar la opponent settings: " + Pockey.PockeySettings.OPPONENT_AVATAR_ID);
                 if (opponentSettings.firstToStart == this.player.id) {
                     this.setCurrentPlayer(this.player);
                     console.log("culorilefmm: la player " + Pockey.PockeySettings.OPPONENT_COLOR, +Pockey.PockeySettings.PLAYER_COLOR_ID);
@@ -4961,25 +4997,33 @@ var Pockey;
                     this.player.side = "right";
                     this.opponent.side = "left";
                     console.log("culorilefmm: la opp " + Pockey.PockeySettings.OPPONENT_COLOR, +Pockey.PockeySettings.PLAYER_COLOR_ID);
+                    let sameColorsUsed = false;
                     if (Pockey.PockeySettings.OPPONENT_COLOR == +Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                        sameColorsUsed = true;
                         console.log("culorilefmm: sunt la fel in plm ");
                         let randNumber = Math.round(Math.random() * (Pockey.PockeySettings.LARGE_COLORS_ARRAY.length - 1));
                         Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
                     }
                     let playerSettings = {
-                        opponentName: Pockey.PockeySettings.PLAYER_NICKNAME,
-                        opponentColor: +Pockey.PockeySettings.PLAYER_COLOR_ID,
+                        opponentAvatarId: Pockey.PockeySettings.PLAYER_AVATAR_ID,
+                        opponentNickname: Pockey.PockeySettings.PLAYER_NICKNAME,
+                        opponentSocketId: Pockey.PockeySettings.PLAYER_SOCKET_ID,
+                        opponentColor: (sameColorsUsed) ? Pockey.PockeySettings.OPPONENT_COLOR : +Pockey.PockeySettings.PLAYER_COLOR_ID,
                         firstToStart: this.opponent.id
                     };
+                    console.log("opponent nickname:");
+                    console.log(playerSettings);
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
                     PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
                 }
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [this.opponent.id]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
             }
             onShoot() {
                 this.whiteBallPenalty = false;
@@ -5279,10 +5323,12 @@ var Pockey;
                     else if (pockeyID == "guest") {
                         let playerData = {};
                         if (readCookie('PockeyUserColorId') != "") {
-                            playerData["color"] = readCookie('PockeyUserColorId');
+                            Pockey.PockeySettings.PLAYER_COLOR_ID = readCookie('PockeyUserColorId');
+                            playerData["color"] = Pockey.PockeySettings.PLAYER_COLOR_ID;
                         }
                         if (readCookie('PockeyNickname') != "") {
-                            playerData["nickname"] = readCookie('PockeyNickname');
+                            Pockey.PockeySettings.PLAYER_NICKNAME = readCookie('PockeyNickname');
+                            playerData["nickname"] = Pockey.PockeySettings.PLAYER_NICKNAME;
                         }
                         console.log("guest on read cookie");
                         this.playerInfoReceived(playerData);
@@ -5607,6 +5653,12 @@ var Pockey;
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_COLOR, this.updateCurrentColor.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.INVENTORY_ITEM_UPDATED, this.onInventoryItemUpdated.bind(this));
+            }
+            onInventoryItemUpdated() {
+                if (this.colorsArray[this.currentColorCounter].id != Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                    this.updateCurrentColor();
+                }
             }
             updateCurrentColor() {
                 _.forEach(this.colorsArray, (item, counter) => {
@@ -5861,6 +5913,7 @@ var Pockey;
                             DatabaseConnector.updateUserData(nicknameDb, null);
                         }
                         else {
+                            Pockey.PockeySettings.PLAYER_NICKNAME = this.inputText.value;
                             writeCookie('PockeyNickname', this.inputText.value, 30);
                         }
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
@@ -6696,6 +6749,7 @@ var Pockey;
 (function (Pockey) {
     let UserInterface;
     (function (UserInterface) {
+        var Sprite = PIXI.Sprite;
         var Graphics = PIXI.Graphics;
         class PockeyUiInGameAvatar extends Container {
             constructor() {
@@ -6712,11 +6766,34 @@ var Pockey;
                 secondRect.x = firstRect.x + firstRect.width / 2 - secondRect.width / 2;
                 this.addChild(secondRect);
                 let thirdRect = new Graphics();
-                thirdRect.beginFill(0x000000);
+                thirdRect.beginFill(0x1a4157);
                 thirdRect.drawRoundedRect(0, 0, secondRect.width - this.borderSpacing * 2, secondRect.height - this.borderSpacing * 2, 4);
                 thirdRect.x = secondRect.x + secondRect.width / 2 - thirdRect.width / 2;
                 thirdRect.y = secondRect.y + secondRect.height / 2 - thirdRect.height / 2;
                 this.addChild(thirdRect);
+                let avatarPath = "";
+                _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, (avatar, counter) => {
+                    if (avatar.id == Pockey.PockeySettings.PLAYER_AVATAR_ID) {
+                        avatarPath = avatar.icon;
+                        return true;
+                    }
+                });
+                this.avatarImage = new Sprite(PIXI.Texture.fromImage(avatarPath));
+                this.avatarImage.width = this.avatarImage.height = thirdRect.width;
+                this.avatarImage.x = thirdRect.x;
+                this.avatarImage.y = thirdRect.y;
+                this.addChild(this.avatarImage);
+            }
+            updateAvatarImage(avatarID) {
+                console.log("on change avatar la game screen: " + avatarID);
+                let avatarPath = "";
+                _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, (avatar, counter) => {
+                    if (avatar.id == avatarID) {
+                        avatarPath = avatar.icon;
+                        return true;
+                    }
+                });
+                this.avatarImage.texture = PIXI.Texture.fromImage(avatarPath);
             }
         }
         UserInterface.PockeyUiInGameAvatar = PockeyUiInGameAvatar;
@@ -6801,17 +6878,16 @@ var Pockey;
                     this.userNameTextField = new TextField("Player", style);
                     this.userLifeBar.x = this.userAvatar.width + 76;
                     this.userNameTextField.x = this.userLifeBar.x;
-                    this.timerText.x = this.userLifeBar.x;
                 }
                 else {
                     this.userNameTextField = new TextField("Opponent", style);
                     this.userAvatar.x = this.userLifeBar.width + 76;
                     this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
-                    this.timerText.x = this.userLifeBar.width - this.timerText.width;
                 }
+                this.timerText.x = this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
                 this.userLifeBar.y = this.userAvatar.height - this.userLifeBar.height;
                 this.userNameTextField.y = this.userLifeBar.y - this.userNameTextField.height + 4;
-                this.timerText.y = this.userNameTextField.y - this.timerText.height + 4;
+                this.timerText.y = this.userAvatar.y + this.userAvatar.height - 1 - this.timerText.height;
                 this.addChild(this.userAvatar);
                 this.addChild(this.userLifeBar);
                 this.addChild(this.userNameTextField);
@@ -6830,8 +6906,7 @@ var Pockey;
                     this.timerText.visible = true;
                     this.timerText.style.fill = 0xffffff;
                     this.timerText.setText(timeText);
-                    if (this.side == "right")
-                        this.timerText.x = this.userLifeBar.width - this.timerText.width;
+                    this.timerText.x = 2 + this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
                 }
             }
             updateUsername(text) {
@@ -6864,6 +6939,9 @@ var Pockey;
                     lifeUnit.tint = color;
                 });
                 this.userNameTextField.tint = color;
+            }
+            updateAvatar(avatar) {
+                this.userAvatar.updateAvatarImage(avatar);
             }
             setTimerColor(tintColor) {
                 if (this.timerText.style.fill = tintColor) {
@@ -7566,9 +7644,11 @@ var Pockey;
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_SCORE, this.onUpdatePlayerScore.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_AVATAR, this.onChangePlayerAvatar.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_SCORE, this.onUpdateOpponentScore.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, this.onChangeOpponentAvatar.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_GAME_SCREEN, this.onReset.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, this.onUpdateCurrentPlayerTimer.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_MATCH_CIRCLES, this.onUpdateMatchCircles.bind(this));
@@ -7598,7 +7678,7 @@ var Pockey;
             onUpdateUIText(params) {
                 let text = params[0];
                 if (text.includes("{opponent"))
-                    text = text.replace("{opponent}", Pockey.PockeySettings.OPPONENT_SOCKET_ID);
+                    text = text.replace("{opponent}", Pockey.PockeySettings.OPPONENT_NICKNAME);
                 if (text != this.multilineText.text) {
                     this.multilineText.text = text;
                     if (!Settings.isMobile)
@@ -7654,6 +7734,10 @@ var Pockey;
                 if (this.playerGameGraphics)
                     this.playerGameGraphics.tint(+color);
             }
+            onChangePlayerAvatar(avatarPath) {
+                if (this.playerGameGraphics)
+                    this.playerGameGraphics.updateAvatar(avatarPath);
+            }
             onUpdateOpponentScore(score) {
                 if (this.opponentGameGraphics)
                     this.opponentGameGraphics.updateScore(score);
@@ -7682,6 +7766,10 @@ var Pockey;
                         "warning": this.warningTextStyle,
                         "opponent": this.opponentTextStyle
                     };
+            }
+            onChangeOpponentAvatar(avatarPath) {
+                if (this.opponentGameGraphics)
+                    this.opponentGameGraphics.updateAvatar(avatarPath);
             }
             handleDesktopLandscape() {
                 this.graphicsContainer.height = 0.11 * Settings.stageHeight;
@@ -8077,9 +8165,11 @@ var Pockey;
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_NAME);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_STATE_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER);

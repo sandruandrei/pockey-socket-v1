@@ -306,22 +306,22 @@ var main = function() {
     var Admin = BasicUser | UserPriviliges.Kick | UserPriviliges.Ban;
 
     var RankType = [
-        { name: "Guest"},
-        { name: "Potato Pleb",        score: 0},
-        { name: "Bronze Casual", 	    score: 100},
-        { name: "Silver Scrub", 	    score: 250},
-        { name: "Gold Garbage",       score: 500},
-        { name: "Platinum Peasant",   score: 750},
-        { name: "Diamond Dumpster",   score: 1000},
-        { name: "Spacemonkey",        score: 1250},
-        { name: "Cosmic Cadet",  	    score: 1500},
-        { name: "Astrojunkie",        score: 1750},
-        { name: "Starchild",		    score: 2000},
-        { name: "Starman",  		    score: 2250},
-        { name: "Starlord",	        score: 2500},
-        { name: "Celestial",	        score: 2750},
-        { name: "Master",             score: 3000},
-        { name: "Grandmaster",        score: 4000}
+        { nickname: "Guest"},
+        { nickname: "Potato Pleb",        score: 0},
+        { nickname: "Bronze Casual", 	    score: 100},
+        { nickname: "Silver Scrub", 	    score: 250},
+        { nickname: "Gold Garbage",       score: 500},
+        { nickname: "Platinum Peasant",   score: 750},
+        { nickname: "Diamond Dumpster",   score: 1000},
+        { nickname: "Spacemonkey",        score: 1250},
+        { nickname: "Cosmic Cadet",  	    score: 1500},
+        { nickname: "Astrojunkie",        score: 1750},
+        { nickname: "Starchild",		    score: 2000},
+        { nickname: "Starman",  		    score: 2250},
+        { nickname: "Starlord",	        score: 2500},
+        { nickname: "Celestial",	        score: 2750},
+        { nickname: "Master",             score: 3000},
+        { nickname: "Grandmaster",        score: 4000}
     ];
 
     function getRankColor(rank) {
@@ -707,10 +707,10 @@ var main = function() {
     }
 
     class SoundInstance {
-        constructor(soundEngine, source, name, id) {
+        constructor(soundEngine, source, nickname, id) {
             this.id = soundEngine.ids++;
             this.source = source;
-            this.name = name;
+            this.nickname = nickname;
             this.gainNode = soundEngine.context.createGain();
 //		this.panNode = soundEngine.context.createStereoPanner();
             this.source.connect(this.gainNode);
@@ -1582,8 +1582,8 @@ var main = function() {
             }
 
             if (!this.puckTarget && puck) {
-                let opponentName = game.opponent.userName;
-                this.tip.setText("SHOOT THE PUCK INTO <opponent>" + opponentName + "'s GOAL!</opponent>");
+                let opponentNickname = game.opponent.userName;
+                this.tip.setText("SHOOT THE PUCK INTO <opponent>" + opponentNickname + "'s GOAL!</opponent>");
             } else if (this.puckTarget && !puck) {
                 this.tip.setPrevious();
             }
@@ -1729,11 +1729,11 @@ var main = function() {
         refreshOpponent() {
             let win = this.invite ? 0 : game.playerInfos[game.selfIndex].getScoreChange(game.playerInfos[this.opponentIndex].rank, true);
             let lose = this.invite ? 0 : game.playerInfos[game.selfIndex].getScoreChange(game.playerInfos[this.opponentIndex].rank, false);
-            let name = document.getElementById('opponentname');
-            name.innerHTML = censore(game.playerInfos[this.opponentIndex].userName,game.regexp);
-            name.style.color = game.getColor(game.playerInfos[this.opponentIndex].color).text;
+            let nickname = document.getElementById('opponentname');
+            nickname.innerHTML = censore(game.playerInfos[this.opponentIndex].userName,game.regexp);
+            nickname.style.color = game.getColor(game.playerInfos[this.opponentIndex].color).text;
             let rank = document.getElementById('opponentrank');
-            rank.innerHTML = RankType[game.playerInfos[this.opponentIndex].rank].name;
+            rank.innerHTML = RankType[game.playerInfos[this.opponentIndex].rank].nickname;
             rank.color = getRankColor(game.playerInfos[this.opponentIndex].rank);
 
             $("#opponentrankimg").attr('src','assets/ranks/color/rank-tier'+game.playerInfos[this.opponentIndex].rank+'.svg');
@@ -1773,7 +1773,7 @@ var main = function() {
                 document.getElementById('endavatar' + i).src = 'assets/avatars/' + game.getAvatar(playerInfo.avatar).fileName;
                 document.getElementById('endname' + i).innerHTML = censore(playerInfo.userName, game.regexp);
                 document.getElementById('endname' + i).style.color= game.getColor(playerInfo.color).text;
-                document.getElementById('endrank' + i).innerHTML = RankType[playerInfo.rank].name;
+                document.getElementById('endrank' + i).innerHTML = RankType[playerInfo.rank].nickname;
                 //document.getElementById('player1rankscore').innerHTML = game.playerInfos[0].score;
                 document.getElementById('endrankimg' + i).src = 'assets/ranks/color/rank-tier' + playerInfo.rank + '.svg';
                 if (!disconnect) {
@@ -3481,14 +3481,14 @@ var main = function() {
         preloadPIXI() {
             this.assetsToLoad.spritesheets.forEach(spritesheet => {
                 PIXI.loader
-                    .add(spritesheet.name, 'assets/textures/'+spritesheet.name+'.json')
-                this.spritesheets.push({name:spritesheet.name})
+                    .add(spritesheet.nickname, 'assets/textures/'+spritesheet.nickname+'.json')
+                this.spritesheets.push({nickname:spritesheet.nickname})
             })
 
             this.assetsToLoad.animations.forEach(animation => {
                 PIXI.loader
-                    .add(animation.name, 'assets/animations/'+animation.name+'.json')
-                this.animations.push({name:animation.name})
+                    .add(animation.nickname, 'assets/animations/'+animation.nickname+'.json')
+                this.animations.push({nickname:animation.nickname})
             })
 
             PIXI.loader.onLoad.add((loader, resource) => {
@@ -3503,7 +3503,7 @@ var main = function() {
                 request.onreadystatechange =() => {
                     if (request.readyState == XMLHttpRequest.DONE) {
                         if (request.status >= 200 && request.status < 300) {
-                            this.texts.push({name: text.name, text: request.responseText});
+                            this.texts.push({nickname: text.nickname, text: request.responseText});
                             this.assetLoaded();
                         }
                         else {
@@ -3520,7 +3520,7 @@ var main = function() {
 
         preloadSounds() {
             this.assetsToLoad.sounds.forEach(s => {
-                this.soundEngine.addSound(s.name, s.path);
+                this.soundEngine.addSound(s.nickname, s.path);
             })
             this.soundEngine.preloadSounds(this.assetLoaded.bind(this));
         }
@@ -3535,36 +3535,36 @@ var main = function() {
             }
         }
 
-        getImage(name) {
+        getImage(nickname) {
             for (let asset of this.images) {
-                if (asset.name == name) {
+                if (asset.nickname == nickname) {
                     return asset.image;
                 }
             }
             return ;
         }
 
-        getText(name) {
+        getText(nickname) {
             for (let asset of this.texts) {
-                if (asset.name == name) {
+                if (asset.nickname == nickname) {
                     return asset.text;
                 }
             }
             return null;
         }
 
-        getTexture(name) {
+        getTexture(nickname) {
             for (let asset of this.textures) {
-                if (asset.name == name) {
+                if (asset.nickname == nickname) {
                     return asset.texture;
                 }
             }
             return null;
         }
 
-        getAnimation(name) {
+        getAnimation(nickname) {
             for (let asset of this.animations) {
-                if (asset.name == name) {
+                if (asset.nickname == nickname) {
                     return asset.animation;
                 }
             }
@@ -4391,13 +4391,13 @@ var main = function() {
         initPIXIResources() {
             var resources = PIXI.loader.resources;
             this.assetManager.spritesheets.forEach(spritesheet => {
-                for (let texture in resources[spritesheet.name].textures) {
-                    this.assetManager.textures.push({name: texture, texture: resources[spritesheet.name].textures[texture]})
+                for (let texture in resources[spritesheet.nickname].textures) {
+                    this.assetManager.textures.push({nickname: texture, texture: resources[spritesheet.nickname].textures[texture]})
                 }
             });
 
             this.assetManager.animations.forEach(animation => {
-                animation.animation = resources[animation.name].spineData;
+                animation.animation = resources[animation.nickname].spineData;
             });
         }
 
@@ -4430,21 +4430,21 @@ var main = function() {
 
         var effects = [];
         this.assetManager.texts.forEach(file => {
-            if (file.name.startsWith('effects') && file.name.endsWith('json')) {
+            if (file.nickname.startsWith('effects') && file.nickname.endsWith('json')) {
                 let column = JSON.parse(file.text);
                 for (let path in column.frames) {
                     let parts = path.split('/');
                     let frame = column.frames[path];
-                    let name = parts[0];
-                    frame.index = parts[1].substring(name.length + 1, name.length + 1 + 2);
-                    var effect = effects.find(e => e.name == name);
+                    let nickname = parts[0];
+                    frame.index = parts[1].substring(nickname.length + 1, nickname.length + 1 + 2);
+                    var effect = effects.find(e => e.nickname == nickname);
                     if (!effect) {
                         effect = {};
                         effect.frames = [];
-                        effect.texture = this.assetManager.getTexture(file.name.replace('json', 'png'));
+                        effect.texture = this.assetManager.getTexture(file.nickname.replace('json', 'png'));
                         effect.width = frame.frame.w;
                         effect.height = frame.frame.h;
-                        effect.name = name;
+                        effect.nickname = nickname;
                         effects.push(effect);
                     }
                     frame.uvX0 = frame.frame.x/2048.0;
@@ -4453,7 +4453,7 @@ var main = function() {
                     frame.uvY1 = (frame.frame.y+effect.height)/2048.0;
                     effect.frames.push(frame);
                 }
-                //this.effects[name].push({ frame: column.frames[path], index: index, path: path });
+                //this.effects[nickname].push({ frame: column.frames[path], index: index, path: path });
             }
         });
 
@@ -4610,9 +4610,9 @@ var main = function() {
                                 fbToken: fbToken
                             };
 
-                            FB.api('/me', { locale: 'en_US', fields: 'name, email' },
+                            FB.api('/me', { locale: 'en_US', fields: 'nickname, email' },
                                 function(response2) {
-                                    loginData.name = response2.name;
+                                    loginData.nickname = response2.nickname;
                                     loginData.email = response2.email;
                                     this.portalsocket.emit("loginAttempt", loginData);
                                 }.bind(this)
@@ -4637,7 +4637,7 @@ var main = function() {
                         var loginData = {
                             googleToken: googleUser.getAuthResponse().id_token,
                             email: googleUser.getBasicProfile().getEmail(),
-                            name: googleUser.getBasicProfile().getName()
+                            nickname: googleUser.getBasicProfile().getName()
                         };
                         this.portalsocket.emit("loginAttempt", loginData);
                     } else {
@@ -5405,7 +5405,7 @@ var main = function() {
 
             infos.serverList.forEach(serverInfo => {
                 var option = document.createElement("option");
-                option.text = serverInfo.name + " [" + serverInfo.players + "/" + serverInfo.maxPlayers + "]";
+                option.text = serverInfo.nickname + " [" + serverInfo.players + "/" + serverInfo.maxPlayers + "]";
                 option.value = serverInfo.address;
                 serverlist.add(option);
                 if (serverInfo.preferred) {
@@ -5521,11 +5521,11 @@ var main = function() {
             place.innerHTML = ordinalSuffix(placement);
             row.appendChild(place);
 
-            let name = document.createElement("div");
-            name.className = "top10name";
-            name.innerHTML = censore(playerInfo.userName,game.regexp);
+            let nickname = document.createElement("div");
+            nickname.className = "top10name";
+            nickname.innerHTML = censore(playerInfo.userName,game.regexp);
 
-            row.appendChild(name);
+            row.appendChild(nickname);
 
             let score = document.createElement("div");
             score.className = "top10score";
@@ -5537,7 +5537,7 @@ var main = function() {
             if (!self) {
                 rank.style.color = getRankColor(playerInfo.rank);
             }
-            rank.innerHTML = RankType[playerInfo.rank].name;
+            rank.innerHTML = RankType[playerInfo.rank].nickname;
             row.appendChild(rank);
 
             let playtime = document.createElement("div");
@@ -5734,23 +5734,23 @@ var main = function() {
                 let column = resources[resource].column;
                 for (let path in column.frames) {
                     let parts = path.split('/');
-                    let name = parts[0];
-                    let index = parts[1].substring(name.length + 1, name.length + 1 + 2);
-                    if (!animationFrames[name]) {
-                        animationFrames[name] = [];
+                    let nickname = parts[0];
+                    let index = parts[1].substring(nickname.length + 1, nickname.length + 1 + 2);
+                    if (!animationFrames[nickname]) {
+                        animationFrames[nickname] = [];
                     }
-                    animationFrames[name].push({ frame: column.frames[path], index: index, path: path });
+                    animationFrames[nickname].push({ frame: column.frames[path], index: index, path: path });
                 }
             }
         }
-        for (let name in animationFrames) {
-            let frames = animationFrames[name];
+        for (let nickname in animationFrames) {
+            let frames = animationFrames[nickname];
             frames.sort((a, b) => a.index - b.index);
             frames.forEach((frame, i) => {
                 frames[i] = PIXI.Texture.fromFrame(frame.path);
                 // renderer.plugins.prepare.upload(frames[i]);
             });
-            console.log("Animation name: " + name + ", Length: " + frames.length);
+            console.log("Animation nickname: " + nickname + ", Length: " + frames.length);
         }
     }
 

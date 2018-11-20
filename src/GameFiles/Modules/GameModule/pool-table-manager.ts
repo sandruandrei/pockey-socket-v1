@@ -498,7 +498,7 @@ namespace Pockey {
                 console.log("la pocket 1: " + this.poolTable.balls.length);
                 // let ballName: string = params.toString();
                 // _.remove(this.poolTable.balls, (ball: AbstractBall) => {
-                //     return ball.name == ballName;
+                //     return ball.nickname == ballName;
                 // });
                 console.log("la pocket 2: " + this.poolTable.balls.length);
 

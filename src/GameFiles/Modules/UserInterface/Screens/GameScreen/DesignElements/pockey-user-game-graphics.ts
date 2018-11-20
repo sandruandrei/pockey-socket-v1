@@ -1,6 +1,6 @@
-///<reference path="../../GameModule/balls/abstract-ball.ts"/>
+///<reference path="../../../../GameModule/balls/abstract-ball.ts"/>
 ///<reference path="pockey-ui-in-game-avatar.ts"/>
-///<reference path="../../../../Framework/Utils/text-field.ts"/>
+///<reference path="../../../../../../Framework/Utils/text-field.ts"/>
 ///<reference path="pockey-life-bar.ts"/>
 namespace Pockey {
     export module UserInterface {
@@ -55,27 +55,25 @@ namespace Pockey {
                     this.userLifeBar.x = this.userAvatar.width + 76;
                     this.userNameTextField.x = this.userLifeBar.x;
 
-                    this.timerText.x = this.userLifeBar.x;
                 }
                 else {
                     this.userNameTextField = new TextField("Opponent", style);
                     this.userAvatar.x = this.userLifeBar.width + 76;// this.userAvatar.width - 60;
                     this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
-                    this.timerText.x = this.userLifeBar.width - this.timerText.width;
+                    // this.timerText.x = this.userLifeBar.width - this.timerText.width;
                 }
 
+                this.timerText.x = this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
 
                 this.userLifeBar.y = this.userAvatar.height - this.userLifeBar.height;
                 this.userNameTextField.y = this.userLifeBar.y - this.userNameTextField.height + 4;
 
-                this.timerText.y = this.userNameTextField.y - this.timerText.height + 4;
-
+                this.timerText.y = this.userAvatar.y + this.userAvatar.height - 1 - this.timerText.height;
 
                 this.addChild(this.userAvatar);
                 this.addChild(this.userLifeBar);
                 this.addChild(this.userNameTextField);
                 this.addChild(this.timerText);
-
             }
 
             public resetTimer(): void {
@@ -93,8 +91,10 @@ namespace Pockey {
                     this.timerText.visible = true;
                     this.timerText.style.fill = 0xffffff;
                     this.timerText.setText(timeText);
-                    if (this.side == "right")
-                        this.timerText.x = this.userLifeBar.width - this.timerText.width;
+                    this.timerText.x = 2 + this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
+
+                    /*if (this.side == "right")
+                        this.timerText.x = this.userLifeBar.width - this.timerText.width;*/
 
                 }
             }
@@ -146,6 +146,10 @@ namespace Pockey {
 
                 });
                 this.userNameTextField.tint = color;
+            }
+
+            public updateAvatar(avatar: string): void {
+                this.userAvatar.updateAvatarImage(avatar);
             }
 
             public setTimerColor(tintColor: number): void {

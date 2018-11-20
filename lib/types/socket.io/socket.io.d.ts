@@ -169,7 +169,7 @@ declare module SocketIO {
 		
 		/**
 		 * Looks up/creates a Namespace
-		 * @param nsp The name of the NameSpace to look up/create. Should start
+		 * @param nsp The nickname of the NameSpace to look up/create. Should start
 		 * with a '/'
 		 * @return The Namespace
 		 */
@@ -204,7 +204,7 @@ declare module SocketIO {
 		
 		/**
 		 * Targets a room when emitting to the default '/' Namespace
-		 * @param room The name of the room that we're targeting 
+		 * @param room The nickname of the room that we're targeting
 		 * @return The default '/' Namespace
 		 */
 		to( room: string ): Namespace;
@@ -350,7 +350,7 @@ declare module SocketIO {
 
 
         /**
-		 * The name of the NameSpace
+		 * The nickname of the NameSpace
 		 */
 		name: string;
 		
@@ -394,7 +394,7 @@ declare module SocketIO {
 		
 		/**
 		 * Targets a room when emitting
-		 * @param room The name of the room that we're targeting 
+		 * @param room The nickname of the room that we're targeting
 		 * @return This Namespace
 		 */
 		to( room: string ): Namespace;
@@ -464,7 +464,7 @@ declare module SocketIO {
 		
 		/**
 		 * The unique ID for this Socket. Regenerated at every connection. This is
-		 * also the name of the room that the Socket automatically joins on connection
+		 * also the nickname of the room that the Socket automatically joins on connection
 		 */
 		id: string;
 		
@@ -598,7 +598,7 @@ declare module SocketIO {
 		
 		/**
 		 * Targets a room when broadcasting
-		 * @param room The name of the room that we're targeting
+		 * @param room The nickname of the room that we're targeting
 		 * @return This Socket
 		 */
 		to( room: string ): Socket;
@@ -621,8 +621,8 @@ declare module SocketIO {
 		
 		/**
 		 * Joins a room. You can join multiple rooms, and by default, on connection,
-		 * you join a room with the same name as your ID
-		 * @param name The name of the room that we want to join
+		 * you join a room with the same nickname as your ID
+		 * @param name The nickname of the room that we want to join
 		 * @param fn An optional callback to call when we've joined the room. It should
 		 * take an optional parameter, err, of a possible error
 		 * @return This Socket
@@ -631,7 +631,7 @@ declare module SocketIO {
 		
 		/**
 		 * Leaves a room
-		 * @param name The name of the room to leave
+		 * @param name The nickname of the room to leave
 		 * @param fn An optional callback to call when we've left the room. It should
 		 * take on optional parameter, err, of a possible error
 		 */
@@ -729,7 +729,7 @@ declare module SocketIO {
 		/**
 		 * Adds a socket to a room. If the room doesn't exist, it's created
 		 * @param id The ID of the socket to add
-		 * @param room The name of the room to add the socket to
+		 * @param room The nickname of the room to add the socket to
 		 * @param callback An optional callback to call when the socket has been 
 		 * added. It should take an optional parameter, error, if there was a problem
 		 */
@@ -739,7 +739,7 @@ declare module SocketIO {
 		 * Removes a socket from a room. If there are no more sockets in the room,
 		 * the room is deleted
 		 * @param id The ID of the socket that we're removing
-		 * @param room The name of the room to remove the socket from
+		 * @param room The nickname of the room to remove the socket from
 		 * @param callback An optional callback to call when the socket has been
 		 * removed. It should take on optional parameter, error, if there was a problem
 		 */

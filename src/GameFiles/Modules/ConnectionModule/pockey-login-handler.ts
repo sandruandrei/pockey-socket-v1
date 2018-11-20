@@ -98,13 +98,13 @@ namespace Pockey {
                         let playerData = {};
 
                         if (readCookie('PockeyUserColorId') != "") {
-                            // PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                            playerData["color"] = readCookie('PockeyUserColorId');
+                            PockeySettings.PLAYER_COLOR_ID = readCookie('PockeyUserColorId');
+                            playerData["color"] = PockeySettings.PLAYER_COLOR_ID;
                         }
 
                         if (readCookie('PockeyNickname') != "") {
-                            // PockeySettings.PLAYER_COLOR_ID = parseInt(readCookie('PockeyUserColorId'));
-                            playerData["nickname"] = readCookie('PockeyNickname');
+                            PockeySettings.PLAYER_NICKNAME = readCookie('PockeyNickname');
+                            playerData["nickname"] = PockeySettings.PLAYER_NICKNAME;
                         }
 
                         console.log("guest on read cookie");

@@ -51,7 +51,7 @@ namespace Pockey {
 
             update(): void {
               /*  if(this.parent)
-                    console.log("white ball parent name: " + this.parent.name);*/
+                    console.log("white ball parent nickname: " + this.parent.nickname);*/
                 super.update();
                 // console.log("shoot speed: " + this.speed());
                 // console.log("p2 velocity: " + this.p2Body.velocity[0], this.p2Body.velocity[1]);

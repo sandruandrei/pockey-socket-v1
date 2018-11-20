@@ -313,7 +313,7 @@ class ClassLoader
     /**
      * Loads the given class or interface.
      *
-     * @param  string    $class The name of the class
+     * @param  string    $class The nickname of the class
      * @return bool|null True if loaded, null otherwise
      */
     public function loadClass($class)
@@ -328,7 +328,7 @@ class ClassLoader
     /**
      * Finds the path to the file where the class is defined.
      *
-     * @param string $class The name of the class
+     * @param string $class The nickname of the class
      *
      * @return string|false The path if found, false otherwise
      */
@@ -398,11 +398,11 @@ class ClassLoader
 
         // PSR-0 lookup
         if (false !== $pos = strrpos($class, '\\')) {
-            // namespaced class name
+            // namespaced class nickname
             $logicalPathPsr0 = substr($logicalPathPsr4, 0, $pos + 1)
                 . strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
         } else {
-            // PEAR-like class name
+            // PEAR-like class nickname
             $logicalPathPsr0 = strtr($class, '_', DIRECTORY_SEPARATOR) . $ext;
         }
 

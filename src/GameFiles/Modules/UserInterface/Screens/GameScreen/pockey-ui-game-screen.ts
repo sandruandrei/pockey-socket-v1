@@ -1,8 +1,8 @@
-///<reference path="../DesignElements/pockey-user-game-graphics.ts"/>
-///<reference path="../DesignElements/pockey-ui-versus-graphics.ts"/>
-///<reference path="../../StateMachine/pockey-state-texts.ts"/>
-///<reference path="../../../../Framework/Utils/pixi-multistyle-text.ts"/>
-///<reference path="../../../../Framework/Settings.ts"/>
+///<reference path="./DesignElements/pockey-user-game-graphics.ts"/>
+///<reference path="./DesignElements/pockey-ui-versus-graphics.ts"/>
+///<reference path="../../../StateMachine/pockey-state-texts.ts"/>
+///<reference path="../../../../../Framework/Utils/pixi-multistyle-text.ts"/>
+///<reference path="../../../../../Framework/Settings.ts"/>
 
 namespace Pockey {
     export module UserInterface {
@@ -57,10 +57,12 @@ namespace Pockey {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_SCORE, this.onUpdatePlayerScore.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_AVATAR, this.onChangePlayerAvatar.bind(this));
 
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_SCORE, this.onUpdateOpponentScore.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, this.onChangeOpponentAvatar.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_GAME_SCREEN, this.onReset.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, this.onUpdateCurrentPlayerTimer.bind(this));
 
@@ -103,7 +105,8 @@ namespace Pockey {
             private onUpdateUIText(params: any[]) {
                 let text: string = params[0];
                 if (text.includes("{opponent"))
-                    text = text.replace("{opponent}", PockeySettings.OPPONENT_SOCKET_ID);
+                    text = text.replace("{opponent}", PockeySettings.OPPONENT_NICKNAME);
+                // console.log("se inlocuieste textul: " + PockeySettings.OPPONENT_NICKNAME);
                 // if (text != this.tipText.text) {
                 if (text != this.multilineText.text) {
                     this.multilineText.text = text;
@@ -181,6 +184,11 @@ namespace Pockey {
                     this.playerGameGraphics.tint(+color);
             }
 
+            public onChangePlayerAvatar(avatarPath: string): void {
+                if (this.playerGameGraphics)
+                    this.playerGameGraphics.updateAvatar(avatarPath);
+            }
+
             private onUpdateOpponentScore(score: number) {
                 if (this.opponentGameGraphics)
                     this.opponentGameGraphics.updateScore(score);
@@ -215,6 +223,13 @@ namespace Pockey {
                     };
             }
 
+            public onChangeOpponentAvatar(avatarPath: string): void {
+
+
+                if (this.opponentGameGraphics)
+                    this.opponentGameGraphics.updateAvatar(avatarPath);
+            }
+
 
             // public onChangeColors(COLORS: number[]): void {
             //     this.leftGameGraphics.tint(COLORS[0]);
@@ -240,7 +255,7 @@ namespace Pockey {
             //
             //
             //
-            // public onUpdateOpponentName(name: string): void {
+            // public onUpdateOpponentName(nickname: string): void {
             // }
 
             public handleDesktopLandscape(): void {

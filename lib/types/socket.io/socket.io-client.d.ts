@@ -558,7 +558,7 @@ declare module SocketIOClient {
 		enablesXDR?: boolean;
 		
 		/**
-		 * The param name to use as our timestamp key
+		 * The param nickname to use as our timestamp key
 		 * @default 't'
 		 */
 		timestampParam?: string;

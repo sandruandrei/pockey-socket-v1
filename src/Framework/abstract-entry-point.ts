@@ -8,6 +8,7 @@
 ///<reference path="Abstracts/layers.ts"/>
 ///<reference path="../../lib/types/webfontloader/webfontloader.d.ts"/>
 ///<reference path="AbstractModules/Connection/database-connector.ts"/>
+///<reference path="AbstractModules/Sound/abstract-sound-module.ts"/>
 
 // Created by: Sandru Andrei for Edgeflow on 7/11/2018
 
@@ -25,7 +26,7 @@ namespace Framework {
     import AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
     import ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
     import Settings = Framework.Settings;
-    import DatabaseConnector = Framework.Connection.DatabaseConnector;
+    import AbstractSoundModule = Framework.Sound.AbstractSoundModule;
 
 
     export class AbstractEntryPoint {
@@ -39,6 +40,7 @@ namespace Framework {
         protected backgroundModule: AbstractModule;
         protected uiModule: AbstractModule;
         protected connectionModule: AbstractModule;
+        protected soundModule: AbstractModule;
         protected allElementsCreated: boolean = false;
         public static renderer: WebGLRenderer | CanvasRenderer;
 
@@ -152,8 +154,12 @@ namespace Framework {
             this.addConnectionModule();
             this.addBackgroundModule();
             this.addUIModule();
+            this.addSoundModule();
+        }
 
-
+        protected addSoundModule(): void {
+            this.soundModule = this.getSoundModule();
+            this.registerModule(this.soundModule);
         }
 
         protected addBackgroundModule(): void {
@@ -234,6 +240,14 @@ namespace Framework {
             return backgroundModule;
         }
 
+        protected getSoundModule(): AbstractModule {
+            let soundModule: AbstractSoundModule = new AbstractSoundModule();
+
+            soundModule.Layer = this.getLayer(Layers.DefaultLayer);
+
+            return soundModule;
+        }
+
         protected getUIModule(): AbstractModule {
 
             let uiModule: AbstractModule = new AbstractUserInterfaceModule();
@@ -289,7 +303,7 @@ namespace Framework {
             }
             // _.forEach(Layers.LayerOrder, (layerName: string) => {
             //     let layer: Container = new Container();
-            //     layer.name = layerName;
+            //     layer.nickname = layerName;
             //     this.stage.addChild(layer);
             // })
         }

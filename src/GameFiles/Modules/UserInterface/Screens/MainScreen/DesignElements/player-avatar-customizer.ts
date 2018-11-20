@@ -1,5 +1,5 @@
-///<reference path="../../../../../Framework/Utils/cookie.ts"/>
-///<reference path="../../../../../Framework/AbstractModules/Connection/database-connector.ts"/>
+///<reference path="../../../../../../Framework/Utils/cookie.ts"/>
+///<reference path="../../../../../../Framework/AbstractModules/Connection/database-connector.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow

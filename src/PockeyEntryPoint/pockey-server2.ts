@@ -85,7 +85,7 @@ export module PockeyServer {
                     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);
                     socket.emit(FrameworkSocketEvents.joinedRoom, room);
 
-                    console.log("on join room. room name: " + room);
+                    console.log("on join room. room nickname: " + room);
                 });
 
                 // socket.on(FrameworkSocketEvents.joinRoom, (room, id) => {
@@ -93,7 +93,7 @@ export module PockeyServer {
                 //     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);
                 //     socket.emit(FrameworkSocketEvents.joinedRoom, room, id);
                 //
-                //     console.log("on join room. room name: " + room);
+                //     console.log("on join room. room nickname: " + room);
                 // });
 
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {

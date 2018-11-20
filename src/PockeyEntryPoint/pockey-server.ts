@@ -143,7 +143,7 @@ export module PockeyServer {
                     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);
                     socket.emit(FrameworkSocketEvents.joinedRoom, room);
 
-                    console.log("on join room. room name: " + room);
+                    console.log("on join room. room nickname: " + room);
                 });
 
                 // socket.on(FrameworkSocketEvents.joinRoom, (room, id) => {
@@ -151,7 +151,7 @@ export module PockeyServer {
                 //     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);
                 //     socket.emit(FrameworkSocketEvents.joinedRoom, room, id);
                 //
-                //     console.log("on join room. room name: " + room);
+                //     console.log("on join room. room nickname: " + room);
                 // });
 
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {
@@ -242,8 +242,8 @@ export module PockeyServer {
             })().catch(e => console.log(e.stack))
 
             /*const query = {
-                // give the query a unique name
-                name: 'update-user',
+                // give the query a unique nickname
+                nickname: 'update-user',
                 text: sqlText
             };
 
@@ -260,7 +260,7 @@ export module PockeyServer {
         private checkForUserID(username): void {
             console.log("checking db for user_id: " + username);
             const query = {
-                // give the query a unique name
+                // give the query a unique nickname
                 name: 'fetch-user',
                 text: 'SELECT * FROM pockey_table WHERE USER_ID = $1',
                 values: [username]

@@ -1,6 +1,6 @@
 ///<reference path="../../../../../Framework/Utils/pixi-button.ts"/>
-///<reference path="play-game-menu.ts"/>
-///<reference path="inventory-menu.ts"/>
+///<reference path="DesignElements/play-game-menu.ts"/>
+///<reference path="DesignElements/inventory-menu.ts"/>
 
 
 namespace Pockey {

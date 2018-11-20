@@ -15,7 +15,7 @@ namespace Pockey {
 
         export class Player {
             public id: string;
-            public name: string;
+            public nickname: string;
             public type: BallType;
             public score: number;
             public matchesWon: number = 0;

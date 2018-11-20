@@ -3,7 +3,7 @@
 ///<reference path="../../../Framework/Signals/signals-manager.ts"/>
 ///<reference path="Screens/pockey-ui-searching-screen.ts"/>
 ///<reference path="Screens/MainScreen/pockey-ui-main-screen.ts"/>
-///<reference path="Screens/pockey-ui-game-screen.ts"/>
+///<reference path="Screens/GameScreen/pockey-ui-game-screen.ts"/>
 ///<reference path="Screens/pockey-ui-winning-screen.ts"/>
 /**
  *  Edgeflow
@@ -56,14 +56,14 @@ namespace Pockey {
                 this.oppLifeUnitsArray = [];
 
                 this.playerLifeBar = this.createLifeBar(this.playerLifeUnitsArray);
-                this.playerLifeBar.name = "playerLifeBar";
+                this.playerLifeBar.nickname = "playerLifeBar";
                 this.playerLifeBar.x = 525;
                 this.playerLifeBar.y = 90;
                 this.addChild(this.playerLifeBar);
 
 
                 this.oppLifeBar = this.createLifeBar(this.oppLifeUnitsArray);
-                this.oppLifeBar.name = "oppLifeBar";
+                this.oppLifeBar.nickname = "oppLifeBar";
                 this.oppLifeBar.x = this.playerLifeBar.x + 655;
                 this.oppLifeBar.y = this.playerLifeBar.y;
                 this.addChild(this.oppLifeBar);*/
@@ -190,14 +190,14 @@ namespace Pockey {
                             this.oppLifeUnitsArray = [];
 
                             this.playerLifeBar = this.createLifeBar(this.playerLifeUnitsArray);
-                            this.playerLifeBar.name = "playerLifeBar";
+                            this.playerLifeBar.nickname = "playerLifeBar";
                             this.playerLifeBar.x = 525;
                             this.playerLifeBar.y = 90;
                             this.addChild(this.playerLifeBar);
 
 
                             this.oppLifeBar = this.createLifeBar(this.oppLifeUnitsArray);
-                            this.oppLifeBar.name = "oppLifeBar";
+                            this.oppLifeBar.nickname = "oppLifeBar";
                             this.oppLifeBar.x = this.playerLifeBar.x + 655;
                             this.oppLifeBar.y = this.playerLifeBar.y;
                             this.addChild(this.oppLifeBar);*!/
