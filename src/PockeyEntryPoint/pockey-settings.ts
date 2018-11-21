@@ -51,7 +51,7 @@ namespace Pockey {
         public static STICK_MAX_POWER: number = 108;
         public static LARGE_GOALIES_ARRAY: number[] = [];
 
-
+        public static GOALIE_SPEED: number = 1;
         public static SMALL_GOALIES_ARRAY: number[] = [];
 
         public static LARGE_COLORS_ARRAY: InventoryVO[] = [

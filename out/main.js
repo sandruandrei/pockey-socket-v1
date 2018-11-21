@@ -903,6 +903,7 @@ var Pockey;
     PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 7;
     PockeySettings.STICK_MAX_POWER = 108;
     PockeySettings.LARGE_GOALIES_ARRAY = [];
+    PockeySettings.GOALIE_SPEED = 1;
     PockeySettings.SMALL_GOALIES_ARRAY = [];
     PockeySettings.LARGE_COLORS_ARRAY = [
         {
@@ -1594,7 +1595,6 @@ var Pockey;
                             let speedB = velocityVectorB.getMagnitude();
                             let higherVelocity = (speedB > speedA) ? speedB : speedA;
                             let hitVolume = Math.round((higherVelocity / maxPower) * 100) / 100;
-                            hitVolume *= 2;
                             if (hitVolume > 1)
                                 hitVolume = 1;
                             else if (hitVolume < 0.5)
@@ -3353,6 +3353,83 @@ var Pockey;
         GameModule.PuckGoal = PuckGoal;
     })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
 })(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let StateMachineModule;
+    (function (StateMachineModule) {
+        class PockeyStateTexts {
+        }
+        PockeyStateTexts.beginGame = "AIM WITH CURSOR, PRESS & HOLD LEFT MOUSE BUTTON AND DRAG TO SET POWER";
+        PockeyStateTexts.beginGameMobile = "TO AIM, TAP OR MOVE OVER THE POOLTABLE. SHOOT BY SELECTING THE POWER ON THE LEFT SIDE";
+        PockeyStateTexts.yourTurnToShoot = "YOUR TURN! SHOOT <opponent>{opponent}'S</opponent> BALLS INTO POCKETS";
+        PockeyStateTexts.ownBallAiming = "<warning>WARNING!</warning> HITTING YOUR OWN BALL FIRST IS A FOUL";
+        PockeyStateTexts.ownBallHit = "<opponent>{opponent}</opponent> FOULED!";
+        PockeyStateTexts.puckAiming = "SHOOT THE PUCK INTO <opponent>{opponent}'S</opponent> GOAL!";
+        PockeyStateTexts.opponentFault = "<opponent>{opponent}</opponent> FOULED! PLACE THE BALL ANYWHERE ON TABLE";
+        PockeyStateTexts.whiteBallFault = "YOU FOULED! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
+        PockeyStateTexts.onOwnBallInPocket = "YOU SCORED AN OWN BALL! <opponent>{opponent}’s</opponent> TURN!";
+        PockeyStateTexts.puckOwnGoal = "PUCK WENT INTO YOUR OWN GOAL! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
+        PockeyStateTexts.onTimeUp = "YOUR TIME IS UP! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
+        PockeyStateTexts.onOpponentsTimeUp = "<opponent>{opponent}</opponent> TIME IS UP! PLACE THE BALL ANYWHERE ON TABLE";
+        PockeyStateTexts.onPuckGoal = "YOU SCORED THE PUCK! -2 HEALTH TO <opponent>{opponent}</opponent>";
+        PockeyStateTexts.noBallScored = "YOU DIDN’T SCORED! <opponent>{opponent}'S</opponent> TURN";
+        PockeyStateTexts.multipleBallsIn = "YOU MADE A TRICKSHOT! CONGRATS!";
+        PockeyStateTexts.ballInPocketViaOtherBall = "YOU MADE A TRICKSHOT! CONGRATS!";
+        PockeyStateTexts.opponentBallInPocket = "<opponent>{opponent}</opponent> POCKETED A BALL AND CAN SHOOT AGAIN!";
+        PockeyStateTexts.opponentsTurn = "<opponent>{opponent}'s</opponent> turn";
+        StateMachineModule.PockeyStateTexts = PockeyStateTexts;
+    })(StateMachineModule = Pockey.StateMachineModule || (Pockey.StateMachineModule = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    let GameModule;
+    (function (GameModule) {
+        var Sprite = PIXI.Sprite;
+        var Settings = Framework.Settings;
+        var PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
+        class Goalie extends PIXI.Container {
+            constructor() {
+                super();
+                this.moving = false;
+                this.goalieBottomLayer = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/goalie_bottom.png"));
+                this.goalieMiddleLayer = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/goalie_color.png"));
+                this.goalieTopLayer = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/goalie_top.png"));
+                this.addChild(this.goalieBottomLayer);
+                this.addChild(this.goalieMiddleLayer);
+                this.addChild(this.goalieTopLayer);
+                this.pivot.set(this.width / 2, this.height / 2);
+            }
+            onUpdateUiText(params) {
+                if (params[0] == PockeyStateTexts.beginGame) {
+                    this.startMoving();
+                }
+            }
+            startMoving() {
+                this.reset();
+                this.moving = true;
+                this.animationTimeline = new TimelineMax();
+                this.animationTimeline.add(TweenMax.to(this, Pockey.PockeySettings.GOALIE_SPEED / 2, {
+                    y: -50,
+                    ease: Linear.easeNone
+                }));
+                this.animationTimeline.add(TweenMax.to(this, Pockey.PockeySettings.GOALIE_SPEED, {
+                    y: 50,
+                    yoyo: true,
+                    repeat: -1, ease: Linear.easeNone
+                }), Pockey.PockeySettings.GOALIE_SPEED / 2);
+            }
+            reset() {
+                this.moving = false;
+                if (this.animationTimeline && this.animationTimeline.isActive()) {
+                    this.animationTimeline.kill();
+                    this.animationTimeline = null;
+                }
+                this.y = 0;
+            }
+        }
+        GameModule.Goalie = Goalie;
+    })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
+})(Pockey || (Pockey = {}));
 var Container = PIXI.Container;
 var Pockey;
 (function (Pockey) {
@@ -3435,6 +3512,17 @@ var Pockey;
                 this.puck.puckGoals = [this.leftGoal, this.rightGoal];
                 this.puck.goalYPosition = this.leftGoal.y;
                 this.puck.goalHeight = this.leftGoal.height;
+                this.leftGoalie = new GameModule.Goalie();
+                this.leftGoalie.name = "leftGoalie";
+                this.leftGoalie.x = -468;
+                this.leftGoalie.y = 0;
+                this.leftGoalie.rotation = Math.PI;
+                this.addChild(this.leftGoalie);
+                this.rightGoalie = new GameModule.Goalie();
+                this.rightGoalie.name = "rightGoalie";
+                this.rightGoalie.x = 468;
+                this.rightGoalie.y = 0;
+                this.addChild(this.rightGoalie);
                 this.ballPositionCircleOnRaycast = new Container();
                 this.ballPositionCircleOnRaycast.name = "ballPositionCircleOnRaycast";
                 let graphics = new Graphics();
@@ -3662,33 +3750,6 @@ var Pockey;
 })(Pockey || (Pockey = {}));
 var Pockey;
 (function (Pockey) {
-    let StateMachineModule;
-    (function (StateMachineModule) {
-        class PockeyStateTexts {
-        }
-        PockeyStateTexts.beginGame = "AIM WITH CURSOR, PRESS & HOLD LEFT MOUSE BUTTON AND DRAG TO SET POWER";
-        PockeyStateTexts.beginGameMobile = "TO AIM, TAP OR MOVE OVER THE POOLTABLE. SHOOT BY SELECTING THE POWER ON THE LEFT SIDE";
-        PockeyStateTexts.yourTurnToShoot = "YOUR TURN! SHOOT <opponent>{opponent}'S</opponent> BALLS INTO POCKETS";
-        PockeyStateTexts.ownBallAiming = "<warning>WARNING!</warning> HITTING YOUR OWN BALL FIRST IS A FOUL";
-        PockeyStateTexts.ownBallHit = "<opponent>{opponent}</opponent> FOULED!";
-        PockeyStateTexts.puckAiming = "SHOOT THE PUCK INTO <opponent>{opponent}'S</opponent> GOAL!";
-        PockeyStateTexts.opponentFault = "<opponent>{opponent}</opponent> FOULED! PLACE THE BALL ANYWHERE ON TABLE";
-        PockeyStateTexts.whiteBallFault = "YOU FOULED! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-        PockeyStateTexts.onOwnBallInPocket = "YOU SCORED AN OWN BALL! <opponent>{opponent}’s</opponent> TURN!";
-        PockeyStateTexts.puckOwnGoal = "PUCK WENT INTO YOUR OWN GOAL! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-        PockeyStateTexts.onTimeUp = "YOUR TIME IS UP! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-        PockeyStateTexts.onOpponentsTimeUp = "<opponent>{opponent}</opponent> TIME IS UP! PLACE THE BALL ANYWHERE ON TABLE";
-        PockeyStateTexts.onPuckGoal = "YOU SCORED THE PUCK! -2 HEALTH TO <opponent>{opponent}</opponent>";
-        PockeyStateTexts.noBallScored = "YOU DIDN’T SCORED! <opponent>{opponent}'S</opponent> TURN";
-        PockeyStateTexts.multipleBallsIn = "YOU MADE A TRICKSHOT! CONGRATS!";
-        PockeyStateTexts.ballInPocketViaOtherBall = "YOU MADE A TRICKSHOT! CONGRATS!";
-        PockeyStateTexts.opponentBallInPocket = "<opponent>{opponent}</opponent> POCKETED A BALL AND CAN SHOOT AGAIN!";
-        PockeyStateTexts.opponentsTurn = "<opponent>{opponent}'s</opponent> turn";
-        StateMachineModule.PockeyStateTexts = PockeyStateTexts;
-    })(StateMachineModule = Pockey.StateMachineModule || (Pockey.StateMachineModule = {}));
-})(Pockey || (Pockey = {}));
-var Pockey;
-(function (Pockey) {
     let GameModule;
     (function (GameModule) {
         var SignalsManager = Framework.Signals.SignalsManager;
@@ -3790,7 +3851,9 @@ var Pockey;
             }
             onSetPuckGoalsSides(params) {
                 this.poolTable.leftGoal.type = params[0];
+                this.poolTable.leftGoalie.type = params[0];
                 this.poolTable.rightGoal.type = params[1];
+                this.poolTable.rightGoalie.type = params[1];
                 _.forEach(this.poolTable.leftBallsArray, (ball) => {
                     ball.ballType = params[0];
                 });
@@ -3805,6 +3868,12 @@ var Pockey;
                 else {
                     this.poolTable.rightGoal.tint = color;
                 }
+                if (this.poolTable.leftGoalie.type == GameModule.BallType.Opponent) {
+                    this.poolTable.leftGoalie.goalieMiddleLayer.tint = color;
+                }
+                else {
+                    this.poolTable.rightGoalie.goalieMiddleLayer.tint = color;
+                }
                 _.forEach(this.poolTable.balls, (ball) => {
                     if (ball.ballType == GameModule.BallType.Opponent) {
                         ball.tintBall(color);
@@ -3817,6 +3886,12 @@ var Pockey;
                 }
                 else {
                     this.poolTable.rightGoal.tint = +color;
+                }
+                if (this.poolTable.leftGoalie.type == GameModule.BallType.Player) {
+                    this.poolTable.leftGoalie.goalieMiddleLayer.tint = +color;
+                }
+                else {
+                    this.poolTable.rightGoalie.goalieMiddleLayer.tint = +color;
                 }
                 _.forEach(this.poolTable.balls, (ball) => {
                     if (ball.ballType == GameModule.BallType.Player) {
@@ -3967,6 +4042,10 @@ var Pockey;
                     if (this.poolTable.poolStick.rotationEnabled) {
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
+                            if (!this.poolTable.leftGoalie.moving)
+                                this.poolTable.leftGoalie.startMoving();
+                            if (!this.poolTable.rightGoalie.moving)
+                                this.poolTable.rightGoalie.startMoving();
                         }
                         else {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.yourTurnToShoot]);
@@ -8128,6 +8207,9 @@ var Pockey;
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bottom.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_over.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_shadow.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_bottom.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_color.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_top.png");
             gameModule.Layer = this.getLayer(Layers.GameLayer);
             return gameModule;
         }

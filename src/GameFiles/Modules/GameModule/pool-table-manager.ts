@@ -221,8 +221,10 @@ namespace Pockey {
 
             protected onSetPuckGoalsSides(params: any[]): void {
                 this.poolTable.leftGoal.type = params[0];
+                this.poolTable.leftGoalie.type = params[0];
                 // console.log("leftGoal.type: " + this.poolTable.leftGoal.type);
                 this.poolTable.rightGoal.type = params[1];
+                this.poolTable.rightGoalie.type = params[1];
                 // console.log("rightGoal.type: " + this.poolTable.rightGoal.type);
 
                 _.forEach(this.poolTable.leftBallsArray, (ball: AbstractBall) => {
@@ -251,6 +253,14 @@ namespace Pockey {
                 else {
                     this.poolTable.rightGoal.tint = color;
                 }
+
+                if (this.poolTable.leftGoalie.type == BallType.Opponent) {
+                    this.poolTable.leftGoalie.goalieMiddleLayer.tint = color;
+                }
+                else {
+                    this.poolTable.rightGoalie.goalieMiddleLayer.tint = color;
+                }
+
                 _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
                     if (ball.ballType == BallType.Opponent) {
                         ball.tintBall(color);
@@ -265,6 +275,13 @@ namespace Pockey {
                 }
                 else {
                     this.poolTable.rightGoal.tint = +color;
+                }
+
+                if (this.poolTable.leftGoalie.type == BallType.Player) {
+                    this.poolTable.leftGoalie.goalieMiddleLayer.tint = +color;
+                }
+                else {
+                    this.poolTable.rightGoalie.goalieMiddleLayer.tint = +color;
                 }
                 _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
                     if (ball.ballType == BallType.Player) {
@@ -542,6 +559,12 @@ namespace Pockey {
                     if (this.poolTable.poolStick.rotationEnabled) {
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
+
+                            if (!this.poolTable.leftGoalie.moving)
+                                this.poolTable.leftGoalie.startMoving();
+
+                            if (!this.poolTable.rightGoalie.moving)
+                                this.poolTable.rightGoalie.startMoving();
                         }
                         else {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.yourTurnToShoot]);

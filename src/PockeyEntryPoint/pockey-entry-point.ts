@@ -92,7 +92,9 @@ namespace Pockey {
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bottom.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_over.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_shadow.png");
-
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_bottom.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_color.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_top.png");
             gameModule.Layer = this.getLayer(Layers.GameLayer);
 
             return gameModule;

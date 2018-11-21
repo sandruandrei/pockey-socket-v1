@@ -5,6 +5,7 @@
 ///<reference path="balls/puck.ts"/>
 ///<reference path="balls/white-ball.ts"/>
 ///<reference path="puck-goal.ts"/>
+///<reference path="goalie.ts"/>
 
 /**
  *  Edgeflow
@@ -46,7 +47,8 @@ namespace Pockey {
             private playerStartXPos: number = 736;
             private opponentStartXPos: number = 1223;
 
-
+            public leftGoalie: Goalie;
+            public rightGoalie: Goalie;
             public leftBallsArray: AbstractBall[];
             public rightBallsArray: AbstractBall[];
 
@@ -249,6 +251,20 @@ namespace Pockey {
                 this.puck.goalHeight = this.leftGoal.height;
                 //end leftGoal
 
+                //goalies
+
+                this.leftGoalie = new Goalie();
+                this.leftGoalie.name = "leftGoalie";
+                this.leftGoalie.x = -468;
+                this.leftGoalie.y = 0;
+                this.leftGoalie.rotation = Math.PI;
+                this.addChild(this.leftGoalie);
+
+                this.rightGoalie = new Goalie();
+                this.rightGoalie.name = "rightGoalie";
+                this.rightGoalie.x = 468;
+                this.rightGoalie.y = 0;
+                this.addChild(this.rightGoalie);
                 // leftGoalTop
                 // this.leftGoalTop = new Sprite(PIXI.Texture.fromFrame("goalTop_leftTopper.png"));
                 // this.leftGoalTop.nickname = "leftGoalTop";
@@ -693,22 +709,22 @@ namespace Pockey {
                     shape.material = new p2.Material(MaterialType.LINE_MATERIAL);
                 });
                 // let salam = new Sprite();
-              /*   _.forEach(PockeySettings.MAIN_COLLISION_POLYGON, (lineCoord: number[], id: number) => {
-                                     // x1 = lineCoord[0];
-                                     // y1 = lineCoord[1];
-                                     // x2 = lineCoord[2];
-                                     // y2 = lineCoord[3];
-                                     if (id > 0) {
-                                         let prevPointCounter = id - 1;
-                                         let v1 = new Vector2(lineCoord[0], lineCoord[1]);
-                                         let v2 = new Vector2(PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][0], PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][1]);
-                                         this.createLine(v1, v2, MaterialType.LINE_MATERIAL);
-                                     }
-                                     // nextPointCounter = id + 1;
-                                     // if (id + 1 > PockeySettings.MAIN_COLLISION_POLYGON.length - 1) {
-                                     //
-                                     // }
-                                 });*/
+                /*   _.forEach(PockeySettings.MAIN_COLLISION_POLYGON, (lineCoord: number[], id: number) => {
+                                       // x1 = lineCoord[0];
+                                       // y1 = lineCoord[1];
+                                       // x2 = lineCoord[2];
+                                       // y2 = lineCoord[3];
+                                       if (id > 0) {
+                                           let prevPointCounter = id - 1;
+                                           let v1 = new Vector2(lineCoord[0], lineCoord[1]);
+                                           let v2 = new Vector2(PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][0], PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][1]);
+                                           this.createLine(v1, v2, MaterialType.LINE_MATERIAL);
+                                       }
+                                       // nextPointCounter = id + 1;
+                                       // if (id + 1 > PockeySettings.MAIN_COLLISION_POLYGON.length - 1) {
+                                       //
+                                       // }
+                                   });*/
             }
 
             private createUpperCollisionShadowPolygon(): void {
