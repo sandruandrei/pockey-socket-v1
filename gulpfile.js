@@ -28,8 +28,8 @@ gulp.task('defaultMain', function () {
         .pipe(ts({
             outFile: 'main.js',
             sourceMap: true,
-            target: "es2016",
-            noImplicitAny: false,
+            target: "es5",
+            // noImplicitAny: false,
             removeComments: true
         }))
         .pipe(sourcemaps.write('.'))

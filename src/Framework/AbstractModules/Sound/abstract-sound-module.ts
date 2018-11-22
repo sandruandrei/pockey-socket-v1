@@ -49,7 +49,12 @@ namespace Framework {
 
             protected onStopSound(params: any[]): void {
                 let soundVO: SoundVO = params[0] as SoundVO;
-                PixiSound.stop(soundVO.soundName);
+
+                let sound = PIXI.sound.Sound.from({
+                    url: soundVO.soundName
+                });
+
+                sound.stop();
 
                 // PIXI.sound.stop(soundVO.soundName);
             }

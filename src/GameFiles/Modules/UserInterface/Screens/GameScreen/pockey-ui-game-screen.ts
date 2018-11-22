@@ -104,7 +104,7 @@ namespace Pockey {
 
             private onUpdateUIText(params: any[]) {
                 let text: string = params[0];
-                if (text.includes("{opponent"))
+                if (_.includes(text, "{opponent"))
                     text = text.replace("{opponent}", PockeySettings.OPPONENT_NICKNAME);
                 // console.log("se inlocuieste textul: " + PockeySettings.OPPONENT_NICKNAME);
                 // if (text != this.tipText.text) {

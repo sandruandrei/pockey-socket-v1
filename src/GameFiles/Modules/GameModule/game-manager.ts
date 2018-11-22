@@ -518,7 +518,7 @@ namespace Pockey {
                 PockeySettings.OPPONENT_SOCKET_ID = this.opponent.id;
 
                 let connectionID: string = params[2];
-                if (connectionID.startsWith(this.player.id)) {
+                if (_.startsWith(connectionID, this.player.id)) {
                     this.currentPlayer = this.player;
 
                     //aiciavemplayersettings////////////////

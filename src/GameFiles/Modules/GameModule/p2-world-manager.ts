@@ -34,7 +34,7 @@ namespace Pockey {
         export class P2WorldManager {
             private static instance: P2WorldManager;
             private initialized: boolean = false;
-            private name: string;
+            public name: string;
             private materials: { [id: string]: p2.Material; };
             // public ballMaterial: p2.Material;
             // aici se calluie salamu!
@@ -84,7 +84,7 @@ namespace Pockey {
                     return P2WorldManager.Instance().materials[materialID];
 
                 else {
-                    console.log("c%" + " " + P2WorldManager.name + " -> ERROR: material not registered");
+                    console.log("c%" + " " + P2WorldManager.Instance().name + " -> ERROR: material not registered");
                     return null;
                 }
 

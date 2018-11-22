@@ -90,7 +90,7 @@ namespace Pockey {
                 console.log("intra la get cookie");
 
                 if (pockeyID != "") {
-                    if (pockeyID.includes("@") && pockeyID.includes(".")) {
+                    if (_.includes(pockeyID, "@") && _.includes(pockeyID, ".")) {
                         DatabaseConnector.checkDatabaseUser(pockeyID, this.playerInfoReceived.bind(this));
                         console.log("database query for user");
                     }
