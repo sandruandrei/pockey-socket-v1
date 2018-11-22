@@ -237,9 +237,9 @@ namespace Pockey {
 
                         }
                         else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
-                            veloCounter++;
+                            // veloCounter++;
                             let ballVelocity:Vector2 = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
-                            console.log("salam " + veloCounter + " velocity: " + ballVelocity.x, ballVelocity.y);
+                            // console.log("salam " + veloCounter + " velocity: " + ballVelocity.x, ballVelocity.y);
 
                             let ballSpeed:number = ballVelocity.getMagnitude();
 
@@ -249,10 +249,29 @@ namespace Pockey {
                                 ce.bodyA.velocity[0] = normalizedVector.x;
                                 ce.bodyA.velocity[1] = normalizedVector.y;
 
-                                console.log("salam normalize");
+                                // console.log("salam normalize");
                             }
 
-                            console.log("salam ball speed: " + ballSpeed);
+                            // console.log("salam ball speed: " + ballSpeed);
+                            // ce.bodyB.
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
+                            veloCounter++;
+                            let ballVelocity:Vector2 = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
+                            // console.log("salam " + veloCounter + " velocity: " + ballVelocity.x, ballVelocity.y);
+
+                            let ballSpeed:number = ballVelocity.getMagnitude();
+
+                            if(ballSpeed < 388)
+                            {
+                                let normalizedVector:Vector2 = ballVelocity.normalise().multiply(388);
+                                ce.bodyA.velocity[0] = normalizedVector.x;
+                                ce.bodyA.velocity[1] = normalizedVector.y;
+
+                                // console.log("salam normalize");
+                            }
+
+                            // console.log("salam ball speed: " + ballSpeed);
                             // ce.bodyB.
                         }
                     });

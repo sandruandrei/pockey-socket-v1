@@ -50,6 +50,12 @@ namespace Pockey {
             protected update(): void {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
+                    if (!this.poolTable.leftGoalie.moving)
+                        this.poolTable.leftGoalie.startMoving();
+
+                    if (!this.poolTable.rightGoalie.moving)
+                        this.poolTable.rightGoalie.startMoving();
+
                     this.onRepositionWhiteBall();
 
                     return;
@@ -71,6 +77,12 @@ namespace Pockey {
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
 
                     if (this.poolTable.poolStick.rotationEnabled) {
+                        if (!this.poolTable.leftGoalie.moving)
+                            this.poolTable.leftGoalie.startMoving();
+
+                        if (!this.poolTable.rightGoalie.moving)
+                            this.poolTable.rightGoalie.startMoving();
+
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
                         }

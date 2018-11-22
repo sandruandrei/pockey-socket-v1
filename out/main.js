@@ -1619,17 +1619,23 @@ var Pockey;
                                 }]);
                         }
                         else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
-                            veloCounter++;
                             let ballVelocity = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
-                            console.log("salam " + veloCounter + " velocity: " + ballVelocity.x, ballVelocity.y);
                             let ballSpeed = ballVelocity.getMagnitude();
                             if (ballSpeed < 388) {
                                 let normalizedVector = ballVelocity.normalise().multiply(388);
                                 ce.bodyA.velocity[0] = normalizedVector.x;
                                 ce.bodyA.velocity[1] = normalizedVector.y;
-                                console.log("salam normalize");
                             }
-                            console.log("salam ball speed: " + ballSpeed);
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
+                            veloCounter++;
+                            let ballVelocity = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
+                            let ballSpeed = ballVelocity.getMagnitude();
+                            if (ballSpeed < 388) {
+                                let normalizedVector = ballVelocity.normalise().multiply(388);
+                                ce.bodyA.velocity[0] = normalizedVector.x;
+                                ce.bodyA.velocity[1] = normalizedVector.y;
+                            }
                         }
                     });
                 }, this);
@@ -4492,6 +4498,10 @@ var Pockey;
             }
             update() {
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
+                    if (!this.poolTable.leftGoalie.moving)
+                        this.poolTable.leftGoalie.startMoving();
+                    if (!this.poolTable.rightGoalie.moving)
+                        this.poolTable.rightGoalie.startMoving();
                     this.onRepositionWhiteBall();
                     return;
                 }
@@ -4506,6 +4516,10 @@ var Pockey;
                 }
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
                     if (this.poolTable.poolStick.rotationEnabled) {
+                        if (!this.poolTable.leftGoalie.moving)
+                            this.poolTable.leftGoalie.startMoving();
+                        if (!this.poolTable.rightGoalie.moving)
+                            this.poolTable.rightGoalie.startMoving();
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
                         }
