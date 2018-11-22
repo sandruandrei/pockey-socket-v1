@@ -253,18 +253,20 @@ namespace Pockey {
 
                 //goalies
 
-                this.leftGoalie = new Goalie();
-                this.leftGoalie.name = "leftGoalie";
-                this.leftGoalie.x = -468;
-                this.leftGoalie.y = 0;
-                this.leftGoalie.rotation = Math.PI;
-                this.addChild(this.leftGoalie);
+                this.leftGoalie = new Goalie("left");
+                // this.leftGoalie.name = "leftGoalie";
 
-                this.rightGoalie = new Goalie();
-                this.rightGoalie.name = "rightGoalie";
-                this.rightGoalie.x = 468;
-                this.rightGoalie.y = 0;
+                this.leftGoalie.rotation = Math.PI;
+                this.leftGoalie.setPosition(new Vector2(-468, 0));
+                this.addChild(this.leftGoalie);
+                // this.leftGoalie.addGrToPool(this);
+
+
+                this.rightGoalie = new Goalie("right");
+                // this.rightGoalie.name = "rightGoalie";
+                this.rightGoalie.setPosition(new Vector2(468, 0));
                 this.addChild(this.rightGoalie);
+                // this.rightGoalie.addGrToPool(this);
                 // leftGoalTop
                 // this.leftGoalTop = new Sprite(PIXI.Texture.fromFrame("goalTop_leftTopper.png"));
                 // this.leftGoalTop.nickname = "leftGoalTop";

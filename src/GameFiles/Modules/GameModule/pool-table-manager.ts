@@ -73,7 +73,9 @@ namespace Pockey {
 
             lineBetweenCirclesVisible?: boolean,
             lineBetweenCirclesPoints?: number[],
-            graphColor?: number
+            graphColor?: number,
+            leftGoalieY?: number,
+            rightGoalieY?: number,
         }
 
         export interface Limits {
@@ -539,6 +541,12 @@ namespace Pockey {
             protected update(): void {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
+                    if (!this.poolTable.leftGoalie.moving)
+                        this.poolTable.leftGoalie.startMoving();
+
+                    if (!this.poolTable.rightGoalie.moving)
+                        this.poolTable.rightGoalie.startMoving();
+
                     this.onRepositionWhiteBall();
 
                     return;
@@ -557,14 +565,15 @@ namespace Pockey {
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
 
                     if (this.poolTable.poolStick.rotationEnabled) {
+                        if (!this.poolTable.leftGoalie.moving)
+                        this.poolTable.leftGoalie.startMoving();
+
+                        if (!this.poolTable.rightGoalie.moving)
+                            this.poolTable.rightGoalie.startMoving();
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
 
-                            if (!this.poolTable.leftGoalie.moving)
-                                this.poolTable.leftGoalie.startMoving();
 
-                            if (!this.poolTable.rightGoalie.moving)
-                                this.poolTable.rightGoalie.startMoving();
                         }
                         else {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.yourTurnToShoot]);
@@ -816,7 +825,9 @@ namespace Pockey {
 
                         lineBetweenCirclesVisible: this.lineBetweenCirclesVisible,
                         lineBetweenCirclesPoints: this.lineBetweenCirclesPoints,
-                        graphColor: this.graphColor
+                        graphColor: this.graphColor,
+                        leftGoalieY: this.poolTable.leftGoalie.y,
+                        rightGoalieY: this.poolTable.rightGoalie.y,
                     };
                     SignalsManager.DispatchSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER, [poolTableData]);
                     // console.log("lungimea array-ului la sendData: " + this.poolTable.balls.length);
@@ -830,11 +841,23 @@ namespace Pockey {
                     this.onStopAnimatePuckGoal();
 
                     let poolTableData: PoolTableData = params[0] as PoolTableData;
+
+                    if (this.poolTable.leftGoalie.moving)
+                        this.poolTable.leftGoalie.resetTweens();
+
+                    if (this.poolTable.rightGoalie.moving)
+                        this.poolTable.rightGoalie.resetTweens();
+
+                    // TweenMax.to(this.poolTable.leftGoalie, 0.1, {y:poolTableData.leftGoalieY});
+                    // TweenMax.to(this.poolTable.rightGoalie, 0.1, {y:poolTableData.rightGoalieY});
+                    this.poolTable.leftGoalie.y = poolTableData.leftGoalieY;
+                    this.poolTable.rightGoalie.y = poolTableData.rightGoalieY;
+
                     if (poolTableData.opponentState == PockeyStates.onShoot) {
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.opponentsTurn]);
                     }
                     else {
-                        console.log("poolTableData.opponentTimeFinished: " + poolTableData.opponentTimeFinished);
+                        // console.log("poolTableData.opponentTimeFinished: " + poolTableData.opponentTimeFinished);
                         if (poolTableData.opponentTimeFinished == true) {
                             this.opponentTimeUp = true;
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.onOpponentsTimeUp]);
@@ -1037,12 +1060,12 @@ namespace Pockey {
                         let isPuck: boolean = this.checkIfPuck(result.body);
                         if (isPuck) {
                             this.onAnimatePuckGoal();
-                            console.log("e puck!!!!");
+                            // console.log("e puck!!!!");
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.puckAiming]);
                         }
                         else {
                             this.onStopAnimatePuckGoal();
-                            console.log("nu e puck!!!!");
+                            // console.log("nu e puck!!!!");
 
                         }
                         /*else {

@@ -28,8 +28,6 @@ namespace Pockey {
     import PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     import PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     import PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
-    import AbstractSoundModule = Framework.Sound.AbstractSoundModule;
-    import PockeySoundNames = Pockey.Sound.PockeySoundNames;
 
     export class PockeyEntryPoint extends AbstractEntryPoint {
         private gameModule: AbstractModule;
@@ -135,7 +133,7 @@ namespace Pockey {
             return connectionModule;
         }
 
-        protected getSoundModule(): Framework.Abstracts.AbstractModule {
+       /* protected getSoundModule(): Framework.Abstracts.AbstractModule {
             let soundModule: AbstractSoundModule = new AbstractSoundModule();
 
             soundModule.Layer = this.getLayer(Layers.DefaultLayer);
@@ -148,7 +146,7 @@ namespace Pockey {
             soundModule.addAssetToLoad(PockeySoundNames.BALL_TO_BALL_HIT);
 
             return soundModule;
-        }
+        }*/
 
         protected initializeSingletons(): void {
             super.initializeSingletons();

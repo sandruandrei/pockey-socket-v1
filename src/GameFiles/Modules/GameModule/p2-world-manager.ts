@@ -27,7 +27,8 @@ namespace Pockey {
             LINE_MATERIAL = 3,
             BALL_ONLY_MATERIAL = 4,
             PUCK_ONLY_MATERIAL = 5,
-            PUCK_MATERIAL = 6
+            PUCK_MATERIAL = 6,
+            GOALIE_MATERIAL = 7
         }
 
         export class P2WorldManager {
@@ -107,6 +108,7 @@ namespace Pockey {
                 P2WorldManager.createNewMaterial(MaterialType.BALL_ONLY_MATERIAL);
                 P2WorldManager.createNewMaterial(MaterialType.PUCK_ONLY_MATERIAL);
                 P2WorldManager.createNewMaterial(MaterialType.LINE_MATERIAL);
+                P2WorldManager.createNewMaterial(MaterialType.GOALIE_MATERIAL);
             }
 
             private static defineContactMaterials() {
@@ -173,6 +175,27 @@ namespace Pockey {
                 P2WorldManager.Instance().world.addContactMaterial(puckToBallOnlyLineContactMaterial);
                 //end puck to ball only line contact material
 
+                // goalieToBall
+                let goalieToBallContactMaterial: p2.ContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.GOALIE_MATERIAL), {
+                    // stiffness: 0,
+                    // friction: 0,
+                    // surfaceVelocity: 20,
+                    restitution: 1
+                });
+                P2WorldManager.Instance().world.addContactMaterial(goalieToBallContactMaterial);
+                //end puck to ball only line contact material
+
+                // goalieToBall
+                let goalieToPuckContactMaterial: p2.ContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.PUCK_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.GOALIE_MATERIAL), {
+                    // stiffness: 0,
+                    // friction: 0,
+                    // surfaceVelocity: 20,
+                    restitution: 0.8
+                });
+                P2WorldManager.Instance().world.addContactMaterial(goalieToPuckContactMaterial);
+                //end puck to ball only line contact material
+
+                let veloCounter:number = 0;
 
                 P2WorldManager.Instance().world.on("preSolve", (evt) => {
 
@@ -185,6 +208,9 @@ namespace Pockey {
                             || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_MATERIAL)
                             || (ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.SHADOW_MATERIAL)
                             || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_MATERIAL)
+                            || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)
+                            || (ce.shapeA.material.id == MaterialType.GOALIE_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_ONLY_MATERIAL)
+                            || (ce.shapeA.material.id == MaterialType.GOALIE_MATERIAL && ce.shapeB.material.id == MaterialType.LINE_MATERIAL)
                         ) {
                             ce.enabled = false;
                         }
@@ -201,7 +227,7 @@ namespace Pockey {
                                 hitVolume = 1;
                             else if(hitVolume < 0.5)
                                 hitVolume = 0.5;
-                            console.log("velocity: " + hitVolume);
+                            // console.log("velocity: " + hitVolume);
                             // let velocity:number = ce.bodyA.velocity
                             // ce.bodyA.velocity
                             SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
@@ -209,6 +235,25 @@ namespace Pockey {
                                 volume: hitVolume
                             }]);
 
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
+                            veloCounter++;
+                            let ballVelocity:Vector2 = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
+                            console.log("salam " + veloCounter + " velocity: " + ballVelocity.x, ballVelocity.y);
+
+                            let ballSpeed:number = ballVelocity.getMagnitude();
+
+                            if(ballSpeed < 388)
+                            {
+                                let normalizedVector:Vector2 = ballVelocity.normalise().multiply(388);
+                                ce.bodyA.velocity[0] = normalizedVector.x;
+                                ce.bodyA.velocity[1] = normalizedVector.y;
+
+                                console.log("salam normalize");
+                            }
+
+                            console.log("salam ball speed: " + ballSpeed);
+                            // ce.bodyB.
                         }
                     });
                 }, this);
