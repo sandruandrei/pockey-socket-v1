@@ -105,6 +105,26 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
 
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.eot");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.svg");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.ttf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff2");
+
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.eot");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.svg");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.ttf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.ttf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.woff");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.woff2");
+
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.otf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.eot");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.svg");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.ttf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");
+
             // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
             //     uiModule.addAssetToLoad(path);
             // });
