@@ -121,9 +121,9 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.otf");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.eot");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.svg");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.ttf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.woff2");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.ttf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");
 
             // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
             //     uiModule.addAssetToLoad(path);
