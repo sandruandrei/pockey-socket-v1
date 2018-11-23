@@ -116,14 +116,14 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.ttf");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.ttf");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.woff2");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtrabold.woff2");
 
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.otf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.otf");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.eot");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.svg");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.ttf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.ttf");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.woff");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.woff2");
 
             // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
             //     uiModule.addAssetToLoad(path);
