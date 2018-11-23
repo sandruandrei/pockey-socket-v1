@@ -1,21 +1,22 @@
+/* titillium-web-regular - latin */
 @font-face {
-    font-family:"troika";
-    src:url("/Assets/Desktop/Fonts/troika.woff") format("woff"),
-    url("/Assets/Desktop/Fonts/troika.woff2") format("woff2");
-
-
-    /*src:url("/Assets/Desktop/Fonts/troika.otf") format("woff"),*/
-    /*url('/Assets/Desktop/Fonts/troika.eot'),url('/Assets/Desktop/Fonts/troika.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!*/
-    /*url('/Assets/Desktop/Fonts/troika.woff2') format('woff2'), !* Super Modern Browsers *!*/
-    /*url('/Assets/Desktop/Fonts/troika.woff') format('woff'), !* Pretty Modern Browsers *!*/
-    /*url('/Assets/Desktop/Fonts/troika.ttf')  format('truetype'), !* Safari, Android, iOS *!*/
-    /*url('/Assets/Desktop/Fonts/troika.svg#svgFontName') format('svg'); !* Legacy iOS *!*/
-
+    font-family: 'troika';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./Assets/Desktop/Fonts/troika.eot'); /* IE9 Compat Modes */
+    src: local('troika'), local('troika'),
+    url('./Assets/Desktop/Fonts/troika.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./Assets/Desktop/Fonts/troika.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./Assets/Desktop/Fonts/troika.woff') format('woff'), /* Modern Browsers */
+    url('./Assets/Desktop/Fonts/troika.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./Assets/Desktop/Fonts/troika.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
 }
+
+
 
 @font-face {
     font-family:"opensansextrabold";
-    src: url('/Assets/Desktop/Fonts/OpenSansExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+    src: url("/Assets/Desktop/Fonts/OpenSansExtraBold.woff2") format('woff2'), /* Super Modern Browsers */
     url('/Assets/Desktop/Fonts/OpenSans-ExtraBold.woff') format('woff'); /* Pretty Modern Browsers */
 }
 
