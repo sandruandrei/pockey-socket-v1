@@ -105,7 +105,7 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
 
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.eot");
+           /* uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.eot");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.svg");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.ttf");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff");
@@ -123,7 +123,7 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.svg");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.ttf");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");
+            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");*/
 
             // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
             //     uiModule.addAssetToLoad(path);
