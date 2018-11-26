@@ -6,6 +6,7 @@
 ///<reference path="Screens/GameScreen/pockey-ui-game-screen.ts"/>
 ///<reference path="Screens/pockey-ui-winning-screen.ts"/>
 ///<reference path="../SoundModule/pockey-sound-names.ts"/>
+///<reference path="Screens/MainScreen/pockey-ui-main-screen-mobile.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -25,6 +26,7 @@ namespace Pockey {
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import SignalsType = Framework.Signals.SignalsType;
         import PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        import Settings = Framework.Settings;
 
         export class PockeyUserInterfaceModule extends AbstractUserInterfaceModule {
 
@@ -47,7 +49,16 @@ namespace Pockey {
 
             public createElements(): void {
 
-                this.mainScreen = new PockeyUiMainScreen();
+                if(Settings.isMobile)
+                {
+                    this.mainScreen = new PockeyUiMainScreenMobile();
+
+                }
+                else
+                {
+                    this.mainScreen = new PockeyUiMainScreen();
+
+                }
                 this.searchingScreen = new PockeyUiSearchingScreen();
                 this.gameScreen = new PockeyUiGameScreen();
                 // this.winningScreen = new PockeyUiWinningScreen();

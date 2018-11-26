@@ -6,31 +6,14 @@
 namespace Pockey {
     export module UserInterface {
 
-        export class PockeyUiMainScreen   {
+        export class PockeyUiMainScreenMobile extends PockeyUiMainScreen {
 
-            protected mainMenuElementsHolder: HTMLDivElement;
-
-            protected playGameButton: HTMLDivElement;
-            protected inventoryButton: HTMLDivElement;
-            protected inviteFriendButton: HTMLDivElement;
-            protected leaderboardButton: HTMLDivElement;
-            protected mainMenuButtons: HTMLDivElement[];
-
-            protected loginMenu: HTMLDivElement;
-            protected leftSideLoginMenu: HTMLDivElement;
-            protected leaderboardMenu: HTMLDivElement;
-            protected inviteMenu: HTMLDivElement;
-            protected tutorialAndShareButtonsMenu: HTMLDivElement;
-            protected inventoryScreen: HTMLDivElement;
-
-            protected playGameMenu: PlayGameMenu;
-            protected inventoryMenu: PockeyInventoryMenu;
-
-            constructor() {
-                this.defineElements();
-            }
+            protected rightSide:HTMLDivElement;
+            protected mainButtonsHolder:HTMLDivElement;
 
             protected defineElements(): void {
+                this.rightSide = document.getElementById("RightSideBackground") as HTMLDivElement;
+                this.mainButtonsHolder = document.getElementById("MainButtonsHolder") as HTMLDivElement;
                 ////////////
                 this.loginMenu = document.getElementById("LoginScreen") as HTMLDivElement;
                 this.playGameMenu = new PlayGameMenu();
@@ -74,8 +57,8 @@ namespace Pockey {
                         element.setAttribute('clicked', 'false');
                         element.onclick = () => {
                             element.setAttribute("clicked", "true");
-                            this.setMainButtonStyleOnClick(element);
-
+                            // this.setMainButtonStyleOnClick(element);
+                            alert(element.id + " clicked");
                             switch (element.id) {
                                 case this.playGameButton.id: {
                                     this.showPlayGameMenu();
@@ -85,19 +68,16 @@ namespace Pockey {
                                 case this.inventoryButton.id: {
                                     this.showInventoryMenu();
                                     break;
-
                                 }
 
                                 case this.inviteFriendButton.id: {
                                     this.showInviteMenu();
                                     break;
-
                                 }
 
                                 case this.leaderboardButton.id: {
                                     this.showLeaderboardMenu();
                                     break;
-
                                 }
 
                             }
@@ -105,7 +85,7 @@ namespace Pockey {
                             _.forEach(this.mainMenuButtons, (otherElement: HTMLDivElement) => {
                                 if (otherElement != element) {
                                     otherElement.setAttribute("clicked", "false");
-                                    this.resetMainButtonStyleOnClick(otherElement);
+                                    // this.resetMainButtonStyleOnClick(otherElement);
                                 }
                             });
                         }
@@ -113,77 +93,37 @@ namespace Pockey {
                 );
             }
 
-            protected showElement(element: HTMLDivElement): void {
-                element.style.display = "flex";
-            }
-
-            protected hideElement(element: HTMLDivElement): void {
-                element.style.display = "none";
-
-            }
-
             protected showPlayGameMenu(): void {
                 console.log("intra la show play");
-                this.showElement(this.loginMenu);
-                this.showElement(this.tutorialAndShareButtonsMenu);
-                this.hideElement(this.inventoryScreen);
-                this.hideElement(this.leaderboardMenu);
-                this.hideElement(this.inviteMenu);
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
+
+                super.showPlayGameMenu();
                 // this.showElement(this.tutorialAndShareButtonsMenu);
             }
 
             protected showInventoryMenu(): void {
                 console.log("intra la show inventory");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
 
-                this.hideElement(this.loginMenu);
-                this.hideElement(this.leaderboardMenu);
-                this.showElement(this.inventoryScreen);
+                super.showInventoryMenu();
             }
 
             protected showLeaderboardMenu(): void {
                 console.log("intra la show leaderboard");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
 
-                this.hideElement(this.loginMenu);
-                this.hideElement(this.inventoryScreen);
-                this.showElement(this.leaderboardMenu);
+                super.showLeaderboardMenu();
             }
 
             protected showInviteMenu(): void {
                 console.log("intra la show invite");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
 
-                this.showElement(this.loginMenu);
-                this.showElement(this.inviteMenu);
-                this.hideElement(this.tutorialAndShareButtonsMenu);
-                this.hideElement(this.leaderboardMenu);
-                this.hideElement(this.inventoryScreen);
-            }
-
-            protected setMainButtonStyleOnClick(element: HTMLDivElement) {
-                element.classList.add('simpleBtnOnClick');
-
-                let arrowDiv = element.querySelector('.simpleBtnArrow');
-                arrowDiv.classList.add('simpleBtnArrowOnClick');
-
-                let btnHighlight = element.querySelector('.simpleBtnHighlight');
-                btnHighlight.classList.add('simpleBtnHighlightOnClick');
-            }
-
-            protected resetMainButtonStyleOnClick(element: HTMLDivElement) {
-                element.classList.remove('simpleBtnOnClick');
-
-                let arrowDiv = element.querySelector('.simpleBtnArrow');
-                arrowDiv.classList.remove('simpleBtnArrowOnClick');
-
-                let btnHighlight = element.querySelector('.simpleBtnHighlight');
-                btnHighlight.classList.remove('simpleBtnHighlightOnClick');
-            }
-
-            public setVisibleTrue(): void {
-                this.mainMenuElementsHolder.style.display = "block";
-            }
-
-            public setVisibleFalse(): void {
-                this.mainMenuElementsHolder.style.display = "none";
+                super.showInviteMenu();
             }
 
         }

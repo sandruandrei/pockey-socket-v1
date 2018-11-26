@@ -110,7 +110,7 @@
     height: 420px;
     background: url("Assets/Desktop/Images/menu_background.svg");
     background-size: 770px 420px;
-    margin-left: 28px;
+    /* margin-left: 28px; */
 }
 
 #LeftSide {
@@ -321,7 +321,7 @@ margin-bottom: 4px;
     float: left;
     border-width: 3px;
     border-color: #2D899D;
-    border-radius: 3px;
+    border-radius: 5px;
     border-style: solid;
     box-sizing: border-box;
     /* align-items: center; */
@@ -362,14 +362,35 @@ margin-bottom: 4px;
     border-style: solid;
 }*/
 
-#PlayerColorAndAvatarHolder {
+/*#PlayerColorAndAvatarHolder {
     width: 100%;
     height: 100%;
     float: left;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    /*background-color: aqua;*/
+
+
+    !*background-color: aqua;*!
+}*/
+
+#PlayerColorAndAvatarHolder {
+    width: 100%;
+    height: 100%;
+    float: left;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* align-items: flex-start;        if "img", this will prevent it from stretching  */
+    /*background: lightgrey;*/
+}
+
+#PlayerColorAndAvatarHolder::before,
+#PlayerColorAndAvatarHolder::after {
+    content: '';
+
 }
 
 .arrowHolder:hover .leftArrow {
@@ -522,7 +543,7 @@ margin-bottom: 4px;
 }
 
 .normalButtonLogo {
-    width: 25px;
+    width: auto;
     margin-right: 2%;
 }
 
@@ -754,26 +775,46 @@ display: flex;
 }
 
 #MainMenuElementsHolder {
-width: 1012px;
-height: 420px;
-/* overflow: hidden; */
-/* background: green; */
-/* float: left; */
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-position: absolute;
-/* margin: auto; */
-/* top: 0; */
-/* right: 0; */
-/* bottom: 0; */
-/* left: 0; */
-/* position: absolute; */
-/* left:50%; */
-/* top:50%; */
-/* margin: auto; */
-/* width: 60%; */
-display: none;
+
+width: 1012px;
+
+height: 420px;
+
+/* overflow: hidden; */
+
+/* background: green; */
+
+/* float: left; */
+
+left: 50%;
+
+top: 50%;
+
+transform: translate(-50%, -50%);
+
+position: absolute;
+
+/* margin: auto; */
+
+/* top: 0; */
+
+/* right: 0; */
+
+/* bottom: 0; */
+
+/* left: 0; */
+
+/* position: absolute; */
+
+/* left:50%; */
+
+/* top:50%; */
+
+/* margin: auto; */
+
+/* width: 60%; */
+
+display: none;
 }
 
 /*.notVs {*/

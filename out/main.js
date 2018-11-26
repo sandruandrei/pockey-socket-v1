@@ -8524,18 +8524,118 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
+        var PockeyUiMainScreenMobile = (function (_super) {
+            __extends(PockeyUiMainScreenMobile, _super);
+            function PockeyUiMainScreenMobile() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            PockeyUiMainScreenMobile.prototype.defineElements = function () {
+                var _this = this;
+                this.rightSide = document.getElementById("RightSideBackground");
+                this.mainButtonsHolder = document.getElementById("MainButtonsHolder");
+                this.loginMenu = document.getElementById("LoginScreen");
+                this.playGameMenu = new UserInterface.PlayGameMenu();
+                this.inventoryMenu = new UserInterface.PockeyInventoryMenu();
+                this.leftSideLoginMenu = document.getElementById("LeftSide");
+                this.leaderboardMenu = document.getElementById("LeaderBoardScreen");
+                this.hideElement(this.leaderboardMenu);
+                this.inviteMenu = document.getElementById("InviteElementsHolder");
+                this.hideElement(this.inviteMenu);
+                this.tutorialAndShareButtonsMenu = document.getElementById("TutorialAndShareButtonsHolder");
+                this.inventoryScreen = document.getElementById("InventoryScreen");
+                this.hideElement(this.inventoryScreen);
+                this.mainMenuElementsHolder = document.getElementById("MainMenuElementsHolder");
+                this.mainMenuButtons = [];
+                this.playGameButton = document.getElementById("PlayGameButton");
+                this.mainMenuButtons.push(this.playGameButton);
+                this.inventoryButton = document.getElementById("InventoryButton");
+                this.mainMenuButtons.push(this.inventoryButton);
+                this.inviteFriendButton = document.getElementById("InviteFriendsButton");
+                this.mainMenuButtons.push(this.inviteFriendButton);
+                this.leaderboardButton = document.getElementById("LeaderboardButton");
+                this.mainMenuButtons.push(this.leaderboardButton);
+                _.forEach(this.mainMenuButtons, function (element) {
+                    element.setAttribute('clicked', 'false');
+                    element.onclick = function () {
+                        element.setAttribute("clicked", "true");
+                        alert(element.id + " clicked");
+                        switch (element.id) {
+                            case _this.playGameButton.id: {
+                                _this.showPlayGameMenu();
+                                break;
+                            }
+                            case _this.inventoryButton.id: {
+                                _this.showInventoryMenu();
+                                break;
+                            }
+                            case _this.inviteFriendButton.id: {
+                                _this.showInviteMenu();
+                                break;
+                            }
+                            case _this.leaderboardButton.id: {
+                                _this.showLeaderboardMenu();
+                                break;
+                            }
+                        }
+                        _.forEach(_this.mainMenuButtons, function (otherElement) {
+                            if (otherElement != element) {
+                                otherElement.setAttribute("clicked", "false");
+                            }
+                        });
+                    };
+                });
+            };
+            PockeyUiMainScreenMobile.prototype.showPlayGameMenu = function () {
+                console.log("intra la show play");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
+                _super.prototype.showPlayGameMenu.call(this);
+            };
+            PockeyUiMainScreenMobile.prototype.showInventoryMenu = function () {
+                console.log("intra la show inventory");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
+                _super.prototype.showInventoryMenu.call(this);
+            };
+            PockeyUiMainScreenMobile.prototype.showLeaderboardMenu = function () {
+                console.log("intra la show leaderboard");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
+                _super.prototype.showLeaderboardMenu.call(this);
+            };
+            PockeyUiMainScreenMobile.prototype.showInviteMenu = function () {
+                console.log("intra la show invite");
+                this.showElement(this.rightSide);
+                this.hideElement(this.mainButtonsHolder);
+                _super.prototype.showInviteMenu.call(this);
+            };
+            return PockeyUiMainScreenMobile;
+        }(UserInterface.PockeyUiMainScreen));
+        UserInterface.PockeyUiMainScreenMobile = PockeyUiMainScreenMobile;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    var UserInterface;
+    (function (UserInterface) {
         var AbstractUserInterfaceModule = Framework.UserInterface.AbstractUserInterfaceModule;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var SignalsType = Framework.Signals.SignalsType;
         var PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        var Settings = Framework.Settings;
         var PockeyUserInterfaceModule = (function (_super) {
             __extends(PockeyUserInterfaceModule, _super);
             function PockeyUserInterfaceModule() {
                 return _super.call(this) || this;
             }
             PockeyUserInterfaceModule.prototype.createElements = function () {
-                this.mainScreen = new UserInterface.PockeyUiMainScreen();
+                if (Settings.isMobile) {
+                    this.mainScreen = new UserInterface.PockeyUiMainScreenMobile();
+                }
+                else {
+                    this.mainScreen = new UserInterface.PockeyUiMainScreen();
+                }
                 this.searchingScreen = new UserInterface.PockeyUiSearchingScreen();
                 this.gameScreen = new UserInterface.PockeyUiGameScreen();
                 _super.prototype.createElements.call(this);

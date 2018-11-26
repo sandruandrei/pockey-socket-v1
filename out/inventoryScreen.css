@@ -254,7 +254,7 @@
 
 #ItemDescription {
     width: 100%;
-    height: 30%;
+    /* height: 30%; */
     float: left;
     /* background-color: #b93131; */
 }
@@ -276,7 +276,7 @@
 }
 
 #ItemNameHolder {
-    width: 63%;
+    width: 62%;
     height: 100%;
     float: left;
     /* background-color: #fe91ab; */
@@ -305,28 +305,26 @@
 }
 
 #ItemDescription {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: block;
+    display: ms-grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    ms-grid-columns: repeat(2, 1fr);
     font-family: "opensansextrabold";
     font-size: 11px;
-    float: left;
+    /* float: left; */
+    width: 100%;
     /* margin-top: 2%; */
 }
 
-.itemDescriptionName {
-
-    display: flex;
-
-    align-items: center;
-
-    color: #2d899d;
-}
+.itemDescriptionName {/* display: flex; *//* align-items: center; */color: #2d899d;width: 50%;float: left;/* height: 15px; */}
 
 .itemDescriptionValue {
     text-align: right;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
     color: #20d7e7;
+    width: 50%;
+    float: left;
 }
 
 #WalletAndItemsButtonsHolder {
