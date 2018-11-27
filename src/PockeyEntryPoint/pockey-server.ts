@@ -84,7 +84,7 @@ export module PockeyServer {
                 console.log('ok, server is running');
             });
 
-            this.httpServer.listen(port);
+            this.httpServer.listen(port, '0.0.0.0');
 
             this.socketIo = socketIO();
             // console.log("socket id: " + this.socketIo.id);

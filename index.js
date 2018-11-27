@@ -83,7 +83,7 @@ var PockeyServer;
             this.httpServer.on('listening', function () {
                 console.log('ok, server is running');
             });
-            this.httpServer.listen(port);
+            this.httpServer.listen(port, '0.0.0.0');
             this.socketIo = socketIO();
             this.socketIo.serveClient(true);
             this.socketIo.attach(this.httpServer);
@@ -122,7 +122,7 @@ var PockeyServer;
                 socket.on(FrameworkSocketEvents.joinRoom, (room) => {
                     socket.join(room);
                     socket.emit(FrameworkSocketEvents.joinedRoom, room);
-                    console.log("on join room. room name: " + room);
+                    console.log("on join room. room nickname: " + room);
                 });
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {
                     socket.broadcast.to(room).emit(FrameworkSocketEvents.privateMessage, messageType, messageData);
