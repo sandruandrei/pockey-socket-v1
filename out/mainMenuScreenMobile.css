@@ -965,28 +965,29 @@
 @media only screen and (max-width: 320px) {
     /* Styles */
     #MainMenuElementsHolder {
-
-    }
+width: 268px;
+height: 468px;
+}
 
     #RightSide {
-
-    }
+height: 268px;
+}
 
     #LeftSide {
-
-    }
+height: 38%;
+}
 
     #HowToPlayImage {
-
-    }
+height: 228px;
+}
 
     #FbTwitterPromoHolder {
-
-    }
+height: 195px;
+}
 
     .normalButtonBackground {
-
-    }
+font-size: 14px;
+}
 
     .normalButtonHolder {
 
@@ -997,12 +998,12 @@
     }
 
     #PlayerCustomizationHolder {
-
-    }
+display: none;
+}
 
     #CustomizeTextHolder {
-
-    }
+display: none;
+}
 }
 
 /* iPads (portrait and landscape) ----------- */
