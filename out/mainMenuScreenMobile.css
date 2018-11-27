@@ -890,8 +890,8 @@
     }
 
     #RightSide {
-
-    }
+height: 216px;
+}
 
     #LeftSide {
 
@@ -1014,18 +1014,13 @@
 @media only screen and (max-width: 320px) {
     /* Styles */
     #MainMenuElementsHolder {
-
-        /* width: 204px; */
-
-        /* height: 398px; */
-
-    }
+width: 218px;
+/* height: 398px; */
+}
 
     #RightSide {
-
-        height: 216px;
-
-    }
+height: 235px;
+}
 
     #LeftSide {
 
@@ -1034,16 +1029,12 @@
     }
 
     #HowToPlayImage {
-
-        /* height: 174px; */
-
-    }
+height: 187px;
+}
 
     #FbTwitterPromoHolder {
-
-        /* height: 148px; */
-
-    }
+height: 161px;
+}
 
     .normalButtonBackground {
 
@@ -1052,10 +1043,8 @@
     }
 
     .normalButtonHolder {
-
-        /* height: 28px; */
-
-    }
+height: 32px;
+}
 
     #ShareButtonsHolder {
 
