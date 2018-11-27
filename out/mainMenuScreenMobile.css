@@ -965,24 +965,24 @@
 @media only screen and (max-width: 320px) {
     /* Styles */
     #MainMenuElementsHolder {
-width: 268px;
-height: 468px;
+width: 218px;
+height: 428px;
 }
 
     #RightSide {
-height: 268px;
+height: 231px;
 }
 
     #LeftSide {
-height: 38%;
+height: 42%;
 }
 
     #HowToPlayImage {
-height: 228px;
+height: 186px;
 }
 
     #FbTwitterPromoHolder {
-height: 195px;
+height: 158px;
 }
 
     .normalButtonBackground {
