@@ -624,7 +624,7 @@
     #FbTwitterPromoHolder {
         width: 100%;
         /*height:;*/
-        height: 204px;
+        height: 166px;
         border-style: solid;
         border-width: 4px;
         border-color: white;
@@ -871,7 +871,1240 @@
         /* display: none; */
     }
 
-    @media only  screen  and (min-device-width: 375px) and (max-device-width: 667px) {
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width: 1224px) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width: 1824px) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 480px) and (min-device-width: 320px) and (orientation: portrait) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPhone 5 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+height: 44%;
+}
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+        display: none;
+
+    }
+}
+
+/* iPhone 6, 7, 8 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPhone 6+, 7+, 8+ ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPhone X ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* iPhone XS Max, XR ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+/* Samsung Galaxy S3 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    #CustomizeTextHolder {
+
+    }
+}
+
+@media only screen and (-webkit-device-pixel-ratio: 2) and (max-device-height: 640px) and (min-device-width: 320px) and (orientation: portrait) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+        height: 442px;
+
+        width: 218px;
+
+    }
+
+    #RightSide {
+height: 222px;
+}
+
+    #HowToPlayImage {
+
+        height: 184px;
+
+    }
+
+    .normalButtonBackground {
+
+        font-size: 14px;
+
+    }
+
+    .normalButtonHolder {
+
+        height: 32px;
+
+    }
+
+    #ShareButtonsHolder {
+height: 20px;
+}
+
+    #PlayerCustomizationHolder {
+
+        display: none;
+
+    }
+
+    .customizePlayerLine {
+
+        /* display: none; */
+
+    }
+
+    #FbTwitterPromoHolder {
+height: 159px;
+}
+}
+
+/* Samsung Galaxy S4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    .customizePlayerLine {
+
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    .customizePlayerLine {
+
+    }
+}
+
+/* Samsung Galaxy S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    .customizePlayerLine {
+
+    }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+    /* Styles */
+    #MainMenuElementsHolder {
+
+    }
+
+    #RightSide {
+
+    }
+
+    #LeftSide {
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    #FbTwitterPromoHolder {
+
+    }
+
+    .normalButtonBackground {
+
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #ShareButtonsHolder {
+
+    }
+
+    #PlayerCustomizationHolder {
+
+    }
+
+    .customizePlayerLine {
 
     }
 }
