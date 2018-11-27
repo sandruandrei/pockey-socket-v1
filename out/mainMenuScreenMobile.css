@@ -885,7 +885,7 @@
 
         width: 198px;
 
-        height: 428px;
+        height:  calc(100% - 50px);
 
     }
 
