@@ -956,11 +956,9 @@ sandru opera mini
     }
 
     input[type=text], select {
-
-        font-size: 13px;
-
-        height: 28px;
-    }
+font-size: 12px;
+height: 28px;
+}
 
     .shareButtonBackground {
 
@@ -989,22 +987,17 @@ sandru chrome
     }
 
     #RightSide {
-
-        height: 228px;
-
-        background: red;
-
-    }
+height: 222px;
+background: red;
+}
 
     #LeftSide {
 
     }
 
     #HowToPlayImage {
-
-        height: 176px;
-
-    }
+height: 170px;
+}
 
     #FbTwitterPromoHolder {
 
@@ -1053,11 +1046,9 @@ sandru chrome
     }
 
     input[type=text], select {
-
-        font-size: 13px;
-
-        height: 28px;
-    }
+font-size: 12px;
+height: 30px;
+}
 
     .shareButtonBackground {
 
@@ -1097,10 +1088,8 @@ sandru flow
     }
 
     #HowToPlayImage {
-
-        height: 194px;
-
-    }
+height: 192px;
+}
 
     #FbTwitterPromoHolder {
 
@@ -1147,8 +1136,8 @@ sandru flow
     }
 
     .mainMenuRankingText {
-
-    }
+font-size: 11px;
+}
 
     input[type=text], select {
 
