@@ -204,7 +204,7 @@
         position: relative;
         text-align: center;
         display: inline-block;
-        border: 4px solid #fff;
+        border: 3px solid #fff;
         border-radius: 3px;
         box-sizing: border-box;
         background: none;
@@ -270,17 +270,28 @@
     }
 
     .mainMenuRankingCircle {
-width: 42px;
-height: 42px;
-background-color: #ffffff1a;
-float: left;
-background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
-background-size: 88%;
-background-repeat: no-repeat;
-background-position: center 1px;
-border-radius: 50%;
-margin-bottom: 4px;
-}
+
+        width: 42px;
+
+        height: 42px;
+
+        background-color: #ffffff1a;
+
+        float: left;
+
+        background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+
+        background-size: 88%;
+
+        background-repeat: no-repeat;
+
+        background-position: center 1px;
+
+        border-radius: 50%;
+
+        margin-bottom: 4px;
+
+    }
 
     .customizePlayerLine {
         width: 100%;
@@ -552,9 +563,10 @@
 
     #FacebookBtnLogo {
         background: url("Assets/Desktop/Images/facebook_logo.svg");
-        background-size: 100%;
-        height: 1.1em;
-        width: 1.1em;
+        background-size: contain;
+        background-position: center;
+        height: 16px;
+        width: 16px;
         background-repeat: no-repeat;
     }
 
@@ -565,8 +577,9 @@
     #GoogleBtnLogo {
         background: url("Assets/Desktop/Images/google_logo.svg");
         background-size: 100%;
-        height: 1.1em;
-        width: 1.1em;
+        height: 18px;
+        width: 18px;
+        background-position: center;
         background-repeat: no-repeat;
     }
 
@@ -605,7 +618,7 @@
         height: 100%;
         /* background: #845ac7; */
         float: left;
-        margin-left: 0%;
+        margin-left: 0;
     }
 
     #HowToPlayButtonHolder {
@@ -617,7 +630,7 @@
         /*height:;*/
         height: 166px;
         border-style: solid;
-        border-width: 4px;
+        border-width: 3px;
         border-color: white;
         border-radius: 3px;
         /* background: white; */
@@ -862,8 +875,7 @@
         /* display: none; */
     }
 
-    #MainMenuBg
-    {
+    #MainMenuBg {
         /* display: none; */
         display: flex;
         width: 100%;
@@ -874,79 +886,137 @@
         /* background-size: contain; */
     }
 
-    #MenuTitle{
-font-size: 18px;
-color: #1abdca;
-font-family: "troika";
-/* background: #1d00ff; */
-/* margin-left: 6px; */
-float: right;
-height: auto;
-/* width: 58%; */
-/* margin: auto; */
-margin-right: 8px;
- */
-/* margin-left: 4px; */
-margin-top:;
-display: flex;
-align-items: center;
-/* flex-direction: row; */
-/* justify-content: space-between; */
-}
+    #MenuTitle {
 
-    #BackToMainMenuButton{
-float: left;
-width: 22%;
-/* background: green; */
-height: 100%;
-/* float: right; */
-/* margin-left: auto; */
-display: flex;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "troika";
-color: white;
-/* margin-left: 8px; */
-}
+        font-size: 18px;
+
+        color: #1abdca;
+
+        font-family: "troika";
+
+        /* background: #1d00ff; */
+
+        /* margin-left: 6px; */
+
+        float: right;
+
+        height: auto;
+
+        /* width: 58%; */
+
+        /* margin: auto; */
+
+        margin-right: 8px;
+
+        display: flex;
+
+        align-items: center;
+
+        /* flex-direction: row; */
+
+        /* justify-content: space-between; */
+
+    }
+
+    #BackToMainMenuButton {
+
+        float: left;
+
+        width: 22%;
+
+        /* background: green; */
+
+        height: 100%;
+
+        /* float: right; */
+
+        /* margin-left: auto; */
+
+        display: flex;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+        /* margin-left: 8px; */
+
+    }
 
     #MenuLogo {
-width: 26px;
-height: 26px;
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-width: 22px;
-height: 22px;
-/* padding: 2px; */
-}
 
-    #BackToMainMenuButtonIcon{
-background: url(Assets/Desktop/Images/icon_arrow1-left.svg);
-background-size: contain;
-background-repeat: no-repeat;
-width: 14px;
-height: 14px;
-padding-left: 4px;
-/* background-color: bisque; */
-/* align-self: center; */
-}
+        width: 26px;
 
-    #MainMenuBackButtonHolder{
-height: 32px;
-width: 100%;
-background: #00000068;
-display: flex;
-align-items: center;
-flex-direction: row;
-justify-content: space-between;
-/* display: flex; */
-/* flex-direction: column; */
-/* justify-content: center; */
-}
+        height: 26px;
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 22px;
+
+        height: 22px;
+
+        /* padding: 2px; */
+
+    }
+
+    #BackToMainMenuButtonIcon {
+
+        background: url(Assets/Desktop/Images/icon_arrow1-left.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 14px;
+
+        height: 14px;
+
+        padding-left: 4px;
+
+        /* background-color: bisque; */
+
+        /* align-self: center; */
+
+    }
+
+    #MainMenuBackButtonHolder {
+
+        height: 32px;
+
+        width: 100%;
+
+        background: #00000068;
+
+        display: flex;
+
+        align-items: center;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        /* display: flex; */
+
+        /* flex-direction: column; */
+
+        /* justify-content: center; */
+
+    }
 
 }
 
@@ -956,38 +1026,56 @@ sandru opera mini
 
 @media only screen and (min-device-width: 320px) and (min-height: 438px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-height: calc(100% - 68px);
-width: 178px;
-}
+
+        height: calc(100% - 68px);
+
+        width: 178px;
+
+    }
 
     #RightSide {
-height: 192px;
-/* background: blue; */
-}
+
+        height: 192px;
+
+        /* background: blue; */
+
+    }
 
     #LeftSide {
-height: 44%;
-}
+
+        height: 44%;
+
+    }
 
     #HowToPlayImage {
-height: 150px;
-}
+
+        height: 150px;
+
+    }
 
     #FbTwitterPromoHolder {
-height: 130px;
-}
+
+        height: 130px;
+
+    }
 
     .normalButtonBackground {
-font-size: 12px;
-}
+
+        font-size: 12px;
+
+    }
 
     .normalButtonHolder {
-height: 26px;
-}
+
+        height: 26px;
+
+    }
 
     #ShareButtonsHolder {
-height: 19px;
-}
+
+        height: 19px;
+
+    }
 
     #PlayerCustomizationHolder {
 
@@ -1010,8 +1098,10 @@ sandru opera mini
     }
 
     .mainMenuRankingText {
-top: 34px;
-}
+
+        top: 34px;
+
+    }
 
     input[type=text], select {
 
@@ -1056,7 +1146,39 @@ sandru opera mini
 
     }
 
-    #MainMenuBackButtonHolder{
+    #MainMenuBackButtonHolder {
+
+    }
+
+    #FacebookBtnLogo {
+
+        /* background: url(Assets/Desktop/Images/facebook_logo.svg); */
+
+        /* background-size: contain; */
+
+        /* background-position: center; */
+
+        height: 14px;
+
+        width: 14px;
+
+        /* background-repeat: no-repeat; */
+
+    }
+
+    #GoogleBtnLogo {
+
+        background: url(Assets/Desktop/Images/google_logo.svg);
+
+        background-size: 100%;
+
+        height: 14px;
+
+        width: 14px;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
 
     }
 
@@ -1067,38 +1189,54 @@ sandru chrome
 */
 @media only screen and (min-device-width: 320px) and (min-height: 488px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-height: calc(100% - 68px);
-width: 188px;
-}
+
+        height: calc(100% - 68px);
+
+        width: 188px;
+
+    }
 
     #RightSide {
-height: 210px;
-/* background: red; */
-}
+
+        height: 210px;
+
+        /* background: red; */
+
+    }
 
     #LeftSide {
 
     }
 
     #HowToPlayImage {
-height: 159px;
-}
+
+        height: 159px;
+
+    }
 
     #FbTwitterPromoHolder {
-height: 139px;
-}
+
+        height: 139px;
+
+    }
 
     .normalButtonBackground {
-font-size: 14px;
-}
+
+        font-size: 14px;
+
+    }
 
     .normalButtonHolder {
-height: 30px;
-}
+
+        height: 30px;
+
+    }
 
     #ShareButtonsHolder {
-height: 22px;
-}
+
+        height: 22px;
+
+    }
 
     #PlayerCustomizationHolder {
 
@@ -1131,8 +1269,10 @@ sandru chrome
     }
 
     .shareButtonBackground {
-font-size: 14px;
-}
+
+        font-size: 14px;
+
+    }
 
     #OrText { /* margin-top: 6px; */
         font-size: 18px;
@@ -1154,7 +1294,31 @@ sandru chrome
 
     }
 
-    #MainMenuBackButtonHolder{
+    #MainMenuBackButtonHolder {
+
+    }
+
+    #FacebookBtnLogo {
+
+        /* background: url(Assets/Desktop/Images/facebook_logo.svg); */
+
+        /* background-size: contain; */
+
+        /* background-position: center; */
+
+        height: 16px;
+
+        width: 16px;
+
+        /* background-repeat: no-repeat; */
+
+    }
+
+    #GoogleBtnLogo {
+
+        height: 16px;
+
+        width: 16px;
 
     }
 }
@@ -1164,9 +1328,12 @@ sandru flow
 */
 @media only screen and (min-device-width: 320px) and (min-height: 540px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-height: calc(100% - 68px);
-width: 228px;
-}
+
+        height: calc(100% - 68px);
+
+        width: 228px;
+
+    }
 
     #RightSide {
 
@@ -1177,8 +1344,10 @@ sandru flow
     }
 
     #LeftSide {
-height: 42%;
-}
+
+        height: 42%;
+
+    }
 
     #HowToPlayImage {
 
@@ -1260,18 +1429,15 @@ sandru flow
 
     }
 
-    #MainMenuBg
-    {
+    #MainMenuBg {
 
     }
 
-    #MenuTitle{
-
-
+    #MenuTitle {
 
     }
 
-    #BackToMainMenuButton{
+    #BackToMainMenuButton {
 
     }
 
@@ -1279,12 +1445,42 @@ sandru flow
 
     }
 
-    #BackToMainMenuButtonIcon{
+    #BackToMainMenuButtonIcon {
 
     }
 
-    #MainMenuBackButtonHolder{
+    #MainMenuBackButtonHolder {
 
+    }
+
+    #FacebookBtnLogo {
+
+        background: url(Assets/Desktop/Images/facebook_logo.svg);
+
+        background-size: contain;
+
+        background-position: center;
+
+        height: 18px;
+
+        width: 18px;
+
+        background-repeat: no-repeat;
+    }
+
+    #GoogleBtnLogo {
+
+        background: url(Assets/Desktop/Images/google_logo.svg);
+
+        background-size: 100%;
+
+        height: 18px;
+
+        width: 18px;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
     }
 }
 
