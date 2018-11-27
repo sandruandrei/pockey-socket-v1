@@ -317,11 +317,11 @@ margin-bottom: 4px;
 
 .normalButtonHolder {
     width: 100%;
-    height: 42px;
+    height: 38px;
     float: left;
     border-width: 3px;
     border-color: #2D899D;
-    border-radius: 5px;
+    border-radius: 4px;
     border-style: solid;
     box-sizing: border-box;
     /* align-items: center; */
@@ -619,7 +619,7 @@ margin-bottom: 4px;
     border-width: 3px;
     border-color: white;
     border-radius: 3px;
-    background: #0A2B32;
+    background: #ff005c;
     float: left;
     /* margin-top: 3.5%; */
     box-sizing: border-box;

@@ -8558,7 +8558,6 @@ var Pockey;
                     element.setAttribute('clicked', 'false');
                     element.onclick = function () {
                         element.setAttribute("clicked", "true");
-                        alert(element.id + " clicked");
                         switch (element.id) {
                             case _this.playGameButton.id: {
                                 _this.showPlayGameMenu();

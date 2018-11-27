@@ -58,7 +58,7 @@ namespace Pockey {
                         element.onclick = () => {
                             element.setAttribute("clicked", "true");
                             // this.setMainButtonStyleOnClick(element);
-                            alert(element.id + " clicked");
+                            // alert(element.id + " clicked");
                             switch (element.id) {
                                 case this.playGameButton.id: {
                                     this.showPlayGameMenu();
