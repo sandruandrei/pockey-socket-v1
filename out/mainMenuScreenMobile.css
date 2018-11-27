@@ -992,24 +992,17 @@
 @media only screen and (max-width: 320px) {
     /* Styles */
     #MainMenuElementsHolder {
-
-        width: 218px;
-
-        height: 428px;
-
-    }
+width: 218px;
+height: 418px;
+}
 
     #RightSide {
-
-        height: 231px;
-
-    }
+height: 226px;
+}
 
     #LeftSide {
-
-        height: 42%;
-
-    }
+height: 42%;
+}
 
     #HowToPlayImage {
 
@@ -1030,12 +1023,12 @@
     }
 
     .normalButtonHolder {
-
-    }
+height: 28px;
+}
 
     #ShareButtonsHolder {
-
-    }
+height: 24px;
+}
 
     #PlayerCustomizationHolder {
 
