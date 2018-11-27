@@ -967,12 +967,7 @@ sandru opera mini
         font-size: 13px;
     }
 
-    #OrText {
-
-        margin-top: 6px;
-
-        font-size: 18px;
-    }
+    #OrText {margin-top: -3px;font-size: 18px;}
 
     #CustomizeTextHolder {
 
@@ -1070,12 +1065,7 @@ sandru chrome
 
     }
 
-    #OrText {
-
-        margin-top: 6px;
-
-        font-size: 18px;
-    }
+    #OrText {/* margin-top: 6px; */font-size: 18px;}
 
     #CustomizeTextHolder {
 
