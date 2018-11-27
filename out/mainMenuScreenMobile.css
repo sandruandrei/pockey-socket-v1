@@ -1,7 +1,4 @@
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px)
-and (orientation : portrait) {
+@media only screen and (orientation: portrait) {
 
     #MainMenuScreen {
         width: 100%;
@@ -775,48 +772,85 @@ and (orientation : portrait) {
     }
 
     #MainMenuElementsHolder {
-width: 280px;
-height: 600px;
-/* overflow: hidden; */
-background: green;
-/* float: left; */
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-position: absolute;
-/* display: flex; */
-/* justify-content: center; */
-/* flex-direction: column; */
-/* margin: auto; */
-/* top: 0; */
-/* right: 0; */
-/* bottom: 0; */
-/* left: 0; */
-/* position: absolute; */
-/* left:50%; */
-/* top:50%; */
-/* margin: auto; */
-/* width: 60%; */
-display: none;
-}
+
+        width: 280px;
+
+        height: 600px;
+
+        /* overflow: hidden; */
+
+        background: green;
+
+        /* float: left; */
+
+        left: 50%;
+
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        position: absolute;
+
+        /* display: flex; */
+
+        /* justify-content: center; */
+
+        /* flex-direction: column; */
+
+        /* margin: auto; */
+
+        /* top: 0; */
+
+        /* right: 0; */
+
+        /* bottom: 0; */
+
+        /* left: 0; */
+
+        /* position: absolute; */
+
+        /* left:50%; */
+
+        /* top:50%; */
+
+        /* margin: auto; */
+
+        /* width: 60%; */
+
+        display: none;
+
+    }
 
     /*.notVs {*/
     /*display: none;*/
     /*}*/
     #HowToPlayImage {
-background: url("Assets/Desktop/Images/howtoplay.gif");
-background-position: center;
-background-size: 97%;
-width: auto;
-height: 236px;
-background-repeat: no-repeat;
-float: left;
-border: white 3px solid;
-border-radius: 3px;
-box-sizing: border-box;
-/* margin-top: 33px; */
-display: none;
-}
+
+        background: url("Assets/Desktop/Images/howtoplay.gif");
+
+        background-position: center;
+
+        background-size: 97%;
+
+        width: auto;
+
+        height: 236px;
+
+        background-repeat: no-repeat;
+
+        float: left;
+
+        border: white 3px solid;
+
+        border-radius: 3px;
+
+        box-sizing: border-box;
+
+        /* margin-top: 33px; */
+
+        display: none;
+
+    }
 
     .hideElement {
         display: none !important;
@@ -835,6 +869,10 @@ and (orientation : portrait) {
         color: white;
         visibility: hidden;
         /* display: none; */
+    }
+
+    @media only  screen  and (min-device-width: 375px) and (max-device-width: 667px) {
+
     }
 }
 
