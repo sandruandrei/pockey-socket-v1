@@ -270,28 +270,17 @@
     }
 
     .mainMenuRankingCircle {
-
-        width: 48px;
-
-        height: 48px;
-
-        background-color: #ffffff1a;
-
-        float: left;
-
-        background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
-
-        background-size: 88%;
-
-        background-repeat: no-repeat;
-
-        background-position: center 1px;
-
-        border-radius: 50%;
-
-        margin-bottom: 4px;
-
-    }
+width: 46px;
+height: 46px;
+background-color: #ffffff1a;
+float: left;
+background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+background-size: 88%;
+background-repeat: no-repeat;
+background-position: center 1px;
+border-radius: 50%;
+margin-bottom: 4px;
+}
 
     .customizePlayerLine {
         width: 100%;
@@ -527,7 +516,7 @@
 
     #OrText {
         font-family: "midtown";
-        font-size: 24px;
+        font-size: 21px;
         color: white;
         width: 24%;
         /* height: 100%; */
@@ -992,12 +981,12 @@
 @media only screen and (max-width: 320px) {
     /* Styles */
     #MainMenuElementsHolder {
-width: 218px;
-height: 418px;
+width: 204px;
+height: 398px;
 }
 
     #RightSide {
-height: 226px;
+height: 216px;
 }
 
     #LeftSide {
@@ -1005,16 +994,12 @@
 }
 
     #HowToPlayImage {
-
-        height: 186px;
-
-    }
+height: 174px;
+}
 
     #FbTwitterPromoHolder {
-
-        height: 158px;
-
-    }
+height: 148px;
+}
 
     .normalButtonBackground {
 
