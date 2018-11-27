@@ -126,7 +126,7 @@
         width: 100%;
         height: 100%;
         background: none;
-        margin-top: 6%;
+        margin-top: 8%;
     }
 
     #LeftSide {
@@ -270,28 +270,17 @@
     }
 
     .mainMenuRankingCircle {
-
-        width: 46px;
-
-        height: 46px;
-
-        background-color: #ffffff1a;
-
-        float: left;
-
-        background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
-
-        background-size: 88%;
-
-        background-repeat: no-repeat;
-
-        background-position: center 1px;
-
-        border-radius: 50%;
-
-        margin-bottom: 4px;
-
-    }
+width: 42px;
+height: 42px;
+background-color: #ffffff1a;
+float: left;
+background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+background-size: 88%;
+background-repeat: no-repeat;
+background-position: center 1px;
+border-radius: 50%;
+margin-bottom: 4px;
+}
 
     .customizePlayerLine {
         width: 100%;
@@ -873,6 +862,92 @@
         /* display: none; */
     }
 
+    #MainMenuBg
+    {
+        /* display: none; */
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: #00000028;
+        position: absolute;
+        border: 0;
+        /* background-size: contain; */
+    }
+
+    #MenuTitle{
+font-size: 18px;
+color: #1abdca;
+font-family: "troika";
+/* background: #1d00ff; */
+/* margin-left: 6px; */
+float: right;
+height: auto;
+/* width: 58%; */
+/* margin: auto; */
+margin-right: 8px;
+ */
+/* margin-left: 4px; */
+margin-top:;
+display: flex;
+align-items: center;
+/* flex-direction: row; */
+/* justify-content: space-between; */
+}
+
+    #BackToMainMenuButton{
+float: left;
+width: 22%;
+/* background: green; */
+height: 100%;
+/* float: right; */
+/* margin-left: auto; */
+display: flex;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "troika";
+color: white;
+/* margin-left: 8px; */
+}
+
+    #MenuLogo {
+width: 26px;
+height: 26px;
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+width: 22px;
+height: 22px;
+/* padding: 2px; */
+}
+
+    #BackToMainMenuButtonIcon{
+background: url(Assets/Desktop/Images/icon_arrow1-left.svg);
+background-size: contain;
+background-repeat: no-repeat;
+width: 14px;
+height: 14px;
+padding-left: 4px;
+/* background-color: bisque; */
+/* align-self: center; */
+}
+
+    #MainMenuBackButtonHolder{
+height: 32px;
+width: 100%;
+background: #00000068;
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+/* display: flex; */
+/* flex-direction: column; */
+/* justify-content: center; */
+}
+
 }
 
 /*
@@ -881,55 +956,38 @@ sandru opera mini
 
 @media only screen and (min-device-width: 320px) and (min-height: 438px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-
-        height: calc(100% - 50px);
-
-        width: 188px;
-    }
+height: calc(100% - 68px);
+width: 178px;
+}
 
     #RightSide {
-
-        height: 203px;
-
-        background: blue;
-
-    }
+height: 192px;
+/* background: blue; */
+}
 
     #LeftSide {
-
-        height: 44%;
-
-    }
+height: 44%;
+}
 
     #HowToPlayImage {
-
-        height: 160px;
-
-    }
+height: 150px;
+}
 
     #FbTwitterPromoHolder {
-
-        height: 139px;
-
-    }
+height: 130px;
+}
 
     .normalButtonBackground {
-
-        font-size: 13px;
-
-    }
+font-size: 12px;
+}
 
     .normalButtonHolder {
-
-        height: 28px;
-
-    }
+height: 26px;
+}
 
     #ShareButtonsHolder {
-
-        height: 20px;
-
-    }
+height: 19px;
+}
 
     #PlayerCustomizationHolder {
 
@@ -952,26 +1010,56 @@ sandru opera mini
     }
 
     .mainMenuRankingText {
-
-    }
+top: 34px;
+}
 
     input[type=text], select {
-font-size: 12px;
-height: 28px;
-}
+
+        font-size: 12px;
+
+        height: 28px;
+
+    }
 
     .shareButtonBackground {
 
         font-size: 13px;
     }
 
-    #OrText {margin-top: -3px;font-size: 18px;}
+    #OrText {
+        margin-top: -3px;
+        font-size: 18px;
+    }
 
     #CustomizeTextHolder {
 
         display: none;
 
     }
+
+    #MainMenuBg {
+    }
+
+    #MenuTitle {
+
+    }
+
+    #BackToMainMenuButton {
+
+    }
+
+    #MenuLogo {
+
+    }
+
+    #BackToMainMenuButtonIcon {
+
+    }
+
+    #MainMenuBackButtonHolder{
+
+    }
+
 }
 
 /*
@@ -979,16 +1067,13 @@ sandru chrome
 */
 @media only screen and (min-device-width: 320px) and (min-height: 488px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-
-        height: calc(100% - 50px);
-
-        width: 202px;
-
-    }
+height: calc(100% - 68px);
+width: 188px;
+}
 
     #RightSide {
-height: 222px;
-background: red;
+height: 210px;
+/* background: red; */
 }
 
     #LeftSide {
@@ -996,32 +1081,24 @@ sandru chrome
     }
 
     #HowToPlayImage {
-height: 170px;
+height: 159px;
 }
 
     #FbTwitterPromoHolder {
-
-        height: 148px;
-
-    }
+height: 139px;
+}
 
     .normalButtonBackground {
-
-        font-size: 15px;
-
-    }
+font-size: 14px;
+}
 
     .normalButtonHolder {
-
-        height: 32px;
-
-    }
+height: 30px;
+}
 
     #ShareButtonsHolder {
-
-        height: 24px;
-
-    }
+height: 22px;
+}
 
     #PlayerCustomizationHolder {
 
@@ -1046,19 +1123,38 @@ sandru chrome
     }
 
     input[type=text], select {
-font-size: 12px;
-height: 30px;
-}
 
-    .shareButtonBackground {
+        font-size: 12px;
 
-        font-size: 16px;
+        height: 30px;
 
     }
 
-    #OrText {/* margin-top: 6px; */font-size: 18px;}
+    .shareButtonBackground {
+font-size: 14px;
+}
+
+    #OrText { /* margin-top: 6px; */
+        font-size: 18px;
+    }
 
     #CustomizeTextHolder {
+
+    }
+
+    #MainMenuBg {
+        /* display: none; */
+    }
+
+    #MenuTitle {
+
+    }
+
+    #BackToMainMenuButton {
+
+    }
+
+    #MainMenuBackButtonHolder{
 
     }
 }
@@ -1068,28 +1164,27 @@ sandru flow
 */
 @media only screen and (min-device-width: 320px) and (min-height: 540px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-
-        height: calc(100% - 50px);
-
-        width: 228px;
-
-    }
+height: calc(100% - 68px);
+width: 228px;
+}
 
     #RightSide {
 
         height: 248px;
 
-        background: yellow;
+        /* background: yellow; */
 
     }
 
     #LeftSide {
-
-    }
+height: 42%;
+}
 
     #HowToPlayImage {
-height: 192px;
-}
+
+        height: 192px;
+
+    }
 
     #FbTwitterPromoHolder {
 
@@ -1136,8 +1231,10 @@ sandru flow
     }
 
     .mainMenuRankingText {
-font-size: 11px;
-}
+
+        font-size: 11px;
+
+    }
 
     input[type=text], select {
 
@@ -1160,6 +1257,33 @@ sandru flow
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #MainMenuBg
+    {
+
+    }
+
+    #MenuTitle{
+
+
+
+    }
+
+    #BackToMainMenuButton{
+
+    }
+
+    #MenuLogo {
+
+    }
+
+    #BackToMainMenuButtonIcon{
+
+    }
+
+    #MainMenuBackButtonHolder{
 
     }
 }
