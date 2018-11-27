@@ -817,32 +817,19 @@
     /*display: none;*/
     /*}*/
     #HowToPlayImage {
-
-        background: url("Assets/Desktop/Images/howtoplay.gif");
-
-        background-position: center;
-
-        background-size: 97%;
-
-        width: auto;
-
-        height: 236px;
-
-        background-repeat: no-repeat;
-
-        float: left;
-
-        border: white 3px solid;
-
-        border-radius: 3px;
-
-        box-sizing: border-box;
-
-        /* margin-top: 33px; */
-
-        display: none;
-
-    }
+background: url("Assets/Desktop/Images/howtoplay.gif");
+background-position: center;
+background-size: 97%;
+/* width: auto; */
+height: 236px;
+background-repeat: no-repeat;
+float: left;
+border: white 3px solid;
+border-radius: 3px;
+box-sizing: border-box;
+/* margin-top: 33px; */
+display: none;
+}
 
     .hideElement {
         display: none !important;
@@ -1528,8 +1515,8 @@ iPad 3
     }
 
     #CustomizeTextHolder {
-
-    }
+display: none;
+}
 
     #CorrectText {
 
@@ -1540,8 +1527,9 @@ iPad 3
     }
 
     .mainMenuRankingText {
-
-    }
+font-size: 13px;
+top: 40px;
+}
 }
 
 /* iPhone 5 ----------- */
@@ -2400,40 +2388,40 @@ iPad 3
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
     /* Styles */
     #MainMenuElementsHolder {
-
-    }
+height: 528px;
+}
 
     #RightSide {
-
-    }
+height: 288px;
+}
 
     #LeftSide {
-
-    }
+height: 40%;
+}
 
     #HowToPlayImage {
 
     }
 
     #FbTwitterPromoHolder {
-
-    }
+height: 203px;
+}
 
     .normalButtonBackground {
-
-    }
+font-size: 16px;
+}
 
     .normalButtonHolder {
-
-    }
+height: 38px;
+}
 
     #ShareButtonsHolder {
-
-    }
+height: 28px;
+}
 
     #PlayerCustomizationHolder {
-
-    }
+display: none;
+}
 
     .customizePlayerLine {
 
@@ -2444,8 +2432,9 @@ iPad 3
     }
 
     .mainMenuRankingCircle {
-
-    }
+width: 50px;
+height: 50px;
+}
 
     .mainMenuRankingText {
 

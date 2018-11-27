@@ -619,7 +619,7 @@ margin-bottom: 4px;
     border-width: 3px;
     border-color: white;
     border-radius: 3px;
-    background: #ff005c;
+    /* background: #112f36; */
     float: left;
     /* margin-top: 3.5%; */
     box-sizing: border-box;
@@ -822,30 +822,18 @@ display: none;
 /*}*/
 
 #HowToPlayImage {
-
-background: url("Assets/Desktop/Images/howtoplay.gif");
-
-background-position: center;
-
-background-size: 97%;
-
-width: auto;
-
-height: 285px;
-
-background-repeat: no-repeat;
-
-float: left;
-
-border: white 3px solid;
-
-border-radius: 3px;
-
-box-sizing: border-box;
-
-/* margin-top: 7.5%; */
-
-display: none;
+background: url("Assets/Desktop/Images/howtoplay.gif");
+background-position: center;
+background-size: 97%;
+/* width: auto; */
+height: 285px;
+background-repeat: no-repeat;
+float: left;
+border: white 3px solid;
+border-radius: 3px;
+box-sizing: border-box;
+/* margin-top: 7.5%; */
+display: none;
 }
 
 .hideElement {
