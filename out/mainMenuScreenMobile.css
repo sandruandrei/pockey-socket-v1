@@ -229,7 +229,9 @@
         display: flex;
         justify-content: space-evenly;
         display: none;
-        /* margin-top: -2px; */
+        box-sizing: border-box;
+        /* top: -2px; */
+        margin-top: -4px;
     }
 
     #MainMenuPlayerWins {
@@ -251,11 +253,11 @@
     }
 
     .mainMenuRankingText {
-        font-size: 13px;
+        font-size: 10px;
         font-family: "troika";
         color: #20D6E5;
         width: 100%;
-        top: 48px;
+        top: 38px;
         position: relative;
         text-align: center;
         -webkit-touch-callout: none;
@@ -269,9 +271,9 @@
 
     .mainMenuRankingCircle {
 
-        width: 58px;
+        width: 48px;
 
-        height: 58px;
+        height: 48px;
 
         background-color: #ffffff1a;
 
@@ -288,6 +290,7 @@
         border-radius: 50%;
 
         margin-bottom: 4px;
+
     }
 
     .customizePlayerLine {
@@ -915,6 +918,18 @@
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 /* Smartphones (landscape) ----------- */
@@ -959,35 +974,60 @@
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width: 320px) {
     /* Styles */
     #MainMenuElementsHolder {
-width: 218px;
-height: 428px;
-}
+
+        width: 218px;
+
+        height: 428px;
+
+    }
 
     #RightSide {
-height: 231px;
-}
+
+        height: 231px;
+
+    }
 
     #LeftSide {
-height: 42%;
-}
+
+        height: 42%;
+
+    }
 
     #HowToPlayImage {
-height: 186px;
-}
+
+        height: 186px;
+
+    }
 
     #FbTwitterPromoHolder {
-height: 158px;
-}
+
+        height: 158px;
+
+    }
 
     .normalButtonBackground {
-font-size: 14px;
-}
+
+        font-size: 14px;
+
+    }
 
     .normalButtonHolder {
 
@@ -998,12 +1038,28 @@
     }
 
     #PlayerCustomizationHolder {
-display: none;
-}
+
+        display: none;
+
+    }
 
     #CustomizeTextHolder {
-display: none;
+
+        display: none;
+
+    }
+
+    #CorrectText {
+font-size: 10px;
 }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 /* iPads (portrait and landscape) ----------- */
@@ -1046,6 +1102,18 @@
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1092,6 +1160,18 @@
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 /* iPads (portrait) ----------- */
@@ -1134,6 +1214,18 @@
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1182,6 +1274,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
@@ -1223,6 +1327,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1269,6 +1385,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 /* Large screens ----------- */
@@ -1311,6 +1439,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1357,6 +1497,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 480px) and (min-device-width: 320px) and (orientation: portrait) {
@@ -1398,6 +1550,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1444,6 +1608,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
@@ -1457,8 +1633,10 @@ iPad 3
     }
 
     #LeftSide {
-height: 44%;
-}
+
+        height: 44%;
+
+    }
 
     #HowToPlayImage {
 
@@ -1487,6 +1665,18 @@ iPad 3
     #CustomizeTextHolder {
 
         display: none;
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1533,6 +1723,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
@@ -1574,6 +1776,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1620,6 +1834,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
@@ -1661,6 +1887,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1707,6 +1945,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
@@ -1748,6 +1998,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1794,6 +2056,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
@@ -1835,6 +2109,18 @@ iPad 3
     }
 
     #CustomizeTextHolder {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -1881,6 +2167,18 @@ iPad 3
     #CustomizeTextHolder {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (-webkit-device-pixel-ratio: 2) and (max-device-height: 640px) and (min-device-width: 320px) and (orientation: portrait) {
@@ -1894,8 +2192,10 @@ iPad 3
     }
 
     #RightSide {
-height: 222px;
-}
+
+        height: 222px;
+
+    }
 
     #HowToPlayImage {
 
@@ -1916,8 +2216,10 @@ iPad 3
     }
 
     #ShareButtonsHolder {
-height: 20px;
-}
+
+        height: 20px;
+
+    }
 
     #PlayerCustomizationHolder {
 
@@ -1932,8 +2234,22 @@ iPad 3
     }
 
     #FbTwitterPromoHolder {
-height: 159px;
-}
+
+        height: 159px;
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 /* Samsung Galaxy S4 ----------- */
@@ -1978,6 +2294,18 @@ iPad 3
     .customizePlayerLine {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
@@ -2019,6 +2347,18 @@ iPad 3
     }
 
     .customizePlayerLine {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
@@ -2065,6 +2405,18 @@ iPad 3
     .customizePlayerLine {
 
     }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
+
+    }
 }
 
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
@@ -2106,6 +2458,18 @@ iPad 3
     }
 
     .customizePlayerLine {
+
+    }
+
+    #CorrectText {
+
+    }
+
+    .mainMenuRankingCircle {
+
+    }
+
+    .mainMenuRankingText {
 
     }
 }
