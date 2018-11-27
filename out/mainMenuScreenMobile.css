@@ -891,6 +891,8 @@ sandru opera mini
 
         height: 203px;
 
+        background: blue;
+
     }
 
     #LeftSide {
@@ -995,6 +997,8 @@ sandru chrome
 
         height: 228px;
 
+        background: red;
+
     }
 
     #LeftSide {
@@ -1083,37 +1087,54 @@ sandru flow
 */
 @media only screen and (min-device-width: 320px) and (min-device-height: 540px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-height: calc(100% - 50px);
-width: 228px;
-}
+
+        height: calc(100% - 50px);
+
+        width: 228px;
+
+    }
 
     #RightSide {
-height: 248px;
-}
+
+        height: 248px;
+
+        background: yellow;
+
+    }
 
     #LeftSide {
 
     }
 
     #HowToPlayImage {
-height: 194px;
-}
+
+        height: 194px;
+
+    }
 
     #FbTwitterPromoHolder {
-height: 167px;
-}
+
+        height: 167px;
+
+    }
 
     .normalButtonBackground {
-font-size: 16px;
-}
+
+        font-size: 16px;
+
+    }
 
     .normalButtonHolder {
-height: 34px;
-}
+
+        height: 34px;
+
+    }
 
     #ShareButtonsHolder {
-height: 24px;
-}
+
+        height: 24px;
+
+    }
 
     #PlayerCustomizationHolder {
 
@@ -1126,8 +1147,10 @@ sandru flow
     }
 
     #CorrectText {
-font-size: 11px;
-}
+
+        font-size: 11px;
+
+    }
 
     .mainMenuRankingCircle {
 
