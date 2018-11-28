@@ -523,9 +523,9 @@ margin-bottom: 4px;
 }
 
 #OrText {
-    font-family: "midtown";
-    font-size: 28px;
-    color: white;
+    /* font-family: "midtown"; */
+    /* font-size: 28px; */
+    /* color: white; */
     width: 24%;
     /* height: 100%; */
     float: left;
@@ -536,8 +536,16 @@ margin-bottom: 4px;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* top: 29px; */
+    background: url(Assets/Desktop/Images/or-text.svg);
+    background-size: contain;
+    background-position: center;
+    height: 44px;
+    width: 44px;
+    background-repeat: no-repeat;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 #OrTextHolder {

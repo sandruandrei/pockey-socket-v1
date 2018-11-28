@@ -525,12 +525,12 @@
     }
 
     #OrText {
-        font-family: "midtown";
-        font-size: 21px;
-        color: white;
-        width: 24%;
+        /* font-family: "midtown"; */
+        /* font-size: 21px; */
+        /* color: white; */
+        /* width: 24%; */
         /* height: 100%; */
-        float: left;
+        /* float: left; */
         text-align: center;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -538,8 +538,10 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        margin-top: -4px;
+        /* margin-top: -4px; */
         /* top: 29px; */
+        margin-left: 4px;
+        margin-right: 4px;
     }
 
     #OrTextHolder {
@@ -753,7 +755,7 @@
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 5em;
+        font-size: 36em;
         align-items: center;
         justify-content: center;
         display: flex;
@@ -1117,8 +1119,10 @@ sandru opera mini
     }
 
     #OrText {
-        margin-top: -3px;
-        font-size: 18px;
+        /* margin-top: -3px; */
+        /* font-size: 18px; */
+        height: 32px;
+        width: 32px;
     }
 
     #CustomizeTextHolder {
@@ -1184,6 +1188,17 @@ sandru opera mini
 
     }
 
+    #ComingSoonImage {
+/* height: 570px; */
+background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+background-size: 97%;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 282px;
+font-size: 24px;
+}
+
 }
 
 /*
@@ -1223,10 +1238,8 @@ sandru chrome
     }
 
     .normalButtonBackground {
-
-        font-size: 14px;
-
-    }
+font-size: 13px;
+}
 
     .normalButtonHolder {
 
@@ -1276,8 +1289,11 @@ sandru chrome
 
     }
 
-    #OrText { /* margin-top: 6px; */
-        font-size: 18px;
+    #OrText {
+        /* margin-top: 6px; */
+        /* font-size: 18px; */
+        height: 34px;
+        width: 34px;
     }
 
     #CustomizeTextHolder {
@@ -1323,6 +1339,16 @@ sandru chrome
         width: 16px;
 
     }
+    #ComingSoonImage {
+/* height: 570px; */
+background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+background-size: 97%;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 282px;
+font-size: 28px;
+}
 }
 
 /*
@@ -1421,11 +1447,11 @@ sandru flow
     }
 
     #OrText {
-
-        margin-top: 6px;
-
-        font-size: 18px;
-    }
+/* margin-top: 6px; */
+/* font-size: 18px; */
+height: 36px;
+width: 36px;
+}
 
     #CustomizeTextHolder {
 
@@ -1484,6 +1510,17 @@ sandru flow
 
         background-repeat: no-repeat;
     }
+
+    #ComingSoonImage {
+/* height: 570px; */
+background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+background-size: 97%;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 240px;
+font-size: 36px;
+}
 }
 
 /*
@@ -1491,26 +1528,38 @@ ilie chrome
 */
 @media only screen and (min-device-width: 360px) and (min-height: 588px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-height: calc(100% - 68px);
-width: 268px;
-}
+
+        height: calc(100% - 68px);
+
+        width: 268px;
+
+    }
 
     #RightSide {
-height: 278px;
-/* background: yellow; */
-}
+
+        height: 282px;
+
+        /* background: yellow; */
+
+    }
 
     #LeftSide {
-height: 42%;
-}
+
+        height: 42%;
+
+    }
 
     #HowToPlayImage {
-height: 224px;
-}
+
+        height: 224px;
+
+    }
 
     #FbTwitterPromoHolder {
-height: 194px;
-}
+
+        height: 194px;
+
+    }
 
     .normalButtonBackground {
 
@@ -1519,12 +1568,16 @@ ilie chrome
     }
 
     .normalButtonHolder {
-height: 38px;
-}
+
+        height: 38px;
+
+    }
 
     #ShareButtonsHolder {
-height: 28px;
-}
+
+        height: 28px;
+
+    }
 
     #PlayerCustomizationHolder {
 
@@ -1537,23 +1590,34 @@ ilie chrome
     }
 
     #CorrectText {
-font-size: 12px;
-}
+
+        font-size: 12px;
+
+    }
 
     .mainMenuRankingCircle {
-width: 50px;
-height: 50px;
-}
+
+        width: 50px;
+
+        height: 50px;
+
+    }
 
     .mainMenuRankingText {
-font-size: 12px;
-top: 39px;
-}
+
+        font-size: 12px;
+
+        top: 39px;
+
+    }
 
     input[type=text], select {
-font-size: 14px;
-height: 38px;
-}
+
+        font-size: 14px;
+
+        height: 38px;
+
+    }
 
     .shareButtonBackground {
 
@@ -1562,11 +1626,170 @@ ilie chrome
     }
 
     #OrText {
+/* margin-top: 6px; */
+/* font-size: 18px; */
+}
 
-        margin-top: 6px;
+    #CustomizeTextHolder {
 
-        font-size: 18px;
     }
+
+    #MainMenuBg {
+
+    }
+
+    #MenuTitle {
+
+    }
+
+    #BackToMainMenuButton {
+
+    }
+
+    #MenuLogo {
+
+    }
+
+    #BackToMainMenuButtonIcon {
+
+    }
+
+    #MainMenuBackButtonHolder {
+
+    }
+
+    #FacebookBtnLogo {
+background: url(Assets/Desktop/Images/facebook_logo.svg);
+background-size: contain;
+background-position: center;
+height: 18px;
+width: 18px;
+background-repeat: no-repeat;
+}
+
+    #GoogleBtnLogo {
+
+        background: url(Assets/Desktop/Images/google_logo.svg);
+
+        background-size: 100%;
+
+        height: 18px;
+
+        width: 18px;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+    }
+
+    #ComingSoonImage {
+/* height: 570px; */
+background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+background-size: 97%;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 280px;
+font-size: 36px;
+}
+}
+
+/*
+ada iphone x
+*/
+@media only screen and (min-device-width: 370px) and (min-height: 628px) and (orientation: portrait) {
+    #MainMenuElementsHolder {
+height: calc(100% - 68px);
+width: 278px;
+}
+
+    #RightSide {
+height: 294px;
+/* background: yellow; */
+}
+
+    #LeftSide {
+height: 43%;
+}
+
+    #HowToPlayImage {
+height: 234px;
+}
+
+    #FbTwitterPromoHolder {
+height: 202px;
+}
+
+    .normalButtonBackground {
+
+        font-size: 16px;
+
+    }
+
+    .normalButtonHolder {
+height: 42px;
+}
+
+    #ShareButtonsHolder {
+
+        height: 28px;
+
+    }
+
+    #PlayerCustomizationHolder {
+
+        display: none;
+
+    }
+
+    .customizePlayerLine {
+
+    }
+
+    #CorrectText {
+
+        font-size: 12px;
+
+    }
+
+    .mainMenuRankingCircle {
+
+        width: 50px;
+
+        height: 50px;
+
+    }
+
+    .mainMenuRankingText {
+
+        font-size: 12px;
+
+        top: 39px;
+
+    }
+
+    input[type=text], select {
+
+        font-size: 14px;
+
+        height: 38px;
+
+    }
+
+    .shareButtonBackground {
+
+        font-size: 16px;
+
+    }
+
+    #OrText {
+/* margin-top: 6px; */
+/* font-size: 18px; */
+height: 40px;
+width: 40px;
+margin-left: 6px;
+margin-right: 6px;
+}
 
     #CustomizeTextHolder {
 
@@ -1625,7 +1848,19 @@ ilie chrome
 
         background-repeat: no-repeat;
     }
+
+    #ComingSoonImage {
+/* height: 570px; */
+background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+background-size: 97%;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 290px;
+font-size: 36px;
+}
 }
+
 /*.normalButtonBackground::before {*/
 /*border: 5px solid #000;*/
 /*content: "";*/
