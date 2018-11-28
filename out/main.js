@@ -8533,6 +8533,8 @@ var Pockey;
                 var _this = this;
                 this.rightSide = document.getElementById("RightSideBackground");
                 this.mainButtonsHolder = document.getElementById("MainButtonsHolder");
+                this.backButton = document.getElementById("BackToMainMenuButton");
+                this.backBg = document.getElementById("MainMenuBg");
                 this.loginMenu = document.getElementById("LoginScreen");
                 this.playGameMenu = new UserInterface.PlayGameMenu();
                 this.inventoryMenu = new UserInterface.PockeyInventoryMenu();
@@ -8583,26 +8585,38 @@ var Pockey;
                         });
                     };
                 });
+                this.backButton.onclick = function () {
+                    _this.hideElement(_this.rightSide);
+                    _this.hideElement(_this.backBg);
+                    _this.showElement(_this.mainButtonsHolder, "block");
+                };
+            };
+            PockeyUiMainScreenMobile.prototype.showElement = function (element, displayType) {
+                element.style.display = (!displayType) ? "flex" : displayType;
             };
             PockeyUiMainScreenMobile.prototype.showPlayGameMenu = function () {
                 console.log("intra la show play");
+                this.showElement(this.backBg);
                 this.showElement(this.rightSide);
                 this.hideElement(this.mainButtonsHolder);
                 _super.prototype.showPlayGameMenu.call(this);
             };
             PockeyUiMainScreenMobile.prototype.showInventoryMenu = function () {
+                this.showElement(this.backBg);
                 console.log("intra la show inventory");
                 this.showElement(this.rightSide);
                 this.hideElement(this.mainButtonsHolder);
                 _super.prototype.showInventoryMenu.call(this);
             };
             PockeyUiMainScreenMobile.prototype.showLeaderboardMenu = function () {
+                this.showElement(this.backBg);
                 console.log("intra la show leaderboard");
                 this.showElement(this.rightSide);
                 this.hideElement(this.mainButtonsHolder);
                 _super.prototype.showLeaderboardMenu.call(this);
             };
             PockeyUiMainScreenMobile.prototype.showInviteMenu = function () {
+                this.showElement(this.backBg);
                 console.log("intra la show invite");
                 this.showElement(this.rightSide);
                 this.hideElement(this.mainButtonsHolder);
@@ -8727,7 +8741,6 @@ var Pockey;
             _super.prototype.addFontsToLoad.call(this);
             this.assetsLoader.addFontToLoad("troika");
             this.assetsLoader.addFontToLoad("opensansextrabold");
-            this.assetsLoader.addFontToLoad("midtown");
         };
         PockeyEntryPoint.prototype.addModules = function () {
             this.gameModule = this.getGameModule();
