@@ -52,8 +52,6 @@ namespace Pockey {
 
             this.assetsLoader.addFontToLoad("troika");
             this.assetsLoader.addFontToLoad("opensansextrabold");
-            this.assetsLoader.addFontToLoad("midtown");
-
         }
 
         protected addModules(): void {
