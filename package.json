@@ -1,6 +1,9 @@
 {
   "name": "Pockey",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.3.0"
+  },
   "scripts": {
     "start": "node index.js"
   },
