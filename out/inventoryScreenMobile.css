@@ -1,7 +1,10 @@
 @media only screen and (orientation: portrait) {
+    .inventoryButton:hover {color: #2d889c;float: left;border-color: #1b5a67;}
+    
     #InventoryScreen {
         float: none;
         width: 92vw;
+        top: 18px;
         height: 100%;
         /* background-color: green; */
         display: flex;
@@ -421,6 +424,7 @@ sandru chrome
 */
 @media only screen and (min-device-width: 320px) and (min-height: 488px) and (orientation: portrait) {
     #InventoryScreen {
+        height: 98%;
     }
 
     .inventoryItemBoxCheckedBackground {
@@ -502,6 +506,7 @@ sandru chrome
     }
 
     #ItemNameHolder {
+    width: 82px;
     }
 
     #FirstDescriptionLineHolder {
@@ -561,6 +566,7 @@ sandru chrome
     }
 
     .itemDescriptionTitleLine {
+    bottom: 118px;
     }
 
     .equipButtonHolder {
@@ -570,9 +576,10 @@ sandru chrome
     }
 
     .inventoryAvatarBox {
+    width: 82px;
+    height: 82px;
     }
 }
-
 
 /*
 sandru flow
@@ -622,7 +629,7 @@ sandru flow
     .inventoryButton {
         width: 100%;
         height: 26px;
-        font-size: 10.6px;
+        font-size: 12px;
         justify-content: center;
         margin-bottom: 12px;
         /* margin-right: 9px; */
@@ -693,7 +700,7 @@ sandru flow
     }
 
     #ItemNameHolder {
-    width: 80px;
+        width: 80px;
     }
 
     #FirstDescriptionLineHolder {
@@ -713,7 +720,7 @@ sandru flow
     }
 
     #WalletAndItemsButtonsHolder {
-    top: 308px;
+        top: 301px;
     }
 
     #WalletHolder {
@@ -753,7 +760,7 @@ sandru flow
     }
 
     .itemDescriptionTitleLine {
-    bottom: 116px;
+        bottom: 116px;
     }
 
     .equipButtonHolder {
@@ -763,8 +770,360 @@ sandru flow
     }
 
     .inventoryAvatarBox {
-    width: 80px;
-    height: 80px;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/*
+ilie chrome
+*/
+@media only screen and (min-device-width: 360px) and (min-height: 588px) and (orientation: portrait) {
+
+    #InventoryScreen {
+    }
+
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    #InventoryElementsHolder {
+    }
+
+    #InventoryTitle {
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+
+    }
+
+    .inventoryButton:hover {
+
+    }
+
+    .inventoryButton {
+    }
+
+    .inventoryButtonLogo {
+    }
+
+    #ItemPanel { /* height: auto; */
+    }
+
+    #ItemInfoHolder {
+    }
+
+    #ItemsHolderWrapper {
+        height: 230px;
+    }
+
+    #ItemsHolder {
+
+    }
+
+    .itemsColumn {
+    }
+
+    .inventoryItemBox {
+        width: 72px;
+        height: 72px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+    }
+
+    #ItemDescription {
+        width: 214px;
+        bottom: 60px;
+    }
+
+    #EquipButtonHolder {
+        /* box-sizing: border-box; */
+        width: 216px;
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    }
+
+    .itemDescriptionName {
+        /* font-size: 12px; */
+        /* height: 20px; */
+    }
+
+    .itemDescriptionValue {
+        /* font-size: 12px; */
+        /* height: 20px; */
+    }
+
+    #WalletAndItemsButtonsHolder {
+        top: 338px;
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    width: 108px;
+    }
+
+    #WalletCoinsValue {
+    }
+
+    #WalletCoinsLogo {
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn { /* opacity: 0.5; *//* cursor: default !important; */
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows { /* height: 70%; */
+    }
+
+    #ItemsPrevButtonArrow {
+    }
+
+    #ItemsNextButtonArrow {
+    }
+
+    .inventoryNormalButtonHolder {
+    }
+
+    .inventoryTitleLineMobile {
+    }
+
+    .itemDescriptionTitleLine {
+    }
+
+    .equipButtonHolder {
+        /* width: 203px; */
+        /* width: 243px; */
+    }
+
+    .equipButtonBackground {
+    }
+
+    .inventoryAvatarBox {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/*
+ada iphone x
+*/
+@media only screen and (min-device-width: 370px) and (min-height: 628px) and (orientation: portrait) {
+    #InventoryScreen {
+    }
+
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    #InventoryElementsHolder {
+    }
+
+    #InventoryTitle {
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+
+    }
+
+    .inventoryButton:hover {
+
+    }
+
+    .inventoryButton {
+    }
+
+    .inventoryButtonLogo {
+    }
+
+    #ItemPanel { /* height: auto; */
+    }
+
+    #ItemInfoHolder {
+    }
+
+    #ItemsHolderWrapper {
+        height: 230px;
+        /* top: 18%; */
+    }
+
+    #ItemsHolder {
+
+    }
+
+    .itemsColumn {
+    }
+
+    .inventoryItemBox {
+        width: 72px;
+        height: 72px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+    }
+
+    #ItemDescription {
+        width: 216px;
+        bottom: 54px;
+        /* height: 74px; */
+    }
+
+    #EquipButtonHolder {
+        /* box-sizing: border-box; */
+        width: 216px;
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 88px;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    }
+
+    .itemDescriptionName {
+        font-size: 12px;
+        height: 20px;
+    }
+
+    .itemDescriptionValue {
+        font-size: 12px;
+        height: 20px;
+    }
+
+    #WalletAndItemsButtonsHolder {
+        top: 344px;
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    }
+
+    #WalletCoinsValue {
+    }
+
+    #WalletCoinsLogo {
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn { /* opacity: 0.5; *//* cursor: default !important; */
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows { /* height: 70%; */
+    }
+
+    #ItemsPrevButtonArrow {
+    }
+
+    #ItemsNextButtonArrow {
+    }
+
+    .inventoryNormalButtonHolder {
+        height: 38px;
+        width: 38px;
+    }
+
+    .inventoryTitleLineMobile {
+    }
+
+    .itemDescriptionTitleLine {
+        bottom: 128px;
+    }
+
+    .equipButtonHolder {
+        /* width: 203px; */
+        /* width: 243px; */
+    }
+
+    .equipButtonBackground {
+    }
+
+    .inventoryAvatarBox {
+        width: 88px;
+        height: 88px;
     }
 }
 

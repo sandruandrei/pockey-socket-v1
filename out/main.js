@@ -6766,10 +6766,93 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
+        var Settings = Framework.Settings;
+        var InventoryButtonMobile = (function (_super) {
+            __extends(InventoryButtonMobile, _super);
+            function InventoryButtonMobile(btnDiv, showCategoryCallback, hideCategoryCallback) {
+                var _this = _super.call(this, btnDiv, showCategoryCallback, hideCategoryCallback) || this;
+                _this.button = btnDiv;
+                _this.id = _this.button.id;
+                _this.onShowCategoryCallback = showCategoryCallback;
+                _this.onHideCategoryCallback = hideCategoryCallback;
+                _this.category = _this.id.replace("Inventory", "");
+                _this.inventoryButtonLogo = _this.button.querySelector('.inventoryButtonLogo');
+                if (Settings.playerSignedIn) {
+                    _this.categoryElements = Pockey.PockeySettings["LARGE_" + _this.category.toUpperCase() + "_ARRAY"];
+                }
+                else {
+                    _this.categoryElements = Pockey.PockeySettings["SMALL_" + _this.category.toUpperCase() + "_ARRAY"];
+                }
+                _this.clicked = false;
+                _this.button.onclick = function () {
+                    _this.clickHandler();
+                };
+                _this.button.onmouseover = function () {
+                };
+                _this.button.onmouseout = function () {
+                };
+                return _this;
+            }
+            InventoryButtonMobile.prototype.clickHandler = function () {
+                this.clicked = !this.clicked;
+                if (this.clicked) {
+                    this.button.style.borderColor = "white";
+                    this.button.style.backgroundColor = "white";
+                    this.button.style.color = "#2d889c";
+                    this.onShowCategoryCallback(this.categoryElements);
+                }
+                else {
+                    this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/plus-sign-white.png)";
+                    this.button.style.borderColor = "";
+                    this.button.style.backgroundColor = "";
+                    this.button.style.color = "";
+                    this.onHideCategoryCallback(this.categoryElements);
+                }
+            };
+            ;
+            InventoryButtonMobile.prototype.onSignedIn = function () {
+                if (this.clicked) {
+                    this.onHideCategoryCallback(this.categoryElements);
+                    this.categoryElements = Pockey.PockeySettings["LARGE_" + this.category.toUpperCase() + "_ARRAY"];
+                    this.onShowCategoryCallback(this.categoryElements);
+                }
+                else {
+                    this.categoryElements = Pockey.PockeySettings["LARGE_" + this.category.toUpperCase() + "_ARRAY"];
+                }
+            };
+            InventoryButtonMobile.prototype.onSignedOut = function () {
+                if (this.clicked) {
+                    this.onHideCategoryCallback(this.categoryElements);
+                    this.categoryElements = Pockey.PockeySettings["SMALL_" + this.category.toUpperCase() + "_ARRAY"];
+                    this.onShowCategoryCallback(this.categoryElements);
+                }
+                else {
+                    this.categoryElements = Pockey.PockeySettings["SMALL_" + this.category.toUpperCase() + "_ARRAY"];
+                }
+            };
+            InventoryButtonMobile.prototype.activate = function () {
+                if (this.categoryElements.length > 0) {
+                    this.clickHandler();
+                    this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-color.png)";
+                    this.button.style.borderColor = "white";
+                    this.button.style.backgroundColor = "white";
+                    this.button.style.color = "#2d889c";
+                }
+            };
+            return InventoryButtonMobile;
+        }(UserInterface.InventoryButton));
+        UserInterface.InventoryButtonMobile = InventoryButtonMobile;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    var UserInterface;
+    (function (UserInterface) {
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var DatabaseConnector = Framework.Connection.DatabaseConnector;
         var SignalsType = Framework.Signals.SignalsType;
+        var Settings = Framework.Settings;
         var PockeyInventoryMenu = (function () {
             function PockeyInventoryMenu() {
                 this.currentColumnIndex = 0;
@@ -6964,9 +7047,13 @@ var Pockey;
                 };
                 this.inventoryButtonsHolder = document.getElementById("InventoryButtonsHolder");
                 this.inventoryButtons = [];
+                var inventoryButton;
                 _.forEach(this.inventoryButtonsHolder.children, function (button) {
                     if (button.className == "inventoryButton") {
-                        var inventoryButton = new UserInterface.InventoryButton(button, _this.showCategory.bind(_this), _this.hideCategory.bind(_this));
+                        if (Settings.isMobile)
+                            inventoryButton = new UserInterface.InventoryButtonMobile(button, _this.showCategory.bind(_this), _this.hideCategory.bind(_this));
+                        else
+                            inventoryButton = new UserInterface.InventoryButton(button, _this.showCategory.bind(_this), _this.hideCategory.bind(_this));
                         _this.inventoryButtons.push(inventoryButton);
                     }
                 });

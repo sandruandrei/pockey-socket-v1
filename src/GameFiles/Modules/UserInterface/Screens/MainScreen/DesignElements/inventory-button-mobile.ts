@@ -14,19 +14,11 @@ namespace Pockey {
     export module UserInterface {
         import Settings = Framework.Settings;
 
-        export class InventoryButton {
-
-            protected button: HTMLDivElement;
-            protected clicked: boolean;
-            public id: string;
-            public onShowCategoryCallback: Function;
-            public onHideCategoryCallback: Function;
-
-            public category: string;
-            public categoryElements: any[];
-            protected inventoryButtonLogo: HTMLDivElement;
+        export class InventoryButtonMobile extends InventoryButton {
 
             constructor(btnDiv: HTMLDivElement, showCategoryCallback: Function, hideCategoryCallback: Function) {
+                super(btnDiv, showCategoryCallback, hideCategoryCallback);
+
                 this.button = btnDiv;
                 this.id = this.button.id;
                 this.onShowCategoryCallback = showCategoryCallback;
@@ -50,26 +42,11 @@ namespace Pockey {
 
 
                 this.button.onmouseover = () => {
-                    if (this.clicked) {
-                        this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
-                        this.button.style.borderColor = "";
-                        this.button.style.backgroundColor = "";
-
-                        this.button.style.color = "white";
-                    }
-
+                    // reset, do not remove
                 };
 
                 this.button.onmouseout = () => {
-                    if (this.clicked) {
-                        this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-color.png)";
-                        this.button.style.borderColor = "white";
-                        this.button.style.backgroundColor = "white";
-                        this.button.style.color = "#2d889c";
-                    }
-                    else {
-                        this.inventoryButtonLogo.style.background = "";
-                    }
+                    // reset, do not remove
                 };
 
             }
@@ -80,9 +57,10 @@ namespace Pockey {
                 if (this.clicked) {
 
                     /////////////////
-                    this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
-                    // this.button.style.borderColor = "";
-                    this.button.style.color = "white";
+                    // this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/minus-sign-white.png)";
+                    this.button.style.borderColor = "white";
+                    this.button.style.backgroundColor = "white";
+                    this.button.style.color = "#2d889c";
 
                     this.onShowCategoryCallback(this.categoryElements);
                 }
@@ -90,7 +68,8 @@ namespace Pockey {
 
                     ////////////////
                     this.inventoryButtonLogo.style.background = "center / contain no-repeat url(Assets/Desktop/Images/plus-sign-white.png)";
-                    // this.button.style.borderColor = "";
+                    this.button.style.borderColor = "";
+                    this.button.style.backgroundColor = "";
                     this.button.style.color = "";
 
                     this.onHideCategoryCallback(this.categoryElements);

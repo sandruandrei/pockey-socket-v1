@@ -2,6 +2,8 @@
 ///<reference path="inventory-box.ts"/>
 ///<reference path="inventory-items-holder-buttons.ts"/>
 ///<reference path="../../../../../../Framework/Signals/signal-types.ts"/>
+///<reference path="../../../../../../Framework/Settings.ts"/>
+///<reference path="inventory-button-mobile.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -22,6 +24,7 @@ namespace Pockey {
         import DatabaseConnector = Framework.Connection.DatabaseConnector;
         import DatabaseObject = Framework.Connection.DatabaseObject;
         import SignalsType = Framework.Signals.SignalsType;
+        import Settings = Framework.Settings;
 
         export class PockeyInventoryMenu {
             private inventoryButtonsHolder: HTMLDivElement;
@@ -404,10 +407,15 @@ namespace Pockey {
 
                 this.inventoryButtons = [];
 
+                let inventoryButton: InventoryButton;
                 _.forEach(this.inventoryButtonsHolder.children, (button: HTMLDivElement) => {
                     // for (let i = 0; i < doc.childNodes.length; i++) {
                     if (button.className == "inventoryButton") {
-                        let inventoryButton: InventoryButton = new InventoryButton(button, this.showCategory.bind(this), this.hideCategory.bind(this));
+                        if (Settings.isMobile)
+                            inventoryButton = new InventoryButtonMobile(button, this.showCategory.bind(this), this.hideCategory.bind(this));
+                        else
+                            inventoryButton = new InventoryButton(button, this.showCategory.bind(this), this.hideCategory.bind(this));
+
                         this.inventoryButtons.push(inventoryButton);
 
                     }
