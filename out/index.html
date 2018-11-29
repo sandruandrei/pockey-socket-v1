@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="mainMenuScreen.css">
     <link rel="stylesheet" type="text/css" href="mainMenuScreenMobile.css">
     <link rel="stylesheet" type="text/css" href="inventoryScreen.css">
+    <link rel="stylesheet" type="text/css" href="inventoryScreenMobile.css">
     <link rel="stylesheet" type="text/css" href="leaderboard.css">
     <link rel="stylesheet" type="text/css" href="searchingScreen.css">
 
@@ -351,14 +352,14 @@
                     <div id="ItemInfoHolder">
                         <div id="ItemAvatarAndName">
                             <div id="ItemAvatar">
-                                <div class="inventoryItemBox">
+                                <div class="inventoryItemBox inventoryAvatarBox">
                                     <div class="inventoryItemBoxBackground" id="InventoryBigAvatar"></div>
                                 </div>
                             </div>
                             <div id="ItemNameHolder">
-                                <div class="inventoryTitleLine"></div>
+                                <div class="inventoryTitleLine inventoryTitleLineMobile"></div>
                                 <div id="ItemNameText">Item Name</div>
-                                <div class="inventoryTitleLine"></div>
+                                <div class="inventoryTitleLine inventoryTitleLineMobile"></div>
                             </div>
                         </div>
 
@@ -370,12 +371,12 @@
                             <div class="itemDescriptionName">USAGE</div>
                             <div class="itemDescriptionValue">ITEM USAGE</div>
                         </div>
-                        <div class="inventoryTitleLine"></div>
+                        <div class="inventoryTitleLine itemDescriptionTitleLine"></div>
 
                         <div id="EquipButtonWrapper">
                             <div id="EquipButtonHolder">
-                                <div id="" class="normalButtonHolder">
-                                    <div class="normalButtonBackground">Equip</div>
+                                <div id="" class="normalButtonHolder equipButtonHolder">
+                                    <div class="normalButtonBackground equipButtonBackground">Equip</div>
                                 </div>
                             </div>
                         </div>
@@ -570,14 +571,14 @@
                     </div>
                     <div id="ItemsButtonsHolder">
                         <div id="ItemsPrevButton" class="itemsArrows">
-                            <div class="normalButtonHolder">
+                            <div class="normalButtonHolder inventoryNormalButtonHolder">
                                 <div class="normalButtonBackground">
                                     <div id="ItemsPrevButtonArrow" class="buttonArrow"></div>
                                 </div>
                             </div>
                         </div>
                         <div id="ItemsNextButton" class="itemsArrows">
-                            <div class="normalButtonHolder">
+                            <div class="normalButtonHolder inventoryNormalButtonHolder">
                                 <div class="normalButtonBackground">
                                     <div id="ItemsNextButtonArrow" class="buttonArrow"></div>
                                 </div>
