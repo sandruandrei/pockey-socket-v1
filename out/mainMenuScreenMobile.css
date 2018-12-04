@@ -2750,14 +2750,22 @@ ada iphone x
     }
 
     #MainMenuElementsHolder {
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-position: absolute;
-width: 92%;
-height: 82%;
-padding-top: 4%;
-}
+
+left: 50%;
+
+top: 50%;
+
+transform: translate(-50%, -50%);
+
+position: absolute;
+
+width: 92%;
+
+height: 82%;
+
+padding-top: 4%;
+
+}
 
     /*.notVs {*/
     /*display: none;*/
@@ -2957,7 +2965,7 @@ ada iphone x
 sandru opera mini landscape
 */
 
-@media only screen and (min-device-width: 640px) and (min-height: 214px) and (orientation: landscape) {
+@media only screen and (min-device-width: 1280px) and (min-height: 430px) and (orientation: landscape) {
     #CustomizeTextHolder {
 
         display: none;
@@ -3240,17 +3248,28 @@ sandru opera mini landscape
     }
 
     .mainMenuRankingCircle {
-width: 38px;
-height: 38px;
-background-color: #ffffff1a;
-float: left;
-background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
-background-size: 86%;
-background-repeat: no-repeat;
-background-position: center 1px;
-border-radius: 50%;
-margin-bottom: 4px;
-}
+
+width: 38px;
+
+height: 38px;
+
+background-color: #ffffff1a;
+
+float: left;
+
+background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+
+background-size: 86%;
+
+background-repeat: no-repeat;
+
+background-position: center 1px;
+
+border-radius: 50%;
+
+margin-bottom: 4px;
+
+}
 
     .customizePlayerLine {
         /* width: 100%; */
@@ -3499,12 +3518,18 @@ sandru opera mini landscape
     }
 
     #LogoutButton {
-/* display: none; */
-/* position: absolute; */
-/* right: 0; */
-/* bottom: 0; */
-/* width: 48%; */
-}
+
+/* display: none; */
+
+/* position: absolute; */
+
+/* right: 0; */
+
+/* bottom: 0; */
+
+/* width: 48%; */
+
+}
 
     #OrText {
         /* font-family: "midtown"; */
@@ -3529,10 +3554,14 @@ sandru opera mini landscape
     }
 
     #OrTextHolder {
-height: 2%;
-width: 92vw;
-display: none;
-}
+
+height: 2%;
+
+width: 92vw;
+
+display: none;
+
+}
 
     .customizeLineHolderOr {
         /* width: 100%; */
@@ -3767,48 +3796,81 @@ sandru opera mini landscape
     }
 
     #InviteElementsHolder {
-/* display: block; */
-/* display: none; */
-/* flex-direction: column; */
-/* justify-content: center; */
-}
+
+/* display: block; */
+
+/* display: none; */
+
+/* flex-direction: column; */
+
+/* justify-content: center; */
+
+}
 
     #TutorialAndShareButtonsHolder {
-/* display: block !important; */
-/* height: auto; */
-/* z-index: -200; */
-}
+
+/* display: block !important; */
+
+/* height: auto; */
+
+/* z-index: -200; */
+
+}
 
     #MainMenuElementsHolder {
-/* left: 50%; */
-/* top: 50%; */
-/* transform: translate(-50%, -50%); */
-/* position: absolute; */
-width: 82%;
-/* height: 82%; */
-padding-top: 30px;
-height: calc(100% - 48px);
-}
+
+/* left: 50%; */
+
+/* top: 50%; */
+
+/* transform: translate(-50%, -50%); */
+
+/* position: absolute; */
+
+width: 82%;
+
+/* height: 82%; */
+
+padding-top: 30px;
+
+height: calc(100% - 48px);
+
+}
 
     /*.notVs {*/
     /*display: none;*/
     /*}*/
     #HowToPlayImage {
-/* background: url("Assets/Desktop/Images/howtoplay.gif"); */
-/* background-position: center; */
-/* background-size: 97%; */
-/* width: auto; */
-/* height: 100%; */
-/* width: 71%; */
-/* background-repeat: no-repeat; */
-/* float: left; */
-/* border: white 3px solid; */
-/* border-radius: 3px; */
-/* box-sizing: border-box; */
-/* margin-top: 33px; */
-/* display: none !important; */
-/* position: absolute; */
-}
+
+/* background: url("Assets/Desktop/Images/howtoplay.gif"); */
+
+/* background-position: center; */
+
+/* background-size: 97%; */
+
+/* width: auto; */
+
+/* height: 100%; */
+
+/* width: 71%; */
+
+/* background-repeat: no-repeat; */
+
+/* float: left; */
+
+/* border: white 3px solid; */
+
+/* border-radius: 3px; */
+
+/* box-sizing: border-box; */
+
+/* margin-top: 33px; */
+
+/* display: none !important; */
+
+/* position: absolute; */
+
+}
 
     .hideElement {
         display: none !important;
@@ -3949,16 +4011,27 @@ sandru opera mini landscape
     }
 
     #MainMenuBackButtonHolder {
-height: 32px;
-width: 100%;
-/* background: #00000068; */
-/* display: flex; */
-/* align-items: center; */
-/* flex-direction: row; */
-/* justify-content: space-between; */
-/* display: flex; */
-/* flex-direction: column; */
-/* justify-content: center; */
-}
+
+height: 32px;
+
+width: 100%;
+
+/* background: #00000068; */
+
+/* display: flex; */
+
+/* align-items: center; */
+
+/* flex-direction: row; */
+
+/* justify-content: space-between; */
+
+/* display: flex; */
+
+/* flex-direction: column; */
+
+/* justify-content: center; */
+
+}
 
 }
