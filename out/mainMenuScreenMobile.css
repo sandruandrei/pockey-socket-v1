@@ -2958,14 +2958,13 @@ padding-top: 4%;
         /* justify-content: center; */
 
     }
-
 }
 
 /*
 sandru opera mini landscape
 */
 
-@media only screen and (min-device-width: 1280px) and (min-height: 430px) and (orientation: landscape) {
+@media only screen and (min-device-width: 569px) and (min-height: 192px) and (orientation: landscape) {
     #CustomizeTextHolder {
 
         display: none;
