@@ -1068,8 +1068,10 @@ sandru opera mini
     }
 
     .normalButtonHolder {
-height: 26px;
-}
+
+        height: 26px;
+
+    }
 
     #ShareButtonsHolder {
 
@@ -1130,6 +1132,8 @@ sandru opera mini
     }
 
     #MainMenuBg {
+    /* width: 100%; */
+    /* height: 100%; */
     }
 
     #MenuTitle {
@@ -1187,15 +1191,24 @@ sandru opera mini
     }
 
     #ComingSoonImage {
-/* height: 570px; */
-background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
-background-size: 97%;
-background-position: center;
-background-repeat: no-repeat;
-width: 100%;
-height: 282px;
-font-size: 24px;
-}
+
+        /* height: 570px; */
+
+        background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+
+        background-size: 97%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+        width: 100%;
+
+        height: 282px;
+
+        font-size: 24px;
+
+    }
 
 }
 
@@ -1236,8 +1249,10 @@ sandru chrome
     }
 
     .normalButtonBackground {
-font-size: 13px;
-}
+
+        font-size: 13px;
+
+    }
 
     .normalButtonHolder {
 
@@ -1338,16 +1353,26 @@ sandru chrome
         width: 16px;
 
     }
+
     #ComingSoonImage {
-/* height: 570px; */
-background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
-background-size: 97%;
-background-position: center;
-background-repeat: no-repeat;
-width: 100%;
-height: 282px;
-font-size: 28px;
-}
+
+        /* height: 570px; */
+
+        background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+
+        background-size: 97%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+        width: 100%;
+
+        height: 282px;
+
+        font-size: 28px;
+
+    }
 }
 
 /*
@@ -1446,11 +1471,16 @@ sandru flow
     }
 
     #OrText {
-/* margin-top: 6px; */
-/* font-size: 18px; */
-height: 36px;
-width: 36px;
-}
+
+        /* margin-top: 6px; */
+
+        /* font-size: 18px; */
+
+        height: 36px;
+
+        width: 36px;
+
+    }
 
     #CustomizeTextHolder {
 
@@ -1511,15 +1541,24 @@ sandru flow
     }
 
     #ComingSoonImage {
-/* height: 570px; */
-background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
-background-size: 97%;
-background-position: center;
-background-repeat: no-repeat;
-width: 100%;
-height: 240px;
-font-size: 36px;
-}
+
+        /* height: 570px; */
+
+        background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+
+        background-size: 97%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+        width: 100%;
+
+        height: 240px;
+
+        font-size: 36px;
+
+    }
 }
 
 /*
@@ -1625,11 +1664,16 @@ ilie chrome
     }
 
     #OrText {
-/* margin-top: 6px; */
-/* font-size: 18px; */
-height: 14px;
-width: 40px;
-}
+
+        /* margin-top: 6px; */
+
+        /* font-size: 18px; */
+
+        height: 14px;
+
+        width: 40px;
+
+    }
 
     #CustomizeTextHolder {
 
@@ -1660,13 +1704,20 @@ ilie chrome
     }
 
     #FacebookBtnLogo {
-background: url(Assets/Desktop/Images/facebook_logo.svg);
-background-size: contain;
-background-position: center;
-height: 18px;
-width: 18px;
-background-repeat: no-repeat;
-}
+
+        background: url(Assets/Desktop/Images/facebook_logo.svg);
+
+        background-size: contain;
+
+        background-position: center;
+
+        height: 18px;
+
+        width: 18px;
+
+        background-repeat: no-repeat;
+
+    }
 
     #GoogleBtnLogo {
 
@@ -1684,15 +1735,24 @@ ilie chrome
     }
 
     #ComingSoonImage {
-/* height: 570px; */
-background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
-background-size: 97%;
-background-position: center;
-background-repeat: no-repeat;
-width: 100%;
-height: 280px;
-font-size: 36px;
-}
+
+        /* height: 570px; */
+
+        background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+
+        background-size: 97%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+        width: 100%;
+
+        height: 280px;
+
+        font-size: 36px;
+
+    }
 }
 
 /*
@@ -1700,26 +1760,38 @@ ada iphone x
 */
 @media only screen and (min-device-width: 370px) and (min-height: 628px) and (orientation: portrait) {
     #MainMenuElementsHolder {
-height: calc(100% - 68px);
-width: 278px;
-}
+
+        height: calc(100% - 68px);
+
+        width: 278px;
+
+    }
 
     #RightSide {
-height: 294px;
-/* background: yellow; */
-}
+
+        height: 294px;
+
+        /* background: yellow; */
+
+    }
 
     #LeftSide {
-height: 43%;
-}
+
+        height: 43%;
+
+    }
 
     #HowToPlayImage {
-height: 234px;
-}
+
+        height: 234px;
+
+    }
 
     #FbTwitterPromoHolder {
-height: 202px;
-}
+
+        height: 202px;
+
+    }
 
     .normalButtonBackground {
 
@@ -1728,8 +1800,10 @@ ada iphone x
     }
 
     .normalButtonHolder {
-height: 42px;
-}
+
+        height: 42px;
+
+    }
 
     #ShareButtonsHolder {
 
@@ -1784,14 +1858,22 @@ ada iphone x
     }
 
     #OrText {
-/* margin-top: 6px; */
-/* font-size: 18px; */
-height: 13px;
-width: 42px;
-margin-left: 6px;
-margin-right: 6px;
-margin-top: -2px;
-}
+
+        /* margin-top: 6px; */
+
+        /* font-size: 18px; */
+
+        height: 13px;
+
+        width: 42px;
+
+        margin-left: 6px;
+
+        margin-right: 6px;
+
+        margin-top: -2px;
+
+    }
 
     #CustomizeTextHolder {
 
@@ -1852,15 +1934,24 @@ ada iphone x
     }
 
     #ComingSoonImage {
-/* height: 570px; */
-background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
-background-size: 97%;
-background-position: center;
-background-repeat: no-repeat;
-width: 100%;
-height: 290px;
-font-size: 36px;
-}
+
+        /* height: 570px; */
+
+        background: url(Assets/Desktop/Images/invitationScreenComingSoon.jpg);
+
+        background-size: 97%;
+
+        background-position: center;
+
+        background-repeat: no-repeat;
+
+        width: 100%;
+
+        height: 290px;
+
+        font-size: 36px;
+
+    }
 }
 
 /*.normalButtonBackground::before {*/
@@ -1873,3 +1964,2001 @@ ada iphone x
 /*right: -10px;*/
 /*}*/
 
+@media only screen and (orientation: landscape) {
+
+    #MainMenuScreen {
+        width: 100%;
+        /* height: 100%; */
+        display: flex;
+        /* display: none; */
+        /* align-items: center; */
+        justify-content: center;
+        /* background: yellow; */
+        /* overflow: hidden; */
+    }
+
+    #MainButtonsHolder {
+        width: 100%;
+        vertical-align: middle;
+        position: absolute;
+        top: 0;
+        /* background: azure; */
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    #MainMenuElementsHolder > #MainButtonsHolder {
+
+        /* align-self: center; */
+
+        /* position: relative; */
+
+        /* top: 50%; */
+
+        /* transform: translateY(-50%); */
+
+    }
+
+    .simpleBtn {
+        /* width: 100%; */
+        height: auto;
+        color: #20D7EE;
+        font-family: "troika";
+        font-size: 2em;
+        /* border: 1px solid; */
+        background: none;
+        text-align: center;
+        margin-bottom: 38px;
+        /* background: blueviolet; */
+        /* outline: none; */
+    }
+
+    .simpleBtnArrow {
+
+    }
+
+    .simpleBtnHighlight {
+
+    }
+
+    .simpleBtnOnClick {
+
+        color: white;
+    }
+
+    .simpleBtn:hover {
+
+        /* color: #20d7e7; */
+
+        /* cursor: pointer; */
+
+    }
+
+    .simpleBtnArrowOnClick {
+
+        background: url("Assets/Desktop/Images/icon_arrow1-right.svg");
+
+        background-size: 58%;
+
+        background-repeat: no-repeat;
+
+        background-position: left center;
+
+        width: 28px;
+
+        height: 30px;
+
+        float: left;
+
+        /* margin-right: 0px; */
+
+        /* background-color: yellow; */
+    }
+
+    .simpleBtnHighlightOnClick {
+
+        background: url("Assets/Desktop/Images/menu_highlight.svg");
+
+        background-size: 100%;
+
+        background-repeat: no-repeat;
+
+        width: 68%;
+
+        margin-left: 16%;
+
+        /*margin-left: auto auto;*/
+
+        height: 18px;
+
+        float: left;
+
+    }
+
+    #LoginScreen {
+        /* width: 100%; */
+        justify-content: space-between;
+        /* -webkit-flex-direction: column; */ /* Safari 6.1+ */
+        /* flex-direction: column; */
+        /*flex-basis: 1;*/
+    }
+
+    #RightSideBackground {
+        /* display: flex; */
+        width: 100%;
+        height: 100%;
+        /* background: none; */
+        /* margin-top: 8%; */
+        /* position: absolute; */
+        /* left: 0; */
+        /* float: left; */
+        background: none;
+    }
+
+    #LeftSide {
+        width: 47%;
+        /* flex-basis: 100%; */
+        height: 100%;
+        /* display: flex; */
+        /* flex: 1; */
+        /* order: 1; */
+        /* box-sizing: border-box; */
+        /* flex-shrink: 0; */
+        /* background: #bede1c; */
+        /* float: left; */
+    }
+
+    #LeftSideButtonsHolder {
+        width: 100%;
+        /* height: 100%; */
+        /*background: #cbdc74;*/
+        /* float: left; */
+        margin-left: 0%;
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+    }
+
+    #InputTextHolder {
+        /* width: 100%; */
+        /* height: auto; */
+        /*background: #f2ffb0;*/
+        /* float: left; */
+        /* margin-bottom: -4px; */
+        /* margin-top: 10%; */
+    }
+
+    input::-webkit-input-placeholder {
+        color: #257080;
+    }
+
+    input:focus::-webkit-input-placeholder {
+        color: lightgrey;
+    }
+
+    /* Firefox < 19 */
+    input:-moz-placeholder {
+        color: #257080;
+    }
+
+    input:focus:-moz-placeholder {
+        color: lightgray;
+    }
+
+    /* Firefox > 19 */
+    input::-moz-placeholder {
+        color: #257080;
+    }
+
+    input:focus::-moz-placeholder {
+        color: lightgrey;
+    }
+
+    /* Internet Explorer 10 */
+    input:-ms-input-placeholder {
+        color: #257080;
+    }
+
+    input:focus:-ms-input-placeholder {
+        color: lightgray;
+    }
+
+    input[type=text], select {
+        /* width: 100%; */
+        /* height: 32px; */
+        /* position: relative; */
+        /* text-align: center; */
+        /* display: inline-block; */
+        /* border: 3px solid #fff; */
+        /* border-radius: 3px; */
+        /* box-sizing: border-box; */
+        /* background: none; */
+        /* font-family: "opensansextrabold"; */
+        /* caret-color: white; */
+        /* color: white; */
+        /* outline: none; */
+        /* white-space: nowrap; */
+        /* font-size: 14px; */
+    }
+
+    input[type=text]:hover {
+        background: white;
+        caret-color: #0f404b;
+        color: #2d899d;
+    }
+
+    #MainMenuPlayerRankingsHolder {
+        /* width: 100%; */
+        /* height: auto; */
+        /* float: left; */
+        /* display: flex; */
+        /* justify-content: space-evenly; */
+        /* display: none; */
+        /* box-sizing: border-box; */
+        /* top: -2px; */
+        /* margin-top: -4px; */
+    }
+
+    #MainMenuPlayerWins {
+        /* background-image: url("Assets/Desktop/Images/stat-wins-color.svg"); */
+    }
+
+    #MainMenuPlayerLosses {
+        /* background-image: url("Assets/Desktop/Images/stat-winloss-color.svg"); */
+    }
+
+    #MainMenuPlayerStreak {
+        /* background-image: url("Assets/Desktop/Images/stat-ballstreak-color.svg"); */
+        /* background-size: 74%; */
+        /* background-position: center 6px; */
+    }
+
+    #MainMenuPlayerFouls {
+        /* background-image: url("Assets/Desktop/Images/stat-penalty-color.svg"); */
+    }
+
+    .mainMenuRankingText {
+        font-size: 10px;
+        font-family: "troika";
+        color: #20D6E5;
+        width: 100%;
+        top: 38px;
+        position: relative;
+        text-align: center;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* margin-bottom: 9%; */
+    }
+
+    .mainMenuRankingCircle {
+
+        width: 42px;
+
+        height: 42px;
+
+        background-color: #ffffff1a;
+
+        float: left;
+
+        background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+
+        background-size: 88%;
+
+        background-repeat: no-repeat;
+
+        background-position: center 1px;
+
+        border-radius: 50%;
+
+        margin-bottom: 4px;
+
+    }
+
+    .customizePlayerLine {
+        /* width: 100%; */
+        /* height: 14px; */
+        /* float: left; */
+        /* margin-top: 5%; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    .customizeLineHolder {
+        width: 39%;
+        height: 3px;
+    }
+
+    .line {
+        /* width: 100%; */
+        /* height: 100%; */
+        /* background: #2D899D; */
+        /* border-radius: 4px; */
+    }
+
+    #CustomizeText {
+        font-family: "troika";
+        font-size: 12px;
+        color: white;
+        width: 28%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+        margin-top: -3px;
+    }
+
+    #PlayerCustomizationHolder {
+        /* width: 100%; */
+        /* height: 64px; */
+        /* background: #4caf50; */
+        /* float: left; */
+        /* margin-top: 3%; */
+        /* display: flex; */
+    }
+
+    .normalButtonHolder {
+        /* width: 100%; */
+        height: 36px;
+        /* border-width: 3px; */
+    }
+
+    .itemsArrows:hover .normalButtonBackground {
+        /* background: white; */
+        /* color: #2d899d; */
+        /* cursor: pointer; */
+    }
+
+    /*.itemsArrows:hover{*/
+    /*cursor: pointer;*/
+    /*}*/
+    .shareButton:hover .shareButtonBackground {
+        background: white;
+        color: #2d899d;
+        cursor: pointer;
+    }
+
+    /*.normalButtonBackground {
+        width: 100%;
+        height: 82%;
+        float: left;
+        background: #2D899D;
+        border-radius: 3px;
+        font-size: 20px;
+        font-family: "troika";
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 4px solid #2D899D;
+        border-width: 4px;
+        border-style: solid;
+    }*/
+    /*#PlayerColorAndAvatarHolder {
+        width: 100%;
+        height: 100%;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+
+        !*background-color: aqua;*!
+    }*/
+    #PlayerColorAndAvatarHolder {
+        /* width: 100%; */
+        /* height: 100%; */
+        /* float: none; */
+        /* display: flex; */
+        /* flex-direction: row; */
+        display: block;
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+        /* align-items: flex-start;        if "img", this will prevent it from stretching  */
+        /*background: lightgrey;*/
+    }
+
+    #PlayerColorAndAvatarHolder::before,
+    #PlayerColorAndAvatarHolder::after {
+        /* content: ''; */
+    }
+
+    .arrowHolder:hover .leftArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-left.svg");
+        background-size: contain;
+    }
+
+    .arrowHolder:hover .rightArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-right.svg");
+        background-size: contain;
+    }
+
+    .arrowHolder {
+        /* width: 25%; */
+        /* height: 100%; */
+        /*background-color: yellow;*/
+        /* float: left; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* cursor: pointer; */
+    }
+
+    .leftArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-left-reg.svg");
+        width: 32px;
+        height: 32px;
+        background-size: 100%;
+    }
+
+    .rightArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-right-reg.svg");
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        /* background-repeat: no-repeat; */
+    }
+
+    #PlayerColorHolder {
+        width: 41%;
+        /* height: 100%; */
+        /*background-color: #2f92e8;*/
+        float: left;
+        /* margin-left: 4%; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+    }
+
+    #ColorHolder {
+        width: 38px;
+        height: 100%;
+        /* float: left; */
+        /* display: flex; */
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    .dotBorder {
+        height: 38px;
+        width: 38px;
+        background-color: #112F36;
+        border-radius: 50%;
+        border-color: white;
+        border-style: solid;
+        border-width: 4px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #PlayerAvatarHolder {
+        /* width: 50%; */
+        /* height: 100%; */
+        /*background-color: #002690;*/
+        /* float: none; */
+        /* position: absolute; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+    }
+
+    .avatarHolder {
+        /* width: 126px; */
+        /* height: 126px; */
+        /* box-sizing: border-box; */
+        /* border-color: white; */
+        /* border-radius: 3px; */
+        /* background-color: black; */
+        /* border-style: solid; */
+        /* border-width: 4px; */
+        /* float: left; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    #AvatarImage {
+        /* background: url("Assets/Desktop/Images/avatar_guest.png"); */
+        /* background-size: contain; */
+        /* width: 126px; */
+        /* height: 126px; */
+        /* background-repeat: no-repeat; */
+        /* background-color: #1A4157; */
+    }
+
+    #PlayerColorCircle {
+        /* height: 68%; */
+        /* width: 68%; */
+        /* background-color: #149938; */
+        /* border-radius: 50%; */
+    }
+
+    #StartGameButtonHolder {
+    }
+
+    #LogoutButton {
+
+        display: none;
+    }
+
+    #OrText {
+        /* font-family: "midtown"; */
+        /* font-size: 21px; */
+        /* color: white; */
+        /* width: 24%; */
+        /* height: 100%; */
+        /* float: left; */
+        text-align: center;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* margin-top: -4px; */
+        /* top: 29px; */
+        margin-left: 4px;
+        margin-right: 4px;
+        height: 42px;
+        width: 42px;
+    }
+
+    #OrTextHolder {
+
+    }
+
+    .customizeLineHolderOr {
+        /* width: 100%; */
+        /* height: 3px; */
+        /* float: left; */
+    }
+
+    .normalButtonLogo {
+        /* width: 25px; */
+        /* margin-right: 4%; */
+    }
+
+    #FacebookSignInButtonHolder {
+        /* margin-top: 0%; */
+    }
+
+    #FacebookBtnLogo {
+        background: url("Assets/Desktop/Images/facebook_logo.svg");
+        background-size: contain;
+        background-position: center;
+        height: 16px;
+        width: 16px;
+        background-repeat: no-repeat;
+    }
+
+    #GoogleSignInButtonHolder {
+        /* margin-top: 4%; */
+    }
+
+    #GoogleBtnLogo {
+        /* background: url("Assets/Desktop/Images/google_logo.svg"); */
+        /* background-size: 100%; */
+        /* height: 18px; */
+        /* width: 18px; */
+        /* background-position: center; */
+        /* background-repeat: no-repeat; */
+    }
+
+    #MiddleSide {
+        /* width: 6%; */
+        /* height: 2%; */
+    }
+
+    #MiddleSideLine {
+        /* width: 100%; */
+        /* height: 100%; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* background: url(Assets/Desktop/Images/menu_background_deco_mobile.png) center center / contain no-repeat; */
+    }
+
+    #RightSide {
+        width: 47%;
+        height: 100%;
+        /* margin-top: 12%; */
+        /* box-sizing: border-box; */
+        /* display: flex; */
+        /* flex-shrink: 0; */
+        /* order: 2; */
+        /* background: #532F8C; */
+        /* float: none; */
+        /* flex: 1; */
+        /* display: none; */
+    }
+
+    .rightSideElementsHolder {
+        width: 100%;
+        height: 100%;
+        /* background: #845ac7; */
+        float: left;
+        margin-left: 0;
+    }
+
+    #HowToPlayButtonHolder {
+        /* margin-top: 10%; */
+    }
+
+    #FbTwitterPromoHolder {
+        /* width: 100%; */
+        /*height:;*/
+        height: 201px;
+        /* border-style: solid; */
+        /* border-width: 3px; */
+        /* border-color: white; */
+        /* border-radius: 3px; */
+        /* background: white; */
+        /* float: left; */
+        /* margin-top: 22px; */
+        /* box-sizing: border-box; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    #FbTwitterPromoImage {
+        /* background: url("Assets/Desktop/Images/promo_twitfacebook.png"); */
+        /* background-size: contain; */
+        /* width: 100%; */
+        /* height: 100%; */
+        /* background-repeat: no-repeat; */
+    }
+
+    #ShareButtonsHolder {
+        /* width: 100%; */
+        /* height: 22px; */
+        /* float: left; */
+        /* margin-top: 22px; */
+    }
+
+    #FacebookShareButton {
+        /*width: 46%;*/
+    }
+
+    #FbShareLogo {
+        background: url("Assets/Desktop/Images/facebook_share_logo.svg");
+        background-size: 32%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-position: 50%;
+    }
+
+    #TwitterFollowLogo {
+        background: url("Assets/Desktop/Images/twitter_logo.svg");
+        background-size: 72%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-position: 50%;
+    }
+
+    #TwitterFollowButton {
+        margin-left: 4%;
+        /*width: 46%;*/
+    }
+
+    .shareButton {
+        width: 48%;
+        height: 100%;
+        float: left;
+    }
+
+    .shareButtonLogo {
+        width: 25%;
+        height: 100%;
+        background: #ffffff;
+        float: left;
+        border-radius: 4px;
+    }
+
+    .shareButtonBackground {
+        width: 73%;
+        height: 100%;
+        float: left;
+        background: #2D899D;
+        border-radius: 4px;
+        font-size: 16px;
+        font-family: "troika";
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 2%;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    .normalButtonBackground {
+        /* background: #2d899d; */
+        /* border-radius: 3px; */
+        /* color: #fff; */
+        /* position: absolute; */
+        /* top: 2px; */
+        /* bottom: 2px; */
+        /* right: 2px; */
+        /* left: 2px; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* font-family: "troika"; */
+        font-size: 14px;
+        -webkit-touch-callout: none; /* iOS Safari */
+        /* -webkit-user-select: none; */ /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        /* user-select: none; */
+    }
+
+    #ComingSoonImage {
+        background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
+        background-size: 96%;
+        width: 100%;
+        height: 692px;
+        background-repeat: no-repeat;
+        /* margin-top: 10%; */
+        border-color: white;
+        border-style: solid;
+        border-radius: 5px;
+        border-width: 0.1em;
+        box-sizing: border-box;
+        color: white;
+        font-family: "troika";
+        font-size: 36em;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-position: center;
+    }
+
+    #InviteElementsHolder {
+
+        display: block;
+
+        display: none;
+
+        flex-direction: column;
+
+        justify-content: center;
+    }
+
+    #TutorialAndShareButtonsHolder {
+
+    }
+
+    #MainMenuElementsHolder {
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+position: absolute;
+width: 92%;
+height: 82%;
+padding-top: 4%;
+}
+
+    /*.notVs {*/
+    /*display: none;*/
+    /*}*/
+    #HowToPlayImage {
+
+        /* background: url("Assets/Desktop/Images/howtoplay.gif"); */
+
+        /* background-position: center; */
+
+        /* background-size: 97%; */
+
+        /* width: auto; */
+
+        height: 235px;
+
+        /* background-repeat: no-repeat; */
+
+        /* float: left; */
+
+        /* border: white 3px solid; */
+
+        /* border-radius: 3px; */
+
+        /* box-sizing: border-box; */
+
+        /* margin-top: 33px; */
+
+        /* display: none; */
+    }
+
+    .hideElement {
+        display: none !important;
+    }
+
+    .showElement {
+        display: block;
+    }
+
+    #CorrectText {
+        /* width: 100%; */
+        /* height: auto; */
+        /* text-align: center; */
+        /* font-family: "opensansextrabold"; */
+        /* font-size: 12px; */
+        /* color: white; */
+        /* visibility: hidden; */
+        /* display: none; */
+    }
+
+    #MainMenuBg {
+        display: none;
+        /* display: flex; */
+        width: 100%;
+        height: 100%;
+        background: #00000048;
+        position: absolute;
+        border: 0;
+        /* background-size: contain; */
+    }
+
+    #MenuTitle {
+
+        font-size: 18px;
+
+        color: #1abdca;
+
+        font-family: "troika";
+
+        /* background: #1d00ff; */
+
+        /* margin-left: 6px; */
+
+        float: right;
+
+        height: auto;
+
+        /* width: 58%; */
+
+        /* margin: auto; */
+
+        margin-right: 8px;
+
+        display: flex;
+
+        align-items: center;
+
+        /* flex-direction: row; */
+
+        /* justify-content: space-between; */
+
+    }
+
+    #BackToMainMenuButton {
+
+        float: left;
+
+        width: 12%;
+
+        /* background: green; */
+
+        height: 100%;
+
+        /* float: right; */
+
+        /* margin-left: auto; */
+
+        display: flex;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+        /* margin-left: 8px; */
+
+    }
+
+    #MenuLogo {
+
+        width: 26px;
+
+        height: 26px;
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 22px;
+
+        height: 22px;
+
+        /* padding: 2px; */
+
+    }
+
+    #BackToMainMenuButtonIcon {
+
+        background: url(Assets/Desktop/Images/icon_arrow1-left.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 14px;
+
+        height: 14px;
+
+        padding-left: 4px;
+
+        /* background-color: bisque; */
+
+        /* align-self: center; */
+
+    }
+
+    #MainMenuBackButtonHolder {
+
+        height: 40px;
+
+        width: 100%;
+
+        background: #00000068;
+
+        display: flex;
+
+        align-items: center;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        /* display: flex; */
+
+        /* flex-direction: column; */
+
+        /* justify-content: center; */
+
+    }
+
+}
+
+/*
+sandru opera mini landscape
+*/
+
+@media only screen and (min-device-width: 640px) and (min-height: 214px) and (orientation: landscape) {
+    #CustomizeTextHolder {
+
+        display: none;
+
+    }
+
+    #MainMenuScreen {
+        width: 100%;
+        /* height: 100%; */
+        display: flex;
+        /* display: none; */
+        /* align-items: center; */
+        justify-content: center;
+        /* background: yellow; */
+        /* overflow: hidden; */
+    }
+
+    #MainButtonsHolder {
+        width: 100%;
+        vertical-align: middle;
+        position: absolute;
+        top: 0;
+        /* background: azure; */
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    #MainMenuElementsHolder > #MainButtonsHolder {
+
+        /* align-self: center; */
+
+        /* position: relative; */
+
+        /* top: 50%; */
+
+        /* transform: translateY(-50%); */
+
+    }
+
+    .simpleBtn {
+        /* width: 100%; */
+        height: auto;
+        color: #20D7EE;
+        font-family: "troika";
+        font-size: 2em;
+        /* border: 1px solid; */
+        background: none;
+        text-align: center;
+        margin-bottom: 38px;
+        /* background: blueviolet; */
+        /* outline: none; */
+    }
+
+    .simpleBtnArrow {
+
+    }
+
+    .simpleBtnHighlight {
+
+    }
+
+    .simpleBtnOnClick {
+
+        color: white;
+    }
+
+    .simpleBtn:hover {
+
+        /* color: #20d7e7; */
+
+        /* cursor: pointer; */
+
+    }
+
+    .simpleBtnArrowOnClick {
+
+        background: url("Assets/Desktop/Images/icon_arrow1-right.svg");
+
+        background-size: 58%;
+
+        background-repeat: no-repeat;
+
+        background-position: left center;
+
+        width: 28px;
+
+        height: 30px;
+
+        float: left;
+
+        /* margin-right: 0px; */
+
+        /* background-color: yellow; */
+    }
+
+    .simpleBtnHighlightOnClick {
+
+        background: url("Assets/Desktop/Images/menu_highlight.svg");
+
+        background-size: 100%;
+
+        background-repeat: no-repeat;
+
+        width: 68%;
+
+        margin-left: 16%;
+
+        /*margin-left: auto auto;*/
+
+        height: 18px;
+
+        float: left;
+
+    }
+
+    #LoginScreen {
+        /* width: 100%; */
+        justify-content: space-between;
+        /* -webkit-flex-direction: column; */ /* Safari 6.1+ */
+        /* flex-direction: column; */
+        /*flex-basis: 1;*/
+    }
+
+    #RightSideBackground {
+        /* display: flex; */
+        width: 100%;
+        height: 100%;
+        /* background: none; */
+        /* margin-top: 8%; */
+        /* position: absolute; */
+        /* left: 0; */
+        /* float: left; */
+        background: none;
+    }
+
+    #LeftSide {
+        width: 56%;
+        /* flex-basis: 100%; */
+        height: 100%;
+        /* display: flex; */
+        /* flex: 1; */
+        /* order: 1; */
+        /* box-sizing: border-box; */
+        /* flex-shrink: 0; */
+        /* background: #bede1c; */
+        /* float: right; */
+    }
+
+    #LeftSideButtonsHolder {
+        width: 100%;
+        /* height: 100%; */
+        /*background: #cbdc74;*/
+        margin-left: 0%;
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+    }
+
+    #InputTextHolder {
+        /* width: 100%; */
+        /* height: auto; */
+        /*background: #f2ffb0;*/
+        /* float: left; */
+        /* margin-bottom: -4px; */
+        /* margin-top: 10%; */
+    }
+
+    input::-webkit-input-placeholder {
+        color: #257080;
+    }
+
+    input:focus::-webkit-input-placeholder {
+        color: lightgrey;
+    }
+
+    /* Firefox < 19 */
+    input:-moz-placeholder {
+        color: #257080;
+    }
+
+    input:focus:-moz-placeholder {
+        color: lightgray;
+    }
+
+    /* Firefox > 19 */
+    input::-moz-placeholder {
+        color: #257080;
+    }
+
+    input:focus::-moz-placeholder {
+        color: lightgrey;
+    }
+
+    /* Internet Explorer 10 */
+    input:-ms-input-placeholder {
+        color: #257080;
+    }
+
+    input:focus:-ms-input-placeholder {
+        color: lightgray;
+    }
+
+    input[type=text], select {
+        /* width: 100%; */
+        height: 30px;
+        /* position: relative; */
+        /* text-align: center; */
+        /* display: inline-block; */
+        /* border: 3px solid #fff; */
+        /* border-radius: 3px; */
+        /* box-sizing: border-box; */
+        /* background: none; */
+        /* font-family: "opensansextrabold"; */
+        /* caret-color: white; */
+        /* color: white; */
+        /* outline: none; */
+        /* white-space: nowrap; */
+        /* font-size: 14px; */
+    }
+
+    input[type=text]:hover {
+        background: white;
+        caret-color: #0f404b;
+        color: #2d899d;
+    }
+
+    #MainMenuPlayerRankingsHolder {
+        /* width: 100%; */
+        /* height: auto; */
+        /* float: left; */
+        /* display: none !important; */
+        /* justify-content: space-evenly; */
+        /* display: none; */
+        /* box-sizing: border-box; */
+        /* top: -2px; */
+        /* margin-top: -4px; */
+    }
+
+    #MainMenuPlayerWins {
+        /* background-image: url("Assets/Desktop/Images/stat-wins-color.svg"); */
+        /* width: 38px; */
+        /* height: 38px; */
+        /* margin-bottom: 0; */
+    }
+
+    #MainMenuPlayerLosses {
+        /* background-image: url("Assets/Desktop/Images/stat-winloss-color.svg"); */
+    }
+
+    #MainMenuPlayerStreak {
+        /* background-image: url("Assets/Desktop/Images/stat-ballstreak-color.svg"); */
+        /* background-size: 74%; */
+        /* background-position: center 6px; */
+    }
+
+    #MainMenuPlayerFouls {
+        /* background-image: url("Assets/Desktop/Images/stat-penalty-color.svg"); */
+    }
+
+    .mainMenuRankingText {
+        /* font-size: 10px; */
+        /* font-family: "troika"; */
+        /* color: #20D6E5; */
+        /* width: 100%; */
+        top: 32px;
+        /* position: relative; */
+        /* text-align: center; */
+        -webkit-touch-callout: none;
+        /* -webkit-user-select: none; */
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        /* user-select: none; */
+        /* margin-bottom: 9%; */
+    }
+
+    .mainMenuRankingCircle {
+width: 38px;
+height: 38px;
+background-color: #ffffff1a;
+float: left;
+background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+background-size: 86%;
+background-repeat: no-repeat;
+background-position: center 1px;
+border-radius: 50%;
+margin-bottom: 4px;
+}
+
+    .customizePlayerLine {
+        /* width: 100%; */
+        /* height: 14px; */
+        /* float: left; */
+        /* margin-top: 5%; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    .customizeLineHolder {
+        width: 39%;
+        height: 3px;
+    }
+
+    .line {
+        /* width: 100%; */
+        /* height: 100%; */
+        /* background: #2D899D; */
+        /* border-radius: 4px; */
+    }
+
+    #CustomizeText {
+        font-family: "troika";
+        font-size: 12px;
+        color: white;
+        width: 28%;
+        height: 100%;
+        float: left;
+        text-align: center;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+        margin-top: -3px;
+    }
+
+    #PlayerCustomizationHolder {
+        width: 40%;
+        height: 65px;
+        /* background: #4caf50; */
+        /* float: right; */
+        right: 0;
+        display: flex;
+        position: absolute;
+        height: 85%;
+    }
+
+    .normalButtonHolder {
+        /* width: 100%; */
+        height: 36px;
+        /* border-width: 3px; */
+    }
+
+    .itemsArrows:hover .normalButtonBackground {
+        /* background: white; */
+        /* color: #2d899d; */
+        /* cursor: pointer; */
+    }
+
+    /*.itemsArrows:hover{*/
+    /*cursor: pointer;*/
+    /*}*/
+    .shareButton:hover .shareButtonBackground {
+        background: white;
+        color: #2d899d;
+        cursor: pointer;
+    }
+
+    /*.normalButtonBackground {
+        width: 100%;
+        height: 82%;
+        float: left;
+        background: #2D899D;
+        border-radius: 3px;
+        font-size: 20px;
+        font-family: "troika";
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: 4px solid #2D899D;
+        border-width: 4px;
+        border-style: solid;
+    }*/
+    /*#PlayerColorAndAvatarHolder {
+        width: 100%;
+        height: 100%;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+
+        !*background-color: aqua;*!
+    }*/
+    #PlayerColorAndAvatarHolder {
+        width: 100%;
+        height: 100%;
+        float: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        /* display: block; */
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+        /* align-items: flex-start;        if "img", this will prevent it from stretching  */
+        /*background: lightgrey;*/
+    }
+
+    #PlayerColorAndAvatarHolder::before,
+    #PlayerColorAndAvatarHolder::after {
+        /* content: ''; */
+    }
+
+    .arrowHolder:hover .leftArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-left.svg");
+        background-size: contain;
+    }
+
+    .arrowHolder:hover .rightArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-right.svg");
+        background-size: contain;
+    }
+
+    .arrowHolder {
+        /* width: 25%; */
+        /* height: 100%; */
+        /* background-color: yellow; */
+        /* float: left; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* cursor: pointer; */
+    }
+
+    .leftArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-left-reg.svg");
+        width: 32px;
+        height: 32px;
+        background-size: 100%;
+    }
+
+    .rightArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-right-reg.svg");
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        /* background-repeat: no-repeat; */
+    }
+
+    #PlayerColorHolder {
+        width: 60%;
+        order: 2;
+        height: 21%;
+        /* display: none; */
+        /* height: 100%; */
+        /* background-color: #2f92e8; */
+        margin-top: auto;
+        align-self: center;
+        /* flex: 1; */
+        /* display: flex; */
+        /* margin-bottom: 0; */
+        /* float: left; */
+        /* margin-left: 4%; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+    }
+
+    #ColorHolder {
+        width: 38px;
+        height: 100%;
+        /* float: right; */
+        /* display: flex; */
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    .dotBorder {
+        height: 32px;
+        width: 32px;
+        /* background-color: #112F36; */
+        /* border-radius: 50%; */
+        /* border-color: white; */
+        /* border-style: solid; */
+        /* border-width: 4px; */
+        /* box-sizing: border-box; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    #PlayerAvatarHolder {
+        width: 100%;
+        height: 70%;
+        /* background-color: #002690; */
+        float: none;
+        /* position: absolute; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+        /* order: 1; */
+    }
+
+    .avatarHolder {
+        width: 126px;
+        height: 100%;
+        /* display: none; */
+        /* box-sizing: border-box; */
+        /* border-color: white; */
+        /* border-radius: 3px; */
+        /* background-color: black; */
+        /* border-style: solid; */
+        /* border-width: 4px; */
+        /* float: left; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    #AvatarImage {
+        width: 94%;
+        height: 94%;
+        /* background: url("Assets/Desktop/Images/avatar_guest.png"); */
+        /* background-size: contain; */
+        /* width: 126px; */
+        /* height: 126px; */
+        /* background-repeat: no-repeat; */
+        /* background-color: #1A4157; */
+    }
+
+    #PlayerColorCircle {
+        /* height: 64%; */
+        /* width: 68%; */
+        /* background-color: #149938; */
+        /* border-radius: 50%; */
+    }
+
+    #StartGameButtonHolder {
+        height: 32px;
+        /* margin-top: 23px; */
+    }
+
+    #LogoutButton {
+/* display: none; */
+/* position: absolute; */
+/* right: 0; */
+/* bottom: 0; */
+/* width: 48%; */
+}
+
+    #OrText {
+        /* font-family: "midtown"; */
+        /* font-size: 21px; */
+        /* color: white; */
+        /* width: 24%; */
+        /* height: 100%; */
+        /* float: left; */
+        /* text-align: center; */
+        -webkit-touch-callout: none;
+        /* -webkit-user-select: none; */
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        /* user-select: none; */
+        /* margin-top: -4px; */
+        /* top: 29px; */
+        /* margin-left: 4px; */
+        /* margin-right: 4px; */
+        height: 38px;
+        width: 34px;
+    }
+
+    #OrTextHolder {
+height: 2%;
+width: 92vw;
+display: none;
+}
+
+    .customizeLineHolderOr {
+        /* width: 100%; */
+        /* height: 3px; */
+        /* display: none; */
+        /* float: left; */
+    }
+
+    .normalButtonLogo {
+        /* width: 25px; */
+        /* margin-right: 4%; */
+    }
+
+    #FacebookSignInButtonHolder {
+        /* margin-bottom: 45px; */
+        /* position: absolute; */
+        /* right: 0; */
+        /* margin-top: 0; */
+        /* width: 48%; */
+    }
+
+    #FacebookBtnLogo {
+        background: url("Assets/Desktop/Images/facebook_logo.svg");
+        background-size: contain;
+        background-position: center;
+        height: 16px;
+        width: 16px;
+        background-repeat: no-repeat;
+    }
+
+    #GoogleSignInButtonHolder {
+        /* margin-top: 4%; */
+        /* position: absolute; */
+        /* right: 0; */
+        /* bottom: 0; */
+        /* width: 48%; */
+    }
+
+    #GoogleBtnLogo {
+        /* background: url("Assets/Desktop/Images/google_logo.svg"); */
+        /* background-size: 100%; */
+        /* height: 18px; */
+        /* width: 18px; */
+        /* background-position: center; */
+        /* background-repeat: no-repeat; */
+    }
+
+    #MiddleSide {
+        /* width: 6%; */
+        /* height: 2%; */
+        display: none;
+    }
+
+    #MiddleSideLine {
+        /* width: 100%; */
+        /* height: 100%; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* background: url(Assets/Desktop/Images/menu_background_deco_mobile.png) center center / contain no-repeat; */
+    }
+
+    #RightSide {
+        /* width: 48%; */
+        /* height: auto; */
+        /* margin-bottom: 0; */
+        /* box-sizing: border-box; */
+        /* display: block; */
+        /* flex-shrink: 0; */
+        /* order: 2; */
+        /* background: #532F8C; */
+        /* float: none; */
+        /* flex: 1; */
+        display: none;
+        /* z-index: -200; */
+    }
+
+    .rightSideElementsHolder {
+        width: 100%;
+        height: 100%;
+        /* background: #845ac7; */
+        float: left;
+        margin-left: 0;
+    }
+
+    #HowToPlayButtonHolder {
+        /* margin-top: 26px; */
+        /* z-index: 100; */
+        /* width: 100%; */
+        /* position: absolute; */
+        /* position: absolute; */
+        /* right: 0; */
+        /* bottom: 28%; */
+        /* width: 48%; */
+    }
+
+    #FbTwitterPromoHolder {
+        display: none !important;
+        /* width: 100%; */
+        /*height:;*/
+        /* height: 201px; */
+        /* border-style: solid; */
+        /* border-width: 3px; */
+        /* border-color: white; */
+        /* border-radius: 3px; */
+        /* background: white; */
+        /* float: left; */
+        /* margin-top: 22px; */
+        /* box-sizing: border-box; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    #FbTwitterPromoImage {
+        /* background: url("Assets/Desktop/Images/promo_twitfacebook.png"); */
+        /* background-size: contain; */
+        /* width: 100%; */
+        /* height: 100%; */
+        /* background-repeat: no-repeat; */
+        /* display: none; */
+    }
+
+    #ShareButtonsHolder {
+        /* width: 100%; */
+        /* height: 22px; */
+        /* float: left; */
+        /* margin-top: 22px; */
+        /* display: none !important; */
+    }
+
+    #FacebookShareButton {
+        /*width: 46%;*/
+    }
+
+    #FbShareLogo {
+        background: url("Assets/Desktop/Images/facebook_share_logo.svg");
+        background-size: 32%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-position: 50%;
+    }
+
+    #TwitterFollowLogo {
+        background: url("Assets/Desktop/Images/twitter_logo.svg");
+        background-size: 72%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-position: 50%;
+    }
+
+    #TwitterFollowButton {
+        margin-left: 4%;
+        /*width: 46%;*/
+    }
+
+    .shareButton {
+        width: 48%;
+        height: 100%;
+        float: left;
+    }
+
+    .shareButtonLogo {
+        width: 25%;
+        height: 100%;
+        background: #ffffff;
+        float: left;
+        border-radius: 4px;
+    }
+
+    .shareButtonBackground {
+        width: 73%;
+        height: 100%;
+        float: left;
+        background: #2D899D;
+        border-radius: 4px;
+        font-size: 16px;
+        font-family: "troika";
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 2%;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    .normalButtonBackground {
+        /* background: #2d899d; */
+        /* border-radius: 3px; */
+        /* color: #fff; */
+        /* position: absolute; */
+        /* top: 2px; */
+        /* bottom: 2px; */
+        /* right: 2px; */
+        /* left: 2px; */
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* font-family: "troika"; */
+        font-size: 13px;
+        -webkit-touch-callout: none; /* iOS Safari */
+        /* -webkit-user-select: none; */ /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        /* user-select: none; */
+    }
+
+    #ComingSoonImage {
+        background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
+        background-size: 96%;
+        width: 100%;
+        height: 692px;
+        background-repeat: no-repeat;
+        /* margin-top: 10%; */
+        border-color: white;
+        border-style: solid;
+        border-radius: 5px;
+        border-width: 0.1em;
+        box-sizing: border-box;
+        color: white;
+        font-family: "troika";
+        font-size: 36em;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-position: center;
+    }
+
+    #InviteElementsHolder {
+/* display: block; */
+/* display: none; */
+/* flex-direction: column; */
+/* justify-content: center; */
+}
+
+    #TutorialAndShareButtonsHolder {
+/* display: block !important; */
+/* height: auto; */
+/* z-index: -200; */
+}
+
+    #MainMenuElementsHolder {
+/* left: 50%; */
+/* top: 50%; */
+/* transform: translate(-50%, -50%); */
+/* position: absolute; */
+width: 82%;
+/* height: 82%; */
+padding-top: 30px;
+height: calc(100% - 48px);
+}
+
+    /*.notVs {*/
+    /*display: none;*/
+    /*}*/
+    #HowToPlayImage {
+/* background: url("Assets/Desktop/Images/howtoplay.gif"); */
+/* background-position: center; */
+/* background-size: 97%; */
+/* width: auto; */
+/* height: 100%; */
+/* width: 71%; */
+/* background-repeat: no-repeat; */
+/* float: left; */
+/* border: white 3px solid; */
+/* border-radius: 3px; */
+/* box-sizing: border-box; */
+/* margin-top: 33px; */
+/* display: none !important; */
+/* position: absolute; */
+}
+
+    .hideElement {
+        display: none !important;
+    }
+
+    .showElement {
+        display: block;
+    }
+
+    #CorrectText {
+        /* width: 100%; */
+        /* height: auto; */
+        /* text-align: center; */
+        /* font-family: "opensansextrabold"; */
+        font-size: 10px;
+        /* color: white; */
+        /* visibility: hidden; */
+        /* display: none; */
+    }
+
+    #MainMenuBg {
+        display: none;
+        /* display: flex; */
+        width: 100%;
+        height: 100%;
+        background: #00000048;
+        position: absolute;
+        border: 0;
+        /* background-size: contain; */
+    }
+
+    #MenuTitle {
+
+        font-size: 18px;
+
+        color: #1abdca;
+
+        font-family: "troika";
+
+        /* background: #1d00ff; */
+
+        /* margin-left: 6px; */
+
+        float: right;
+
+        height: auto;
+
+        /* width: 58%; */
+
+        /* margin: auto; */
+
+        margin-right: 8px;
+
+        display: flex;
+
+        align-items: center;
+
+        /* flex-direction: row; */
+
+        /* justify-content: space-between; */
+
+    }
+
+    #BackToMainMenuButton {
+
+        float: left;
+
+        width: 12%;
+
+        /* background: green; */
+
+        height: 100%;
+
+        /* float: right; */
+
+        /* margin-left: auto; */
+
+        display: flex;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+        /* margin-left: 8px; */
+
+    }
+
+    #MenuLogo {
+
+        width: 26px;
+
+        height: 26px;
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 22px;
+
+        height: 22px;
+
+        /* padding: 2px; */
+
+    }
+
+    #BackToMainMenuButtonIcon {
+
+        background: url(Assets/Desktop/Images/icon_arrow1-left.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 14px;
+
+        height: 14px;
+
+        padding-left: 4px;
+
+        /* background-color: bisque; */
+
+        /* align-self: center; */
+
+    }
+
+    #MainMenuBackButtonHolder {
+height: 32px;
+width: 100%;
+/* background: #00000068; */
+/* display: flex; */
+/* align-items: center; */
+/* flex-direction: row; */
+/* justify-content: space-between; */
+/* display: flex; */
+/* flex-direction: column; */
+/* justify-content: center; */
+}
+
+}

@@ -9,8 +9,11 @@
  *  Created by Sandru Andrei on 10/31/2018
  */
 
+
 namespace Pockey {
     export module UserInterface {
+        import Settings = Framework.Settings;
+
         export class TutorialMenu {
             private howToPlayButton: HTMLDivElement;
             private howToButtonClicked: boolean = false;
@@ -41,6 +44,10 @@ namespace Pockey {
                         document.getElementById("ShareButtonsHolder").style.display = "none";
                     }
                     else {
+                        // if(Settings.isMobile)
+                        // {
+                        //
+                        // }
                         this.howToPlayButton.style.borderColor = "";
                         buttonBg.style.backgroundColor = "";
                         buttonBg.style.color = "";
