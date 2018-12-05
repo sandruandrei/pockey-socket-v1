@@ -3326,10 +3326,11 @@ sandru opera mini landscape
         left: 233px;
         display: flex;
         position: absolute;
+        /* height: calc(100% - 48px); */
+        padding-top: 30px;
         height: calc(100% - 48px);
-        /* padding-top: 30px; */
-        height: calc(100vh - 48px);
-        margin-top: 0;
+        /* height: 100%; */
+        top: 0;
     }
 
     .normalButtonHolder {
