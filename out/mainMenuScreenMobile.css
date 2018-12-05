@@ -2970,9 +2970,7 @@ sandru opera mini landscape
 
 @media only screen and (min-device-width: 569px) and (min-height: 188px) and (orientation: landscape) {
     #CustomizeTextHolder {
-
         display: none;
-
     }
 
     #MainMenuScreen {
@@ -3003,7 +3001,7 @@ sandru opera mini landscape
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        height: 100vh;
+        /* height: 100vh; */
     }
 
     #MainMenuElementsHolder > #MainButtonsHolder {
@@ -3112,6 +3110,7 @@ sandru opera mini landscape
         /* left: 0; */
         /* float: left; */
         background: none;
+        display: none;
     }
 
     #LeftSide {
@@ -3322,12 +3321,15 @@ sandru opera mini landscape
     #PlayerCustomizationHolder {
         width: 29%;
         height: 65px;
-        /* background: #4caf50; */
+        background: #4caf50;
         /* float: left; */
         left: 233px;
         display: flex;
         position: absolute;
+        height: calc(100% - 48px);
+        /* padding-top: 30px; */
         height: calc(100vh - 48px);
+        margin-top: 0;
     }
 
     .normalButtonHolder {
@@ -3828,23 +3830,15 @@ sandru opera mini landscape
     }
 
     #MainMenuElementsHolder {
-
-        /* left: 50%; */
-
-        /* top: 50%; */
-
-        /* transform: translate(-50%, -50%); */
-
-        /* position: absolute; */
-
-        width: calc(100% - 40px);
-
-        /* height: 82%; */
-
-        padding-top: 30px;
-
-        height: calc(100% - 48px);
-    }
+/* left: 50%; */
+/* top: 50%; */
+/* transform: translate(-50%, -50%); */
+/* position: absolute; */
+width: calc(100% - 40px);
+/* height: 82%; */
+padding-top: 30px;
+height: calc(100% - 48px);
+}
 
     /*.notVs {*/
     /*display: none;*/
