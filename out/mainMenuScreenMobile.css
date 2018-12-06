@@ -3485,7 +3485,7 @@ sandru opera mini landscape
 sandru chrome landscape
 */
 
-@media only screen and (min-device-width: 569px) and (min-height: 2px) and (orientation: landscape) {
+@media only screen and (min-device-width: 569px) and (min-height: 228px) and (orientation: landscape) {
     #CustomizeTextHolder {
         position: absolute;
         left: 118%;
