@@ -2244,28 +2244,17 @@ ada iphone x
     }
 
     .mainMenuRankingCircle {
-
-        width: 42px;
-
-        height: 42px;
-
-        background-color: #ffffff1a;
-
-        float: left;
-
-        background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
-
-        background-size: 88%;
-
-        background-repeat: no-repeat;
-
-        background-position: center 1px;
-
-        border-radius: 50%;
-
-        margin-bottom: 4px;
-
-    }
+width: 34px;
+height: 34px;
+background-color: #ffffff1a;
+float: left;
+background-image: url("Assets/Desktop/Images/stat-penalty-color.svg");
+background-size: 88%;
+background-repeat: no-repeat;
+background-position: center 1px;
+border-radius: 50%;
+margin-bottom: 4px;
+}
 
     .customizePlayerLine {
         /* width: 100%; */
@@ -3090,8 +3079,8 @@ sandru opera mini landscape
     }
 
     .mainMenuRankingText {
-        top: 32px;
-
+        top: 28px;
+        font-size: 9px;
     }
 
     .customizeLineHolder {
@@ -3114,7 +3103,7 @@ sandru opera mini landscape
     }
 
     .normalButtonHolder {
-        height: 20%;
+        height: 19%;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -3189,8 +3178,13 @@ sandru opera mini landscape
     }
 
     #AvatarImage {
-        width: 94%;
-        height: 94%;
+        /* width: 94%; */
+        /* height: 94%; */
+        width: 100%;
+        padding-top: 100%;
+        height: 0;
+        background-size: 97%;
+        background-position: center;
     }
 
     #OrText {
@@ -3222,16 +3216,16 @@ sandru opera mini landscape
         background: url("Assets/Desktop/Images/facebook_logo.svg");
         background-size: contain;
         background-position: center;
-        height: 16px;
-        width: 16px;
+        height: 12px;
+        width: 12px;
         background-repeat: no-repeat;
     }
 
     #GoogleBtnLogo {
         /* background: url("Assets/Desktop/Images/google_logo.svg"); */
         /* background-size: 100%; */
-        /* height: 18px; */
-        /* width: 18px; */
+        height: 13px;
+        width: 13px;
         /* background-position: center; */
         /* background-repeat: no-repeat; */
     }
@@ -3328,7 +3322,7 @@ sandru opera mini landscape
     }
 
     .normalButtonBackground {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     #ComingSoonImage {
@@ -3702,8 +3696,8 @@ sandru chrome landscape
     }
 
     #AvatarImage {
-        width: 94%;
-        height: 94%;
+        /* width: 94%; */
+        /* height: 94%; */
     }
 
     #OrText {
@@ -4261,8 +4255,10 @@ sandru edge landscape
         /* height: 74px; */
         /* height: 100%; */
         /* max-width: 100%; */
-        position: relative;
+        /* position: relative; */
         width: 50%;
+        height: auto;
+        width: 100%;
     }
 
     #AvatarImage {

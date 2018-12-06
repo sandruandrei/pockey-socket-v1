@@ -6265,7 +6265,7 @@ var Pockey;
                 }
                 this.avatarHolder = document.getElementById("AvatarImage");
                 Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 this.previousAvatarButton = document.getElementById("PreviousAvatarButton");
                 this.nextAvatarButton = document.getElementById("NextAvatarButton");
                 this.previousAvatarButton.onclick = function () {
@@ -6287,7 +6287,7 @@ var Pockey;
                             return true;
                         }
                     });
-                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                    this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 }
             };
             PlayerAvatarCustomizer.prototype.onPreviousButtonClicked = function () {
@@ -6300,7 +6300,7 @@ var Pockey;
                     return;
                 }
                 Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 this.updateCookieOrDatabase();
             };
             PlayerAvatarCustomizer.prototype.onNextButtonClicked = function () {
@@ -6313,7 +6313,7 @@ var Pockey;
                     return;
                 }
                 Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 this.updateCookieOrDatabase();
                 console.log("this.currentAvatarCounter: " + this.currentAvatarCounter);
             };
@@ -6321,7 +6321,7 @@ var Pockey;
                 this.avatarsArray = Pockey.PockeySettings.SMALL_AVATARS_ARRAY;
                 this.currentAvatarCounter = 0;
                 Pockey.PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 this.updateCookieOrDatabase();
             };
             PlayerAvatarCustomizer.prototype.onPlayerSignedIn = function () {
@@ -6333,7 +6333,7 @@ var Pockey;
                         return true;
                     }
                 });
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
             };
             PlayerAvatarCustomizer.prototype.updateCookieOrDatabase = function () {
                 if (Settings.playerSignedIn) {

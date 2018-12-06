@@ -50,7 +50,7 @@ namespace Pockey {
                 PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
 
 
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
                 //todo writeid
                 this.previousAvatarButton = document.getElementById("PreviousAvatarButton") as HTMLDivElement;
@@ -81,7 +81,7 @@ namespace Pockey {
                         }
                     });
 
-                    this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                    this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
                     // this.updateCookieOrDatabase();
                 }
@@ -101,7 +101,7 @@ namespace Pockey {
 
                 PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
 
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
                 this.updateCookieOrDatabase();
             }
@@ -119,7 +119,7 @@ namespace Pockey {
 
                 PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
 
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
 
                 this.updateCookieOrDatabase();
                 // writeCookie("PockeyUserAvatarId", PockeySettings.PLAYER_AVATAR_ID, 30);
@@ -131,7 +131,7 @@ namespace Pockey {
                 this.avatarsArray = PockeySettings.SMALL_AVATARS_ARRAY;
                 this.currentAvatarCounter = 0;
                 PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
                 this.updateCookieOrDatabase();
             }
 
@@ -140,7 +140,7 @@ namespace Pockey {
 
                 // this.currentAvatarCounter = 0;
                 // PockeySettings.PLAYER_AVATAR_ID = this.avatarsArray[this.currentAvatarCounter].id;
-                // this.avatarHolder.style.background = "center / contain no-repeat url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+                // this.avatarHolder.style.background = "center / 97% no-repeat url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
                 _.forEach(this.avatarsArray, (item: InventoryVO, counter: number) => {
                     if (item.id == PockeySettings.PLAYER_AVATAR_ID) {
                         this.currentAvatarCounter = counter;
@@ -148,7 +148,7 @@ namespace Pockey {
                     }
                 });
 
-                this.avatarHolder.style.background = "center / contain no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
+                this.avatarHolder.style.background = "center / 97% no-repeat #1A4157 url(" + this.avatarsArray[this.currentAvatarCounter].icon + ")";
             }
 
            /* private updateCurrentColor(): void {
