@@ -3060,10 +3060,14 @@ sandru opera mini landscape
     }
 
     #InputTextHolder {
+    /* height: 20%; */
     }
 
     input[type=text], select {
-        height: 20%;
+        height: 0%;
+        font-size: 11px;
+        padding-top: 3px;
+        padding-bottom: 3px;
     }
 
     input[type=text]:hover {
