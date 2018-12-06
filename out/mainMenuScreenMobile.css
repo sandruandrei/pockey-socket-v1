@@ -3257,9 +3257,9 @@ sandru opera mini landscape
     }
 
     #FbTwitterPromoHolder {
-        overflow: overlay;
+        /* overflow: overlay; */
         height: 64%;
-        display: table;
+        /* display: table; */
     }
 
     #FbTwitterPromoImage {
@@ -3488,8 +3488,9 @@ sandru chrome landscape
 @media only screen and (min-device-width: 569px) and (min-height: 228px) and (orientation: landscape) {
     #CustomizeTextHolder {
         position: absolute;
-        left: 118%;
+        left: 110%;
         justify-content: space-between;
+        width: 91%;
     }
 
     #MainMenuScreen {
@@ -3586,7 +3587,8 @@ sandru chrome landscape
     }
 
     input[type=text], select {
-        height: 20%;
+        /* height: 22%; */
+        font-size: 12px;
     }
 
     input[type=text]:hover {
@@ -3612,13 +3614,13 @@ sandru chrome landscape
     }
 
     #CustomizeText {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     #PlayerCustomizationHolder {
-        width: 100%;
+        width: 92%;
         height: 65px;
-        left: 118%;
+        left: 110%;
         display: flex;
         position: absolute;
         height: 100%;
@@ -3760,7 +3762,7 @@ sandru chrome landscape
     }
 
     #RightSide {
-        width: 24%;
+        width: 32%;
     }
 
     .rightSideElementsHolder {
@@ -3775,9 +3777,9 @@ sandru chrome landscape
     }
 
     #FbTwitterPromoHolder {
-        overflow: overlay;
-        height: 64%;
-        display: table;
+        /* overflow: overlay; */
+        /* height: 64%; */
+        /* display: table; */
     }
 
     #FbTwitterPromoImage {
