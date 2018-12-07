@@ -3066,8 +3066,8 @@ sandru opera mini landscape
     input[type=text], select {
         height: 0%;
         font-size: 11px;
-        padding-top: 3px;
-        padding-bottom: 3px;
+        padding-top: 3%;
+        padding-bottom: 3%;
     }
 
     input[type=text]:hover {
@@ -4154,7 +4154,7 @@ sandru edge landscape
         /* height: 100%; */
         top: 0;
         width: 100%;
-        height: 26%;
+        height: 25%;
         /* background: #4caf50; */
         float: left;
         /* margin-top: 3%; */
@@ -4240,7 +4240,7 @@ sandru edge landscape
         width: 100%;
         height: 78px;
         float: right;
-        width: 53%;
+        width: 50%;
         height: 100%;
         /* background-color: #002690; */
         /* float: left; */
@@ -4260,9 +4260,9 @@ sandru edge landscape
         /* height: 100%; */
         /* max-width: 100%; */
         /* position: relative; */
-        width: 50%;
+        /* width: 50%; */
         height: auto;
-        width: 100%;
+        width: 57%;
     }
 
     #AvatarImage {
