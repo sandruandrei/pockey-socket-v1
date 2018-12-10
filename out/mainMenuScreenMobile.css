@@ -3108,6 +3108,7 @@ sandru opera mini landscape
 
     .normalButtonHolder {
         height: 19%;
+        height: 26px;
     }
 
     .itemsArrows:hover .normalButtonBackground {

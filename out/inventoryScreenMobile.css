@@ -1,6 +1,10 @@
 @media only screen and (orientation: portrait) {
-    .inventoryButton:hover {color: #2d889c;float: left;border-color: #1b5a67;}
-    
+    .inventoryButton:hover {
+        color: #2d889c;
+        float: left;
+        border-color: #1b5a67;
+    }
+
     #InventoryScreen {
         float: none;
         width: 92vw;
@@ -506,7 +510,7 @@ sandru chrome
     }
 
     #ItemNameHolder {
-    width: 82px;
+        width: 82px;
     }
 
     #FirstDescriptionLineHolder {
@@ -566,7 +570,7 @@ sandru chrome
     }
 
     .itemDescriptionTitleLine {
-    bottom: 118px;
+        bottom: 118px;
     }
 
     .equipButtonHolder {
@@ -576,8 +580,8 @@ sandru chrome
     }
 
     .inventoryAvatarBox {
-    width: 82px;
-    height: 82px;
+        width: 82px;
+        height: 82px;
     }
 }
 
@@ -899,7 +903,7 @@ ilie chrome
     }
 
     #ItemsButtonsHolder {
-    width: 108px;
+        width: 108px;
     }
 
     #WalletCoinsValue {
@@ -1127,4 +1131,204 @@ ada iphone x
     }
 }
 
+@media only screen and (orientation: landscape) {
+    #InventoryScreen {
+    width: 100%;
+    /* margin-left: auto; */
+    /* margin-right:0; */
+    /* justify-self: right; */
+    /* float: right; */
+    /* right: 0; */
+    left: auto 0;
+    /* position: relative; */
+    }
 
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    #InventoryElementsHolder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* overflow: hidden; */
+    /* float: right; */
+    }
+
+    #InventoryTitle {
+    display: none;
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+    /* display: none; */
+    /* position: absolute; */
+    /* left: 0; */
+    width: 18%;
+    height: 76%;
+    /* height: calc(100% - 48px); */
+    flex-direction: column;
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+    }
+
+    .inventoryButton:hover {
+    }
+
+    .inventoryButton {
+    width: 100%;
+    height: 14%;
+    float: none;
+    font-size: 10px;
+    /* text-align: center; */
+    justify-content: center;
+    /* display: none; */
+    }
+
+    .inventoryButtonLogo {
+    display: none;
+    }
+
+    #ItemPanel {
+    height: 78%;
+    width: 78%;
+    float: right;
+    left: auto;
+    position: relative;
+    /* background: brown; */
+    /* display: none; */
+    }
+
+    #ItemInfoHolder {
+    /* display: none; */
+    width: 33%;
+    }
+
+    #ItemsHolderWrapper {
+    width: 65%;
+    /* display: none; */
+    }
+
+    #ItemsHolder {
+    }
+
+    .itemsColumn {
+    margin-right: 3px;
+    }
+
+    .inventoryItemBox {
+    width: 36px;
+    height: 36px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+    height: 36px;
+    }
+
+    #ItemDescription {
+    font-size: 8.6px;
+    }
+
+    #EquipButtonHolder {
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+    width: 70%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    font-size: 11px;
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+    /* position: relative; */
+    /* margin-bottom: 80px; */
+    position: fixed;
+    bottom: 0;
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    width: 78px;
+    }
+
+    #WalletCoinsValue {
+    font-size: 16px;
+    }
+
+    #WalletCoinsLogo {
+    background-size: 90%;
+    background-position: center;
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+    width: 27px;
+    /* height: 140px; */
+    }
+
+    #ItemsPrevButtonArrow {
+    /* width: 100%; */
+    /* height: 46%; */
+    /* background-size: contain; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+
+    #ItemsNextButtonArrow {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
+}
