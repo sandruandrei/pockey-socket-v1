@@ -3107,7 +3107,7 @@ sandru opera mini landscape
     }
 
     .normalButtonHolder {
-        height: 19%;
+        /* height: 19%; */
         height: 26px;
     }
 
@@ -3626,7 +3626,7 @@ sandru chrome landscape
     }
 
     .normalButtonHolder {
-        height: 20%;
+        /* height: 20%; */
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -4164,7 +4164,7 @@ sandru edge landscape
     }
 
     .normalButtonHolder {
-        height: 13%;
+        /* height: 32px; */
     }
 
     .itemsArrows:hover .normalButtonBackground {
