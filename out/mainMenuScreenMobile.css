@@ -3066,8 +3066,8 @@ sandru opera mini landscape
     input[type=text], select {
         height: 0%;
         font-size: 11px;
-        padding-top: 3%;
-        padding-bottom: 3%;
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
     input[type=text]:hover {

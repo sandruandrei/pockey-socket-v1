@@ -1426,12 +1426,12 @@ sandru chrome landscape
     }
 
     .itemsColumn {
-        margin-right: 8px;
+        margin-right: 4px;
     }
 
     .inventoryItemBox {
-        width: 52px;
-        height: 52px;
+        width: 41px;
+        height: 41px;
     }
 
     .inventoryItemBoxBackground {
@@ -1453,7 +1453,7 @@ sandru chrome landscape
     }
 
     #ItemAvatarAndName {
-        height: 52px;
+        height: 41px;
     }
 
     #ItemDescription {
@@ -1461,15 +1461,15 @@ sandru chrome landscape
     }
 
     #EquipButtonHolder {
-    /* height: 19%; */
-    /* height: 34px; */
+        /* height: 19%; */
+        /* height: 34px; */
     }
 
     #ItemAvatar {
     }
 
     #ItemNameHolder {
-        width: 66%;
+        width: 73%;
     }
 
     #FirstDescriptionLineHolder {
@@ -1545,9 +1545,157 @@ sandru chrome landscape
         background-position: center;
     }
 
-    .inventoryNormalButtonHolder
-    {
+    .inventoryNormalButtonHolder {
         height: 32px;
+    }
+
+}
+
+/*
+sandru edge landscape
+*/
+
+@media only screen and (min-device-width: 569px) and (min-height: 288px) and (orientation: landscape) {
+
+    #InventoryScreen {
+    }
+
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    #InventoryElementsHolder {
+    }
+
+    #InventoryTitle {
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+    }
+
+    .inventoryButton:hover {
+    }
+
+    .inventoryButton {
+    }
+
+    .inventoryButtonLogo {
+    }
+
+    #ItemPanel {
+    }
+
+    #ItemInfoHolder {
+    }
+
+    #ItemsHolderWrapper {
+    }
+
+    #ItemsHolder {
+    }
+
+    .itemsColumn {
+    }
+
+    .inventoryItemBox {
+        width: 54px;
+        height: 54px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+        height: 54px;
+    }
+
+    #ItemDescription {
+    }
+
+    #EquipButtonHolder {
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 66%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    }
+
+    #WalletCoinsValue {
+    }
+
+    #WalletCoinsLogo {
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+    }
+
+    #ItemsPrevButtonArrow {
+    }
+
+    #ItemsNextButtonArrow {
+    }
+
+    .inventoryNormalButtonHolder {
     }
 
 }
