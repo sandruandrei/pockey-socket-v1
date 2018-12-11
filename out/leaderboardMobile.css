@@ -1,21 +1,21 @@
 @media only screen and (orientation: portrait) {
     #LeaderBoardScreen {
-    float: none;
-    width: 92vw;
-    top: 18px;
-    height: 380px;
-    /* background-color: green; */
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    /* width: 900px; */
-    margin-left: -46vw;
+        float: none;
+        width: 92vw;
+        top: 18px;
+        height: 380px;
+        /* background-color: green; */
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        /* width: 900px; */
+        margin-left: -46vw;
     }
 
     #LeaderBoardTitle {
-    display: none;
+        display: none;
     }
 
     #LeaderboardRowsHolder {
@@ -31,7 +31,7 @@
     }
 
     .leaderBoardRow {
-    grid-template-columns: 0.7fr 2fr 1fr;
+        grid-template-columns: 0.7fr 2fr 1fr;
     }
 
     .leaderBoardRow:hover .normalCell {
@@ -41,19 +41,19 @@
     }
 
     .normalCell {
-    font-size: 16px;
+        font-size: 16px;
     }
 
     .leaderBoardTitleCell {
-    /* display: none; */
+        /* display: none; */
     }
 
     .playerBoardTitleCell {
-    font-size: 18px;
+        font-size: 18px;
     }
 
     .leaderBoardPlaceCell {
-    /* font-size: 14px; */
+        /* font-size: 14px; */
     }
 
     .leaderBoardNameCell {
@@ -63,15 +63,15 @@
     }
 
     .leaderBoardRatingCell {
-    display: none;
+        display: none;
     }
 
     .leaderBoardPlaytimeCell {
-    display: none;
+        display: none;
     }
 
     #LeaderBoardElementsHolder {
-    height: 328px;
+        height: 328px;
     }
 
     #LeaderBoardTitleLine {
@@ -120,14 +120,14 @@ sandru opera mini
     }
 
     .normalCell {
-    font-size: 15px;
+        font-size: 15px;
     }
 
     .leaderBoardTitleCell {
     }
 
     .playerBoardTitleCell {
-    font-size: 17px;
+        font-size: 17px;
     }
 
     .leaderBoardPlaceCell {
@@ -146,7 +146,7 @@ sandru opera mini
     }
 
     #LeaderBoardElementsHolder {
-    height: 328px;
+        height: 328px;
     }
 
     #LeaderBoardTitleLine {
@@ -186,7 +186,7 @@ sandru chrome
     }
 
     .leaderBoardRow {
-    height: 26px;
+        height: 26px;
     }
 
     .leaderBoardRow:hover .normalCell {
@@ -196,21 +196,21 @@ sandru chrome
     }
 
     .normalCell {
-    /* height: 24px; */
+        /* height: 24px; */
     }
 
     .leaderBoardTitleCell {
     }
 
     .playerBoardTitleCell {
-    font-size: 17px;
+        font-size: 17px;
     }
 
     .leaderBoardPlaceCell {
     }
 
     .leaderBoardNameCell {
-    /* height: 24px; */
+        /* height: 24px; */
     }
 
     .leaderBoardHighscoreCell {
@@ -223,7 +223,7 @@ sandru chrome
     }
 
     #LeaderBoardElementsHolder {
-    height: 358px;
+        height: 358px;
     }
 
     #LeaderBoardTitleLine {
@@ -245,7 +245,7 @@ sandru flow
 */
 @media only screen and (min-device-width: 320px) and (min-height: 540px) and (orientation: portrait) {
     #LeaderBoardScreen {
-    height: 440px;
+        height: 440px;
     }
 
     #LeaderBoardTitle {
@@ -264,7 +264,7 @@ sandru flow
     }
 
     .leaderBoardRow {
-    height: 30px;
+        height: 30px;
     }
 
     .leaderBoardRow:hover .normalCell {
@@ -298,7 +298,7 @@ sandru flow
     }
 
     #LeaderBoardElementsHolder {
-    height: 92%;
+        height: 92%;
     }
 
     #LeaderBoardTitleLine {
@@ -347,7 +347,7 @@ ilie chrome
     }
 
     .normalCell {
-    font-size: 16px;
+        font-size: 16px;
     }
 
     .leaderBoardTitleCell {
@@ -357,7 +357,7 @@ ilie chrome
     }
 
     .leaderBoardPlaceCell {
-    /* font-size: 15px; */
+        /* font-size: 15px; */
     }
 
     .leaderBoardNameCell {
@@ -394,7 +394,7 @@ ada iphone x
 */
 @media only screen and (min-device-width: 370px) and (min-height: 628px) and (orientation: portrait) {
     #LeaderBoardScreen {
-    height: 480px;
+        height: 480px;
     }
 
     #LeaderBoardTitle {
@@ -413,7 +413,7 @@ ada iphone x
     }
 
     .leaderBoardRow {
-    height: 32px;
+        height: 32px;
     }
 
     .leaderBoardRow:hover .normalCell {
@@ -453,6 +453,245 @@ ada iphone x
     }
 
     #PlayerBoardColumnTitles {
+    }
+
+    #PlayerBoardColumnTitles:hover {
+
+    }
+
+    #LeaderboardLogo {
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    #LeaderBoardScreen {
+        height: 100%;
+    }
+
+    #LeaderBoardTitle {
+        display: none;
+    }
+
+    #LeaderboardRowsHolder {
+    }
+
+    #LeaderBoardRankings {
+    }
+
+    #LeaderBoardColumnTitles {
+    }
+
+    #PlayerRank {
+    }
+
+    .leaderBoardRow {
+        height: 10px;
+    }
+
+    .leaderBoardRow:hover .normalCell {
+    }
+
+    .leaderBoardRow:hover {
+    }
+
+    .normalCell {
+        font-size: 12px;
+    }
+
+    .leaderBoardTitleCell {
+        font-size: 10px;
+    }
+
+    .playerBoardTitleCell {
+        font-size: 13px;
+    }
+
+    .leaderBoardPlaceCell {
+        /* font-size: 12px; */
+    }
+
+    .leaderBoardNameCell {
+    }
+
+    .leaderBoardHighscoreCell {
+    }
+
+    .leaderBoardRatingCell {
+    }
+
+    .leaderBoardPlaytimeCell {
+    }
+
+    #LeaderBoardElementsHolder {
+    }
+
+    #LeaderBoardTitleLine {
+    }
+
+    #PlayerBoardColumnTitles {
+        height: 14px;
+    }
+
+    #PlayerBoardColumnTitles:hover {
+
+    }
+
+    #LeaderboardLogo {
+    }
+}
+
+/*
+sandru opera mini landscape
+*/
+
+@media only screen and (min-device-width: 569px) and (min-height: 188px) and (orientation: landscape) {
+    #LeaderBoardScreen {
+        height: 100%;
+    }
+
+    #LeaderBoardTitle {
+        display: none;
+    }
+
+    #LeaderboardRowsHolder {
+    }
+
+    #LeaderBoardRankings {
+    }
+
+    #LeaderBoardColumnTitles {
+    }
+
+    #PlayerRank {
+    }
+
+    .leaderBoardRow {
+        height: 10px;
+    }
+
+    .leaderBoardRow:hover .normalCell {
+    }
+
+    .leaderBoardRow:hover {
+    }
+
+    .normalCell {
+        font-size: 12px;
+    }
+
+    .leaderBoardTitleCell {
+        font-size: 10px;
+    }
+
+    .playerBoardTitleCell {
+        font-size: 13px;
+    }
+
+    .leaderBoardPlaceCell {
+        /* font-size: 12px; */
+    }
+
+    .leaderBoardNameCell {
+    }
+
+    .leaderBoardHighscoreCell {
+    }
+
+    .leaderBoardRatingCell {
+    }
+
+    .leaderBoardPlaytimeCell {
+    }
+
+    #LeaderBoardElementsHolder {
+    }
+
+    #LeaderBoardTitleLine {
+    }
+
+    #PlayerBoardColumnTitles {
+        height: 14px;
+    }
+
+    #PlayerBoardColumnTitles:hover {
+
+    }
+
+    #LeaderboardLogo {
+    }
+}
+
+/*
+sandru chrome landscape
+*/
+
+@media only screen and (min-device-width: 569px) and (min-height: 228px) and (orientation: landscape) {
+    #LeaderBoardScreen {
+        height: 100%;
+    }
+
+    #LeaderBoardTitle {
+        display: none;
+    }
+
+    #LeaderboardRowsHolder {
+    }
+
+    #LeaderBoardRankings {
+    }
+
+    #LeaderBoardColumnTitles {
+    }
+
+    #PlayerRank {
+    }
+
+    .leaderBoardRow {
+        height: 17px;
+    }
+
+    .leaderBoardRow:hover .normalCell {
+    }
+
+    .leaderBoardRow:hover {
+    }
+
+    .normalCell {
+        font-size: 14px;
+    }
+
+    .leaderBoardTitleCell {
+        font-size: 12px;
+    }
+
+    .playerBoardTitleCell {
+        font-size: 15px;
+    }
+
+    .leaderBoardPlaceCell {
+        /* font-size: 12px; */
+    }
+
+    .leaderBoardNameCell {
+    }
+
+    .leaderBoardHighscoreCell {
+    }
+
+    .leaderBoardRatingCell {
+    }
+
+    .leaderBoardPlaytimeCell {
+    }
+
+    #LeaderBoardElementsHolder {
+    }
+
+    #LeaderBoardTitleLine {
+    }
+
+    #PlayerBoardColumnTitles {
+        height: 18px;
     }
 
     #PlayerBoardColumnTitles:hover {

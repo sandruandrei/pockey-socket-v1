@@ -96,7 +96,6 @@
         margin-right: 6px;
     }
 
-
     #ItemAvatarAndName {
         width: auto;
     }
@@ -408,8 +407,6 @@ sandru chrome
         height: 98%;
     }
 
-
-
     #ItemNameHolder {
         width: 82px;
     }
@@ -491,7 +488,6 @@ sandru flow
 */
 @media only screen and (min-device-width: 320px) and (min-height: 540px) and (orientation: portrait) {
 
-
     #InventoryButtonsHolder {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -566,8 +562,6 @@ sandru flow
 
     .inventoryRightSideMask {
     }
-
-
 
     #EquipButtonHolder {
     }
@@ -1172,8 +1166,6 @@ ada iphone x
         background-position: center;
     }
 
-
-
     .itemsArrows {
         width: 27px;
         /* height: 140px; */
@@ -1322,7 +1314,7 @@ sandru chrome landscape
     }
 
     #EquipButtonHolder {
-        /* height: 19%; */
+        /* height: 100%; */
         /* height: 34px; */
     }
 
@@ -1398,9 +1390,11 @@ sandru chrome landscape
     }
 
     #ItemsNextButtonArrow {
+        /* background: url(Assets/Desktop/Images/icon_arrow1-right.svg); */
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        /* background: url(Assets/Desktop/Images/icon_arrow1-right.svg); */
     }
 
     .inventoryNormalButtonHolder {
@@ -1417,8 +1411,6 @@ sandru edge landscape
 
     #InventoryScreen {
     }
-
-
 
     .inventoryItemBox {
         width: 54px;
@@ -1443,6 +1435,204 @@ sandru edge landscape
 
     #ItemNameHolder {
         width: 66%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    }
+
+    #WalletCoinsValue {
+    }
+
+    #WalletCoinsLogo {
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+    }
+
+    #ItemsPrevButtonArrow {
+    }
+
+    #ItemsNextButtonArrow {
+    }
+
+    .inventoryNormalButtonHolder {
+    }
+
+}
+
+/*
+iPhone landscape
+*/
+
+@media only screen and (min-device-width: 667px) and (min-height: 328px) and (orientation: landscape) {
+
+    #InventoryScreen {
+    }
+
+    .equipButtonHolder {
+        height: 32px;
+    }
+
+    .itemsColumn {
+        margin-right: 6px;
+    }
+
+    .inventoryItemBox {
+        width: 61px;
+        height: 61px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    #ItemAvatarAndName {
+        height: 61px;
+    }
+
+    #ItemDescription {
+    }
+
+    #EquipButtonHolder {
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 64%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    }
+
+    #WalletCoinsValue {
+    }
+
+    #WalletCoinsLogo {
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+    }
+
+    #ItemsPrevButtonArrow {
+    }
+
+    #ItemsNextButtonArrow {
+    }
+
+    .inventoryNormalButtonHolder {
+    height: 36px;
+    width: 36px;
+    }
+
+}
+
+/*
+ilie landscape
+*/
+
+@media only screen and (min-device-width: 678px) and (min-height: 274px) and (orientation: landscape) {
+
+    #InventoryScreen {
+    }
+
+    .equipButtonHolder {
+        height: 32px;
+    }
+
+    .inventoryItemBox {
+        width: 50px;
+        height: 50px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    #ItemAvatarAndName {
+        height: 50px;
+    }
+
+    #ItemDescription {
+    }
+
+    #EquipButtonHolder {
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 71%;
     }
 
     #FirstDescriptionLineHolder {

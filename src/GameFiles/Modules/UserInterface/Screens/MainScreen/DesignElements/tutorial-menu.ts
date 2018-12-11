@@ -44,10 +44,7 @@ namespace Pockey {
                         document.getElementById("ShareButtonsHolder").style.display = "none";
                     }
                     else {
-                        // if(Settings.isMobile)
-                        // {
-                        //
-                        // }
+
                         this.howToPlayButton.style.borderColor = "";
                         buttonBg.style.backgroundColor = "";
                         buttonBg.style.color = "";
@@ -55,7 +52,11 @@ namespace Pockey {
 
                         document.getElementById("HowToPlayImage").style.display = "none";
                         document.getElementById("FbTwitterPromoHolder").style.display = "flex";
-                        document.getElementById("ShareButtonsHolder").style.display = "block";
+                        if(Settings.isMobile && Settings.stageHeight > 228)
+                        {
+                            document.getElementById("ShareButtonsHolder").style.display = "block";
+                        }
+
                     }
                 };
 

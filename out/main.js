@@ -6488,6 +6488,7 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
+        var Settings = Framework.Settings;
         var TutorialMenu = (function () {
             function TutorialMenu() {
                 var _this = this;
@@ -6516,7 +6517,9 @@ var Pockey;
                         _this.howToPlayImage.style.background = "none";
                         document.getElementById("HowToPlayImage").style.display = "none";
                         document.getElementById("FbTwitterPromoHolder").style.display = "flex";
-                        document.getElementById("ShareButtonsHolder").style.display = "block";
+                        if (Settings.isMobile && Settings.stageHeight > 228) {
+                            document.getElementById("ShareButtonsHolder").style.display = "block";
+                        }
                     }
                 };
             }

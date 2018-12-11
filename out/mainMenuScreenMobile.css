@@ -3278,7 +3278,7 @@ sandru opera mini landscape
     }
 
     #ShareButtonsHolder {
-        display: none !important;
+        display: none;
     }
 
     #FbShareLogo {
@@ -3802,7 +3802,7 @@ sandru chrome landscape
     }
 
     #ShareButtonsHolder {
-        display: none !important;
+        display: none;
     }
 
     #FbShareLogo {
@@ -4407,7 +4407,7 @@ sandru edge landscape
     }
 
     #ShareButtonsHolder {
-        display: none !important;
+        display: block;
     }
 
     #FbShareLogo {
@@ -4648,10 +4648,10 @@ sandru edge landscape
 }
 
 /*
-ilie landscape
+iPhone landscape
 */
 
-@media only screen and (min-device-width: 678px) and (min-height: 274px) and (orientation: landscape) {
+@media only screen and (min-device-width: 667px) and (min-height: 328px) and (orientation: landscape) {
     #CustomizeTextHolder {
         /* position: absolute; */
         /* left: 110%; */
@@ -4816,6 +4816,7 @@ ilie landscape
     }
 
     .normalButtonHolder {
+        height: 13%;
         /* height: 32px; */
     }
 
@@ -5008,6 +5009,7 @@ ilie landscape
     }
 
     #HowToPlayButtonHolder {
+        /* height: 0%; */
     }
 
     #FbTwitterPromoHolder {
@@ -5042,7 +5044,7 @@ ilie landscape
     }
 
     #ShareButtonsHolder {
-        display: none !important;
+        display: block;
     }
 
     #FbShareLogo {
@@ -5127,10 +5129,621 @@ ilie landscape
     }
 
     #MainMenuElementsHolder {
-width: calc(90% - 90px);
-padding-top: 30px;
-height: calc(100% - 44px);
-}
+
+        width: calc(100% - 90px);
+
+        padding-top: 30px;
+
+        height: calc(100% - 44px);
+
+    }
+
+    #HowToPlayImage {
+
+    }
+
+    .hideElement {
+        display: none !important;
+    }
+
+    .showElement {
+        display: block;
+    }
+
+    #CorrectText {
+        font-size: 10px;
+    }
+
+    #MainMenuBg {
+        display: none;
+
+        width: 100%;
+        height: 100%;
+        background: #00000048;
+        position: absolute;
+        border: 0;
+    }
+
+    #MenuTitle {
+
+        font-size: 18px;
+
+        color: #1abdca;
+
+        font-family: "troika";
+
+        float: right;
+
+        height: auto;
+
+        margin-right: 8px;
+
+        display: flex;
+
+        align-items: center;
+
+    }
+
+    #BackToMainMenuButton {
+
+        float: left;
+
+        width: 12%;
+
+        height: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+    }
+
+    #MenuLogo {
+
+        width: 26px;
+
+        height: 26px;
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 22px;
+
+        height: 22px;
+
+    }
+
+    #BackToMainMenuButtonIcon {
+
+        background: url(Assets/Desktop/Images/icon_arrow1-left.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 14px;
+
+        height: 14px;
+
+        padding-left: 4px;
+
+    }
+
+    #MainMenuBackButtonHolder {
+
+        height: 32px;
+
+        width: 100%;
+
+    }
+
+}
+
+/*
+ilie landscape
+*/
+
+@media only screen and (min-device-width: 678px) and (min-height: 274px) and (orientation: landscape) {
+    #CustomizeTextHolder {
+        /* position: absolute; */
+        /* left: 110%; */
+        /* justify-content: space-between; */
+        /* width: 91%; */
+        width: 100%;
+        height: 4%;
+        float: left;
+        /* margin-top: 5%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        position: inherit;
+    }
+
+    #MainMenuScreen {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #MainButtonsHolder {
+        width: 100%;
+        vertical-align: middle;
+        position: absolute;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .simpleBtn {
+        height: auto;
+        color: #20D7EE;
+        font-family: "troika";
+        font-size: 2em;
+        background: none;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .simpleBtnArrowOnClick {
+
+        background: url("Assets/Desktop/Images/icon_arrow1-right.svg");
+
+        background-size: 58%;
+
+        background-repeat: no-repeat;
+
+        background-position: left center;
+
+        width: 28px;
+
+        height: 30px;
+
+        float: left;
+    }
+
+    .simpleBtnHighlightOnClick {
+
+        background: url("Assets/Desktop/Images/menu_highlight.svg");
+
+        background-size: 100%;
+
+        background-repeat: no-repeat;
+
+        width: 68%;
+
+        margin-left: 16%;
+
+        height: 18px;
+
+        float: left;
+
+    }
+
+    #LoginScreen {
+        justify-content: space-around;
+    }
+
+    #RightSideBackground {
+        width: 100%;
+        height: 100%;
+        background: none;
+        display: none;
+    }
+
+    #LeftSide {
+        /* width: 32%; */
+        /* height: 100%; */
+        width: 38%;
+        height: 100%;
+        /* background: #bede1c; */
+        float: left;
+    }
+
+    #LeftSideButtonsHolder {
+        width: 100%;
+        margin-left: 0%;
+        position: relative;
+    }
+
+    #InputTextHolder {
+    }
+
+    input[type=text], select {
+        /* height: 22%; */
+        font-size: 12px;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+
+    input[type=text]:hover {
+        background: white;
+        caret-color: #0f404b;
+        color: #2d899d;
+    }
+
+    #MainMenuPlayerRankingsHolder {
+    }
+
+    #MainMenuPlayerWins {
+    }
+
+    .mainMenuRankingText {
+        top: 32px;
+
+    }
+
+    .customizeLineHolder {
+        width: 44%;
+        /* height: 3px; */
+    }
+
+    #CustomizeText {
+        font-size: 10px;
+    }
+
+    #PlayerCustomizationHolder {
+        /* width: 92%; */
+        /* height: 65px; */
+        /* left: 110%; */
+        /* display: flex; */
+        /* position: absolute; */
+        /* height: 100%; */
+        top: 0;
+        width: 100%;
+        height: 24%;
+        /* background: #4caf50; */
+        float: left;
+        /* margin-top: 3%; */
+        left: 0;
+        position: inherit;
+    }
+
+    .normalButtonHolder {
+        height: 13%;
+        /* height: 32px; */
+    }
+
+    .itemsArrows:hover .normalButtonBackground {
+    }
+
+    .shareButton:hover .shareButtonBackground {
+        background: white;
+        color: #2d899d;
+        cursor: pointer;
+    }
+
+    #PlayerColorAndAvatarHolder {
+        width: 100%;
+        height: 100%;
+        float: none;
+        display: block;
+        flex-direction: row;
+        justify-content: inherit;
+    }
+
+    .arrowHolder:hover .leftArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-left.svg");
+        background-size: contain;
+    }
+
+    .arrowHolder:hover .rightArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-right.svg");
+        background-size: contain;
+    }
+
+    .leftArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-left-reg.svg");
+        width: 24px;
+        height: 24px;
+        background-size: 100%;
+    }
+
+    .rightArrow {
+        background: url("Assets/Desktop/Images/icon_arrow1-right-reg.svg");
+        background-size: 100%;
+        width: 24px;
+        height: 24px;
+    }
+
+    #PlayerColorHolder {
+        /* width: 73%; */
+        /* order: 2; */
+        /* height: 21%; */
+        /* align-self: center; */
+        width: 38%;
+        height: 100%;
+        /* background-color: #2f92e8; */
+        float: left;
+        /* margin-left: 4%; */
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: space-between; */
+        order: inherit;
+        align-self: flex-start;
+    }
+
+    #ColorHolder {
+        width: 38px;
+        height: 100%;
+        justify-content: center;
+    }
+
+    .dotBorder {
+        height: 28px;
+        width: 28px;
+    }
+
+    #PlayerAvatarHolder {
+        width: 100%;
+        height: 78px;
+        float: right;
+        width: 50%;
+        height: 100%;
+        /* background-color: #002690; */
+        /* float: left; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* display: none; */
+    }
+
+    .avatarHolder {
+        /* width: 78px; */
+        /* height: 78px; */
+        /* width: 74px; */
+        /* height: 74px; */
+        /* width: 74px; */
+        /* height: 74px; */
+        /* height: 100%; */
+        /* max-width: 100%; */
+        /* position: relative; */
+        /* width: 50%; */
+        height: auto;
+        width: 49%;
+    }
+
+    #AvatarImage {
+        /* width: 94%; */
+        /* height: 94%; */
+        /* width: 62px; */
+        /* height: 62px; */
+    }
+
+    #OrText {
+        /* font-family: "midtown"; */
+        /* font-size: 21px; */
+        /* color: white; */
+        /* width: 24%; */
+        /* height: 100%; */
+        /* float: left; */
+        /* text-align: center; */
+        -webkit-touch-callout: none;
+        /* -webkit-user-select: none; */
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        /* user-select: none; */
+        /* margin-top: -4px; */
+        /* top: 29px; */
+        /* margin-left: 4px; */
+        /* margin-right: 4px; */
+        height: 38px;
+        width: 34px;
+    }
+
+    #OrTextHolder {
+
+        /* height: 2%; */
+
+        /* width: 92vw; */
+
+        /* display: none; */
+
+        width: 100%;
+
+        height: 4%;
+
+        float: left;
+
+        /* margin-top: 5%; */
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+    }
+
+    #FacebookBtnLogo {
+        background: url("Assets/Desktop/Images/facebook_logo.svg");
+        background-size: contain;
+        background-position: center;
+        height: 12px;
+        width: 12px;
+        background-repeat: no-repeat;
+    }
+
+    #GoogleBtnLogo {
+        /* background: url("Assets/Desktop/Images/google_logo.svg"); */
+        /* background-size: 100%; */
+        height: 12px;
+        width: 12px;
+        /* background-position: center; */
+        /* background-repeat: no-repeat; */
+    }
+
+    #MiddleSide {
+        display: flex;
+        width: 0.4%;
+        height: 100%;
+    }
+
+    #RightSide {
+        width: 38%;
+    }
+
+    .rightSideElementsHolder {
+        width: 100%;
+        height: 100%;
+        /* background: #845ac7; */
+        float: left;
+        margin-left: 0;
+    }
+
+    #HowToPlayButtonHolder {
+        /* height: 0%; */
+    }
+
+    #FbTwitterPromoHolder {
+        /* overflow: overlay; */
+        /* height: 74%; */
+        /* max-width: 100%; */
+        /* max-height: 100%; */
+        /* display: table; */
+        /* width: 100%; */
+        /* height: auto; */
+        /* padding-top: 71%; */
+        height: calc(width * 1.75);
+        /* max-width: 100%; */
+        /* height: auto; */
+        height: auto;
+        width: 100%;
+        width: auto \9;
+    }
+
+    #FbTwitterPromoImage {
+        /* width: 97%; */
+        /* max-width: 100%; */
+        width: auto \9;
+        /* max-width: 100%; */
+        /* height: 100%; */
+        /* max-height: 100%; */
+        /* width: 100%; */
+        /* padding-top: 72%; */
+        /* background-size: 97%; */
+        /* background-position: center; */
+        width: auto \9;
+    }
+
+    #ShareButtonsHolder {
+        display: flex;
+    }
+
+    #FbShareLogo {
+        background: url("Assets/Desktop/Images/facebook_share_logo.svg");
+        background-size: 32%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-position: 50%;
+    }
+
+    #TwitterFollowLogo {
+        background: url("Assets/Desktop/Images/twitter_logo.svg");
+        background-size: 72%;
+        background-repeat: no-repeat;
+        background-color: white;
+        background-position: 50%;
+    }
+
+    #TwitterFollowButton {
+        margin-left: 4%;
+        /*width: 46%;*/
+    }
+
+    .shareButton {
+        width: 48%;
+        height: 100%;
+        float: left;
+    }
+
+    .shareButtonLogo {
+        width: 25%;
+        height: 100%;
+        background: #ffffff;
+        float: left;
+        border-radius: 4px;
+    }
+
+    .shareButtonBackground {
+        width: 73%;
+        height: 100%;
+        float: left;
+        background: #2D899D;
+        border-radius: 4px;
+        font-size: 16px;
+        font-family: "troika";
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 2%;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+
+    .normalButtonBackground {
+        font-size: 12px;
+    }
+
+    #ComingSoonImage {
+        background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
+        background-size: 96%;
+        width: 100%;
+        height: 692px;
+        background-repeat: no-repeat;
+        /* margin-top: 10%; */
+        border-color: white;
+        border-style: solid;
+        border-radius: 5px;
+        border-width: 0.1em;
+        box-sizing: border-box;
+        color: white;
+        font-family: "troika";
+        font-size: 36em;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        background-position: center;
+    }
+
+    #MainMenuElementsHolder {
+
+        width: calc(100% - 90px);
+
+        padding-top: 30px;
+
+        height: calc(100% - 44px);
+
+    }
 
     #HowToPlayImage {
 
