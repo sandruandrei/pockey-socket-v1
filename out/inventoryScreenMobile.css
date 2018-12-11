@@ -40,7 +40,6 @@
     }
 
     .inventoryTitleLine {
-        display: n;
     }
 
     #InventoryButtonsHolder {
@@ -81,7 +80,7 @@
 
     #ItemsHolderWrapper {
         position: absolute;
-        margin-left: 0px;
+        margin-left: 0;
         right: 50%;
         top: 0; /* float: right; */
         margin-right: -50%;
@@ -97,28 +96,6 @@
         margin-right: 6px;
     }
 
-    .inventoryItemBox {
-        /* width: 74px; */
-        /* height: 74px; */
-    }
-
-    .inventoryItemBoxBackground {
-    }
-
-    .inventoryRightSideMask {
-    }
-
-    .inventoryLeftSideMask {
-    }
-
-    .inventoryMask {
-    }
-
-    .inventoryItemBoxSelected {
-    }
-
-    .inventoryItemBoxLocked {
-    }
 
     #ItemAvatarAndName {
         width: auto;
@@ -128,7 +105,7 @@
         position: absolute;
         width: 188px;
         /* float: left; */
-        right: 0%;
+        right: 0;
         /* margin-right: -50%; */
         bottom: 54px;
         /* margin-bottom: -50%; */
@@ -431,83 +408,7 @@ sandru chrome
         height: 98%;
     }
 
-    .inventoryItemBoxCheckedBackground {
-    }
 
-    #InventoryElementsHolder {
-    }
-
-    #InventoryTitle {
-    }
-
-    .inventoryTitleLine {
-    }
-
-    #InventoryButtonsHolder {
-    }
-
-    .inventoryButton:hover .inventoryButtonLogo {
-
-    }
-
-    .inventoryButton:hover {
-
-    }
-
-    .inventoryButton {
-    }
-
-    .inventoryButtonLogo {
-    }
-
-    #ItemPanel { /* height: auto; */
-    }
-
-    #ItemInfoHolder {
-    }
-
-    #ItemsHolderWrapper {
-    }
-
-    #ItemsHolder {
-
-    }
-
-    .itemsColumn {
-    }
-
-    .inventoryItemBox {
-    }
-
-    .inventoryItemBoxBackground {
-    }
-
-    .inventoryRightSideMask {
-    }
-
-    .inventoryLeftSideMask {
-    }
-
-    .inventoryMask {
-    }
-
-    .inventoryItemBoxSelected {
-    }
-
-    .inventoryItemBoxLocked {
-    }
-
-    #ItemAvatarAndName {
-    }
-
-    #ItemDescription {
-    }
-
-    #EquipButtonHolder {
-    }
-
-    #ItemAvatar {
-    }
 
     #ItemNameHolder {
         width: 82px;
@@ -589,20 +490,7 @@ sandru chrome
 sandru flow
 */
 @media only screen and (min-device-width: 320px) and (min-height: 540px) and (orientation: portrait) {
-    #InventoryScreen {
-    }
 
-    .inventoryItemBoxCheckedBackground {
-    }
-
-    #InventoryElementsHolder {
-    }
-
-    #InventoryTitle {
-    }
-
-    .inventoryTitleLine {
-    }
 
     #InventoryButtonsHolder {
         display: grid;
@@ -654,7 +542,7 @@ sandru flow
 
     #ItemsHolderWrapper {
         position: absolute;
-        margin-left: 0px;
+        margin-left: 0;
         right: 0;
         left: 0;
         top: 18%; /* float: right; */
@@ -679,23 +567,7 @@ sandru flow
     .inventoryRightSideMask {
     }
 
-    .inventoryLeftSideMask {
-    }
 
-    .inventoryMask {
-    }
-
-    .inventoryItemBoxSelected {
-    }
-
-    .inventoryItemBoxLocked {
-    }
-
-    #ItemAvatarAndName {
-    }
-
-    #ItemDescription {
-    }
 
     #EquipButtonHolder {
     }
@@ -1122,9 +994,6 @@ ada iphone x
         /* width: 243px; */
     }
 
-    .equipButtonBackground {
-    }
-
     .inventoryAvatarBox {
         width: 88px;
         height: 88px;
@@ -1139,7 +1008,7 @@ ada iphone x
         /* justify-self: right; */
         /* float: right; */
         /* right: 0; */
-        left: auto 0;
+
         /* position: relative; */
     }
 
@@ -1303,14 +1172,7 @@ ada iphone x
         background-position: center;
     }
 
-    .buttonArrow {
-    }
 
-    .disabledInventoryBtn {
-    }
-
-    #ItemsNextButton:hover #ItemsNextButtonArrow {
-    }
 
     .itemsArrows {
         width: 27px;
@@ -1346,7 +1208,6 @@ sandru chrome landscape
         /* justify-self: right; */
         /* float: right; */
         /* right: 0; */
-        left: auto 0;
         /* position: relative; */
     }
 
@@ -1426,7 +1287,7 @@ sandru chrome landscape
     }
 
     .itemsColumn {
-        margin-right: 4px;
+        margin-right: 5px;
     }
 
     .inventoryItemBox {
@@ -1531,9 +1392,6 @@ sandru chrome landscape
     }
 
     #ItemsPrevButtonArrow {
-        /* width: 100%; */
-        /* height: 46%; */
-        /* background-size: contain; */
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -1560,47 +1418,7 @@ sandru edge landscape
     #InventoryScreen {
     }
 
-    .inventoryItemBoxCheckedBackground {
-    }
 
-    #InventoryElementsHolder {
-    }
-
-    #InventoryTitle {
-    }
-
-    .inventoryTitleLine {
-    }
-
-    #InventoryButtonsHolder {
-    }
-
-    .inventoryButton:hover .inventoryButtonLogo {
-    }
-
-    .inventoryButton:hover {
-    }
-
-    .inventoryButton {
-    }
-
-    .inventoryButtonLogo {
-    }
-
-    #ItemPanel {
-    }
-
-    #ItemInfoHolder {
-    }
-
-    #ItemsHolderWrapper {
-    }
-
-    #ItemsHolder {
-    }
-
-    .itemsColumn {
-    }
 
     .inventoryItemBox {
         width: 54px;
@@ -1608,21 +1426,6 @@ sandru edge landscape
     }
 
     .inventoryItemBoxBackground {
-    }
-
-    .inventoryRightSideMask {
-    }
-
-    .inventoryLeftSideMask {
-    }
-
-    .inventoryMask {
-    }
-
-    .inventoryItemBoxSelected {
-    }
-
-    .inventoryItemBoxLocked {
     }
 
     #ItemAvatarAndName {
