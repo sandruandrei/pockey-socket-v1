@@ -921,34 +921,20 @@
     }
 
     #BackToMainMenuButton {
-
-        float: left;
-
-        width: 22%;
-
-        /* background: green; */
-
-        height: 100%;
-
-        /* float: right; */
-
-        /* margin-left: auto; */
-
-        display: flex;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-family: "troika";
-
-        color: white;
-
-        /* margin-left: 8px; */
-
-    }
+float: left;
+width: auto;
+/* background: green; */
+height: 100%;
+/* float: right; */
+/* margin-left: auto; */
+display: flex;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "troika";
+color: white;
+margin-left: 8px;
+}
 
     #MenuLogo {
 
@@ -2869,34 +2855,20 @@ ada iphone x
     }
 
     #BackToMainMenuButton {
-
-        float: left;
-
-        width: 12%;
-
-        /* background: green; */
-
-        height: 100%;
-
-        /* float: right; */
-
-        /* margin-left: auto; */
-
-        display: flex;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-family: "troika";
-
-        color: white;
-
-        /* margin-left: 8px; */
-
-    }
+float: left;
+width: auto;
+/* background: green; */
+height: 100%;
+/* float: right; */
+/* margin-left: auto; */
+display: flex;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "troika";
+color: white;
+margin-left: 8px;
+}
 
     #MenuLogo {
 
