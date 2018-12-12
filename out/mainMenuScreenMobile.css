@@ -2857,7 +2857,7 @@ ada iphone x
     #BackToMainMenuButton {
 float: left;
 /* width: max-content; */
-background: green;
+/* background: green; */
 height: 100%;
 /* float: right; */
 /* margin-left: auto; */
@@ -2917,28 +2917,18 @@ ada iphone x
     }
 
     #MainMenuBackButtonHolder {
-
-        height: 40px;
-
-        width: 100%;
-
-        background: #00000068;
-
-        display: flex;
-
-        align-items: center;
-
-        flex-direction: row;
-
-        justify-content: space-between;
-
-        /* display: flex; */
-
-        /* flex-direction: column; */
-
-        /* justify-content: center; */
-
-    }
+height: 40px;
+width: 100%;
+background: #00000068;
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+z-index: 5000;
+/* display: flex; */
+/* flex-direction: column; */
+/* justify-content: center; */
+}
 }
 
 /*
@@ -3910,24 +3900,16 @@ sandru chrome landscape
     }
 
     #BackToMainMenuButton {
-
-        float: left;
-
-        width: 12%;
-
-        height: 100%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-family: "troika";
-
-        color: white;
-
-    }
+float: left;
+/* width: 12%; */
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "troika";
+color: white;
+cursor: pointer;
+}
 
     #MenuLogo {
 
