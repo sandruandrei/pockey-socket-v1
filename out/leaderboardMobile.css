@@ -789,7 +789,7 @@ iPhone landscape
 
 @media only screen and (min-device-width: 667px) and (min-height: 328px) and (orientation: landscape) {
     #LeaderBoardScreen {
-        height: 100%;
+        height: 94%;
     }
 
     #LeaderBoardTitle {
@@ -870,7 +870,7 @@ ilie landscape
 
 @media only screen and (min-device-width: 678px) and (min-height: 274px) and (orientation: landscape) {
     #LeaderBoardScreen {
-        height: 100%;
+        height: 99%;
     }
 
     #LeaderBoardTitle {

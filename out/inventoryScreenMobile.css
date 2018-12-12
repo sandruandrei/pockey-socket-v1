@@ -1042,7 +1042,7 @@ ada iphone x
 
     .inventoryButton {
         width: 100%;
-        height: 15%;
+        height: 14%;
         float: none;
         font-size: 9px;
         /* text-align: center; */
@@ -1130,6 +1130,215 @@ ada iphone x
     }
 
     #ItemNameText {
+        font-size: 10px;
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+        /* position: relative; */
+        /* margin-bottom: 80px; */
+        position: fixed;
+        bottom: 0;
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+        width: 78px;
+    }
+
+    #WalletCoinsValue {
+        font-size: 16px;
+    }
+
+    #WalletCoinsLogo {
+        background-size: 90%;
+        background-position: center;
+    }
+
+    .itemsArrows {
+        width: 26px;
+        /* height: 140px; */
+    }
+
+    #ItemsPrevButtonArrow {
+        /* width: 100%; */
+        /* height: 46%; */
+        /* background-size: contain; */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #ItemsNextButtonArrow {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+/*
+sandru chrome landscape
+*/
+
+@media only screen and (min-device-width: 569px) and (min-height: 228px) and (orientation: landscape) {
+
+    #InventoryScreen {
+        width: 100%;
+        /* margin-left: auto; */
+        /* margin-right:0; */
+        /* justify-self: right; */
+        /* float: right; */
+        /* right: 0; */
+
+        /* position: relative; */
+    }
+
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    .equipButtonHolder {
+        height: 28px;
+    }
+
+    .normalButtonHolder {
+
+    }
+
+    #InventoryElementsHolder {
+        width: 100%;
+        height: 100%;
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* justify-content: space-between; */
+        /* overflow: hidden; */
+        /* float: right; */
+    }
+
+    #InventoryTitle {
+        display: none;
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+        /* display: none; */
+        /* position: absolute; */
+        /* left: 0; */
+        width: 18%;
+        height: 78%;
+        /* height: calc(100% - 48px); */
+        flex-direction: column;
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+    }
+
+    .inventoryButton:hover {
+    }
+
+    .inventoryButton {
+        width: 100%;
+        height: 14%;
+        float: none;
+        font-size: 9px;
+        /* text-align: center; */
+        justify-content: center;
+        /* display: none; */
+    }
+
+    .inventoryButtonLogo {
+        display: none;
+    }
+
+    #ItemPanel {
+        height: 78%;
+        width: 80%;
+        float: right;
+        left: auto;
+        position: inherit;
+        /* background: brown; */
+        /* display: none; */
+    }
+
+    #ItemInfoHolder {
+        /* display: none; */
+        width: 33%;
+    }
+
+    #ItemsHolderWrapper {
+        width: 65%;
+        /* display: none; */
+    }
+
+    #ItemsHolder {
+    }
+
+    .itemsColumn {
+        margin-right: 4px;
+    }
+
+    .inventoryItemBox {
+        width: 44px;
+        height: 44px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+        height: 44px;
+    }
+
+    #ItemDescription {
+        font-size: 8.6px;
+    }
+
+    #EquipButtonHolder {
+        /* height: 89%; */
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 65%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
         font-size: 11px;
     }
 
@@ -1167,7 +1376,7 @@ ada iphone x
     }
 
     .itemsArrows {
-        width: 27px;
+        width: 28px;
         /* height: 140px; */
     }
 
@@ -1188,10 +1397,10 @@ ada iphone x
 }
 
 /*
-sandru chrome landscape
+sandru edge landscape
 */
 
-@media only screen and (min-device-width: 569px) and (min-height: 228px) and (orientation: landscape) {
+@media only screen and (min-device-width: 569px) and (min-height: 288px) and (orientation: landscape) {
 
     #InventoryScreen {
         width: 100%;
@@ -1256,7 +1465,7 @@ sandru chrome landscape
     }
 
     #ItemPanel {
-        height: 69%;
+        height: 71%;
         width: 100%;
         float: right;
         left: auto;
@@ -1279,12 +1488,12 @@ sandru chrome landscape
     }
 
     .itemsColumn {
-        margin-right: 5px;
+        margin-right: 4px;
     }
 
     .inventoryItemBox {
-        width: 41px;
-        height: 41px;
+        width: 54px;
+        height: 54px;
     }
 
     .inventoryItemBoxBackground {
@@ -1306,7 +1515,7 @@ sandru chrome landscape
     }
 
     #ItemAvatarAndName {
-        height: 41px;
+        height: 52px;
     }
 
     #ItemDescription {
@@ -1322,7 +1531,7 @@ sandru chrome landscape
     }
 
     #ItemNameHolder {
-        width: 73%;
+        width: 66%;
     }
 
     #FirstDescriptionLineHolder {
@@ -1399,98 +1608,6 @@ sandru chrome landscape
 
     .inventoryNormalButtonHolder {
         height: 32px;
-    }
-
-}
-
-/*
-sandru edge landscape
-*/
-
-@media only screen and (min-device-width: 569px) and (min-height: 288px) and (orientation: landscape) {
-
-    #InventoryScreen {
-    }
-
-    .inventoryItemBox {
-        width: 54px;
-        height: 54px;
-    }
-
-    .inventoryItemBoxBackground {
-    }
-
-    #ItemAvatarAndName {
-        height: 54px;
-    }
-
-    #ItemDescription {
-    }
-
-    #EquipButtonHolder {
-    }
-
-    #ItemAvatar {
-    }
-
-    #ItemNameHolder {
-        width: 66%;
-    }
-
-    #FirstDescriptionLineHolder {
-    }
-
-    #SecondDescriptionLineHolder {
-
-    }
-
-    #ItemNameText {
-    }
-
-    #ItemDescription {
-    }
-
-    .itemDescriptionName {
-
-    }
-
-    .itemDescriptionValue {
-    }
-
-    #WalletAndItemsButtonsHolder {
-    }
-
-    #WalletHolder {
-    }
-
-    #ItemsButtonsHolder {
-    }
-
-    #WalletCoinsValue {
-    }
-
-    #WalletCoinsLogo {
-    }
-
-    .buttonArrow {
-    }
-
-    .disabledInventoryBtn {
-    }
-
-    #ItemsNextButton:hover #ItemsNextButtonArrow {
-    }
-
-    .itemsArrows {
-    }
-
-    #ItemsPrevButtonArrow {
-    }
-
-    #ItemsNextButtonArrow {
-    }
-
-    .inventoryNormalButtonHolder {
     }
 
 }
@@ -1591,8 +1708,8 @@ iPhone landscape
     }
 
     .inventoryNormalButtonHolder {
-    height: 36px;
-    width: 36px;
+        height: 36px;
+        width: 36px;
     }
 
 }

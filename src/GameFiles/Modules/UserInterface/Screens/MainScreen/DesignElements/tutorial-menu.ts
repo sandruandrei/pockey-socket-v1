@@ -52,10 +52,10 @@ namespace Pockey {
 
                         document.getElementById("HowToPlayImage").style.display = "none";
                         document.getElementById("FbTwitterPromoHolder").style.display = "flex";
-                        if(Settings.isMobile && Settings.stageHeight > 228)
-                        {
-                            document.getElementById("ShareButtonsHolder").style.display = "block";
-                        }
+                        // if(Settings.isMobile && Settings.stageHeight > 228)
+                        // {
+                        //     document.getElementById("ShareButtonsHolder").style.display = "block";
+                        // }
 
                     }
                 };

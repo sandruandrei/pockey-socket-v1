@@ -3119,7 +3119,7 @@ sandru opera mini landscape
 
     .normalButtonHolder {
         /* height: 19%; */
-        height: 28px;
+        height: 26px;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -3278,7 +3278,7 @@ sandru opera mini landscape
     }
 
     #ShareButtonsHolder {
-        display: none;
+        /* display: none; */
     }
 
     #FbShareLogo {
@@ -3321,8 +3321,8 @@ sandru opera mini landscape
         height: 100%;
         float: left;
         background: #2D899D;
-        border-radius: 4px;
-        font-size: 16px;
+        border-radius: 2px;
+        font-size: 11px;
         font-family: "troika";
         color: white;
         display: flex;
@@ -3641,7 +3641,7 @@ sandru chrome landscape
     }
 
     .normalButtonHolder {
-        height: 18%;
+        height: 28px;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -3775,7 +3775,7 @@ sandru chrome landscape
     }
 
     #RightSide {
-        width: 31%;
+        width: 30%;
     }
 
     .rightSideElementsHolder {
@@ -3802,7 +3802,7 @@ sandru chrome landscape
     }
 
     #ShareButtonsHolder {
-        display: none;
+        /* display: none; */
     }
 
     #FbShareLogo {
