@@ -2856,7 +2856,7 @@ ada iphone x
 
     #BackToMainMenuButton {
 float: left;
-width: auto;
+/* width: max-content; */
 background: green;
 height: 100%;
 /* float: right; */
@@ -3398,24 +3398,15 @@ sandru opera mini landscape
     }
 
     #BackToMainMenuButton {
-
-        float: left;
-
-        width: 12%;
-
-        height: 100%;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        font-family: "troika";
-
-        color: white;
-
-    }
+float: left;
+/* width: auto; */
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "troika";
+color: white;
+}
 
     #MenuLogo {
 
