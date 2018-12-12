@@ -3641,7 +3641,7 @@ sandru chrome landscape
     }
 
     .normalButtonHolder {
-        /* height: 20%; */
+        height: 18%;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -3775,7 +3775,7 @@ sandru chrome landscape
     }
 
     #RightSide {
-        width: 32%;
+        width: 31%;
     }
 
     .rightSideElementsHolder {
@@ -3846,7 +3846,7 @@ sandru chrome landscape
         float: left;
         background: #2D899D;
         border-radius: 4px;
-        font-size: 16px;
+        font-size: 12px;
         font-family: "troika";
         color: white;
         display: flex;
@@ -4172,7 +4172,7 @@ sandru edge landscape
         /* height: 100%; */
         top: 0;
         width: 100%;
-        height: 25%;
+        height: 24%;
         /* background: #4caf50; */
         float: left;
         /* margin-top: 3%; */
@@ -4182,6 +4182,7 @@ sandru edge landscape
 
     .normalButtonHolder {
         /* height: 32px; */
+        height: 12%;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -4280,7 +4281,7 @@ sandru edge landscape
         /* position: relative; */
         /* width: 50%; */
         height: auto;
-        width: 57%;
+        width: 44%;
     }
 
     #AvatarImage {
@@ -4361,7 +4362,7 @@ sandru edge landscape
     }
 
     #RightSide {
-        width: 47.8%;
+        width: 45%;
     }
 
     .rightSideElementsHolder {
@@ -4408,6 +4409,7 @@ sandru edge landscape
 
     #ShareButtonsHolder {
         display: block;
+        height: 8%;
     }
 
     #FbShareLogo {
