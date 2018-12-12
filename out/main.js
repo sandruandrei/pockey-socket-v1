@@ -6662,7 +6662,7 @@ var Pockey;
                     _this.clicked = !_this.clicked;
                     if (_this.clicked) {
                         _this.imageDiv.style.borderColor = "white";
-                        _this.imageDiv.style.borderWidth = "4px";
+                        _this.imageDiv.style.borderWidth = "3px";
                     }
                     if (_this.occupied)
                         clickFunction(_this.inventoryVO);
@@ -6671,7 +6671,7 @@ var Pockey;
             InventoryBox.prototype.click = function () {
                 this.clicked = true;
                 this.imageDiv.style.borderColor = "white";
-                this.imageDiv.style.borderWidth = "4px";
+                this.imageDiv.style.borderWidth = "3px";
             };
             InventoryBox.prototype.unClick = function () {
                 this.stopAnimation();

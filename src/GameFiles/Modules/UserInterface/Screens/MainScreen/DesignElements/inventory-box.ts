@@ -61,7 +61,7 @@ namespace Pockey {
             {
                 this.clicked = true;
                 this.imageDiv.style.borderColor = "white";
-                this.imageDiv.style.borderWidth = "4px";
+                this.imageDiv.style.borderWidth = "3px";
             }
 
             public unClick():void
