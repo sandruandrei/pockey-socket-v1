@@ -1211,7 +1211,7 @@ sandru chrome landscape
     }
 
     .equipButtonHolder {
-        height: 28px;
+        height: 34px;
     }
 
     .normalButtonHolder {
@@ -1493,7 +1493,7 @@ sandru edge landscape
     }
 
     .itemsColumn {
-        margin-right: 4px;
+        margin-right: 6px;
     }
 
     .inventoryItemBox {
