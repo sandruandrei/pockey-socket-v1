@@ -1084,7 +1084,7 @@ ada iphone x
     .inventoryItemBox {
         width: 36px;
         height: 36px;
-        border-width: 1.4px;
+        border-width: 2px;
         /* border-radius: 3px; */
     }
 
@@ -1299,7 +1299,7 @@ sandru chrome landscape
     .inventoryItemBox {
         width: 44px;
         height: 44px;
-        border-width: initial;
+        border-width: 2px;
     }
 
     .inventoryItemBoxBackground {
