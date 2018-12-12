@@ -1084,10 +1084,12 @@ ada iphone x
     .inventoryItemBox {
         width: 36px;
         height: 36px;
+        border-width: 1.4px;
         /* border-radius: 3px; */
     }
 
     .inventoryItemBoxBackground {
+    /* border-width: 11px; */
     }
 
     .inventoryRightSideMask {
@@ -1291,12 +1293,13 @@ sandru chrome landscape
     }
 
     .itemsColumn {
-        margin-right: 4px;
+        margin-right: 5px;
     }
 
     .inventoryItemBox {
         width: 44px;
         height: 44px;
+        border-width: initial;
     }
 
     .inventoryItemBoxBackground {
@@ -1502,6 +1505,7 @@ sandru edge landscape
     .inventoryItemBox {
         width: 54px;
         height: 54px;
+        border-width: initial;
     }
 
     .inventoryItemBoxBackground {
