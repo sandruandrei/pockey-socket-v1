@@ -54,7 +54,7 @@ namespace Pockey {
                         document.getElementById("FbTwitterPromoHolder").style.display = "flex";
                         // if(Settings.isMobile && Settings.stageHeight > 228)
                         // {
-                        //     document.getElementById("ShareButtonsHolder").style.display = "block";
+                            document.getElementById("ShareButtonsHolder").style.display = "block";
                         // }
 
                     }

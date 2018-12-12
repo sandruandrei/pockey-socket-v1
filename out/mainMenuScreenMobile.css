@@ -3119,7 +3119,7 @@ sandru opera mini landscape
 
     .normalButtonHolder {
         /* height: 19%; */
-        height: 26px;
+        height: 28px;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -3279,6 +3279,7 @@ sandru opera mini landscape
 
     #ShareButtonsHolder {
         /* display: none; */
+        height: 11%;
     }
 
     #FbShareLogo {
@@ -3641,7 +3642,7 @@ sandru chrome landscape
     }
 
     .normalButtonHolder {
-        height: 28px;
+        height: 34px;
     }
 
     .itemsArrows:hover .normalButtonBackground {
@@ -3803,6 +3804,7 @@ sandru chrome landscape
 
     #ShareButtonsHolder {
         /* display: none; */
+        height: 10%;
     }
 
     #FbShareLogo {

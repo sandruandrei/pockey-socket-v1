@@ -1042,7 +1042,7 @@ ada iphone x
 
     .inventoryButton {
         width: 100%;
-        height: 14%;
+        height: 15%;
         float: none;
         font-size: 9px;
         /* text-align: center; */
@@ -1185,6 +1185,9 @@ ada iphone x
         background-repeat: no-repeat;
         background-position: center;
     }
+
+    .inventoryNormalButtonHolder
+    {height: 26px;}
 }
 
 /*
@@ -1394,6 +1397,8 @@ sandru chrome landscape
         background-repeat: no-repeat;
         background-position: center;
     }
+
+
 }
 
 /*

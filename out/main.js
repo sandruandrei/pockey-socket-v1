@@ -6516,6 +6516,7 @@ var Pockey;
                         _this.howToPlayImage.style.background = "none";
                         document.getElementById("HowToPlayImage").style.display = "none";
                         document.getElementById("FbTwitterPromoHolder").style.display = "flex";
+                        document.getElementById("ShareButtonsHolder").style.display = "block";
                     }
                 };
             }
