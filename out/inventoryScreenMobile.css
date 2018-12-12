@@ -1084,6 +1084,7 @@ ada iphone x
     .inventoryItemBox {
         width: 36px;
         height: 36px;
+        /* border-radius: 3px; */
     }
 
     .inventoryItemBoxBackground {
@@ -1099,6 +1100,7 @@ ada iphone x
     }
 
     .inventoryItemBoxSelected {
+    border: 1px white solid;
     }
 
     .inventoryItemBoxLocked {
@@ -1310,6 +1312,7 @@ sandru chrome landscape
     }
 
     .inventoryItemBoxSelected {
+    /* border: 1px white solid; */
     }
 
     .inventoryItemBoxLocked {
@@ -1514,6 +1517,7 @@ sandru edge landscape
     }
 
     .inventoryItemBoxSelected {
+    border: 2px white solid;
     }
 
     .inventoryItemBoxLocked {

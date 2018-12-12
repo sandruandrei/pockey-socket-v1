@@ -49,7 +49,7 @@ namespace Pockey {
 
                     if (this.clicked) {
                         this.imageDiv.style.borderColor = "white";
-                        this.imageDiv.style.borderWidth = "4px";
+                        this.imageDiv.style.borderWidth = "3px";
                     }
 
                     if (this.occupied)
