@@ -2857,7 +2857,7 @@ ada iphone x
     #BackToMainMenuButton {
 float: left;
 width: auto;
-/* background: green; */
+background: green;
 height: 100%;
 /* float: right; */
 /* margin-left: auto; */
