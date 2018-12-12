@@ -1187,7 +1187,7 @@ ada iphone x
     }
 
     .inventoryNormalButtonHolder
-    {height: 26px;}
+    {height: 28px;}
 }
 
 /*
@@ -1612,7 +1612,7 @@ sandru edge landscape
     }
 
     .inventoryNormalButtonHolder {
-        height: 32px;
+        height: 34px;
     }
 
 }
@@ -1726,22 +1726,466 @@ ilie landscape
 @media only screen and (min-device-width: 678px) and (min-height: 274px) and (orientation: landscape) {
 
     #InventoryScreen {
+        width: 100%;
+        /* margin-left: auto; */
+        /* margin-right:0; */
+        /* justify-self: right; */
+        /* float: right; */
+        /* right: 0; */
+        /* position: relative; */
+    }
+
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    #InventoryElementsHolder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /* overflow: hidden; */
+        /* float: right; */
+    }
+
+    #InventoryTitle {
+        display: none;
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+        /* display: none; */
+        /* position: absolute; */
+        /* left: 0; */
+        /* width: 18%; */
+        /* height: 78%; */
+        /* height: calc(100% - 48px); */
+        flex-direction: row;
+        width: 100%;
+        height: 9%;
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+    }
+
+    .inventoryButton:hover {
+    }
+
+    .inventoryButton {
+        /* width: 100%; */
+        /* height: 15%; */
+        /* float: none; */
+        /* font-size: 9px; */
+        /* text-align: center; */
+        /* justify-content: center; */
+        /* display: none; */
+        height: 100%;
+        width: 17%;
+    }
+
+    .inventoryButtonLogo {
+        display: none;
+    }
+
+    #ItemPanel {
+        height: 67%;
+        width: 100%;
+        float: right;
+        left: auto;
+        position: relative;
+        /* background: brown; */
+        /* display: none; */
+    }
+
+    #ItemInfoHolder {
+        /* display: none; */
+        width: 33%;
+    }
+
+    #ItemsHolderWrapper {
+        width: 65%;
+        /* display: none; */
+    }
+
+    #ItemsHolder {
+    }
+
+    .itemsColumn {
+        margin-right: 4px;
+    }
+
+    .inventoryItemBox {
+        width: 49px;
+        height: 49px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+        height: 52px;
+    }
+
+    #ItemDescription {
+        font-size: 10px;
+    }
+
+    #EquipButtonHolder {
+        /* height: 100%; */
+        /* height: 34px; */
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 71%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+        font-size: 12px;
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+        /* position: relative; */
+        /* margin-bottom: 80px; */
+        position: inherit;
+        bottom: inherit;
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+        width: 98px;
+    }
+
+    #WalletCoinsValue {
+        font-size: 16px;
+    }
+
+    #WalletCoinsLogo {
+        background-size: 90%;
+        background-position: center;
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+        width: 34px;
+        /* height: 140px; */
+    }
+
+    #ItemsPrevButtonArrow {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #ItemsNextButtonArrow {
+        /* background: url(Assets/Desktop/Images/icon_arrow1-right.svg); */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* background: url(Assets/Desktop/Images/icon_arrow1-right.svg); */
+    }
+
+    .inventoryNormalButtonHolder {
+        height: 34px;
+    }
+
+}
+
+/*
+iPhone landscape
+*/
+
+@media only screen and (min-device-width: 667px) and (min-height: 328px) and (orientation: landscape) {
+
+    #InventoryScreen {
     }
 
     .equipButtonHolder {
         height: 32px;
     }
 
+    #InventoryScreen {
+        width: 100%;
+        /* margin-left: auto; */
+        /* margin-right:0; */
+        /* justify-self: right; */
+        /* float: right; */
+        /* right: 0; */
+        /* position: relative; */
+    }
+
+    .inventoryItemBoxCheckedBackground {
+    }
+
+    #InventoryElementsHolder {
+        width: 100%;
+        height: 96%;
+        display: flex;
+        /* overflow: hidden; */
+        /* float: right; */
+    }
+
+    #InventoryTitle {
+        display: none;
+    }
+
+    .inventoryTitleLine {
+    }
+
+    #InventoryButtonsHolder {
+        /* display: none; */
+        /* position: absolute; */
+        /* left: 0; */
+        /* width: 18%; */
+        /* height: 78%; */
+        /* height: calc(100% - 48px); */
+        flex-direction: row;
+        width: 100%;
+        height: 8%;
+    }
+
+    .inventoryButton:hover .inventoryButtonLogo {
+    }
+
+    .inventoryButton:hover {
+    }
+
+    .inventoryButton {
+        /* width: 100%; */
+        /* height: 15%; */
+        /* float: none; */
+        /* font-size: 9px; */
+        /* text-align: center; */
+        /* justify-content: center; */
+        /* display: none; */
+        height: 100%;
+        width: 17%;
+        font-size: 11px;
+    }
+
+    .inventoryButtonLogo {
+        display: none;
+    }
+
+    #ItemPanel {
+        height: 68%;
+        width: 100%;
+        float: right;
+        left: auto;
+        position: relative;
+        /* background: brown; */
+        /* display: none; */
+    }
+
+    #ItemInfoHolder {
+        /* display: none; */
+        width: 33%;
+    }
+
+    #ItemsHolderWrapper {
+        width: 65%;
+        /* display: none; */
+    }
+
+    #ItemsHolder {
+    }
+
+    .itemsColumn {
+        margin-right: 4px;
+    }
+
     .inventoryItemBox {
-        width: 50px;
-        height: 50px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    .inventoryRightSideMask {
+    }
+
+    .inventoryLeftSideMask {
+    }
+
+    .inventoryMask {
+    }
+
+    .inventoryItemBoxSelected {
+    }
+
+    .inventoryItemBoxLocked {
+    }
+
+    #ItemAvatarAndName {
+        height: 52px;
+    }
+
+    #ItemDescription {
+        font-size: 10px;
+    }
+
+    #EquipButtonHolder {
+        /* height: 100%; */
+        /* height: 34px; */
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 66%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+        font-size: 12px;
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+        /* position: relative; */
+        /* margin-bottom: 80px; */
+        position: inherit;
+        bottom: inherit;
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+        width: 98px;
+    }
+
+    #WalletCoinsValue {
+        font-size: 16px;
+    }
+
+    #WalletCoinsLogo {
+        background-size: 90%;
+        background-position: center;
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+        width: 34px;
+        /* height: 140px; */
+    }
+
+    #ItemsPrevButtonArrow {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #ItemsNextButtonArrow {
+        /* background: url(Assets/Desktop/Images/icon_arrow1-right.svg); */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* background: url(Assets/Desktop/Images/icon_arrow1-right.svg); */
+    }
+
+    .inventoryNormalButtonHolder {
+        height: 34px;
+    }
+
+}
+
+/*
+iPhone landscape
+*/
+
+@media only screen and (min-device-width: 667px) and (min-height: 328px) and (orientation: landscape) {
+
+    #InventoryScreen {
+    }
+
+    .equipButtonHolder {
+        height: 32px;
+    }
+
+    .itemsColumn {
+        margin-right: 6px;
+    }
+
+    .inventoryItemBox {
+        width: 61px;
+        height: 61px;
     }
 
     .inventoryItemBoxBackground {
     }
 
     #ItemAvatarAndName {
-        height: 50px;
+        height: 61px;
     }
 
     #ItemDescription {
@@ -1754,7 +2198,7 @@ ilie landscape
     }
 
     #ItemNameHolder {
-        width: 71%;
+        width: 64%;
     }
 
     #FirstDescriptionLineHolder {
@@ -1811,6 +2255,95 @@ ilie landscape
     }
 
     .inventoryNormalButtonHolder {
+        height: 36px;
+        width: 36px;
+    }
+
+    .itemsColumn {
+        margin-right: 6px;
+    }
+
+    .inventoryItemBox {
+        width: 61px;
+        height: 61px;
+    }
+
+    .inventoryItemBoxBackground {
+    }
+
+    #ItemAvatarAndName {
+        height: 61px;
+    }
+
+    #ItemDescription {
+    }
+
+    #EquipButtonHolder {
+    }
+
+    #ItemAvatar {
+    }
+
+    #ItemNameHolder {
+        width: 64%;
+    }
+
+    #FirstDescriptionLineHolder {
+    }
+
+    #SecondDescriptionLineHolder {
+
+    }
+
+    #ItemNameText {
+    }
+
+    #ItemDescription {
+    }
+
+    .itemDescriptionName {
+
+    }
+
+    .itemDescriptionValue {
+    }
+
+    #WalletAndItemsButtonsHolder {
+    }
+
+    #WalletHolder {
+    }
+
+    #ItemsButtonsHolder {
+    }
+
+    #WalletCoinsValue {
+    }
+
+    #WalletCoinsLogo {
+    }
+
+    .buttonArrow {
+    }
+
+    .disabledInventoryBtn {
+    }
+
+    #ItemsNextButton:hover #ItemsNextButtonArrow {
+    }
+
+    .itemsArrows {
+    }
+
+    #ItemsPrevButtonArrow {
+    }
+
+    #ItemsNextButtonArrow {
+    }
+
+    .inventoryNormalButtonHolder {
+        height: 36px;
+        width: 36px;
     }
 
 }
