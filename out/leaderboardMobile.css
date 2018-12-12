@@ -647,7 +647,169 @@ sandru chrome landscape
     }
 
     .leaderBoardRow {
+        height: 13px;
+    }
+
+    .leaderBoardRow:hover .normalCell {
+    }
+
+    .leaderBoardRow:hover {
+    }
+
+    .normalCell {
+        font-size: 11.2px;
+    }
+
+    .leaderBoardTitleCell {
+        font-size: 10px;
+    }
+
+    .playerBoardTitleCell {
+        font-size: 13px;
+    }
+
+    .leaderBoardPlaceCell {
+        /* font-size: 12px; */
+    }
+
+    .leaderBoardNameCell {
+    }
+
+    .leaderBoardHighscoreCell {
+    }
+
+    .leaderBoardRatingCell {
+    }
+
+    .leaderBoardPlaytimeCell {
+    }
+
+    #LeaderBoardElementsHolder {
+    }
+
+    #LeaderBoardTitleLine {
+    }
+
+    #PlayerBoardColumnTitles {
+        height: 16px;
+    }
+
+    #PlayerBoardColumnTitles:hover {
+
+    }
+
+    #LeaderboardLogo {
+    }
+}
+
+/*
+sandru edge landscape
+*/
+
+@media only screen and (min-device-width: 569px) and (min-height: 288px) and (orientation: landscape) {
+    #LeaderBoardScreen {
+        height: 100%;
+    }
+
+    #LeaderBoardTitle {
+        display: none;
+    }
+
+    #LeaderboardRowsHolder {
+    }
+
+    #LeaderBoardRankings {
+    }
+
+    #LeaderBoardColumnTitles {
+    }
+
+    #PlayerRank {
+    }
+
+    .leaderBoardRow {
         height: 17px;
+    }
+
+    .leaderBoardRow:hover .normalCell {
+    }
+
+    .leaderBoardRow:hover {
+    }
+
+    .normalCell {
+        font-size: 13px;
+    }
+
+    .leaderBoardTitleCell {
+        font-size: 10px;
+    }
+
+    .playerBoardTitleCell {
+        font-size: 14px;
+    }
+
+    .leaderBoardPlaceCell {
+        /* font-size: 12px; */
+    }
+
+    .leaderBoardNameCell {
+    }
+
+    .leaderBoardHighscoreCell {
+    }
+
+    .leaderBoardRatingCell {
+    }
+
+    .leaderBoardPlaytimeCell {
+    }
+
+    #LeaderBoardElementsHolder {
+    }
+
+    #LeaderBoardTitleLine {
+    }
+
+    #PlayerBoardColumnTitles {
+        height: 18px;
+    }
+
+    #PlayerBoardColumnTitles:hover {
+
+    }
+
+    #LeaderboardLogo {
+    }
+}
+
+/*
+iPhone landscape
+*/
+
+@media only screen and (min-device-width: 667px) and (min-height: 328px) and (orientation: landscape) {
+    #LeaderBoardScreen {
+        height: 100%;
+    }
+
+    #LeaderBoardTitle {
+        display: none;
+    }
+
+    #LeaderboardRowsHolder {
+    }
+
+    #LeaderBoardRankings {
+    }
+
+    #LeaderBoardColumnTitles {
+    }
+
+    #PlayerRank {
+    }
+
+    .leaderBoardRow {
+        height: 19px;
     }
 
     .leaderBoardRow:hover .normalCell {
@@ -661,11 +823,92 @@ sandru chrome landscape
     }
 
     .leaderBoardTitleCell {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .playerBoardTitleCell {
         font-size: 15px;
+    }
+
+    .leaderBoardPlaceCell {
+        /* font-size: 12px; */
+    }
+
+    .leaderBoardNameCell {
+    }
+
+    .leaderBoardHighscoreCell {
+    }
+
+    .leaderBoardRatingCell {
+    }
+
+    .leaderBoardPlaytimeCell {
+    }
+
+    #LeaderBoardElementsHolder {
+    }
+
+    #LeaderBoardTitleLine {
+    }
+
+    #PlayerBoardColumnTitles {
+        height: 21px;
+    }
+
+    #PlayerBoardColumnTitles:hover {
+
+    }
+
+    #LeaderboardLogo {
+    }
+}
+
+/*
+ilie landscape
+*/
+
+@media only screen and (min-device-width: 678px) and (min-height: 274px) and (orientation: landscape) {
+    #LeaderBoardScreen {
+        height: 100%;
+    }
+
+    #LeaderBoardTitle {
+        display: none;
+    }
+
+    #LeaderboardRowsHolder {
+    }
+
+    #LeaderBoardRankings {
+    }
+
+    #LeaderBoardColumnTitles {
+    }
+
+    #PlayerRank {
+    }
+
+    .leaderBoardRow {
+        height: 16px;
+    }
+
+    .leaderBoardRow:hover .normalCell {
+    }
+
+    .leaderBoardRow:hover {
+    }
+
+    .normalCell {
+        font-size: 13px;
+    }
+
+    .leaderBoardTitleCell {
+        font-size: 10px;
+    }
+
+    .playerBoardTitleCell {
+        font-size: 14px;
     }
 
     .leaderBoardPlaceCell {
