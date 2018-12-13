@@ -889,36 +889,21 @@
     }
 
     #MenuTitle {
-
-        font-size: 18px;
-
-        color: #1abdca;
-
-        font-family: "troika";
-
-        /* background: #1d00ff; */
-
-        /* margin-left: 6px; */
-
-        float: right;
-
-        height: auto;
-
-        /* width: 58%; */
-
-        /* margin: auto; */
-
-        margin-right: 8px;
-
-        display: flex;
-
-        align-items: center;
-
-        /* flex-direction: row; */
-
-        /* justify-content: space-between; */
-
-    }
+font-size: 18px;
+color: #1abdca;
+font-family: "troika";
+/* background: #1d00ff; */
+/* margin-left: 6px; */
+float: right;
+height: 80%;
+/* width: 58%; */
+/* margin: auto; */
+margin-right: 8px;
+display: flex;
+align-items: center;
+/* flex-direction: row; */
+/* justify-content: space-between; */
+}
 
     #BackToMainMenuButton {
 float: left;
@@ -937,30 +922,19 @@
 }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-        /* padding: 2px; */
-
-    }
+width: 20px;
+height: 16px;
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+/* width: 28px; */
+/* height: 100%; */
+/* width: inherit; */
+/* padding-left: 37%; */
+}
 
     #BackToMainMenuButtonIcon {
 
@@ -2871,30 +2845,19 @@ ada iphone x
 }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-        /* padding: 2px; */
-
-    }
+/* width: 26px; */
+/* height: 26px; */
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+width: 22px;
+/* height: 22px; */
+height: 16px;
+/* padding: 2px; */
+}
 
     #BackToMainMenuButtonIcon {
 
@@ -3399,28 +3362,17 @@ sandru opera mini landscape
 }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-    }
+width: 26px;
+/* height: 26px; */
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+width: 22px;
+height: 16px;
+}
 
     #BackToMainMenuButtonIcon {
 
@@ -3912,28 +3864,17 @@ sandru chrome landscape
 }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-    }
+/* width: 26px; */
+/* height: 26px; */
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+/* width: 20px; */
+/* height: 16px; */
+}
 
     #BackToMainMenuButtonIcon {
 
@@ -4547,28 +4488,17 @@ sandru edge landscape
     }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-    }
+/* width: 26px; */
+/* height: 26px; */
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+/* width: 20px; */
+/* height: 16px; */
+}
 
     #BackToMainMenuButtonIcon {
 
@@ -5150,28 +5080,17 @@ iPhone landscape
     }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-    }
+/* width: 26px; */
+/* height: 26px; */
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+/* width: 20px; */
+/* height: 16px; */
+}
 
     #BackToMainMenuButtonIcon {
 
@@ -5787,28 +5706,17 @@ ilie landscape
     }
 
     #MenuLogo {
-
-        width: 26px;
-
-        height: 26px;
-
-        float: left;
-
-        margin-right: 4px;
-
-        background-color: red;
-
-        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-
-        background-size: contain;
-
-        background-repeat: no-repeat;
-
-        width: 22px;
-
-        height: 22px;
-
-    }
+/* width: 26px; */
+/* height: 26px; */
+float: left;
+margin-right: 4px;
+background-color: red;
+background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+background-size: contain;
+background-repeat: no-repeat;
+/* width: 22px; */
+/* height: 22px; */
+}
 
     #BackToMainMenuButtonIcon {
 

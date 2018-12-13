@@ -78,6 +78,7 @@ namespace Pockey {
 
                             switch (element.id) {
                                 case this.playGameButton.id: {
+
                                     this.showPlayGameMenu();
                                     break;
                                 }

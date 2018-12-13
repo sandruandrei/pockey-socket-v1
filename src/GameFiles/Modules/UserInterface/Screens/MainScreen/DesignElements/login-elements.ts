@@ -29,10 +29,13 @@ namespace Pockey {
             private signOutBtn: HTMLDivElement;
             private inputText: HTMLTextAreaElement;
             private correctText: HTMLDivElement;
+            private mainMenuBackButtonHolder: HTMLDivElement;
 
             constructor() {
 
                 this.correctText = document.getElementById("CorrectText") as HTMLDivElement;
+                this.mainMenuBackButtonHolder = document.getElementById("MainMenuBackButtonHolder") as HTMLDivElement;
+
                 this.handleInputText();
                 this.handleSignOutButton();
                 this.handleStartButton();
@@ -46,16 +49,14 @@ namespace Pockey {
             }
 
             private onInventoryItemUpdated(): void {
-                if(PockeySettings.PLAYER_NICKNAME != "" && this.inputText.value != PockeySettings.PLAYER_NICKNAME)
-                {
+                if (PockeySettings.PLAYER_NICKNAME != "" && this.inputText.value != PockeySettings.PLAYER_NICKNAME) {
                     this.inputText.value = PockeySettings.PLAYER_NICKNAME;
                 }
             }
 
             private onPlayerSignedIn(): void {
                 this.hideSignInButtons();
-                if(this.inputText.value != PockeySettings.PLAYER_NICKNAME && PockeySettings.PLAYER_NICKNAME != "")
-                {
+                if (this.inputText.value != PockeySettings.PLAYER_NICKNAME && PockeySettings.PLAYER_NICKNAME != "") {
                     this.inputText.value = PockeySettings.PLAYER_NICKNAME;
                 }
             }
@@ -161,6 +162,7 @@ namespace Pockey {
                         }
 
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
+                        this.mainMenuBackButtonHolder.style.display = "none";
 
                     }
                 };

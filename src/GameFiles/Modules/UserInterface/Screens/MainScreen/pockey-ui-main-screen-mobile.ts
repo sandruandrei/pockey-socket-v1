@@ -6,18 +6,24 @@
 namespace Pockey {
     export module UserInterface {
 
+        import Settings = Framework.Settings;
+
         export class PockeyUiMainScreenMobile extends PockeyUiMainScreen {
 
             protected rightSide: HTMLDivElement;
             protected mainButtonsHolder: HTMLDivElement;
             protected backButton: HTMLDivElement;
             protected backBg: HTMLDivElement;
+            protected menuTitle: HTMLDivElement;
+            protected menuLogo: HTMLDivElement;
 
             protected defineElements(): void {
                 this.rightSide = document.getElementById("RightSideBackground") as HTMLDivElement;
                 this.mainButtonsHolder = document.getElementById("MainButtonsHolder") as HTMLDivElement;
                 this.backButton = document.getElementById("BackToMainMenuButton") as HTMLDivElement;
                 this.backBg = document.getElementById("MainMenuBg") as HTMLDivElement;
+                this.menuTitle = document.getElementById("MenuTitleSpan") as HTMLDivElement;
+                this.menuLogo = document.getElementById("MenuLogo") as HTMLDivElement;
 
                 ////////////
                 this.loginMenu = document.getElementById("LoginScreen") as HTMLDivElement;
@@ -66,21 +72,32 @@ namespace Pockey {
                             // alert(element.id + " clicked");
                             switch (element.id) {
                                 case this.playGameButton.id: {
+                                    this.menuTitle.innerText = "PLAY GAME";
+                                    this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/start_game_icon.svg" + ")";
                                     this.showPlayGameMenu();
                                     break;
                                 }
 
                                 case this.inventoryButton.id: {
+                                    this.menuTitle.innerText = "INVENTORY";
+                                    this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/overlay_inventory.svg" + ")";
+
                                     this.showInventoryMenu();
                                     break;
                                 }
 
                                 case this.inviteFriendButton.id: {
+                                    this.menuTitle.innerText = "INVITE FRIENDS";
+                                    this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/overlay_invitefriend.svg" + ")";
+                                    // this.menuLogo.style.background = "blue";
                                     this.showInviteMenu();
                                     break;
                                 }
 
                                 case this.leaderboardButton.id: {
+                                    this.menuTitle.innerText = "LEADERBOARD";
+                                    this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/title_crown.svg" + ")";
+                                    // this.menuLogo.style.background = "green";
                                     this.showLeaderboardMenu();
                                     break;
                                 }

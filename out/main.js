@@ -6367,6 +6367,7 @@ var Pockey;
         var LoginElements = (function () {
             function LoginElements() {
                 this.correctText = document.getElementById("CorrectText");
+                this.mainMenuBackButtonHolder = document.getElementById("MainMenuBackButtonHolder");
                 this.handleInputText();
                 this.handleSignOutButton();
                 this.handleStartButton();
@@ -6453,6 +6454,7 @@ var Pockey;
                             writeCookie('PockeyNickname', _this.inputText.value, 30);
                         }
                         SignalsManager.DispatchSignal(PockeySignalTypes.START_GAME);
+                        _this.mainMenuBackButtonHolder.style.display = "none";
                     }
                 };
             };
@@ -8611,6 +8613,7 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
+        var Settings = Framework.Settings;
         var PockeyUiMainScreenMobile = (function (_super) {
             __extends(PockeyUiMainScreenMobile, _super);
             function PockeyUiMainScreenMobile() {
@@ -8622,6 +8625,8 @@ var Pockey;
                 this.mainButtonsHolder = document.getElementById("MainButtonsHolder");
                 this.backButton = document.getElementById("BackToMainMenuButton");
                 this.backBg = document.getElementById("MainMenuBg");
+                this.menuTitle = document.getElementById("MenuTitleSpan");
+                this.menuLogo = document.getElementById("MenuLogo");
                 this.loginMenu = document.getElementById("LoginScreen");
                 this.playGameMenu = new UserInterface.PlayGameMenu();
                 this.inventoryMenu = new UserInterface.PockeyInventoryMenu();
@@ -8649,18 +8654,26 @@ var Pockey;
                         element.setAttribute("clicked", "true");
                         switch (element.id) {
                             case _this.playGameButton.id: {
+                                _this.menuTitle.innerText = "PLAY GAME";
+                                _this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/start_game_icon.svg" + ")";
                                 _this.showPlayGameMenu();
                                 break;
                             }
                             case _this.inventoryButton.id: {
+                                _this.menuTitle.innerText = "INVENTORY";
+                                _this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/overlay_inventory.svg" + ")";
                                 _this.showInventoryMenu();
                                 break;
                             }
                             case _this.inviteFriendButton.id: {
+                                _this.menuTitle.innerText = "INVITE FRIENDS";
+                                _this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/overlay_invitefriend.svg" + ")";
                                 _this.showInviteMenu();
                                 break;
                             }
                             case _this.leaderboardButton.id: {
+                                _this.menuTitle.innerText = "LEADERBOARD";
+                                _this.menuLogo.style.background = "center / contain no-repeat url(" + Settings.desktopAssetsPath + "/Images/title_crown.svg" + ")";
                                 _this.showLeaderboardMenu();
                                 break;
                             }
