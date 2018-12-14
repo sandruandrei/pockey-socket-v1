@@ -1030,7 +1030,7 @@ ada iphone x
         /* left: 0; */
         width: 18%;
         height: 78%;
-        /* height: calc(100% - 48px); */
+        /* height: calc(100vh - 48px); */
         flex-direction: column;
     }
 
@@ -1245,7 +1245,7 @@ sandru chrome landscape
         /* left: 0; */
         width: 18%;
         height: 78%;
-        /* height: calc(100% - 48px); */
+        /* height: calc(100vh - 48px); */
         flex-direction: column;
     }
 
@@ -1447,7 +1447,7 @@ sandru edge landscape
         /* left: 0; */
         /* width: 18%; */
         /* height: 78%; */
-        /* height: calc(100% - 48px); */
+        /* height: calc(100vh - 48px); */
         flex-direction: row;
         width: 100%;
         height: 8%;
@@ -1767,7 +1767,7 @@ ilie landscape
         /* left: 0; */
         /* width: 18%; */
         /* height: 78%; */
-        /* height: calc(100% - 48px); */
+        /* height: calc(100vh - 48px); */
         flex-direction: row;
         width: 100%;
         height: 9%;
@@ -1990,7 +1990,7 @@ iPhone landscape
         /* left: 0; */
         /* width: 18%; */
         /* height: 78%; */
-        /* height: calc(100% - 48px); */
+        /* height: calc(100vh - 48px); */
         flex-direction: row;
         width: 100%;
         height: 8%;

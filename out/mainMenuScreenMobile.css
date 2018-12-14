@@ -1,13 +1,8 @@
-@-o-viewport {
-    width: device-width;
-    height: device-height;
-}
-
 @media only screen and (orientation: portrait) {
 
     @-o-viewport {
-        width: device-width;
-        height: device-height;
+        width: 320px;
+        zoom: 0.5;
     }
 
     #MainMenuScreen {
@@ -789,53 +784,53 @@
 
     #MainMenuElementsHolder {
 
-width: 280px;
+        width: 280px;
 
-height: 600px;
+        height: 600px;
 
-/* overflow: initial; */
+        /* overflow: initial; */
 
-/* background: green; */
+        /* background: green; */
 
-/* float: left; */
+        /* float: left; */
 
-left: 50%;
+        left: 50%;
 
-top: 50%;
+        top: 50%;
 
-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 
-position: absolute;
+        position: absolute;
 
-/* display: flex; */
+        /* display: flex; */
 
-/* justify-content: center; */
+        /* justify-content: center; */
 
-/* flex-direction: column; */
+        /* flex-direction: column; */
 
-/* margin: auto; */
+        /* margin: auto; */
 
-/* top: 0; */
+        /* top: 0; */
 
-/* right: 0; */
+        /* right: 0; */
 
-/* bottom: 0; */
+        /* bottom: 0; */
 
-/* left: 0; */
+        /* left: 0; */
 
-/* position: absolute; */
+        /* position: absolute; */
 
-/* left:50%; */
+        /* left:50%; */
 
-/* top:50%; */
+        /* top:50%; */
 
-/* margin: auto; */
+        /* margin: auto; */
 
-/* width: 60%; */
+        /* width: 60%; */
 
-display: none;
+        display: none;
 
-}
+    }
 
     /*.notVs {*/
     /*display: none;*/
@@ -1041,13 +1036,13 @@ sandru opera mini
 @media only screen and (min-device-width: 320px) and (min-height: 438px) and (orientation: portrait) {
     #MainMenuElementsHolder {
 
-height: calc(100% - 68px);
+        height: calc(100vh - 68px);
 
-width: 178px;
+        width: 178px;
 
-overflow: initial;
+        overflow: initial;
 
-}
+    }
 
     #RightSide {
 
@@ -1232,7 +1227,7 @@ sandru chrome
 @media only screen and (min-device-width: 320px) and (min-height: 488px) and (orientation: portrait) {
     #MainMenuElementsHolder {
 
-        height: calc(100% - 68px);
+        height: calc(100vh - 68px);
 
         width: 188px;
 
@@ -1395,7 +1390,7 @@ sandru flow
 @media only screen and (min-device-width: 320px) and (min-height: 540px) and (orientation: portrait) {
     #MainMenuElementsHolder {
 
-        height: calc(100% - 68px);
+        height: calc(100vh - 68px);
 
         width: 228px;
 
@@ -1581,7 +1576,7 @@ ilie chrome
 @media only screen and (min-device-width: 360px) and (min-height: 588px) and (orientation: portrait) {
     #MainMenuElementsHolder {
 
-        height: calc(100% - 68px);
+        height: calc(100vh - 68px);
 
         width: 268px;
 
@@ -1775,7 +1770,7 @@ ada iphone x
 @media only screen and (min-device-width: 370px) and (min-height: 628px) and (orientation: portrait) {
     #MainMenuElementsHolder {
 
-        height: calc(100% - 68px);
+        height: calc(100vh - 68px);
 
         width: 278px;
 
@@ -3386,11 +3381,11 @@ sandru opera mini landscape
 
     #MainMenuElementsHolder {
 
-        width: calc(100% - 40px);
+        width: calc(100vw - 40px);
 
         padding-top: 30px;
 
-        height: calc(100% - 48px);
+        height: calc(100vh - 48px);
 
     }
 
@@ -3911,11 +3906,11 @@ sandru chrome landscape
 
     #MainMenuElementsHolder {
 
-        width: calc(100% - 40px);
+        width: calc(100vw - 40px);
 
         padding-top: 30px;
 
-        height: calc(100% - 48px);
+        height: calc(100vh - 48px);
 
     }
 
@@ -4520,11 +4515,11 @@ sandru edge landscape
 
     #MainMenuElementsHolder {
 
-        width: calc(100% - 40px);
+        width: calc(100vw - 40px);
 
         padding-top: 30px;
 
-        height: calc(100% - 48px);
+        height: calc(100vh - 48px);
 
     }
 
@@ -5157,11 +5152,11 @@ iPhone landscape
 
     #MainMenuElementsHolder {
 
-        width: calc(100% - 90px);
+        width: calc(100vw - 90px);
 
         padding-top: 30px;
 
-        height: calc(100% - 58px);
+        height: calc(100vh - 58px);
 
     }
 
@@ -5767,11 +5762,11 @@ ilie landscape
 
     #MainMenuElementsHolder {
 
-        width: calc(100% - 90px);
+        width: calc(100vw - 90px);
 
         padding-top: 30px;
 
-        height: calc(100% - 44px);
+        height: calc(100vh - 44px);
 
     }
 
