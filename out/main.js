@@ -8837,6 +8837,20 @@ var Pockey;
             _this.name = "PockeyEntryPoint";
             return _this;
         }
+        PockeyEntryPoint.prototype.checkDevice = function () {
+            _super.prototype.checkDevice.call(this);
+            if (Settings.isMobile) {
+                this.loadjscssfile("mainMenuScreenMobile.css", "css");
+                this.loadjscssfile("inventoryScreenMobile.css", "css");
+                this.loadjscssfile("leaderboardMobile.css", "css");
+            }
+        };
+        PockeyEntryPoint.prototype.loadjscssfile = function (filename, filetype) {
+            var myCSS = document.createElement("link");
+            myCSS.rel = "stylesheet";
+            myCSS.href = filename;
+            document.head.insertBefore(myCSS, document.head.childNodes[document.head.childNodes.length - 1].nextSibling);
+        };
         PockeyEntryPoint.prototype.addFontsToLoad = function () {
             _super.prototype.addFontsToLoad.call(this);
             this.assetsLoader.addFontToLoad("troika");

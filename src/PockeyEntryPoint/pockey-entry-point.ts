@@ -47,6 +47,36 @@ namespace Pockey {
         }
 
 
+        protected checkDevice(): void {
+            super.checkDevice();
+
+            if (Settings.isMobile) {
+                this.loadjscssfile("mainMenuScreenMobile.css", "css");
+                this.loadjscssfile("inventoryScreenMobile.css", "css");
+                this.loadjscssfile("leaderboardMobile.css", "css");
+                // this.loadjscssfile("mainMenuScreenMobile.css", "css");
+            }
+        }
+
+        private loadjscssfile(filename, filetype): void {
+            /*let fileref:any;
+            if (filetype == "css") { //if filename is an external CSS file
+                fileref = document.createElement("link")
+                fileref.setAttribute("rel", "stylesheet")
+                fileref.setAttribute("type", "text/css")
+                fileref.setAttribute("href", filename)
+            }
+            if (typeof fileref != "undefined")
+                document.getElementsByTagName("head")[0].appendChild(fileref)*/
+
+            // make a stylesheet link
+            let myCSS = document.createElement("link");
+            myCSS.rel = "stylesheet";
+            myCSS.href = filename;
+// insert it at the end of the head in a legacy-friendly manner
+            document.head.insertBefore(myCSS, document.head.childNodes[document.head.childNodes.length - 1].nextSibling);
+        }
+
         protected addFontsToLoad(): void {
             super.addFontsToLoad();
 
@@ -103,25 +133,25 @@ namespace Pockey {
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
 
-           /* uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.eot");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.svg");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.ttf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff2");
+            /* uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.eot");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.svg");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.ttf");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.woff2");
 
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.eot");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.svg");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.ttf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.ttf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtrabold.woff2");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.eot");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.svg");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtraBold.ttf");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.ttf");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSans-Extrabold.woff");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/OpenSansExtrabold.woff2");
 
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.otf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.eot");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.svg");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.ttf");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");*/
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/troika.otf");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.eot");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.svg");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.ttf");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff");
+             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Troika.woff2");*/
 
             // _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (path: string) => {
             //     uiModule.addAssetToLoad(path);
@@ -151,20 +181,20 @@ namespace Pockey {
             return connectionModule;
         }
 
-       /* protected getSoundModule(): Framework.Abstracts.AbstractModule {
-            let soundModule: AbstractSoundModule = new AbstractSoundModule();
+        /* protected getSoundModule(): Framework.Abstracts.AbstractModule {
+             let soundModule: AbstractSoundModule = new AbstractSoundModule();
 
-            soundModule.Layer = this.getLayer(Layers.DefaultLayer);
+             soundModule.Layer = this.getLayer(Layers.DefaultLayer);
 
-            soundModule.addAssetToLoad(PockeySoundNames.MAIN_MENU_AMBIANCE);
-            soundModule.addAssetToLoad(PockeySoundNames.IN_GAME_AMBIANCE);
-            soundModule.addAssetToLoad(PockeySoundNames.SHOOT_BALL);
-            soundModule.addAssetToLoad(PockeySoundNames.LAST_FIVE_SECONDS);
-            soundModule.addAssetToLoad(PockeySoundNames.OPPONENT_FOUND);
-            soundModule.addAssetToLoad(PockeySoundNames.BALL_TO_BALL_HIT);
+             soundModule.addAssetToLoad(PockeySoundNames.MAIN_MENU_AMBIANCE);
+             soundModule.addAssetToLoad(PockeySoundNames.IN_GAME_AMBIANCE);
+             soundModule.addAssetToLoad(PockeySoundNames.SHOOT_BALL);
+             soundModule.addAssetToLoad(PockeySoundNames.LAST_FIVE_SECONDS);
+             soundModule.addAssetToLoad(PockeySoundNames.OPPONENT_FOUND);
+             soundModule.addAssetToLoad(PockeySoundNames.BALL_TO_BALL_HIT);
 
-            return soundModule;
-        }*/
+             return soundModule;
+         }*/
 
         protected initializeSingletons(): void {
             super.initializeSingletons();

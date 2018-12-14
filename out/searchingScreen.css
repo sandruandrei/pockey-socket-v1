@@ -17,6 +17,7 @@
     transform: translate(-50%, -50%);
     position: absolute;
     display: none;
+    max-width: 90%;
 }
 
 .searchingAnimation {bottom: -90px;height: 24px;width: 100%;display: block;/* float: left; */position: relative;/* height: auto; *//* background: blue; */}
@@ -37,13 +38,13 @@
 }
 
 .searchtext {
-    font-size: 25px;
+    font-size: 22px;
     white-space:nowrap;
     text-align: center;
-    margin-top: -32px;
+    margin-top: -28px;
     color: white;
     font-family: "troika";
-    width: 100%;
+    /* max-width: 90%; */
     height: auto;
     display: block;
     /* background: yellow; */

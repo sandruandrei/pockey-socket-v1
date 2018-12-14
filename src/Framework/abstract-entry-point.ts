@@ -82,7 +82,7 @@ namespace Framework {
             Settings.stageHeight = window.innerHeight;
         }
 
-        private checkDevice(): void {
+        protected checkDevice(): void {
             if (this.isMobile()) {
                 Settings.isMobile = true;
                 console.log("%c AbstractEntryPoint -> running on MOBILE!", "background: green; color: white; font-weight:bold; ");

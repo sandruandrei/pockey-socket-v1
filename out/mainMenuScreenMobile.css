@@ -889,52 +889,94 @@
     }
 
     #MenuTitle {
-font-size: 18px;
-color: #1abdca;
-font-family: "troika";
-/* background: #1d00ff; */
-/* margin-left: 6px; */
-float: right;
-height: 80%;
-/* width: 58%; */
-/* margin: auto; */
-margin-right: 8px;
-display: flex;
-align-items: center;
-/* flex-direction: row; */
-/* justify-content: space-between; */
-}
+
+        font-size: 18px;
+
+        color: #1abdca;
+
+        font-family: "troika";
+
+        /* background: #1d00ff; */
+
+        /* margin-left: 6px; */
+
+        float: right;
+
+        height: 80%;
+
+        /* width: 58%; */
+
+        /* margin: auto; */
+
+        margin-right: 8px;
+
+        display: flex;
+
+        align-items: center;
+
+        /* flex-direction: row; */
+
+        /* justify-content: space-between; */
+
+    }
 
     #BackToMainMenuButton {
-float: left;
-width: auto;
-/* background: green; */
-height: 100%;
-/* float: right; */
-/* margin-left: auto; */
-display: flex;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "troika";
-color: white;
-margin-left: 8px;
-}
+
+        float: left;
+
+        width: auto;
+
+        /* background: green; */
+
+        height: 100%;
+
+        /* float: right; */
+
+        /* margin-left: auto; */
+
+        display: flex;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+        margin-left: 8px;
+
+    }
 
     #MenuLogo {
-width: 20px;
-height: 16px;
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-/* width: 28px; */
-/* height: 100%; */
-/* width: inherit; */
-/* padding-left: 37%; */
-}
+
+        width: 20px;
+
+        height: 16px;
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        /* width: 28px; */
+
+        /* height: 100%; */
+
+        /* width: inherit; */
+
+        /* padding-left: 37%; */
+
+    }
 
     #BackToMainMenuButtonIcon {
 
@@ -1924,6 +1966,7 @@ ada iphone x
 /*right: -10px;*/
 /*}*/
 
+/*desktop*/
 @media only screen and (orientation: landscape) {
 
     #MainMenuScreen {
@@ -2685,8 +2728,8 @@ ada iphone x
     #ComingSoonImage {
         background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
         background-size: 96%;
-        width: 100%;
-        height: 692px;
+        /* width: 100%; */
+        /* height: 692px; */
         background-repeat: no-repeat;
         /* margin-top: 10%; */
         border-color: white;
@@ -2696,11 +2739,13 @@ ada iphone x
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 36em;
+        /* font-size: 36em; */
         align-items: center;
         justify-content: center;
         display: flex;
         background-position: center;
+        width: 100%;
+        height: 100%;
     }
 
     #InviteElementsHolder {
@@ -2829,35 +2874,62 @@ ada iphone x
     }
 
     #BackToMainMenuButton {
-float: left;
-/* width: max-content; */
-/* background: green; */
-height: 100%;
-/* float: right; */
-/* margin-left: auto; */
-display: flex;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "troika";
-color: white;
-margin-left: 8px;
-}
+
+        float: left;
+
+        /* width: max-content; */
+
+        /* background: green; */
+
+        height: 100%;
+
+        /* float: right; */
+
+        /* margin-left: auto; */
+
+        display: flex;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+        margin-left: 8px;
+
+    }
 
     #MenuLogo {
-/* width: 26px; */
-/* height: 26px; */
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-width: 22px;
-/* height: 22px; */
-height: 16px;
-/* padding: 2px; */
-}
+
+        /* width: 26px; */
+
+        /* height: 26px; */
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 22px;
+
+        /* height: 22px; */
+
+        height: 16px;
+
+        /* padding: 2px; */
+
+    }
 
     #BackToMainMenuButtonIcon {
 
@@ -2880,18 +2952,30 @@ ada iphone x
     }
 
     #MainMenuBackButtonHolder {
-height: 40px;
-width: 100%;
-background: #00000068;
-display: flex;
-align-items: center;
-flex-direction: row;
-justify-content: space-between;
-z-index: 5000;
-/* display: flex; */
-/* flex-direction: column; */
-/* justify-content: center; */
-}
+
+        height: 40px;
+
+        width: 100%;
+
+        background: #00000068;
+
+        display: flex;
+
+        align-items: center;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        z-index: 5000;
+
+        /* display: flex; */
+
+        /* flex-direction: column; */
+
+        /* justify-content: center; */
+
+    }
 }
 
 /*
@@ -3270,8 +3354,8 @@ sandru opera mini landscape
     #ComingSoonImage {
         background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
         background-size: 96%;
-        width: 100%;
-        height: 692px;
+        /* width: 100%; */
+        /* height: 692px; */
         background-repeat: no-repeat;
         /* margin-top: 10%; */
         border-color: white;
@@ -3281,7 +3365,7 @@ sandru opera mini landscape
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 36em;
+        font-size: 17px;
         align-items: center;
         justify-content: center;
         display: flex;
@@ -3351,28 +3435,48 @@ sandru opera mini landscape
     }
 
     #BackToMainMenuButton {
-float: left;
-/* width: auto; */
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "troika";
-color: white;
-}
+
+        float: left;
+
+        /* width: auto; */
+
+        height: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+    }
 
     #MenuLogo {
-width: 26px;
-/* height: 26px; */
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-width: 22px;
-height: 16px;
-}
+
+        width: 26px;
+
+        /* height: 26px; */
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        width: 22px;
+
+        height: 16px;
+
+    }
 
     #BackToMainMenuButtonIcon {
 
@@ -3775,8 +3879,8 @@ sandru chrome landscape
     #ComingSoonImage {
         background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
         background-size: 96%;
-        width: 100%;
-        height: 692px;
+        /* width: 100%; */
+        /* height: 692px; */
         background-repeat: no-repeat;
         /* margin-top: 10%; */
         border-color: white;
@@ -3786,7 +3890,7 @@ sandru chrome landscape
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 36em;
+        font-size: 22px;
         align-items: center;
         justify-content: center;
         display: flex;
@@ -3852,29 +3956,50 @@ sandru chrome landscape
     }
 
     #BackToMainMenuButton {
-float: left;
-/* width: 12%; */
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "troika";
-color: white;
-cursor: pointer;
-}
+
+        float: left;
+
+        /* width: 12%; */
+
+        height: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "troika";
+
+        color: white;
+
+        cursor: pointer;
+
+    }
 
     #MenuLogo {
-/* width: 26px; */
-/* height: 26px; */
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-/* width: 20px; */
-/* height: 16px; */
-}
+
+        /* width: 26px; */
+
+        /* height: 26px; */
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        /* width: 20px; */
+
+        /* height: 16px; */
+
+    }
 
     #BackToMainMenuButtonIcon {
 
@@ -4363,8 +4488,8 @@ sandru edge landscape
     #ComingSoonImage {
         background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
         background-size: 96%;
-        width: 100%;
-        height: 692px;
+        /* width: 100%; */
+        /* height: 692px; */
         background-repeat: no-repeat;
         /* margin-top: 10%; */
         border-color: white;
@@ -4374,7 +4499,7 @@ sandru edge landscape
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 36em;
+        font-size: 32px;
         align-items: center;
         justify-content: center;
         display: flex;
@@ -4488,17 +4613,28 @@ sandru edge landscape
     }
 
     #MenuLogo {
-/* width: 26px; */
-/* height: 26px; */
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-/* width: 20px; */
-/* height: 16px; */
-}
+
+        /* width: 26px; */
+
+        /* height: 26px; */
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        /* width: 20px; */
+
+        /* height: 16px; */
+
+    }
 
     #BackToMainMenuButtonIcon {
 
@@ -4989,8 +5125,8 @@ iPhone landscape
     #ComingSoonImage {
         background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
         background-size: 96%;
-        width: 100%;
-        height: 692px;
+        /* width: 100%; */
+        /* height: 692px; */
         background-repeat: no-repeat;
         /* margin-top: 10%; */
         border-color: white;
@@ -5000,7 +5136,7 @@ iPhone landscape
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 36em;
+        /* font-size: 36em; */
         align-items: center;
         justify-content: center;
         display: flex;
@@ -5008,10 +5144,14 @@ iPhone landscape
     }
 
     #MainMenuElementsHolder {
-width: calc(100% - 90px);
-padding-top: 30px;
-height: calc(100% - 58px);
-}
+
+        width: calc(100% - 90px);
+
+        padding-top: 30px;
+
+        height: calc(100% - 58px);
+
+    }
 
     #HowToPlayImage {
 
@@ -5080,17 +5220,28 @@ iPhone landscape
     }
 
     #MenuLogo {
-/* width: 26px; */
-/* height: 26px; */
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-/* width: 20px; */
-/* height: 16px; */
-}
+
+        /* width: 26px; */
+
+        /* height: 26px; */
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        /* width: 20px; */
+
+        /* height: 16px; */
+
+    }
 
     #BackToMainMenuButtonIcon {
 
@@ -5581,8 +5732,8 @@ ilie landscape
     #ComingSoonImage {
         background: url("Assets/Desktop/Images/invitationScreenComingSoon.jpg");
         background-size: 96%;
-        width: 100%;
-        height: 692px;
+        /* width: 100%; */
+        /* height: 0; */
         background-repeat: no-repeat;
         /* margin-top: 10%; */
         border-color: white;
@@ -5592,11 +5743,14 @@ ilie landscape
         box-sizing: border-box;
         color: white;
         font-family: "troika";
-        font-size: 36em;
+        font-size: 30px;
         align-items: center;
         justify-content: center;
         display: flex;
         background-position: center;
+        /* width: 100%; */
+        /* height: 100%; */
+        /* padding-bottom: 100%; */
     }
 
     #MainMenuElementsHolder {
@@ -5706,17 +5860,28 @@ ilie landscape
     }
 
     #MenuLogo {
-/* width: 26px; */
-/* height: 26px; */
-float: left;
-margin-right: 4px;
-background-color: red;
-background: url(Assets/Desktop/Images/stats_allstarboard.svg);
-background-size: contain;
-background-repeat: no-repeat;
-/* width: 22px; */
-/* height: 22px; */
-}
+
+        /* width: 26px; */
+
+        /* height: 26px; */
+
+        float: left;
+
+        margin-right: 4px;
+
+        background-color: red;
+
+        background: url(Assets/Desktop/Images/stats_allstarboard.svg);
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        /* width: 22px; */
+
+        /* height: 22px; */
+
+    }
 
     #BackToMainMenuButtonIcon {
 
