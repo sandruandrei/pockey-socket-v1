@@ -25,16 +25,17 @@ namespace Pockey {
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import Point = PIXI.Point;
         import Settings = Framework.Settings;
-        import Graphics = PIXI.Graphics;
         import Sprite = PIXI.Sprite;
+
+        //@ts-ignore
 
         export class PockeyGameModule extends AbstractModule {
             // private poolTable: PoolTable;
             private levelManager: PoolTableManager;
-            public confirmWhiteBallPlacementTexture: Sprite;
+            public confirmWhiteBallPlacementTexture: Container;
             public mobileStickPower: MobileStickPower;
-
-            private zeroPosition: Graphics;
+            private glowTexture: Sprite;
+            private glowTween: TweenMax;
 
             createElements(): void {
 
@@ -43,20 +44,32 @@ namespace Pockey {
                 }
                 else {
                     this.levelManager = new PoolTableManager();
-
                 }
+
                 this.addChild(this.levelManager.poolTable);
                 // this.poolTable = new PoolTable();//todo aici ai putea sa importi level manager (denumit acum game mechanics), hmm
                 // this.addChild(this.poolTable);//todo si aici addchild level manager.pooltable care e public
                 // this.handleDesktopLandscape();
 
                 if (Settings.isMobile) {
-                    this.confirmWhiteBallPlacementTexture = new Sprite(PIXI.Texture.fromFrame("penalty-droppuck.png"));
-                    this.confirmWhiteBallPlacementTexture.anchor.x = 0.5;
-                    this.confirmWhiteBallPlacementTexture.anchor.y = 0.5;
+                    this.confirmWhiteBallPlacementTexture = new Container();
+                    let blurFilter = new PIXI.filters.BlurFilter(1, 2);
+                    this.glowTexture = new Sprite(PIXI.Texture.fromFrame("penalty-droppuck.png"));
+                    this.glowTexture.tint = 0xffffff;
+                    this.glowTexture.filters = [blurFilter];
+                    this.glowTexture.anchor.x = 0.5;
+                    this.glowTexture.anchor.y = 0.5;
+                    this.confirmWhiteBallPlacementTexture.addChild(this.glowTexture);
+
+                    let frontTexture: Sprite = new Sprite(PIXI.Texture.fromFrame("penalty-droppuck.png"));
+                    frontTexture.anchor.x = 0.5;
+                    frontTexture.anchor.y = 0.5;
+                    this.confirmWhiteBallPlacementTexture.addChild(frontTexture);
+
                     this.confirmWhiteBallPlacementTexture.visible = false;
                     this.addChild(this.confirmWhiteBallPlacementTexture);
                     this.confirmWhiteBallPlacementTexture.interactive = true;
+
                     this.confirmWhiteBallPlacementTexture.on("tap", () => {
                         SignalsManager.DispatchSignal(PockeySignalTypes.MOBILE_WHITE_BALL_REPOSITION_CONFIRMED);
                     });
@@ -64,8 +77,8 @@ namespace Pockey {
                     this.mobileStickPower = new MobileStickPower();
                     this.addChild(this.mobileStickPower);
 
-                    SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER, this.onShowWhiteBallPositionConfirmer.bind(this))
-                    SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WHITE_BALL_POSITION_CONFIRMER, this.onHideWhiteBallPositionConfirmer.bind(this))
+                    SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER, this.onShowWhiteBallPositionConfirmer.bind(this));
+                    SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WHITE_BALL_POSITION_CONFIRMER, this.onHideWhiteBallPositionConfirmer.bind(this));
                     // this.mobileStickPower.anchor.y = 0.5;
                     // this.confirmWhiteBallPlacementTexture.visible = false;
                     // this.addChild(this.mobileStickPower);
@@ -76,10 +89,28 @@ namespace Pockey {
 
             private onShowWhiteBallPositionConfirmer(): void {
                 this.confirmWhiteBallPlacementTexture.visible = true;
+                if (this.glowTween && this.glowTween.isActive()) {
+                    this.glowTween.kill();
+                    this.glowTween = null;
+                }
+
+                this.glowTween = TweenMax.to(this.glowTexture.scale, 0.3, {
+                    x: 1.2,
+                    y: 1.2,
+                    yoyo: true, repeat: -1
+                });
             }
+
 
             private onHideWhiteBallPositionConfirmer(): void {
                 this.confirmWhiteBallPlacementTexture.visible = false;
+                if (this.glowTween && this.glowTween.isActive()) {
+                    this.glowTween.kill();
+                    this.glowTween = null;
+                }
+
+                this.glowTexture.scale.x = 1;
+                this.glowTexture.scale.y = 1;
             }
 
             /*protected onResize(params: any[]): void {

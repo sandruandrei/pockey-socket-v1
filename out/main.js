@@ -2341,11 +2341,16 @@ var Framework;
             AbstractEntryPoint.renderer = PIXI.autoDetectRenderer(Settings.stageWidth, Settings.stageHeight, {
                 backgroundColor: 0x0f404b,
                 antialias: true,
+                roundPixels: true,
+                resolution: window.devicePixelRatio || 1,
+                autoResize: true
             });
             AbstractEntryPoint.renderer.view.style.position = "absolute";
             AbstractEntryPoint.renderer.view.style.top = "0px";
             AbstractEntryPoint.renderer.view.style.left = "0px";
             AbstractEntryPoint.renderer.view.style.zIndex = "-800";
+            AbstractEntryPoint.renderer.view.style.width = "100%";
+            AbstractEntryPoint.renderer.view.style.height = "100%";
             document.body.appendChild(AbstractEntryPoint.renderer.view);
             this.stage = new Container();
             this.frameAnimate();
@@ -2429,6 +2434,7 @@ var Framework;
             }
             Settings.stageWidth = stageWidth;
             Settings.stageHeight = stageHeight;
+            console.log("se face resize: " + Settings.stageWidth, Settings.stageHeight);
             AbstractEntryPoint.renderer.resize(Settings.stageWidth, Settings.stageHeight);
             SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
         };
@@ -4897,6 +4903,10 @@ var Pockey;
                     }
                 }
             };
+            PoolTableManagerMobile.prototype.onResetStickPower = function () {
+                this.poolTable.poolStick.power = 0;
+                this.poolTable.poolStick.reset();
+            };
             return PoolTableManagerMobile;
         }(GameModule.PoolTableManager));
         GameModule.PoolTableManagerMobile = PoolTableManagerMobile;
@@ -4977,8 +4987,16 @@ var Pockey;
                 _this.addChild(_this.touchGraphics);
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_STICK_POWER_MOBILE, _this.onHide.bind(_this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_STICK_POWER_MOBILE, _this.onShow.bind(_this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_STICK_POWER, _this.onResetStickPower.bind(_this));
                 return _this;
             }
+            MobileStickPower.prototype.onResetStickPower = function () {
+                this.power = 0;
+                SignalsManager.DispatchSignal(PockeySignalTypes.STICK_PIVOT_MOBILE_UPDATE, [this.power]);
+                this.isDown = false;
+                this.stickTexture.y = this.initialStickY;
+                this.onHide();
+            };
             MobileStickPower.prototype.onHide = function () {
                 var _this = this;
                 TweenMax.to(this, 0.2, {
@@ -5022,9 +5040,18 @@ var Pockey;
                 }
                 this.addChild(this.levelManager.poolTable);
                 if (Settings.isMobile) {
-                    this.confirmWhiteBallPlacementTexture = new Sprite(PIXI.Texture.fromFrame("penalty-droppuck.png"));
-                    this.confirmWhiteBallPlacementTexture.anchor.x = 0.5;
-                    this.confirmWhiteBallPlacementTexture.anchor.y = 0.5;
+                    this.confirmWhiteBallPlacementTexture = new Container();
+                    var blurFilter = new PIXI.filters.BlurFilter(1, 2);
+                    this.glowTexture = new Sprite(PIXI.Texture.fromFrame("penalty-droppuck.png"));
+                    this.glowTexture.tint = 0xffffff;
+                    this.glowTexture.filters = [blurFilter];
+                    this.glowTexture.anchor.x = 0.5;
+                    this.glowTexture.anchor.y = 0.5;
+                    this.confirmWhiteBallPlacementTexture.addChild(this.glowTexture);
+                    var frontTexture = new Sprite(PIXI.Texture.fromFrame("penalty-droppuck.png"));
+                    frontTexture.anchor.x = 0.5;
+                    frontTexture.anchor.y = 0.5;
+                    this.confirmWhiteBallPlacementTexture.addChild(frontTexture);
                     this.confirmWhiteBallPlacementTexture.visible = false;
                     this.addChild(this.confirmWhiteBallPlacementTexture);
                     this.confirmWhiteBallPlacementTexture.interactive = true;
@@ -5040,9 +5067,24 @@ var Pockey;
             };
             PockeyGameModule.prototype.onShowWhiteBallPositionConfirmer = function () {
                 this.confirmWhiteBallPlacementTexture.visible = true;
+                if (this.glowTween && this.glowTween.isActive()) {
+                    this.glowTween.kill();
+                    this.glowTween = null;
+                }
+                this.glowTween = TweenMax.to(this.glowTexture.scale, 0.3, {
+                    x: 1.2,
+                    y: 1.2,
+                    yoyo: true, repeat: -1
+                });
             };
             PockeyGameModule.prototype.onHideWhiteBallPositionConfirmer = function () {
                 this.confirmWhiteBallPlacementTexture.visible = false;
+                if (this.glowTween && this.glowTween.isActive()) {
+                    this.glowTween.kill();
+                    this.glowTween = null;
+                }
+                this.glowTexture.scale.x = 1;
+                this.glowTexture.scale.y = 1;
             };
             PockeyGameModule.prototype.handleDesktopLandscape = function () {
                 _super.prototype.handleDesktopLandscape.call(this);
@@ -8722,6 +8764,14 @@ var Pockey;
                 this.hideElement(this.mainButtonsHolder);
                 _super.prototype.showInviteMenu.call(this);
             };
+            PockeyUiMainScreenMobile.prototype.setVisibleFalse = function () {
+                this.mainMenuElementsHolder.style.display = "none";
+                this.backBg.style.display = "none";
+            };
+            PockeyUiMainScreenMobile.prototype.setVisibleTrue = function () {
+                this.mainMenuElementsHolder.style.display = "block";
+                this.backBg.style.display = "flex";
+            };
             return PockeyUiMainScreenMobile;
         }(UserInterface.PockeyUiMainScreen));
         UserInterface.PockeyUiMainScreenMobile = PockeyUiMainScreenMobile;
@@ -8785,7 +8835,10 @@ var Pockey;
             PockeyUserInterfaceModule.prototype.onShowGameMenu = function () {
                 this.addChild(this.gameScreen);
                 SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundNames.MAIN_MENU_AMBIANCE }]);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.IN_GAME_AMBIANCE, loop: true }]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                        soundName: PockeySoundNames.IN_GAME_AMBIANCE,
+                        loop: true
+                    }]);
             };
             PockeyUserInterfaceModule.prototype.onHideGameMenu = function () {
                 this.removeChild(this.gameScreen);

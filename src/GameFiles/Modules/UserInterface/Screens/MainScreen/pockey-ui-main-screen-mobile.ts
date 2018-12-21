@@ -16,8 +16,10 @@ namespace Pockey {
             protected backBg: HTMLDivElement;
             protected menuTitle: HTMLDivElement;
             protected menuLogo: HTMLDivElement;
+            // protected mainMenuBackground: HTMLDivElement;
 
             protected defineElements(): void {
+
                 this.rightSide = document.getElementById("RightSideBackground") as HTMLDivElement;
                 this.mainButtonsHolder = document.getElementById("MainButtonsHolder") as HTMLDivElement;
                 this.backButton = document.getElementById("BackToMainMenuButton") as HTMLDivElement;
@@ -162,6 +164,17 @@ namespace Pockey {
                 this.hideElement(this.mainButtonsHolder);
 
                 super.showInviteMenu();
+            }
+
+            public setVisibleFalse(): void {
+                this.mainMenuElementsHolder.style.display = "none";
+                this.backBg.style.display = "none";
+            }
+
+            public setVisibleTrue(): void {
+                this.mainMenuElementsHolder.style.display = "block";
+                this.backBg.style.display = "flex";
+
             }
 
         }

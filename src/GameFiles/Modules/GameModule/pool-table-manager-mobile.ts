@@ -89,6 +89,7 @@ namespace Pockey {
                         else {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.yourTurnToShoot]);
                         }
+
                         this.poolTable.poolStick.x = this.poolTable.whiteBall.x;
                         this.poolTable.poolStick.y = this.poolTable.whiteBall.y;
                         // = new Point(this.poolTable.whieBall.position.x, this.poolTable.whiteBall.position.y);
@@ -105,8 +106,8 @@ namespace Pockey {
                                 this.graph.parent.removeChild(this.graph);
                             this.graph.clear();
                             this.graph = null;
-
                         }
+
                         this.graph = new Graphics();
 
                         let localPoint = this.poolTable.toLocal(new Point(TouchHandler.Instance().position.x, TouchHandler.Instance().position.y));
@@ -463,6 +464,11 @@ namespace Pockey {
                     // this.ticker.add(this.poolTable.whiteBall.update);
 
                 }
+            }
+
+            protected onResetStickPower(): void {
+                this.poolTable.poolStick.power = 0;
+                this.poolTable.poolStick.reset();
             }
         }
 

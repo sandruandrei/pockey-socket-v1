@@ -121,7 +121,6 @@ namespace Pockey {
                     });
                 }
 
-
                 return s;
             }
 

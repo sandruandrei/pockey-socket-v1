@@ -49,13 +49,11 @@ namespace Pockey {
 
             public createElements(): void {
 
-                if(Settings.isMobile)
-                {
+                if (Settings.isMobile) {
                     this.mainScreen = new PockeyUiMainScreenMobile();
 
                 }
-                else
-                {
+                else {
                     this.mainScreen = new PockeyUiMainScreen();
 
                 }
@@ -117,6 +115,7 @@ namespace Pockey {
 
             private onHideSearchingScreen(): void {
                 this.searchingScreen.setVisibleFalse();
+                // this.mainScreen.setVisibleFalse();
             }
 
             private onShowMainMenu(): void {
@@ -135,7 +134,10 @@ namespace Pockey {
             private onShowGameMenu(): void {
                 this.addChild(this.gameScreen);
                 SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundNames.MAIN_MENU_AMBIANCE}]);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.IN_GAME_AMBIANCE, loop:true}]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                    soundName: PockeySoundNames.IN_GAME_AMBIANCE,
+                    loop: true
+                }]);
             }
 
             private onHideGameMenu(): void {

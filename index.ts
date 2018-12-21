@@ -92,7 +92,7 @@ export module PockeyServer {
                 gzip: true	// gzip our assets
             });
 
-            let port = process.env.PORT || 4000;
+            let port = process.env.PORT || 8080;
             // create our server
             this.httpServer = http.createServer((request, response) => {
                 request.addListener('end', () => {

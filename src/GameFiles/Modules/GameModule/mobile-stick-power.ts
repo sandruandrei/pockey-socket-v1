@@ -116,8 +116,23 @@ namespace Pockey {
 
                 this.addChild(this.touchGraphics);
 
-                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_STICK_POWER_MOBILE, this.onHide.bind(this))
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_STICK_POWER_MOBILE, this.onShow.bind(this))
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_STICK_POWER_MOBILE, this.onHide.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_STICK_POWER_MOBILE, this.onShow.bind(this));
+
+                SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_STICK_POWER, this.onResetStickPower.bind(this));
+            }
+
+            protected onResetStickPower():void
+            {
+                this.power = 0;
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.STICK_PIVOT_MOBILE_UPDATE, [this.power]);
+
+                this.isDown = false;
+
+                this.stickTexture.y = this.initialStickY;
+
+                this.onHide();
             }
 
             private onHide(): void {

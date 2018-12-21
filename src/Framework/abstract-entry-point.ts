@@ -105,8 +105,9 @@ namespace Framework {
             AbstractEntryPoint.renderer = PIXI.autoDetectRenderer(Settings.stageWidth, Settings.stageHeight, {
                 backgroundColor: 0x0f404b,
                 antialias: true,
-                // roundPixels: true,
-                // resolution: 2;
+                roundPixels: true,
+                resolution: window.devicePixelRatio || 1,
+                autoResize: true
 
                 // transparent: true
             });
@@ -114,6 +115,11 @@ namespace Framework {
             AbstractEntryPoint.renderer.view.style.top = "0px";
             AbstractEntryPoint.renderer.view.style.left = "0px";
             AbstractEntryPoint.renderer.view.style.zIndex = "-800";
+            AbstractEntryPoint.renderer.view.style.width = "100%";
+            AbstractEntryPoint.renderer.view.style.height = "100%";
+            // console.log("la creare pixi: " + AbstractEntryPoint.renderer.view.parentNode.clientWidth);
+            // AbstractEntryPoint.renderer.view.parentNode.clientHeight;
+            // AbstractEntryPoint.renderer.view.style.overflow = "hidden";
 
             // var c = document.getElementById("canvas");
             // //@ts-ignore
@@ -285,8 +291,10 @@ namespace Framework {
             Settings.stageHeight = window.innerHeight;*/
 //             console.log("la window resize: w - h : " + Settings.stageWidth, Settings.stageHeight);
             // this.stageWidth = window.innerWidth;
-            // this.stageHeight = window.innerHeight;
-
+            // this.stageHeight = window.innerHeight;s
+            // AbstractEntryPoint.renderer.view.style.width = "100%";//Settings.stageWidth.toString() + "px";
+            // AbstractEntryPoint.renderer.view.style.height = Settings.stageHeight.toString() + "px";
+            console.log("se face resize: " + Settings.stageWidth, Settings.stageHeight);
             AbstractEntryPoint.renderer.resize(Settings.stageWidth, Settings.stageHeight);
 
             SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
