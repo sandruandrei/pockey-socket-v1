@@ -576,7 +576,7 @@ namespace Pockey {
             }
 
             protected onResetPoolTable(): void {
-                console.log("intra la p");
+                // console.log("intra la p");
                 // this.poolTable.visible = true;
                 this.isFirstShoot = true;
                 this.poolTable.reset();
@@ -626,12 +626,12 @@ namespace Pockey {
 
                 if (!this.poolTable.whiteBall.isOnReposition) {
                     // this.poolTable.whiteBall.hid
-                    console.log("intra aicisha");
+                    // console.log("intra aicisha");
                     this.poolTable.whiteBall.isOnReposition = true;
                 }
-                else {
-                    console.log("intra aicisha pe dracu");
-                }
+                // else {
+                //     console.log("intra aicisha pe dracu");
+                // }
 
                 this.graphicsHidden = false;
                 if (!this.goaliesHolder.moving)
@@ -1000,7 +1000,7 @@ namespace Pockey {
                 // this.ballPositionCircleOnRaycastMesh.material.freeze();
 
                 this.raycastFollowerMesh.setEnabled(false);
-                console.log("raycastFollowerMesh la hideball gr");
+                // console.log("raycastFollowerMesh la hideball gr");
                 // this.raycastFollowerMesh.material.freeze();
 
                 this.whiteBallReflectionArrowMesh.setEnabled(false);

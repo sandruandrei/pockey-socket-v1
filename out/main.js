@@ -3038,7 +3038,6 @@ var Pockey;
                 this.moving = true;
             };
             AbstractBall.prototype.reset = function () {
-                console.log(this.name + "se reseteaza mingea!");
                 if (this.ballInPocketAnimationTimeline && this.ballInPocketAnimationTimeline.isActive()) {
                     this.ballInPocketAnimationTimeline.pause();
                     this.ballInPocketAnimationTimeline.kill();
@@ -4447,7 +4446,6 @@ var Pockey;
                 this.poolTable.visible = true;
             };
             PoolTableManager.prototype.onResetPoolTable = function () {
-                console.log("intra la p");
                 this.isFirstShoot = true;
                 this.poolTable.reset();
             };
@@ -4469,11 +4467,7 @@ var Pockey;
             PoolTableManager.prototype.onRepositionWhiteBall = function () {
                 var _this = this;
                 if (!this.poolTable.whiteBall.isOnReposition) {
-                    console.log("intra aicisha");
                     this.poolTable.whiteBall.isOnReposition = true;
-                }
-                else {
-                    console.log("intra aicisha pe dracu");
                 }
                 this.graphicsHidden = false;
                 if (!this.goaliesHolder.moving)
@@ -4584,7 +4578,6 @@ var Pockey;
                 this.ballPositionCircleMesh.setEnabled(false);
                 this.ballPositionCircleOnRaycastMesh.setEnabled(false);
                 this.raycastFollowerMesh.setEnabled(false);
-                console.log("raycastFollowerMesh la hideball gr");
                 this.whiteBallReflectionArrowMesh.setEnabled(false);
                 this.otherBallReflectionArrowMesh.setEnabled(false);
                 if (this.whiteBallDirectionMesh)
