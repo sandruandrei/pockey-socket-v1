@@ -50,11 +50,11 @@ namespace Pockey {
             protected update(): void {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
-                    if (!this.poolTable.leftGoalie.moving)
+                    /*if (!this.poolTable.leftGoalie.moving)
                         this.poolTable.leftGoalie.startMoving();
 
                     if (!this.poolTable.rightGoalie.moving)
-                        this.poolTable.rightGoalie.startMoving();
+                        this.poolTable.rightGoalie.startMoving();*/
 
                     this.onRepositionWhiteBall();
 
@@ -64,11 +64,11 @@ namespace Pockey {
                 else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onShoot) {
                     if (!this.ballsAreMoving()) {
 
-                        SignalsManager.DispatchSignal(PockeySignalTypes.NEXT_TURN);
+                        SignalsManager.DispatchSignal(PockeySignalTypes.PREPARE_NEXT_TURN);
                     }
                     else {
                         this.handleCollisions();
-                        this.sendElementsDataToManager();
+                        // this.sendElementsDataToManager();
 
                     }
 
@@ -77,11 +77,11 @@ namespace Pockey {
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
 
                     if (this.poolTable.poolStick.rotationEnabled) {
-                        if (!this.poolTable.leftGoalie.moving)
+                       /* if (!this.poolTable.leftGoalie.moving)
                             this.poolTable.leftGoalie.startMoving();
 
                         if (!this.poolTable.rightGoalie.moving)
-                            this.poolTable.rightGoalie.startMoving();
+                            this.poolTable.rightGoalie.startMoving();*/
 
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
@@ -101,14 +101,14 @@ namespace Pockey {
                         //     // this.poolTable.poolStick.activate(new Point(this.poolTable.poolStick.startPosition.x, this.poolTable.poolStick.startPosition.y));
                         // }
 
-                        if (this.graph) {
+                        /*if (this.graph) {
                             if (this.graph.parent)
                                 this.graph.parent.removeChild(this.graph);
                             this.graph.clear();
                             this.graph = null;
                         }
 
-                        this.graph = new Graphics();
+                        this.graph = new Graphics();*/
 
                         let localPoint = this.poolTable.toLocal(new Point(TouchHandler.Instance().position.x, TouchHandler.Instance().position.y));
                         if (!this.rearrangeStickStarted) {
@@ -151,7 +151,7 @@ namespace Pockey {
                         P2WorldManager.Instance().world.raycast(this.raycastResult, this.rayClosest);
                         this.drawRayResult(this.raycastResult, this.rayClosest);
                     }
-                    this.sendElementsDataToManager();
+                    // this.sendElementsDataToManager();
                 }
                 /*// this.graph.lineStyle(2, 0xffffff);
                 // this.graph.moveTo(localPoint.x, localPoint.y);
@@ -357,13 +357,13 @@ namespace Pockey {
                     this.lastGoodRepositionPoint = new Vector2();
                 }
 
-                if (this.graph) {
+                /*if (this.graph) {
                     if (this.graph.parent)
                         this.graph.parent.removeChild(this.graph);
                     this.graph.clear();
                     this.graph = null;
                 }
-
+*/
                 // if (localPoint.x < this.poolTable.rightLimit &&
                 //     localPoint.x > this.poolTable.leftLimit &&
                 //     localPoint.y < this.poolTable.downLimit &&
@@ -403,21 +403,23 @@ namespace Pockey {
                             }
                         });
 
-                        if (isInteresectingWithOthers) {
-                            ballPositionCirclePosition.x = this.lastGoodRepositionPoint.x;
-                            ballPositionCirclePosition.y = this.lastGoodRepositionPoint.y;
-                        }
-                        else {
-                            this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                            this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-                        }
+                        // if (isInteresectingWithOthers) {
+                        //     ballPositionCirclePosition.x = this.lastGoodRepositionPoint.x;
+                        //     ballPositionCirclePosition.y = this.lastGoodRepositionPoint.y;
+                        // }
+                        // else {
+                        //     this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
+                        //     this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
+                        // }
                     }
 
-                    TweenMax.to(this.poolTable.ballPositionCircle, 0, {
-                        x: ballPositionCirclePosition.x,
-                        y: ballPositionCirclePosition.y
-                    });
-                    this.poolTable.ballPositionCircle.visible = true;
+                    // TweenMax.to(this.poolTable.ballPositionCircle, 0, {
+                    //     x: ballPositionCirclePosition.x,
+                    //     y: ballPositionCirclePosition.y
+                    // });
+                    this.ballPositionCircleMesh.position.x = ballPositionCirclePosition.x;
+                    this.ballPositionCircleMesh.position.y = ballPositionCirclePosition.y;
+                    // this.poolTable.ballPositionCircle.visible = true;
 
                 });
 
@@ -429,7 +431,7 @@ namespace Pockey {
 
                     // SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
                     this.repositionWhiteBallEnabled = false;
-                    this.poolTable.ballPositionCircle.visible = false;
+                    // this.poolTable.ballPositionCircle.visible = false;
                     // this.poolTable.whiteBall.canBeRemoved = false;
                     // this.poolTable.whiteBall.x = ballPositionCirclePosition.x;
                     // P2WorldManager.Instance().world.addBody(this.poolTable.whiteBall.p2Body);
@@ -442,7 +444,7 @@ namespace Pockey {
                     this.poolTable.whiteBall.ballPosition = ballPositionCirclePosition;
                     // if(this.poolTable.balls.cont)
                     this.poolTable.balls.push(this.poolTable.whiteBall);
-                    this.poolTable.addBallToBallsHolder(this.poolTable.whiteBall);
+                    // this.poolTable.addBallToBallsHolder(this.poolTable.whiteBall);
                     // this.poolTable.whiteBall.alpha = 1;//(this.poolTable.whiteBall);
                     // this.repositionStick();
                     // SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
@@ -454,8 +456,8 @@ namespace Pockey {
                         _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
                             ball.addShadowBody();
                         });
-                        this.poolTable.raycastFollower.visible = true;
-                        this.poolTable.ballPositionCircleOnRaycast.visible = true;
+                        // this.poolTable.raycastFollower.visible = true;
+                        // this.poolTable.ballPositionCircleOnRaycast.visible = true;
 
                         this.poolTable.poolStick.activate(new Point(this.poolTable.whiteBall.x, this.poolTable.whiteBall.y));
                         // console.log("PockeyStateMachine.Instance().fsm.currentState: " + PockeyStateMachine.Instance().fsm.currentState);

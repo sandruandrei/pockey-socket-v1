@@ -28,13 +28,19 @@ namespace Pockey {
     import PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     import PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     import PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
+    import PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
 
     export class PockeyEntryPoint extends AbstractEntryPoint {
         private gameModule: AbstractModule;
 
+
+        private fixedTimeStep = 1 / 60;
+        private maxSubSteps = 6;
+        private lastTimeMilliseconds;
+
         // private fixedTimeStep = 1 / 60; // seconds
-        private maxSubSteps = 7; // Max sub steps to catch up with the wall clock
-        private lastTime;
+        // private maxSubSteps = 7; // Max sub steps to catch up with the wall clock
+        // private lastTime;
         // public static p2World: p2.World;
 
         // private groundBody: p2.Body;
@@ -51,9 +57,9 @@ namespace Pockey {
             super.checkDevice();
 
             if (Settings.isMobile) {
-                this.loadjscssfile("mainMenuScreenMobile.css", "css");
-                this.loadjscssfile("inventoryScreenMobile.css", "css");
-                this.loadjscssfile("leaderboardMobile.css", "css");
+                this.loadjscssfile("css/mainMenuScreenMobile.css", "css");
+                this.loadjscssfile("css/inventoryScreenMobile.css", "css");
+                this.loadjscssfile("css/leaderboardMobile.css", "css");
                 // this.loadjscssfile("mainMenuScreenMobile.css", "css");
             }
         }
@@ -111,16 +117,36 @@ namespace Pockey {
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-decals.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-sticks.json");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-sticks.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballTexture.jpg");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls.json");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big.png");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballTexture.jpg");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls.json");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls.png");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bottom.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_over.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_shadow.png");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_over.png");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_shadow.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_bottom.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_color.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_top.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballTexture.jpg");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls/balls.json");
+            // gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls/balls.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_felt.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bumper.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_border_01.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls/puck2.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ui_versus-main.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_pockeyball-comet.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_sprite-cue.png");
+
+            gameModule.addAssetToLoad(PockeySoundURLS.MAIN_MENU_AMBIANCE);
+            gameModule.addAssetToLoad(PockeySoundURLS.IN_GAME_AMBIANCE);
+            gameModule.addAssetToLoad(PockeySoundURLS.SHOOT_BALL);
+            gameModule.addAssetToLoad(PockeySoundURLS.LAST_FIVE_SECONDS);
+            gameModule.addAssetToLoad(PockeySoundURLS.OPPONENT_FOUND);
+            gameModule.addAssetToLoad(PockeySoundURLS.BALL_TO_BALL_HIT);
+            gameModule.addAssetToLoad(PockeySoundURLS.GOALKEEPER_HIT);
+            gameModule.addAssetToLoad(PockeySoundURLS.BALL_IN_POCKET);
+
             gameModule.Layer = this.getLayer(Layers.GameLayer);
 
             return gameModule;
@@ -129,8 +155,8 @@ namespace Pockey {
         protected getUIModule(): AbstractModule {
             let uiModule = new PockeyUserInterfaceModule();
             uiModule.Name = "PockeyUIModule";
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.json");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
+            // uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.json");
+            // uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
 
             /* uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Fonts/Midtown.eot");
@@ -165,7 +191,7 @@ namespace Pockey {
 
         protected getBackgroundModule(): AbstractModule {
             let backgroundModule = new PockeyBackgroundModule();
-            backgroundModule.registerBackground(PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, Settings.desktopAssetsPath + "/Images/Backgrounds/game_bg.png");
+            backgroundModule.registerBackground(PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, Settings.desktopAssetsPath + "/Images/Backgrounds/game_bg.png", document.getElementById("SecondBackground") as HTMLDivElement);
 
             backgroundModule.Name = "PockeyBackgroundModule";
             backgroundModule.addAssetToLoad(Settings.desktopAssetsPath + "/Images/Backgrounds/game_bg.png");
@@ -186,12 +212,12 @@ namespace Pockey {
 
              soundModule.Layer = this.getLayer(Layers.DefaultLayer);
 
-             soundModule.addAssetToLoad(PockeySoundNames.MAIN_MENU_AMBIANCE);
-             soundModule.addAssetToLoad(PockeySoundNames.IN_GAME_AMBIANCE);
-             soundModule.addAssetToLoad(PockeySoundNames.SHOOT_BALL);
-             soundModule.addAssetToLoad(PockeySoundNames.LAST_FIVE_SECONDS);
-             soundModule.addAssetToLoad(PockeySoundNames.OPPONENT_FOUND);
-             soundModule.addAssetToLoad(PockeySoundNames.BALL_TO_BALL_HIT);
+             soundModule.addAssetToLoad(PockeySoundURLS.MAIN_MENU_AMBIANCE);
+             soundModule.addAssetToLoad(PockeySoundURLS.IN_GAME_AMBIANCE);
+             soundModule.addAssetToLoad(PockeySoundURLS.SHOOT_BALL);
+             soundModule.addAssetToLoad(PockeySoundURLS.LAST_FIVE_SECONDS);
+             soundModule.addAssetToLoad(PockeySoundURLS.OPPONENT_FOUND);
+             soundModule.addAssetToLoad(PockeySoundURLS.BALL_TO_BALL_HIT);
 
              return soundModule;
          }*/
@@ -207,12 +233,14 @@ namespace Pockey {
 
 
         protected initializePixi(): void {
-            super.initializePixi();
-
-            //-------------------------------------
             P2WorldManager.Instance().world = new p2.World({
                 gravity: [0, 0]
             });
+
+            super.initializePixi();
+
+            //-------------------------------------
+
 
             // To animate the bodies, we must step the world forward in time, using a fixed time step size.
 // The World will run substeps and interpolate automatically for us, to get smooth animation.
@@ -235,7 +263,7 @@ namespace Pockey {
             //     // console.log("Circle y position: " + this.circleBody.position[1]);
             //     // console.log("Circle angle: " + this.circleBody.angle);
             // }.bind(this), 1000 * timeStep);
-            requestAnimationFrame(this.animate.bind(this));
+            // requestAnimationFrame(this.animate.bind(this));
 
         }
 
@@ -256,6 +284,8 @@ namespace Pockey {
 
         protected frameAnimate(): void {
             super.frameAnimate();
+
+            this.animate(Date.now());
             // if (P2WorldManager.Instance().world)
             //     P2WorldManager.Instance().world.step(PockeySettings.P2_WORLD_STEP);
 
@@ -289,19 +319,18 @@ namespace Pockey {
 
         // Animation loop
         private animate(time) {
-            requestAnimationFrame(this.animate.bind(this));
-            // Compute elapsed time since last render frame
-            let deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
+            /* var timeSinceLastCall = 0;
+             if(time !== undefined && this.lastTimeMilliseconds !== undefined){
+                 timeSinceLastCall = (time - this.lastTimeMilliseconds) / 1000;
+             }
+             P2WorldManager.Instance().world.step(this.fixedTimeStep, timeSinceLastCall, this.maxSubSteps);
+             this.lastTimeMilliseconds = time;*/
 
-            // Move bodies forward in time
-            if (P2WorldManager.Instance().world)
-            // P2WorldManager.Instance().world.step(PockeySettings.P2_WORLD_STEP);
-                P2WorldManager.Instance().world.step(PockeySettings.P2_WORLD_STEP, deltaTime, this.maxSubSteps);
-
-            // Render the circle at the current interpolated position
-            // renderCircleAtPosition(circleBody.interpolatedPosition);
-
-            this.lastTime = time;
+            let timeSeconds: number = time / 1000;
+            this.lastTimeMilliseconds = this.lastTimeMilliseconds || timeSeconds;
+            let timeSinceLastCall = timeSeconds - this.lastTimeMilliseconds;
+            P2WorldManager.Instance().world.step(this.fixedTimeStep, timeSinceLastCall, this.maxSubSteps);
+            // renderBody(body.interpolatedPosition, body.interpolatedAngle);
         }
 
 
@@ -317,7 +346,7 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.FACEBOOK_SIGN_IN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.FACEBOOK_SIGN_OUT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOOT_BALL);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.NEXT_TURN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.PREPARE_NEXT_TURN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.BALL_IN_POCKET);
             SignalsManager.CreateNewSignal(PockeySignalTypes.WHITE_BALL_IN_POCKET);
             SignalsManager.CreateNewSignal(PockeySignalTypes.FIRST_BALL_FAULT);
@@ -338,7 +367,7 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeyConnectionSignals.SCORE_UPDATE);
             SignalsManager.CreateNewSignal(PockeyConnectionSignals.YOUR_TURN);
             SignalsManager.CreateNewSignal(PockeyConnectionSignals.OPPONENT_SETTINGS);
-            SignalsManager.CreateNewSignal(PockeyConnectionSignals.OPPONENT_RESTART_GAME);
+            SignalsManager.CreateNewSignal(PockeyConnectionSignals.OPPONENT_NEXT_ROUND);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_MAIN_MENU);
             SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_MAIN_MENU);
@@ -353,8 +382,11 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_GAME_UI);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_WINNING_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN);
+
+            SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.START_GAME);
             SignalsManager.CreateNewSignal(PockeySignalTypes.RESET_POOLTABLE);
@@ -377,10 +409,20 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_STATE_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.UP);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_UI_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_COLOR);
+
+            SignalsManager.CreateNewSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.ON_WATCH_FINISHED);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CREATE_POOLTABLE_STATE);
+
+            SignalsManager.CreateNewSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
+
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL_STOP);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER);
@@ -391,14 +433,26 @@ namespace Pockey {
 
 let mainModule: Pockey.PockeyEntryPoint;
 
-window.onload = function (): void {
+// window.onload = function (): void {
+//     //@ts-ignore
+//     // this.createPreloader();
+//
+//     mainModule = new Pockey.PockeyEntryPoint();
+//     // @ts-ignore
+//     // TouchPoint.init();
+//     this.onresize = (event) => {
+//         mainModule.windowResize(window.innerWidth, window.innerHeight);
+//     };
+// };
+
+document.addEventListener("windowLoaded", function(){
+    // this.createPreloader();
+
     mainModule = new Pockey.PockeyEntryPoint();
     // @ts-ignore
     // TouchPoint.init();
-    this.onresize = (event) => {
+    window.onresize = (event) => {
         mainModule.windowResize(window.innerWidth, window.innerHeight);
     };
-};
-
-
+});
 

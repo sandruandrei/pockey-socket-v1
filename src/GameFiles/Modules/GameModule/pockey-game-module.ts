@@ -24,8 +24,10 @@ namespace Pockey {
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import Point = PIXI.Point;
-        import Settings = Framework.Settings;
         import Sprite = PIXI.Sprite;
+        import AbstractEntryPoint = Framework.AbstractEntryPoint;
+        import Settings = Framework.Settings;
+        import Vector3 = BABYLON.Vector3;
 
         //@ts-ignore
 
@@ -147,10 +149,36 @@ namespace Pockey {
                     this.levelManager.poolTable.scale.x = backgroundScaleFactor;
 
                     this.levelManager.poolTable.x = Settings.stageWidth / 2;
+                    let difference:number = this.levelManager.poolTable.y ;
                     this.levelManager.poolTable.y = 0.18 * Settings.stageHeight + this.levelManager.poolTable.height / 2;//
+                    difference -= this.levelManager.poolTable.y;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, [backgroundScaleFactor, this.levelManager.poolTable.position, this.levelManager.poolTable.rotation, this.levelManager.poolTable.width, this.levelManager.poolTable.height, difference]);
 
-                    SignalsManager.DispatchSignal(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, [backgroundScaleFactor, this.levelManager.poolTable.position, this.levelManager.poolTable.rotation, this.levelManager.poolTable.width, this.levelManager.poolTable.height]);
+                    let cameraScaleFactor:number = 3.2;
 
+                    let ratio = window.innerWidth / window.innerHeight ;
+                    let zoom = AbstractEntryPoint.camera.orthoTop;
+                    let newWidth = zoom * ratio;
+                    backgroundScaleFactor = 0.5 / backgroundScaleFactor;
+
+                    // AbstractEntryPoint.camera.orthoLeft = -Math.abs(newWidth);
+                    // AbstractEntryPoint.camera.orthoRight = newWidth;
+                    // AbstractEntryPoint.camera.orthoBottom = -Math.abs(zoom);
+                    AbstractEntryPoint.camera.orthoTop = Settings.stageHeight * backgroundScaleFactor;//ratio * Settings.stageHeight; //5 units to the top
+                    AbstractEntryPoint.camera.orthoBottom = -Settings.stageHeight * backgroundScaleFactor; //5 units to the bottom
+                    AbstractEntryPoint.camera.orthoLeft = -Settings.stageWidth * backgroundScaleFactor;  //5 units to the left
+                    AbstractEntryPoint.camera.orthoRight = Settings.stageWidth * backgroundScaleFactor; //5 units to the right
+                    // AbstractEntryPoint.camera.orthoLeft = -Settings.stageWidth * cameraScaleFactor * 0.9 * (1 - backgroundScaleFactor);
+                    // AbstractEntryPoint.camera.orthoRight = Settings.stageWidth * cameraScaleFactor * 0.9 * (1 - backgroundScaleFactor);
+                    // AbstractEntryPoint.camera.orthoBottom = -Settings.stageHeight * cameraScaleFactor * 0.752 * (1 - backgroundScaleFactor);
+                    // AbstractEntryPoint.camera.orthoTop = Settings.stageHeight * cameraScaleFactor *  0.848 * (1 - backgroundScaleFactor);
+
+                    // AbstractEntryPoint.camera.position.z = -backgroundScaleFactor *1000;//(new Vector3(0,0,backgroundScaleFactor * cameraScaleFactor * 200));
+
+                    // AbstractEntryPoint.camera.fovMode = backgroundScaleFactor * 10;
+                    // AbstractEntryPoint.camera.fov = backgroundScaleFactor * 7;
+                    // AbstractEntryPoint.camera.position.z = -(1-backgroundScaleFactor) * Settings.stageHeight *6;//this.levelManager.poolTable.y / (4.18 * cameraScaleFactor);
+// console.log("bg scale: " + backgroundScaleFactor);
                     this.levelManager.poolTable.poolStick.visible = true;
 
                 }

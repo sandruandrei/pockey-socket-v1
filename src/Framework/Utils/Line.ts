@@ -18,7 +18,6 @@ namespace Framework {
         import Vector2 = Framework.Utils.Vector2;
         import MaterialType = Pockey.GameModule.MaterialType;
         import P2WorldManager = Pockey.GameModule.P2WorldManager;
-        import Graphics = PIXI.Graphics;
 
         export enum LineType {
             BallsOnly = "BallOnly",

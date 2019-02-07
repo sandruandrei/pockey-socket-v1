@@ -1,30 +1,31 @@
-///<reference path="../../../../lib/types/pixi/pixi.d.ts"/>
+
 namespace Framework {
     export module Background {
-        import Sprite = PIXI.Sprite;
         import AbstractModule = Framework.Abstracts.AbstractModule;
         import SignalsManager = Framework.Signals.SignalsManager;
         import SignalsType = Framework.Signals.SignalsType;
 
+        export interface iBackground {
+            initialWidth?:number,
+            initialHeight?:number,
+            path:string,
+            div:HTMLDivElement
+        }
+
         export class AbstractBackgroundModule extends AbstractModule {
 
-            protected backgrounds: { [name: string]: Sprite; };
-            protected backgroundsPaths: { [name: string]: string; };
-            protected currentBackground: Sprite;
+            protected backgrounds: { [name: string]: iBackground; };
+            protected currentBackground: iBackground;
 
-            // protected mainBg: Sprite;
-            // public bgTextureName: string = '';
             constructor() {
                 super();
 
                 this.addAssetToLoad(Settings.desktopAssetsPath + Settings.backgroundsPath + "main_bg.png");
-                this.registerBackground(Settings.mainBackgroundName, Settings.desktopAssetsPath + Settings.backgroundsPath + "main_bg.png");
+                this.registerBackground(Settings.mainBackgroundName, Settings.desktopAssetsPath + Settings.backgroundsPath + "main_bg.png", document.getElementById("MainBackground") as HTMLDivElement);
             }
 
 
             protected registerSignalsHandlers(): void {
-                /* SignalsManager.AddSignalCallback(SignalsType.REGISTER_CUSTOM_BACKGROUND, this.onRegisterCustomBackground.bind(this));
-                 SignalsManager.AddSignalCallback(SignalsType.REGISTER_MAIN_BACKGROUND, this.onRegisterMainBackground.bind(this));*/
 
                 super.registerSignalsHandlers();
                 SignalsManager.AddSignalCallback(SignalsType.CHANGE_BACKGROUND, this.onChangeBackground.bind(this));
@@ -34,55 +35,55 @@ namespace Framework {
                 this.changeBackground(param[0].toString(), +param[1]);
             }
 
-            public registerBackground(name: string, texturePath: string): void {
-                if (!this.backgroundsPaths)
-                    this.backgroundsPaths = {};
+            public registerBackground(name: string, texturePath: string, htmlDiv:HTMLDivElement): void {
+                if (!this.backgrounds)
+                    this.backgrounds = {};
 
-                this.backgroundsPaths[name] = texturePath;
+                let bg:iBackground = {path: texturePath, div:htmlDiv};
+                bg.initialWidth = bg.div.offsetWidth;
+                bg.initialHeight = bg.div.offsetHeight;
+
+                this.backgrounds[name] = bg;
             }
-
-            /*protected onRegisterMainBackground(params: any[]): void {
-                let mainBg = new Sprite(PIXI.Texture.fromFrame(this.bgTextureName));
-                mainBg.x = mainBg.width / 2;
-                mainBg.y = mainBg.height / 2;
-
-                this.addChild(mainBg);
-            }
-
-            protected onRegisterCustomBackground(params: any[]): void {
-
-            }*/
 
 
             public createElements(): void {
                 super.createElements();
 
-                this.backgrounds = {};
+                _.forEach(this.backgrounds, (bg:iBackground) => {
+                    bg.div.style.background = "center / contain no-repeat #1A4157 url(" + bg.path + ")";
+                    bg.div.style.opacity = "0";
 
-                _.forEach(this.backgroundsPaths, (path: string, id: string) => {
-                    this.backgrounds[id] = new Sprite(PIXI.Texture.fromFrame(path));
-                    this.backgrounds[id].anchor.x = 0.5;
-                    this.backgrounds[id].anchor.y = 0.5;
+                    if(bg.initialHeight == 0 || bg.initialWidth == 0)
+                    {
+                        bg.initialWidth = bg.div.offsetWidth;
+                        bg.initialHeight = bg.div.offsetHeight;
+                    }
+
+                    bg.div.style.display = "none";
                 });
 
-                // this.changeBackground(Settings.mainBackgroundName, 0.5);
+                // this.changeBackground(Settings.mainBackgroundName, 60);
             }
 
             private changeBackground(id: string, fadeTime: number) {
                 if (this.backgrounds[id]) {
-                    let newBackground: Sprite = this.backgrounds[id];
-                    newBackground.alpha = 0;
-                    this.addChild(newBackground);
-
+                    let newBackground: iBackground = this.backgrounds[id];
+                    newBackground.div.style.opacity = "0";
+                    newBackground.div.style.display = "block";
+                    // this.addChild(newBackground);
+                    //
                     if(!_.isUndefined(this.currentBackground) && !_.isNull(this.currentBackground))
                     {
-                        let oldBackground:Sprite = this.currentBackground;
-                        TweenMax.to(newBackground, fadeTime, {alpha: 1, onComplete:this.removeBackgroundFromParent.bind(this), onCompleteParams:[oldBackground]});
+                        let oldBackground:iBackground = this.currentBackground;
+
+                        TweenMax.to(newBackground.div, fadeTime, {css:{opacity:1}, onComplete:this.removeBackgroundFromParent.bind(this), onCompleteParams:[oldBackground.div]});
                     }
                     else
                     {
-                        TweenMax.to(newBackground, fadeTime, {alpha: 1});
+                        TweenMax.to(newBackground.div, fadeTime, {css:{opacity:1}});
                     }
+
 
                     this.currentBackground = newBackground;
 
@@ -92,9 +93,10 @@ namespace Framework {
                 }
             }
 
-            private removeBackgroundFromParent(background: Sprite): void {
-                if (background && background.parent)
-                    background.parent.removeChild(background);
+            private removeBackgroundFromParent(background: HTMLDivElement): void {
+                background.style.display = "none";
+                // if (background && background.parent)
+                //     background.parent.removeChild(background);
             }
 
 
@@ -102,19 +104,7 @@ namespace Framework {
 
                 super.onResize(params);
 
-                if (this.currentBackground && this.currentBackground == this.backgrounds[Settings.mainBackgroundName]) {
-                    this.currentBackground.height = Settings.stageHeight;
-                    let scale: number = this.currentBackground.scale.y;
-                    this.currentBackground.scale.x = scale;
-                    if (this.currentBackground.width < Settings.stageWidth) {
-                        this.currentBackground.width = Settings.stageWidth;
-                        scale = this.currentBackground.scale.x;
-                        this.currentBackground.scale.y = scale;
-                    }
 
-                    this.currentBackground.x = Settings.stageWidth / 2;
-                    this.currentBackground.y = Settings.stageHeight / 2;
-                }
 
             }
 

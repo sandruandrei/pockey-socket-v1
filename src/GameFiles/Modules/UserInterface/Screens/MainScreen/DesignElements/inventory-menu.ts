@@ -237,7 +237,7 @@ namespace Pockey {
 
                 //
 
-                console.log("current columns index: " + this.currentColumnIndex);
+                // console.log("current columns index: " + this.currentColumnIndex);
                 return columnIndex;
             }
 
@@ -282,7 +282,7 @@ namespace Pockey {
                 let columnsNo: number = this.boxesHolder.children.length;
                 if (columnsNo > neededColumns) {
                     // console.log("intra la columnsNo > neededColumns");
-                    console.log("children inainate de remove: " + this.boxesHolder.children.length);
+                    // console.log("children inainate de remove: " + this.boxesHolder.children.length);
 
                     let boxes: HTMLCollection = this.boxesHolder.children;
                     for (let i = boxes.length - 1; i >= neededColumns; i--) {
@@ -299,7 +299,7 @@ namespace Pockey {
                             // this.boxesHolder.removeChild(this.boxesHolder.childNodes[counter]);
                         }
                     });*/
-                    console.log("children dupa remove: " + this.boxesHolder.children.length);
+                    // console.log("children dupa remove: " + this.boxesHolder.children.length);
 
                     // var element = document.getElementById(elementId);
                     // element.parentNode.removeChild(element);
@@ -517,7 +517,7 @@ namespace Pockey {
                     {
 
                     }*/
-                    console.log("equip: " + this.equipBtn.getAttribute('clicked'));
+                    // console.log("equip: " + this.equipBtn.getAttribute('clicked'));
                     // }
 
                 }
@@ -529,7 +529,7 @@ namespace Pockey {
                 // this.prevColumnBtn.enable();
 
                 if (offset > this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth) {
-                    console.log("cazul 1: " + offset, this.boxesHolder.scrollWidth, this.boxesHolder.offsetWidth);
+                    // console.log("cazul 1: " + offset, this.boxesHolder.scrollWidth, this.boxesHolder.offsetWidth);
 
                     offset = this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth;
                     if (offset != 0) {
@@ -553,7 +553,7 @@ namespace Pockey {
                     this.nextColumnBtn.enable();
                     this.prevColumnBtn.disable();
 
-                    console.log("cazul 2");
+                    // console.log("cazul 2");
 
                     // this.nextColumnBtn.classList.remove("disabledInventoryBtn");
                     // this.prevColumnBtn.classList.add("disabledInventoryBtn");
@@ -565,7 +565,7 @@ namespace Pockey {
                     this.nextColumnBtn.enable();
                     this.prevColumnBtn.enable();
 
-                    console.log("cazul 3");
+                    // console.log("cazul 3");
 
                     // this.nextColumnBtn.classList.remove("disabledInventoryBtn");
                     // this.prevColumnBtn.classList.remove("disabledInventoryBtn");

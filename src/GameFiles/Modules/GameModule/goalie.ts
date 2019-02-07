@@ -33,37 +33,26 @@ namespace Pockey {
             private goalieTopLayer: Sprite;
             private animationTimeline: TimelineMax;
 
-            private goDownTween:TweenMax;
-            private goUpTween:TweenMax;
-            private yLimit:number = 50;
-            public isGoing:string = "down"; //"up" or "down"
+
+            public isGoing: string = "down"; //"up" or "down"
 
             public type: string;
             public moving: boolean = false;
-            private gr: Graphics;
+            // private gr: Graphics;
 
             private goaliePolygonCoord: number[][] = [
-                [-25-2, 13 + 2],
-                [-24-2, -5 -2],
-                [-17-5, -16 +2],
-                [-22-4, -20 +2],
-                [-17-2, -30-2],
-                [-10-2, -29-2],
-                [-6-2, -35-2],
+                [-25 - 2, 13 + 2],
+                [-24 - 2, -5 - 2],
+                [-17 - 5, -16 + 2],
+                [-22 - 4, -20 + 2],
+                [-17 - 2, -30 - 2],
+                [-10 - 2, -29 - 2],
+                [-6 - 2, -35 - 2],
                 [28, -37],
                 [28, 37],
-                // [-2+2, -35-2],
-                // [15 + 2, -25-2],
-                // [16 + 2, -15-2],
-                // [25 + 2, -8-2],
-                // [25 + 2, 8 + 2],
-                // [16 + 2, 15+ 2],
-                // [17 + 2, 27+ 2],
-                // [10 + 2, 33+ 2],
-                // [0 + 2, 30+ 2],
-                [-5-2, 35+ 2],
-                [-18-2, 35+ 2],
-                [-26-2, 29+ 2]];
+                [-5 - 2, 35 + 2],
+                [-18 - 2, 35 + 2],
+                [-26 - 2, 29 + 2]];
 
             private goalieShadowPolygonCoord: number[][] = [
                 [-42, 6],
@@ -81,9 +70,10 @@ namespace Pockey {
                 [-40, 23]
             ];
 
-            private goalieBody: p2.Body;
-            private goalieBodyShadow: p2.Body;
+            public goalieBody: p2.Body;
+            public goalieBodyShadow: p2.Body;
             private side: string;
+
 
             constructor(side: string) {
                 super();
@@ -114,63 +104,14 @@ namespace Pockey {
                 this.addChild(this.goalieTopLayer);
 
                 this.pivot.set(this.width / 2, this.height / 2);
-
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_UI_TEXT, this.onUpdateUiText.bind(this));
-                // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame])
-
-///////////////////////
-                /*this.gr = new Graphics();
-                // this.gr.beginFill(0x000000, 0.4);
-                this.gr.lineStyle(1, 0xff9900);
-                /!*this.gr.moveTo(150, 150);
-                this.gr.lineTo(200,200);*!/
-                // this.gr.drawRect(0, 0, 50, 70);
-                let polygoncoord: Point[] = [];
-
-                _.forEach(this.goaliePolygonCoord, (lineCoord: number[], id: number) => {
-
-                    polygoncoord.push(new Point(lineCoord[0], lineCoord[1]));
-
-                    if (id == 0) {
-                        this.gr.moveTo(lineCoord[0], lineCoord[1]);
-                    }
-
-                    if (id > 0) {
-                        this.gr.lineTo(lineCoord[0], lineCoord[1]);
-                        /!*let prevPointCounter = id - 1;
-                        let v1 = new Vector2(lineCoord[0], lineCoord[1]);
-                        let v2 = new Vector2(PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][0], PockeySettings.MAIN_COLLISION_POLYGON[prevPointCounter][1]);
-                        this.createLine(v1, v2, MaterialType.LINE_MATERIAL);*!/
-                    }
-                    // nextPointCounter = id + 1;
-                    // if (id + 1 > PockeySettings.MAIN_COLLISION_POLYGON.length - 1) {
-                    //
-                    // }
-                });
-                // this.gr.drawPolygon(polygoncoord);
-                this.gr.endFill();*/
-
-// this.alpha = 0.2
-                ///////////////////////
-
             }
 
             public setBodyPosition(): void {
                 this.goalieBody.position[0] = this.x;
                 this.goalieBody.position[1] = this.y;
-                this.goalieBody.angle = this.rotation;
 
                 this.goalieBodyShadow.position[0] = this.x;
                 this.goalieBodyShadow.position[1] = this.y;
-                this.goalieBodyShadow.angle = this.rotation;
-
-                /*this.gr.x = this.goalieBody.position[0];
-                this.gr.y = this.goalieBody.position[1];
-                this.gr.rotation = this.rotation;
-
-                                if (!this.gr.parent && this.parent) {
-                                    this.parent.addChild(this.gr);
-                                }*/
             }
 
             public setPosition(position: Vector2): void {
@@ -180,94 +121,7 @@ namespace Pockey {
                 this.setBodyPosition();
             }
 
-            private onUpdateUiText(params: any[]): void {
-                if (params[0] == PockeyStateTexts.beginGame) {
-                    this.startMoving();
-                }
-            }
 
-            public addGrToPool(parent: Container): void {
-
-                parent.addChild(this.gr);
-            }
-
-            public startMoving(): void {
-                // this.reset();
-                this.moving = true;
-
-
-                if(this.isGoing == "down")
-                {
-                    this.startGoDownTween();
-                }
-                else
-                {
-                    this.startGoUpTween();
-                }
-            }
-
-            private startGoDownTween():void
-            {
-                this.resetTweens();
-
-                let tweenTime:number = (this.yLimit - this.y) / (2 * this.yLimit);
-
-                this.goDownTween = TweenMax.to(this, Math.abs(tweenTime), {
-                    y: this.yLimit,
-                    ease: Linear.easeNone,
-                    onUpdate: this.onGoDownUpdate.bind(this),
-                    onComplete: this.startGoUpTween.bind(this)
-                });
-            }
-
-            private startGoUpTween():void
-            {
-                this.resetTweens();
-
-                let tweenTime:number = (-this.yLimit - this.y) / (2 * this.yLimit);
-
-                this.goUpTween = TweenMax.to(this, Math.abs(tweenTime), {
-                    y: -this.yLimit,
-                    ease: Linear.easeNone,
-                    onUpdate: this.onGoUpUpdate.bind(this),
-                    onComplete: this.startGoDownTween.bind(this)
-                });
-            }
-
-            private onGoDownUpdate():void
-            {
-                this.isGoing = "down";
-                // console.log("se face down update");
-                this.setBodyPosition();
-            }
-
-            private onGoUpUpdate():void
-            {
-                this.isGoing = "up";
-                // console.log("se face up update");
-
-                this.setBodyPosition();
-            }
-
-
-            public resetTweens(): void {
-                this.moving = false;
-
-                if (this.goUpTween && this.goUpTween.isActive()) {
-                    this.goUpTween.kill();
-                    this.goUpTween = null;
-                }
-
-                if (this.goDownTween && this.goDownTween.isActive()) {
-                    this.goDownTween.kill();
-                    this.goDownTween = null;
-                }
-
-                TweenMax.killTweensOf(this);
-                // this.goalieMiddleLayer.tint = null;
-                // this.y = 0;
-
-            }
         }
     }
 }

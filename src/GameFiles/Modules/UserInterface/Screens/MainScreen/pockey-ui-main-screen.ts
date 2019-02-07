@@ -26,6 +26,8 @@ namespace Pockey {
             protected playGameMenu: PlayGameMenu;
             protected inventoryMenu: PockeyInventoryMenu;
 
+            protected pockeyHelmetAndStick:HTMLDivElement;
+
             constructor() {
                 this.defineElements();
             }
@@ -112,6 +114,8 @@ namespace Pockey {
                         }
                     }
                 );
+
+                this.pockeyHelmetAndStick = document.getElementById("PockeyHatAndStick") as HTMLDivElement;
             }
 
             protected showElement(element: HTMLDivElement): void {
@@ -181,10 +185,12 @@ namespace Pockey {
 
             public setVisibleTrue(): void {
                 this.mainMenuElementsHolder.style.display = "block";
+                this.pockeyHelmetAndStick.style.display = "flex";
             }
 
             public setVisibleFalse(): void {
                 this.mainMenuElementsHolder.style.display = "none";
+                this.pockeyHelmetAndStick.style.display = "none";
             }
 
         }

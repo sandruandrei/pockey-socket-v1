@@ -9,6 +9,8 @@
 ///<reference path="../../lib/types/webfontloader/webfontloader.d.ts"/>
 ///<reference path="AbstractModules/Connection/database-connector.ts"/>
 ///<reference path="AbstractModules/Sound/abstract-sound-module.ts"/>
+///<reference path="../../node_modules/babylonjs/babylon.d.ts"/>
+///<reference path="../../lib/types/pixi/pixi.d.ts"/>
 
 // Created by: Sandru Andrei for Edgeflow on 7/11/2018
 
@@ -16,8 +18,6 @@ namespace Framework {
     import AbstractModule = Framework.Abstracts.AbstractModule;
     import AssetsLoader = Framework.Loaders.AssetsLoader;
     import Container = PIXI.Container;
-    import WebGLRenderer = PIXI.WebGLRenderer;
-    import CanvasRenderer = PIXI.CanvasRenderer;
     import SignalsManager = Framework.Signals.SignalsManager;
     import SignalsType = Framework.Signals.SignalsType;
     import TouchHandler = Framework.Utils.TouchHandler;
@@ -27,6 +27,7 @@ namespace Framework {
     import ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
     import Settings = Framework.Settings;
     import AbstractSoundModule = Framework.Sound.AbstractSoundModule;
+    import PockeySettings = Pockey.PockeySettings;
 
 
     export class AbstractEntryPoint {
@@ -36,13 +37,17 @@ namespace Framework {
         protected assetsLoader: AssetsLoader;
         protected name: string = "";
 
-        protected stage: Container;
+        public static stage: Container;
         protected backgroundModule: AbstractModule;
         protected uiModule: AbstractModule;
         protected connectionModule: AbstractModule;
         protected soundModule: AbstractModule;
         protected allElementsCreated: boolean = false;
-        public static renderer: WebGLRenderer | CanvasRenderer;
+        public static renderer;
+        protected engine: any;
+        public static camera: any;
+        public static scene: BABYLON.Scene;
+        protected isWebGL1: boolean;
 
 
         constructor() {
@@ -50,6 +55,7 @@ namespace Framework {
 
             this.checkDevice();
             this.setWindowSize();
+            this.initializeBabylon();
             this.initializePixi();
             this.registerSignals();
             this.subscribeToSignals();
@@ -66,6 +72,7 @@ namespace Framework {
         protected userDataChecked(): void {
             if (!this.allElementsCreated) {
                 this.allElementsCreated = true;
+
 
                 SignalsManager.DispatchSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
                 SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
@@ -94,7 +101,42 @@ namespace Framework {
 
 
         //here Pixi is initiated. Make sure you define the stage width and height before calling this method
+        protected initializeBabylon(): void {
+            let canvas: HTMLCanvasElement = document.getElementById("renderCanvas") as HTMLCanvasElement;
+
+            // babylon.js rendering
+            this.engine = new BABYLON.Engine(canvas, true);
+            AbstractEntryPoint.scene = new BABYLON.Scene(this.engine);
+            // AbstractEntryPoint.scene.posi
+            // let camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 0, -1000), AbstractEntryPoint.scene);
+            AbstractEntryPoint.camera = new BABYLON.UniversalCamera("camera1", new BABYLON.Vector3(0, 0, -1000 - PockeySettings.BALL_RADIUS * 3 - 7), AbstractEntryPoint.scene);
+            // camera.orthoTop = 20;
+            // camera.orthoTop = 20;
+            AbstractEntryPoint.camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
+
+            AbstractEntryPoint.camera.setTarget(BABYLON.Vector3.Zero());
+
+            let light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-80, 60, -110), AbstractEntryPoint.scene);
+            // light.intensity = 0.7;
+            // let sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, this.scene);
+            // sphere.position.y = 1;
+            // let ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, this.scene);
+            this.isWebGL1 = this.engine.webGLVersion === 1;
+        }
+
         protected initializePixi(): void {
+
+            /* var pixiRenderer = new PIXI.WebGLRenderer({
+                 context: engine._gl,
+                 view: engine.getRenderingCanvas(),
+                 width: engine.getRenderWidth(),
+                 height: engine.getRenderHeight(),
+                 clearBeforeRender: false,
+                 roundPixels: true,
+                 autoStart: false
+             });
+             var stage = new PIXI.Container();*/
+            /////////////////////
 
             PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
 
@@ -103,20 +145,28 @@ namespace Framework {
             // PIXI.Texture.SC.DEFAULT = PIXI.Texture.SCALE_MODE.NEAREST;
 
             AbstractEntryPoint.renderer = PIXI.autoDetectRenderer(Settings.stageWidth, Settings.stageHeight, {
-                backgroundColor: 0x0f404b,
-                antialias: true,
+                /* backgroundColor: 0x0f404b,
+                 antialias: true,
+                 roundPixels: true,
+                 resolution: window.devicePixelRatio || 1,
+                 autoResize: true*/
+                context: this.engine._gl,
+                view: this.engine.getRenderingCanvas(),
+                width: this.engine.getRenderWidth(),
+                height: this.engine.getRenderHeight(),
+                clearBeforeRender: true,
                 roundPixels: true,
+                autoResize: true,
+                antialias: true,
                 resolution: window.devicePixelRatio || 1,
-                autoResize: true
-
-                // transparent: true
+                transparent: true
             });
-            AbstractEntryPoint.renderer.view.style.position = "absolute";
+            /*AbstractEntryPoint.renderer.view.style.position = "absolute";
             AbstractEntryPoint.renderer.view.style.top = "0px";
             AbstractEntryPoint.renderer.view.style.left = "0px";
             AbstractEntryPoint.renderer.view.style.zIndex = "-800";
             AbstractEntryPoint.renderer.view.style.width = "100%";
-            AbstractEntryPoint.renderer.view.style.height = "100%";
+            AbstractEntryPoint.renderer.view.style.height = "100%";*/
             // console.log("la creare pixi: " + AbstractEntryPoint.renderer.view.parentNode.clientWidth);
             // AbstractEntryPoint.renderer.view.parentNode.clientHeight;
             // AbstractEntryPoint.renderer.view.style.overflow = "hidden";
@@ -137,9 +187,9 @@ namespace Framework {
             // ctx.globalCompositeOperation = "destination-over";
             // AbstractEntryPoint.renderer.view.style.ctx.globalCompositeOperation='destination-over';
 
-            document.body.appendChild(AbstractEntryPoint.renderer.view);
+            // document.body.appendChild(AbstractEntryPoint.renderer.view);
 
-            this.stage = new Container();
+            AbstractEntryPoint.stage = new Container();
             /*if(Settings.isMobile){
                 console.log("e mobil in plm");
                 // this.stage.buttonMode = true;
@@ -151,6 +201,24 @@ namespace Framework {
                 this.stage.defaultCursor = "url(cursor.png) 3 2, auto";
             }*/
 
+            // this.engine.runRenderLoop(() => {
+            //
+            //
+            // });
+
+            PIXI.ticker.shared.add(this.renderEngine.bind(this));
+        }
+
+        private renderEngine():void
+        {
+            //@ts-ignore
+            AbstractEntryPoint.renderer.reset();
+            AbstractEntryPoint.renderer.render(AbstractEntryPoint.stage);
+
+            AbstractEntryPoint.scene.autoClear = false;
+            // tsphere.rotation.y += 0.01;
+            AbstractEntryPoint.scene.render();
+            this.engine.wipeCaches(true);
             this.frameAnimate();
         }
 
@@ -189,7 +257,7 @@ namespace Framework {
         protected startLoadingAssets() {
 
             if (_.isNull(this.assetsLoader) || _.isUndefined(this.assetsLoader)) {
-                this.assetsLoader = new AssetsLoader(this.onAssetsLoadComplete.bind(this));
+                this.assetsLoader = new AssetsLoader();
             }
 
             this.addFontsToLoad();
@@ -229,14 +297,50 @@ namespace Framework {
         }
 
         protected frameAnimate() {
-            requestAnimationFrame(this.frameAnimate.bind(this));
+            // requestAnimationFrame(this.frameAnimate.bind(this));
+            //
+            // // if (Settings.stageWidth != window.innerWidth || Settings.stageHeight != window.innerHeight) {
+            // //     this.windowResize();
+            // // }
+            // // //Render the stage
+            // AbstractEntryPoint.renderer.render(this.stage);
 
-            // if (Settings.stageWidth != window.innerWidth || Settings.stageHeight != window.innerHeight) {
-            //     this.windowResize();
-            // }
-            // //Render the stage
-            AbstractEntryPoint.renderer.render(this.stage);
+            // this.engine.runRenderLoop(() => {
+            //
+            //     //@ts-ignore
+            //     AbstractEntryPoint.renderer.reset();
+            //     AbstractEntryPoint.renderer.render(AbstractEntryPoint.stage);
+            //
+            //     AbstractEntryPoint.scene.autoClear = false;
+            //     // tsphere.rotation.y += 0.01;
+            //     AbstractEntryPoint.scene.render();
+            //     this.engine.wipeCaches(true);
+            //
+            //
+            //     // this.scene.render();
+            //
+            //     // if(this.isWebGL1)
+            //     // {
+            //     //
+            //     //     AbstractEntryPoint.renderer.reset();
+            //     // }
+            //     //
+            //     //
+            //     // this.scene.render();
+            //     // this.engine.wipeCaches(true);
+            //     //
+            //     // //@ts-ignore
+            //     // AbstractEntryPoint.renderer.reset();
+            //     // AbstractEntryPoint.renderer.render(this.stage);
+            //
+            //
+            // });
         }
+
+        // protected renderLoop():void
+        // {
+        //
+        // }
 
         protected getBackgroundModule(): AbstractModule {
             let backgroundModule: AbstractBackgroundModule = new AbstractBackgroundModule();
@@ -276,6 +380,14 @@ namespace Framework {
 
             Settings.stageWidth = stageWidth;
             Settings.stageHeight = stageHeight;
+
+            // var ratio = Settings.stageWidth / Settings.stageHeight ;
+            // var zoom = AbstractEntryPoint.camera.orthoTop;
+            // var newWidth = zoom * ratio;
+            // AbstractEntryPoint.camera.orthoLeft = -Math.abs(newWidth);
+            // AbstractEntryPoint.camera.orthoRight = newWidth;
+            // AbstractEntryPoint.camera.orthoBottom = -Math.abs(zoom);
+
             // if(window.innerWidth >= window.innerHeight)
             // {
             //     Settings.stageWidth = window.innerWidth;
@@ -294,7 +406,7 @@ namespace Framework {
             // this.stageHeight = window.innerHeight;s
             // AbstractEntryPoint.renderer.view.style.width = "100%";//Settings.stageWidth.toString() + "px";
             // AbstractEntryPoint.renderer.view.style.height = Settings.stageHeight.toString() + "px";
-            console.log("se face resize: " + Settings.stageWidth, Settings.stageHeight);
+            // console.log("se face resize: " + Settings.stageWidth, Settings.stageHeight);
             AbstractEntryPoint.renderer.resize(Settings.stageWidth, Settings.stageHeight);
 
             SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
@@ -307,7 +419,7 @@ namespace Framework {
                 let layerName: string = Layers.LayerOrder[i];
                 let layer: Container = new Container();
                 layer.name = layerName;
-                this.stage.addChild(layer);
+                AbstractEntryPoint.stage.addChild(layer);
             }
             // _.forEach(Layers.LayerOrder, (layerName: string) => {
             //     let layer: Container = new Container();
@@ -317,7 +429,7 @@ namespace Framework {
         }
 
         protected getLayer(layerName: string): Container {
-            return this.stage.getChildByName(layerName) as Container;
+            return AbstractEntryPoint.stage.getChildByName(layerName) as Container;
         }
 
         protected initializeSingletons() {
@@ -338,6 +450,7 @@ namespace Framework {
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.WINDOW_RESIZE);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
+            SignalsManager.CreateNewSignal(SignalsType.CREATE_SOUND_CACHE);
             SignalsManager.CreateNewSignal(SignalsType.PLAY_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.STOP_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);

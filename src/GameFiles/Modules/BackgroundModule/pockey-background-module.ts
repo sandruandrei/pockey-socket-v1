@@ -18,6 +18,8 @@ namespace Pockey {
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import Point = PIXI.Point;
         import AbstractBackgroundModule = Framework.Background.AbstractBackgroundModule;
+        import Settings = Framework.Settings;
+        import iBackground = Framework.Background.iBackground;
 
         export class PockeyBackgroundModule extends AbstractBackgroundModule {
 
@@ -33,34 +35,39 @@ namespace Pockey {
             }
 
             private onResizeBackground(params: any[]): void {
-                if (this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME]) {
-                    let scaleFactor: number = params[0];
-                    let position: Point = params[1] as Point;
-                    let rotation: number = params[2];
+                let bg:iBackground;
 
-                    this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].x = position.x;
-                    this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].y = position.y;
-                    this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].rotation = rotation;
-                    this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].scale.x = scaleFactor;
-                    this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].scale.y = scaleFactor;
+                if (this.backgrounds[Settings.mainBackgroundName]) {
+                    bg = this.backgrounds[Settings.mainBackgroundName];
+                    let newHeight:number = Settings.stageHeight;
+                    let scale: number = newHeight / bg.initialHeight;
+                    let newWidth:number = bg.initialWidth * scale;
+
+                    if (newWidth < Settings.stageWidth) {
+                        newWidth = Settings.stageWidth;
+                        scale = newWidth / bg.initialWidth;
+                    }
+
+                    bg.div.style.width = (bg.initialWidth * scale).toString() + "px";
+                    bg.div.style.height = (bg.initialHeight * scale).toString() + "px";
+                }
+
+                if (this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME]) {
+                    bg = this.backgrounds[PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME];
+
+                    //*********************
+                    let scale: number = params[0];
+                    let position: Point = params[1] as Point;
+
+                    bg.div.style.width = (bg.initialWidth * scale).toString() + "px";
+                    bg.div.style.width = (bg.initialWidth * scale).toString() + "px";
+                    bg.div.style.left = position.x.toString() + "px";
+                    bg.div.style.top = position.y.toString() + "px";
                 }
 
             }
 
-            // protected handleDesktopLandscape(): void {
-            //     // // console.log("width is higher");
-            //     // this.Layer.rotation = 0;
-            //     // let scale: number = this.Layer.scale.y;
-            //     // this.Layer.scale.x = scale;
-            //     // if (this.Layer.width < this.stageWidth) {
-            //     //     this.Layer.width = this.stageWidth;
-            //     //     scale = this.Layer.scale.x;
-            //     //     this.Layer.scale.y = scale;
-            //     // }
-            //     //
-            //     // this.Layer.x = this.stageWidth / 2;
-            //     // this.Layer.y = this.stageHeight / 2;
-            // }
+
         }
     }
 

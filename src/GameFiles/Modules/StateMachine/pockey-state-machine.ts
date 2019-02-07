@@ -7,14 +7,18 @@ namespace Pockey {
             /*0*/onLoad,
             /*1*/onMainMenu,
             /*2*/onStart,
-            /*3*/onGameEnd,
+            /*3*/onRoundEnd,
             /*4*/onDefineClient,
             /*5*/onSearchForPartner,
             /*6*/onWatch,
             /*7*/onRearrangeStick,
             /*8*/onRepositionWhiteBall,
             /*9*/onShoot,
-            /*10*/onEndTurn
+            /*10*/onEndTurn,
+            /*11*/onEndMatch,
+            /*12*/onPrepareRoundOne,
+            /*13*/onPrepareRoundTwo,
+            /*14*/onPrepareRoundThree,
         }
 
         // export enum PockeyStates {
@@ -34,6 +38,9 @@ namespace Pockey {
 
             private static instance: PockeyStateMachine;
             private initialized: boolean = false;
+
+            private nextState;
+            private currentState;
 
             static Instance(): PockeyStateMachine {
                 if (!PockeyStateMachine.instance) {
@@ -62,8 +69,18 @@ namespace Pockey {
                 this.fsm.from(PockeyStates.onMainMenu).to(PockeyStates.onRearrangeStick);
                 this.fsm.from(PockeyStates.onMainMenu).to(PockeyStates.onSearchForPartner);
 
-                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onRearrangeStick);
-                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onWatch);
+                // this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onPrepareRoundOne);
+                this.fsm.from(PockeyStates.onPrepareRoundOne).to(PockeyStates.onWatch);
+                this.fsm.from(PockeyStates.onPrepareRoundOne).to(PockeyStates.onRearrangeStick);
+
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onPrepareRoundTwo);
+                this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onWatch);
+                // this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onRearrangeStick);
+
+                // this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onWatch);
+                // this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onWatch);
 
                 this.fsm.from(PockeyStates.onRepositionWhiteBall).to(PockeyStates.onRearrangeStick);
                 this.fsm.from(PockeyStates.onRepositionWhiteBall).to(PockeyStates.onWatch);
@@ -78,18 +95,35 @@ namespace Pockey {
                 this.fsm.from(PockeyStates.onRearrangeStick).to(PockeyStates.onEndTurn);
 
                 this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onEndTurn);
-                this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onGameEnd);
+                this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onRoundEnd);
 
                 this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onRepositionWhiteBall);
                 this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onWatch);
-                this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onGameEnd);
+                this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onRoundEnd);
 
-                this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onGameEnd);
+                this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onRoundEnd);
                 this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onRepositionWhiteBall);
 
-                this.fsm.from(PockeyStates.onGameEnd).to(PockeyStates.onRearrangeStick);
-                this.fsm.from(PockeyStates.onGameEnd).to(PockeyStates.onWatch);
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onWatch);
 
+            }
+
+            public delayStateChanging(delayedState): void {
+                // this.currentState = PockeyStateMachine.Instance().fsm.currentState;
+                this.nextState = delayedState;
+            }
+
+            public updateDelayedState(): void {
+                PockeyStateMachine.Instance().changeState(this.nextState);
+                this.nextState = null;
+            }
+
+            public hasStateInQueue(): boolean {
+                if (!_.isUndefined(this.nextState) && _.isNull(this.nextState))
+                    return true;
+
+                return false;
             }
 
             public changeState(state): void {
@@ -97,8 +131,7 @@ namespace Pockey {
                     console.log("%c StateMachine -> state does not exist: " + state, "color: #000000; background:#ff9900");
 
                 }
-                if(state == PockeyStates.onShoot)
-                {
+                if (state == PockeyStates.onShoot) {
                     console.log("current state=======");
                     this.printFsmCurrentState();
                     console.log("current state=======");

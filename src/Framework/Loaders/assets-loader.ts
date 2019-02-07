@@ -14,13 +14,27 @@ namespace Framework {
             private assetsNames: string[];
             protected fontsToLoad: string[];
 
-            constructor(onLoadCompleteCallback: Function) {
+            constructor() {
                 this.assetsNames = [];
 
                 this.loader.onComplete.add(() => {
+                    _.forEach(this.assetsNames, (assetName:string)=>
+                    {
+                        if(_.includes(assetName,".mp3") ||
+                            _.includes(assetName,".ogg") ||
+                            _.includes(assetName,".wav"))
+                        {
+                            SignalsManager.DispatchSignal(SignalsType.CREATE_SOUND_CACHE, [assetName]);
+                        }
+                    });
+
                     SignalsManager.DispatchSignal(SignalsType.ASSETS_LOADED);
                 });
                 this.loader.onProgress.add(() => {
+                    let event:CustomEvent = new CustomEvent('progress', { detail: this.loader.progress});
+
+                    // let event:Event = new Event('progress');
+                    document.dispatchEvent(event);
                     // console.log("progresu: " + this.loader.progress);
                 })
             }
@@ -30,7 +44,6 @@ namespace Framework {
                 {
                     this.assetsNames.push(assetName);
                     this.loader.add(assetName);
-
                 }
             }
 
@@ -61,7 +74,7 @@ namespace Framework {
                         // multiple fonts can be passed here
                         custom: {
                             families: this.fontsToLoad,
-                            urls: ['/fonts.css']
+                            urls: ['/css/fonts.css']
                         }
                         // google: {
                         //     families: this.fontsToLoad

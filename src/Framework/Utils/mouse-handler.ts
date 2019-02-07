@@ -40,42 +40,75 @@ namespace Framework {
                         MouseHandler.Instance().middle = new ButtonState();
                         MouseHandler.Instance().right = new ButtonState();
 
-                        document.onmousemove = MouseHandler.Instance().handleMouseMove.bind(this);
-                        document.onmousedown = MouseHandler.Instance().handleMouseDown.bind(this);
-                        document.onmouseup = MouseHandler.Instance().handleMouseUp.bind(this);
+                        // document.onmousemove = MouseHandler.Instance().handleMouseMove.bind(this);
+                        // document.onmousedown = MouseHandler.Instance().handleMouseDown.bind(this);
+                        // document.onmouseup = MouseHandler.Instance().handleMouseUp.bind(this);
 
+                        // console.log("mouse-ul: " + AbstractEntryPoint.renderer.interaction.mouse.);
+                        // AbstractEntryPoint.stage. = ()=>{
+
+                        // };
+
+
+                        AbstractEntryPoint.stage.interactive = true;
+                        AbstractEntryPoint.stage.interactiveChildren = true;
+                        AbstractEntryPoint.stage.on("mousemove",
+                            MouseHandler.Instance().handleMouseMove.bind(this)
+                        );
+
+                        AbstractEntryPoint.stage.on("mousedown", (e) => {
+                            MouseHandler.Instance().handleMouseDown(e);
+                        });
+
+                        AbstractEntryPoint.stage.on("mouseup", (e) => {
+                            MouseHandler.Instance().handleMouseUp(e);
+                        });
+
+                        AbstractEntryPoint.stage.on("mouseupoutside", (e) => {
+                            MouseHandler.Instance().handleMouseUp(e);
+                        });
                         MouseHandler.Instance().reset();
+                        // function mousedownEventHandler(e) {
+                        //     //get the data
+                        //     var button = e.data.button;
+                        //     console.log('Mouse Down: button is:', button);
+                        // }
+
 
                     }
                 }
                 return MouseHandler.instance;
             }
 
-            private handleMouseMove(e: MouseEvent): void {
-                let x: number = e.pageX;
-                let y: number = e.pageY;
+            private handleMouseMove(): void {
+                let x: number = AbstractEntryPoint.renderer.plugins.interaction.mouse.global.x;
+                let y: number = AbstractEntryPoint.renderer.plugins.interaction.mouse.global.y;
+
+                // AbstractEntryPoint.renderer.plugins.mouse.getLocalPosition(AbstractEntryPoint.stage);
+
 
                 MouseHandler.Instance().position = new Point(x, y);
             }
 
-            private handleMouseDown(e: MouseEvent): void {
+            private handleMouseDown(e): void {
                 // this.handleMouseMove(e);
 
-                if (e.button == 0) {
+                console.log("intra la mouse down");
+                if (e.data && e.data.button == 0) {
 
                     if (!MouseHandler.Instance().left.down) {
                         MouseHandler.Instance().left.pressed = true;
                     }
                     MouseHandler.Instance().left.down = true;
 
-                } else if (e.button == 1) {
+                } else if (e.data && e.data.button == 1) {
 
                     if (!MouseHandler.Instance().middle.down) {
                         MouseHandler.Instance().middle.pressed = true;
                     }
                     MouseHandler.Instance().middle.down = true;
 
-                } else if (e.button == 2) {
+                } else if (e.data && e.data.button == 2) {
 
                     if (!MouseHandler.Instance().right.down) {
                         MouseHandler.Instance().right.pressed = true;
@@ -86,11 +119,11 @@ namespace Framework {
 
             private handleMouseUp(e): void {
                 // this.handleMouseMove(e);
-                if (e.button == 0) {
+                if (e.data && e.data.button == 0) {
                     MouseHandler.Instance().left.down = false;
-                } else if (e.button == 1) {
+                } else if (e.data && e.data.button == 1) {
                     MouseHandler.Instance().middle.down = false;
-                } else if (e.button == 2) {
+                } else if (e.data && e.date.button == 2) {
                     MouseHandler.Instance().right.down = false;
                 }
             }
@@ -105,10 +138,7 @@ namespace Framework {
             }
 
             public GetAngle(vector: Vector2): number {
-                // let angle:number = 0;
-                var angle = Math.atan2(this.position.x - vector.x, -(this.position.y - vector.y)) * (180 / Math.PI);
-
-                return angle;
+                return Math.atan2(this.position.x - vector.x, -(this.position.y - vector.y)) * (180 / Math.PI);
             }
         }
 

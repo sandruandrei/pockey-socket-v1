@@ -24,7 +24,7 @@ namespace Pockey {
         import PointLike = PIXI.PointLike;
         import MouseHandler = Framework.Utils.MouseHandler;
         import SignalsType = Framework.Signals.SignalsType;
-        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        import PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
 
         export enum StickType {
             Basic = "stick_basic.png",
@@ -72,7 +72,7 @@ namespace Pockey {
             protected clickPointRegistered: boolean = false;
             protected firstPointOfTangent: Vector2;
             protected secondPointOfTangent: Vector2;
-            protected stickPowerFactor: number = 9.81;
+            protected stickPowerFactor: number = 3.8;
             protected mouseReleased: boolean = false;
 
             constructor() {
@@ -89,19 +89,54 @@ namespace Pockey {
                 this.texture = PIXI.Texture.fromFrame(stickType.toString());
             }
 
-            public update(): void {
-                if (!MouseHandler.Instance().left.down)
-                    this.mouseReleased = true;
+            public getStickState(): StickState {
+                let stickState: StickState = {
+                    x: this.x,
+                    y: this.y,
+                    rotation: this.rotation,
+                    pivotX: this.pivot.x,
+                    visible: this.visible
+                };
 
-                if (this.isActive ) {
+                return stickState;
+            }
+
+            public setState(stickState: StickState, duration:number): void {
+                this.x = stickState.x;
+                this.y = stickState.y;
+                this.visible = stickState.visible;
+                // this.rotation = stickState.rotation;
+                this.pivot.x = stickState.pivotX;
+
+                let time: number = (duration + 1 / 60) / 2;
+
+                TweenMax.to(this, time, {
+                    rotation: stickState.rotation,
+                    ease:Linear.easeNone,
+                });
+                // this.reset();
+
+            }
+
+            private hide():void
+            {
+                TweenMax.to(this, 0.1, {alpha:0});
+            }
+
+            public update(): void {
+                // if (!MouseHandler.Instance().left.down)
+                //     this.mouseReleased = true;
+
+                if (this.isActive) {
                     // console.log("stick intra la is active!!");
 
                     // if (!MouseHandler.Instance().left.down) {
                     //     console.log("stick NU intra la left button down!!! rotation: " + this.rotationEnabled);
                     // }
-                    if (MouseHandler.Instance().left.down && this.mouseReleased) {
+                    // if (MouseHandler.Instance().left.down && this.mouseReleased) {
+                    if (MouseHandler.Instance().left.down) {
 
-                        // console.log("stick intra la left button down!!!");
+                        console.log("stick intra la left button down!!!");
 
                         this.rotationEnabled = false;
 // if(this.mouseReleased)
@@ -174,7 +209,7 @@ namespace Pockey {
                     //     this.rotationEnabled = true;
                     //     // this.x = this.initialPivotPoint.x;
                     // }
-                    if (this.rotationEnabled && (!MouseHandler.Instance().left.down || !this.mouseReleased)) {
+                    if (this.rotationEnabled && (!MouseHandler.Instance().left.down)) {
                         // console.log("stick intra la rotation is enabled!!");
 
                         let localPoint = this.parent.toLocal(
@@ -207,8 +242,9 @@ namespace Pockey {
                 // console.log("la release");
                 this.isActive = false;
                 this.clickPointRegistered = false;
-                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
                 this.shootTimeline.play(0);
+
+
             }
 
             // public setWallLimits(left: number, right: number, up: number, down: number): void {
@@ -222,8 +258,8 @@ namespace Pockey {
                 this.isActive = false;
                 this.rotationEnabled = false;
                 this.clickPointRegistered = false;
-                if(MouseHandler.Instance().left.down)
-                    this.mouseReleased = false;
+                // if (MouseHandler.Instance().left.down)
+                //     this.mouseReleased = false;
             }
 
             public GoToStartPosition(): void {
@@ -238,6 +274,7 @@ namespace Pockey {
                 this.position.y = position.y;
                 this.isActive = true;
                 this.rotationEnabled = true;
+                this.visible = true;
                 // console.log("la activate -> stick rotation enabled: " + this.rotationEnabled);
 
             }
@@ -260,8 +297,9 @@ namespace Pockey {
                 // this.power = 0;
                 // console.log("stick power: " + this.power);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOOT_BALL);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.SHOOT_BALL}]);
-
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.SHOOT_BALL}]);
+                this.visible = false;
+                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
                 // this.isActive = false;
             }
 

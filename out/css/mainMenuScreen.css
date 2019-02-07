@@ -1,0 +1,1431 @@
+body {
+    margin: 0;
+    /* height: 100%; */
+    position: absolute;
+    z-index: -100;
+    /* overflow: hidden; */
+}
+
+#MainMenuBg {
+    display: none;
+}
+
+#MainMenuScreen {
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    /* display: none; */
+    /* align-items: center; */
+    justify-content: center;
+    /* background: yellow; */
+    /* overflow: hidden; */
+}
+
+#MainButtonsHolder {
+    width: 214px;
+    float: left;
+    top: 50px;
+    position: relative;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.simpleBtn {
+    width: 100%;
+    height: 48px;
+    color: #20d7e7;
+    font-family: "troika";
+    font-size: 28px;
+    /* border: 1px solid; */
+    background: none;
+    text-align: left;
+    margin-bottom: 18px;
+    /* background: blueviolet; */
+    /* outline: none; */
+}
+
+.simpleBtnArrow {
+
+}
+
+.simpleBtnHighlight {
+
+}
+
+.simpleBtnOnClick {
+
+    color: white;
+}
+
+.simpleBtn:hover {
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.simpleBtnArrowOnClick {
+
+    background: url("../Assets/Desktop/Images/icon_arrow1-right.svg");
+
+    background-size: 58%;
+
+    background-repeat: no-repeat;
+
+    background-position: left center;
+
+    width: 28px;
+
+    height: 30px;
+
+    float: left;
+
+    /* margin-right: 0px; */
+
+    /* background-color: yellow; */
+}
+
+.simpleBtnHighlightOnClick {
+
+    background: url("../Assets/Desktop/Images/menu_highlight.svg");
+
+    background-size: 100%;
+
+    background-repeat: no-repeat;
+
+    /* width: 100%; */
+
+    height: 8px;
+
+    /* float: left; */
+}
+
+#LoginScreen {
+    float: left;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* visibility: hidden; */
+    align-items: center;
+    justify-content: center;
+    /* display: none; */
+}
+
+#RightSideBackground {
+    float: left;
+    left: 300px;
+    width: 770px;
+    height: 420px;
+    background: url("../Assets/Desktop/Images/menu_background.svg");
+    background-size: 770px 420px;
+    /* margin-left: 28px; */
+}
+
+#LeftSide {
+    width: 49.8%;
+    height: 85%;
+    /* background: #bede1c; */
+    float: left;
+}
+
+#LeftSideButtonsHolder {
+    width: 88%;
+    height: 100%;
+    /*background: #cbdc74;*/
+    float: left;
+    margin-left: 6%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+#InputTextHolder {
+    width: 100%;
+    height: auto;
+    /*background: #f2ffb0;*/
+    float: left;
+    /* margin-bottom: -4px; */
+    /* margin-top: 10%; */
+}
+
+input::-webkit-input-placeholder {
+    color: #257080;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: lightgrey;
+}
+
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #257080;
+}
+
+input:focus:-moz-placeholder {
+    color: lightgray;
+}
+
+/* Firefox > 19 */
+input::-moz-placeholder {
+    color: #257080;
+}
+
+input:focus::-moz-placeholder {
+    color: lightgrey;
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #257080;
+}
+
+input:focus:-ms-input-placeholder {
+    color: lightgray;
+}
+
+input[type=text], select {
+    width: 100%;
+    height: 32px;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    border: 3px solid #fff;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background: none;
+    font-family: "opensansextrabold";
+    caret-color: white;
+    color: white;
+    outline: none;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+input[type=text]:hover {
+    background: white;
+    caret-color: #0f404b;
+    color: #2d899d;
+}
+
+#MainMenuPlayerRankingsHolder {
+    width: 100%;
+    height: auto;
+    float: left;
+    display: flex;
+    justify-content: space-evenly;
+    display: none;
+    /* margin-top: -2px; */
+}
+
+#MainMenuPlayerWins {
+    background-image: url("../Assets/Desktop/Images/stat-wins-color.svg");
+}
+
+#MainMenuPlayerLosses {
+    background-image: url("../Assets/Desktop/Images/stat-winloss-color.svg");
+}
+
+#MainMenuPlayerStreak {
+    background-image: url("../Assets/Desktop/Images/stat-ballstreak-color.svg");
+    background-size: 74%;
+    background-position: center 6px;
+}
+
+#MainMenuPlayerFouls {
+    background-image: url("../Assets/Desktop/Images/stat-penalty-color.svg");
+}
+
+.mainMenuRankingText {
+    font-size: 13px;
+    font-family: "troika";
+    color: #20D6E5;
+    width: 100%;
+    top: 48px;
+    position: relative;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* margin-bottom: 9%; */
+}
+
+.mainMenuRankingCircle {
+width: 58px;
+height: 58px;
+background-color: #ffffff1a;
+float: left;
+background-image: url("../Assets/Desktop/Images/stat-penalty-color.svg");
+background-size: 88%;
+background-repeat: no-repeat;
+background-position: center 1px;
+border-radius: 50%;
+margin-bottom: 4px;
+}
+
+.customizePlayerLine {
+    width: 100%;
+    height: 4%;
+    float: left;
+    /* margin-top: 5%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customizeLineHolder {
+    width: 39%;
+    height: 4px;
+}
+
+.line {
+    width: 100%;
+    height: 100%;
+    background: #2D899D;
+    border-radius: 3px;
+}
+
+#CustomizeText {
+    font-family: "troika";
+    font-size: 16px;
+    color: white;
+    width: 28%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    margin-top: -3px;
+}
+
+#PlayerCustomizationHolder {
+    width: 100%;
+    height: 74px;
+    /* background: #4caf50; */
+    float: left;
+    /* margin-top: 3%; */
+}
+
+.normalButtonHolder {
+    width: 100%;
+    height: 38px;
+    float: left;
+    border-width: 3px;
+    border-color: #2D899D;
+    border-radius: 4px;
+    border-style: solid;
+    box-sizing: border-box;
+    /* align-items: center; */
+    /* justify-content: center; */
+    position: relative;
+    /* cursor: pointer; */
+}
+
+.itemsArrows:hover .normalButtonBackground {
+    /* background: white; */
+    /* color: #2d899d; */
+    /* cursor: pointer; */
+}
+
+/*.itemsArrows:hover{*/
+/*cursor: pointer;*/
+/*}*/
+
+.shareButton:hover .shareButtonBackground {
+    background: white;
+    color: #2d899d;
+    cursor: pointer;
+}
+
+/*.normalButtonBackground {
+    width: 100%;
+    height: 82%;
+    float: left;
+    background: #2D899D;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: "troika";
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 4px solid #2D899D;
+    border-width: 4px;
+    border-style: solid;
+}*/
+
+/*#PlayerColorAndAvatarHolder {
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    !*background-color: aqua;*!
+}*/
+
+#PlayerColorAndAvatarHolder {
+    width: 100%;
+    height: 100%;
+    float: left;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* align-items: flex-start;        if "img", this will prevent it from stretching  */
+    /*background: lightgrey;*/
+}
+
+#PlayerColorAndAvatarHolder::before,
+#PlayerColorAndAvatarHolder::after {
+    content: '';
+
+}
+
+.arrowHolder:hover .leftArrow {
+    background: url("../Assets/Desktop/Images/icon_arrow1-left.svg");
+    background-size: auto;
+}
+
+.arrowHolder:hover .rightArrow {
+    background: url("../Assets/Desktop/Images/icon_arrow1-right.svg");
+    background-size: auto;
+}
+
+.arrowHolder {
+    /* width: 25%; */
+    height: 100%;
+    /*background-color: yellow;*/
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.leftArrow {
+    background: url("../Assets/Desktop/Images/icon_arrow1-left-reg.svg");
+    width: 24px;
+    height: 24px;
+    background-size: auto;
+}
+
+.rightArrow {
+    background: url("../Assets/Desktop/Images/icon_arrow1-right-reg.svg");
+    background-size: 100%;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+}
+
+#PlayerColorHolder {
+    width: 26%;
+    height: 100%;
+    /*background-color: #2f92e8;*/
+    float: left;
+    /* margin-left: 4%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#ColorHolder {
+    width: 28px;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dotBorder {
+    height: 28px;
+    width: 28px;
+    background-color: #112F36;
+    border-radius: 50%;
+    border-color: white;
+    border-style: solid;
+    border-width: 4px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#PlayerAvatarHolder {
+    width: 44%;
+    height: 100%;
+    /*background-color: #002690;*/
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatarHolder {
+    width: 74px;
+    height: 74px;
+    box-sizing: border-box;
+    border-color: white;
+    border-radius: 3px;
+    background-color: black;
+    border-style: solid;
+    border-width: 3px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#AvatarImage {
+    background: url("../Assets/Desktop/Images/avatar_guest.png");
+    background-size: contain;
+    width: 62px;
+    height: 62px;
+    background-repeat: no-repeat;
+    background-color: #1A4157;
+}
+
+#PlayerColorCircle {
+    height: 68%;
+    width: 68%;
+    background-color: #149938;
+    border-radius: 50%;
+}
+
+#StartGameButtonHolder {
+    /* margin-top: 4%; */
+}
+
+#LogoutButton {
+
+    display: none;
+}
+
+#OrText {
+    /* font-family: "midtown"; */
+    /* font-size: 28px; */
+    /* color: white; */
+    width: 24%;
+    /* height: 100%; */
+    float: left;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* margin-top: 10px; */
+    /* top: 29px; */
+    background: url(../Assets/Desktop/Images/or-text.svg);
+    background-size: contain;
+    background-position: center;
+    height: 44px;
+    width: 44px;
+    background-repeat: no-repeat;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#OrTextHolder {
+    /* height: 7%; */
+    /* margin-top: 0%; */
+}
+
+.customizeLineHolderOr {
+    width: 100%;
+    height: 4px;
+    float: left;
+}
+
+.normalButtonLogo {
+    width: auto;
+    margin-right: 2%;
+}
+
+#FacebookSignInButtonHolder {
+    /* margin-top: 0%; */
+}
+
+#FacebookBtnLogo {
+    background: url("../Assets/Desktop/Images/facebook_logo.svg");
+    background-size: 100%;
+    height: 23px;
+    width: 23px;
+    background-repeat: no-repeat;
+}
+
+#GoogleSignInButtonHolder {
+    /* margin-top: 4%; */
+}
+
+#GoogleBtnLogo {
+    background: url("../Assets/Desktop/Images/google_logo.svg");
+    background-size: 100%;
+    height: 23px;
+    width: 23px;
+    background-repeat: no-repeat;
+}
+
+#MiddleSide {
+    width: 0.4%;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#MiddleSideLine {
+    width: 100%;
+    height: 80%;
+    background: #20d7e7;
+    float: left;
+    border-radius: 3px;
+}
+
+#RightSide {
+    width: 49.8%;
+    height: 85%;
+    /*background: #532F8C;*/
+    float: left;
+}
+
+.rightSideElementsHolder {
+    width: 88%;
+    height: 100%;
+    /* background: #845ac7; */
+    float: left;
+    margin-left: 6%;
+    /* display: block; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* position: relative; */
+}
+
+#HowToPlayButtonHolder {
+    /* margin-top: 10%; */
+    /* height: 26px; */
+}
+
+#FbTwitterPromoHolder {
+    width: 100%;
+    height: 59%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: white;
+    border-radius: 3px;
+    /* background: #112f36; */
+    float: left;
+    /* margin-top: 3.5%; */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#FbTwitterPromoImage {
+    background: url("../Assets/Desktop/Images/promo_twitfacebook.png");
+    background-size: 100%;
+    width: 97%;
+    height: 96%;
+    background-repeat: no-repeat;
+}
+
+#ShareButtonsHolder {
+    width: 100%;
+    height: 9%;
+    float: left;
+    /* margin-top: 3.5%; */
+}
+
+#FacebookShareButton {
+    /*width: 46%;*/
+}
+
+#FbShareLogo {
+    background: url("../Assets/Desktop/Images/facebook_share_logo.svg");
+    background-size: 38%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: 50%;
+}
+
+#TwitterFollowLogo {
+    background: url("../Assets/Desktop/Images/twitter_logo.svg");
+    background-size: 86%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: 50%;
+}
+
+#TwitterFollowButton {
+    margin-left: 4%;
+    /*width: 46%;*/
+}
+
+.shareButton {
+    width: 48%;
+    height: 100%;
+    float: left;
+}
+
+.shareButtonLogo {
+    width: 25%;
+    height: 100%;
+    background: #ffffff;
+    float: left;
+    border-radius: 3px;
+}
+
+.shareButtonBackground {
+    width: 73%;
+    height: 100%;
+    float: left;
+    background: #2D899D;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: "troika";
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.normalButtonBackground {
+    background: #2d899d;
+    border-radius: 3px;
+    color: #fff;
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    left: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "troika";
+    font-size: 20px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+#ComingSoonImage {
+    background: url("../Assets/Desktop/Images/invitationScreenComingSoon.jpg");
+    background-size: 96%;
+    width: 100%;
+    height: 352px;
+    background-repeat: no-repeat;
+    /* margin-top: 10%; */
+    border-color: white;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 3px;
+    box-sizing: border-box;
+    color: white;
+    font-family: "troika";
+    font-size: 38px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-position: center;
+    height: 0;
+    /* background-color: #0000002b; */
+    /* -webkit-text-stroke-color: black; */
+    /* -webkit-text-stroke: 2px black; */
+    /* margin-left: 2%; */
+}
+
+#InviteElementsHolder {
+
+    display: block;
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+#TutorialAndShareButtonsHolder {
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    display: flex;
+
+    /* display: none; */
+}
+
+#MainMenuElementsHolder {
+
+    width: 1012px;
+
+    height: 420px;
+
+    /* overflow: hidden; */
+
+    /* background: green; */
+
+    /* float: left; */
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    position: absolute;
+
+    /* margin: auto; */
+
+    /* top: 0; */
+
+    /* right: 0; */
+
+    /* bottom: 0; */
+
+    /* left: 0; */
+
+    /* position: absolute; */
+
+    /* left:50%; */
+
+    /* top:50%; */
+
+    /* margin: auto; */
+
+    /* width: 60%; */
+
+    display: none;
+}
+
+/*.notVs {*/
+/*display: none;*/
+/*}*/
+
+#HowToPlayImage {
+
+    background: url("../Assets/Desktop/Images/howtoplay.gif");
+
+    background-position: center;
+
+    background-size: 97%;
+
+    /* width: auto; */
+
+    height: 285px;
+
+    background-repeat: no-repeat;
+
+    float: left;
+
+    border: white 3px solid;
+
+    border-radius: 3px;
+
+    box-sizing: border-box;
+
+    /* margin-top: 7.5%; */
+
+    display: none;
+}
+
+.hideElement {
+    display: none !important;
+}
+
+.showElement {
+    display: block;
+}
+
+#CorrectText {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: "opensansextrabold";
+    font-size: 12px;
+    color: white;
+    visibility: hidden;
+    /* display: none; */
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#MainBackground {
+    width: 1920px;
+    height: 1080px;
+}
+
+#SecondBackground {
+    /* z-index: -100; */
+    /* display: none; */
+    width: 1962px;
+    height: 1122px;
+}
+
+/*.normalButtonBackground::before {*/
+/*border: 5px solid #000;*/
+/*content: "";*/
+/*position: absolute;*/
+/*top: -10px;*/
+/*bottom: -10px;*/
+/*left: -10px;*/
+/*right: -10px;*/
+/*}*/
+
+canvas#preloaderCanvas {
+    z-index: 200;
+    position: absolute;
+    background: #112F36;
+    /*display: none;*/
+}
+
+#PockeyHatAndStick {
+    /* left: 50%; */
+    /* top: calc(50% + 251px); */
+    /* transform: translate(-50%, -50%); */
+    /* width: calc(100% + 600px); */
+    /* min-width: 780px; */
+    /* height: 348px; */
+    /* background: aliceblue; */
+    /* position: absolute; */
+    display: none;
+    /* justify-content: space-between; */
+}
+
+#PockeyStick {
+
+    background: url("../Assets/Desktop/Images/menu_sprite-cue.png");
+
+    background-size: 100%;
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    /* background-color: aquamarine; */
+
+    width: 62%;
+
+    height: 100%;
+
+    float: left;
+
+    left: 0;
+
+    top: calc(50% + 330px);
+
+    transform: translate(0, -50%);
+
+    width: 880px;
+
+    height: 300px;
+
+    position: absolute;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+#PockeyHat {
+    background: url("../Assets/Desktop/Images/menu_pockeyball-comet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: calc(50% + 630px);
+    top: calc(50% + 274px);
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 348px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+div#RoundCompleteScreen {
+    width: 658px;
+    height: 280px;
+    /* background: aqua; */
+    font-family: "troika";
+    font-size: 26px;
+    color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* box-sizing: border-box; */
+}
+
+div#RoundCompleteTitle {
+    /* font-family: "troika"; */
+    width: 100%;
+    height: 14%;
+    background-color: #00000080;
+    float: left;
+    border: 3px white solid;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#RoundCompleteElements {
+    width: 100%;
+    height: 80%;
+    /* background-color: #673AB7; */
+    float: left;
+    background-color: #000000a6;
+    float: left;
+    border: 3px white solid;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.roundCompletePlayer {
+    width: 260px;
+    height: 100%;
+    /* background: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roundCompletePlayersHolder {
+    width: 94%;
+    height: 64%;
+    /* background: azure; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    float: left;
+    position: relative;
+}
+
+div#RoundCompletePlayers {
+    width: 100%;
+    height: 80%;
+    background: aqua;
+    background-color: #000000a6;
+    float: left;
+    border: 3px white solid;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+div#RoundCompleteBottomText {
+    float: left;
+    width: 94%;
+    height: 18%;
+    /* background: aqua; */
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border-bottom-left-radius: 2px; */
+    /* border-bottom-right-radius: 2px; */
+}
+
+.roundCompleteLineHolder {
+    width: 100%;
+    height: 4px;
+}
+
+div#PlayerFoundTitle {
+    /* background: url("../Assets/Desktop/Images/opponent.png") center center / contain no-repeat; */
+    /* width: 310px; */
+    /* height: 126px; */
+    /* float: left; */
+    top: 62px;
+    /* top: 0; */
+    position: absolute;
+}
+
+div#PlayerFoundScreen {
+    width: 310px;
+    height: 290px;
+    position: absolute;
+    font-size: 26px;
+    font-family: "troika";
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* background: aquamarine; */
+}
+
+div#PlayerFoundImage {
+    background: url(../Assets/Desktop/Images/opponent.png) center center / contain no-repeat;
+    width: 310px;
+    height: 126px;
+    /* float: left; */
+    top: 12px;
+}
+
+div#PlayerFoundTitleAndImageHolder {
+    width: 100%;
+    /* height: 126px; */
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    position: relative;
+}
+
+div#PlayerFoundSubitle {
+    font-family: "opensansextrabold";
+    font-size: 12px;
+    top: 94px;
+    /* top: 0; */
+    position: absolute;
+    color: #22EAF3;
+}
+
+div#PlayerFoundOpponentHolder {
+    width: 100%;
+    height: 128px;
+    background: #00000099;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+div#PlayerFoundOpponentAvatarAndStats {
+    width: calc(100% - 48px);
+    height: 74px;
+    /* background: blueviolet; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.avatarImage {
+    background: url("../Assets/Desktop/Images/avatar_guest.png") center center / 100% no-repeat rgb(26, 65, 87);
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+}
+
+div#PlayerFoundStats {
+    width: 68%;
+    height: 100%;
+    /* background: red; */
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div#PlayerFoundRankImage {
+    width: 27px;
+    height: 100%;
+    background: beige;
+    float: left;
+    background: url(../Assets/Desktop/Images/rank-tier14.svg) center center / 100% no-repeat;
+}
+
+div#PlayerFoundRankAndName {
+    width: 100%;
+    height: 60%;
+    /* background: blue; */
+}
+
+div#PlayerFoundNameAndRankTitle {
+    width: 82%;
+    height: 100%;
+    /* background: yellow; */
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+div#PlayerFoundName {
+    font-size: 20px;
+    color: #22EAF3;
+    height: auto;
+    /* background: #2196F3; */
+}
+
+div#PlayerFoundRankTitle {
+    font-size: 12px;
+    font-family: "opensansextrabold";
+    font-size: 11px;
+    height: auto;
+    /* top: 104px; */
+    /* top: 0; */
+    /* position: absolute; */
+    /* margin-bottom: 0px; */
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    /* background: black; */
+}
+
+div#PlayerFoundLine {
+    width: 100%;
+    height: 4px;
+}
+
+div#PlayerFoundWin {
+    /* width: 48%; */
+    height: 100%;
+    padding-left: 6px;
+}
+
+.playerFoundWinLoss {
+    /* width: 38%; */
+    /* height: auto; */
+    /* background: aqua; */
+    font-size: 21px;
+    /* padding-top: 1px; */
+    float: left;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+div#PlayerFoundLost {
+    float: right;
+    padding-right: 6px;
+}
+
+div#PlayerFoundWinLost {
+    width: 100%;
+    height: 31%;
+    background: #175461;
+    border-radius: 3px;
+}
+
+div#PlayerFoundWinsNumber {
+    color: #3EF2DF;
+}
+
+div#PlayerFoundLostNumber {
+    color: #F74483;
+}
+
+.playerFoundNumber {
+    /* float: right; */
+    /* width: 20px; */
+    /* height: 100%; */
+    /* background: aliceblue; */
+    padding-left: 8px;
+}
+
+div#RoundOneStartsText {
+    font-size: 20px;
+    width: 100%;
+    height: 22px;
+    text-align: center;
+}
+
+.roundCompletePlayerNameAndAvatarHolder {
+    width: 100%;
+    height: 66px;
+    /* background: aqua; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.roundCompletePlayerStatsHolder {
+    width: 100%;
+    height: 60px;
+    /* background: #FFC107; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    top: 4px;
+}
+
+.roundCompletePlayerAvatarHolder {
+    width: 66px;
+    /* background: blue; */
+    height: 100%;
+    /* float: left; */
+    /* width: 50%; */
+    /* height: 0; */
+    /* padding-bottom: 50%; */
+}
+
+.roundCompletePlayerName {
+    width: 100%;
+    height: 48%;
+    /* background: #FFEB3B; */
+    font-size: 18px;
+    /* float: right; */
+}
+
+.roundCompletePlayerNameAndRank {
+    width: 100%;
+    height: 68%;
+    /* background: #E91E63; */
+    display: flex;
+    justify-content: space-between;
+    /* float: right; */
+}
+
+.roundCompletePlayerRank {
+    width: 24px;
+    height: 100%;
+    /* background: blueviolet; */
+    /* float: left; */
+    background: url(../Assets/Desktop/Images/rank-tier14.svg) center center / contain no-repeat;
+}
+
+.roundCompletePlayerNameHolder {
+    width: 83%;
+    height: 100%;
+    /* background: brown; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.roundCompletePlayerLogStatus {
+    width: 100%;
+    height: 16px;
+    /* background: #FF9800; */
+    font-size: 11px;
+    font-family: "opensans";
+}
+
+div#RoundCompletePlayerNameAndAvatarHolderRight {
+    /* display: flex; */
+    flex-direction: row-reverse;
+}
+
+div#RoundCompletePlayerNameAndRankRight {
+    flex-direction: row-reverse;
+    /* text-align: right; */
+}
+
+.roundCompletePlayerLine {
+    width: 94%;
+    height: 3px;
+    /* float: right; */
+}
+
+
+.playerStatus {
+    width: 100%;
+    height: 19px;
+    /* background: chocolate; */
+    font-size: 16px;
+    margin-top: 7px;
+    /* display: flex; */
+}
+
+.roundCompletePlayerNameRankAndStatusHolder {
+    height: 100%;
+    width: 69%;
+    height: 100%;
+    /* background: green; */
+}
+
+div#roundCompletePlayerNameRankAndStatusHolderRight {
+    text-align: right;
+}
+
+div#RoundCompleteMatchBanner {
+    background: url(../Assets/Desktop/Images/hud_matchbanner.svg) bottom center / 100% no-repeat;
+    /* width: 80px; */
+    height: 100%;
+}
+
+div#RoundCompleteGraphics {
+    width: 117px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div#RoundCompleteVS {
+    background: url(../Assets/Desktop/Images/hud_matchbanner-VS.svg) top center / contain no-repeat;
+    width: 42px;
+    height: 41px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* left: 0; */
+    /* right: 0; */
+}
+
+div#RoundCompleteRoundNumber {
+    background: url(../Assets/Desktop/Images/hud_matchbanner-round2.svg) bottom center / 100% no-repeat;
+    width: 19px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    left: 51%;
+    transform: translate(-50%, 16%);
+}
+
+div#RoundCompletePlayerNameHolderRight {
+    align-items: flex-end;
+}

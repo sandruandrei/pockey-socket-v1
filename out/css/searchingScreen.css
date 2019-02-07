@@ -1,0 +1,52 @@
+#SearchingScreen {
+    background: url("../Assets/Desktop/Images/popup_opponent_searching.png");
+    width: 310px;
+    height: 126px;
+    /* display: flex; */
+    justify-content: center;
+    background-position: center;
+    position: absolute;
+    background-size: contain;
+    /* margin-bottom: 0%; */
+    background-repeat: no-repeat;
+    /* left: 210px; */
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: none;
+    max-width: 90%;
+    pointer-events: none;
+}
+
+.searchingAnimation {bottom: -90px;height: 24px;width: 100%;display: block;/* float: left; */position: relative;/* height: auto; *//* background: blue; */}
+
+.search div
+{
+    position: absolute;  left:50%;top:50%;  transform: translate(-50%,-50%);
+}
+
+.search {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 1;
+    left: -15px; /* text center */
+}
+
+.searchtext {
+    font-size: 22px;
+    white-space:nowrap;
+    text-align: center;
+    margin-top: -28px;
+    color: white;
+    font-family: "troika";
+    /* max-width: 90%; */
+    height: auto;
+    display: block;
+    /* background: yellow; */
+}

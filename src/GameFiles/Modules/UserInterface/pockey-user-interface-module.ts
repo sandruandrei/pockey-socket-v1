@@ -7,6 +7,8 @@
 ///<reference path="Screens/pockey-ui-winning-screen.ts"/>
 ///<reference path="../SoundModule/pockey-sound-names.ts"/>
 ///<reference path="Screens/MainScreen/pockey-ui-main-screen-mobile.ts"/>
+///<reference path="Screens/pockey-ui-opponent-found-screen.ts"/>
+///<reference path="Screens/pockey-ui-round-complete-screen.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -25,8 +27,9 @@ namespace Pockey {
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import SignalsType = Framework.Signals.SignalsType;
-        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
         import Settings = Framework.Settings;
+        import PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
+        import AbstractScreen = Framework.UserInterface.AbstractScreen;
 
         export class PockeyUserInterfaceModule extends AbstractUserInterfaceModule {
 
@@ -34,7 +37,10 @@ namespace Pockey {
             private mainScreen: PockeyUiMainScreen;
             private searchingScreen: PockeyUiSearchingScreen;
             private gameScreen: PockeyUiGameScreen;
-            private winningScreen: PockeyUiWinningScreen;
+            private roundCompleteScreen: RoundCompleteScreen;
+            private opponentFoundScreen: PockeyUiOpponentFoundScreen;
+
+            private activeRoundScreen:AbstractScreen;
 
             /*private playerLifeUnitsArray: Sprite[];
             private oppLifeUnitsArray: Sprite[];
@@ -59,6 +65,8 @@ namespace Pockey {
                 }
                 this.searchingScreen = new PockeyUiSearchingScreen();
                 this.gameScreen = new PockeyUiGameScreen();
+                this.roundCompleteScreen = new RoundCompleteScreen();
+                this.opponentFoundScreen = new PockeyUiOpponentFoundScreen();
                 // this.winningScreen = new PockeyUiWinningScreen();
 
                 // this.addChild(this.mainScreen);
@@ -96,17 +104,53 @@ namespace Pockey {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
                 //
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_WINNING_SCREEN, this.onShowWinningScreen.bind(this));
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_WINNING_SCREEN, this.onHideWinningScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN, this.onShowWinningScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN, this.onHideWinningScreen.bind(this));
 
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN, this.onShowOpponentFoundScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN, this.onHideOpponentFoundScreen.bind(this));
+
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, this.onChangeOpponentAvatar.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
+
+
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, this.onUpdateRoundScreenText.bind(this));
+
+            }
+
+            private onUpdateRoundScreenText(params:any):void
+            {
+                this.activeRoundScreen.updateText(params[0]);
+            }
+
+            private onUpdateOpponentName(name: string): void {
+                this.opponentFoundScreen.updateOpponentName();
+            }
+
+            private onChangeOpponentAvatar(avatarPath: string): void {
+this.opponentFoundScreen.updateAvatar(avatarPath);
             }
 
             private onShowWinningScreen(): void {
-                this.addChild(this.winningScreen);
+                console.log("se arata on show winning!");
+                this.activeRoundScreen = this.roundCompleteScreen;
+                this.activeRoundScreen.show();
             }
 
             private onHideWinningScreen(): void {
-                this.removeChild(this.winningScreen);
+                console.log("se ascunde winning screen!");
+
+                this.activeRoundScreen.hide();
+            }
+
+            private onShowOpponentFoundScreen(): void {
+                this.activeRoundScreen = this.opponentFoundScreen;
+                this.activeRoundScreen.show();
+            }
+
+            private onHideOpponentFoundScreen(): void {
+                console.log("intra la onHideOpponentFoundScreen");
+                this.activeRoundScreen.hide();
             }
 
             private onShowSearchingScreen(): void {
@@ -120,8 +164,8 @@ namespace Pockey {
 
             private onShowMainMenu(): void {
                 this.mainScreen.setVisibleTrue();
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.MAIN_MENU_AMBIANCE}]);
-                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundNames.IN_GAME_AMBIANCE}]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.MAIN_MENU_AMBIANCE}]);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundURLS.IN_GAME_AMBIANCE}]);
 
                 // this.addChild(this.mainScreen);
             }
@@ -132,16 +176,21 @@ namespace Pockey {
             }
 
             private onShowGameMenu(): void {
-                this.addChild(this.gameScreen);
-                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundNames.MAIN_MENU_AMBIANCE}]);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
-                    soundName: PockeySoundNames.IN_GAME_AMBIANCE,
+                this.gameScreen.show();
+                // this.addChild(this.gameScreen);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundURLS.MAIN_MENU_AMBIANCE}]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.IN_GAME_AMBIANCE,
                     loop: true
                 }]);
             }
 
             private onHideGameMenu(): void {
-                this.removeChild(this.gameScreen);
+                this.gameScreen.hide();
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{soundName: PockeySoundURLS.IN_GAME_AMBIANCE}]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.MAIN_MENU_AMBIANCE,
+                    loop: false
+                }]);
+                // this.removeChild(this.gameScreen);
             }
 
             protected onResize(params: any[]): void {

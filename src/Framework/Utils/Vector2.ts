@@ -86,6 +86,10 @@ namespace Framework {
              * @return A copy of normalised vector
              */
             public normalise(): Vector2 {
+                if(this.x ==0 && this.y == 0)
+                {
+                    return new Vector2(0,0);
+                }
                 return new Vector2(this.x/(Math.sqrt(this.x * this.x + this.y * this.y)), this.y/(Math.sqrt(this.x * this.x + this.y * this.y)));
                 // return new Vector2(this.x / this.getMagnitude(), this.y / this.getMagnitude());
             }

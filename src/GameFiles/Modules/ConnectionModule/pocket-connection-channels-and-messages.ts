@@ -23,7 +23,7 @@ namespace Pockey {
             public static OPPONENT: string = "PockeySocketMessages." + "OPPONENT";
             public static YOUR_TURN: string = "PockeySocketMessages." + "YOUR_TURN";
             public static OPPONENT_SETTINGS: string = "PockeySocketMessages." + "OPPONENT_SETTINGS";
-            public static OPPONENT_RESTART_GAME: any = "PockeySocketMessages." + "OPPONENT_RESTART_GAME";
+            public static OPPONENT_RESTART_ROUND: any = "PockeySocketMessages." + "OPPONENT_RESTART_ROUND";
             // public static OPPONENT_RESTART: any;
 
         }

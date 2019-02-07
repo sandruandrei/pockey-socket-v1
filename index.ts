@@ -141,7 +141,6 @@ export module PockeyServer {
                         this.updateUserDb(data);
                     }
                 });
-
             });
 
             // this.socketIo.on('disconnect', (socket) => {

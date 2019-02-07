@@ -396,7 +396,8 @@ declare namespace PIXI {
         filterArea: Rectangle | null;
         protected _filters: Array<Filter<any>> | null;
         protected _enabledFilters: Array<Filter<any>> | null;
-        protected _bounds: Bounds;
+        protected _bounds: Bounds
+        ;
         protected _boundsID: number;
         protected _lastBoundsID: number;
         protected _boundsRect: Rectangle;

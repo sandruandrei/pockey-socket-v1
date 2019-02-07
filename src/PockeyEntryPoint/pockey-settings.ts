@@ -39,6 +39,7 @@ namespace Pockey {
         public static OPPONENT_NICKNAME: string = "SandruOpponent";
         public static DELTA: number = 0.98;
 
+        public static FRAMES_TO_SEND_ON_WATCH:number = 6;
         public static BALL_RADIUS: number = 17;
         public static P2_WORLD_STEP: number = 1 / 60;
         public static POCKEY_CUSTOM_BACKGROUND_NAME: string = "pockey_custom_background_name";
@@ -51,6 +52,7 @@ namespace Pockey {
         public static STICK_MAX_POWER: number = 108;
         public static LARGE_GOALIES_ARRAY: number[] = [];
 
+        public static BABYLON_Y_OFFSET:number = 27;
         public static GOALIE_SPEED: number = 1;
         public static SMALL_GOALIES_ARRAY: number[] = [];
 

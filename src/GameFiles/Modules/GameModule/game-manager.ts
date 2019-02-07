@@ -4,6 +4,8 @@
 ///<reference path="player.ts"/>
 ///<reference path="../../../Framework/Signals/signal-types.ts"/>
 ///<reference path="../StateMachine/pockey-state-texts.ts"/>
+///<reference path="../SoundModule/pockey-sound-names.ts"/>
+///<reference path="../../../Framework/Utils/CountdownTimer.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -28,7 +30,9 @@ namespace Pockey {
         import Settings = Framework.Settings;
         import PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
         import PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
-        import PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        import PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
+        import CountdownTimer = Framework.Utils.CountdownTimer;
+        import AbstractEntryPoint = Framework.AbstractEntryPoint;
 
         export interface PlayerSettings {
             opponentNickname?: string,
@@ -51,6 +55,21 @@ namespace Pockey {
         //     OpponentTurnFirstBall,
         //
         // }
+        export interface GameState {
+            changeMyState?: any[];
+            stateID?: number,
+            pooltableState?: TimeState,
+            stateTime?: number,
+            timerText?: string,
+            timerTextAnimate?: boolean,
+            playerScore ?: number,
+            opponentScore?: number,
+            whiteBallPenalty?: boolean,
+            ballsHit?: number,
+            opponentScreenTimer?: number,
+            popupRemoved?: boolean
+            // timerColored?:boolean
+        }
 
         export class GameManager {
             private static instance: GameManager;
@@ -68,14 +87,28 @@ namespace Pockey {
             private gameFinished: boolean = false;
             private winStatus: WinStatus;
             private availableForRestart: boolean = false;
-            private timer: NodeJS.Timer;
-            private roundTimer: any;
             private timerText: string = "";
             private animateOpponentTimer: boolean = false;
             private countdownEnded: boolean = false;
-            // private noBallsHitOnWatch: boolean = false;
 
-            // private lastBallsAdded
+            private myTimeStates: GameState[];
+            private opponentGameStates: GameState[];
+            private gameTimeStatesIdentifier: number = 0;
+            private readyForNextTurn: boolean = false;
+
+
+            private timeStatesTimerActive: boolean = false;
+
+            private roundTimer: CountdownTimer;
+            // private secondAndThirdRoundsTimers: CountdownTimer;
+            private timer: CountdownTimer;
+
+            private roundCounter: number = 0;
+
+            private screenPopupTime: number = 0;
+            private popupRemoved: boolean = false;
+            private popupRemovedSent: boolean = false;
+
             static Instance(): GameManager {
                 if (!GameManager.instance) {
                     GameManager.instance = new GameManager();
@@ -86,16 +119,232 @@ namespace Pockey {
                         GameManager.Instance().initialized = true;
                     }
                 }
+
                 return GameManager.instance;
             }
+
+            private prepareFirstRound(): void {
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
+
+                PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundOne);
+
+                if (this.player.startedFirst) {
+                    this.setCurrentPlayer(this.player);
+
+                    // console.log("culorilefmm: la player " + PockeySettings.OPPONENT_COLOR, +PockeySettings.PLAYER_COLOR_ID);
+
+                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
+                    this.player.side = "left";
+                    this.opponent.side = "right";
+
+                    PIXI.ticker.shared.add(this.createState, this);
+                    this.roundTimer.restart();
+                    this.onRoundScreenTimerUpdate();
+
+                }
+                else {
+
+                    this.setCurrentPlayer(this.opponent);
+
+                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.opponent.type, this.player.type]);
+                    this.player.side = "right";
+                    this.opponent.side = "left";
+
+                    let sameColorsUsed: boolean = false;
+                    if (PockeySettings.OPPONENT_COLOR == +PockeySettings.PLAYER_COLOR_ID) {
+                        sameColorsUsed = true;
+
+                        let randNumber: number = Math.round(Math.random() * (PockeySettings.LARGE_COLORS_ARRAY.length - 1));
+                        PockeySettings.OPPONENT_COLOR = parseInt("0x" + PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
+
+                    }
+
+                    //aiciavemplayersettings////////////////
+                    let playerSettings: PlayerSettings = {
+                        opponentAvatarId: PockeySettings.PLAYER_AVATAR_ID,
+                        opponentNickname: PockeySettings.PLAYER_NICKNAME,
+                        opponentSocketId: PockeySettings.PLAYER_SOCKET_ID,
+                        opponentColor: (sameColorsUsed) ? PockeySettings.OPPONENT_COLOR : +PockeySettings.PLAYER_COLOR_ID,
+                        firstToStart: this.opponent.id
+                    };
+                    // console.log("opponent nickname:");
+                    // console.log(playerSettings);
+                    ///////////////////////////////////////
+
+                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
+
+                    PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
+
+                }
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
+
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.OPPONENT_FOUND}]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [PockeySettings.PLAYER_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [PockeySettings.OPPONENT_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [PockeySettings.OPPONENT_NICKNAME]);
+                /**/
+            }
+
+            private resetPooltable():void
+            {
+                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE);
+                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_GAME_SCREEN);
+            }
+
+            private prepareSecondRound(): void {
+
+                console.log("intra la prepareSecondRound");
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
+                PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundTwo);
+
+                this.screenPopupTime = 0;
+                this.popupRemoved = false;
+                // console.log("prepare second round entered")
+                // this.onRoundFinished();
+
+                this.whiteBallPenalty = false;
+                this.ballsHit = 0;
+                this.gameFinished = false;
+                this.availableForRestart = false;
+                this.player.score = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
+                this.opponent.score = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
+                TweenMax.delayedCall(1, this.resetPooltable.bind(this));
+                // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
+                // this.secondAndThirdRoundsTimers.restart();
+
+                let orderArray: BallType[] = [];
+
+                if (this.player.startedFirst) {
+                    if (!Settings.singlePlayer) {
+                        PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
+                    }
+                    this.opponent.side = "left";
+                    this.player.side = "right";
+                    this.setCurrentPlayer(this.opponent);
+                    orderArray = [this.opponent.type, this.player.type];
+                }
+                else {
+
+                    this.opponent.side = "right";
+                    this.player.side = "left";
+                    this.setCurrentPlayer(this.player);
+                    orderArray = [this.player.type, this.opponent.type];
+                    if (!Settings.singlePlayer) {
+                        PIXI.ticker.shared.add(this.createState, this);
+                        this.roundTimer = new CountdownTimer("roundTimer", 5, this.onRoundScreenTimerUpdate.bind(this));
+                        this.roundTimer.restart();
+                        this.onRoundScreenTimerUpdate();
+                        /*PIXI.ticker.shared.add(this.createState, this);
+
+                        SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+
+                        PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);*/
+                    }
+                }
+
+                // SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN);
+
+                if (Settings.singlePlayer) {
+                    this.beginPlay();
+                    // PockeyStateMachine.Instance().changeState(PockeyStates.onStartVersusGame);
+                }
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, orderArray);
+                // this.player.side = "left";
+                // this.opponent.side = "right";
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [PockeySettings.PLAYER_AVATAR_ID]);
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [PockeySettings.OPPONENT_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [PockeySettings.OPPONENT_AVATAR_ID]);
+                /* if (this.player.score <= 0) {
+
+                     this.winStatus = WinStatus.LOST;
+                     this.opponent.matchesWon++;
+                     this.gameFinished = true;
+                     console.log("la ball in pocket: " + this.winStatus);
+                 }
+                 else if (this.opponent.score <= 0) {
+
+                     this.winStatus = WinStatus.WIN;
+                     this.player.matchesWon++;
+                     this.gameFinished = true;
+
+                 }
+                 this.availableForRestart = true;*/
+                //show round two starts
+                // this.secondAndThirdRoundsTimers.restart();
+                //
+            }
+
+            /*private prepareThirdRound(): void {
+
+            }*/
 
             private InitializeOthers() {
                 this.player = new Player("player", BallType.Player);
                 this.opponent = new Player("opponent", BallType.Opponent);
 
-                // this.timer = global.setTimeout(this.startCountdown, 1000);
+                this.timer = new CountdownTimer("gameTime", PockeySettings.ROUND_DURATION_IN_SECONDS, this.onCounterUpdate.bind(this));
+                this.roundTimer = new CountdownTimer("roundTimer", 3, this.onRoundScreenTimerUpdate.bind(this));
+                // this.secondAndThirdRoundsTimers = new CountdownTimer("secondAndThirdRoundsTimers", 5, this.onSecondAndThirdRoundsTimerUpdate.bind(this));
 
+                this.myTimeStates = [];
+                this.opponentGameStates = [];
             }
+
+            private onRoundScreenTimerUpdate(): void {
+                // this.timerText = this.roundTimer.currentTime.toString();
+                if (this.roundTimer.currentTime > 0) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, [this.roundTimer.currentTime.toString()]);
+                }
+                // console.log("timeru on update: " + this.roundTimer.currentTime);
+
+                if (this.roundTimer.complete) {
+                    this.timer.restart();
+                    this.onCounterUpdate();
+
+                    // asta trebuie mutat la inceput in this.prepareFirstRound()
+
+
+                    //aici punem timer si ascundem partner found
+                    SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
+
+                    this.beginPlay();
+
+                }
+
+                this.popupRemovedSent = false;
+            }
+
+            // private onSecondAndThirdRoundsTimerUpdate(): void {
+            //     if (this.roundTimer.currentTime > 0) {
+            //         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, [this.roundTimer.currentTime.toString()]);
+            //     }
+            //
+            //     if (this.roundTimer.complete) {
+            //         this.timer.restart();
+            //         this.onCounterUpdate();
+            //
+            //         // asta trebuie mutat la inceput in this.prepareFirstRound()
+            //
+            //
+            //         //aici punem timer si ascundem partner found
+            //         SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN);
+            //
+            //         this.beginPlay();
+            //     }
+            //
+            //     this.popupRemovedSent = false;
+            // }
 
             private registerSignalsHandlers() {
 
@@ -103,12 +352,12 @@ namespace Pockey {
 
                 SignalsManager.AddSignalCallback(PockeySignalTypes.WHITE_BALL_REPOSITIONED, GameManager.Instance().onWhiteBallRepositioned.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.FIRST_BALL_FAULT, this.onFirstBallFault.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.NEXT_TURN, this.onNextTurn.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PREPARE_NEXT_TURN, this.prepareNextTurn.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOOT_BALL, this.onShoot.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.BALL_IN_POCKET, this.onBallInPocket.bind(this));
 
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.PUCK_IN_POCKET, this.onBallInPocket.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER, this.onSendElementsDataToManager.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER, this.onSendElementsDataToManager.bind(this));
 
                 SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED, this.onSocketIOConnectionCreated.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.START_GAME, this.onStartGame.bind(this));
@@ -117,118 +366,152 @@ namespace Pockey {
                 SignalsManager.AddSignalCallback(PockeyConnectionSignals.WATCH, this.onWatch.bind(this));
                 SignalsManager.AddSignalCallback(PockeyConnectionSignals.YOUR_TURN, this.onMyTurn.bind(this));
                 SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT_SETTINGS, this.onOpponentSettings.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT_RESTART_GAME, this.onOpponentRestart.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.SCORE_UPDATE, this.onScoreUpdate.bind(this));
+                // SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT_RESTART_GAME, this.onOpponentRestart.bind(this));
+                // SignalsManager.AddSignalCallback(PockeyConnectionSignals.SCORE_UPDATE, this.onScoreUpdate.bind(this));
                 // SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT, this.onSetOpponent.bind(this));
             }
 
-            private startCountdown(seconds) {
-                let counter = seconds;
 
-
-                // console.log('counter intra la start countdown');
+            private onCounterUpdate(): void {
                 let counterText: string = "0:";
-
-                // if(counter == PockeySettings.ROUND_DURATION_IN_SECONDS)
-                // {
+                let counter: number = this.timer.currentTime;
                 counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
                 this.timerText = counterText;
+                // this.animateOpponentTimer = false;
+
                 this.animateOpponentTimer = false;
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, false]);
-                // }
-                this.roundTimer = setInterval(() => {
-                    counterText = "0:";
 
-                    // console.log("counter : " + counter);
+                if (counter <= 5) {
+                    if (counter == 5) {
+                        SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.LAST_FIVE_SECONDS}]);
 
-                    counter--;
-                    counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
-                    this.timerText = counterText;
-                    // let animateTimerText: boolean = true;
-
-                    if (counter <= 5) {
-                        if(counter == 5)
-                        {
-                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.LAST_FIVE_SECONDS}]);
-
-                        }
-                        this.animateOpponentTimer = true;
                     }
 
-                    // this.animateOpponentTimer = animateTimerText;
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, this.animateOpponentTimer]);
-                    if (counter < 0) {
+                    this.animateOpponentTimer = true;
+                }
 
-                        // The code here will run when
-                        // the timer has reached zero.
-                        this.stopCountdown();
-                        this.countdownEnded = true;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.RESET_STICK_POWER);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, this.animateOpponentTimer]);
+                // this.animateOpponentTimer = animateTimerText;
+                // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, this.animateOpponentTimer]);
+                if (this.timer.complete) {
 
-                        // this.ballsHit = 0;
-                        // this.onNextTurn();
-                    }
 
-                }, 1000);
-            };
+                    // The code here will run when
+                    // the timer has reached zero.
+                    // this.stopCountdown();
+                    // this.countdownEnded = true;
+                    this.stopCountdown();
+                    this.countdownEnded = true;
+                    this.prepareNextTurn();
+                    SignalsManager.DispatchSignal(PockeySignalTypes.RESET_STICK_POWER);
+
+                    // this.ballsHit = 0;
+                    // this.onNextTurn();
+                }
+            }
+
+            /* private startCountdown(seconds) {
+                 let counter = seconds;
+
+
+                 // console.log('counter intra la start countdown');
+                 let counterText: string = "0:";
+
+                 // if(counter == PockeySettings.ROUND_DURATION_IN_SECONDS)
+                 // {
+                 counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
+
+                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, false]);
+                 // }
+                 this.roundTimer = setInterval(() => {
+                     counterText = "0:";
+
+                     // console.log("counter : " + counter);
+
+                     counter--;
+                     counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
+                     this.timerText = counterText;
+                     // let animateTimerText: boolean = true;
+
+                     if (counter <= 5) {
+                         if(counter == 5)
+                         {
+                             SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName:PockeySoundURLS.LAST_FIVE_SECONDS}]);
+
+                         }
+                         this.animateOpponentTimer = true;
+                     }
+
+                     // this.animateOpponentTimer = animateTimerText;
+                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, this.animateOpponentTimer]);
+                     if (counter < 0) {
+
+                         // The code here will run when
+                         // the timer has reached zero.
+                         this.stopCountdown();
+                         this.countdownEnded = true;
+                         SignalsManager.DispatchSignal(PockeySignalTypes.RESET_STICK_POWER);
+
+                         // this.ballsHit = 0;
+                         // this.onNextTurn();
+                     }
+
+                 }, 1000);
+             };*/
 
             private stopCountdown(): void {
-                clearInterval(this.roundTimer);
 
                 this.timerText = "";
-                // console.log("timerText stopcountdown: " + this.timerText);
                 this.animateOpponentTimer = false;
-
+                this.timer.stop();
+                this.timer.reset();
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, ["", this.currentPlayer.type, false]);
-                console.log('Ding!');
+                // console.log('Ding!');
             }
 
             private onMyTurn(params: any[]): void {
                 // this.noBallsHitOnWatch = false;
                 // this.currentPlayer = this.player;
                 this.changePlayer();
+
                 let state: PockeyStates = params[0] as PockeyStates;
-                console.log("currentSTate: " + PockeyStateMachine.Instance().getCurrentStateName());
-                console.log("new state: " + state);
+                // console.log("currentSTate: " + PockeyStateMachine.Instance().getCurrentStateName());
+                // console.log("new state: " + state);
                 if (state == PockeyStates.onRearrangeStick) {
 
-                    if (params[1]) {
-                        let balls
-                    }
+                    // if (params[1]) {
+                    //     let balls
+                    // }
+
                     // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
 
                     SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                    this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
+                    PIXI.ticker.shared.add(this.createState, this);
+                    this.timer.restart();
+                    this.onCounterUpdate();
+
+                    // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
                 }
                 else if (state == PockeyStates.onRepositionWhiteBall) {
 
                     // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
 
                     // SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                    this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
+                    PIXI.ticker.shared.add(this.createState, this);
+                    this.timer.restart();
+                    this.onCounterUpdate();
+
+                    // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
                     if (Settings.isMobile) {
                         SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
                     }
                 }
-                else if (state == PockeyStates.onGameEnd) {
+                else if (state == PockeyStates.onRoundEnd) {
 
-                    if (this.player.score <= 0) {
+                    PockeyStateMachine.Instance().changeState(state);
+                    this.prepareSecondRound();
 
-                        this.winStatus = WinStatus.LOST;
-                        this.opponent.matchesWon++;
-                        this.gameFinished = true;
-                        console.log("la ball in pocket: " + this.winStatus);
-                    }
-                    else if (this.opponent.score <= 0) {
-
-                        this.winStatus = WinStatus.WIN;
-                        this.player.matchesWon++;
-                        this.gameFinished = true;
-
-                    }
-
-                    this.onGameFinished();
-
+                    return;
                 }
 
                 PockeyStateMachine.Instance().changeState(state);
@@ -244,107 +527,89 @@ namespace Pockey {
                 // }
             }
 
-            private onSendElementsDataToManager(params: any[]): void {
-                let poolTableData: PoolTableData = params[0] as PoolTableData;
 
-                poolTableData.playerScore = this.player.score;
-                poolTableData.opponentScore = this.opponent.score;
-                poolTableData.whiteBallPenalty = this.whiteBallPenalty;
-                poolTableData.ballsHit = this.ballsHit;
-                poolTableData.opponentState = PockeyStateMachine.Instance().fsm.currentState;
+            private memorySizeOf(obj) {
+                let bytes = 0;
 
-                poolTableData.opponentTimerText = this.timerText;
-                // console.log("timerText la send column: " + this.timerText);
-
-                poolTableData.opponentTimerAnimate = this.animateOpponentTimer;
-                if (this.countdownEnded) {
-                    poolTableData.opponentTimeFinished = true;
-                    console.log("time ended sent");
+                function sizeOf(obj) {
+                    if (obj !== null && obj !== undefined) {
+                        switch (typeof obj) {
+                            case 'number':
+                                bytes += 8;
+                                break;
+                            case 'string':
+                                bytes += obj.length * 2;
+                                break;
+                            case 'boolean':
+                                bytes += 4;
+                                break;
+                            case 'object':
+                                let objClass = Object.prototype.toString.call(obj).slice(8, -1);
+                                if (objClass === 'Object' || objClass === 'Array') {
+                                    for (let key in obj) {
+                                        if (!obj.hasOwnProperty(key)) continue;
+                                        sizeOf(obj[key]);
+                                    }
+                                } else bytes += obj.toString().length * 2;
+                                break;
+                        }
+                    }
+                    return bytes;
                 }
 
-                SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, poolTableData]);
-
-                if (this.countdownEnded) {
-                    this.onNextTurn();
+                function formatByteSize(bytes) {
+                    if (bytes < 1024) return bytes + " bytes";
+                    else if (bytes < 1048576) return (bytes / 1024).toFixed(3) + " KiB";
+                    else if (bytes < 1073741824) return (bytes / 1048576).toFixed(3) + " MiB";
+                    else return (bytes / 1073741824).toFixed(3) + " GiB";
                 }
-            }
+
+                return formatByteSize(sizeOf(obj));
+            };
 
             private onRestartGame(): void {
 
-                if (Settings.singlePlayer)
-                    this.switchSides();
-                else {
-                    this.availableForRestart = true;
-                    this.switchSides();
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_RESTART_GAME]);
-                    // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_RESTART]);
-                }
+                /*   if (Settings.singlePlayer)
+                       this.switchSides();
+                   else {
+                       this.availableForRestart = true;
+                       this.switchSides();
+                       SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_RESTART_ROUND]);
+
+                       // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_RESTART]);
+                   }*/
 
             }
 
-            private onOpponentRestart(): void {
-                if (this.availableForRestart) {
-                    this.switchSides();
-                }
-            }
+            // private onOpponentRestart(): void {
+            //     if (this.availableForRestart) {
+            //
+            //         console.log("Intra la switch sides");
+            //         this.switchSides();
+            //     }
+            //     else {
+            //         console.log("nu intra la switch sides");
+            //     }
+            //
+            //     console.log("primesc invitatie switch sides: ");
+            // }
 
-            private switchSides(): void {
-                this.whiteBallPenalty = false;
-                this.ballsHit = 0;
-                this.gameFinished = false;
-                this.availableForRestart = false;
-                this.player.score = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
-                this.opponent.score = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
-                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE);
-                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_GAME_SCREEN);
-                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_WINNING_SCREEN);
-
-                let orderArray: BallType[] = [];
-
-                if (this.player.side == "left") {
-                    if (!Settings.singlePlayer) {
-                        PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
-                    }
-                    this.opponent.side = "left";
-                    this.player.side = "right";
-                    this.setCurrentPlayer(this.opponent);
-                    orderArray = [this.opponent.type, this.player.type];
-                }
-                else {
-                    if (!Settings.singlePlayer) {
-                        SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-
-                        PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
-                    }
-                    this.opponent.side = "right";
-                    this.player.side = "left";
-                    this.setCurrentPlayer(this.player);
-                    orderArray = [this.player.type, this.opponent.type];
-                }
-
-                if (Settings.singlePlayer) {
-                    this.beginPlay();
-                    // PockeyStateMachine.Instance().changeState(PockeyStates.onStartVersusGame);
-
-                }
-
-                SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, orderArray);
-                // this.player.side = "left";
-                // this.opponent.side = "right";
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [PockeySettings.PLAYER_AVATAR_ID]);
-
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [PockeySettings.OPPONENT_NICKNAME]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [PockeySettings.OPPONENT_AVATAR_ID]);
-
-            }
+            // private switchSides(): void {
+            //     console.log("se face switch");
+            //
+            //
+            // }
 
             private onStartGame(): void {
-                SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, 0.4]);
+                SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, 1]);
+                //@ts-ignore
+                // console.log("aicisha: " + AbstractEntryPoint.scene.meshes);
+                //@ts-ignore
+                _.forEach(AbstractEntryPoint.scene.meshes, (mesh: any) => {
+                    mesh.setEnabled(true);
+                });
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_MAIN_MENU);
+                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_GAME_UI);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_POOLTABLE);
 
@@ -372,43 +637,191 @@ namespace Pockey {
 
             }
 
+            private createState(): void {
+                // console.log("se trimite");
+                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundOne) {
+                    this.onPooltableStateCreated(null);
+                }
+                else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundTwo) {
+                    this.onPooltableStateCreated(null);
+                }
+                else {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CREATE_POOLTABLE_STATE, [this.onPooltableStateCreated.bind(this)]);
+                }
+            }
+
+            private onPooltableStateCreated(timeState: TimeState): void {
+                // console.log("on pooltable state created");
+                this.gameTimeStatesIdentifier++;
+                let gameState: GameState = {};
+
+                gameState.stateID = this.gameTimeStatesIdentifier;
+                gameState.stateTime = Math.round(PIXI.ticker.shared.elapsedMS / 1000);
+
+                if (!_.isNull(timeState)) {
+                    gameState.pooltableState = timeState;
+                }
+                gameState.timerText = this.timerText;
+                gameState.timerTextAnimate = this.animateOpponentTimer;
+
+                gameState.playerScore = this.player.score;
+                gameState.opponentScore = this.opponent.score;
+                gameState.whiteBallPenalty = this.whiteBallPenalty;
+                gameState.ballsHit = this.ballsHit;
+
+                if (!this.roundTimer.complete && this.screenPopupTime != this.roundTimer.currentTime) {
+                    // console.log("se inregistreaza timeru " + this.roundTimer.currentTime);
+                    this.screenPopupTime = this.roundTimer.currentTime;
+                    gameState.opponentScreenTimer = this.roundTimer.currentTime;
+                }
+                // else
+                // {
+                //     console.log("nu se inregistreaza timeru " + this.roundTimer.currentTime);
+                //
+                // }
+
+                // if (!this.roundTimer.complete && !this.secondAndThirdRoundsTimers.complete && this.screenPopupTime != this.secondAndThirdRoundsTimers.currentTime) {
+                //     // console.log("se inregistreaza timeru " + this.roundTimer.currentTime);
+                //     this.screenPopupTime = this.secondAndThirdRoundsTimers.currentTime;
+                //     gameState.opponentScreenTimer = this.secondAndThirdRoundsTimers.currentTime;
+                // }
+
+                if (this.popupRemoved && !this.popupRemovedSent) {
+                    gameState.popupRemoved = true;
+                    this.popupRemovedSent = true;
+                    // console.log("aici se inregistreaza");
+                }
+
+                this.myTimeStates.push(gameState);
+
+                if (this.myTimeStates.length == PockeySettings.FRAMES_TO_SEND_ON_WATCH) {
+                    if (this.readyForNextTurn) {
+                        // console.log("se face remove");
+                        this.onNextTurn(gameState);
+                        this.readyForNextTurn = false;
+                    }
+
+                    let msg: string = JSON.stringify({gameStates: this.myTimeStates});
+
+                    // if(PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall)
+
+                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, msg]);
+
+                    //send states
+                    this.myTimeStates = [];
+                }
+
+                // console.log("game time states length: " + this.myTimeStates.length);
+            }
+
+            private prepareNextTurn(): void {
+                this.readyForNextTurn = true;
+                this.stopCountdown();
+
+                if (Settings.singlePlayer) {
+                    this.onNextTurn(null);
+                }
+            }
+
+            private applyGameState(): void {
+                // console.log("opponentGameStates length: " + this.opponentGameStates.length);
+
+                if (this.opponentGameStates.length == 0) {
+                    return;
+                }
+                let gameState: GameState = this.opponentGameStates[0];
+
+                if (this.timerText != gameState.timerText || this.animateOpponentTimer != gameState.timerTextAnimate) {
+                    this.timerText = gameState.timerText;
+                    this.animateOpponentTimer = gameState.timerTextAnimate;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [gameState.timerText, this.currentPlayer.type, gameState.timerTextAnimate]);
+                }
+
+                this.whiteBallPenalty = gameState.whiteBallPenalty;
+                this.ballsHit = gameState.ballsHit;
+
+                if (this.player.score != gameState.opponentScore) {
+                    this.player.score = gameState.opponentScore;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE, [this.player.score]);
+                }
+
+                if (this.opponent.score != gameState.playerScore) {
+                    this.opponent.score = gameState.playerScore;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE, [this.opponent.score]);
+                }
+
+                if (gameState.opponentScreenTimer) {
+                    // console.log("se primeste timeru" + gameState.opponentScreenTimer);
+                    // if (+gameState.opponentScreenTimer > 0) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, [gameState.opponentScreenTimer]);
+                    // }
+                    // this.roundTimer.currentTime
+                }
+
+                if (gameState.popupRemoved) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
+                    // console.log("de aicisha intra");
+                    this.popupRemoved = true;
+                }
+
+                if (gameState.pooltableState) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE, [gameState.pooltableState, (gameState.stateTime)]);
+                }
+
+
+                if (gameState.changeMyState) {
+                    PIXI.ticker.shared.remove(this.applyGameState, this);
+                    this.timeStatesTimerActive = false;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
+                    this.onMyTurn(gameState.changeMyState);
+                }
+
+                this.opponentGameStates.shift();
+            }
+
             private onWatch(params: any[]): void {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
 
                     // console.log("gm, sunt eu, clientul in plm: ");
-                    let poolTableData: PoolTableData = params[0] as PoolTableData;
+                    let msg: string = params[0];
+
+                    let gameStates: GameState[] = JSON.parse(msg).gameStates;
+
+                    // console.log("game states: tada? " + gameStates);
+
+                    _.forEach(gameStates, (gameState: GameState) => {
+                        this.opponentGameStates.push(gameState);
+                    });
+
+                    if (!this.timeStatesTimerActive && this.opponentGameStates.length >= PockeySettings.FRAMES_TO_SEND_ON_WATCH * 3) {
+                        this.timeStatesTimerActive = true;
+                        PIXI.ticker.shared.add(this.applyGameState, this);
+                        // console.log("se adauaga o data");
+                    }
+                    // this.opponentTimeStates.shift();
 
                     // this.timerText = poolTableData.opponentTimerText;
                     // this.animateOpponentTimer = poolTableData.opponentTimerAnimate;
 // if()
 //                     console.log("this.timerText: " + poolTableData.opponentTimerText);
 
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [poolTableData.opponentTimerText, this.currentPlayer.type, poolTableData.opponentTimerAnimate]);
+                    /* SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [poolTableData.opponentTimerText, this.currentPlayer.type, poolTableData.opponentTimerAnimate]);
 
-                    //salam
-                    this.whiteBallPenalty = poolTableData.whiteBallPenalty;
-                    this.ballsHit = poolTableData.ballsHit;
+                     //salam
+                     this.whiteBallPenalty = poolTableData.whiteBallPenalty;
+                     this.ballsHit = poolTableData.ballsHit;
 
-                    if (this.player.score != poolTableData.opponentScore) {
-                        this.player.score = poolTableData.opponentScore;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE, [this.player.score]);
-                    }
+                     if (this.player.score != poolTableData.opponentScore) {
+                         this.player.score = poolTableData.opponentScore;
+                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE, [this.player.score]);
+                     }
 
-                    if (this.opponent.score != poolTableData.playerScore) {
-                        this.opponent.score = poolTableData.playerScore;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE, [this.opponent.score]);
-                    }
+                     if (this.opponent.score != poolTableData.playerScore) {
+                         this.opponent.score = poolTableData.playerScore;
+                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE, [this.opponent.score]);
+                     }*/
                 }
-            }
-
-            private onScoreUpdate(params: any[]): void {
-                // if (PockeyStateMachine.Instance().fsm.currentState != PockeyStates.onWatch)
-                // {
-                //     PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                //     this.printFsmCurrentState();
-                // }
-                console.log("on score update");
             }
 
             private onBallInPocket(params: any[]): void {
@@ -481,7 +894,7 @@ namespace Pockey {
 
                     if (this.player.score <= 0) {
 
-                        // PockeyStateMachine.Instance().changeState(PockeyStates.onGameEnd);
+                        // PockeyStateMachine.Instance().changeState(PockeyStates.onRoundEnd);
                         this.winStatus = WinStatus.LOST;
                         this.opponent.matchesWon++;
                         this.gameFinished = true;
@@ -491,14 +904,14 @@ namespace Pockey {
                     }
                     else if (this.opponent.score <= 0) {
                         // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you lost!"]);
-                        // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
+                        // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
 
                         this.winStatus = WinStatus.WIN;
                         this.player.matchesWon++;
                         this.gameFinished = true;
                         console.log("la ball in pocket: " + this.winStatus);
 
-                        // PockeyStateMachine.Instance().changeState(PockeyStates.onGameEnd);
+                        // PockeyStateMachine.Instance().changeState(PockeyStates.onRoundEnd);
 
                     }
                 }
@@ -508,6 +921,10 @@ namespace Pockey {
                 PockeyStateMachine.Instance().changeState(PockeyStates.onMainMenu);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_MAIN_MENU);
                 SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [Settings.mainBackgroundName, 4]);
+                //@ts-ignore
+                _.forEach(AbstractEntryPoint.scene.meshes, (mesh: any) => {
+                    mesh.setEnabled(false);
+                });
             }
 
             private onSocketIOConnectionCreated(params: any[]): void {
@@ -535,126 +952,29 @@ namespace Pockey {
 
                     playerSettings.firstToStart = this.player.id;
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
-                    // this.beginPlay();
                 }
-                /**/
-                // else {
-                //     playerSettings.firstToStart = this.opponent.id;
-                // }
-
-                // console.log("on disptach settings: " + playerSettings);
-                /*
-*/
-                // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [playerSettings]);
-
-                // else {
-                //     this.currentPlayer = this.opponent;
-                //     // this.onWatch(null);
-                // }
-
-
-                // let poolTableData: PoolTableData = {
-                //     /*playerName:string,
-                //     playerSocketID:any,
-                //     playerColor:number,
-                //     poolstickPivotX: number,`
-                //     poolstickRotation: number,
-                //     poolstickPositionX: number,
-                //     poolstickPositionY: number*/
-                // };
-
-                // PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
-                // this.selectPlayer();
-                // this.printFsmCurrentState();
-                /*this.player.color = PockeySettings.PLAYER_COLOR;
-                this.player.id = params[0];
-                this.opponent.color = PockeySettings.OPPONENT_COLOR;
-                this.opponent.id = params;
-                */
             }
 
 
             private onOpponentSettings(params: any[]): void {
 
-                // console.log(("%c culorilefmm: my color id " + PockeySettings.PLAYER_COLOR_ID + ", " + +PockeySettings.PLAYER_COLOR_ID), "color:black; background:" + PockeySettings.PLAYER_COLOR_ID.replace("0x", "#"));
-
-                // console.log("culorilefmm: opponent color la enter " + PockeySettings.OPPONENT_COLOR);
 
                 let opponentSettings: PlayerSettings = params[0] as PlayerSettings;
                 PockeySettings.OPPONENT_COLOR = opponentSettings.opponentColor;
                 PockeySettings.OPPONENT_SOCKET_ID = opponentSettings.opponentSocketId;
                 PockeySettings.OPPONENT_NICKNAME = opponentSettings.opponentNickname;
                 PockeySettings.OPPONENT_AVATAR_ID = opponentSettings.opponentAvatarId;
-                console.log("opponent avatar la opponent settings: " + PockeySettings.OPPONENT_AVATAR_ID);
-                // console.log("culorilefmm: opponent color la dupa " + PockeySettings.OPPONENT_COLOR);
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [PockeySettings.OPPONENT_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME);
 
                 if (opponentSettings.firstToStart == this.player.id) {
-                    this.setCurrentPlayer(this.player);
-
-                    // console.log("on opponent settings on player: " + +PockeySettings.PLAYER_COLOR_ID, PockeySettings.OPPONENT_COLOR, opponentSettings.opponentColor);
-                    console.log("culorilefmm: la player " + PockeySettings.OPPONENT_COLOR, +PockeySettings.PLAYER_COLOR_ID);
-
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
-                    this.player.side = "left";
-                    this.opponent.side = "right";
-
-                    this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
-                    this.beginPlay();
+                    this.player.startedFirst = true;
                 }
-                else {
+                console.log("opponent avatar la opponent settings: " + PockeySettings.OPPONENT_AVATAR_ID);
 
-                    this.setCurrentPlayer(this.opponent);
+                this.prepareFirstRound();
 
-                    // console.log("on opponent settings on opponent: " + +PockeySettings.PLAYER_COLOR_ID, PockeySettings.OPPONENT_COLOR);
-
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.opponent.type, this.player.type]);
-                    this.player.side = "right";
-                    this.opponent.side = "left";
-
-                    console.log("culorilefmm: la opp " + PockeySettings.OPPONENT_COLOR, +PockeySettings.PLAYER_COLOR_ID);
-
-                    let sameColorsUsed: boolean = false;
-                    if (PockeySettings.OPPONENT_COLOR == +PockeySettings.PLAYER_COLOR_ID) {
-                        sameColorsUsed = true;
-                        console.log("culorilefmm: sunt la fel in plm ");
-
-                        let randNumber: number = Math.round(Math.random() * (PockeySettings.LARGE_COLORS_ARRAY.length - 1));
-                        PockeySettings.OPPONENT_COLOR = parseInt("0x" + PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
-
-                    }
-
-                    //aiciavemplayersettings////////////////
-                    let playerSettings: PlayerSettings = {
-                        opponentAvatarId: PockeySettings.PLAYER_AVATAR_ID,
-                        opponentNickname: PockeySettings.PLAYER_NICKNAME,
-                        opponentSocketId: PockeySettings.PLAYER_SOCKET_ID,
-                        opponentColor: (sameColorsUsed) ? PockeySettings.OPPONENT_COLOR : +PockeySettings.PLAYER_COLOR_ID,
-                        firstToStart: this.opponent.id
-                    };
-                    console.log("opponent nickname:");
-                    console.log(playerSettings);
-                    ///////////////////////////////////////
-
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
-
-                    // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, ["0:" + PockeySettings.ROUND_DURATION_IN_SECONDS, this.currentPlayer.type, false]);
-
-                    PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
-
-                }
-
-                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundNames.OPPONENT_FOUND}]);
-
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [PockeySettings.PLAYER_AVATAR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
-
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [PockeySettings.OPPONENT_AVATAR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [PockeySettings.OPPONENT_NICKNAME]);
-                /**/
 
             }
 
@@ -663,7 +983,6 @@ namespace Pockey {
             private onShoot(): void {
                 // this.selectPlayer();
                 this.whiteBallPenalty = false;
-                clearInterval(this.roundTimer);
 
                 this.stopCountdown();
                 PockeyStateMachine.Instance().changeState(PockeyStates.onShoot);
@@ -679,33 +998,50 @@ namespace Pockey {
 
             }
 
-            private onGameFinished(): void {
+            // private onMatchFinised(): void {
+            //
+            // }
+
+           /* private onRoundFinished(): void {
                 if (this.winStatus == WinStatus.WIN) {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you won!"]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
+                    // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you won!"]);
+                    // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
+                    // this.secondAndThirdRoundsTimers.restart();
                 } else {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you lost!"]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
+                    // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you lost!"]);
+
                 }
 
-                if (this.player.side == "left") {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES,
-                        [this.player.matchesWon, this.opponent.matchesWon]);
-                }
-                else {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES,
-                        [this.opponent.matchesWon, this.player.matchesWon]);
-                }
+                // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
 
-            }
+                /!* if (this.player.side == "left") {
+                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES,
+                         [this.player.matchesWon, this.opponent.matchesWon]);
+                 }
+                 else {
+                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES,
+                         [this.opponent.matchesWon, this.player.matchesWon]);
+                 }*!/
 
-            private onNextTurn(): void {
+            }*/
+
+            private onNextTurn(gameState: GameState): void {
+                console.log("onNextTurn: intra");
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
+
                 if (this.countdownEnded) {
 
                     this.countdownEnded = false;
                     this.changePlayer();
 
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStateMachine.Instance().fsm.currentState]);
+                    console.log("onNextTurn: intra la countdown");
+                    // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStateMachine.Instance().fsm.currentState]);
+                    if (gameState) {
+                        PIXI.ticker.shared.remove(this.createState, this);
+                        gameState.changeMyState = [PockeyStateMachine.Instance().fsm.currentState];
+                    }
+                    // let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                    // SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
 
                     PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
 
@@ -714,15 +1050,23 @@ namespace Pockey {
                 }
                 // this.selectPlayer();
                 if (this.gameFinished) {
-                    PockeyStateMachine.Instance().changeState(PockeyStates.onGameEnd);
+                    console.log("onNextTurn: intra la gamefinished");
+
+                    PockeyStateMachine.Instance().changeState(PockeyStates.onRoundEnd);
                     // let opponentStatus:WinStatus = (this.winStatus == WinStatus.WIN)? WinStatus.LOST : WinStatus.WIN;
                     console.log("la next turn: " + this.winStatus);
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onGameEnd, this.winStatus]);
-                    this.onGameFinished();
+                    if (gameState) {
+                        PIXI.ticker.shared.remove(this.createState, this);
+                        gameState.changeMyState = [PockeyStates.onRoundEnd, this.winStatus]
+                    }
+
+                    this.prepareSecondRound();
 
                     return;
                 }
                 else {
+                    console.log("onNextTurn: intra la onEndTurn");
+
                     // console.log("inainte de on end turn");
                     PockeyStateMachine.Instance().changeState(PockeyStates.onEndTurn);
                     // console.log("dupa de on end turn");
@@ -732,14 +1076,24 @@ namespace Pockey {
                 console.log("%c GameManager -> Checking for next turn...", "color: #00bcd4");
 
                 if (this.whiteBallPenalty) {
+                    console.log("onNextTurn: intra la whiteBallPenalty");
+
                     console.log("%c GameManager -> PENALTY! Round ended for " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                     // this.onWhiteBallInTheHole();
 
                     this.changePlayer();
 
                     if (!Settings.singlePlayer) {
-                        SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRepositionWhiteBall]);
+
+                        // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRepositionWhiteBall]);
+
+                        gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+                        PIXI.ticker.shared.remove(this.createState, this);
+
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.whiteBallFault]);
+                        let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                        SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
+
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
 
                         // if (Settings.isMobile) {
@@ -759,12 +1113,19 @@ namespace Pockey {
                     //     SignalsManager.DispatchSignal(PockeySignalTypes.REPOSITION_WHITE_BALL);
                 }
                 else if (this.ownBallInPocketFault) {
+                    console.log("onNextTurn: ownBallInPocketFault");
+
                     console.log("%c GameManager -> Fault! Own ball in pocket! " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                     this.changePlayer();
                     this.ownBallInPocketFault = false;
                     if (!Settings.singlePlayer) {
+                        let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                        SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
+
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                        SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                        gameState.changeMyState = [PockeyStates.onRearrangeStick];
+                        PIXI.ticker.shared.remove(this.createState, this);
+                        // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onOwnBallInPocket]);
 
                         // this.noBallsHitOnWatch = true;
@@ -781,12 +1142,19 @@ namespace Pockey {
                 }
                 else {
                     if (this.ballsHit == 0) {
+                        console.log("onNextTurn: balls hit 0");
+
                         console.log("%c GameManager -> No balls hit for " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                         this.changePlayer();
 
                         if (!Settings.singlePlayer) {
+                            let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                            SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
+
                             PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                            SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                            // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                            gameState.changeMyState = [PockeyStates.onRearrangeStick];
+                            PIXI.ticker.shared.remove(this.createState, this);
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.noBallScored]);
                             // this.noBallsHitOnWatch = true;
 
@@ -805,7 +1173,10 @@ namespace Pockey {
                         this.ballsHit = 0;
                     }
 
-                    this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
+                    // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
+                    // this.timer.restart();
+                    console.log("onNextTurn: ajunge in capat");
+
                     SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
                     PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
 
@@ -884,7 +1255,11 @@ namespace Pockey {
 
             private beginPlay(): void {
 
+                this.popupRemoved = true;
+
+                /*  this.onRestartGame();*/
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
+
                 SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
                 PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
                 // PockeyStateMachine.Instance().changeState(PockeyStates.onStartVersusGame);

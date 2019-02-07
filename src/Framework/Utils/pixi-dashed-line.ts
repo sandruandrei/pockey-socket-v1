@@ -42,7 +42,7 @@ namespace Framework {
             // import flash.display.Sprite;
 
             public static drawDashedLine(graphics: Graphics, startX: number = 0, startY: number = 0, endX: number = 0, endY: number = 0, strokeLength: number = 0, gap: number = 0, color: number = 0xffffff, stroke: number = 1, alpha: number = 1): Vector2 {
-                let arrowPoint:Vector2 = new Vector2();
+                let arrowPoint: Vector2 = new Vector2();
 
                 // let graphics:Graphics = new Graphics();
                 // let line:Sprite = new Sprite();
@@ -106,7 +106,7 @@ namespace Framework {
             public static drawDottedLine(graphics: Graphics, startX: number = 0, startY: number = 0, endX: number = 0, endY: number = 0, radius: number = 0, gap: number = 0, color: number = 0xffffff, alpha: number = 1): Vector2 {
                 // startX += gap;
                 // startY += gap;
-                let arrowPoint:Vector2 = new Vector2();
+                let arrowPoint: Vector2 = new Vector2();
 
                 // let graphics:Graphics = new Graphics();
                 // let line:Sprite = new Sprite();
@@ -163,14 +163,14 @@ namespace Framework {
 //                     graphics.drawCircle( aX + Math.cos( radians ) * _delta, aY + Math.sin( radians ) * _delta, radius );
 //                 }
 // move to the end position
-                graphics.drawCircle( endX, endY,radius );
+                    graphics.drawCircle(endX, endY, radius);
                     // arrowPoint.x = endX;// + Math.cos(radians) * (radius + gap);
                     // arrowPoint.y = endY;// + Math.cos(radians) * (radius + gap);
                     // return graphics;
                 }
                 graphics.endFill();
-                arrowPoint.x = aX + Math.cos(radians) * (gap);// + Math.cos(radians) * (radius + gap);
-                arrowPoint.y = aY + Math.sin(radians) * (gap);// + Math.sin(radians) * (radius + gap);
+                arrowPoint.x = aX + Math.cos(radians) * gap * 1.6;// (radius * 2 + gap * 1.2);// + Math.cos(radians) * (radius + gap);
+                arrowPoint.y = aY + Math.sin(radians) * gap * 1.6;// (radius * 2 + gap * 1.2);// + Math.sin(radians) * (radius + gap);
 
                 return arrowPoint;
 

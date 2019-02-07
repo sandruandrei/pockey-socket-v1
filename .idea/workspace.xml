@@ -1,12 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" line="172" />
+    <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" line="21" />
+    <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" line="370" />
+    <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" line="2025" />
+    <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" line="686" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="mobile inventory update 1">
+    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/lib/types/howler/howler.d.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/lib/types/pixi/pixi-heaven.d.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/lib/types/pixi/pixi-spine.d.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/lib/types/pixi/sdc242-64.exe" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/denkone.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/denkone.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/denkone.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/denkone.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/denkone.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/opensans.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/opensans.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/opensans.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/opensans.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Fonts/opensans.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/Artboard 1.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/CodePen - Starcade Preloader6.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/CodePen - Starcade Preloader6_files/css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/CodePen - Starcade Preloader6_files/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js.download" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/ballTexture.jpg-1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/ballTexture.jpg.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/best-line-patterns.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/circular-halftone-dots-vector-background_1017-12226.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner-VS.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner-VS.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner-round1.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner-round2.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner-round3.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/hud_matchbanner.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/menu_pockeyball-comet.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/menu_sprite-cue.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/opponent.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/preloader.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/rank-tier14.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/table_border_01.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/table_bumper.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/table_felt.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/ui_versus-main.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1).zip" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Accept.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Accept.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Alert.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Alert.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Attention.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Attention.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Bad notification.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Bad notification.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Bells.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Bells.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Button.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Button.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Click.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Click.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Confirm.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Confirm.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Confirmation.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Confirmation.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Good.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Good.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Interface menu.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Interface menu.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Interface.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Interface.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Lost connect.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Lost connect.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Marimba.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Marimba.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Menu button.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Menu button.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Notification.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Notification.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Notify.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Notify.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Ok.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Ok.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Positive notification.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Positive notification.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Push.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Push.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Select.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Select.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Selection.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Selection.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Short notification.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Short notification.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Short notify.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Short notify.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Sms.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Sms.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Soft notification.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Soft notification.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Soft notify.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Soft notify.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Technology click.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Technology click.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Warm notification.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Warm notification.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Wrong.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/interfaceSounds/Wrong.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_In_Pocket_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_In_Pocket_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_In_Pocket_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_In_Pocket_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_In_Pocket_03.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_In_Pocket_03.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_03.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_03.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_04.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Hard_04.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_03.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_03.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_04.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Normal_04.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_03.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_03.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_04.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Ball_Clash_Weak_04.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_03.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_03.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_04.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Ball_With_Board_Clash_04.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Cue_With_Ball_Clash_Hard.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Cue_With_Ball_Clash_Hard.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Cue_With_Ball_Clash_Normal.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Cue_With_Ball_Clash_Normal.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Cue_With_Ball_Clash_Weak.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Cue_With_Ball_Clash_Weak.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_03.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_03.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_04.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Put_White_Ball_On_Table_04.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Strong_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Strong_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Strong_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Strong_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Tangent_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Tangent_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Tangent_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Tangent_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Weak_01.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Weak_01.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Weak_02.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/audioLibrary (1)/poolSounds/Pyramid_Break_Weak_02.wav" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/ball2ball_hit2.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/ballinpocket.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/goalkeeperHit.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/sport_snooker_ball_cueball_hit_other.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/css/scoreBoard.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/js/howler.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/js/pixi-picture.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/js/plugins/howler.spatial.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/js/salam.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/js/smoothie.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/pixi-heaven.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/tsconfig.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-screen.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Framework/Utils/CountdownTimer.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-round-complete-screen.ts" />
+      <change beforePath="$PROJECT_DIR$/.idea/Pockey.iml" afterPath="$PROJECT_DIR$/.idea/Pockey.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/typescript-compiler.xml" afterPath="$PROJECT_DIR$/.idea/typescript-compiler.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/index.js.map" afterPath="$PROJECT_DIR$/index.js.map" />
+      <change beforePath="$PROJECT_DIR$/index.ts" afterPath="$PROJECT_DIR$/index.ts" />
+      <change beforePath="$PROJECT_DIR$/lib/dsad" afterPath="$PROJECT_DIR$/lib/dsad" />
+      <change beforePath="$PROJECT_DIR$/lib/types/pixi/pixi.d.ts" afterPath="$PROJECT_DIR$/lib/types/pixi/pixi.d.ts" />
+      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/ballTexture.jpg" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/ballTexture.jpg" />
+      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Sounds/ball2ball_hit.ogg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/TweenMax.min.js" afterPath="$PROJECT_DIR$/out/TweenMax.min.js" />
+      <change beforePath="$PROJECT_DIR$/out/fonts.css" afterPath="$PROJECT_DIR$/out/css/fonts.css" />
       <change beforePath="$PROJECT_DIR$/out/index.html" afterPath="$PROJECT_DIR$/out/index.html" />
-      <change beforePath="$PROJECT_DIR$/out/leaderboard.css" afterPath="$PROJECT_DIR$/out/leaderboard.css" />
-      <change beforePath="$PROJECT_DIR$/out/mainMenuScreenMobile.css" afterPath="$PROJECT_DIR$/out/mainMenuScreenMobile.css" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/tutorial-menu.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/tutorial-menu.ts" />
+      <change beforePath="$PROJECT_DIR$/out/inventoryScreen.css" afterPath="$PROJECT_DIR$/out/css/inventoryScreen.css" />
+      <change beforePath="$PROJECT_DIR$/out/inventoryScreenMobile.css" afterPath="$PROJECT_DIR$/out/css/inventoryScreenMobile.css" />
+      <change beforePath="$PROJECT_DIR$/out/leaderboard.css" afterPath="$PROJECT_DIR$/out/css/leaderboard.css" />
+      <change beforePath="$PROJECT_DIR$/out/leaderboardMobile.css" afterPath="$PROJECT_DIR$/out/css/leaderboardMobile.css" />
+      <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
+      <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
+      <change beforePath="$PROJECT_DIR$/out/mainMenuScreen.css" afterPath="$PROJECT_DIR$/out/css/mainMenuScreen.css" />
+      <change beforePath="$PROJECT_DIR$/out/mainMenuScreenMobile.css" afterPath="$PROJECT_DIR$/out/css/mainMenuScreenMobile.css" />
+      <change beforePath="$PROJECT_DIR$/out/searchingScreen.css" afterPath="$PROJECT_DIR$/out/css/searchingScreen.css" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/AbstractModules/Background/abstract-background-module.ts" afterPath="$PROJECT_DIR$/src/Framework/AbstractModules/Background/abstract-background-module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/AbstractModules/Sound/abstract-sound-module.ts" afterPath="$PROJECT_DIR$/src/Framework/AbstractModules/Sound/abstract-sound-module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Loaders/assets-loader.ts" afterPath="$PROJECT_DIR$/src/Framework/Loaders/assets-loader.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Signals/signal-types.ts" afterPath="$PROJECT_DIR$/src/Framework/Signals/signal-types.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/Line.ts" afterPath="$PROJECT_DIR$/src/Framework/Utils/Line.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/Rect.ts" afterPath="$PROJECT_DIR$/src/Framework/Utils/Rect.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/Vector2.ts" afterPath="$PROJECT_DIR$/src/Framework/Utils/Vector2.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/mouse-handler.ts" afterPath="$PROJECT_DIR$/src/Framework/Utils/mouse-handler.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/pixi-dashed-line.ts" afterPath="$PROJECT_DIR$/src/Framework/Utils/pixi-dashed-line.ts" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/pixi-input-text.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Utils/pixi-multistyle-text.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" afterPath="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/BackgroundModule/pockey-background-module.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/BackgroundModule/pockey-background-module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/Pocket.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/Pocket.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalie.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalie.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/player.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/player.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-texts.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-texts.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-life-bar.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-in-game-avatar.ts" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-match-circle.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-match-circle.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-versus-graphics.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-versus-graphics.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
+      <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -10633,6 +10881,9 @@
     <ignored path="out/Assets/Desktop/Sounds/shoot_ball.mp3" />
     <ignored path=".idea/shelf/to_be_applied.xml" />
     <ignored path="D:\edge flow\pockey-socket-v1\.idea\shelf/" />
+    <ignored path="lib/Screenshot_20181127-194639.png" />
+    <ignored path="lib/Screenshot_20181127-194656.png" />
+    <ignored path="lib/Screenshot_20181127-194649.png" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10777,53 +11028,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="mainMenuScreenMobile.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/out/mainMenuScreenMobile.css">
+      <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="2962" column="0" lean-forward="false" selection-start-line="2962" selection-start-column="0" selection-end-line="2962" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pockey-ui-main-screen-mobile.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen-mobile.ts">
+      <file leaf-file-name="puck.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="118" column="41" lean-forward="false" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
+            <state relative-caret-position="4114">
+              <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tutorial-menu.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/tutorial-menu.ts">
+      <file leaf-file-name="p2-world-manager.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="49" column="28" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="49" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!doc;n#Pockey#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventoryScreenMobile.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/inventoryScreenMobile.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="1129" column="0" lean-forward="false" selection-start-line="1129" selection-start-column="0" selection-end-line="1129" selection-end-column="0" />
+            <state relative-caret-position="1386">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leaderboardMobile.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/out/leaderboardMobile.css">
+      <file leaf-file-name="abstract-entry-point.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/abstract-entry-point.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+            <state relative-caret-position="264">
+              <caret line="130" column="51" lean-forward="false" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -10832,13 +11071,59 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/out/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="181">
+              <caret line="695" column="14" lean-forward="false" selection-start-line="695" selection-start-column="14" selection-end-line="695" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-197">
+              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pockey-settings.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1100">
+              <caret line="50" column="62" lean-forward="false" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game-manager.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13288">
+              <caret line="611" column="86" lean-forward="false" selection-start-line="611" selection-start-column="64" selection-end-line="611" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -10849,66 +11134,48 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="package_json" />
+        <option value="tsconfig.json" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>only screen and (-webkit-device-pixel-ratio: 2) and (max-device-height: 640px) and (min-device-width: 320px) and (orientation: portrait)</find>
-      <find>port</find>
-      <find>calc</find>
-      <find>flatmap</find>
-      <find>flatmap-stream@</find>
-      <find>1.0.1</find>
-      <find>eve</find>
-      <find>flatmma</find>
-      <find>flatmap-stream</find>
-      <find>3.3.6</find>
-      <find>or</find>
-      <find>or&lt;</find>
-      <find>midtow</find>
-      <find>midtown</find>
-      <find>normalButtonHolder</find>
-      <find>ItemNameHolder</find>
-      <find>ItemDescription</find>
-      <find>EquipButtonHolder</find>
-      <find>flow</find>
-      <find>chrome</find>
-      <find>ItemAvatar</find>
-      <find>inventoryItemBox</find>
-      <find>ilie</find>
-      <find>private</find>
-      <find>new InventoryButton</find>
-      <find>mobile</find>
-      <find>clickHandler</find>
-      <find>activate</find>
-      <find>landsca</find>
-      <find>sandru</find>
+      <find>drawr</find>
+      <find>mesh</find>
+      <find>BABYLON.Mesh.crea</find>
+      <find>isVisible = f</find>
+      <find>hide</find>
+      <find>meshes</find>
+      <find>be</find>
+      <find>onStartGame</find>
+      <find>onrear</find>
+      <find>Ball.isOnRearr</find>
+      <find>isvisible</find>
+      <find>followermesh.set</find>
+      <find>raycastFollowerMesh.se</find>
+      <find>astFollowerMesh.setEnabl</find>
+      <find>hideBallRayGraphics</find>
+      <find>onrearrang</find>
+      <find>onrearrange</find>
+      <find>apply</find>
+      <find>console.lo</find>
+      <find>onrearran</find>
+      <find>isena</find>
+      <find>oncompl</find>
+      <find>delta</find>
+      <find>HIDE_BALL_RAY_GRAPHICS</find>
+      <find>rotatio</find>
+      <find>isen</find>
+      <find>babylon.custom</find>
+      <find>babylon</find>
+      <find>cannon</find>
+      <find>earcut</find>
     </findStrings>
     <replaceStrings>
-      <replace>- 988</replace>
-      <replace>- 978</replace>
-      <replace>this.radius - PockeySettings.BALL_RADIUS - 2</replace>
-      <replace>let newPos: Point = new Point();</replace>
-      <replace>TouchHandler</replace>
-      <replace>avatarWidth</replace>
-      <replace>this.borderSpacing</replace>
-      <replace>PockeySignalTypes.</replace>
-      <replace>Instance().changeState</replace>
-      <replace>PockeySocketMessages.</replace>
-      <replace>PockeyConnectionSignals.</replace>
-      <replace>winningTextField</replace>
-      <replace>01234567890123456789</replace>
-      <replace>opponent</replace>
-      <replace>= new TextStyle();</replace>
-      <replace>&lt;opponent&gt;{opponent}&lt;/opponent&gt;</replace>
-      <replace>56.4</replace>
-      <replace>420</replace>
-      <replace>&lt;div class=&quot;leaderboardInventoryItemBox&quot;&gt;&lt;/div&gt;</replace>
       <replace>this.</replace>
       <replace>=</replace>
       <replace>previousAvatarButton</replace>
@@ -10919,9 +11186,32 @@
       <replace>&quot;Assets/Desktop/Images/stat-penalty-color.svg&quot;</replace>
       <replace>troika</replace>
       <replace>protected</replace>
+      <replace>height: calc(100vh</replace>
+      <replace>width: calc(100vw</replace>
+      <replace>width: calc(100%</replace>
+      <replace>calc(100%</replace>
+      <replace>width: calc(100vh</replace>
+      <replace>Box2dWorldManager</replace>
+      <replace>boolean;</replace>
+      <replace>MatterWorldManager</replace>
+      <replace>PockeySettings.BABYLON_Y_OFFSET</replace>
+      <replace>.z = -PockeySettings.BALL_RADIUS * 2</replace>
+      <replace>.z = PockeySettings.BABYLON_Y_OFFSET</replace>
+      <replace>z = - PockeySettings.BALL_RADIUS * 2</replace>
+      <replace>friction: 4</replace>
+      <replace>*warning*</replace>
+      <replace>#opponent#</replace>
+      <replace>whiteBallDashedMesh</replace>
+      <replace>let</replace>
+      <replace>onRoundEnd</replace>
+      <replace>setEnabled(true)</replace>
+      <replace>isEnabled</replace>
     </replaceStrings>
     <dirStrings>
+      <dir>D:\edge flow\pockey-socket-v1\lib\types</dir>
+      <dir>D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\UserInterface\Screens\MainScreen\DesignElements</dir>
       <dir>D:\edge flow\pockey-socket-v1\src</dir>
+      <dir>D:\edge flow\pockey-socket-v1\</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -10937,57 +11227,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/play-game-menu.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/tutorial-menu.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Background/abstract-background-module.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Connection/abstract-connection-module.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Connection/database-connector.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/mobile-stick-power.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/player-color-customizer.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Connection/login-handler.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/Abstracts/abstract-module.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Connection/socket-client.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-versus-graphics.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-in-game-avatar.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-texts.ts" />
+        <option value="$PROJECT_DIR$/out/css/scoreBoard.css" />
+        <option value="$PROJECT_DIR$/src/Framework/Utils/Rect.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/BackgroundModule/pockey-background-module.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick-mobile.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Utils/Line.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Background/abstract-background-module.ts" />
+        <option value="$PROJECT_DIR$/out/js/salam.js" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalie.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/player-avatar-customizer.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/login-elements.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-winning-screen.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Utils/Timer.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts" />
+        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-preloader.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Loaders/assets-loader.ts" />
-        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
-        <option value="$PROJECT_DIR$/out/main.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pockey-login-handler.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/Sound/abstract-sound-module.ts" />
-        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
+        <option value="$PROJECT_DIR$/out/Assets/Desktop/Images/CodePen - Starcade Preloader6.html" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
-        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-server.ts" />
-        <option value="$PROJECT_DIR$/out/mainMenuScreen.css" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/package-lock.json" />
-        <option value="$PROJECT_DIR$/out/fonts.css" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen-mobile.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-button.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/RoundCompleteScreen/round-complete-screen.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/player.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-button-mobile.ts" />
-        <option value="$PROJECT_DIR$/out/inventoryScreenMobile.css" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/abstract-screen.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-screen.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-round-complete-screen.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
+        <option value="$PROJECT_DIR$/out/css/mainMenuScreen.css" />
+        <option value="$PROJECT_DIR$/out/css/fonts.css" />
         <option value="$PROJECT_DIR$/out/index.html" />
-        <option value="$PROJECT_DIR$/out/leaderboardMobile.css" />
-        <option value="$PROJECT_DIR$/out/mainMenuScreenMobile.css" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/tutorial-menu.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Utils/CountdownTimer.ts" />
+        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Utils/mouse-handler.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
+        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -11061,7 +11351,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="952" />
     <option name="width" value="976" />
     <option name="height" value="1050" />
   </component>
@@ -11097,7 +11387,62 @@
             <path>
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
               <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="Desktop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="Assets" type="462c0819:PsiDirectoryNode" />
+              <item name="Desktop" type="462c0819:PsiDirectoryNode" />
+              <item name="Fonts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="AbstractModules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="AbstractModules" type="462c0819:PsiDirectoryNode" />
+              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
@@ -11111,6 +11456,47 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="GameModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="GameModule" type="462c0819:PsiDirectoryNode" />
+              <item name="balls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="SignalsModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="SoundModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="StateMachine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
@@ -11137,7 +11523,7 @@
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
               <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
               <item name="Screens" type="462c0819:PsiDirectoryNode" />
-              <item name="MainScreen" type="462c0819:PsiDirectoryNode" />
+              <item name="GameScreen" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
@@ -11147,14 +11533,29 @@
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
               <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
               <item name="Screens" type="462c0819:PsiDirectoryNode" />
-              <item name="MainScreen" type="462c0819:PsiDirectoryNode" />
+              <item name="GameScreen" type="462c0819:PsiDirectoryNode" />
               <item name="DesignElements" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
               <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
+              <item name="Screens" type="462c0819:PsiDirectoryNode" />
+              <item name="MainScreen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PockeyEntryPoint" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
@@ -11170,7 +11571,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="login-h&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Connection/login-handler.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;settin&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;invento&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/inventoryScreen.css&#10;inven&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/inventoryScreen.css&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-game-screen.ts&#10;pooltablemanager&#9;null&#9;null&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;game-manager&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/game-manager.ts&#10;gameman&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/game-manager.ts&#10;server&#9;null&#9;null&#10;abstractball&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;stick&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/stick-mobile.ts&#10;ignalsType&#9;null&#9;null&#10;PockeySignalTypes&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts&#10;abstractbal&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;state&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;signals&#9;null&#9;null&#10;textfie&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/Framework/Utils/text-field.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;pool-t&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/GameModule/pool-table.ts&#10;soc&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/Framework/AbstractModules/Connection/socket-client.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/ConnectionModule/pockey-connection-module.ts&#10;pockeyco&#9;null&#9;null&#10;pock&#9;null&#9;null&#10;connection&#9;FILE&#9;file://D:/edge flow/Pockey - p2 - socket.io/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts&#10;{&#9;null&#9;null&#10;mousehandler&#9;null&#9;null&#10;greensock&#9;FILE&#9;file://D:/edge flow/Pockey/lib/greensock/greensock.d.ts" />
+    <property name="SearchEverywhereHistoryKey" value="index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;whiteball&#9;null&#9;null&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pockeysett&#9;null&#9;null&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteb&#9;null&#9;null&#10;manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;vector2&#9;null&#9;null&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;Backgro&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Background/abstract-background-module.ts&#10;pooltablema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;soundvo&#9;null&#9;null&#10;sound&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Sound/abstract-sound-module.ts&#10;soundurl&#9;null&#9;null&#10;signalsma&#9;null&#9;null&#10;p2w&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteba&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;abstractball&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.prettier" value="true" />
@@ -11181,26 +11582,27 @@
     <property name="node.js.selected.package.tslint" value="C:\Users\sandru\AppData\Roaming\npm\node_modules\tslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.1.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="ToolWindowFind.ShowToolbar" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\UserInterface\Screens\MainScreen\DesignElements" />
-      <recent name="D:\edge flow\pockey-socket-v1\out" />
-      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\UserInterface\Screens\MainScreen" />
-      <recent name="D:\edge flow\pockey-socket-v1\src\Framework\Utils" />
-      <recent name="D:\edge flow\pockey-socket-v1" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\UserInterface\Screens\MainScreen" />
-      <recent name="D:\edge flow\pockey-socket-v1\src\PockeyEntryPoint" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\Screens" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface" />
-      <recent name="D:\edge flow\Pockey - p2 - socket.io\src\GameFiles\Modules\UserInterface\DesignElements" />
+      <recent name="D:\edge flow\pockey-socket-v1\src\Framework\AbstractModules\UserInterface" />
+      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\UserInterface\Screens" />
+      <recent name="D:\edge flow\pockey-socket-v1\out\css" />
+      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\GameModule" />
+      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\edge flow\pockey-socket-v1\lib\types\messagepack" />
+      <recent name="D:\edge flow\pockey-socket-v1\out\js" />
+      <recent name="D:\edge flow\pockey-socket-v1\lib\types" />
+      <recent name="D:\edge flow\pockey-socket-v1\src\GameFiles\Modules\GameModule" />
+      <recent name="D:\edge flow\pockey-socket-v1\out" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -11216,14 +11618,22 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
-    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/pockey-socket-v1/out/index.html" />
     <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$" />
-    <configuration name="main.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="main.js" working-dir="$PROJECT_DIR$/out" />
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration name="default" type="js.build_tools.gulp" factoryName="Gulp.js" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>default</task>
+      </tasks>
       <arguments />
       <envs />
     </configuration>
@@ -11247,20 +11657,30 @@
       <arguments />
       <envs />
     </configuration>
+    <configuration name="launchIndex" type="js.build_tools.gulp" factoryName="Gulp.js" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>launchIndex</task>
+      </tasks>
+      <arguments />
+      <envs />
+    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Node.js.index.js" />
       <item index="1" class="java.lang.String" itemvalue="Gulp.js.defaultApp" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-      <item index="3" class="java.lang.String" itemvalue="Gulp.js.defaultMain" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.main.js" />
+      <item index="2" class="java.lang.String" itemvalue="Gulp.js.defaultMain" />
+      <item index="3" class="java.lang.String" itemvalue="Gulp.js.default" />
+      <item index="4" class="java.lang.String" itemvalue="Gulp.js.launchIndex" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.index.js" />
-        <item index="1" class="java.lang.String" itemvalue="Gulp.js.defaultMain" />
-        <item index="2" class="java.lang.String" itemvalue="Gulp.js.defaultApp" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.main.js" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="0" class="java.lang.String" itemvalue="Gulp.js.defaultMain" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.index.js" />
+        <item index="2" class="java.lang.String" itemvalue="Gulp.js.launchIndex" />
+        <item index="3" class="java.lang.String" itemvalue="Gulp.js.defaultApp" />
+        <item index="4" class="java.lang.String" itemvalue="Gulp.js.default" />
       </list>
     </recent_temporary>
   </component>
@@ -11481,356 +11901,452 @@
       <workItem from="1543481003246" duration="9212000" />
       <workItem from="1543506807595" duration="6099000" />
       <workItem from="1543826341299" duration="7130000" />
-      <workItem from="1543912904152" duration="4468000" />
+      <workItem from="1543912904152" duration="7060000" />
+      <workItem from="1544000795008" duration="5945000" />
+      <workItem from="1544044218039" duration="612000" />
+      <workItem from="1544085146532" duration="8428000" />
+      <workItem from="1544126356332" duration="4323000" />
+      <workItem from="1544171382635" duration="3692000" />
+      <workItem from="1544196273929" duration="837000" />
+      <workItem from="1544432644524" duration="6242000" />
+      <workItem from="1544458576066" duration="7476000" />
+      <workItem from="1544522636114" duration="11636000" />
+      <workItem from="1544549857278" duration="1390000" />
+      <workItem from="1544603355703" duration="22034000" />
+      <workItem from="1544692227485" duration="5703000" />
+      <workItem from="1544709036204" duration="2745000" />
+      <workItem from="1544779792831" duration="13659000" />
+      <workItem from="1545296478718" duration="3683000" />
+      <workItem from="1545306909435" duration="11962000" />
+      <workItem from="1545385419902" duration="13553000" />
+      <workItem from="1545410203811" duration="830000" />
+      <workItem from="1545905442059" duration="2029000" />
+      <workItem from="1545912195295" duration="4000" />
+      <workItem from="1546507129200" duration="4355000" />
+      <workItem from="1546593908181" duration="2169000" />
+      <workItem from="1546598362446" duration="1867000" />
+      <workItem from="1546688930996" duration="403000" />
+      <workItem from="1546696898260" duration="490000" />
+      <workItem from="1546718760089" duration="2249000" />
+      <workItem from="1546727069675" duration="2529000" />
+      <workItem from="1546730567370" duration="1738000" />
+      <workItem from="1546803841620" duration="603000" />
+      <workItem from="1546850546319" duration="20219000" />
+      <workItem from="1546884883580" duration="12333000" />
+      <workItem from="1546933323943" duration="24412000" />
+      <workItem from="1546969060398" duration="19353000" />
+      <workItem from="1547024060955" duration="10579000" />
+      <workItem from="1547038625933" duration="2392000" />
+      <workItem from="1547065338954" duration="11119000" />
+      <workItem from="1547114187884" duration="3298000" />
+      <workItem from="1547121643359" duration="2851000" />
+      <workItem from="1547127298774" duration="4628000" />
+      <workItem from="1547138675762" duration="383000" />
+      <workItem from="1547152152830" duration="1194000" />
+      <workItem from="1547156488845" duration="200000" />
+      <workItem from="1547156855253" duration="1945000" />
+      <workItem from="1547158921100" duration="868000" />
+      <workItem from="1547197837307" duration="16516000" />
+      <workItem from="1547382139708" duration="2235000" />
+      <workItem from="1547396950470" duration="17925000" />
+      <workItem from="1547454581062" duration="16648000" />
+      <workItem from="1547475441465" duration="9767000" />
+      <workItem from="1547502782235" duration="4906000" />
+      <workItem from="1547541980131" duration="1778000" />
+      <workItem from="1547548927660" duration="11191000" />
+      <workItem from="1547570476953" duration="7488000" />
+      <workItem from="1547631994011" duration="5027000" />
+      <workItem from="1547667033338" duration="10451000" />
+      <workItem from="1547713960424" duration="40464000" />
+      <workItem from="1547803278155" duration="5596000" />
+      <workItem from="1548060843193" duration="21605000" />
+      <workItem from="1548092004826" duration="3233000" />
+      <workItem from="1548099104306" duration="12254000" />
+      <workItem from="1548148592746" duration="5542000" />
+      <workItem from="1548156919440" duration="951000" />
+      <workItem from="1548164699691" duration="11806000" />
+      <workItem from="1548190205176" duration="1755000" />
+      <workItem from="1548238977712" duration="25392000" />
+      <workItem from="1548272323799" duration="10647000" />
+      <workItem from="1548321410844" duration="36227000" />
+      <workItem from="1548373209279" duration="183000" />
+      <workItem from="1548408004148" duration="50765000" />
+      <workItem from="1548495969738" duration="5504000" />
+      <workItem from="1548511189793" duration="13987000" />
+      <workItem from="1548533464987" duration="7973000" />
+      <workItem from="1548580416502" duration="39574000" />
+      <workItem from="1548685164662" duration="6274000" />
+      <workItem from="1548706511974" duration="17065000" />
+      <workItem from="1548754320881" duration="18984000" />
+      <workItem from="1548779770251" duration="8123000" />
+      <workItem from="1548837302636" duration="24923000" />
+      <workItem from="1548878870480" duration="16930000" />
+      <workItem from="1548925203527" duration="18041000" />
+      <workItem from="1548952746223" duration="23058000" />
+      <workItem from="1549012195425" duration="18333000" />
+      <workItem from="1549037589279" duration="2006000" />
+      <workItem from="1549039650115" duration="4147000" />
+      <workItem from="1549097849881" duration="37291000" />
+      <workItem from="1549188671825" duration="26541000" />
+      <workItem from="1549270228361" duration="21287000" />
+      <workItem from="1549301533689" duration="1877000" />
+      <workItem from="1549307243845" duration="6445000" />
+      <workItem from="1549313843483" duration="9209000" />
+      <workItem from="1549356667021" duration="18377000" />
+      <workItem from="1549383564948" duration="14435000" />
+      <workItem from="1549405875134" duration="6972000" />
+      <workItem from="1549443859107" duration="17309000" />
+      <workItem from="1549477153047" duration="22664000" />
+      <workItem from="1549530372769" duration="3108000" />
     </task>
-    <task id="LOCAL-00018" summary="fonts url fixed">
-      <created>1542996237300</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00071" summary="landscape update 5">
+      <created>1544012774503</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1542996237300</updated>
+      <updated>1544012774503</updated>
     </task>
-    <task id="LOCAL-00019" summary="font fix 2">
-      <created>1542996824763</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00072" summary="landscape update 6">
+      <created>1544014922558</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1542996824763</updated>
+      <updated>1544014922558</updated>
     </task>
-    <task id="LOCAL-00020" summary="font fix 3">
-      <created>1542998267471</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00073" summary="landscape update 7">
+      <created>1544023846533</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1542998267471</updated>
+      <updated>1544023846533</updated>
     </task>
-    <task id="LOCAL-00021" summary="fix 4 font iexplorer">
-      <created>1542999154932</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00074" summary="landscape update 8">
+      <created>1544025128369</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1542999154932</updated>
+      <updated>1544025128369</updated>
     </task>
-    <task id="LOCAL-00022" summary="fix 5 font">
-      <created>1543000009494</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00075" summary="landscape update 9">
+      <created>1544098639444</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1543000009494</updated>
+      <updated>1544098639444</updated>
     </task>
-    <task id="LOCAL-00023" summary="fix 6 font">
-      <created>1543001301723</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00076" summary="landscape update 10">
+      <created>1544103528324</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1543001301723</updated>
+      <updated>1544103528324</updated>
     </task>
-    <task id="LOCAL-00024" summary="fix 7 font">
-      <created>1543001521088</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00077" summary="landscape update 11">
+      <created>1544107975419</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1543001521088</updated>
+      <updated>1544107975419</updated>
     </task>
-    <task id="LOCAL-00025" summary="fix 7 fonts">
-      <created>1543001618457</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00078" summary="landscape update 12">
+      <created>1544108464987</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1543001618457</updated>
+      <updated>1544108464987</updated>
     </task>
-    <task id="LOCAL-00026" summary="troika name changed">
-      <created>1543002009854</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00079" summary="landscape update 13">
+      <created>1544109353678</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1543002009854</updated>
+      <updated>1544109353678</updated>
     </task>
-    <task id="LOCAL-00027" summary="fonts removed">
-      <created>1543002067621</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00080" summary="landscape update 14">
+      <created>1544133449986</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1543002067621</updated>
+      <updated>1544133449987</updated>
     </task>
-    <task id="LOCAL-00028" summary="fonts added">
-      <created>1543002119907</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00081" summary="landscape update 15">
+      <created>1544136777519</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1543002119907</updated>
+      <updated>1544136777519</updated>
     </task>
-    <task id="LOCAL-00029" summary="fonts removed">
-      <created>1543002489835</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+    <task id="LOCAL-00082" summary="landscape update 16">
+      <created>1544137036879</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1543002489835</updated>
+      <updated>1544137036879</updated>
     </task>
-    <task id="LOCAL-00030" summary="removed extra fonts">
-      <created>1543002528993</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+    <task id="LOCAL-00083" summary="landscape update 17">
+      <created>1544180459841</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1543002528993</updated>
+      <updated>1544180459842</updated>
     </task>
-    <task id="LOCAL-00031" summary="removed and added. fonts ofc">
-      <created>1543002612355</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+    <task id="LOCAL-00084" summary="landscape update 18">
+      <created>1544447992459</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1543002612355</updated>
+      <updated>1544447992459</updated>
     </task>
-    <task id="LOCAL-00032" summary="mobile portrait main and invite 80% done">
-      <created>1543249268063</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+    <task id="LOCAL-00085" summary="landscape update 19">
+      <created>1544455531300</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1543249268064</updated>
+      <updated>1544455531300</updated>
     </task>
-    <task id="LOCAL-00033" summary="portrait mobile update 2">
-      <created>1543277418081</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+    <task id="LOCAL-00086" summary="landscape update 20">
+      <created>1544474641110</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1543277418081</updated>
+      <updated>1544474641111</updated>
     </task>
-    <task id="LOCAL-00034" summary="mobile portrait update 3">
-      <created>1543278072253</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00087" summary="landscape update 21 / ilie's phone">
+      <created>1544525404481</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1543278072253</updated>
+      <updated>1544525404481</updated>
     </task>
-    <task id="LOCAL-00035" summary="mobile portrait update 4">
-      <created>1543316651356</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00088" summary="landscape update 22 / ilie's phone">
+      <created>1544528381498</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1543316651356</updated>
+      <updated>1544528381498</updated>
     </task>
-    <task id="LOCAL-00036" summary="mobile portrait update 5">
-      <created>1543322181349</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00089" summary="landscape update 23 / leaderboard landscape">
+      <created>1544544680018</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1543322181350</updated>
+      <updated>1544544680018</updated>
     </task>
-    <task id="LOCAL-00037" summary="mobile portrait update 6">
-      <created>1543322775324</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00090" summary="landscape update 24 / leaderboard landscape - iphone and ilie">
+      <created>1544604289066</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1543322775324</updated>
+      <updated>1544604289066</updated>
     </task>
-    <task id="LOCAL-00038" summary="mobile portrait update 7">
-      <created>1543324146179</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00091" summary="landscape update 25 / opera mini leaderboard update">
+      <created>1544607156829</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1543324146179</updated>
+      <updated>1544607156829</updated>
     </task>
-    <task id="LOCAL-00039" summary="mobile portrait update 7">
-      <created>1543325142465</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00092" summary="landscape update 25 / sandru opera mini edge chrome update">
+      <created>1544607813728</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1543325142465</updated>
+      <updated>1544607813728</updated>
     </task>
-    <task id="LOCAL-00040" summary="mobile portrait update 8">
-      <created>1543325570471</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+    <task id="LOCAL-00093" summary="landscape update 26 / chrome update">
+      <created>1544612677927</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1543325570471</updated>
+      <updated>1544612677927</updated>
     </task>
-    <task id="LOCAL-00041" summary="mobile portrait update 8">
-      <created>1543330434583</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+    <task id="LOCAL-00094" summary="landscape update 27 / mini / chrome update">
+      <created>1544613652454</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1543330434584</updated>
+      <updated>1544613652454</updated>
     </task>
-    <task id="LOCAL-00042" summary="mobile portrait update 10">
-      <created>1543339988063</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+    <task id="LOCAL-00095" summary="inventory landscape update 28">
+      <created>1544614696252</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1543339988064</updated>
+      <updated>1544614696253</updated>
     </task>
-    <task id="LOCAL-00043" summary="mobile portrait update 11">
-      <created>1543340522392</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+    <task id="LOCAL-00096" summary="inventory landscape update 29">
+      <created>1544614978521</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1543340522392</updated>
+      <updated>1544614978522</updated>
     </task>
-    <task id="LOCAL-00044" summary="mobile portrait update 11">
-      <created>1543343040652</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
+    <task id="LOCAL-00097" summary="landscape update 30">
+      <created>1544617090320</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1543343040652</updated>
+      <updated>1544617090320</updated>
     </task>
-    <task id="LOCAL-00045" summary="mobile portrait update 12">
-      <created>1543347613025</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+    <task id="LOCAL-00098" summary="inventory landscape update 31 - boxes border">
+      <created>1544618020208</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1543347613025</updated>
+      <updated>1544618020208</updated>
     </task>
-    <task id="LOCAL-00046" summary="mobile portrait update 13">
-      <created>1543348414854</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+    <task id="LOCAL-00099" summary="inventory landscape update 31">
+      <created>1544618602768</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1543348414854</updated>
+      <updated>1544618602769</updated>
     </task>
-    <task id="LOCAL-00047" summary="mobile portrait update 14">
-      <created>1543348876117</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
+    <task id="LOCAL-00100" summary="inventory landscape update 31">
+      <created>1544619097035</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1543348876117</updated>
+      <updated>1544619097035</updated>
     </task>
-    <task id="LOCAL-00048" summary="mobile portrait update 15">
-      <created>1543350483164</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
+    <task id="LOCAL-00101" summary="inventory landscape update 31">
+      <created>1544619371524</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1543350483164</updated>
+      <updated>1544619371524</updated>
     </task>
-    <task id="LOCAL-00049" summary="mobile portrait update 16">
-      <created>1543350975230</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
+    <task id="LOCAL-00102" summary="inventory landscape update 31 / opera mini - inventory boxes border">
+      <created>1544619703478</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1543350975230</updated>
+      <updated>1544619703478</updated>
     </task>
-    <task id="LOCAL-00050" summary="mobile portrait update 17">
-      <created>1543351635168</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
+    <task id="LOCAL-00103" summary="inventory landscape update 31. zoom and pinch disabled">
+      <created>1544627101070</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1543351635171</updated>
+      <updated>1544627101070</updated>
     </task>
-    <task id="LOCAL-00051" summary="mobile portrait update 18">
-      <created>1543360140455</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
+    <task id="LOCAL-00104" summary="back to main menu button fixed">
+      <created>1544628346987</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1543360140455</updated>
+      <updated>1544628346987</updated>
     </task>
-    <task id="LOCAL-00052" summary="mobile portrait update 19">
-      <created>1543362420018</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
+    <task id="LOCAL-00105" summary="update 32 back btn">
+      <created>1544628681691</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1543362420018</updated>
+      <updated>1544628681691</updated>
     </task>
-    <task id="LOCAL-00053" summary="20">
-      <created>1543399410707</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
+    <task id="LOCAL-00106" summary="back btn update 31">
+      <created>1544629691498</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1543399410707</updated>
+      <updated>1544629691498</updated>
     </task>
-    <task id="LOCAL-00054" summary="mobile portrait update 21">
-      <created>1543399750872</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
+    <task id="LOCAL-00107" summary="back btn fixed">
+      <created>1544631020258</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1543399750872</updated>
+      <updated>1544631020258</updated>
     </task>
-    <task id="LOCAL-00055" summary="mobile portrait update 22">
-      <created>1543400163216</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
+    <task id="LOCAL-00108" summary="mobile menu title and logo updated">
+      <created>1544709383637</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1543400163216</updated>
+      <updated>1544709383637</updated>
     </task>
-    <task id="LOCAL-00056" summary="mobile portrait update 23">
-      <created>1543400371859</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
+    <task id="LOCAL-00109" summary="mobile / desktop - css loading split">
+      <created>1544784129383</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1543400371859</updated>
+      <updated>1544784129386</updated>
     </task>
-    <task id="LOCAL-00057" summary="node package update">
-      <created>1543400962722</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
+    <task id="LOCAL-00110" summary="opera resize portrait resize">
+      <created>1544786820173</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1543400962722</updated>
+      <updated>1544786820173</updated>
     </task>
-    <task id="LOCAL-00058" summary="flat-stream fix 1">
-      <created>1543401664480</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
+    <task id="LOCAL-00111" summary="opera mini re-orientation fix1">
+      <created>1544791864300</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
-      <updated>1543401664480</updated>
+      <updated>1544791864300</updated>
     </task>
-    <task id="LOCAL-00059" summary="mobile portrait update 3">
-      <created>1543402046155</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
+    <task id="LOCAL-00112" summary="opera mini reorientation fix 2">
+      <created>1544792757502</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
       <option name="project" value="LOCAL" />
-      <updated>1543402046155</updated>
+      <updated>1544792757502</updated>
     </task>
-    <task id="LOCAL-00060" summary="mobile portrait update 23">
-      <created>1543403635486</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
+    <task id="LOCAL-00113" summary="opera mini reorientation fix 3">
+      <created>1544793166099</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
-      <updated>1543403635486</updated>
+      <updated>1544793166100</updated>
     </task>
-    <task id="LOCAL-00061" summary="mobile portrait update 24">
-      <created>1543409983831</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
+    <task id="LOCAL-00114" summary="opera mini reorientation fix 4">
+      <created>1544793761859</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
       <option name="project" value="LOCAL" />
-      <updated>1543409983831</updated>
+      <updated>1544793761859</updated>
     </task>
-    <task id="LOCAL-00062" summary="&quot;OR&quot; text converted into svg">
-      <created>1543410115574</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
+    <task id="LOCAL-00115" summary="opera fix 5">
+      <created>1544794134188</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
       <option name="project" value="LOCAL" />
-      <updated>1543410115574</updated>
+      <updated>1544794134188</updated>
     </task>
-    <task id="LOCAL-00063" summary="mobile: back button action added">
-      <created>1543412018519</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
+    <task id="LOCAL-00116" summary="opera viewport css tag added">
+      <created>1544795480562</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
-      <updated>1543412018519</updated>
+      <updated>1544795480562</updated>
     </task>
-    <task id="LOCAL-00064" summary="mobile inventory update 1">
-      <created>1543495122279</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
+    <task id="LOCAL-00117" summary="opera viewport test1">
+      <created>1544796308440</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
       <option name="project" value="LOCAL" />
-      <updated>1543495122280</updated>
+      <updated>1544796308440</updated>
     </task>
-    <task id="LOCAL-00065" summary="mobile inventory update 2">
-      <created>1543501442548</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
+    <task id="LOCAL-00118" summary="opera viewport test2">
+      <created>1544801864357</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
       <option name="project" value="LOCAL" />
-      <updated>1543501442549</updated>
+      <updated>1544801864357</updated>
     </task>
-    <task id="LOCAL-00066" summary="mobile inventory update 3. iphone, huawey, portrait inventory done">
-      <created>1543514155856</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
+    <task id="LOCAL-00119" summary="opera viewport test3">
+      <created>1544802199447</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
       <option name="project" value="LOCAL" />
-      <updated>1543514155856</updated>
+      <updated>1544802199447</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2242282000" />
+    <option name="totallyTimeSpent" value="3244623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -11844,46 +12360,46 @@
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.025241675" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3201397" sideWeight="0.5698174" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38649592" sideWeight="0.5461869" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3201397" sideWeight="0.4301826" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31199068" sideWeight="0.47475833" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29215896" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48925886" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0139634805" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7590221" sideWeight="0.4914071" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.5085929" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36088476" sideWeight="0.5107411" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.65145004" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
+      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16541353" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48549947" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31315482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48979592" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.4935553" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48925886" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19763695" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39231664" sideWeight="0.44307196" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0139634805" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36088476" sideWeight="0.4828142" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39231664" sideWeight="0.55692804" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31664726" sideWeight="0.4387755" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32130384" sideWeight="0.48979592" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20676692" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29336438" sideWeight="0.5128894" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36088476" sideWeight="0.5171858" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.65145004" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
+      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25510204" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48979592" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48549947" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -11900,9 +12416,12 @@
         <option value="$PROJECT_DIR$/../ts-socket/dest/connex-module.js.map" />
         <option value="$PROJECT_DIR$/../ts-socket/dest/SocketMessages.js" />
         <option value="$PROJECT_DIR$/../ts-socket/dest/SocketMessages.js.map" />
+        <option value="$PROJECT_DIR$/../Pockey - p2 - socket.io - heroku/app/app.js" />
+        <option value="$PROJECT_DIR$/../pockey-babylon/src/salam.js" />
+        <option value="$PROJECT_DIR$/../pockey-babylon/src/salam.js.map" />
         <option value="$PROJECT_DIR$/index.js.map" />
         <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/../Pockey - p2 - socket.io - heroku/app/app.js" />
+        <option value="$PROJECT_DIR$/../pockey-box2d/index.js" />
       </list>
     </option>
   </component>
@@ -11950,35 +12469,42 @@
     <ignored-roots>
       <path value="D:\edge flow\pockey-socket-v1\pockey-socket-v1" />
     </ignored-roots>
-    <MESSAGE value="mobile portrait update 7" />
-    <MESSAGE value="mobile portrait update 8" />
-    <MESSAGE value="mobile portrait update 10" />
-    <MESSAGE value="mobile portrait update 11" />
-    <MESSAGE value="mobile portrait update 12" />
-    <MESSAGE value="mobile portrait update 13" />
-    <MESSAGE value="mobile portrait update 14" />
-    <MESSAGE value="mobile portrait update 15" />
-    <MESSAGE value="mobile portrait update 16" />
-    <MESSAGE value="mobile portrait update 17" />
-    <MESSAGE value="mobile portrait update 18" />
-    <MESSAGE value="mobile portrait update 19" />
-    <MESSAGE value="20" />
-    <MESSAGE value="mobile portrait update 21" />
-    <MESSAGE value="mobile portrait update 22" />
-    <MESSAGE value="node package update" />
-    <MESSAGE value="flat-stream fix 1" />
-    <MESSAGE value="mobile portrait update 3" />
-    <MESSAGE value="mobile portrait update 23" />
-    <MESSAGE value="mobile portrait update 24" />
-    <MESSAGE value="&quot;OR&quot; text converted into svg" />
-    <MESSAGE value="mobile: back button action added" />
-    <MESSAGE value="mobile inventory update 1" />
-    <MESSAGE value="mobile inventory update 2" />
-    <MESSAGE value="mobile inventory update 3. iphone, huawey, portrait inventory done" />
-    <option name="LAST_COMMIT_MESSAGE" value="mobile inventory update 3. iphone, huawey, portrait inventory done" />
+    <MESSAGE value="landscape update 27 / mini / chrome update" />
+    <MESSAGE value="inventory landscape update 28" />
+    <MESSAGE value="inventory landscape update 29" />
+    <MESSAGE value="landscape update 30" />
+    <MESSAGE value="inventory landscape update 31 - boxes border" />
+    <MESSAGE value="inventory landscape update 31" />
+    <MESSAGE value="inventory landscape update 31 / opera mini - inventory boxes border" />
+    <MESSAGE value="inventory landscape update 31. zoom and pinch disabled" />
+    <MESSAGE value="back to main menu button fixed" />
+    <MESSAGE value="update 32 back btn" />
+    <MESSAGE value="back btn update 31" />
+    <MESSAGE value="back btn fixed" />
+    <MESSAGE value="mobile menu title and logo updated" />
+    <MESSAGE value="mobile / desktop - css loading split" />
+    <MESSAGE value="opera resize portrait resize" />
+    <MESSAGE value="opera mini re-orientation fix1" />
+    <MESSAGE value="opera mini reorientation fix 2" />
+    <MESSAGE value="opera mini reorientation fix 3" />
+    <MESSAGE value="opera mini reorientation fix 4" />
+    <MESSAGE value="opera fix 5" />
+    <MESSAGE value="opera viewport css tag added" />
+    <MESSAGE value="opera viewport test1" />
+    <MESSAGE value="opera viewport test2" />
+    <MESSAGE value="opera viewport test3" />
+    <MESSAGE value="Pockey - V4:&#10; - socket framerate update;&#10; - 3d balls added;&#10; - sound module created / some sounds added;&#10; - stick shooting fixed;&#10; - ball repositioning fixed;&#10; - rounds 1 and 2 added;&#10; - ui: 60% - opp found, searching, first and second round graphics;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pockey - V4:&#10; - socket framerate update;&#10; - 3d balls added;&#10; - sound module created / some sounds added;&#10; - stick shooting fixed;&#10; - ball repositioning fixed;&#10; - rounds 1 and 2 added;&#10; - ui: 60% - opp found, searching, first and second round graphics;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts</url>
+          <line>1379</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -11987,377 +12513,396 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/BackgroundModule/pockey-background-module.ts">
+    <entry file="file://$PROJECT_DIR$/out/Assets/Desktop/Images/CodePen - Starcade Preloader6.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick-mobile.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalie.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/player-avatar-customizer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/login-elements.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-winning-screen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Abstracts/abstract-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Background/abstract-background-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Connection/abstract-connection-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-user-interface-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/pixi-button.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Connection/database-connector.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="45" column="71" lean-forward="false" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/Vector2.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pockey-login-handler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="92" column="78" lean-forward="false" selection-start-line="92" selection-start-column="78" selection-end-line="92" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11330">
-          <caret line="520" column="63" lean-forward="false" selection-start-line="520" selection-start-column="63" selection-end-line="520" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1804">
-          <caret line="86" column="70" lean-forward="false" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2222">
-          <caret line="105" column="45" lean-forward="false" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/abstract-entry-point.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Connection/login-handler.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Sound/abstract-sound-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1166">
-          <caret line="53" column="42" lean-forward="false" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Loaders/assets-loader.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="63" column="48" lean-forward="false" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2288">
-          <caret line="115" column="95" lean-forward="false" selection-start-line="115" selection-start-column="95" selection-end-line="115" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="53" column="55" lean-forward="false" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/Assets/Desktop/Images/bg.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/player-color-customizer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="70" column="50" lean-forward="false" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="78" column="62" lean-forward="false" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="47" lean-forward="true" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/mainMenuScreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="1741" column="31" lean-forward="true" selection-start-line="1741" selection-start-column="31" selection-end-line="1741" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27346">
-          <caret line="1243" column="43" lean-forward="false" selection-start-line="1243" selection-start-column="43" selection-end-line="1243" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/fonts.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="704">
+          <caret line="114" column="20" lean-forward="false" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="117" column="13" lean-forward="true" selection-start-line="115" selection-start-column="11" selection-end-line="117" selection-end-column="13" />
+        <state relative-caret-position="132">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-items-holder-buttons.ts">
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-winning-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="66" column="41" lean-forward="false" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3850">
+          <caret line="181" column="73" lean-forward="false" selection-start-line="181" selection-start-column="73" selection-end-line="181" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/player.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/typestate.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="125" column="13" lean-forward="false" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="27" column="60" lean-forward="false" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="66" column="79" lean-forward="true" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Signals/signals-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-searching-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-round-complete-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/css/mainMenuScreen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25674">
+          <caret line="1169" column="41" lean-forward="false" selection-start-line="1169" selection-start-column="41" selection-end-line="1169" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="23" lean-forward="false" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/CountdownTimer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="212" column="49" lean-forward="false" selection-start-line="212" selection-start-column="49" selection-end-line="212" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="269" column="66" lean-forward="true" selection-start-line="269" selection-start-column="66" selection-end-line="269" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7260">
+          <caret line="338" column="40" lean-forward="false" selection-start-line="338" selection-start-column="40" selection-end-line="338" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-927">
+          <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="7951" column="27" lean-forward="true" selection-start-line="7951" selection-start-column="27" selection-end-line="7951" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/button-state.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/text-field.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8954">
-          <caret line="412" column="64" lean-forward="false" selection-start-line="412" selection-start-column="64" selection-end-line="412" selection-end-column="64" />
+        <state relative-caret-position="190">
+          <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="57" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-button.ts">
+    <entry file="file://$PROJECT_DIR$/lib/types/pixi/pixi.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2882">
-          <caret line="131" column="13" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="131" selection-end-column="13" />
+        <state relative-caret-position="173">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-button-mobile.ts">
+    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/touch-handler.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="110">
+          <caret line="41" column="98" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/mouse-handler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/puck-goal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-607">
+          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="27795" column="46" lean-forward="false" selection-start-line="27795" selection-start-column="37" selection-end-line="27795" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13288">
+          <caret line="611" column="86" lean-forward="false" selection-start-line="611" selection-start-column="64" selection-end-line="611" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="50" column="62" lean-forward="false" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="423" column="85" lean-forward="false" selection-start-line="423" selection-start-column="85" selection-end-line="423" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/gulp-typescript/release/output.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="1142" column="55" lean-forward="false" selection-start-line="1142" selection-start-column="55" selection-end-line="1142" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4114">
+          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/typescript-compiler.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="46" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="7" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/abstract-entry-point.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="130" column="51" lean-forward="false" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/out/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/leaderboardMobile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        <state relative-caret-position="181">
+          <caret line="695" column="14" lean-forward="false" selection-start-line="695" selection-start-column="14" selection-end-line="695" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/inventoryScreenMobile.css">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="1129" column="0" lean-forward="false" selection-start-line="1129" selection-start-column="0" selection-end-line="1129" selection-end-column="0" />
+        <state relative-caret-position="-197">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen-mobile.ts">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="118" column="41" lean-forward="false" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/tutorial-menu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="49" column="28" lean-forward="false" selection-start-line="46" selection-start-column="27" selection-end-line="49" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc;n#Pockey#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/mainMenuScreenMobile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="2962" column="0" lean-forward="false" selection-start-line="2962" selection-start-column="0" selection-end-line="2962" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding />
         </state>
       </provider>

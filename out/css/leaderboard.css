@@ -1,0 +1,171 @@
+#LeaderBoardScreen {
+    width: 100%;
+    height: 100%;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    /* visibility: hidden; */
+    /* display: none; */
+}
+
+#LeaderBoardTitle {
+    font-family: "troika";
+    color: white;
+    width: auto;
+    height: auto;
+    /* background: blue; */
+    float: left;
+    font-size: 28px;
+    /* cursor: default; */
+}
+
+#LeaderboardRowsHolder {
+    width: 100%;
+    height: 100%;
+    /* font-family: "troika"; */
+    /* color: white; */
+    /* font-size: 20px; */
+}
+
+#LeaderBoardRankings {
+    height: auto;
+    width: 100%;
+    /* background: yellow; */
+    float: left;
+    float: left;
+}
+
+#LeaderBoardColumnTitles {
+    /* font-family: "opensansextrabold"; */
+    /* font-size: 12px; */
+    /* color: #298699; */
+    margin-bottom: 4px;
+    background: none;
+}
+
+#PlayerRank {
+    height: auto;
+    width: 100%;
+    /* background: #195663; */
+    float: left;
+    border-radius: 3px;
+    float: left;
+}
+
+.leaderBoardRow {
+    width: 100%;
+    height: 24px;
+    float: left;
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    /* border-color: black; */
+    /* background: red; */
+    display: grid;
+    /* box-sizing: border-box; */
+    grid-template-columns: 0.6fr 2fr 1fr 0.5fr 1fr;
+    align-items: center;
+    padding-top: 1px;
+}
+
+.leaderBoardRow:hover .normalCell {
+    color: #FFE169;
+}
+
+.leaderBoardRow:hover {
+    /*width: 100%;*/
+    /*height: 25px;*/
+    /*float: left;*/
+    /*!* border-style: solid; *!*/
+    /*!* border-width: 1px; *!*/
+    /*!* border-color: black; *!*/
+    /*!* background: red; *!*/
+    /*display: grid;*/
+    /*!* box-sizing: border-box; *!*/
+    /*grid-template-columns: 0.6fr 2fr 1fr 0.5fr 1fr;*/
+    /*align-items: center;*/
+    background-color: #00000078;
+    border-radius: 3px;
+    /* cursor: default; */
+}
+
+.normalCell {
+    color: white;
+    font-family: "troika";
+    /* color: white; */
+    font-size: 18px;
+}
+
+.leaderBoardTitleCell {
+    font-family: "opensansextrabold";
+    font-size: 12px;
+    color: #298699 !important;
+}
+
+.playerBoardTitleCell {
+    font-family: "troika";
+    font-size: 20px;
+    color: white;
+    /* padding-top: 1px; */
+    /* height: auto; */
+    /* background-color: aqua; */
+}
+
+.leaderBoardPlaceCell {
+    text-align: left;
+    padding-left: 6px;
+}
+
+.leaderBoardNameCell {
+}
+
+.leaderBoardHighscoreCell {
+    text-align: center;
+}
+
+.leaderBoardRatingCell {
+    text-align: center;
+}
+
+.leaderBoardPlaytimeCell {
+    text-align: right;
+    padding-right: 6px;
+    color: #2e8ca0;
+}
+
+#LeaderBoardElementsHolder {
+    width: 100%;
+    height: 100%;
+    /* background: bisque; */
+    display: flex;
+    /* justify-content: space-between; */
+    float: left;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+#LeaderBoardTitleLine {
+    background: white;
+}
+
+#PlayerBoardColumnTitles
+{background: #195663;border-radius: 3px;}
+
+#PlayerBoardColumnTitles:hover
+{
+
+}
+
+#LeaderboardLogo
+{
+    background: url("../Assets/Desktop/Images/stats_allstarboard.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* background-color: white; */
+    /* background-position: 50%; */
+    height: 28px;
+    width: 28px;
+    float: left;
+    margin-right: 8px;
+}

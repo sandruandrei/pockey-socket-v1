@@ -21,6 +21,7 @@ namespace Pockey {
             public matchesWon: number = 0;
             public color: number;
             public side: string;
+            public startedFirst:boolean = false;
 
             constructor(id: string, type: BallType) {
                 this.id = id;

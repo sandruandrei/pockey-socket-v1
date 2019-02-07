@@ -26,7 +26,7 @@ var Pockey;
             PockeySignalTypes.FACEBOOK_SIGN_OUT = "PockeySignalTypes." + "FACEBOOK_SIGN_OUT";
             PockeySignalTypes.GET_PLAYER_INFO = "PockeySignalTypes." + "GET_PLAYER_INFO";
             PockeySignalTypes.SHOOT_BALL = "PockeySignalTypes." + "SHOOT_BALL";
-            PockeySignalTypes.NEXT_TURN = "PockeySignalTypes." + "NEXT_TURN";
+            PockeySignalTypes.PREPARE_NEXT_TURN = "PockeySignalTypes." + "PREPARE_NEXT_TURN";
             PockeySignalTypes.BALL_IN_POCKET = "PockeySignalTypes." + "BALL_IN_POCKET";
             PockeySignalTypes.WHITE_BALL_IN_POCKET = "PockeySignalTypes." + "WHITE_BALL_IN_POCKET";
             PockeySignalTypes.REACTIVATE_STICK = "PockeySignalTypes." + "REACTIVATE_STICK";
@@ -50,8 +50,10 @@ var Pockey;
             PockeySignalTypes.HIDE_GAME_UI = "PockeySignalTypes." + "HIDE_GAME_UI";
             PockeySignalTypes.SHOW_SEARCHING_SCREEN = "PockeySignalTypes." + "SHOW_SEARCHING_SCREEN";
             PockeySignalTypes.HIDE_SEARCHING_SCREEN = "PockeySignalTypes." + "HIDE_SEARCHING_SCREEN";
-            PockeySignalTypes.SHOW_WINNING_SCREEN = "PockeySignalTypes." + "SHOW_WINNING_SCREEN";
-            PockeySignalTypes.HIDE_WINNING_SCREEN = "PockeySignalTypes." + "HIDE_WINNING_SCREEN";
+            PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN = "PockeySignalTypes." + "SHOW_ROUND_COMPLETE_SCREEN";
+            PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN = "PockeySignalTypes." + "HIDE_ROUND_COMPLETE_SCREEN";
+            PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN = "PockeySignalTypes." + "SHOW_OPPONENT_FOUND_SCREEN";
+            PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN = "PockeySignalTypes." + "HIDE_OPPONENT_FOUND_SCREEN";
             PockeySignalTypes.UPDATE_PLAYER_NAME = "PockeySignalTypes." + "UPDATE_PLAYER_NAME";
             PockeySignalTypes.UPDATE_PLAYER_SCORE = "PockeySignalTypes." + "UPDATE_PLAYER_SCORE";
             PockeySignalTypes.CHANGE_PLAYER_COLOR = "PockeySignalTypes." + "CHANGE_PLAYER_COLOR";
@@ -70,6 +72,7 @@ var Pockey;
             PockeySignalTypes.HIDE_WHITE_BALL_POSITION_CONFIRMER = "PockeySignalTypes." + "HIDE_WHITE_BALL_POSITION_CONFIRMER";
             PockeySignalTypes.UPDATE_STATE_TEXT = "PockeySignalTypes." + "UPDATE_GAME_TEXT";
             PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER = "PockeySignalTypes." + "UPDATE_CURRENT_PLAYER_TIMER";
+            PockeySignalTypes.UPDATE_MY_TIMER = "PockeySignalTypes." + "UPDATE_MY_TIMER";
             PockeySignalTypes.UPDATE_UI_TEXT = "PockeySignalTypes." + "UPDATE_UI_TEXT";
             PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH = "PockeySignalTypes." + "UPDATE_UI_TEXT_ON_WATCH";
             PockeySignalTypes.ANIMATE_PUCK_GOAL = "PockeySignalTypes." + "ANIMATE_PUCK_GOAL";
@@ -80,6 +83,12 @@ var Pockey;
             PockeySignalTypes.INVENTORY_ITEM_UPDATED = "PockeySignalTypes." + "INVENTORY_ITEM_UPDATED";
             PockeySignalTypes.CHANGE_PLAYER_AVATAR = "PockeySignalTypes." + "CHANGE_PLAYER_AVATAR";
             PockeySignalTypes.CHANGE_OPPONENT_AVATAR = "PockeySignalTypes." + "CHANGE_OPPONENT_AVATAR";
+            PockeySignalTypes.SET_TIMESTAMP_ON_WATCH = "PockeySignalTypes." + "SET_TIMESTAMP_ON_WATCH";
+            PockeySignalTypes.ON_WATCH_FINISHED = "PockeySignalTypes." + "ON_WATCH_FINISHED";
+            PockeySignalTypes.CREATE_POOLTABLE_STATE = "PockeySignalTypes." + "CREATE_POOLTABLE_STATE";
+            PockeySignalTypes.APPLY_POOLTABLE_STATE = "PockeySignalTypes." + "APPLY_POOLTABLE_STATE";
+            PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT = "PockeySignalTypes." + "UPDATE_CURRENT_ROUND_SCREEN_TEXT";
+            PockeySignalTypes.CHANGE_WHITE_BALL_STATUS = "PockeySignalTypes." + "CHANGE_WHITE_BALL_STATUS";
             return PockeySignalTypes;
         }());
         SignalsModule.PockeySignalTypes = PockeySignalTypes;
@@ -90,7 +99,7 @@ var Pockey;
             PockeyConnectionSignals.SCORE_UPDATE = "PockeyConnectionSignals." + "SCORE_UPDATE";
             PockeyConnectionSignals.YOUR_TURN = "PockeyConnectionSignals." + "YOUR_TURN";
             PockeyConnectionSignals.OPPONENT_SETTINGS = "PockeyConnectionSignals." + "OPPONENT_SETTINGS";
-            PockeyConnectionSignals.OPPONENT_RESTART_GAME = "PockeyConnectionSignals." + "OPPONENT_RESTART_GAME";
+            PockeyConnectionSignals.OPPONENT_NEXT_ROUND = "PockeyConnectionSignals." + "OPPONENT_NEXT_ROUND";
             return PockeyConnectionSignals;
         }());
         SignalsModule.PockeyConnectionSignals = PockeyConnectionSignals;
@@ -346,6 +355,7 @@ var Framework;
             SignalsType.CHANGE_BACKGROUND = "SignalsType." + "CHANGE_BACKGROUND";
             SignalsType.CHECK_USER_DATA = "SignalsType." + "CHECK_USER_DATA";
             SignalsType.USER_DATA_CHECKED = "SignalsType." + "USER_DATA_CHECKED";
+            SignalsType.CREATE_SOUND_CACHE = "SignalsType." + "CREATE_SOUND_CACHE";
             SignalsType.PLAY_SOUND = "SignalsType." + "PLAY_SOUND";
             SignalsType.STOP_SOUND = "SignalsType." + "STOP_SOUND";
             return SignalsType;
@@ -627,7 +637,7 @@ var Pockey;
             PockeyStates[PockeyStates["onLoad"] = 0] = "onLoad";
             PockeyStates[PockeyStates["onMainMenu"] = 1] = "onMainMenu";
             PockeyStates[PockeyStates["onStart"] = 2] = "onStart";
-            PockeyStates[PockeyStates["onGameEnd"] = 3] = "onGameEnd";
+            PockeyStates[PockeyStates["onRoundEnd"] = 3] = "onRoundEnd";
             PockeyStates[PockeyStates["onDefineClient"] = 4] = "onDefineClient";
             PockeyStates[PockeyStates["onSearchForPartner"] = 5] = "onSearchForPartner";
             PockeyStates[PockeyStates["onWatch"] = 6] = "onWatch";
@@ -635,6 +645,10 @@ var Pockey;
             PockeyStates[PockeyStates["onRepositionWhiteBall"] = 8] = "onRepositionWhiteBall";
             PockeyStates[PockeyStates["onShoot"] = 9] = "onShoot";
             PockeyStates[PockeyStates["onEndTurn"] = 10] = "onEndTurn";
+            PockeyStates[PockeyStates["onEndMatch"] = 11] = "onEndMatch";
+            PockeyStates[PockeyStates["onPrepareRoundOne"] = 12] = "onPrepareRoundOne";
+            PockeyStates[PockeyStates["onPrepareRoundTwo"] = 13] = "onPrepareRoundTwo";
+            PockeyStates[PockeyStates["onPrepareRoundThree"] = 14] = "onPrepareRoundThree";
         })(PockeyStates = StateMachineModule.PockeyStates || (StateMachineModule.PockeyStates = {}));
         var PockeyStateMachine = (function () {
             function PockeyStateMachine() {
@@ -657,8 +671,12 @@ var Pockey;
                 this.fsm.from(PockeyStates.onLoad).to(PockeyStates.onMainMenu);
                 this.fsm.from(PockeyStates.onMainMenu).to(PockeyStates.onRearrangeStick);
                 this.fsm.from(PockeyStates.onMainMenu).to(PockeyStates.onSearchForPartner);
-                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onRearrangeStick);
-                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onWatch);
+                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onPrepareRoundOne);
+                this.fsm.from(PockeyStates.onPrepareRoundOne).to(PockeyStates.onWatch);
+                this.fsm.from(PockeyStates.onPrepareRoundOne).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onPrepareRoundTwo);
+                this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onWatch);
                 this.fsm.from(PockeyStates.onRepositionWhiteBall).to(PockeyStates.onRearrangeStick);
                 this.fsm.from(PockeyStates.onRepositionWhiteBall).to(PockeyStates.onWatch);
                 this.fsm.from(PockeyStates.onRepositionWhiteBall).to(PockeyStates.onEndTurn);
@@ -668,14 +686,26 @@ var Pockey;
                 this.fsm.from(PockeyStates.onRearrangeStick).to(PockeyStates.onWatch);
                 this.fsm.from(PockeyStates.onRearrangeStick).to(PockeyStates.onEndTurn);
                 this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onEndTurn);
-                this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onGameEnd);
+                this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onRoundEnd);
                 this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onRepositionWhiteBall);
                 this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onWatch);
-                this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onGameEnd);
-                this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onGameEnd);
+                this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onRoundEnd);
+                this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onRoundEnd);
                 this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onRepositionWhiteBall);
-                this.fsm.from(PockeyStates.onGameEnd).to(PockeyStates.onRearrangeStick);
-                this.fsm.from(PockeyStates.onGameEnd).to(PockeyStates.onWatch);
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onWatch);
+            };
+            PockeyStateMachine.prototype.delayStateChanging = function (delayedState) {
+                this.nextState = delayedState;
+            };
+            PockeyStateMachine.prototype.updateDelayedState = function () {
+                PockeyStateMachine.Instance().changeState(this.nextState);
+                this.nextState = null;
+            };
+            PockeyStateMachine.prototype.hasStateInQueue = function () {
+                if (!_.isUndefined(this.nextState) && _.isNull(this.nextState))
+                    return true;
+                return false;
             };
             PockeyStateMachine.prototype.changeState = function (state) {
                 if (!PockeyStates[state]) {
@@ -759,6 +789,9 @@ var Framework;
                 return componentX + componentY;
             };
             Vector2.prototype.normalise = function () {
+                if (this.x == 0 && this.y == 0) {
+                    return new Vector2(0, 0);
+                }
                 return new Vector2(this.x / (Math.sqrt(this.x * this.x + this.y * this.y)), this.y / (Math.sqrt(this.x * this.x + this.y * this.y)));
             };
             Vector2.prototype.getMagnitude = function () {
@@ -869,8 +902,8 @@ var Framework;
                     graphics.drawCircle(endX, endY, radius);
                 }
                 graphics.endFill();
-                arrowPoint.x = aX + Math.cos(radians) * (gap);
-                arrowPoint.y = aY + Math.sin(radians) * (gap);
+                arrowPoint.x = aX + Math.cos(radians) * gap * 1.6;
+                arrowPoint.y = aY + Math.sin(radians) * gap * 1.6;
                 return arrowPoint;
             };
             return PixiDashedLine;
@@ -910,33 +943,43 @@ var Framework;
                         MouseHandler.Instance().left = new Utils.ButtonState();
                         MouseHandler.Instance().middle = new Utils.ButtonState();
                         MouseHandler.Instance().right = new Utils.ButtonState();
-                        document.onmousemove = MouseHandler.Instance().handleMouseMove.bind(this);
-                        document.onmousedown = MouseHandler.Instance().handleMouseDown.bind(this);
-                        document.onmouseup = MouseHandler.Instance().handleMouseUp.bind(this);
+                        Framework.AbstractEntryPoint.stage.interactive = true;
+                        Framework.AbstractEntryPoint.stage.interactiveChildren = true;
+                        Framework.AbstractEntryPoint.stage.on("mousemove", MouseHandler.Instance().handleMouseMove.bind(this));
+                        Framework.AbstractEntryPoint.stage.on("mousedown", function (e) {
+                            MouseHandler.Instance().handleMouseDown(e);
+                        });
+                        Framework.AbstractEntryPoint.stage.on("mouseup", function (e) {
+                            MouseHandler.Instance().handleMouseUp(e);
+                        });
+                        Framework.AbstractEntryPoint.stage.on("mouseupoutside", function (e) {
+                            MouseHandler.Instance().handleMouseUp(e);
+                        });
                         MouseHandler.Instance().reset();
                     }
                 }
                 return MouseHandler.instance;
             };
-            MouseHandler.prototype.handleMouseMove = function (e) {
-                var x = e.pageX;
-                var y = e.pageY;
+            MouseHandler.prototype.handleMouseMove = function () {
+                var x = Framework.AbstractEntryPoint.renderer.plugins.interaction.mouse.global.x;
+                var y = Framework.AbstractEntryPoint.renderer.plugins.interaction.mouse.global.y;
                 MouseHandler.Instance().position = new Point(x, y);
             };
             MouseHandler.prototype.handleMouseDown = function (e) {
-                if (e.button == 0) {
+                console.log("intra la mouse down");
+                if (e.data && e.data.button == 0) {
                     if (!MouseHandler.Instance().left.down) {
                         MouseHandler.Instance().left.pressed = true;
                     }
                     MouseHandler.Instance().left.down = true;
                 }
-                else if (e.button == 1) {
+                else if (e.data && e.data.button == 1) {
                     if (!MouseHandler.Instance().middle.down) {
                         MouseHandler.Instance().middle.pressed = true;
                     }
                     MouseHandler.Instance().middle.down = true;
                 }
-                else if (e.button == 2) {
+                else if (e.data && e.data.button == 2) {
                     if (!MouseHandler.Instance().right.down) {
                         MouseHandler.Instance().right.pressed = true;
                     }
@@ -944,13 +987,13 @@ var Framework;
                 }
             };
             MouseHandler.prototype.handleMouseUp = function (e) {
-                if (e.button == 0) {
+                if (e.data && e.data.button == 0) {
                     MouseHandler.Instance().left.down = false;
                 }
-                else if (e.button == 1) {
+                else if (e.data && e.data.button == 1) {
                     MouseHandler.Instance().middle.down = false;
                 }
-                else if (e.button == 2) {
+                else if (e.data && e.date.button == 2) {
                     MouseHandler.Instance().right.down = false;
                 }
             };
@@ -961,8 +1004,7 @@ var Framework;
                 requestAnimationFrame(this.reset.bind(this));
             };
             MouseHandler.prototype.GetAngle = function (vector) {
-                var angle = Math.atan2(this.position.x - vector.x, -(this.position.y - vector.y)) * (180 / Math.PI);
-                return angle;
+                return Math.atan2(this.position.x - vector.x, -(this.position.y - vector.y)) * (180 / Math.PI);
             };
             return MouseHandler;
         }());
@@ -982,6 +1024,7 @@ var Pockey;
         PockeySettings.OPPONENT_SOCKET_ID = "";
         PockeySettings.OPPONENT_NICKNAME = "SandruOpponent";
         PockeySettings.DELTA = 0.98;
+        PockeySettings.FRAMES_TO_SEND_ON_WATCH = 6;
         PockeySettings.BALL_RADIUS = 17;
         PockeySettings.P2_WORLD_STEP = 1 / 60;
         PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME = "pockey_custom_background_name";
@@ -989,6 +1032,7 @@ var Pockey;
         PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 7;
         PockeySettings.STICK_MAX_POWER = 108;
         PockeySettings.LARGE_GOALIES_ARRAY = [];
+        PockeySettings.BABYLON_Y_OFFSET = 27;
         PockeySettings.GOALIE_SPEED = 1;
         PockeySettings.SMALL_GOALIES_ARRAY = [];
         PockeySettings.LARGE_COLORS_ARRAY = [
@@ -1559,18 +1603,20 @@ var Pockey;
     var Sound;
     (function (Sound) {
         var Settings = Framework.Settings;
-        var PockeySoundNames = (function () {
-            function PockeySoundNames() {
+        var PockeySoundURLS = (function () {
+            function PockeySoundURLS() {
             }
-            PockeySoundNames.MAIN_MENU_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "pockey_main_menu.ogg";
-            PockeySoundNames.IN_GAME_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "ambient.ogg";
-            PockeySoundNames.SHOOT_BALL = Settings.desktopAssetsPath + "Sounds/" + "shoot_ball.ogg";
-            PockeySoundNames.LAST_FIVE_SECONDS = Settings.desktopAssetsPath + "Sounds/" + "5sec.ogg";
-            PockeySoundNames.OPPONENT_FOUND = Settings.desktopAssetsPath + "Sounds/" + "opponent_found.ogg";
-            PockeySoundNames.BALL_TO_BALL_HIT = Settings.desktopAssetsPath + "Sounds/" + "ball2ball_hit.ogg";
-            return PockeySoundNames;
+            PockeySoundURLS.MAIN_MENU_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "pockey_main_menu.ogg";
+            PockeySoundURLS.IN_GAME_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "ambient.ogg";
+            PockeySoundURLS.SHOOT_BALL = Settings.desktopAssetsPath + "Sounds/" + "shoot_ball.mp3";
+            PockeySoundURLS.LAST_FIVE_SECONDS = Settings.desktopAssetsPath + "Sounds/" + "5sec.ogg";
+            PockeySoundURLS.OPPONENT_FOUND = Settings.desktopAssetsPath + "Sounds/" + "opponent_found.ogg";
+            PockeySoundURLS.BALL_TO_BALL_HIT = Settings.desktopAssetsPath + "Sounds/" + "ball2ball_hit2.mp3";
+            PockeySoundURLS.GOALKEEPER_HIT = Settings.desktopAssetsPath + "Sounds/" + "goalkeeperHit.mp3";
+            PockeySoundURLS.BALL_IN_POCKET = Settings.desktopAssetsPath + "Sounds/" + "ballinpocket.mp3";
+            return PockeySoundURLS;
         }());
-        Sound.PockeySoundNames = PockeySoundNames;
+        Sound.PockeySoundURLS = PockeySoundURLS;
     })(Sound = Pockey.Sound || (Pockey.Sound = {}));
 })(Pockey || (Pockey = {}));
 var Pockey;
@@ -1579,8 +1625,8 @@ var Pockey;
     (function (GameModule) {
         var SignalsManager = Framework.Signals.SignalsManager;
         var SignalsType = Framework.Signals.SignalsType;
-        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
         var Vector2 = Framework.Utils.Vector2;
+        var PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
         var MaterialType;
         (function (MaterialType) {
             MaterialType[MaterialType["BALL_MATERIAL"] = 1] = "BALL_MATERIAL";
@@ -1605,6 +1651,8 @@ var Pockey;
                         P2WorldManager.Instance().world = new p2.World({
                             gravity: [0, 0],
                         });
+                        P2WorldManager.Instance().world.stepping = true;
+                        P2WorldManager.Instance().world.frictionGravity = 0.6;
                         TweenMax.delayedCall(Pockey.PockeySettings.P2_WORLD_STEP, P2WorldManager.Instance().createElements.bind(this));
                         P2WorldManager.Instance().initialized = true;
                         console.log("%c" + "P2WorldManager initialized", "color: blue");
@@ -1637,37 +1685,27 @@ var Pockey;
             };
             P2WorldManager.defineContactMaterials = function () {
                 var ballToNormalLineContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.LINE_MATERIAL), {
-                    friction: 0.68,
                     restitution: 0.6821,
-                    relaxation: 10
                 });
                 var ballToBallContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), {
-                    friction: 0.2,
                     restitution: 0.9
                 });
                 P2WorldManager.Instance().world.addContactMaterial(ballToBallContactMaterial);
                 var ballToPuckContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.PUCK_MATERIAL), {
-                    friction: 0.2,
-                    restitution: 0.9
+                    restitution: 1,
                 });
                 P2WorldManager.Instance().world.addContactMaterial(ballToPuckContactMaterial);
                 P2WorldManager.Instance().world.addContactMaterial(ballToNormalLineContactMaterial);
                 var ballToPuckOnlyLineContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.PUCK_ONLY_MATERIAL), {
-                    friction: 0.4,
                     restitution: 0.6
                 });
                 P2WorldManager.Instance().world.addContactMaterial(ballToPuckOnlyLineContactMaterial);
                 var puckToNormalLineContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.LINE_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.PUCK_MATERIAL), {
-                    surfaceVelocity: 88,
-                    friction: 0.6,
                     restitution: 0.6,
-                    relaxation: 10
                 });
                 P2WorldManager.Instance().world.addContactMaterial(puckToNormalLineContactMaterial);
                 var puckToBallOnlyLineContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_ONLY_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.PUCK_MATERIAL), {
-                    stiffness: 888,
-                    friction: 20,
-                    restitution: 0.4
+                    restitution: 0.6
                 });
                 P2WorldManager.Instance().world.addContactMaterial(puckToBallOnlyLineContactMaterial);
                 var goalieToBallContactMaterial = new p2.ContactMaterial(P2WorldManager.Instance().getMaterialByID(MaterialType.BALL_MATERIAL), P2WorldManager.Instance().getMaterialByID(MaterialType.GOALIE_MATERIAL), {
@@ -1678,22 +1716,37 @@ var Pockey;
                     restitution: 0.8
                 });
                 P2WorldManager.Instance().world.addContactMaterial(goalieToPuckContactMaterial);
-                var veloCounter = 0;
                 P2WorldManager.Instance().world.on("preSolve", function (evt) {
                     _.forEach(evt.contactEquations, function (ce) {
-                        if ((ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_ONLY_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_ONLY_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.SHADOW_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.SHADOW_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.GOALIE_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_ONLY_MATERIAL)
-                            || (ce.shapeA.material.id == MaterialType.GOALIE_MATERIAL && ce.shapeB.material.id == MaterialType.LINE_MATERIAL)) {
+                        if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.SHADOW_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_ONLY_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_ONLY_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.SHADOW_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.SHADOW_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.GOALIE_MATERIAL && ce.shapeB.material.id == MaterialType.PUCK_ONLY_MATERIAL)) {
+                            ce.enabled = false;
+                        }
+                        else if ((ce.shapeA.material.id == MaterialType.GOALIE_MATERIAL && ce.shapeB.material.id == MaterialType.LINE_MATERIAL)) {
                             ce.enabled = false;
                         }
                         else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.BALL_MATERIAL)) {
-                            var maxPower = 1200;
+                            var maxPower = 460;
                             var velocityVectorA = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
                             var speedA = velocityVectorA.getMagnitude();
                             var velocityVectorB = new Vector2(ce.bodyB.velocity[0], ce.bodyB.velocity[1]);
@@ -1702,31 +1755,37 @@ var Pockey;
                             var hitVolume = Math.round((higherVelocity / maxPower) * 100) / 100;
                             if (hitVolume > 1)
                                 hitVolume = 1;
-                            else if (hitVolume < 0.5)
-                                hitVolume = 0.5;
+                            else if (hitVolume < 0.3)
+                                hitVolume = 0.3;
                             SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
-                                    soundName: PockeySoundNames.BALL_TO_BALL_HIT,
-                                    volume: hitVolume
+                                    volume: hitVolume,
+                                    soundName: PockeySoundURLS.BALL_TO_BALL_HIT,
+                                    enableMulti: false
                                 }]);
                         }
                         else if ((ce.shapeA.material.id == MaterialType.BALL_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
                             var ballVelocity = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
                             var ballSpeed = ballVelocity.getMagnitude();
-                            if (ballSpeed < 388) {
-                                var normalizedVector = ballVelocity.normalise().multiply(388);
+                            if (ballSpeed < 108) {
+                                var normalizedVector = ballVelocity.normalise().multiply(108);
                                 ce.bodyA.velocity[0] = normalizedVector.x;
                                 ce.bodyA.velocity[1] = normalizedVector.y;
                             }
+                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                                    soundName: PockeySoundURLS.GOALKEEPER_HIT
+                                }]);
                         }
                         else if ((ce.shapeA.material.id == MaterialType.PUCK_MATERIAL && ce.shapeB.material.id == MaterialType.GOALIE_MATERIAL)) {
-                            veloCounter++;
                             var ballVelocity = new Vector2(ce.bodyA.velocity[0], ce.bodyA.velocity[1]);
                             var ballSpeed = ballVelocity.getMagnitude();
-                            if (ballSpeed < 388) {
-                                var normalizedVector = ballVelocity.normalise().multiply(388);
+                            if (ballSpeed < 108) {
+                                var normalizedVector = ballVelocity.normalise().multiply(108);
                                 ce.bodyA.velocity[0] = normalizedVector.x;
                                 ce.bodyA.velocity[1] = normalizedVector.y;
                             }
+                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                                    soundName: PockeySoundURLS.GOALKEEPER_HIT
+                                }]);
                         }
                     });
                 }, this);
@@ -1791,13 +1850,23 @@ var Framework;
         var SignalsManager = Framework.Signals.SignalsManager;
         var SignalsType = Framework.Signals.SignalsType;
         var AssetsLoader = (function () {
-            function AssetsLoader(onLoadCompleteCallback) {
+            function AssetsLoader() {
+                var _this = this;
                 this.loader = PIXI.loader;
                 this.assetsNames = [];
                 this.loader.onComplete.add(function () {
+                    _.forEach(_this.assetsNames, function (assetName) {
+                        if (_.includes(assetName, ".mp3") ||
+                            _.includes(assetName, ".ogg") ||
+                            _.includes(assetName, ".wav")) {
+                            SignalsManager.DispatchSignal(SignalsType.CREATE_SOUND_CACHE, [assetName]);
+                        }
+                    });
                     SignalsManager.DispatchSignal(SignalsType.ASSETS_LOADED);
                 });
                 this.loader.onProgress.add(function () {
+                    var event = new CustomEvent('progress', { detail: _this.loader.progress });
+                    document.dispatchEvent(event);
                 });
             }
             AssetsLoader.prototype.addAssetToLoad = function (assetName) {
@@ -1824,7 +1893,7 @@ var Framework;
                     fontloading: this.preRenderFont.bind(this),
                     custom: {
                         families: this.fontsToLoad,
-                        urls: ['/fonts.css']
+                        urls: ['/css/fonts.css']
                     }
                 });
             };
@@ -1842,7 +1911,6 @@ var Framework;
 (function (Framework) {
     var Background;
     (function (Background) {
-        var Sprite = PIXI.Sprite;
         var AbstractModule = Framework.Abstracts.AbstractModule;
         var SignalsManager = Framework.Signals.SignalsManager;
         var SignalsType = Framework.Signals.SignalsType;
@@ -1851,7 +1919,7 @@ var Framework;
             function AbstractBackgroundModule() {
                 var _this = _super.call(this) || this;
                 _this.addAssetToLoad(Framework.Settings.desktopAssetsPath + Framework.Settings.backgroundsPath + "main_bg.png");
-                _this.registerBackground(Framework.Settings.mainBackgroundName, Framework.Settings.desktopAssetsPath + Framework.Settings.backgroundsPath + "main_bg.png");
+                _this.registerBackground(Framework.Settings.mainBackgroundName, Framework.Settings.desktopAssetsPath + Framework.Settings.backgroundsPath + "main_bg.png", document.getElementById("MainBackground"));
                 return _this;
             }
             AbstractBackgroundModule.prototype.registerSignalsHandlers = function () {
@@ -1861,32 +1929,37 @@ var Framework;
             AbstractBackgroundModule.prototype.onChangeBackground = function (param) {
                 this.changeBackground(param[0].toString(), +param[1]);
             };
-            AbstractBackgroundModule.prototype.registerBackground = function (name, texturePath) {
-                if (!this.backgroundsPaths)
-                    this.backgroundsPaths = {};
-                this.backgroundsPaths[name] = texturePath;
+            AbstractBackgroundModule.prototype.registerBackground = function (name, texturePath, htmlDiv) {
+                if (!this.backgrounds)
+                    this.backgrounds = {};
+                var bg = { path: texturePath, div: htmlDiv };
+                bg.initialWidth = bg.div.offsetWidth;
+                bg.initialHeight = bg.div.offsetHeight;
+                this.backgrounds[name] = bg;
             };
             AbstractBackgroundModule.prototype.createElements = function () {
-                var _this = this;
                 _super.prototype.createElements.call(this);
-                this.backgrounds = {};
-                _.forEach(this.backgroundsPaths, function (path, id) {
-                    _this.backgrounds[id] = new Sprite(PIXI.Texture.fromFrame(path));
-                    _this.backgrounds[id].anchor.x = 0.5;
-                    _this.backgrounds[id].anchor.y = 0.5;
+                _.forEach(this.backgrounds, function (bg) {
+                    bg.div.style.background = "center / contain no-repeat #1A4157 url(" + bg.path + ")";
+                    bg.div.style.opacity = "0";
+                    if (bg.initialHeight == 0 || bg.initialWidth == 0) {
+                        bg.initialWidth = bg.div.offsetWidth;
+                        bg.initialHeight = bg.div.offsetHeight;
+                    }
+                    bg.div.style.display = "none";
                 });
             };
             AbstractBackgroundModule.prototype.changeBackground = function (id, fadeTime) {
                 if (this.backgrounds[id]) {
                     var newBackground = this.backgrounds[id];
-                    newBackground.alpha = 0;
-                    this.addChild(newBackground);
+                    newBackground.div.style.opacity = "0";
+                    newBackground.div.style.display = "block";
                     if (!_.isUndefined(this.currentBackground) && !_.isNull(this.currentBackground)) {
                         var oldBackground = this.currentBackground;
-                        TweenMax.to(newBackground, fadeTime, { alpha: 1, onComplete: this.removeBackgroundFromParent.bind(this), onCompleteParams: [oldBackground] });
+                        TweenMax.to(newBackground.div, fadeTime, { css: { opacity: 1 }, onComplete: this.removeBackgroundFromParent.bind(this), onCompleteParams: [oldBackground.div] });
                     }
                     else {
-                        TweenMax.to(newBackground, fadeTime, { alpha: 1 });
+                        TweenMax.to(newBackground.div, fadeTime, { css: { opacity: 1 } });
                     }
                     this.currentBackground = newBackground;
                 }
@@ -1895,23 +1968,10 @@ var Framework;
                 }
             };
             AbstractBackgroundModule.prototype.removeBackgroundFromParent = function (background) {
-                if (background && background.parent)
-                    background.parent.removeChild(background);
+                background.style.display = "none";
             };
             AbstractBackgroundModule.prototype.onResize = function (params) {
                 _super.prototype.onResize.call(this, params);
-                if (this.currentBackground && this.currentBackground == this.backgrounds[Framework.Settings.mainBackgroundName]) {
-                    this.currentBackground.height = Framework.Settings.stageHeight;
-                    var scale = this.currentBackground.scale.y;
-                    this.currentBackground.scale.x = scale;
-                    if (this.currentBackground.width < Framework.Settings.stageWidth) {
-                        this.currentBackground.width = Framework.Settings.stageWidth;
-                        scale = this.currentBackground.scale.x;
-                        this.currentBackground.scale.y = scale;
-                    }
-                    this.currentBackground.x = Framework.Settings.stageWidth / 2;
-                    this.currentBackground.y = Framework.Settings.stageHeight / 2;
-                }
             };
             return AbstractBackgroundModule;
         }(AbstractModule));
@@ -2256,30 +2316,45 @@ var Framework;
             function AbstractSoundModule() {
                 var _this = _super.call(this) || this;
                 _this.Name = "AbstractSoundModule";
+                _this.sounds = {};
                 return _this;
             }
             AbstractSoundModule.prototype.registerSignalsHandlers = function () {
                 _super.prototype.registerSignalsHandlers.call(this);
+                SignalsManager.AddSignalCallback(SignalsType.CREATE_SOUND_CACHE, this.onCreateSoundCache.bind(this));
                 SignalsManager.AddSignalCallback(SignalsType.PLAY_SOUND, this.onPlaySound.bind(this));
                 SignalsManager.AddSignalCallback(SignalsType.STOP_SOUND, this.onStopSound.bind(this));
             };
+            AbstractSoundModule.prototype.onCreateSoundCache = function (params) {
+                var soundName = params[0];
+                if (!this.sounds[soundName]) {
+                    this.sounds[soundName] = new Howl({ src: soundName });
+                }
+            };
             AbstractSoundModule.prototype.onStopSound = function (params) {
                 var soundVO = params[0];
-                var sound = PIXI.sound.Sound.from({
-                    url: soundVO.soundName
-                });
-                sound.stop();
+                if (!this.sounds[soundVO.soundName]) {
+                    console.warn("SOUND - " + soundVO.soundName + " - WAS NOT ADDED TO THE PRELOADER!");
+                    return;
+                }
+                this.sounds[soundVO.soundName].stop();
             };
             AbstractSoundModule.prototype.onPlaySound = function (params) {
                 var soundVO = params[0];
+                {
+                    if (!this.sounds[soundVO.soundName]) {
+                        console.warn("SOUND - " + soundVO.soundName + " - WAS NOT ADDED TO THE PRELOADER!");
+                        return;
+                    }
+                }
                 if (_.isNull(soundVO.volume) || _.isUndefined(soundVO.volume)) {
                     soundVO.volume = 1;
                 }
-                var sound = PIXI.sound.Sound.from({
-                    url: soundVO.soundName,
-                    volume: soundVO.volume
-                });
-                sound.play();
+                if (!soundVO.enableMulti && this.sounds[soundVO.soundName].playing()) {
+                    this.sounds[soundVO.soundName].stop();
+                }
+                this.sounds[soundVO.soundName].volume(soundVO.volume);
+                this.sounds[soundVO.soundName].play();
             };
             return AbstractSoundModule;
         }(AbstractModule));
@@ -2299,6 +2374,7 @@ var Framework;
     var ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
     var Settings = Framework.Settings;
     var AbstractSoundModule = Framework.Sound.AbstractSoundModule;
+    var PockeySettings = Pockey.PockeySettings;
     var AbstractEntryPoint = (function () {
         function AbstractEntryPoint() {
             this.name = "";
@@ -2306,6 +2382,7 @@ var Framework;
             this.name = "AbstractEntryPoint";
             this.checkDevice();
             this.setWindowSize();
+            this.initializeBabylon();
             this.initializePixi();
             this.registerSignals();
             this.subscribeToSignals();
@@ -2336,23 +2413,39 @@ var Framework;
             }
             console.log("%c AbstractEntryPoint -> running on DESKTOP!", "background: green; color: white; font-weight:bold; ");
         };
+        AbstractEntryPoint.prototype.initializeBabylon = function () {
+            var canvas = document.getElementById("renderCanvas");
+            this.engine = new BABYLON.Engine(canvas, true);
+            AbstractEntryPoint.scene = new BABYLON.Scene(this.engine);
+            AbstractEntryPoint.camera = new BABYLON.UniversalCamera("camera1", new BABYLON.Vector3(0, 0, -1000 - PockeySettings.BALL_RADIUS * 3 - 7), AbstractEntryPoint.scene);
+            AbstractEntryPoint.camera.mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA;
+            AbstractEntryPoint.camera.setTarget(BABYLON.Vector3.Zero());
+            var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(-80, 60, -110), AbstractEntryPoint.scene);
+            this.isWebGL1 = this.engine.webGLVersion === 1;
+        };
         AbstractEntryPoint.prototype.initializePixi = function () {
             PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
             AbstractEntryPoint.renderer = PIXI.autoDetectRenderer(Settings.stageWidth, Settings.stageHeight, {
-                backgroundColor: 0x0f404b,
-                antialias: true,
+                context: this.engine._gl,
+                view: this.engine.getRenderingCanvas(),
+                width: this.engine.getRenderWidth(),
+                height: this.engine.getRenderHeight(),
+                clearBeforeRender: true,
                 roundPixels: true,
+                autoResize: true,
+                antialias: true,
                 resolution: window.devicePixelRatio || 1,
-                autoResize: true
+                transparent: true
             });
-            AbstractEntryPoint.renderer.view.style.position = "absolute";
-            AbstractEntryPoint.renderer.view.style.top = "0px";
-            AbstractEntryPoint.renderer.view.style.left = "0px";
-            AbstractEntryPoint.renderer.view.style.zIndex = "-800";
-            AbstractEntryPoint.renderer.view.style.width = "100%";
-            AbstractEntryPoint.renderer.view.style.height = "100%";
-            document.body.appendChild(AbstractEntryPoint.renderer.view);
-            this.stage = new Container();
+            AbstractEntryPoint.stage = new Container();
+            PIXI.ticker.shared.add(this.renderEngine.bind(this));
+        };
+        AbstractEntryPoint.prototype.renderEngine = function () {
+            AbstractEntryPoint.renderer.reset();
+            AbstractEntryPoint.renderer.render(AbstractEntryPoint.stage);
+            AbstractEntryPoint.scene.autoClear = false;
+            AbstractEntryPoint.scene.render();
+            this.engine.wipeCaches(true);
             this.frameAnimate();
         };
         AbstractEntryPoint.prototype.addModules = function () {
@@ -2380,7 +2473,7 @@ var Framework;
         AbstractEntryPoint.prototype.startLoadingAssets = function () {
             var _this = this;
             if (_.isNull(this.assetsLoader) || _.isUndefined(this.assetsLoader)) {
-                this.assetsLoader = new AssetsLoader(this.onAssetsLoadComplete.bind(this));
+                this.assetsLoader = new AssetsLoader();
             }
             this.addFontsToLoad();
             console.log(this.gameModules);
@@ -2405,8 +2498,6 @@ var Framework;
             this.gameModules.push(module);
         };
         AbstractEntryPoint.prototype.frameAnimate = function () {
-            requestAnimationFrame(this.frameAnimate.bind(this));
-            AbstractEntryPoint.renderer.render(this.stage);
         };
         AbstractEntryPoint.prototype.getBackgroundModule = function () {
             var backgroundModule = new AbstractBackgroundModule();
@@ -2434,7 +2525,6 @@ var Framework;
             }
             Settings.stageWidth = stageWidth;
             Settings.stageHeight = stageHeight;
-            console.log("se face resize: " + Settings.stageWidth, Settings.stageHeight);
             AbstractEntryPoint.renderer.resize(Settings.stageWidth, Settings.stageHeight);
             SignalsManager.DispatchSignal(SignalsType.WINDOW_RESIZE);
         };
@@ -2443,11 +2533,11 @@ var Framework;
                 var layerName = Framework.Layers.LayerOrder[i];
                 var layer = new Container();
                 layer.name = layerName;
-                this.stage.addChild(layer);
+                AbstractEntryPoint.stage.addChild(layer);
             }
         };
         AbstractEntryPoint.prototype.getLayer = function (layerName) {
-            return this.stage.getChildByName(layerName);
+            return AbstractEntryPoint.stage.getChildByName(layerName);
         };
         AbstractEntryPoint.prototype.initializeSingletons = function () {
             SignalsManager.Instance();
@@ -2465,6 +2555,7 @@ var Framework;
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.WINDOW_RESIZE);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
+            SignalsManager.CreateNewSignal(SignalsType.CREATE_SOUND_CACHE);
             SignalsManager.CreateNewSignal(SignalsType.PLAY_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.STOP_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
@@ -2505,83 +2596,18 @@ var Framework;
 })(Framework || (Framework = {}));
 var Pockey;
 (function (Pockey) {
-    var Vector2 = Framework.Utils.Vector2;
-    var Circle = PIXI.Circle;
-    var Graphics = PIXI.Graphics;
-    var Pocket = (function (_super) {
-        __extends(Pocket, _super);
-        function Pocket(x, y, radius, finalPoint) {
-            var _this = _super.call(this, x, y, radius) || this;
-            _this.position = new Vector2(x, y);
-            _this.finalPoint = finalPoint;
-            _this.graphics = [];
-            _this.touchPoints = [];
-            var point = new Vector2();
-            var g = new Graphics();
-            var angle;
-            angle = 90 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = 45 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = 0 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = -45 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = -90 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = -135 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = 180 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            angle = 135 * Math.PI / 180;
-            point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 2);
-            _this.touchPoints.push(point);
-            return _this;
-        }
-        Pocket.prototype.addPoints = function (parent) {
-            _.forEach(this.graphics, function (g) {
-                parent.addChild(g);
-            });
-        };
-        return Pocket;
-    }(Circle));
-    Pockey.Pocket = Pocket;
-})(Pockey || (Pockey = {}));
-var Pockey;
-(function (Pockey) {
     var GameModule;
     (function (GameModule) {
-        var Sprite = PIXI.Sprite;
-        var Graphics = PIXI.Graphics;
         var Vector2 = Framework.Utils.Vector2;
+        var Graphics = PIXI.Graphics;
+        var Vector3 = BABYLON.Vector3;
         var AbstractEntryPoint = Framework.AbstractEntryPoint;
         var Settings = Framework.Settings;
         var Point = PIXI.Point;
-        var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
+        var SignalsType = Framework.Signals.SignalsType;
         var BallType;
         (function (BallType) {
             BallType["Player"] = "PlayerBall";
@@ -2595,34 +2621,15 @@ var Pockey;
                 if (ballSide === void 0) { ballSide = ""; }
                 if (id === void 0) { id = 'ball'; }
                 var _this = _super.call(this) || this;
-                _this.defaultTextureName = Settings.desktopAssetsPath + "Images/color_big.png";
-                _this.defaultOverTextureName = Settings.desktopAssetsPath + "Images/color_big_over.png";
-                _this.defaultShadowTextureName = Settings.desktopAssetsPath + "Images/color_big_shadow.png";
                 _this.mass = 1.4;
                 _this.moving = false;
-                _this.minStopLimit = 0.1;
-                _this.defaultColor = 0xffffff;
-                _this.isInPocket = false;
-                _this.zRotationActive = false;
-                _this.numberTest = [];
-                _this.lastAngle = 0;
-                _this.prevX = 0;
-                _this.prevY = 0;
-                _this.newX = 0;
-                _this.newY = 0;
-                _this.ballIsInThePocket = false;
                 _this.canBeRemoved = false;
-                _this.finalPocketAnimationRightPoint = new Vector2();
-                _this.finalPocketAnimationLeftPoint = new Vector2();
-                _this.finalPocketAnimationCenterPoint = new Vector2();
-                _this.pocketsZIndex = 0;
-                _this.firstPocketAnimationDone = false;
                 _this.removed = false;
                 _this.zIndexSwitched = false;
                 _this.animationInProgress = false;
                 _this.ballValue = 1;
                 _this.removedFromArray = false;
-                _this.rot = [1, 0, 0, 1];
+                _this.minStopLimit = 0.1;
                 _this.moving = false;
                 _this.velocity = new Vector2();
                 _this.oldPos = new Vector2();
@@ -2630,9 +2637,13 @@ var Pockey;
                 _this.radius = Pockey.PockeySettings.BALL_RADIUS;
                 _this.side = ballSide;
                 _this.name = _this.side + id;
-                _this.changeDefaultTextureName();
-                _this.updateTexture();
+                _this.addTexture();
                 _this.addP2Body();
+                _this.onWatchTimeline = new TimelineMax({
+                    smoothChildTiming: true,
+                    ease: Linear.easeNone,
+                    onUpdate: _this.onWatchUpdate.bind(_this)
+                });
                 return _this;
             }
             AbstractBall.prototype.addP2Body = function () {
@@ -2640,12 +2651,15 @@ var Pockey;
                 this.p2Body = new p2.Body({
                     mass: this.mass,
                     position: [this.x, this.y],
+                    fixedRotation: false
                 });
                 this.p2BodyShadow = new p2.Body({
                     mass: 0,
                     position: [this.x, this.y]
                 });
-                this.p2Body.angularDamping = 0.4;
+                this.p2Body.angularDamping = 0;
+                this.p2Body.angularForce = 0;
+                this.p2Body.angularVelocity = 0;
                 this.p2Body.damping = 0.2;
                 this.p2Body.boundingRadius = this.radius;
                 this.p2Body.allowSleep = true;
@@ -2657,7 +2671,7 @@ var Pockey;
                 this.circleShape = new p2.Circle({ radius: this.radius });
                 this.circleShape.material = this.getCircleMaterial();
                 this.p2Body.addShape(this.circleShape);
-                var circleShape2 = new p2.Circle({ radius: Pockey.PockeySettings.BALL_RADIUS + this.radius - 0 });
+                var circleShape2 = new p2.Circle({ radius: this.radius + Pockey.PockeySettings.BALL_RADIUS });
                 circleShape2.material = new p2.Material(GameModule.MaterialType.SHADOW_MATERIAL);
                 this.p2BodyShadow.addShape(circleShape2);
                 GameModule.P2WorldManager.Instance().world.addBody(this.p2Body);
@@ -2666,24 +2680,17 @@ var Pockey;
                 }, this);
             };
             AbstractBall.prototype.worldPreSolveHandler = function () {
-                if (this.speed() < 50)
-                    this.p2Body.velocity = [this.p2Body.velocity[0] * Pockey.PockeySettings.DELTA, this.p2Body.velocity[1] * Pockey.PockeySettings.DELTA];
             };
             AbstractBall.prototype.getCircleMaterial = function () {
                 return GameModule.P2WorldManager.Instance().getMaterialByID(GameModule.MaterialType.BALL_MATERIAL);
             };
-            AbstractBall.prototype.changeDefaultTextureName = function () {
-            };
-            AbstractBall.prototype.updateTexture = function () {
-                this.anchor.set(0.5, 0.5);
-                this.ballTexture = new Sprite();
-                var g = new Graphics();
-                g.beginFill(0xffffff, 1);
-                g.drawCircle(0, 0, this.radius);
-                g.endFill();
-                this.ballTexture.addChild(g);
-                this.addChild(this.ballTexture);
-                this.addGraphic();
+            AbstractBall.prototype.addTexture = function () {
+                this.sphere = BABYLON.Mesh.CreateSphere(this.name, 16, this.radius * 2, AbstractEntryPoint.scene);
+                var myMaterial = new BABYLON.StandardMaterial("myMaterial", AbstractEntryPoint.scene);
+                myMaterial.diffuseTexture = new BABYLON.Texture(Settings.desktopAssetsPath + "Images/ballTexture.jpg", AbstractEntryPoint.scene);
+                this.sphere.material = myMaterial;
+                TweenMax.to(this.sphere.rotation, 0.1, { x: -2 * Math.PI, y: -2 * Math.PI, z: -2 * Math.PI });
+                this.lastPosition = new Vector3(0, 0, 0);
             };
             AbstractBall.prototype.setLineLimits = function (lineLimits) {
                 this.lineLimits = lineLimits;
@@ -2698,35 +2705,78 @@ var Pockey;
                 this.downLimit = down;
             };
             AbstractBall.prototype.tintBall = function (color) {
-                this.ballTexture.getChildAt(0).tint = color;
-            };
-            AbstractBall.prototype.addGraphic = function () {
-                var _this = this;
-                this.g = new Graphics();
-                if (this.ballType == BallType.Opponent) {
-                    this.defaultColor = Pockey.PockeySettings.OPPONENT_COLOR;
+                var colorToHex = ('00000' + (color | 0).toString(16)).substr(-6);
+                var rgbColor = this.HexToRGB(colorToHex);
+                if (this.sphere) {
+                    this.sphere.material.diffuseColor = rgbColor;
                 }
-                else if (this.ballType == BallType.Player) {
-                    _.forEach(Pockey.PockeySettings.LARGE_COLORS_ARRAY, function (inventoryVO) {
-                        if (inventoryVO.id == Pockey.PockeySettings.PLAYER_COLOR_ID) {
-                            _this.defaultColor = inventoryVO.color;
-                        }
+            };
+            AbstractBall.prototype.HexToRGB = function (hex) {
+                var r = parseInt(hex.substring(0, 2), 16) / 255;
+                var g = parseInt(hex.substring(2, 4), 16) / 255;
+                var b = parseInt(hex.substring(4, 6), 16) / 255;
+                return new BABYLON.Color4(r, g, b, 1);
+            };
+            AbstractBall.prototype.getState = function () {
+                var ballState = {
+                    name: this.name,
+                    x: Math.round(this.x * 10000),
+                    y: Math.round(this.y * 10000),
+                    rotation: this.rotation,
+                    canBeRemoved: this.canBeRemoved,
+                    shadowScaleX: this.ballShadow.scale.x,
+                    shadowScaleY: this.ballShadow.scale.y,
+                };
+                if (this.sphere)
+                    ballState.alpha = this.sphere.visibility;
+                return ballState;
+            };
+            AbstractBall.prototype.setState = function (ballState, animTime) {
+                var time = (animTime + 1 / 60) / 2;
+                this.ballShadow.scale.x = ballState.shadowScaleX;
+                this.ballShadow.scale.y = ballState.shadowScaleY;
+                if (this.sphere) {
+                    this.sphere.visibility = ballState.alpha;
+                    if (this.sphere.visibility == 0) {
+                        this.sphere.material.freeze();
+                    }
+                    else {
+                        this.sphere.material.unfreeze();
+                    }
+                    TweenMax.to(this, time, {
+                        x: ballState.x / 10000,
+                        y: ballState.y / 10000,
+                        onUpdate: this.onWatchUpdate.bind(this),
+                        ease: Linear.easeNone,
                     });
                 }
-                else if (this.ballType == BallType.Puck) {
-                    this.defaultColor = Pockey.PockeySettings.PUCK_COLOR;
-                }
                 else {
-                    this.defaultColor = 0xffffff;
+                    TweenMax.to(this, time, {
+                        x: ballState.x / 10000,
+                        y: ballState.y / 10000,
+                        rotation: ballState.rotation,
+                        onUpdate: this.onWatchUpdate.bind(this),
+                        ease: Linear.easeNone,
+                    });
                 }
-                this.g.beginFill(this.defaultColor);
-                this.g.drawCircle(0, 0, this.radius);
-                this.g.endFill();
-                this.img = AbstractEntryPoint.renderer.extract.pixels(this);
+                if (ballState.canBeRemoved) {
+                    this.canBeRemoved = ballState.canBeRemoved;
+                    GameModule.P2WorldManager.Instance().world.removeBody(this.p2Body);
+                    GameModule.P2WorldManager.Instance().world.removeBody(this.p2BodyShadow);
+                }
+            };
+            AbstractBall.prototype.onWatchUpdate = function () {
+                this.ballPosition = new Vector2(this.x, this.y);
             };
             AbstractBall.prototype.update = function () {
                 var _this = this;
                 this.moving = this.p2Body.sleepState != p2.Body.SLEEPING;
+                if (this.canBeRemoved) {
+                    this.moving = false;
+                    return;
+                }
+                if (!this.moving)
+                    return;
                 if (this.moving && !this.canBeRemoved) {
                     var isCloserToPocket_1 = false;
                     var pocketPosition_1 = new Vector2();
@@ -2740,9 +2790,13 @@ var Pockey;
                         if (pocketPosition_1.distanceTo(p2BodyPos_1) <= (_this.radius + pocket.radius + 8)) {
                             isCloserToPocket_1 = true;
                             if (pocketPosition_1.distanceTo(p2BodyPos_1) <= (pocket.radius + 1)) {
+                                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
+                                        soundName: PockeySoundURLS.BALL_IN_POCKET
+                                    }]);
                                 _this.canBeRemoved = true;
-                                console.log("intra la can be removed fmm: " + _this.name);
+                                _this.p2Body.velocity = [0, 0];
                                 GameModule.P2WorldManager.Instance().world.removeBody(_this.p2Body);
+                                GameModule.P2WorldManager.Instance().world.removeBody(_this.p2BodyShadow);
                                 SignalsManager.DispatchSignal(PockeySignalTypes.BALL_IN_POCKET, [_this.ballType]);
                                 _this.x = p2BodyPos_1.x;
                                 _this.y = p2BodyPos_1.y;
@@ -2820,11 +2874,9 @@ var Pockey;
                                 }
                                 lastDirection_1 = direction;
                                 var bezierPositions = [];
-                                var testids = [];
                                 idCounter = pointId_1;
                                 if (direction == -1) {
                                     for (var i = 0; i < touchPointsArrayLength - 1; i++) {
-                                        testids.push(idCounter);
                                         bezierPositions[i] = new Point(pocket.touchPoints[idCounter].x, pocket.touchPoints[idCounter].y);
                                         idCounter--;
                                         if (idCounter < 0)
@@ -2834,7 +2886,6 @@ var Pockey;
                                 }
                                 else if (direction == 1) {
                                     for (var i = 0; i < touchPointsArrayLength; i++) {
-                                        testids.push(idCounter);
                                         bezierPositions[i] = new Point(pocket.touchPoints[idCounter].x, pocket.touchPoints[idCounter].y);
                                         idCounter++;
                                         if (idCounter > touchPointsArrayLength - 1)
@@ -2843,7 +2894,7 @@ var Pockey;
                                     bezierPositions.shift();
                                 }
                                 else if (direction == 0) {
-                                    direction = Math.round(Math.random() * 1) - 1;
+                                    direction = Math.round(Math.random()) - 1;
                                     lastDirection_1 = direction;
                                     if (direction == 0)
                                         direction = 1;
@@ -2857,7 +2908,6 @@ var Pockey;
                                             tempPoint = new Point(tempPoint.x / 2 + pocket.touchPoints[nextPointId_1].x / 2, tempPoint.y / 2 + pocket.touchPoints[nextPointId_1].y / 2);
                                             tempPoint = new Point(tempPoint.x / 2 + pocket.touchPoints[nextPointId_1].x / 2, tempPoint.y / 2 + pocket.touchPoints[nextPointId_1].y / 2);
                                             bezierPositions.push(tempPoint);
-                                            testids.push(idCounter);
                                         }
                                         idCounter -= direction;
                                         if (idCounter > touchPointsArrayLength - 1)
@@ -2874,83 +2924,89 @@ var Pockey;
                                     duration *= 2;
                                 if (duration > 1.8)
                                     duration = 1.8;
+                                else if (duration < 1)
+                                    duration = 1;
                                 _this.animationInProgress = true;
                                 _this.ballInPocketAnimationTimeline = new TimelineMax();
                                 _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this, duration, {
                                     bezier: bezierPositions,
                                     ease: Linear.easeNone,
-                                    onUpdate: _this.onAnimationUpdate.bind(_this),
-                                    onUpdateParams: [pocket.x, pocket.y, pocket.radius],
-                                    onComplete: _this.declareAnimationFinished.bind(_this)
+                                    onUpdate: _this.handleRotation.bind(_this)
                                 }), 0);
                                 _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this.scale, duration - duration / 3, {
                                     x: 0.8,
                                     y: 0.8,
                                     ease: Linear.easeNone
                                 }), 0);
-                                _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this.ballShadow.scale, (duration - duration / 3) / 2, {
+                                _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this.ballShadow.scale, (0.1), {
                                     x: 0,
                                     y: 0,
                                     ease: Linear.easeNone
                                 }), 0);
-                                _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this, (duration - duration / 3), {
-                                    alpha: 0,
-                                    ease: Linear.easeNone
-                                }), duration / 3);
+                                _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this.sphere, (duration / 2), {
+                                    visibility: 0,
+                                    ease: Linear.easeNone, onComplete: _this.declareAnimationFinished.bind(_this)
+                                }), 0);
                                 return;
                             }
                         }
                     });
                     if (this.canBeRemoved)
                         return;
-                    if (!isCloserToPocket_1) {
-                        if (p2BodyPos_1.x + this.radius > this.rightLimit) {
-                            p2BodyPos_1.x = this.rightLimit - this.radius;
-                        }
-                        else if (p2BodyPos_1.x - this.radius < this.leftLimit) {
-                            p2BodyPos_1.x = this.leftLimit + this.radius;
-                        }
-                        if (p2BodyPos_1.y + this.radius > this.downLimit) {
-                            p2BodyPos_1.y = this.downLimit - this.radius;
-                        }
-                        else if (p2BodyPos_1.y - this.radius < this.upLimit) {
-                            p2BodyPos_1.y = this.upLimit + this.radius;
-                        }
-                    }
                     this.x = p2BodyPos_1.x;
                     this.y = p2BodyPos_1.y;
                     this.ballShadow.x = p2BodyPos_1.x;
                     this.ballShadow.y = p2BodyPos_1.y;
                     this.oldPos.x = this.x;
                     this.oldPos.y = this.y;
+                    this.handleRotation();
                 }
+            };
+            AbstractBall.prototype.handleRotation = function () {
+                if (this.ballType == BallType.Puck) {
+                    return;
+                }
+                if (this.radius == 0) {
+                    return;
+                }
+                this.moving = true;
+                this.sphere.position.x = this.x;
+                this.sphere.position.y = -this.y - Pockey.PockeySettings.BABYLON_Y_OFFSET;
+                var position = new BABYLON.Vector3(this.sphere.position.x, this.sphere.position.y, 0);
+                var currentToLast = position.subtract(this.lastPosition);
+                var segment = currentToLast.length();
+                if (segment == 0) {
+                    return;
+                }
+                var ballDown = new BABYLON.Vector3(0, 0, -1);
+                var axis = BABYLON.Vector3.Cross(ballDown, currentToLast);
+                if (axis == BABYLON.Vector3.Zero()) {
+                    return;
+                }
+                var theta = (segment / (this.radius * 3.5)) / this.radius;
+                var thetaDegrees = theta * 180 / Math.PI;
+                var q = BABYLON.Quaternion.RotationAxis(axis, thetaDegrees);
+                var sphereRotToQuaternion = this.sphere.rotation.toQuaternion();
+                var sphereRotation = q.multiply(sphereRotToQuaternion).toEulerAngles();
+                this.sphere.rotation.x = sphereRotation.x;
+                this.sphere.rotation.y = sphereRotation.y;
+                this.sphere.rotation.z = sphereRotation.z;
+                this.lastPosition = position;
             };
             AbstractBall.prototype.declareAnimationFinished = function () {
                 this.animationInProgress = false;
-                this.visible = false;
-                if (this.parent)
-                    this.parent.removeChild(this);
+                if (this.sphere) {
+                    this.sphere.setEnabled(false);
+                }
             };
             AbstractBall.prototype.addShadowBody = function () {
                 this.p2BodyShadow.position[0] = this.x;
                 this.p2BodyShadow.position[1] = this.y;
                 GameModule.P2WorldManager.Instance().world.addBody(this.p2BodyShadow);
             };
-            AbstractBall.prototype.onAnimationUpdate = function (x, y, radius) {
-                this.moving = true;
-                var ballPos = new Vector2(this.x, this.y);
-                var pocketPos = new Vector2(x, y);
-                var minDistance = radius - this.radius;
-                var distance = pocketPos.distanceTo(ballPos);
-                if (distance <= minDistance && !this.zIndexSwitched) {
-                    this.ballAnimationHolder.addChildAt(this.ballShadow, 0);
-                    this.ballAnimationHolder.addChild(this);
-                    this.zIndexSwitched = true;
-                }
-            };
             Object.defineProperty(AbstractBall.prototype, "ballPosition", {
                 get: function () {
-                    return this._ballPosition;
+                    return new Vector2(this.x, this.y);
                 },
                 set: function (positionVector) {
                     if (!this.initialPosition) {
@@ -2959,12 +3015,13 @@ var Pockey;
                     this._ballPosition = positionVector;
                     this.x = positionVector.x;
                     this.y = positionVector.y;
-                    this.ballShadow.scale.x = 1;
-                    this.ballShadow.scale.y = 1;
                     this.ballShadow.x = this.x;
                     this.ballShadow.y = this.y;
                     this.p2Body.position = [positionVector.x, positionVector.y];
                     this.p2BodyShadow.position = [positionVector.x, positionVector.y];
+                    if (this.sphere) {
+                        this.handleRotation();
+                    }
                 },
                 enumerable: true,
                 configurable: true
@@ -2981,16 +3038,17 @@ var Pockey;
                 this.moving = true;
             };
             AbstractBall.prototype.reset = function () {
+                console.log(this.name + "se reseteaza mingea!");
                 if (this.ballInPocketAnimationTimeline && this.ballInPocketAnimationTimeline.isActive()) {
                     this.ballInPocketAnimationTimeline.pause();
                     this.ballInPocketAnimationTimeline.kill();
                 }
-                this.alpha = 1;
-                this.scale.x = 1;
-                this.scale.y = 1;
+                if (this.sphere) {
+                    this.sphere.visibility = 1;
+                    this.sphere.setEnabled(true);
+                }
                 this.ballShadow.scale.x = 1;
                 this.ballShadow.scale.y = 1;
-                this.zIndexSwitched = false;
                 this.canBeRemoved = false;
                 this.animationInProgress = false;
                 this.p2Body.velocity[0] = 0;
@@ -3006,36 +3064,11 @@ var Pockey;
                 this.ballShadow.beginFill(0x000000, 0.4);
                 this.ballShadow.drawCircle(this.radius / 4, this.radius / 4, this.radius);
             };
-            AbstractBall.prototype.getBallData = function () {
-                var ballData = {};
-                ballData.x = this.x;
-                ballData.y = this.y;
-                ballData.scaleX = this.scale.x;
-                ballData.scaleY = this.scale.y;
-                ballData.shadowScaleX = this.ballShadow.scale.x;
-                ballData.shadowScaleY = this.ballShadow.scale.y;
-                ballData.zIndexSwitched = this.zIndexSwitched;
-                ballData.visible = this.visible;
-                ballData.alpha = this.alpha;
-                ballData.name = this.name;
-                ballData.parentName = (this.parent) ? this.parent.name : "none";
-                return ballData;
-            };
-            AbstractBall.prototype.setBallData = function (ballData) {
-                this.ballPosition = new Vector2(ballData.x, ballData.y);
-                this.scale.x = ballData.scaleX;
-                this.scale.y = ballData.scaleY;
-                this.ballShadow.scale.x = ballData.shadowScaleX;
-                this.ballShadow.scale.y = ballData.shadowScaleY;
-                this.visible = ballData.visible;
-                this.alpha = ballData.alpha;
-                if (ballData.zIndexSwitched) {
-                    this.ballAnimationHolder.addChildAt(this.ballShadow, 0);
-                    this.ballAnimationHolder.addChild(this);
-                }
+            AbstractBall.prototype.lerp = function (min, max, fraction) {
+                return (max - min) * fraction + min;
             };
             return AbstractBall;
-        }(Sprite));
+        }(PIXI.Container));
         GameModule.AbstractBall = AbstractBall;
     })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
 })(Pockey || (Pockey = {}));
@@ -3117,7 +3150,7 @@ var Pockey;
             PockeySocketMessages.OPPONENT = "PockeySocketMessages." + "OPPONENT";
             PockeySocketMessages.YOUR_TURN = "PockeySocketMessages." + "YOUR_TURN";
             PockeySocketMessages.OPPONENT_SETTINGS = "PockeySocketMessages." + "OPPONENT_SETTINGS";
-            PockeySocketMessages.OPPONENT_RESTART_GAME = "PockeySocketMessages." + "OPPONENT_RESTART_GAME";
+            PockeySocketMessages.OPPONENT_RESTART_ROUND = "PockeySocketMessages." + "OPPONENT_RESTART_ROUND";
             return PockeySocketMessages;
         }());
         Connection.PockeySocketMessages = PockeySocketMessages;
@@ -3134,7 +3167,7 @@ var Pockey;
         var Vector2 = Framework.Utils.Vector2;
         var MouseHandler = Framework.Utils.MouseHandler;
         var SignalsType = Framework.Signals.SignalsType;
-        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        var PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
         var StickType;
         (function (StickType) {
             StickType["Basic"] = "stick_basic.png";
@@ -3170,7 +3203,7 @@ var Pockey;
                 _this.rotationEnabled = false;
                 _this.isActive = false;
                 _this.clickPointRegistered = false;
-                _this.stickPowerFactor = 9.81;
+                _this.stickPowerFactor = 3.8;
                 _this.mouseReleased = false;
                 _this.SetStickSkin(StickType.Default);
                 _this.initialPivotPoint = new Point(_this.texture.width + 8, _this.texture.height / 2);
@@ -3181,11 +3214,34 @@ var Pockey;
             Stick.prototype.SetStickSkin = function (stickType) {
                 this.texture = PIXI.Texture.fromFrame(stickType.toString());
             };
+            Stick.prototype.getStickState = function () {
+                var stickState = {
+                    x: this.x,
+                    y: this.y,
+                    rotation: this.rotation,
+                    pivotX: this.pivot.x,
+                    visible: this.visible
+                };
+                return stickState;
+            };
+            Stick.prototype.setState = function (stickState, duration) {
+                this.x = stickState.x;
+                this.y = stickState.y;
+                this.visible = stickState.visible;
+                this.pivot.x = stickState.pivotX;
+                var time = (duration + 1 / 60) / 2;
+                TweenMax.to(this, time, {
+                    rotation: stickState.rotation,
+                    ease: Linear.easeNone,
+                });
+            };
+            Stick.prototype.hide = function () {
+                TweenMax.to(this, 0.1, { alpha: 0 });
+            };
             Stick.prototype.update = function () {
-                if (!MouseHandler.Instance().left.down)
-                    this.mouseReleased = true;
                 if (this.isActive) {
-                    if (MouseHandler.Instance().left.down && this.mouseReleased) {
+                    if (MouseHandler.Instance().left.down) {
+                        console.log("stick intra la left button down!!!");
                         this.rotationEnabled = false;
                         if (!this.clickPointRegistered) {
                             var localPoint = this.parent.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
@@ -3221,7 +3277,7 @@ var Pockey;
                     else if (this.power == 0) {
                         this.rotationEnabled = true;
                     }
-                    if (this.rotationEnabled && (!MouseHandler.Instance().left.down || !this.mouseReleased)) {
+                    if (this.rotationEnabled && (!MouseHandler.Instance().left.down)) {
                         var localPoint = this.parent.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
                         this.opposite = localPoint.y - this.position.y;
                         this.adjacent = localPoint.x - this.position.x;
@@ -3238,15 +3294,12 @@ var Pockey;
             Stick.prototype.release = function () {
                 this.isActive = false;
                 this.clickPointRegistered = false;
-                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
                 this.shootTimeline.play(0);
             };
             Stick.prototype.reset = function () {
                 this.isActive = false;
                 this.rotationEnabled = false;
                 this.clickPointRegistered = false;
-                if (MouseHandler.Instance().left.down)
-                    this.mouseReleased = false;
             };
             Stick.prototype.GoToStartPosition = function () {
                 this.x = this.startPosition.x;
@@ -3257,6 +3310,7 @@ var Pockey;
                 this.position.y = position.y;
                 this.isActive = true;
                 this.rotationEnabled = true;
+                this.visible = true;
             };
             Stick.prototype.defineShootTimeline = function () {
                 this.shootTimeline = new TimelineLite();
@@ -3271,7 +3325,9 @@ var Pockey;
             };
             Stick.prototype.shoot = function () {
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOOT_BALL);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.SHOOT_BALL }]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundURLS.SHOOT_BALL }]);
+                this.visible = false;
+                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
             };
             Stick.prototype.dist2 = function (v, w) {
                 return (v.x - w.x) * (v.x - w.x) + (v.y - w.y) * (v.y - w.y);
@@ -3352,6 +3408,8 @@ var Pockey;
     var GameModule;
     (function (GameModule) {
         var Vector2 = Framework.Utils.Vector2;
+        var Settings = Framework.Settings;
+        var Sprite = PIXI.Sprite;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var Puck = (function (_super) {
@@ -3362,26 +3420,32 @@ var Pockey;
                 _this.name = "Puck";
                 _this.ballValue = 2;
                 _this.delta += 0.994;
-                _this.mass = 0.3;
+                _this.mass = 0.8;
                 return _this;
             }
             Puck.prototype.worldPreSolveHandler = function () {
-                if (this.speed() < 18)
-                    this.p2Body.velocity = [this.p2Body.velocity[0] * Pockey.PockeySettings.DELTA, this.p2Body.velocity[1] * Pockey.PockeySettings.DELTA];
+            };
+            Puck.prototype.addP2Body = function () {
+                _super.prototype.addP2Body.call(this);
+                this.p2Body.damping = 0.1;
+                this.p2Body.boundingRadius = this.radius;
+                this.p2Body.allowSleep = true;
+                this.p2Body.sleepSpeedLimit = 1;
+                this.p2Body.sleepTimeLimit = 0.07;
             };
             Puck.prototype.getCircleMaterial = function () {
                 return GameModule.P2WorldManager.Instance().getMaterialByID(GameModule.MaterialType.PUCK_MATERIAL);
             };
-            Puck.prototype.changeDefaultTextureName = function () {
-                this.defaultTextureName = "ball-puck.png";
-            };
-            Puck.prototype.updateTexture = function () {
+            Puck.prototype.addTexture = function () {
                 this.radius = 25;
-                _super.prototype.updateTexture.call(this);
+                this.ballTexture = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/balls/puck2.png"));
+                this.ballTexture.pluginName = "picture";
+                this.ballTexture.scale.set(0.5);
+                this.ballTexture.anchor.set(0.5);
+                this.addChild(this.ballTexture);
             };
-            Puck.prototype.animatePocketCollision = function (pocketPosition, newX, newY) {
+            Puck.prototype.animatePocketCollision = function (pocketPosition, newX) {
                 if (newX === void 0) { newX = null; }
-                if (newY === void 0) { newY = null; }
                 var animationSpeed = 1 / this.speed();
                 this.x = pocketPosition.x;
                 TweenMax.to(this, animationSpeed, {
@@ -3390,11 +3454,11 @@ var Pockey;
             };
             Puck.prototype.update = function () {
                 this.moving = this.p2Body.sleepState != p2.Body.SLEEPING;
+                if (!this.moving)
+                    return;
                 if (this.moving && !this.canBeRemoved) {
                     var isCloserToGoal = false;
-                    var goalPosition = new Vector2();
                     var p2BodyPos = new Vector2(this.p2Body.position[0], this.p2Body.position[1]);
-                    var lastDirection = 0;
                     var goalScored = false;
                     var goalType = void 0;
                     if (p2BodyPos.y > this.goalYPosition && p2BodyPos.y < this.goalYPosition + this.goalHeight) {
@@ -3460,10 +3524,13 @@ var Pockey;
                         return;
                     this.x = p2BodyPos.x;
                     this.y = p2BodyPos.y;
-                    this.ballShadow.x = p2BodyPos.x;
-                    this.ballShadow.y = p2BodyPos.y;
+                    if (!isCloserToGoal) {
+                    }
+                    this.ballShadow.x = this.x;
+                    this.ballShadow.y = this.y;
                     this.oldPos.x = this.x;
                     this.oldPos.y = this.y;
+                    this.rotation += this.p2Body.angle - this.p2Body.previousAngle;
                 }
             };
             Puck.prototype.declareAnimationFinished = function () {
@@ -3483,6 +3550,8 @@ var Pockey;
             function WhiteBall() {
                 var _this = _super.call(this) || this;
                 _this.ballWasShot = false;
+                _this._isOnReposition = false;
+                _this._isOnRearrange = false;
                 _this.ballType = GameModule.BallType.White;
                 _this.name = "WhiteBall";
                 return _this;
@@ -3498,6 +3567,33 @@ var Pockey;
                 _super.prototype.onShoot.call(this, rotation, power);
                 this.ballWasShot = true;
             };
+            Object.defineProperty(WhiteBall.prototype, "isOnReposition", {
+                get: function () {
+                    return this._isOnReposition;
+                },
+                set: function (value) {
+                    this._isOnReposition = value;
+                    if (value == true) {
+                        this.sphere.setEnabled(false);
+                        this.ballShadow.alpha = 0;
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(WhiteBall.prototype, "isOnRearrange", {
+                get: function () {
+                    return this._isOnRearrange;
+                },
+                set: function (value) {
+                    this._isOnRearrange = value;
+                    if (value == true) {
+                        this.reset();
+                    }
+                },
+                enumerable: true,
+                configurable: true
+            });
             WhiteBall.prototype.update = function () {
                 _super.prototype.update.call(this);
             };
@@ -3578,22 +3674,22 @@ var Pockey;
             }
             PockeyStateTexts.beginGame = "AIM WITH CURSOR, PRESS & HOLD LEFT MOUSE BUTTON AND DRAG TO SET POWER";
             PockeyStateTexts.beginGameMobile = "TO AIM, TAP OR MOVE OVER THE POOLTABLE. SHOOT BY SELECTING THE POWER ON THE LEFT SIDE";
-            PockeyStateTexts.yourTurnToShoot = "YOUR TURN! SHOOT <opponent>{opponent}'S</opponent> BALLS INTO POCKETS";
-            PockeyStateTexts.ownBallAiming = "<warning>WARNING!</warning> HITTING YOUR OWN BALL FIRST IS A FOUL";
-            PockeyStateTexts.ownBallHit = "<opponent>{opponent}</opponent> FOULED!";
-            PockeyStateTexts.puckAiming = "SHOOT THE PUCK INTO <opponent>{opponent}'S</opponent> GOAL!";
-            PockeyStateTexts.opponentFault = "<opponent>{opponent}</opponent> FOULED! PLACE THE BALL ANYWHERE ON TABLE";
-            PockeyStateTexts.whiteBallFault = "YOU FOULED! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-            PockeyStateTexts.onOwnBallInPocket = "YOU SCORED AN OWN BALL! <opponent>{opponent}’s</opponent> TURN!";
-            PockeyStateTexts.puckOwnGoal = "PUCK WENT INTO YOUR OWN GOAL! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-            PockeyStateTexts.onTimeUp = "YOUR TIME IS UP! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-            PockeyStateTexts.onOpponentsTimeUp = "<opponent>{opponent}</opponent> TIME IS UP! PLACE THE BALL ANYWHERE ON TABLE";
-            PockeyStateTexts.onPuckGoal = "YOU SCORED THE PUCK! -2 HEALTH TO <opponent>{opponent}</opponent>";
-            PockeyStateTexts.noBallScored = "YOU DIDN’T SCORED! <opponent>{opponent}'S</opponent> TURN";
+            PockeyStateTexts.yourTurnToShoot = "YOUR TURN! SHOOT #opponent#{opponent}'S#opponent# BALLS INTO POCKETS";
+            PockeyStateTexts.ownBallAiming = "#warning#WARNING!#warning# HITTING YOUR OWN BALL FIRST IS A FOUL";
+            PockeyStateTexts.ownBallHit = "#opponent#{opponent}#opponent# FOULED!";
+            PockeyStateTexts.puckAiming = "SHOOT THE PUCK INTO #opponent#{opponent}'S#opponent# GOAL!";
+            PockeyStateTexts.opponentFault = "#opponent#{opponent}#opponent# FOULED! PLACE THE BALL ANYWHERE ON TABLE";
+            PockeyStateTexts.whiteBallFault = "YOU FOULED! #opponent#{opponent}#opponent# GETS BALL-IN-HAND";
+            PockeyStateTexts.onOwnBallInPocket = "YOU SCORED AN OWN BALL! #opponent#{opponent}’s#opponent# TURN!";
+            PockeyStateTexts.puckOwnGoal = "PUCK WENT INTO YOUR OWN GOAL! #opponent#{opponent}#opponent# GETS BALL-IN-HAND";
+            PockeyStateTexts.onTimeUp = "YOUR TIME IS UP! #opponent#{opponent}#opponent# GETS BALL-IN-HAND";
+            PockeyStateTexts.onOpponentsTimeUp = "#opponent#{opponent}#opponent# TIME IS UP! PLACE THE BALL ANYWHERE ON TABLE";
+            PockeyStateTexts.onPuckGoal = "YOU SCORED THE PUCK! -2 HEALTH TO #opponent#{opponent}#opponent#";
+            PockeyStateTexts.noBallScored = "YOU DIDN’T SCORED! #opponent#{opponent}'S#opponent# TURN";
             PockeyStateTexts.multipleBallsIn = "YOU MADE A TRICKSHOT! CONGRATS!";
             PockeyStateTexts.ballInPocketViaOtherBall = "YOU MADE A TRICKSHOT! CONGRATS!";
-            PockeyStateTexts.opponentBallInPocket = "<opponent>{opponent}</opponent> POCKETED A BALL AND CAN SHOOT AGAIN!";
-            PockeyStateTexts.opponentsTurn = "<opponent>{opponent}'s</opponent> turn";
+            PockeyStateTexts.opponentBallInPocket = "#opponent#{opponent}#opponent# POCKETED A BALL AND CAN SHOOT AGAIN!";
+            PockeyStateTexts.opponentsTurn = "#opponent#{opponent}'s#opponent# turn";
             return PockeyStateTexts;
         }());
         StateMachineModule.PockeyStateTexts = PockeyStateTexts;
@@ -3605,12 +3701,10 @@ var Pockey;
     (function (GameModule) {
         var Sprite = PIXI.Sprite;
         var Settings = Framework.Settings;
-        var PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
         var Goalie = (function (_super) {
             __extends(Goalie, _super);
             function Goalie(side) {
                 var _this = _super.call(this) || this;
-                _this.yLimit = 50;
                 _this.isGoing = "down";
                 _this.moving = false;
                 _this.goaliePolygonCoord = [
@@ -3668,77 +3762,85 @@ var Pockey;
             Goalie.prototype.setBodyPosition = function () {
                 this.goalieBody.position[0] = this.x;
                 this.goalieBody.position[1] = this.y;
-                this.goalieBody.angle = this.rotation;
                 this.goalieBodyShadow.position[0] = this.x;
                 this.goalieBodyShadow.position[1] = this.y;
-                this.goalieBodyShadow.angle = this.rotation;
             };
             Goalie.prototype.setPosition = function (position) {
                 this.x = position.x;
                 this.y = position.y;
                 this.setBodyPosition();
             };
-            Goalie.prototype.onUpdateUiText = function (params) {
-                if (params[0] == PockeyStateTexts.beginGame) {
-                    this.startMoving();
-                }
-            };
-            Goalie.prototype.addGrToPool = function (parent) {
-                parent.addChild(this.gr);
-            };
-            Goalie.prototype.startMoving = function () {
-                this.moving = true;
-                if (this.isGoing == "down") {
-                    this.startGoDownTween();
-                }
-                else {
-                    this.startGoUpTween();
-                }
-            };
-            Goalie.prototype.startGoDownTween = function () {
-                this.resetTweens();
-                var tweenTime = (this.yLimit - this.y) / (2 * this.yLimit);
-                this.goDownTween = TweenMax.to(this, Math.abs(tweenTime), {
-                    y: this.yLimit,
-                    ease: Linear.easeNone,
-                    onUpdate: this.onGoDownUpdate.bind(this),
-                    onComplete: this.startGoUpTween.bind(this)
-                });
-            };
-            Goalie.prototype.startGoUpTween = function () {
-                this.resetTweens();
-                var tweenTime = (-this.yLimit - this.y) / (2 * this.yLimit);
-                this.goUpTween = TweenMax.to(this, Math.abs(tweenTime), {
-                    y: -this.yLimit,
-                    ease: Linear.easeNone,
-                    onUpdate: this.onGoUpUpdate.bind(this),
-                    onComplete: this.startGoDownTween.bind(this)
-                });
-            };
-            Goalie.prototype.onGoDownUpdate = function () {
-                this.isGoing = "down";
-                this.setBodyPosition();
-            };
-            Goalie.prototype.onGoUpUpdate = function () {
-                this.isGoing = "up";
-                this.setBodyPosition();
-            };
-            Goalie.prototype.resetTweens = function () {
-                this.moving = false;
-                if (this.goUpTween && this.goUpTween.isActive()) {
-                    this.goUpTween.kill();
-                    this.goUpTween = null;
-                }
-                if (this.goDownTween && this.goDownTween.isActive()) {
-                    this.goDownTween.kill();
-                    this.goDownTween = null;
-                }
-                TweenMax.killTweensOf(this);
-            };
             return Goalie;
         }(PIXI.Container));
         GameModule.Goalie = Goalie;
     })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    var Vector2 = Framework.Utils.Vector2;
+    var Circle = PIXI.Circle;
+    var Graphics = PIXI.Graphics;
+    var Pocket = (function (_super) {
+        __extends(Pocket, _super);
+        function Pocket(x, y, radius, finalPoint) {
+            var _this = _super.call(this, x, y, radius) || this;
+            _this.position = new Vector2(x, y);
+            _this.finalPoint = finalPoint;
+            _this.graphics = [];
+            _this.touchPoints = [];
+            var point = new Vector2();
+            var g = new Graphics();
+            var angle;
+            angle = 90 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = 45 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = 0 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = -45 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = -90 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = -135 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = 180 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            angle = 135 * Math.PI / 180;
+            point = new Vector2();
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            _this.touchPoints.push(point);
+            return _this;
+        }
+        Pocket.prototype.addPoints = function (parent) {
+            _.forEach(this.graphics, function (g) {
+                parent.addChild(g);
+            });
+        };
+        return Pocket;
+    }(Circle));
+    Pockey.Pocket = Pocket;
 })(Pockey || (Pockey = {}));
 var Container = PIXI.Container;
 var Pockey;
@@ -3752,16 +3854,12 @@ var Pockey;
         var Rect = Framework.Utils.Rect;
         var Rectangle = PIXI.Rectangle;
         var Settings = Framework.Settings;
+        var Circle = PIXI.Circle;
         var PoolTable = (function (_super) {
             __extends(PoolTable, _super);
             function PoolTable() {
                 var _this = _super.call(this) || this;
                 _this.ballsDistance = 108;
-                _this.playerStartXPos = 736;
-                _this.opponentStartXPos = 1223;
-                _this.mouseXOffset = 0;
-                _this.mouseYOffset = 0;
-                _this.ballCanMove = false;
                 _this.name = "poolTable";
                 _this.createElements();
                 return _this;
@@ -3769,36 +3867,36 @@ var Pockey;
             PoolTable.prototype.createElements = function () {
                 var _this = this;
                 this.balls = [];
-                this.poolTableBackground = new Sprite(PIXI.Texture.fromFrame("table-default.png"));
+                this.poolTableBackground = new Sprite(PIXI.Texture.fromFrame(Settings.desktopAssetsPath + "Images/table_felt.png"));
                 this.poolTableBackground.name = "poolTableBackground";
                 this.poolTableBackground.x = -this.poolTableBackground.width / 2;
                 this.poolTableBackground.y = -this.poolTableBackground.height / 2;
                 this.addChild(this.poolTableBackground);
+                this.shadowsHolder = new Container();
+                this.addChild(this.shadowsHolder);
                 Pockey.PockeySettings.MIDDLE_TABLE_POS = new Vector2(0, 0);
                 Pockey.PockeySettings.MIDDLE_TABLE_LEFT_POS = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x - 244, Pockey.PockeySettings.MIDDLE_TABLE_POS.y);
-                Pockey.PockeySettings.MIDDLE_TABLE_RIGHT_POS = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x + 244, Pockey.PockeySettings.MIDDLE_TABLE_POS.y);
-                this.poolTableOverFrame = new Sprite(PIXI.Texture.fromFrame("table_border-1.png"));
+                Pockey.PockeySettings.MIDDLE_TABLE_RIGHT_POS = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x + 400, Pockey.PockeySettings.MIDDLE_TABLE_POS.y);
+                this.poolTableOverFrame = new Sprite(PIXI.Texture.fromFrame(Settings.desktopAssetsPath + "Images/table_border_01.png"));
                 this.poolTableOverFrame.name = "poolTableOverFrame";
                 this.poolTableOverFrame.x = Pockey.PockeySettings.MIDDLE_TABLE_POS.x - this.poolTableOverFrame.width / 2;
                 this.poolTableOverFrame.y = Pockey.PockeySettings.MIDDLE_TABLE_POS.y - this.poolTableOverFrame.height / 2;
                 this.addChild(this.poolTableOverFrame);
                 this.ballAnimationHolder = new Container();
                 this.addChild(this.ballAnimationHolder);
-                this.poolTableBackgroundBottom = new Sprite(PIXI.Texture.fromFrame(Settings.desktopAssetsPath + "Images/table_bottom.png"));
-                this.poolTableBackgroundBottom.name = "poolTableBackgroundBottom";
-                this.poolTableBackgroundBottom.x = -this.poolTableBackgroundBottom.width / 2;
-                this.poolTableBackgroundBottom.y = -this.poolTableBackgroundBottom.height / 2;
-                this.addChild(this.poolTableBackgroundBottom);
+                this.poolTableBumper = new Sprite(PIXI.Texture.fromFrame(Settings.desktopAssetsPath + "Images/table_bumper.png"));
+                this.poolTableBumper.name = "poolTableBumper";
+                this.poolTableBumper.x = -this.poolTableBumper.width / 2;
+                this.poolTableBumper.y = -this.poolTableBumper.height / 2;
+                this.addChild(this.poolTableBumper);
                 this.playGround = new Rectangle(-970 / 2, -484 / 2, 970, 484);
                 this.setTableLimits();
-                this.addPockets();
+                this.addPocketsAndBlockers();
                 this.decalIcon = new GameModule.Decal();
                 this.decalIcon.name = "decalIcon";
                 this.decalIcon.x = Pockey.PockeySettings.MIDDLE_TABLE_POS.x;
                 this.decalIcon.y = Pockey.PockeySettings.MIDDLE_TABLE_POS.y;
                 this.addChild(this.decalIcon);
-                this.shadowsHolder = new Container();
-                this.addChild(this.shadowsHolder);
                 this.ballsHolder = new Container();
                 this.ballsHolder.name = "ballsHolder";
                 this.addChild(this.ballsHolder);
@@ -3810,7 +3908,8 @@ var Pockey;
                 this.puck.y = Pockey.PockeySettings.MIDDLE_TABLE_POS.y;
                 this.puck.ballPosition = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x, Pockey.PockeySettings.MIDDLE_TABLE_POS.y);
                 this.puck.setWallLimits(this.leftLimit, this.rightLimit, this.upLimit, this.downLimit);
-                this.addBallToBallsHolder(this.puck);
+                this.shadowsHolder.addChild(this.puck.ballShadow);
+                this.ballsHolder.addChild(this.puck);
                 this.balls.push(this.puck);
                 this.rightGoal = new GameModule.PuckGoal("right");
                 this.rightGoal.name = "rightGoal";
@@ -3829,19 +3928,16 @@ var Pockey;
                 this.leftGoalie.rotation = Math.PI;
                 this.leftGoalie.setPosition(new Vector2(-468, 0));
                 this.addChild(this.leftGoalie);
+                this.leftGoalkeeperCircle = new Circle(-510, 0, 100);
+                this.goalkeepersCircles = [];
+                this.goalkeepersCircles.push(this.leftGoalkeeperCircle);
                 this.rightGoalie = new GameModule.Goalie("right");
                 this.rightGoalie.setPosition(new Vector2(468, 0));
                 this.addChild(this.rightGoalie);
-                this.ballPositionCircleOnRaycast = new Container();
-                this.ballPositionCircleOnRaycast.name = "ballPositionCircleOnRaycast";
+                this.rightGoalkeeperCircle = new Circle(510, 0, 100);
+                this.goalkeepersCircles.push(this.rightGoalkeeperCircle);
                 var graphics = new Graphics();
                 graphics.name = "graphics";
-                graphics.lineStyle(4, 0xffffff);
-                graphics.beginFill(0xffffff, 0);
-                graphics.drawCircle(0, 0, Pockey.PockeySettings.BALL_RADIUS + 6);
-                this.ballPositionCircleOnRaycast.addChild(graphics);
-                this.ballPositionCircleOnRaycast.visible = false;
-                this.addChild(this.ballPositionCircleOnRaycast);
                 this.whiteBall = new GameModule.WhiteBall();
                 this.whiteBall.ballAnimationHolder = this.ballAnimationHolder;
                 this.whiteBall.createBallShadow();
@@ -3849,7 +3945,7 @@ var Pockey;
                 this.whiteBall.setWallLimits(this.leftLimit, this.rightLimit, this.upLimit, this.downLimit);
                 this.whiteBall.setPockets(this.pockets);
                 this.balls.push(this.whiteBall);
-                this.addBallToBallsHolder(this.whiteBall);
+                this.shadowsHolder.addChild(this.whiteBall.ballShadow);
                 var ball;
                 this.rightBallsArray = [];
                 this.leftBallsArray = [];
@@ -3864,7 +3960,7 @@ var Pockey;
                     _this.rightBallsArray.push(ball);
                     angle = (id / (Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER / 2)) * Math.PI;
                     ball.ballPosition = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x + (_this.ballsDistance * Math.cos(angle)), Pockey.PockeySettings.MIDDLE_TABLE_POS.y + (_this.ballsDistance * Math.sin(angle)));
-                    _this.addBallToBallsHolder(ball);
+                    _this.shadowsHolder.addChild(ball.ballShadow);
                 });
                 _.forEach(_.range(Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER), function (id) {
                     ball = new GameModule.AbstractBall("left", id.toString());
@@ -3876,44 +3972,7 @@ var Pockey;
                     _this.leftBallsArray.push(ball);
                     angle = (id / (Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER / 2)) * Math.PI + Math.PI / Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
                     ball.ballPosition = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x + (_this.ballsDistance * Math.cos(angle)), Pockey.PockeySettings.MIDDLE_TABLE_POS.y + (_this.ballsDistance * Math.sin(angle)));
-                    _this.addBallToBallsHolder(ball);
-                });
-                this.ballPositionCircle = new Container();
-                this.ballPositionCircle.name = "ballPositionCircle";
-                graphics = new Graphics();
-                graphics.name = "graphics";
-                graphics.lineStyle(3, 0xffffff);
-                graphics.drawCircle(0, 0, Pockey.PockeySettings.BALL_RADIUS);
-                this.ballPositionCircle.addChild(graphics);
-                this.ballPositionCircle.x = 580;
-                this.ballPositionCircle.y = 400;
-                this.ballPositionCircle.visible = false;
-                this.addChild(this.ballPositionCircle);
-                this.raycastFollower = new Sprite();
-                graphics = new Graphics();
-                graphics.name = "graphics";
-                graphics.lineStyle(4, 0xffffff);
-                graphics.beginFill(0xffffff, 0);
-                graphics.drawCircle(0, 0, Pockey.PockeySettings.BALL_RADIUS - 2);
-                graphics.endFill();
-                this.raycastFollower.addChild(graphics);
-                this.raycastFollower.visible = false;
-                this.addChild(this.raycastFollower);
-                this.whiteBallReflectionArrow = new Container();
-                this.otherBallReflectionArrow = new Container();
-                _.forEach([this.whiteBallReflectionArrow, this.otherBallReflectionArrow], function (arrow) {
-                    var g = new Graphics();
-                    g.lineStyle(4, 0xffffff);
-                    var sideLength = 6;
-                    g.moveTo(-sideLength / 2, -sideLength * Math.sqrt(2));
-                    g.lineTo(sideLength, 0.2);
-                    g.moveTo(-sideLength / 2, sideLength * Math.sqrt(2));
-                    g.lineTo(sideLength, -0.2);
-                    arrow.addChild(g);
-                    arrow.x = 200;
-                    arrow.y = 200;
-                    arrow.visible = false;
-                    _this.addChild(arrow);
+                    _this.shadowsHolder.addChild(ball.ballShadow);
                 });
                 if (Settings.isMobile) {
                     this.poolStick = new Pockey.StickMobile();
@@ -3940,42 +3999,38 @@ var Pockey;
                 this.upLimit = this.playGround.y;
                 this.downLimit = this.playGround.y + this.playGround.height;
             };
-            PoolTable.prototype.addBallToBallsHolder = function (ball) {
-                this.ballsHolder.addChild(ball);
-                this.shadowsHolder.addChild(ball.ballShadow);
-            };
-            PoolTable.prototype.addPockets = function () {
-                var rect2A = this.createRectangle(new Rectangle(-494, 0, 20, 380), 0, GameModule.MaterialType.PUCK_ONLY_MATERIAL, 0xff9900, "rect2a");
-                var rect2B = this.createRectangle(new Rectangle(497, 0, 20, 380), 0, GameModule.MaterialType.PUCK_ONLY_MATERIAL, 0xff9900, "rect2b");
-                var rect4A = this.createRectangle(new Rectangle(-492, -250, 20, 58), 0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect4a");
-                var rect4B = this.createRectangle(new Rectangle(492, 250, 20, 58), 0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect4b");
-                var rect5A = this.createRectangle(new Rectangle(492, -250, 20, 58), -0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect5a");
-                var rect5B = this.createRectangle(new Rectangle(-492, 250, 20, 58), -0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect5b");
-                var rect7A = this.createRectangle(new Rectangle(0, -270, 100, 20), 0, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect7a");
-                var rect7B = this.createRectangle(new Rectangle(0, 270, 100, 20), 0, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect7b");
+            PoolTable.prototype.addPocketsAndBlockers = function () {
+                var blocker1 = this.createBlocker(new Rectangle(-494, 0, 20, 380), 0, GameModule.MaterialType.PUCK_ONLY_MATERIAL, 0xff9900, "rect2a");
+                var blocker2 = this.createBlocker(new Rectangle(497, 0, 20, 380), 0, GameModule.MaterialType.PUCK_ONLY_MATERIAL, 0xff9900, "rect2b");
+                var blocker3 = this.createBlocker(new Rectangle(-492, -250, 20, 58), 0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect4a");
+                var blocker4 = this.createBlocker(new Rectangle(492, 250, 20, 58), 0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect4b");
+                var blocker5 = this.createBlocker(new Rectangle(492, -250, 20, 58), -0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect5a");
+                var blocker6 = this.createBlocker(new Rectangle(-492, 250, 20, 58), -0.7853981634, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect5b");
+                var blocker7 = this.createBlocker(new Rectangle(0, -270, 100, 20), 0, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect7a");
+                var blocker8 = this.createBlocker(new Rectangle(0, 270, 100, 20), 0, GameModule.MaterialType.BALL_ONLY_MATERIAL, 0xffff00, "rect7b");
                 this.pockets = [];
-                var pocket1 = new Pockey.Pocket(-497, -254, 28, new Vector2(-438, -200));
+                var pocket1 = new Pockey.Pocket(-497, -254, 26, new Vector2(-438, -200));
                 this.pockets.push(pocket1);
                 pocket1.addPoints(this);
                 var pocket2 = new Pockey.Pocket(0, -264, 26, new Vector2(0, -200));
                 this.pockets.push(pocket2);
                 pocket2.addPoints(this);
-                var pocket3 = new Pockey.Pocket(496, -255, 28, new Vector2(438, -200));
+                var pocket3 = new Pockey.Pocket(496, -255, 26, new Vector2(438, -200));
                 this.pockets.push(pocket3);
                 pocket3.addPoints(this);
-                var pocket4 = new Pockey.Pocket(497, 254, 28, new Vector2(438, 200));
+                var pocket4 = new Pockey.Pocket(497, 254, 26, new Vector2(438, 200));
                 this.pockets.push(pocket4);
                 pocket4.addPoints(this);
                 var pocket5 = new Pockey.Pocket(0, 263, 26, new Vector2(0, 200));
                 this.pockets.push(pocket5);
                 pocket5.addPoints(this);
-                var pocket6 = new Pockey.Pocket(-497, 253, 28, new Vector2(-438, 200));
+                var pocket6 = new Pockey.Pocket(-497, 253, 26, new Vector2(-438, 200));
                 this.pockets.push(pocket6);
                 pocket6.addPoints(this);
             };
             PoolTable.prototype.createUpperCollisionPolygon = function () {
                 var vertices = Pockey.PockeySettings.MAIN_COLLISION_POLYGON.slice(0);
-                var upperCollisionPolygon = new p2.Body({ mass: 0 });
+                var upperCollisionPolygon = new p2.Body({ mass: 0, angularForce: 0, angularVelocity: 0 });
                 GameModule.P2WorldManager.Instance().world.addBody(upperCollisionPolygon);
                 upperCollisionPolygon.fromPolygon(vertices);
                 _.forEach(upperCollisionPolygon.shapes, function (shape) {
@@ -4031,27 +4086,22 @@ var Pockey;
                 this.balls = [];
                 this.whiteBall.reset();
                 this.whiteBall.ballPosition = this.whiteBall.initialPosition;
-                this.addBallToBallsHolder(this.whiteBall);
                 this.balls.push(this.whiteBall);
                 this.puck.reset();
                 this.puck.ballPosition = this.puck.initialPosition;
                 this.balls.push(this.puck);
-                this.addBallToBallsHolder(this.puck);
                 _.forEach(this.leftBallsArray, function (ball) {
                     ball.reset();
                     ball.ballPosition = ball.initialPosition;
                     _this.balls.push(ball);
-                    _this.addBallToBallsHolder(ball);
                 });
                 _.forEach(this.rightBallsArray, function (ball) {
                     ball.reset();
-                    console.log(ball.name);
                     ball.ballPosition = ball.initialPosition;
                     _this.balls.push(ball);
-                    _this.addBallToBallsHolder(ball);
                 });
             };
-            PoolTable.prototype.createRectangle = function (rectangle, rotationAngle, materialType, color, id) {
+            PoolTable.prototype.createBlocker = function (rectangle, rotationAngle, materialType, color, id) {
                 if (color === void 0) { color = 0xffff00; }
                 var rect = new Rect(rectangle, rotationAngle, materialType);
                 return rect;
@@ -4065,23 +4115,73 @@ var Pockey;
 (function (Pockey) {
     var GameModule;
     (function (GameModule) {
+        var GoalkeepersHolder = (function () {
+            function GoalkeepersHolder(leftGoalie, rightGoalie) {
+                this.yLimit = 50;
+                this.movingDirection = 1;
+                this.movingSpeed = 2;
+                this.moving = false;
+                this.y = 0;
+                this.goalies = [];
+                this.goalies.push(leftGoalie);
+                this.goalies.push(rightGoalie);
+            }
+            GoalkeepersHolder.prototype.update = function () {
+                if (this.moving) {
+                    this.y += this.movingDirection * this.movingSpeed;
+                    this.updatePosition();
+                    if (this.y >= this.yLimit || this.y <= -this.yLimit) {
+                        this.movingDirection *= -1;
+                    }
+                }
+            };
+            GoalkeepersHolder.prototype.updatePosition = function () {
+                var _this = this;
+                _.forEach(this.goalies, function (goalie) {
+                    goalie.y = _this.y;
+                    goalie.goalieBody.position[1] = _this.y;
+                    goalie.goalieBodyShadow.position[1] = _this.y;
+                });
+            };
+            GoalkeepersHolder.prototype.startMoving = function () {
+                this.moving = true;
+            };
+            GoalkeepersHolder.prototype.getState = function () {
+                var goalieState = {};
+                goalieState.direction = this.movingDirection;
+                goalieState.speed = this.movingSpeed;
+                goalieState.position = Math.round(this.y * 10000);
+                return goalieState;
+            };
+            GoalkeepersHolder.prototype.setState = function (state, duration) {
+                this.moving = false;
+                this.movingDirection = state.direction;
+                this.y = state.position / 10000;
+                this.updatePosition();
+            };
+            return GoalkeepersHolder;
+        }());
+        GameModule.GoalkeepersHolder = GoalkeepersHolder;
+    })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    var GameModule;
+    (function (GameModule) {
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var Vector2 = Framework.Utils.Vector2;
         var Point = PIXI.Point;
-        var Graphics = PIXI.Graphics;
-        var PixiDashedLine = Framework.Utils.PixiDashedLine;
         var PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
         var PockeyStates = Pockey.StateMachineModule.PockeyStates;
         var MouseHandler = Framework.Utils.MouseHandler;
-        var PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
-        var Settings = Framework.Settings;
         var PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
+        var AbstractEntryPoint = Framework.AbstractEntryPoint;
+        var Vector3 = BABYLON.Vector3;
+        var Color4 = BABYLON.Color4;
         var PoolTableManager = (function () {
             function PoolTableManager() {
                 var _this = this;
-                this.shootingEnded = false;
-                this.hitPoint = p2.vec2.create();
                 this.startRayCastPoint = [0, 0];
                 this.endRayCastPoint = [0, 0];
                 this.raycastResult = new p2.RaycastResult();
@@ -4091,21 +4191,38 @@ var Pockey;
                 });
                 this.repositionWhiteBallEnabled = false;
                 this.contactEnabled = false;
-                this.whiteBallInThePocket = false;
-                this.opponentBallInThePocket = false;
-                this.playerTurnStarted = false;
-                this.ballWasShot = false;
+                this.hitPoint = p2.vec2.create();
+                this.arrowsDeviationLength = 0;
+                this.framesCounter = 0;
+                this.sendPoolDataFrameStep = 6;
+                this.totalSizeOfJson = 0;
+                this.totalSizeOfJsonStringified = 0;
                 this.opponentTimeUp = false;
                 this.repositionStarted = false;
                 this.isFirstShoot = true;
                 this.uiTextOnWatch = "";
-                this.graphColor = 0xffffff;
+                this.firstMessageReceivedOnWatch = false;
+                this.lastTime = 0;
+                this.sendTimes = 0;
+                this.enableUpdateOnWatch = false;
+                this._fpsThresholdInMs = 1000 / 60;
+                this._accumulator = 0;
+                this.t = 0.0;
+                this.dt = 0.01;
+                this.accumulator = 0.0;
+                this.statesCreated = 0;
+                this.statesReceived = 0;
+                this.graphicsHidden = false;
+                this.opponentTimeStates = [];
                 this.registerSignalsHandlers();
+                this.createMeshes();
                 this.poolTable = new GameModule.PoolTable();
                 this.poolTable.visible = false;
                 this.ticker = PIXI.ticker.shared;
                 if (this.poolTable.poolStick)
                     this.ticker.add(this.poolTable.poolStick.update, this.poolTable.poolStick);
+                this.goaliesHolder = new GameModule.GoalkeepersHolder(this.poolTable.leftGoalie, this.poolTable.rightGoalie);
+                this.ticker.add(this.goaliesHolder.update, this.goaliesHolder);
                 _.forEach(this.poolTable.balls, function (ball) {
                     _this.ticker.add(ball.update, ball);
                     ball.addShadowBody();
@@ -4130,7 +4247,73 @@ var Pockey;
                         }
                     }
                 }, this);
+                this.lineBetweenCirclesPoints = [];
+                this.otherBallDirectionPoints = [];
+                this.whiteBallDirectionPoints = [];
+                this.whiteBallDashedPoints = [];
+                this.graphColor = new Color4(1, 1, 1, 1);
+                this.hideBallRayGraphics();
             }
+            PoolTableManager.prototype.createMeshes = function () {
+                this.ballPositionCircleMesh = this.create2Dpoly({ radius: Pockey.PockeySettings.BALL_RADIUS - 2 }, AbstractEntryPoint.scene);
+                this.ballPositionCircleMesh.enableEdgesRendering();
+                this.ballPositionCircleMesh.edgesWidth = 10;
+                this.ballPositionCircleMesh.edgesColor = new BABYLON.Color4(1, 1, 1, 1);
+                this.ballPositionCircleMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                this.ballPositionCircleOnRaycastMesh = this.create2Dpoly({ radius: Pockey.PockeySettings.BALL_RADIUS + 6 }, AbstractEntryPoint.scene);
+                this.ballPositionCircleOnRaycastMesh.enableEdgesRendering();
+                this.ballPositionCircleOnRaycastMesh.edgesWidth = 10;
+                this.ballPositionCircleOnRaycastMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                this.raycastFollowerMesh = this.create2Dpoly({ radius: Pockey.PockeySettings.BALL_RADIUS }, AbstractEntryPoint.scene);
+                this.raycastFollowerMesh.enableEdgesRendering();
+                this.raycastFollowerMesh.edgesWidth = 10;
+                this.raycastFollowerMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                var arrowsPoints = [
+                    new BABYLON.Vector3(0, -10, 0),
+                    new BABYLON.Vector3(0, 0, 0),
+                    new BABYLON.Vector3(-1.7, 0, 0),
+                    new BABYLON.Vector3(10.5, 0, 0)
+                ];
+                this.whiteBallReflectionArrowMesh = BABYLON.Mesh.CreateLines("whiteBallReflectionArrowMesh", arrowsPoints, AbstractEntryPoint.scene);
+                this.whiteBallReflectionArrowMesh.setPivotPoint(new BABYLON.Vector3(0, 0, 0));
+                this.whiteBallReflectionArrowMesh.enableEdgesRendering();
+                this.whiteBallReflectionArrowMesh.edgesWidth = 9;
+                this.whiteBallReflectionArrowMesh.edgesColor = new BABYLON.Color4(1, 1, 1, 1);
+                this.whiteBallReflectionArrowMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                this.otherBallReflectionArrowMesh = BABYLON.Mesh.CreateLines("otherBallReflectionArrowMesh", arrowsPoints, AbstractEntryPoint.scene);
+                this.otherBallReflectionArrowMesh.setPivotPoint(new BABYLON.Vector3(0, 0, 0));
+                this.otherBallReflectionArrowMesh.enableEdgesRendering();
+                this.otherBallReflectionArrowMesh.edgesWidth = 9;
+                this.otherBallReflectionArrowMesh.edgesColor = new BABYLON.Color4(1, 1, 1, 1);
+                this.otherBallReflectionArrowMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                this.whiteBallDirectionMesh = BABYLON.MeshBuilder.CreateLines("whiteBallDirectionMesh", {
+                    points: [Vector3.Zero(), Vector3.Zero()],
+                    updatable: true
+                }, AbstractEntryPoint.scene);
+                this.whiteBallDirectionMesh.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                this.otherBallPostCollisionDirectionMesh = BABYLON.MeshBuilder.CreateLines("otherBallPostCollisionDirectionMesh", {
+                    points: [Vector3.Zero(), Vector3.Zero()],
+                    updatable: true
+                }, AbstractEntryPoint.scene);
+                this.otherBallPostCollisionDirectionMesh.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                this.whiteBallPostCollisionDirectionMesh = BABYLON.MeshBuilder.CreateLines("whiteBallPostCollisionDirectionMesh", {
+                    points: [Vector3.Zero(), Vector3.Zero()],
+                    updatable: true
+                }, AbstractEntryPoint.scene);
+                this.whiteBallPostCollisionDirectionMesh.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                var myPoints = [
+                    new BABYLON.Vector3(0, 100, 10),
+                    new BABYLON.Vector3(100, 0, 10)
+                ];
+                this.whiteBallDashedMesh = BABYLON.MeshBuilder.CreateDashedLines("whiteBallDashedMesh", {
+                    points: myPoints,
+                    dashSize: 3,
+                    gapSize: 3,
+                    dashNb: 4,
+                    updatable: true
+                }, AbstractEntryPoint.scene);
+                this.whiteBallDashedMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+            };
             PoolTableManager.prototype.registerSignalsHandlers = function () {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_POOLTABLE, this.onShowPoolTable.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_POOLTABLE, this.onResetPoolTable.bind(this));
@@ -4138,11 +4321,59 @@ var Pockey;
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS, this.hideBallRayGraphics.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.REACTIVATE_STICK, this.reactivateStick.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOOT_BALL, this.onShoot.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.WATCH, this.onWatch.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.APPLY_POOLTABLE_STATE, this.applyTimeState.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SET_SIDES_TYPE, this.onSetPuckGoalsSides.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, this.onUpdateUITextOnWatch.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CREATE_POOLTABLE_STATE, this.onCreatePoolTableTimeState.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS, this.changeWhiteBallStatus.bind(this));
+            };
+            PoolTableManager.prototype.onCreatePoolTableTimeState = function (params) {
+                var timeState = {};
+                timeState.stickState = this.poolTable.poolStick.getStickState();
+                timeState.whiteBallState = this.poolTable.whiteBall.getState();
+                timeState.ballsStates = [];
+                _.forEach(this.poolTable.balls, function (ball) {
+                    timeState.ballsStates.push(ball.getState());
+                });
+                timeState.goalieState = this.goaliesHolder.getState();
+                timeState.graphicsState = this.createGraphicsState();
+                params[0](timeState);
+            };
+            PoolTableManager.prototype.createGraphicsState = function () {
+                var state = {};
+                state.onReposition = false;
+                state.visible = !this.graphicsHidden;
+                if (!state.visible) {
+                    return state;
+                }
+                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
+                    state.onReposition = true;
+                    state.whiteBallPositionOnReposition = [this.ballPositionCircleMesh.position.x, this.ballPositionCircleMesh.position.y];
+                    return state;
+                }
+                state.graphicsColor = this.graphColor;
+                state.whiteBallPositionOnRayCast = [this.ballPositionCircleOnRaycastMesh.position.x, this.ballPositionCircleOnRaycastMesh.position.y];
+                state.circleFollowerPosition = [this.raycastFollowerMesh.position.x, this.raycastFollowerMesh.position.y];
+                state.lineBetweenCirclesCoordinates = this.lineBetweenCirclesPoints;
+                if (this.otherBallDirectionPoints.length == 0) {
+                    state.otherBallDirectionPoints = [];
+                }
+                else {
+                    state.otherBallDirectionPoints = this.otherBallDirectionPoints;
+                    state.otherBallArrowPositionAndRotation = [this.otherBallReflectionArrowMesh.position.x, this.otherBallReflectionArrowMesh.position.y, this.otherBallReflectionArrowMesh.rotation.z];
+                    state.whiteBallArrowPositionAndRotation = [this.whiteBallReflectionArrowMesh.position.x, this.whiteBallReflectionArrowMesh.position.y, this.whiteBallReflectionArrowMesh.rotation.z];
+                }
+                if (this.whiteBallDirectionPoints.length == 0) {
+                    state.whiteBallDirectionPoints = [];
+                }
+                else {
+                    state.whiteBallDirectionPoints = this.whiteBallDirectionPoints;
+                    state.whiteBallDashedPoints = this.whiteBallDashedPoints;
+                    state.whiteBallArrowPositionAndRotation = [this.whiteBallReflectionArrowMesh.position.x, this.whiteBallReflectionArrowMesh.position.y, this.whiteBallReflectionArrowMesh.rotation.z];
+                }
+                return state;
             };
             PoolTableManager.prototype.onAnimatePuckGoal = function () {
                 if (this.poolTable.leftGoal.type == GameModule.GameManager.Instance().currentPlayer.type) {
@@ -4217,6 +4448,7 @@ var Pockey;
                 this.poolTable.visible = true;
             };
             PoolTableManager.prototype.onResetPoolTable = function () {
+                console.log("intra la p");
                 this.isFirstShoot = true;
                 this.poolTable.reset();
             };
@@ -4225,15 +4457,31 @@ var Pockey;
                 this.contactEnabled = true;
                 var rotation = this.poolTable.poolStick.rotation;
                 _.forEach(this.poolTable.balls, function (ball) {
-                    GameModule.P2WorldManager.Instance().world.removeBody(ball.p2BodyShadow);
-                    ball.p2Body.wakeUp();
+                    if (!ball.canBeRemoved || ball.ballType == GameModule.BallType.White) {
+                        GameModule.P2WorldManager.Instance().world.removeBody(ball.p2BodyShadow);
+                        ball.p2Body.wakeUp();
+                    }
                 });
                 this.poolTable.whiteBall.onShoot(rotation, this.poolTable.poolStick.power);
+                this.poolTable.whiteBall.isOnRearrange = false;
                 this.poolTable.poolStick.power = 0;
                 this.isFirstShoot = false;
             };
             PoolTableManager.prototype.onRepositionWhiteBall = function () {
                 var _this = this;
+                if (!this.poolTable.whiteBall.isOnReposition) {
+                    console.log("intra aicisha");
+                    this.poolTable.whiteBall.isOnReposition = true;
+                }
+                else {
+                    console.log("intra aicisha pe dracu");
+                }
+                this.graphicsHidden = false;
+                if (!this.goaliesHolder.moving)
+                    this.goaliesHolder.moving = true;
+                if (this.ballPositionCircleMesh) {
+                    this.ballPositionCircleMesh.setEnabled(true);
+                }
                 if (this.opponentTimeUp) {
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.onOpponentsTimeUp]);
                 }
@@ -4243,13 +4491,8 @@ var Pockey;
                 if (_.isNull(this.lastGoodRepositionPoint) || _.isUndefined(this.lastGoodRepositionPoint)) {
                     this.lastGoodRepositionPoint = new Vector2();
                 }
-                if (this.graph) {
-                    if (this.graph.parent)
-                        this.graph.parent.removeChild(this.graph);
-                    this.graph.clear();
-                    this.graph = null;
-                }
                 var ballPositionCirclePosition = new Vector2(localPoint.x, localPoint.y);
+                var isInteresectingWithOthers = false;
                 if (ballPositionCirclePosition.x + Pockey.PockeySettings.BALL_RADIUS > this.poolTable.rightLimit)
                     ballPositionCirclePosition.x = this.poolTable.rightLimit - Pockey.PockeySettings.BALL_RADIUS;
                 if (ballPositionCirclePosition.x - Pockey.PockeySettings.BALL_RADIUS < this.poolTable.leftLimit)
@@ -4259,7 +4502,7 @@ var Pockey;
                 if (ballPositionCirclePosition.y - Pockey.PockeySettings.BALL_RADIUS < this.poolTable.upLimit)
                     ballPositionCirclePosition.y = this.poolTable.upLimit + Pockey.PockeySettings.BALL_RADIUS;
                 var ballPosition;
-                _.forEach(this.poolTable.balls, function (ball) {
+                _.forEach(this.poolTable.goalkeepersCircles, function (ball) {
                     ballPosition = new Vector2(ball.x, ball.y);
                     if (ballPositionCirclePosition.distanceTo(ballPosition) < ball.radius + Pockey.PockeySettings.BALL_RADIUS) {
                         var opposite = ballPositionCirclePosition.y - ballPosition.y;
@@ -4267,28 +4510,55 @@ var Pockey;
                         var rotAngle = Math.atan2(opposite, adjacent);
                         ballPositionCirclePosition.x = ballPosition.x + (Pockey.PockeySettings.BALL_RADIUS + ball.radius) * Math.cos(rotAngle);
                         ballPositionCirclePosition.y = ballPosition.y + (Pockey.PockeySettings.BALL_RADIUS + ball.radius) * Math.sin(rotAngle);
-                        var isInteresectingWithOthers_1 = false;
+                    }
+                });
+                _.forEach(this.poolTable.balls, function (ball) {
+                    ballPosition = new Vector2(ball.x, ball.y);
+                    if (ballPositionCirclePosition.distanceTo(ballPosition) < ball.radius + Pockey.PockeySettings.BALL_RADIUS && !ball.canBeRemoved && ball != _this.poolTable.whiteBall) {
+                        var opposite = ballPositionCirclePosition.y - ballPosition.y;
+                        var adjacent = ballPositionCirclePosition.x - ballPosition.x;
+                        var rotAngle = Math.atan2(opposite, adjacent);
+                        ballPositionCirclePosition.x = ballPosition.x + (Pockey.PockeySettings.BALL_RADIUS + ball.radius) * Math.cos(rotAngle);
+                        ballPositionCirclePosition.y = ballPosition.y + (Pockey.PockeySettings.BALL_RADIUS + ball.radius) * Math.sin(rotAngle);
                         _.forEach(_this.poolTable.balls, function (ball2) {
                             if (ball2 != ball) {
                                 var ball2Position = new Vector2(ball2.x, ball2.y);
                                 if (ball2Position.distanceTo(ballPositionCirclePosition) < Pockey.PockeySettings.BALL_RADIUS + ball2.radius) {
-                                    isInteresectingWithOthers_1 = true;
+                                    isInteresectingWithOthers = true;
                                     return;
                                 }
                             }
                         });
-                        if (isInteresectingWithOthers_1) {
-                            ballPositionCirclePosition.x = _this.lastGoodRepositionPoint.x;
-                            ballPositionCirclePosition.y = _this.lastGoodRepositionPoint.y;
-                        }
-                        else {
-                            _this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                            _this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-                        }
                     }
-                    _this.poolTable.ballPositionCircle.x = ballPositionCirclePosition.x;
-                    _this.poolTable.ballPositionCircle.y = ballPositionCirclePosition.y;
-                    _this.poolTable.ballPositionCircle.visible = true;
+                });
+                _.forEach(this.poolTable.goalkeepersCircles, function (ball) {
+                    ballPosition = new Vector2(ball.x, ball.y);
+                    if (ballPositionCirclePosition.distanceTo(ballPosition) < ball.radius + Pockey.PockeySettings.BALL_RADIUS) {
+                        isInteresectingWithOthers = true;
+                        return;
+                    }
+                });
+                if (ballPositionCirclePosition.x + Pockey.PockeySettings.BALL_RADIUS > this.poolTable.rightLimit)
+                    isInteresectingWithOthers = true;
+                if (ballPositionCirclePosition.x - Pockey.PockeySettings.BALL_RADIUS < this.poolTable.leftLimit)
+                    isInteresectingWithOthers = true;
+                if (ballPositionCirclePosition.y + Pockey.PockeySettings.BALL_RADIUS > this.poolTable.downLimit)
+                    isInteresectingWithOthers = true;
+                if (ballPositionCirclePosition.y - Pockey.PockeySettings.BALL_RADIUS < this.poolTable.upLimit)
+                    isInteresectingWithOthers = true;
+                if (isInteresectingWithOthers) {
+                    ballPositionCirclePosition.x = this.lastGoodRepositionPoint.x;
+                    ballPositionCirclePosition.y = this.lastGoodRepositionPoint.y;
+                }
+                else {
+                    this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
+                    this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
+                }
+                this.ballPositionCircleMesh.position.x = ballPositionCirclePosition.x;
+                this.ballPositionCircleMesh.position.y = -ballPositionCirclePosition.y - Pockey.PockeySettings.BABYLON_Y_OFFSET;
+                TweenMax.to(this.ballPositionCircleMesh.position, 0.1, {
+                    x: ballPositionCirclePosition.x,
+                    y: -ballPositionCirclePosition.y - Pockey.PockeySettings.BABYLON_Y_OFFSET
                 });
                 if (MouseHandler.Instance().left.down) {
                     this.repositionStarted = true;
@@ -4296,87 +4566,85 @@ var Pockey;
                 if (this.repositionStarted && !MouseHandler.Instance().left.down) {
                     this.repositionStarted = false;
                     this.repositionWhiteBallEnabled = false;
-                    this.poolTable.ballPositionCircle.visible = false;
+                    this.poolTable.whiteBall.isOnReposition = false;
                     this.poolTable.whiteBall.reset();
                     this.poolTable.whiteBall.ballPosition = ballPositionCirclePosition;
                     this.poolTable.balls.push(this.poolTable.whiteBall);
-                    this.poolTable.addBallToBallsHolder(this.poolTable.whiteBall);
                     SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
                     if (!this.poolTable.poolStick.isActive) {
                         _.forEach(this.poolTable.balls, function (ball) {
                             ball.addShadowBody();
                         });
-                        this.poolTable.raycastFollower.visible = true;
-                        this.poolTable.ballPositionCircleOnRaycast.visible = true;
                         this.poolTable.poolStick.activate(new Point(this.poolTable.whiteBall.x, this.poolTable.whiteBall.y));
                     }
                 }
-                this.sendElementsDataToManager();
             };
             PoolTableManager.prototype.handleCollisions = function () {
-                var _this = this;
-                _.remove(this.poolTable.balls, function (ball) {
-                    if (ball.canBeRemoved && !ball.animationInProgress) {
-                        _this.ticker.remove(ball.update);
-                        ball.removedFromArray = true;
-                    }
-                    return ball.canBeRemoved && !ball.animationInProgress;
-                });
-            };
-            PoolTableManager.prototype.ballInPocketHandler = function (params) {
-                console.log("ball in Pocket: " + params);
-                console.log("la pocket 1: " + this.poolTable.balls.length);
-                console.log("la pocket 2: " + this.poolTable.balls.length);
             };
             PoolTableManager.prototype.hideBallRayGraphics = function () {
-                if (this.graph) {
-                    if (this.graph.parent)
-                        this.graph.parent.removeChild(this.graph);
-                    this.graph.clear();
-                }
-                this.lineBetweenCirclesVisible = false;
-                this.poolTable.whiteBallReflectionArrow.visible = false;
-                this.poolTable.otherBallReflectionArrow.visible = false;
-                this.poolTable.raycastFollower.visible = false;
-                this.poolTable.ballPositionCircleOnRaycast.visible = false;
+                this.ballPositionCircleMesh.setEnabled(false);
+                this.ballPositionCircleOnRaycastMesh.setEnabled(false);
+                this.raycastFollowerMesh.setEnabled(false);
+                console.log("raycastFollowerMesh la hideball gr");
+                this.whiteBallReflectionArrowMesh.setEnabled(false);
+                this.otherBallReflectionArrowMesh.setEnabled(false);
+                if (this.whiteBallDirectionMesh)
+                    this.whiteBallDirectionMesh.setEnabled(false);
+                if (this.otherBallPostCollisionDirectionMesh)
+                    this.otherBallPostCollisionDirectionMesh.setEnabled(false);
+                if (this.whiteBallPostCollisionDirectionMesh)
+                    this.whiteBallPostCollisionDirectionMesh.setEnabled(false);
+                if (this.whiteBallDashedMesh)
+                    this.whiteBallDashedMesh.setEnabled(false);
+                this.graphicsHidden = true;
             };
             PoolTableManager.prototype.update = function () {
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
-                    if (!this.poolTable.leftGoalie.moving)
-                        this.poolTable.leftGoalie.startMoving();
-                    if (!this.poolTable.rightGoalie.moving)
-                        this.poolTable.rightGoalie.startMoving();
                     this.onRepositionWhiteBall();
                     return;
                 }
                 else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onShoot) {
                     if (!this.ballsAreMoving()) {
-                        SignalsManager.DispatchSignal(PockeySignalTypes.NEXT_TURN);
+                        SignalsManager.DispatchSignal(PockeySignalTypes.PREPARE_NEXT_TURN);
                     }
                     else {
                         this.handleCollisions();
-                        this.sendElementsDataToManager();
                     }
                 }
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
+                    this.graphicsHidden = false;
+                    if (!this.goaliesHolder.moving)
+                        this.goaliesHolder.moving = true;
+                    if (!this.poolTable.whiteBall.isOnRearrange) {
+                        this.poolTable.whiteBall.isOnRearrange = true;
+                    }
+                    this.poolTable.whiteBall.ballPosition = new Vector2(this.poolTable.whiteBall.x, this.poolTable.whiteBall.y);
                     if (this.poolTable.poolStick.rotationEnabled) {
-                        if (!this.poolTable.leftGoalie.moving)
-                            this.poolTable.leftGoalie.startMoving();
-                        if (!this.poolTable.rightGoalie.moving)
-                            this.poolTable.rightGoalie.startMoving();
-                        if (this.isFirstShoot) {
-                            SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
+                        if (this.whiteBallDirectionMesh) {
+                            this.whiteBallDirectionMesh.setEnabled(false);
                         }
-                        else {
-                            SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.yourTurnToShoot]);
+                        if (this.whiteBallPostCollisionDirectionMesh) {
+                            this.whiteBallPostCollisionDirectionMesh.setEnabled(false);
                         }
-                        if (this.graph) {
-                            if (this.graph.parent)
-                                this.graph.parent.removeChild(this.graph);
-                            this.graph.clear();
-                            this.graph = null;
+                        if (this.otherBallPostCollisionDirectionMesh) {
+                            this.otherBallPostCollisionDirectionMesh.setEnabled(false);
                         }
-                        this.graph = new Graphics();
+                        if (this.whiteBallDashedMesh) {
+                            this.whiteBallDashedMesh.setEnabled(false);
+                        }
+                        if (this.ballPositionCircleMesh) {
+                            this.ballPositionCircleMesh.setEnabled(false);
+                        }
+                        if (this.raycastFollowerMesh) {
+                            console.log("raycastFollowerMesh la on rearrange");
+                            this.raycastFollowerMesh.setEnabled(true);
+                        }
+                        if (this.ballPositionCircleOnRaycastMesh) {
+                            this.ballPositionCircleOnRaycastMesh.setEnabled(true);
+                            console.log("se enable-uie ce plm");
+                        }
+                        this.whiteBallReflectionArrowMesh.setEnabled(false);
+                        this.otherBallReflectionArrowMesh.setEnabled(false);
                         var localPoint = this.poolTable.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
                         var opposite = localPoint.y - this.poolTable.whiteBall.y;
                         var adjacent = localPoint.x - this.poolTable.whiteBall.x;
@@ -4395,133 +4663,114 @@ var Pockey;
                         GameModule.P2WorldManager.Instance().world.raycast(this.raycastResult, this.rayClosest);
                         this.drawRayResult(this.raycastResult, this.rayClosest);
                     }
-                    this.sendElementsDataToManager();
                 }
             };
-            PoolTableManager.prototype.sendElementsDataToManager = function () {
-                var ballsData = [];
+            PoolTableManager.prototype.applyTimeState = function (params) {
+                var timeState = params[0];
+                var duration = params[1];
+                this.poolTable.poolStick.setState(timeState.stickState, duration);
                 _.forEach(this.poolTable.balls, function (ball) {
-                    ballsData.push(ball.getBallData());
+                    _.forEach(timeState.ballsStates, function (ballState) {
+                        if (ball.name == ballState.name) {
+                            ball.setState(ballState, duration);
+                        }
+                    });
                 });
-                if (!Settings.singlePlayer) {
-                    var poolTableData = {
-                        poolstickPivotX: this.poolTable.poolStick.pivot.x,
-                        poolstickRotation: this.poolTable.poolStick.rotation,
-                        poolstickPositionX: this.poolTable.poolStick.position.x,
-                        poolstickPositionY: this.poolTable.poolStick.position.y,
-                        whiteBallData: this.poolTable.whiteBall.getBallData(),
-                        balls: ballsData,
-                        ballPositionCircleVisible: this.poolTable.ballPositionCircle.visible,
-                        ballPositionCircleX: this.poolTable.ballPositionCircle.x,
-                        ballPositionCircleY: this.poolTable.ballPositionCircle.y,
-                        ballPositionCircleOnRaycastVisible: this.poolTable.ballPositionCircleOnRaycast.visible,
-                        ballPositionCircleOnRaycastX: this.poolTable.ballPositionCircleOnRaycast.x,
-                        ballPositionCircleOnRaycastY: this.poolTable.ballPositionCircleOnRaycast.y,
-                        followerVisible: this.poolTable.raycastFollower.visible,
-                        followerX: this.poolTable.raycastFollower.x,
-                        followerY: this.poolTable.raycastFollower.y,
-                        lineBetweenCirclesVisible: this.lineBetweenCirclesVisible,
-                        lineBetweenCirclesPoints: this.lineBetweenCirclesPoints,
-                        graphColor: this.graphColor,
-                        leftGoalieY: this.poolTable.leftGoalie.y,
-                        rightGoalieY: this.poolTable.rightGoalie.y,
-                    };
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER, [poolTableData]);
-                }
+                this.goaliesHolder.setState(timeState.goalieState, duration);
+                this.applyGraphicsState(timeState.graphicsState);
             };
-            PoolTableManager.prototype.onWatch = function (params) {
-                var _this = this;
-                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
-                    this.onStopAnimatePuckGoal();
-                    var poolTableData = params[0];
-                    if (this.poolTable.leftGoalie.moving)
-                        this.poolTable.leftGoalie.resetTweens();
-                    if (this.poolTable.rightGoalie.moving)
-                        this.poolTable.rightGoalie.resetTweens();
-                    this.poolTable.leftGoalie.y = poolTableData.leftGoalieY;
-                    this.poolTable.rightGoalie.y = poolTableData.rightGoalieY;
-                    if (poolTableData.opponentState == PockeyStates.onShoot) {
-                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.opponentsTurn]);
+            PoolTableManager.prototype.changeWhiteBallStatus = function () {
+                if (this.poolTable.whiteBall.isOnRearrange)
+                    this.poolTable.whiteBall.isOnRearrange = false;
+                if (this.poolTable.whiteBall.isOnReposition)
+                    this.poolTable.whiteBall.isOnReposition = false;
+            };
+            PoolTableManager.prototype.applyGraphicsState = function (state) {
+                if (!state.visible) {
+                    this.hideBallRayGraphics();
+                    return;
+                }
+                else {
+                    if (state.onReposition) {
+                        this.ballPositionCircleMesh.position.x = state.whiteBallPositionOnReposition[0];
+                        this.ballPositionCircleMesh.position.y = state.whiteBallPositionOnReposition[1];
+                        this.ballPositionCircleMesh.setEnabled(true);
                     }
                     else {
-                        if (poolTableData.opponentTimeFinished == true) {
-                            this.opponentTimeUp = true;
-                            SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.onOpponentsTimeUp]);
+                        if (this.ballPositionCircleMesh) {
+                            this.ballPositionCircleMesh.setEnabled(false);
+                        }
+                        this.ballPositionCircleOnRaycastMesh.position.x = state.whiteBallPositionOnRayCast[0];
+                        this.ballPositionCircleOnRaycastMesh.position.y = state.whiteBallPositionOnRayCast[1];
+                        this.ballPositionCircleOnRaycastMesh.edgesColor = state.graphicsColor;
+                        this.ballPositionCircleOnRaycastMesh.setEnabled(true);
+                        this.raycastFollowerMesh.position.x = state.circleFollowerPosition[0];
+                        this.raycastFollowerMesh.position.y = state.circleFollowerPosition[1];
+                        this.raycastFollowerMesh.edgesColor = state.graphicsColor;
+                        if (this.raycastFollowerMesh)
+                            this.raycastFollowerMesh.setEnabled(true);
+                        if (state.lineBetweenCirclesCoordinates.length > 1) {
+                            this.whiteBallDirectionMesh = BABYLON.MeshBuilder.CreateLines("whiteBallDirectionMesh", {
+                                points: [new Vector3(state.lineBetweenCirclesCoordinates[0][0], state.lineBetweenCirclesCoordinates[0][1], 0), new Vector3(state.lineBetweenCirclesCoordinates[1][0], state.lineBetweenCirclesCoordinates[1][1], 0)],
+                                instance: this.whiteBallDirectionMesh
+                            });
+                            this.whiteBallDirectionMesh.enableEdgesRendering();
+                            this.whiteBallDirectionMesh.edgesWidth = 10;
+                            this.whiteBallDirectionMesh.edgesColor = state.graphicsColor;
+                            this.whiteBallDirectionMesh.setEnabled(true);
+                        }
+                        if (this.otherBallPostCollisionDirectionMesh)
+                            this.otherBallPostCollisionDirectionMesh.setEnabled(false);
+                        if (state.otherBallDirectionPoints.length > 1) {
+                            this.otherBallPostCollisionDirectionMesh = BABYLON.MeshBuilder.CreateLines("otherBallPostCollisionDirectionMesh", {
+                                points: [new Vector3(state.otherBallDirectionPoints[0][0], state.otherBallDirectionPoints[0][1], 0), new Vector3(state.otherBallDirectionPoints[1][0], state.otherBallDirectionPoints[1][1], 0)],
+                                instance: this.otherBallPostCollisionDirectionMesh
+                            });
+                            this.otherBallPostCollisionDirectionMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                            this.otherBallPostCollisionDirectionMesh.enableEdgesRendering();
+                            this.otherBallPostCollisionDirectionMesh.edgesWidth = 10;
+                            this.otherBallPostCollisionDirectionMesh.edgesColor = state.graphicsColor;
+                            this.otherBallPostCollisionDirectionMesh.setEnabled(true);
+                            this.otherBallReflectionArrowMesh.position.x = state.otherBallArrowPositionAndRotation[0];
+                            this.otherBallReflectionArrowMesh.position.y = state.otherBallArrowPositionAndRotation[1];
+                            this.otherBallReflectionArrowMesh.rotation.z = state.otherBallArrowPositionAndRotation[2];
+                            this.otherBallReflectionArrowMesh.setEnabled(true);
                         }
                         else {
-                            SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [this.uiTextOnWatch]);
-                            this.opponentTimeUp = false;
+                            this.otherBallReflectionArrowMesh.setEnabled(false);
                         }
-                    }
-                    this.poolTable.poolStick.x = poolTableData.poolstickPositionX;
-                    this.poolTable.poolStick.y = poolTableData.poolstickPositionY;
-                    this.poolTable.poolStick.rotation = poolTableData.poolstickRotation;
-                    this.poolTable.poolStick.reset();
-                    this.poolTable.poolStick.pivot.x = poolTableData.poolstickPivotX;
-                    this.poolTable.poolStick.visible = true;
-                    var ballsData_1 = poolTableData.balls;
-                    var includesWhiteBall_1 = false;
-                    var whiteBallData_1;
-                    _.remove(this.poolTable.balls, function (ball) {
-                        var canBeKept = false;
-                        _.forEach(ballsData_1, function (ballData) {
-                            if (ballData.name == ball.name) {
-                                canBeKept = true;
-                                ball.setBallData(ballData);
-                            }
-                            if (ballData.name == _this.poolTable.whiteBall.name) {
-                                whiteBallData_1 = ballData;
-                                includesWhiteBall_1 = true;
-                            }
-                        });
-                        if (!canBeKept) {
-                            GameModule.P2WorldManager.Instance().world.removeBody(ball.p2Body);
-                            GameModule.P2WorldManager.Instance().world.removeBody(ball.p2BodyShadow);
-                            ball.removed = true;
+                        if (this.whiteBallPostCollisionDirectionMesh)
+                            this.whiteBallPostCollisionDirectionMesh.setEnabled(false);
+                        if (this.whiteBallDashedMesh)
+                            this.whiteBallDashedMesh.setEnabled(false);
+                        if (state.whiteBallDirectionPoints.length > 1) {
+                            this.whiteBallPostCollisionDirectionMesh = BABYLON.MeshBuilder.CreateLines("whiteBallPostCollisionDirectionMesh", {
+                                points: [new Vector3(state.whiteBallDirectionPoints[0][0], state.whiteBallDirectionPoints[0][1], 0), new Vector3(state.whiteBallDirectionPoints[1][0], state.whiteBallDirectionPoints[1][1], 0)],
+                                instance: this.whiteBallPostCollisionDirectionMesh
+                            });
+                            this.whiteBallPostCollisionDirectionMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                            this.whiteBallPostCollisionDirectionMesh.enableEdgesRendering();
+                            this.whiteBallPostCollisionDirectionMesh.edgesWidth = 10;
+                            this.whiteBallPostCollisionDirectionMesh.edgesColor = state.graphicsColor;
+                            this.whiteBallPostCollisionDirectionMesh.setEnabled(true);
+                            this.whiteBallDashedMesh = BABYLON.MeshBuilder.CreateDashedLines("whiteBallDashedMesh", {
+                                points: [new Vector3(state.whiteBallDashedPoints[0][0], state.whiteBallDashedPoints[0][1], 0), new Vector3(state.whiteBallDashedPoints[1][0], state.whiteBallDashedPoints[1][1], 0)],
+                                instance: this.whiteBallDashedMesh
+                            });
+                            this.whiteBallDashedMesh.enableEdgesRendering();
+                            this.whiteBallDashedMesh.edgesWidth = 10;
+                            this.whiteBallDashedMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                            this.whiteBallDashedMesh.edgesColor = state.graphicsColor;
+                            this.whiteBallDashedMesh.setEnabled(true);
+                            this.whiteBallDashedMesh.setEnabled(true);
+                            this.whiteBallReflectionArrowMesh.position.x = state.whiteBallArrowPositionAndRotation[0];
+                            this.whiteBallReflectionArrowMesh.position.y = state.whiteBallArrowPositionAndRotation[1];
+                            this.whiteBallReflectionArrowMesh.rotation.z = state.whiteBallArrowPositionAndRotation[2];
+                            this.whiteBallReflectionArrowMesh.setEnabled(true);
                         }
-                        return ball.removed;
-                    });
-                    if (includesWhiteBall_1 && !_.includes(this.poolTable.balls, this.poolTable.whiteBall)) {
-                        this.poolTable.whiteBall.setBallData(whiteBallData_1);
-                        this.poolTable.whiteBall.reset();
-                        this.poolTable.addBallToBallsHolder(this.poolTable.whiteBall);
-                        this.poolTable.balls.push(this.poolTable.whiteBall);
-                    }
-                    this.graphColor = poolTableData.graphColor;
-                    this.poolTable.raycastFollower.visible = poolTableData.followerVisible;
-                    if (this.poolTable.raycastFollower.visible) {
-                        if (this.poolTable.raycastFollower.getChildByName("graphics")) {
-                            this.poolTable.raycastFollower.getChildByName("graphics").tint = this.graphColor;
+                        else {
+                            this.whiteBallReflectionArrowMesh.setEnabled(false);
                         }
-                        this.poolTable.raycastFollower.x = poolTableData.followerX;
-                        this.poolTable.raycastFollower.y = poolTableData.followerY;
-                    }
-                    this.poolTable.ballPositionCircle.visible = poolTableData.ballPositionCircleVisible;
-                    if (this.poolTable.ballPositionCircle.visible) {
-                        this.poolTable.ballPositionCircle.x = poolTableData.ballPositionCircleX;
-                        this.poolTable.ballPositionCircle.y = poolTableData.ballPositionCircleY;
-                    }
-                    this.poolTable.ballPositionCircleOnRaycast.visible = poolTableData.ballPositionCircleOnRaycastVisible;
-                    if (this.poolTable.ballPositionCircleOnRaycast.visible) {
-                        if (this.poolTable.ballPositionCircleOnRaycast.getChildByName("graphics")) {
-                            this.poolTable.ballPositionCircleOnRaycast.getChildByName("graphics").tint = this.graphColor;
-                        }
-                        this.poolTable.ballPositionCircleOnRaycast.x = poolTableData.ballPositionCircleOnRaycastX;
-                        this.poolTable.ballPositionCircleOnRaycast.y = poolTableData.ballPositionCircleOnRaycastY;
-                    }
-                    if (this.graph) {
-                        if (this.graph.parent)
-                            this.graph.parent.removeChild(this.graph);
-                        this.graph.clear();
-                        this.graph = null;
-                    }
-                    this.lineBetweenCirclesVisible = poolTableData.lineBetweenCirclesVisible;
-                    if (this.lineBetweenCirclesVisible) {
-                        this.graph = new Graphics();
-                        this.graph.lineStyle(4, this.graphColor);
-                        this.graph.moveTo(poolTableData.lineBetweenCirclesPoints[0], poolTableData.lineBetweenCirclesPoints[1]);
-                        this.graph.lineTo(poolTableData.lineBetweenCirclesPoints[2], poolTableData.lineBetweenCirclesPoints[3]);
-                        this.poolTable.addChild(this.graph);
                     }
                 }
             };
@@ -4548,14 +4797,11 @@ var Pockey;
                 result.getHitPoint(this.hitPoint, ray);
                 if (result.hasHit()) {
                     var defaultColor = 0xffffff;
-                    this.graphColor = defaultColor;
-                    this.poolTable.raycastFollower.visible = true;
-                    if (this.poolTable.raycastFollower.getChildByName("graphics")) {
-                        this.poolTable.raycastFollower.getChildByName("graphics").tint = defaultColor;
-                    }
-                    if (this.poolTable.ballPositionCircleOnRaycast.getChildByName("graphics")) {
-                        this.poolTable.ballPositionCircleOnRaycast.getChildByName("graphics").tint = defaultColor;
-                    }
+                    var hexDefaultColor = new Color4(1, 1, 1, 1);
+                    this.graphColor = hexDefaultColor;
+                    this.otherBallDirectionPoints = [];
+                    this.whiteBallDirectionPoints = [];
+                    this.whiteBallDashedPoints = [];
                     var hitPoint = new Vector2(this.hitPoint[0], this.hitPoint[1]);
                     var rayFrom = new Vector2(ray.from[0], ray.from[1]);
                     var opposite = ray.from[1] - this.hitPoint[1];
@@ -4567,26 +4813,45 @@ var Pockey;
                     rayCastLineEnd.y += hitPoint.y;
                     rayCastLineStart.x = ray.from[0] - (Pockey.PockeySettings.BALL_RADIUS + 4) * Math.cos(raycastAngle);
                     rayCastLineStart.y = ray.from[1] - (Pockey.PockeySettings.BALL_RADIUS + 4) * Math.sin(raycastAngle);
-                    this.graph.lineStyle(4, defaultColor);
-                    this.graph.moveTo(rayCastLineEnd.x, rayCastLineEnd.y);
-                    this.graph.lineTo(rayCastLineStart.x, rayCastLineStart.y);
-                    this.graph.tint = defaultColor;
-                    this.lineBetweenCirclesVisible = true;
-                    this.lineBetweenCirclesPoints = [rayCastLineStart.x, rayCastLineStart.y, rayCastLineEnd.x, rayCastLineEnd.y];
-                    this.poolTable.raycastFollower.x = hitPoint.x;
-                    this.poolTable.raycastFollower.y = hitPoint.y;
-                    this.poolTable.ballPositionCircleOnRaycast.x = rayFrom.x;
-                    this.poolTable.ballPositionCircleOnRaycast.y = rayFrom.y;
-                    this.poolTable.whiteBallReflectionArrow.visible = false;
-                    this.poolTable.otherBallReflectionArrow.visible = false;
-                    this.poolTable.ballPositionCircleOnRaycast.visible = true;
+                    this.lineBetweenCirclesPoints = [[rayCastLineEnd.x, -rayCastLineEnd.y - Pockey.PockeySettings.BABYLON_Y_OFFSET], [rayCastLineStart.x, -rayCastLineStart.y - Pockey.PockeySettings.BABYLON_Y_OFFSET]];
+                    var lineLength = this.poolTable.whiteBall.ballPosition.distanceTo(hitPoint);
+                    if (lineLength > Pockey.PockeySettings.BALL_RADIUS * 2) {
+                        this.whiteBallDirectionMesh = BABYLON.MeshBuilder.CreateLines("lines", {
+                            points: [new Vector3(this.lineBetweenCirclesPoints[0][0], this.lineBetweenCirclesPoints[0][1], 0),
+                                new Vector3(this.lineBetweenCirclesPoints[1][0], this.lineBetweenCirclesPoints[1][1], 0)],
+                            instance: this.whiteBallDirectionMesh
+                        });
+                        this.whiteBallDirectionMesh.enableEdgesRendering();
+                        this.whiteBallDirectionMesh.edgesWidth = 10;
+                        this.whiteBallDirectionMesh.setEnabled(true);
+                    }
+                    if (this.whiteBallDirectionMesh)
+                        this.whiteBallDirectionMesh.edgesColor = hexDefaultColor;
+                    this.raycastFollowerMesh.edgesColor = hexDefaultColor;
+                    this.ballPositionCircleOnRaycastMesh.edgesColor = hexDefaultColor;
+                    this.raycastFollowerMesh.position.x = hitPoint.x;
+                    this.raycastFollowerMesh.position.y = -hitPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET;
+                    this.ballPositionCircleOnRaycastMesh.position.x = rayFrom.x;
+                    this.ballPositionCircleOnRaycastMesh.position.y = -rayFrom.y - Pockey.PockeySettings.BABYLON_Y_OFFSET;
                     if (!_.isNull(result.shape.radius) && !_.isUndefined(result.shape.radius)) {
                         var isOwnBall = this.checkIfOwnShadow(result.body);
                         if (isOwnBall) {
-                            defaultColor = 0xca384d;
+                            hexDefaultColor = this.HexToRGB("ca384d");
+                            this.graphColor = hexDefaultColor;
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.ownBallAiming]);
                         }
-                        this.graphColor = defaultColor;
+                        else {
+                            if (this.isFirstShoot) {
+                                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
+                            }
+                            else {
+                                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.yourTurnToShoot]);
+                            }
+                        }
+                        if (this.whiteBallDirectionMesh)
+                            this.whiteBallDirectionMesh.edgesColor = hexDefaultColor;
+                        this.raycastFollowerMesh.edgesColor = hexDefaultColor;
+                        this.ballPositionCircleOnRaycastMesh.edgesColor = hexDefaultColor;
                         var isPuck = this.checkIfPuck(result.body);
                         if (isPuck) {
                             this.onAnimatePuckGoal();
@@ -4594,13 +4859,6 @@ var Pockey;
                         }
                         else {
                             this.onStopAnimatePuckGoal();
-                        }
-                        this.graph.tint = defaultColor;
-                        if (this.poolTable.raycastFollower.getChildByName("graphics")) {
-                            this.poolTable.raycastFollower.getChildByName("graphics").tint = defaultColor;
-                        }
-                        if (this.poolTable.ballPositionCircleOnRaycast.getChildByName("graphics")) {
-                            this.poolTable.ballPositionCircleOnRaycast.getChildByName("graphics").tint = defaultColor;
                         }
                         var startPoint = void 0;
                         var endPoint = void 0;
@@ -4612,7 +4870,7 @@ var Pockey;
                         var relativeVelocity = new Vector2(this.hitPoint[0] - result.body.position[0], this.hitPoint[1] - result.body.position[1]);
                         var length_1 = tangentVector.dot(relativeVelocity);
                         var cotangentVector = relativeVelocity.substract(tangentVector.multiply(length_1)).normalise();
-                        var directionLength = 85;
+                        var directionLength = 18;
                         var distanceToTheOtherBall = new Vector2(this.hitPoint[0] - Math.cos(raycastAngle) * Pockey.PockeySettings.BALL_RADIUS, this.hitPoint[1] - Math.sin(raycastAngle) * Pockey.PockeySettings.BALL_RADIUS)
                             .distanceTo(new Vector2(result.body.position[0], result.body.position[1]));
                         if (distanceToTheOtherBall > Pockey.PockeySettings.BALL_RADIUS + result.shape.radius / 2) {
@@ -4620,48 +4878,73 @@ var Pockey;
                         }
                         var arrowScaleFactor = (1 - ((result.shape.radius / 2) / distanceToTheOtherBall)) / 0.5;
                         arrowScaleFactor = Math.round(arrowScaleFactor * 1000) / 1000;
+                        this.arrowsDeviationLength = Pockey.PockeySettings.BALL_RADIUS * 2 - this.calculateDeviation(new Vector2(hitPoint.x, hitPoint.y), new Vector2(this.poolTable.whiteBall.position.x, this.poolTable.whiteBall.y), new Vector2(result.body.position[0], result.body.position[1]));
+                        var whiteBallArrowAngleCorrection = 1;
                         if (arrowScaleFactor > 0.03 && !isOwnBall) {
-                            var whiteBallArrowAngleCorrection = 1;
-                            startPoint = new Vector2(this.hitPoint[0] - (Pockey.PockeySettings.BALL_RADIUS * whiteBallArrowAngleCorrection * tangentVector.x), this.hitPoint[1] - (Pockey.PockeySettings.BALL_RADIUS * whiteBallArrowAngleCorrection * tangentVector.y));
-                            var opposedStartPoint = new Vector2(this.hitPoint[0] + (Pockey.PockeySettings.BALL_RADIUS * whiteBallArrowAngleCorrection * tangentVector.x), this.hitPoint[1] + (Pockey.PockeySettings.BALL_RADIUS * whiteBallArrowAngleCorrection * tangentVector.y));
+                            startPoint = new Vector2(this.hitPoint[0] - (Pockey.PockeySettings.BALL_RADIUS * tangentVector.x), this.hitPoint[1] - (Pockey.PockeySettings.BALL_RADIUS * tangentVector.y));
+                            var opposedStartPoint = new Vector2(this.hitPoint[0] + (Pockey.PockeySettings.BALL_RADIUS * tangentVector.x), this.hitPoint[1] + (Pockey.PockeySettings.BALL_RADIUS * tangentVector.y));
                             if (startPoint.distanceTo(rayCastLineEnd) <= opposedStartPoint.distanceTo(rayCastLineEnd)) {
                                 startPoint = opposedStartPoint;
                                 whiteBallArrowAngleCorrection = -1;
                             }
-                            directionLength = 68;
-                            endPoint = new Vector2(startPoint.x - whiteBallArrowAngleCorrection * tangentVector.x * directionLength / 3 * arrowScaleFactor, startPoint.y - whiteBallArrowAngleCorrection * tangentVector.y * directionLength / 3 * arrowScaleFactor);
-                            this.graph.lineStyle(4, 0xffffff);
-                            this.graph.moveTo(startPoint.x, startPoint.y);
-                            this.graph.lineTo(endPoint.x, endPoint.y);
+                            opposite = startPoint.x - hitPoint.x;
+                            adjacent = startPoint.y - hitPoint.y;
+                            raycastAngle = Math.atan2(opposite, adjacent) + whiteBallArrowAngleCorrection * (this.arrowsDeviationLength / 3.38) * Math.PI / 180;
+                            startPoint = new Vector2(hitPoint.x + Math.sin(raycastAngle) * Pockey.PockeySettings.BALL_RADIUS, hitPoint.y + Math.cos(raycastAngle) * Pockey.PockeySettings.BALL_RADIUS);
+                            endPoint = new Vector2(startPoint.x + Math.sin(raycastAngle) * (Pockey.PockeySettings.BALL_RADIUS * arrowScaleFactor), startPoint.y + Math.cos(raycastAngle) * (Pockey.PockeySettings.BALL_RADIUS * arrowScaleFactor));
+                            this.whiteBallDirectionPoints = [[startPoint.x, -startPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET], [endPoint.x, -endPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET]];
+                            this.whiteBallPostCollisionDirectionMesh = BABYLON.MeshBuilder.CreateLines("whiteBallPostCollisionDirectionMesh", {
+                                points: [new Vector3(this.whiteBallDirectionPoints[0][0], this.whiteBallDirectionPoints[0][1], 0), new Vector3(this.whiteBallDirectionPoints[1][0], this.whiteBallDirectionPoints[1][1], 0)],
+                                instance: this.whiteBallPostCollisionDirectionMesh
+                            });
+                            this.whiteBallPostCollisionDirectionMesh.enableEdgesRendering();
+                            this.whiteBallPostCollisionDirectionMesh.edgesWidth = 10;
+                            this.whiteBallPostCollisionDirectionMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                            this.whiteBallPostCollisionDirectionMesh.edgesColor = hexDefaultColor;
+                            this.whiteBallPostCollisionDirectionMesh.setEnabled(true);
                             startPoint.x = endPoint.x;
                             startPoint.y = endPoint.y;
-                            endPoint.x -= whiteBallArrowAngleCorrection * tangentVector.x * directionLength * 2 / 3 * arrowScaleFactor;
-                            endPoint.y -= whiteBallArrowAngleCorrection * tangentVector.y * directionLength * 2 / 3 * arrowScaleFactor;
-                            var dottedLineArrowPoint_1 = PixiDashedLine.drawDashedLine(this.graph, startPoint.x, startPoint.y, endPoint.x, endPoint.y, 1, 0, 0xffffff, 4, 1);
-                            directionLength = 85;
-                            this.poolTable.whiteBallReflectionArrow.x = dottedLineArrowPoint_1.x;
-                            this.poolTable.whiteBallReflectionArrow.y = dottedLineArrowPoint_1.y;
-                            this.poolTable.whiteBallReflectionArrow.rotation = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x);
-                            this.poolTable.whiteBallReflectionArrow.visible = true;
+                            endPoint.x += Math.sin(raycastAngle) * (directionLength + 10);
+                            endPoint.y += Math.cos(raycastAngle) * (directionLength + 10);
+                            this.whiteBallDashedPoints = [[startPoint.x, -startPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET], [endPoint.x, -endPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET]];
+                            this.whiteBallDashedMesh = BABYLON.MeshBuilder.CreateDashedLines("whiteBallDashedMesh", {
+                                points: [new Vector3(this.whiteBallDashedPoints[0][0], this.whiteBallDashedPoints[0][1], 0), new Vector3(this.whiteBallDashedPoints[1][0], this.whiteBallDashedPoints[1][1], 0)],
+                                instance: this.whiteBallDashedMesh
+                            });
+                            this.whiteBallDashedMesh.enableEdgesRendering();
+                            this.whiteBallDashedMesh.edgesWidth = 10;
+                            this.whiteBallDashedMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                            this.whiteBallDashedMesh.edgesColor = hexDefaultColor;
+                            this.whiteBallDashedMesh.setEnabled(true);
+                            endPoint.x += Math.sin(raycastAngle) * 5;
+                            endPoint.y += Math.cos(raycastAngle) * 5;
+                            this.whiteBallReflectionArrowMesh.position.x = endPoint.x;
+                            this.whiteBallReflectionArrowMesh.position.y = -endPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET;
+                            this.whiteBallReflectionArrowMesh.rotation.z = -Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x) - 135 * Math.PI / 180;
+                            this.whiteBallReflectionArrowMesh.setEnabled(true);
                         }
-                        if ((1 - arrowScaleFactor) > 0.02 && !isOwnBall) {
+                        if ((1 - arrowScaleFactor) > 0.01 && !isOwnBall) {
                             startPoint = new Vector2(this.hitPoint[0] - (Pockey.PockeySettings.BALL_RADIUS * cotangentVector.x), this.hitPoint[1] - (Pockey.PockeySettings.BALL_RADIUS * cotangentVector.y));
-                            endPoint = new Vector2(startPoint.x - cotangentVector.x * directionLength / 3 * (1 - arrowScaleFactor), startPoint.y - cotangentVector.y * directionLength / 3 * (1 - arrowScaleFactor));
-                            this.graph.lineStyle(4, 0xffffff);
-                            this.graph.moveTo(startPoint.x, startPoint.y);
-                            this.graph.lineTo(endPoint.x, endPoint.y);
-                            startPoint.x = endPoint.x;
-                            startPoint.y = endPoint.y;
-                            endPoint.x -= cotangentVector.x * directionLength * 2 / 3 * (1 - arrowScaleFactor);
-                            endPoint.y -= cotangentVector.y * directionLength * 2 / 3 * (1 - arrowScaleFactor);
-                            dottedLineArrowPoint = PixiDashedLine.drawDottedLine(this.graph, startPoint.x, startPoint.y, endPoint.x, endPoint.y, 1, 10, 0xffffff, 1);
-                            this.poolTable.otherBallReflectionArrow.x = dottedLineArrowPoint.x;
-                            this.poolTable.otherBallReflectionArrow.y = dottedLineArrowPoint.y;
-                            this.poolTable.otherBallReflectionArrow.rotation = Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x);
-                            this.poolTable.otherBallReflectionArrow.visible = true;
+                            endPoint = new Vector2(startPoint.x - cotangentVector.x * (Pockey.PockeySettings.BALL_RADIUS * 2 + 6 + directionLength * (1 - arrowScaleFactor)), startPoint.y - cotangentVector.y * (Pockey.PockeySettings.BALL_RADIUS * 2 + 6 + directionLength * (1 - arrowScaleFactor)));
+                            this.otherBallDirectionPoints = [[startPoint.x, -startPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET], [endPoint.x, -endPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET, 0]];
+                            this.otherBallPostCollisionDirectionMesh = BABYLON.MeshBuilder.CreateLines("otherBallPostCollisionDirectionMesh", {
+                                points: [new Vector3(this.otherBallDirectionPoints[0][0], this.otherBallDirectionPoints[0][1], 0), new Vector3(this.otherBallDirectionPoints[1][0], this.otherBallDirectionPoints[1][1], 0)],
+                                instance: this.otherBallPostCollisionDirectionMesh
+                            });
+                            this.otherBallPostCollisionDirectionMesh.enableEdgesRendering();
+                            this.otherBallPostCollisionDirectionMesh.edgesWidth = 10;
+                            this.otherBallPostCollisionDirectionMesh.position.z = -Pockey.PockeySettings.BALL_RADIUS * 2;
+                            this.otherBallPostCollisionDirectionMesh.edgesColor = hexDefaultColor;
+                            this.otherBallPostCollisionDirectionMesh.setEnabled(true);
+                            this.otherBallReflectionArrowMesh.position.x = endPoint.x;
+                            this.otherBallReflectionArrowMesh.position.y = -endPoint.y - Pockey.PockeySettings.BABYLON_Y_OFFSET;
+                            this.otherBallReflectionArrowMesh.rotation.z = -Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x) - 135 * Math.PI / 180;
+                            this.otherBallReflectionArrowMesh.setEnabled(true);
                         }
                     }
-                    this.poolTable.addChild(this.graph);
+                    else {
+                        this.onStopAnimatePuckGoal();
+                    }
                 }
             };
             ;
@@ -4679,10 +4962,10 @@ var Pockey;
             };
             PoolTableManager.prototype.reactivateStick = function () {
                 _.forEach(this.poolTable.balls, function (ball) {
-                    ball.addShadowBody();
+                    if (!ball.canBeRemoved) {
+                        ball.addShadowBody();
+                    }
                 });
-                this.poolTable.raycastFollower.visible = true;
-                this.poolTable.ballPositionCircleOnRaycast.visible = true;
                 this.poolTable.poolStick.activate(this.poolTable.whiteBall.position);
             };
             PoolTableManager.prototype.checkIfOwnShadow = function (body) {
@@ -4712,6 +4995,63 @@ var Pockey;
                 });
                 return isOwnBall;
             };
+            PoolTableManager.prototype.calculateDeviation = function (point, firstSegmentPoint, secondSegmentPoint) {
+                var x = point.x;
+                var y = point.y;
+                var x1 = firstSegmentPoint.x;
+                var y1 = firstSegmentPoint.y;
+                var x2 = secondSegmentPoint.x;
+                var y2 = secondSegmentPoint.y;
+                var A = x - x1;
+                var B = y - y1;
+                var C = x2 - x1;
+                var D = y2 - y1;
+                var dot = A * C + B * D;
+                var len_sq = C * C + D * D;
+                var param = -1;
+                if (len_sq != 0)
+                    param = dot / len_sq;
+                var xx, yy;
+                if (param < 0) {
+                    xx = x1;
+                    yy = y1;
+                }
+                else if (param > 1) {
+                    xx = x2;
+                    yy = y2;
+                }
+                else {
+                    xx = x1 + param * C;
+                    yy = y1 + param * D;
+                }
+                var dx = x - xx;
+                var dy = y - yy;
+                return Math.sqrt(dx * dx + dy * dy);
+            };
+            PoolTableManager.prototype.distToSegmentSquared = function (point, firstSegmentPoint, secondSegmentPoint) {
+                var l2 = firstSegmentPoint.distanceTo(secondSegmentPoint);
+                if (l2 == 0)
+                    return point.distanceTo(firstSegmentPoint);
+                var t = ((point.x - firstSegmentPoint.x) * (secondSegmentPoint.x - firstSegmentPoint.x) + (point.y - firstSegmentPoint.y) * (secondSegmentPoint.y - firstSegmentPoint.y)) / l2;
+                t = Math.max(0, Math.min(1, t));
+                return point.distanceTo(new Vector2(firstSegmentPoint.x + t * (secondSegmentPoint.x - firstSegmentPoint.x), firstSegmentPoint.y + t * (secondSegmentPoint.y - firstSegmentPoint.y)));
+            };
+            PoolTableManager.prototype.HexToRGB = function (hex) {
+                var r = parseInt(hex.substring(0, 2), 16) / 255;
+                var g = parseInt(hex.substring(2, 4), 16) / 255;
+                var b = parseInt(hex.substring(4, 6), 16) / 255;
+                return new BABYLON.Color4(r, g, b, 1);
+            };
+            PoolTableManager.prototype.create2Dpoly = function (options, scene) {
+                var pos;
+                var points = [];
+                var disc = BABYLON.VertexData.CreateDisc(options);
+                pos = disc.positions;
+                for (var i = 1; i < disc.positions.length / 3; i++) {
+                    points.push(new BABYLON.Vector3(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2]));
+                }
+                return BABYLON.MeshBuilder.CreateLines("circle", { points: points }, scene);
+            };
             return PoolTableManager;
         }());
         GameModule.PoolTableManager = PoolTableManager;
@@ -4726,7 +5066,6 @@ var Pockey;
         var PockeyStates = Pockey.StateMachineModule.PockeyStates;
         var PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
         var Point = PIXI.Point;
-        var Graphics = PIXI.Graphics;
         var Vector2 = Framework.Utils.Vector2;
         var TouchHandler = Framework.Utils.TouchHandler;
         var PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
@@ -4748,28 +5087,19 @@ var Pockey;
             };
             PoolTableManagerMobile.prototype.update = function () {
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
-                    if (!this.poolTable.leftGoalie.moving)
-                        this.poolTable.leftGoalie.startMoving();
-                    if (!this.poolTable.rightGoalie.moving)
-                        this.poolTable.rightGoalie.startMoving();
                     this.onRepositionWhiteBall();
                     return;
                 }
                 else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onShoot) {
                     if (!this.ballsAreMoving()) {
-                        SignalsManager.DispatchSignal(PockeySignalTypes.NEXT_TURN);
+                        SignalsManager.DispatchSignal(PockeySignalTypes.PREPARE_NEXT_TURN);
                     }
                     else {
                         this.handleCollisions();
-                        this.sendElementsDataToManager();
                     }
                 }
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
                     if (this.poolTable.poolStick.rotationEnabled) {
-                        if (!this.poolTable.leftGoalie.moving)
-                            this.poolTable.leftGoalie.startMoving();
-                        if (!this.poolTable.rightGoalie.moving)
-                            this.poolTable.rightGoalie.startMoving();
                         if (this.isFirstShoot) {
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
                         }
@@ -4778,13 +5108,6 @@ var Pockey;
                         }
                         this.poolTable.poolStick.x = this.poolTable.whiteBall.x;
                         this.poolTable.poolStick.y = this.poolTable.whiteBall.y;
-                        if (this.graph) {
-                            if (this.graph.parent)
-                                this.graph.parent.removeChild(this.graph);
-                            this.graph.clear();
-                            this.graph = null;
-                        }
-                        this.graph = new Graphics();
                         var localPoint = this.poolTable.toLocal(new Point(TouchHandler.Instance().position.x, TouchHandler.Instance().position.y));
                         if (!this.rearrangeStickStarted) {
                             localPoint.x = this.poolTable.poolStick.x + 10 * Math.cos(this.poolTable.poolStick.rotation);
@@ -4810,7 +5133,6 @@ var Pockey;
                         GameModule.P2WorldManager.Instance().world.raycast(this.raycastResult, this.rayClosest);
                         this.drawRayResult(this.raycastResult, this.rayClosest);
                     }
-                    this.sendElementsDataToManager();
                 }
             };
             PoolTableManagerMobile.prototype.onStartVersusGame = function () {
@@ -4830,12 +5152,6 @@ var Pockey;
                 if (_.isNull(this.lastGoodRepositionPoint) || _.isUndefined(this.lastGoodRepositionPoint)) {
                     this.lastGoodRepositionPoint = new Vector2();
                 }
-                if (this.graph) {
-                    if (this.graph.parent)
-                        this.graph.parent.removeChild(this.graph);
-                    this.graph.clear();
-                    this.graph = null;
-                }
                 var ballPositionCirclePosition = new Vector2(localPoint.x, localPoint.y);
                 if (ballPositionCirclePosition.x + Pockey.PockeySettings.BALL_RADIUS > this.poolTable.rightLimit)
                     ballPositionCirclePosition.x = this.poolTable.rightLimit - Pockey.PockeySettings.BALL_RADIUS;
@@ -4854,30 +5170,19 @@ var Pockey;
                         var rotAngle = Math.atan2(opposite, adjacent);
                         ballPositionCirclePosition.x = ballPosition.x + (Pockey.PockeySettings.BALL_RADIUS + ball.radius) * Math.cos(rotAngle);
                         ballPositionCirclePosition.y = ballPosition.y + (Pockey.PockeySettings.BALL_RADIUS + ball.radius) * Math.sin(rotAngle);
-                        var isInteresectingWithOthers_2 = false;
+                        var isInteresectingWithOthers_1 = false;
                         _.forEach(_this.poolTable.balls, function (ball2) {
                             if (ball2 != ball) {
                                 var ball2Position = new Vector2(ball2.x, ball2.y);
                                 if (ball2Position.distanceTo(ballPositionCirclePosition) < Pockey.PockeySettings.BALL_RADIUS + ball2.radius) {
-                                    isInteresectingWithOthers_2 = true;
+                                    isInteresectingWithOthers_1 = true;
                                     return;
                                 }
                             }
                         });
-                        if (isInteresectingWithOthers_2) {
-                            ballPositionCirclePosition.x = _this.lastGoodRepositionPoint.x;
-                            ballPositionCirclePosition.y = _this.lastGoodRepositionPoint.y;
-                        }
-                        else {
-                            _this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                            _this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-                        }
                     }
-                    TweenMax.to(_this.poolTable.ballPositionCircle, 0, {
-                        x: ballPositionCirclePosition.x,
-                        y: ballPositionCirclePosition.y
-                    });
-                    _this.poolTable.ballPositionCircle.visible = true;
+                    _this.ballPositionCircleMesh.position.x = ballPositionCirclePosition.x;
+                    _this.ballPositionCircleMesh.position.y = ballPositionCirclePosition.y;
                 });
                 if (TouchHandler.Instance().isTouchMoving) {
                     this.repositionStarted = true;
@@ -4885,11 +5190,9 @@ var Pockey;
                 if (this.repositionStarted && this.whiteBallPositionConfirmed) {
                     this.repositionStarted = false;
                     this.repositionWhiteBallEnabled = false;
-                    this.poolTable.ballPositionCircle.visible = false;
                     this.poolTable.whiteBall.reset();
                     this.poolTable.whiteBall.ballPosition = ballPositionCirclePosition;
                     this.poolTable.balls.push(this.poolTable.whiteBall);
-                    this.poolTable.addBallToBallsHolder(this.poolTable.whiteBall);
                     this.whiteBallPositionConfirmed = false;
                     SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_WHITE_BALL_POSITION_CONFIRMER);
                     SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
@@ -4897,8 +5200,6 @@ var Pockey;
                         _.forEach(this.poolTable.balls, function (ball) {
                             ball.addShadowBody();
                         });
-                        this.poolTable.raycastFollower.visible = true;
-                        this.poolTable.ballPositionCircleOnRaycast.visible = true;
                         this.poolTable.poolStick.activate(new Point(this.poolTable.whiteBall.x, this.poolTable.whiteBall.y));
                     }
                 }
@@ -5024,8 +5325,9 @@ var Pockey;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var Point = PIXI.Point;
-        var Settings = Framework.Settings;
         var Sprite = PIXI.Sprite;
+        var AbstractEntryPoint = Framework.AbstractEntryPoint;
+        var Settings = Framework.Settings;
         var PockeyGameModule = (function (_super) {
             __extends(PockeyGameModule, _super);
             function PockeyGameModule() {
@@ -5094,8 +5396,19 @@ var Pockey;
                     var backgroundScaleFactor = this.levelManager.poolTable.scale.y;
                     this.levelManager.poolTable.scale.x = backgroundScaleFactor;
                     this.levelManager.poolTable.x = Settings.stageWidth / 2;
+                    var difference = this.levelManager.poolTable.y;
                     this.levelManager.poolTable.y = 0.18 * Settings.stageHeight + this.levelManager.poolTable.height / 2;
-                    SignalsManager.DispatchSignal(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, [backgroundScaleFactor, this.levelManager.poolTable.position, this.levelManager.poolTable.rotation, this.levelManager.poolTable.width, this.levelManager.poolTable.height]);
+                    difference -= this.levelManager.poolTable.y;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, [backgroundScaleFactor, this.levelManager.poolTable.position, this.levelManager.poolTable.rotation, this.levelManager.poolTable.width, this.levelManager.poolTable.height, difference]);
+                    var cameraScaleFactor = 3.2;
+                    var ratio = window.innerWidth / window.innerHeight;
+                    var zoom = AbstractEntryPoint.camera.orthoTop;
+                    var newWidth = zoom * ratio;
+                    backgroundScaleFactor = 0.5 / backgroundScaleFactor;
+                    AbstractEntryPoint.camera.orthoTop = Settings.stageHeight * backgroundScaleFactor;
+                    AbstractEntryPoint.camera.orthoBottom = -Settings.stageHeight * backgroundScaleFactor;
+                    AbstractEntryPoint.camera.orthoLeft = -Settings.stageWidth * backgroundScaleFactor;
+                    AbstractEntryPoint.camera.orthoRight = Settings.stageWidth * backgroundScaleFactor;
                     this.levelManager.poolTable.poolStick.visible = true;
                 }
             };
@@ -5168,6 +5481,7 @@ var Pockey;
         var Player = (function () {
             function Player(id, type) {
                 this.matchesWon = 0;
+                this.startedFirst = false;
                 this.id = id;
                 this.type = type;
                 this.score = Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
@@ -5179,6 +5493,63 @@ var Pockey;
         GameModule.Player = Player;
     })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
 })(Pockey || (Pockey = {}));
+var Framework;
+(function (Framework) {
+    var Utils;
+    (function (Utils) {
+        var CountdownTimer = (function () {
+            function CountdownTimer(name, seconds, callback) {
+                this.complete = false;
+                this.timerStopped = true;
+                this.name = name;
+                this.currentTime = seconds;
+                this.initialTime = seconds;
+                this.callback = callback;
+                this.complete = false;
+            }
+            CountdownTimer.prototype.setCounterInSeconds = function (seconds, callback) {
+                stop();
+                this.currentTime = seconds;
+                this.initialTime = seconds;
+                this.callback = callback;
+                this.complete = false;
+            };
+            CountdownTimer.prototype.start = function () {
+                this.timerTween = TweenMax.delayedCall(1, this.onUpdate.bind(this));
+                this.timerStopped = false;
+            };
+            CountdownTimer.prototype.stop = function () {
+                if (this.timerTween)
+                    this.timerTween.kill();
+                this.timerStopped = true;
+            };
+            CountdownTimer.prototype.reset = function () {
+                this.currentTime = this.initialTime;
+                this.complete = false;
+            };
+            CountdownTimer.prototype.restart = function () {
+                this.stop();
+                this.reset();
+                this.start();
+            };
+            CountdownTimer.prototype.onUpdate = function () {
+                if (this.timerStopped) {
+                    return;
+                }
+                this.currentTime--;
+                if (this.currentTime == 0) {
+                    this.complete = true;
+                }
+                else {
+                    this.start();
+                }
+                this.callback();
+            };
+            return CountdownTimer;
+        }());
+        Utils.CountdownTimer = CountdownTimer;
+    })(Utils = Framework.Utils || (Framework.Utils = {}));
+})(Framework || (Framework = {}));
 var Pockey;
 (function (Pockey) {
     var GameModule;
@@ -5193,7 +5564,9 @@ var Pockey;
         var Settings = Framework.Settings;
         var PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
         var PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
-        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
+        var PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
+        var CountdownTimer = Framework.Utils.CountdownTimer;
+        var AbstractEntryPoint = Framework.AbstractEntryPoint;
         var WinStatus;
         (function (WinStatus) {
             WinStatus[WinStatus["WIN"] = 0] = "WIN";
@@ -5212,6 +5585,13 @@ var Pockey;
                 this.timerText = "";
                 this.animateOpponentTimer = false;
                 this.countdownEnded = false;
+                this.gameTimeStatesIdentifier = 0;
+                this.readyForNextTurn = false;
+                this.timeStatesTimerActive = false;
+                this.roundCounter = 0;
+                this.screenPopupTime = 0;
+                this.popupRemoved = false;
+                this.popupRemovedSent = false;
             }
             GameManager.Instance = function () {
                 if (!GameManager.instance) {
@@ -5224,140 +5604,68 @@ var Pockey;
                 }
                 return GameManager.instance;
             };
-            GameManager.prototype.InitializeOthers = function () {
-                this.player = new GameModule.Player("player", GameModule.BallType.Player);
-                this.opponent = new GameModule.Player("opponent", GameModule.BallType.Opponent);
-            };
-            GameManager.prototype.registerSignalsHandlers = function () {
-                SignalsManager.AddSignalCallback(SignalsType.ALL_MODULES_ELEMENTS_CREATED, GameManager.Instance().onAllModuleElementsCreated.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.WHITE_BALL_REPOSITIONED, GameManager.Instance().onWhiteBallRepositioned.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.FIRST_BALL_FAULT, this.onFirstBallFault.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.NEXT_TURN, this.onNextTurn.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOOT_BALL, this.onShoot.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.BALL_IN_POCKET, this.onBallInPocket.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER, this.onSendElementsDataToManager.bind(this));
-                SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED, this.onSocketIOConnectionCreated.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.START_GAME, this.onStartGame.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.RESTART_GAME, this.onRestartGame.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.WATCH, this.onWatch.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.YOUR_TURN, this.onMyTurn.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT_SETTINGS, this.onOpponentSettings.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT_RESTART_GAME, this.onOpponentRestart.bind(this));
-                SignalsManager.AddSignalCallback(PockeyConnectionSignals.SCORE_UPDATE, this.onScoreUpdate.bind(this));
-            };
-            GameManager.prototype.startCountdown = function (seconds) {
-                var _this = this;
-                var counter = seconds;
-                var counterText = "0:";
-                counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
-                this.timerText = counterText;
-                this.animateOpponentTimer = false;
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, false]);
-                this.roundTimer = setInterval(function () {
-                    counterText = "0:";
-                    counter--;
-                    counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
-                    _this.timerText = counterText;
-                    if (counter <= 5) {
-                        if (counter == 5) {
-                            SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.LAST_FIVE_SECONDS }]);
-                        }
-                        _this.animateOpponentTimer = true;
-                    }
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, _this.currentPlayer.type, _this.animateOpponentTimer]);
-                    if (counter < 0) {
-                        _this.stopCountdown();
-                        _this.countdownEnded = true;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.RESET_STICK_POWER);
-                    }
-                }, 1000);
-            };
-            ;
-            GameManager.prototype.stopCountdown = function () {
-                clearInterval(this.roundTimer);
-                this.timerText = "";
-                this.animateOpponentTimer = false;
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, ["", this.currentPlayer.type, false]);
-                console.log('Ding!');
-            };
-            GameManager.prototype.onMyTurn = function (params) {
-                this.changePlayer();
-                var state = params[0];
-                console.log("currentSTate: " + PockeyStateMachine.Instance().getCurrentStateName());
-                console.log("new state: " + state);
-                if (state == PockeyStates.onRearrangeStick) {
-                    if (params[1]) {
-                        var balls = void 0;
-                    }
-                    SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                    this.startCountdown(Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS);
+            GameManager.prototype.prepareFirstRound = function () {
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
+                PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundOne);
+                if (this.player.startedFirst) {
+                    this.setCurrentPlayer(this.player);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
+                    this.player.side = "left";
+                    this.opponent.side = "right";
+                    PIXI.ticker.shared.add(this.createState, this);
+                    this.roundTimer.restart();
+                    this.onRoundScreenTimerUpdate();
                 }
-                else if (state == PockeyStates.onRepositionWhiteBall) {
-                    this.startCountdown(Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS);
-                    if (Settings.isMobile) {
-                        SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
-                    }
-                }
-                else if (state == PockeyStates.onGameEnd) {
-                    if (this.player.score <= 0) {
-                        this.winStatus = WinStatus.LOST;
-                        this.opponent.matchesWon++;
-                        this.gameFinished = true;
-                        console.log("la ball in pocket: " + this.winStatus);
-                    }
-                    else if (this.opponent.score <= 0) {
-                        this.winStatus = WinStatus.WIN;
-                        this.player.matchesWon++;
-                        this.gameFinished = true;
-                    }
-                    this.onGameFinished();
-                }
-                PockeyStateMachine.Instance().changeState(state);
-            };
-            GameManager.prototype.onSendElementsDataToManager = function (params) {
-                var poolTableData = params[0];
-                poolTableData.playerScore = this.player.score;
-                poolTableData.opponentScore = this.opponent.score;
-                poolTableData.whiteBallPenalty = this.whiteBallPenalty;
-                poolTableData.ballsHit = this.ballsHit;
-                poolTableData.opponentState = PockeyStateMachine.Instance().fsm.currentState;
-                poolTableData.opponentTimerText = this.timerText;
-                poolTableData.opponentTimerAnimate = this.animateOpponentTimer;
-                if (this.countdownEnded) {
-                    poolTableData.opponentTimeFinished = true;
-                    console.log("time ended sent");
-                }
-                SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, poolTableData]);
-                if (this.countdownEnded) {
-                    this.onNextTurn();
-                }
-            };
-            GameManager.prototype.onRestartGame = function () {
-                if (Settings.singlePlayer)
-                    this.switchSides();
                 else {
-                    this.availableForRestart = true;
-                    this.switchSides();
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_RESTART_GAME]);
+                    this.setCurrentPlayer(this.opponent);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.opponent.type, this.player.type]);
+                    this.player.side = "right";
+                    this.opponent.side = "left";
+                    var sameColorsUsed = false;
+                    if (Pockey.PockeySettings.OPPONENT_COLOR == +Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                        sameColorsUsed = true;
+                        var randNumber = Math.round(Math.random() * (Pockey.PockeySettings.LARGE_COLORS_ARRAY.length - 1));
+                        Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
+                    }
+                    var playerSettings = {
+                        opponentAvatarId: Pockey.PockeySettings.PLAYER_AVATAR_ID,
+                        opponentNickname: Pockey.PockeySettings.PLAYER_NICKNAME,
+                        opponentSocketId: Pockey.PockeySettings.PLAYER_SOCKET_ID,
+                        opponentColor: (sameColorsUsed) ? Pockey.PockeySettings.OPPONENT_COLOR : +Pockey.PockeySettings.PLAYER_COLOR_ID,
+                        firstToStart: this.opponent.id
+                    };
+                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
+                    PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
                 }
+                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundURLS.OPPONENT_FOUND }]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
             };
-            GameManager.prototype.onOpponentRestart = function () {
-                if (this.availableForRestart) {
-                    this.switchSides();
-                }
+            GameManager.prototype.resetPooltable = function () {
+                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE);
+                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_GAME_SCREEN);
             };
-            GameManager.prototype.switchSides = function () {
+            GameManager.prototype.prepareSecondRound = function () {
+                console.log("intra la prepareSecondRound");
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
+                PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundTwo);
+                this.screenPopupTime = 0;
+                this.popupRemoved = false;
                 this.whiteBallPenalty = false;
                 this.ballsHit = 0;
                 this.gameFinished = false;
                 this.availableForRestart = false;
                 this.player.score = Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
                 this.opponent.score = Pockey.PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
-                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE);
-                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_GAME_SCREEN);
-                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_WINNING_SCREEN);
+                TweenMax.delayedCall(1, this.resetPooltable.bind(this));
                 var orderArray = [];
-                if (this.player.side == "left") {
+                if (this.player.startedFirst) {
                     if (!Settings.singlePlayer) {
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
@@ -5368,14 +5676,16 @@ var Pockey;
                     orderArray = [this.opponent.type, this.player.type];
                 }
                 else {
-                    if (!Settings.singlePlayer) {
-                        SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                        PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
-                    }
                     this.opponent.side = "right";
                     this.player.side = "left";
                     this.setCurrentPlayer(this.player);
                     orderArray = [this.player.type, this.opponent.type];
+                    if (!Settings.singlePlayer) {
+                        PIXI.ticker.shared.add(this.createState, this);
+                        this.roundTimer = new CountdownTimer("roundTimer", 5, this.onRoundScreenTimerUpdate.bind(this));
+                        this.roundTimer.restart();
+                        this.onRoundScreenTimerUpdate();
+                    }
                 }
                 if (Settings.singlePlayer) {
                     this.beginPlay();
@@ -5388,9 +5698,143 @@ var Pockey;
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
             };
+            GameManager.prototype.InitializeOthers = function () {
+                this.player = new GameModule.Player("player", GameModule.BallType.Player);
+                this.opponent = new GameModule.Player("opponent", GameModule.BallType.Opponent);
+                this.timer = new CountdownTimer("gameTime", Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS, this.onCounterUpdate.bind(this));
+                this.roundTimer = new CountdownTimer("roundTimer", 3, this.onRoundScreenTimerUpdate.bind(this));
+                this.myTimeStates = [];
+                this.opponentGameStates = [];
+            };
+            GameManager.prototype.onRoundScreenTimerUpdate = function () {
+                if (this.roundTimer.currentTime > 0) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, [this.roundTimer.currentTime.toString()]);
+                }
+                if (this.roundTimer.complete) {
+                    this.timer.restart();
+                    this.onCounterUpdate();
+                    SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
+                    this.beginPlay();
+                }
+                this.popupRemovedSent = false;
+            };
+            GameManager.prototype.registerSignalsHandlers = function () {
+                SignalsManager.AddSignalCallback(SignalsType.ALL_MODULES_ELEMENTS_CREATED, GameManager.Instance().onAllModuleElementsCreated.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.WHITE_BALL_REPOSITIONED, GameManager.Instance().onWhiteBallRepositioned.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.FIRST_BALL_FAULT, this.onFirstBallFault.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.PREPARE_NEXT_TURN, this.prepareNextTurn.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOOT_BALL, this.onShoot.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.BALL_IN_POCKET, this.onBallInPocket.bind(this));
+                SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED, this.onSocketIOConnectionCreated.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.START_GAME, this.onStartGame.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.RESTART_GAME, this.onRestartGame.bind(this));
+                SignalsManager.AddSignalCallback(PockeyConnectionSignals.WATCH, this.onWatch.bind(this));
+                SignalsManager.AddSignalCallback(PockeyConnectionSignals.YOUR_TURN, this.onMyTurn.bind(this));
+                SignalsManager.AddSignalCallback(PockeyConnectionSignals.OPPONENT_SETTINGS, this.onOpponentSettings.bind(this));
+            };
+            GameManager.prototype.onCounterUpdate = function () {
+                var counterText = "0:";
+                var counter = this.timer.currentTime;
+                counterText += (counter >= 10) ? counter.toString() : "0" + counter.toString();
+                this.timerText = counterText;
+                this.animateOpponentTimer = false;
+                if (counter <= 5) {
+                    if (counter == 5) {
+                        SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundURLS.LAST_FIVE_SECONDS }]);
+                    }
+                    this.animateOpponentTimer = true;
+                }
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [counterText, this.currentPlayer.type, this.animateOpponentTimer]);
+                if (this.timer.complete) {
+                    this.stopCountdown();
+                    this.countdownEnded = true;
+                    this.prepareNextTurn();
+                    SignalsManager.DispatchSignal(PockeySignalTypes.RESET_STICK_POWER);
+                }
+            };
+            GameManager.prototype.stopCountdown = function () {
+                this.timerText = "";
+                this.animateOpponentTimer = false;
+                this.timer.stop();
+                this.timer.reset();
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, ["", this.currentPlayer.type, false]);
+            };
+            GameManager.prototype.onMyTurn = function (params) {
+                this.changePlayer();
+                var state = params[0];
+                if (state == PockeyStates.onRearrangeStick) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+                    PIXI.ticker.shared.add(this.createState, this);
+                    this.timer.restart();
+                    this.onCounterUpdate();
+                }
+                else if (state == PockeyStates.onRepositionWhiteBall) {
+                    PIXI.ticker.shared.add(this.createState, this);
+                    this.timer.restart();
+                    this.onCounterUpdate();
+                    if (Settings.isMobile) {
+                        SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
+                    }
+                }
+                else if (state == PockeyStates.onRoundEnd) {
+                    PockeyStateMachine.Instance().changeState(state);
+                    this.prepareSecondRound();
+                    return;
+                }
+                PockeyStateMachine.Instance().changeState(state);
+            };
+            GameManager.prototype.memorySizeOf = function (obj) {
+                var bytes = 0;
+                function sizeOf(obj) {
+                    if (obj !== null && obj !== undefined) {
+                        switch (typeof obj) {
+                            case 'number':
+                                bytes += 8;
+                                break;
+                            case 'string':
+                                bytes += obj.length * 2;
+                                break;
+                            case 'boolean':
+                                bytes += 4;
+                                break;
+                            case 'object':
+                                var objClass = Object.prototype.toString.call(obj).slice(8, -1);
+                                if (objClass === 'Object' || objClass === 'Array') {
+                                    for (var key in obj) {
+                                        if (!obj.hasOwnProperty(key))
+                                            continue;
+                                        sizeOf(obj[key]);
+                                    }
+                                }
+                                else
+                                    bytes += obj.toString().length * 2;
+                                break;
+                        }
+                    }
+                    return bytes;
+                }
+                function formatByteSize(bytes) {
+                    if (bytes < 1024)
+                        return bytes + " bytes";
+                    else if (bytes < 1048576)
+                        return (bytes / 1024).toFixed(3) + " KiB";
+                    else if (bytes < 1073741824)
+                        return (bytes / 1048576).toFixed(3) + " MiB";
+                    else
+                        return (bytes / 1073741824).toFixed(3) + " GiB";
+                }
+                return formatByteSize(sizeOf(obj));
+            };
+            ;
+            GameManager.prototype.onRestartGame = function () {
+            };
             GameManager.prototype.onStartGame = function () {
-                SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, 0.4]);
+                SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, 1]);
+                _.forEach(AbstractEntryPoint.scene.meshes, function (mesh) {
+                    mesh.setEnabled(true);
+                });
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_MAIN_MENU);
+                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_GAME_UI);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_POOLTABLE);
                 if (Settings.singlePlayer) {
@@ -5412,24 +5856,108 @@ var Pockey;
                     SignalsManager.DispatchSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
                 }
             };
-            GameManager.prototype.onWatch = function (params) {
-                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
-                    var poolTableData = params[0];
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [poolTableData.opponentTimerText, this.currentPlayer.type, poolTableData.opponentTimerAnimate]);
-                    this.whiteBallPenalty = poolTableData.whiteBallPenalty;
-                    this.ballsHit = poolTableData.ballsHit;
-                    if (this.player.score != poolTableData.opponentScore) {
-                        this.player.score = poolTableData.opponentScore;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE, [this.player.score]);
-                    }
-                    if (this.opponent.score != poolTableData.playerScore) {
-                        this.opponent.score = poolTableData.playerScore;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE, [this.opponent.score]);
-                    }
+            GameManager.prototype.createState = function () {
+                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundOne) {
+                    this.onPooltableStateCreated(null);
+                }
+                else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundTwo) {
+                    this.onPooltableStateCreated(null);
+                }
+                else {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CREATE_POOLTABLE_STATE, [this.onPooltableStateCreated.bind(this)]);
                 }
             };
-            GameManager.prototype.onScoreUpdate = function (params) {
-                console.log("on score update");
+            GameManager.prototype.onPooltableStateCreated = function (timeState) {
+                this.gameTimeStatesIdentifier++;
+                var gameState = {};
+                gameState.stateID = this.gameTimeStatesIdentifier;
+                gameState.stateTime = Math.round(PIXI.ticker.shared.elapsedMS / 1000);
+                if (!_.isNull(timeState)) {
+                    gameState.pooltableState = timeState;
+                }
+                gameState.timerText = this.timerText;
+                gameState.timerTextAnimate = this.animateOpponentTimer;
+                gameState.playerScore = this.player.score;
+                gameState.opponentScore = this.opponent.score;
+                gameState.whiteBallPenalty = this.whiteBallPenalty;
+                gameState.ballsHit = this.ballsHit;
+                if (!this.roundTimer.complete && this.screenPopupTime != this.roundTimer.currentTime) {
+                    this.screenPopupTime = this.roundTimer.currentTime;
+                    gameState.opponentScreenTimer = this.roundTimer.currentTime;
+                }
+                if (this.popupRemoved && !this.popupRemovedSent) {
+                    gameState.popupRemoved = true;
+                    this.popupRemovedSent = true;
+                }
+                this.myTimeStates.push(gameState);
+                if (this.myTimeStates.length == Pockey.PockeySettings.FRAMES_TO_SEND_ON_WATCH) {
+                    if (this.readyForNextTurn) {
+                        this.onNextTurn(gameState);
+                        this.readyForNextTurn = false;
+                    }
+                    var msg = JSON.stringify({ gameStates: this.myTimeStates });
+                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, msg]);
+                    this.myTimeStates = [];
+                }
+            };
+            GameManager.prototype.prepareNextTurn = function () {
+                this.readyForNextTurn = true;
+                this.stopCountdown();
+                if (Settings.singlePlayer) {
+                    this.onNextTurn(null);
+                }
+            };
+            GameManager.prototype.applyGameState = function () {
+                if (this.opponentGameStates.length == 0) {
+                    return;
+                }
+                var gameState = this.opponentGameStates[0];
+                if (this.timerText != gameState.timerText || this.animateOpponentTimer != gameState.timerTextAnimate) {
+                    this.timerText = gameState.timerText;
+                    this.animateOpponentTimer = gameState.timerTextAnimate;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, [gameState.timerText, this.currentPlayer.type, gameState.timerTextAnimate]);
+                }
+                this.whiteBallPenalty = gameState.whiteBallPenalty;
+                this.ballsHit = gameState.ballsHit;
+                if (this.player.score != gameState.opponentScore) {
+                    this.player.score = gameState.opponentScore;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE, [this.player.score]);
+                }
+                if (this.opponent.score != gameState.playerScore) {
+                    this.opponent.score = gameState.playerScore;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE, [this.opponent.score]);
+                }
+                if (gameState.opponentScreenTimer) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, [gameState.opponentScreenTimer]);
+                }
+                if (gameState.popupRemoved) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
+                    this.popupRemoved = true;
+                }
+                if (gameState.pooltableState) {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE, [gameState.pooltableState, (gameState.stateTime)]);
+                }
+                if (gameState.changeMyState) {
+                    PIXI.ticker.shared.remove(this.applyGameState, this);
+                    this.timeStatesTimerActive = false;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
+                    this.onMyTurn(gameState.changeMyState);
+                }
+                this.opponentGameStates.shift();
+            };
+            GameManager.prototype.onWatch = function (params) {
+                var _this = this;
+                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
+                    var msg = params[0];
+                    var gameStates = JSON.parse(msg).gameStates;
+                    _.forEach(gameStates, function (gameState) {
+                        _this.opponentGameStates.push(gameState);
+                    });
+                    if (!this.timeStatesTimerActive && this.opponentGameStates.length >= Pockey.PockeySettings.FRAMES_TO_SEND_ON_WATCH * 3) {
+                        this.timeStatesTimerActive = true;
+                        PIXI.ticker.shared.add(this.applyGameState, this);
+                    }
+                }
             };
             GameManager.prototype.onBallInPocket = function (params) {
                 if (!this.gameFinished) {
@@ -5492,6 +6020,9 @@ var Pockey;
                 PockeyStateMachine.Instance().changeState(PockeyStates.onMainMenu);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_MAIN_MENU);
                 SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [Settings.mainBackgroundName, 4]);
+                _.forEach(AbstractEntryPoint.scene.meshes, function (mesh) {
+                    mesh.setEnabled(false);
+                });
             };
             GameManager.prototype.onSocketIOConnectionCreated = function (params) {
                 console.log("%c GameManager -> socket io connection created", "color: #00bcd4");
@@ -5520,54 +6051,16 @@ var Pockey;
                 Pockey.PockeySettings.OPPONENT_SOCKET_ID = opponentSettings.opponentSocketId;
                 Pockey.PockeySettings.OPPONENT_NICKNAME = opponentSettings.opponentNickname;
                 Pockey.PockeySettings.OPPONENT_AVATAR_ID = opponentSettings.opponentAvatarId;
-                console.log("opponent avatar la opponent settings: " + Pockey.PockeySettings.OPPONENT_AVATAR_ID);
-                if (opponentSettings.firstToStart == this.player.id) {
-                    this.setCurrentPlayer(this.player);
-                    console.log("culorilefmm: la player " + Pockey.PockeySettings.OPPONENT_COLOR, +Pockey.PockeySettings.PLAYER_COLOR_ID);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
-                    this.player.side = "left";
-                    this.opponent.side = "right";
-                    this.startCountdown(Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS);
-                    this.beginPlay();
-                }
-                else {
-                    this.setCurrentPlayer(this.opponent);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.opponent.type, this.player.type]);
-                    this.player.side = "right";
-                    this.opponent.side = "left";
-                    console.log("culorilefmm: la opp " + Pockey.PockeySettings.OPPONENT_COLOR, +Pockey.PockeySettings.PLAYER_COLOR_ID);
-                    var sameColorsUsed = false;
-                    if (Pockey.PockeySettings.OPPONENT_COLOR == +Pockey.PockeySettings.PLAYER_COLOR_ID) {
-                        sameColorsUsed = true;
-                        console.log("culorilefmm: sunt la fel in plm ");
-                        var randNumber = Math.round(Math.random() * (Pockey.PockeySettings.LARGE_COLORS_ARRAY.length - 1));
-                        Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
-                    }
-                    var playerSettings = {
-                        opponentAvatarId: Pockey.PockeySettings.PLAYER_AVATAR_ID,
-                        opponentNickname: Pockey.PockeySettings.PLAYER_NICKNAME,
-                        opponentSocketId: Pockey.PockeySettings.PLAYER_SOCKET_ID,
-                        opponentColor: (sameColorsUsed) ? Pockey.PockeySettings.OPPONENT_COLOR : +Pockey.PockeySettings.PLAYER_COLOR_ID,
-                        firstToStart: this.opponent.id
-                    };
-                    console.log("opponent nickname:");
-                    console.log(playerSettings);
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, playerSettings]);
-                    PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.opponentsTurn]);
-                }
-                SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.OPPONENT_FOUND }]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
-                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME);
+                if (opponentSettings.firstToStart == this.player.id) {
+                    this.player.startedFirst = true;
+                }
+                console.log("opponent avatar la opponent settings: " + Pockey.PockeySettings.OPPONENT_AVATAR_ID);
+                this.prepareFirstRound();
             };
             GameManager.prototype.onShoot = function () {
                 this.whiteBallPenalty = false;
-                clearInterval(this.roundTimer);
                 this.stopCountdown();
                 PockeyStateMachine.Instance().changeState(PockeyStates.onShoot);
             };
@@ -5576,48 +6069,47 @@ var Pockey;
                 PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
                 SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
             };
-            GameManager.prototype.onGameFinished = function () {
-                if (this.winStatus == WinStatus.WIN) {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you won!"]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
-                }
-                else {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you lost!"]);
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
-                }
-                if (this.player.side == "left") {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES, [this.player.matchesWon, this.opponent.matchesWon]);
-                }
-                else {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES, [this.opponent.matchesWon, this.player.matchesWon]);
-                }
-            };
-            GameManager.prototype.onNextTurn = function () {
+            GameManager.prototype.onNextTurn = function (gameState) {
+                console.log("onNextTurn: intra");
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
                 if (this.countdownEnded) {
                     this.countdownEnded = false;
                     this.changePlayer();
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStateMachine.Instance().fsm.currentState]);
+                    console.log("onNextTurn: intra la countdown");
+                    if (gameState) {
+                        PIXI.ticker.shared.remove(this.createState, this);
+                        gameState.changeMyState = [PockeyStateMachine.Instance().fsm.currentState];
+                    }
                     PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onTimeUp]);
                     return;
                 }
                 if (this.gameFinished) {
-                    PockeyStateMachine.Instance().changeState(PockeyStates.onGameEnd);
+                    console.log("onNextTurn: intra la gamefinished");
+                    PockeyStateMachine.Instance().changeState(PockeyStates.onRoundEnd);
                     console.log("la next turn: " + this.winStatus);
-                    SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onGameEnd, this.winStatus]);
-                    this.onGameFinished();
+                    if (gameState) {
+                        PIXI.ticker.shared.remove(this.createState, this);
+                        gameState.changeMyState = [PockeyStates.onRoundEnd, this.winStatus];
+                    }
+                    this.prepareSecondRound();
                     return;
                 }
                 else {
+                    console.log("onNextTurn: intra la onEndTurn");
                     PockeyStateMachine.Instance().changeState(PockeyStates.onEndTurn);
                 }
                 console.log("%c GameManager -> Checking for next turn...", "color: #00bcd4");
                 if (this.whiteBallPenalty) {
+                    console.log("onNextTurn: intra la whiteBallPenalty");
                     console.log("%c GameManager -> PENALTY! Round ended for " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                     this.changePlayer();
                     if (!Settings.singlePlayer) {
-                        SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRepositionWhiteBall]);
+                        gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+                        PIXI.ticker.shared.remove(this.createState, this);
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.whiteBallFault]);
+                        var currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                        SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
                     }
                     else {
@@ -5628,12 +6120,16 @@ var Pockey;
                     }
                 }
                 else if (this.ownBallInPocketFault) {
+                    console.log("onNextTurn: ownBallInPocketFault");
                     console.log("%c GameManager -> Fault! Own ball in pocket! " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                     this.changePlayer();
                     this.ownBallInPocketFault = false;
                     if (!Settings.singlePlayer) {
+                        var currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                        SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                        SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                        gameState.changeMyState = [PockeyStates.onRearrangeStick];
+                        PIXI.ticker.shared.remove(this.createState, this);
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onOwnBallInPocket]);
                     }
                     else {
@@ -5643,11 +6139,15 @@ var Pockey;
                 }
                 else {
                     if (this.ballsHit == 0) {
+                        console.log("onNextTurn: balls hit 0");
                         console.log("%c GameManager -> No balls hit for " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                         this.changePlayer();
                         if (!Settings.singlePlayer) {
+                            var currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                            SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
                             PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
-                            SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                            gameState.changeMyState = [PockeyStates.onRearrangeStick];
+                            PIXI.ticker.shared.remove(this.createState, this);
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.noBallScored]);
                         }
                         else {
@@ -5659,7 +6159,7 @@ var Pockey;
                     else {
                         this.ballsHit = 0;
                     }
-                    this.startCountdown(Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS);
+                    console.log("onNextTurn: ajunge in capat");
                     SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
                     PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
                 }
@@ -5681,6 +6181,7 @@ var Pockey;
                 console.log("%c GameManager -> First ball fault!", "color: #00bcd4");
             };
             GameManager.prototype.beginPlay = function () {
+                this.popupRemoved = true;
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
                 PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
@@ -5697,6 +6198,7 @@ var Pockey;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var AbstractBackgroundModule = Framework.Background.AbstractBackgroundModule;
+        var Settings = Framework.Settings;
         var PockeyBackgroundModule = (function (_super) {
             __extends(PockeyBackgroundModule, _super);
             function PockeyBackgroundModule() {
@@ -5707,15 +6209,27 @@ var Pockey;
                 SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onResizeBackground.bind(this));
             };
             PockeyBackgroundModule.prototype.onResizeBackground = function (params) {
+                var bg;
+                if (this.backgrounds[Settings.mainBackgroundName]) {
+                    bg = this.backgrounds[Settings.mainBackgroundName];
+                    var newHeight = Settings.stageHeight;
+                    var scale = newHeight / bg.initialHeight;
+                    var newWidth = bg.initialWidth * scale;
+                    if (newWidth < Settings.stageWidth) {
+                        newWidth = Settings.stageWidth;
+                        scale = newWidth / bg.initialWidth;
+                    }
+                    bg.div.style.width = (bg.initialWidth * scale).toString() + "px";
+                    bg.div.style.height = (bg.initialHeight * scale).toString() + "px";
+                }
                 if (this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME]) {
-                    var scaleFactor = params[0];
+                    bg = this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME];
+                    var scale = params[0];
                     var position = params[1];
-                    var rotation = params[2];
-                    this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].x = position.x;
-                    this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].y = position.y;
-                    this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].rotation = rotation;
-                    this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].scale.x = scaleFactor;
-                    this.backgrounds[Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME].scale.y = scaleFactor;
+                    bg.div.style.width = (bg.initialWidth * scale).toString() + "px";
+                    bg.div.style.width = (bg.initialWidth * scale).toString() + "px";
+                    bg.div.style.left = position.x.toString() + "px";
+                    bg.div.style.top = position.y.toString() + "px";
                 }
             };
             return PockeyBackgroundModule;
@@ -5750,8 +6264,8 @@ var Pockey;
                         SignalsManager.DispatchSignal(PockeyConnectionSignals.YOUR_TURN, [messageData]);
                         break;
                     }
-                    case Connection.PockeySocketMessages.OPPONENT_RESTART_GAME: {
-                        SignalsManager.DispatchSignal(PockeyConnectionSignals.OPPONENT_RESTART_GAME, [messageData]);
+                    case Connection.PockeySocketMessages.OPPONENT_RESTART_ROUND: {
+                        SignalsManager.DispatchSignal(PockeyConnectionSignals.OPPONENT_NEXT_ROUND, [messageData]);
                         break;
                     }
                 }
@@ -7008,7 +7522,6 @@ var Pockey;
                 if (columnIndex > maxColumns) {
                     columnIndex = maxColumns;
                 }
-                console.log("current columns index: " + this.currentColumnIndex);
                 return columnIndex;
             };
             PockeyInventoryMenu.prototype.reorderItemsArray = function () {
@@ -7039,12 +7552,10 @@ var Pockey;
                 }
                 var columnsNo = this.boxesHolder.children.length;
                 if (columnsNo > neededColumns) {
-                    console.log("children inainate de remove: " + this.boxesHolder.children.length);
                     var boxes = this.boxesHolder.children;
                     for (var i = boxes.length - 1; i >= neededColumns; i--) {
                         this.boxesHolder.removeChild(boxes[i]);
                     }
-                    console.log("children dupa remove: " + this.boxesHolder.children.length);
                 }
                 this.updateBoxes(this.itemsArray);
                 var currentRight = this.boxesHolder.style.right;
@@ -7152,13 +7663,11 @@ var Pockey;
                             }
                         }
                     }
-                    console.log("equip: " + _this.equipBtn.getAttribute('clicked'));
                 };
             };
             PockeyInventoryMenu.prototype.moveHolderToOffset = function (offset, fast) {
                 this.offsetLimit = this.boxesHolder.offsetWidth;
                 if (offset > this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth) {
-                    console.log("cazul 1: " + offset, this.boxesHolder.scrollWidth, this.boxesHolder.offsetWidth);
                     offset = this.boxesHolder.scrollWidth - this.boxesHolder.offsetWidth;
                     if (offset != 0) {
                         this.boxesHolderWrapper.classList.remove("inventoryMask");
@@ -7175,7 +7684,6 @@ var Pockey;
                     this.boxesHolderWrapper.classList.add("inventoryRightSideMask");
                     this.nextColumnBtn.enable();
                     this.prevColumnBtn.disable();
-                    console.log("cazul 2");
                 }
                 else {
                     this.boxesHolderWrapper.classList.remove("inventoryLeftSideMask");
@@ -7183,7 +7691,6 @@ var Pockey;
                     this.boxesHolderWrapper.classList.add("inventoryMask");
                     this.nextColumnBtn.enable();
                     this.prevColumnBtn.enable();
-                    console.log("cazul 3");
                 }
                 if (this.itemsArray.length == 0) {
                     this.nextColumnBtn.disable();
@@ -7372,6 +7879,7 @@ var Pockey;
                         });
                     };
                 });
+                this.pockeyHelmetAndStick = document.getElementById("PockeyHatAndStick");
             };
             PockeyUiMainScreen.prototype.showElement = function (element) {
                 element.style.display = "flex";
@@ -7423,9 +7931,11 @@ var Pockey;
             };
             PockeyUiMainScreen.prototype.setVisibleTrue = function () {
                 this.mainMenuElementsHolder.style.display = "block";
+                this.pockeyHelmetAndStick.style.display = "flex";
             };
             PockeyUiMainScreen.prototype.setVisibleFalse = function () {
                 this.mainMenuElementsHolder.style.display = "none";
+                this.pockeyHelmetAndStick.style.display = "none";
             };
             return PockeyUiMainScreen;
         }());
@@ -7436,122 +7946,11 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
-        var Sprite = PIXI.Sprite;
-        var Graphics = PIXI.Graphics;
-        var PockeyUiInGameAvatar = (function (_super) {
-            __extends(PockeyUiInGameAvatar, _super);
-            function PockeyUiInGameAvatar() {
-                var _this = _super.call(this) || this;
-                _this.rectangleSize = 92;
-                _this.borderSpacing = 3;
-                var firstRect = new Graphics();
-                firstRect.beginFill(0x000000, 0.7);
-                firstRect.drawRoundedRect(0, 0, _this.rectangleSize, _this.rectangleSize, _this.borderSpacing * 2);
-                _this.addChild(firstRect);
-                var secondRect = new Graphics();
-                secondRect.beginFill(0xffffff);
-                secondRect.drawRoundedRect(0, 0, _this.rectangleSize - _this.borderSpacing, _this.rectangleSize - 2, 4);
-                secondRect.x = firstRect.x + firstRect.width / 2 - secondRect.width / 2;
-                _this.addChild(secondRect);
-                var thirdRect = new Graphics();
-                thirdRect.beginFill(0x1a4157);
-                thirdRect.drawRoundedRect(0, 0, secondRect.width - _this.borderSpacing * 2, secondRect.height - _this.borderSpacing * 2, 4);
-                thirdRect.x = secondRect.x + secondRect.width / 2 - thirdRect.width / 2;
-                thirdRect.y = secondRect.y + secondRect.height / 2 - thirdRect.height / 2;
-                _this.addChild(thirdRect);
-                var avatarPath = "";
-                _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, function (avatar, counter) {
-                    if (avatar.id == Pockey.PockeySettings.PLAYER_AVATAR_ID) {
-                        avatarPath = avatar.icon;
-                        return true;
-                    }
-                });
-                _this.avatarImage = new Sprite(PIXI.Texture.fromImage(avatarPath));
-                _this.avatarImage.width = _this.avatarImage.height = thirdRect.width;
-                _this.avatarImage.x = thirdRect.x;
-                _this.avatarImage.y = thirdRect.y;
-                _this.addChild(_this.avatarImage);
-                return _this;
-            }
-            PockeyUiInGameAvatar.prototype.updateAvatarImage = function (avatarID) {
-                console.log("on change avatar la game screen: " + avatarID);
-                var avatarPath = "";
-                _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, function (avatar, counter) {
-                    if (avatar.id == avatarID) {
-                        avatarPath = avatar.icon;
-                        return true;
-                    }
-                });
-                this.avatarImage.texture = PIXI.Texture.fromImage(avatarPath);
-            };
-            return PockeyUiInGameAvatar;
-        }(Container));
-        UserInterface.PockeyUiInGameAvatar = PockeyUiInGameAvatar;
-    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
-})(Pockey || (Pockey = {}));
-var Pockey;
-(function (Pockey) {
-    var UserInterface;
-    (function (UserInterface) {
-        var Graphics = PIXI.Graphics;
-        var PockeyLifeBar = (function (_super) {
-            __extends(PockeyLifeBar, _super);
-            function PockeyLifeBar() {
-                var _this = _super.call(this) || this;
-                _this.playerLifeGraphicsWidth = 256;
-                _this.playerLifeGraphicsHeight = 28;
-                _this.createLifeBar();
-                return _this;
-            }
-            PockeyLifeBar.prototype.createLifeBar = function () {
+        var PockeyUserGameGraphics = (function () {
+            function PockeyUserGameGraphics(side, gameGraphic) {
                 var _this = this;
-                var spacing = 3;
-                var firstRect = new Graphics();
-                firstRect.beginFill(0x000000, 0.7);
-                firstRect.drawRoundedRect(0, 0, this.playerLifeGraphicsWidth, this.playerLifeGraphicsHeight, spacing * 2);
-                this.addChild(firstRect);
-                var secondRect = new Graphics();
-                secondRect.beginFill(0xffffff);
-                secondRect.drawRoundedRect(0, 0, this.playerLifeGraphicsWidth - spacing, this.playerLifeGraphicsHeight - 2, 4);
-                secondRect.x = firstRect.x + firstRect.width / 2 - secondRect.width / 2;
-                this.addChild(secondRect);
-                var thirdRect = new Graphics();
-                thirdRect.beginFill(0x000000);
-                thirdRect.drawRoundedRect(0, 0, secondRect.width - spacing * 2, secondRect.height - spacing * 2, 4);
-                thirdRect.x = secondRect.x + secondRect.width / 2 - thirdRect.width / 2;
-                thirdRect.y = secondRect.y + secondRect.height / 2 - thirdRect.height / 2;
-                this.addChild(thirdRect);
-                var remainingWidth = thirdRect.width - 8 * (spacing + 1);
-                var unitWidth = remainingWidth / 7;
-                var unitHeight = thirdRect.height - 2 * (spacing + 1);
-                var unitY = thirdRect.y + thirdRect.height / 2 - unitHeight / 2;
-                var unitStartX = thirdRect.x + spacing + 1;
-                this.lifeUnits = [];
-                _.forEach(_.range(0, 7), function (counter) {
-                    var lifeUnit = new Graphics();
-                    lifeUnit.beginFill(0xffffff);
-                    lifeUnit.drawRoundedRect(0, 0, unitWidth, unitHeight, 2);
-                    lifeUnit.x = unitStartX + counter * (unitWidth + spacing + 1);
-                    lifeUnit.y = unitY;
-                    _this.addChild(lifeUnit);
-                    _this.lifeUnits.push(lifeUnit);
-                });
-            };
-            return PockeyLifeBar;
-        }(Container));
-        UserInterface.PockeyLifeBar = PockeyLifeBar;
-    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
-})(Pockey || (Pockey = {}));
-var Pockey;
-(function (Pockey) {
-    var UserInterface;
-    (function (UserInterface) {
-        var TextField = Framework.utils.TextField;
-        var PockeyUserGameGraphics = (function (_super) {
-            __extends(PockeyUserGameGraphics, _super);
-            function PockeyUserGameGraphics(side) {
-                var _this = _super.call(this) || this;
-                _this.side = side;
+                this.side = side;
+                this.gameGraphic = gameGraphic;
                 var style = new PIXI.TextStyle({
                     fontFamily: 'troika',
                     fontSize: 22,
@@ -7563,96 +7962,70 @@ var Pockey;
                     dropShadowAngle: Math.PI / 3,
                     dropShadowDistance: 10,
                 });
-                var timerTextStyle = style.clone();
-                timerTextStyle.fontSize = 28;
-                _this.userAvatar = new UserInterface.PockeyUiInGameAvatar();
-                _this.userLifeBar = new UserInterface.PockeyLifeBar();
-                _this.timerText = new TextField("0:" + Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS.toString(), timerTextStyle);
-                _this.timerText.visible = false;
-                if (_this.side == "left") {
-                    _this.userNameTextField = new TextField("Player", style);
-                    _this.userLifeBar.x = _this.userAvatar.width + 76;
-                    _this.userNameTextField.x = _this.userLifeBar.x;
-                }
-                else {
-                    _this.userNameTextField = new TextField("Opponent", style);
-                    _this.userAvatar.x = _this.userLifeBar.width + 76;
-                    _this.userNameTextField.x = _this.userLifeBar.width - _this.userNameTextField.width;
-                }
-                _this.timerText.x = _this.userAvatar.x + _this.userAvatar.width / 2 - _this.timerText.width / 2;
-                _this.userLifeBar.y = _this.userAvatar.height - _this.userLifeBar.height;
-                _this.userNameTextField.y = _this.userLifeBar.y - _this.userNameTextField.height + 4;
-                _this.timerText.y = _this.userAvatar.y + _this.userAvatar.height - 1 - _this.timerText.height;
-                _this.addChild(_this.userAvatar);
-                _this.addChild(_this.userLifeBar);
-                _this.addChild(_this.userNameTextField);
-                _this.addChild(_this.timerText);
-                return _this;
+                this.userAvatar = this.gameGraphic.getElementsByClassName("scoreBoardAvatar")[0];
+                this.lifeUnits = [];
+                _.forEach(this.gameGraphic.getElementsByClassName("scoreBoardLives")[0].children, function (life) {
+                    _this.lifeUnits.push(life);
+                });
+                this.timerText = this.gameGraphic.getElementsByClassName("scoreBoardTimer")[0];
+                this.timerText.innerText = "0:" + Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS.toString();
+                this.userNameTextField = this.gameGraphic.getElementsByClassName("playerName")[0];
             }
             PockeyUserGameGraphics.prototype.resetTimer = function () {
-                this.timerText.visible = false;
-                this.timerText.style.fill = 0xffffff;
-                this.timerText.setText("0:" + Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS.toString());
+                this.timerText.style.display = "none";
+                this.timerText.innerText = "0:" + Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS.toString();
             };
             PockeyUserGameGraphics.prototype.updateTimer = function (timeText) {
                 if (timeText == "") {
                     this.resetTimer();
                 }
                 else {
-                    this.timerText.visible = true;
-                    this.timerText.style.fill = 0xffffff;
-                    this.timerText.setText(timeText);
-                    this.timerText.x = 2 + this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
+                    this.timerText.innerText = timeText;
+                    this.timerText.style.display = "flex";
                 }
             };
             PockeyUserGameGraphics.prototype.updateUsername = function (text) {
-                this.userNameTextField.setText(text);
-                if (this.side == "right") {
-                    this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
-                }
+                this.userNameTextField.innerText = text;
             };
             PockeyUserGameGraphics.prototype.reset = function () {
-                _.forEach(this.userLifeBar.lifeUnits, function (lifeUnit, id) {
-                    lifeUnit.alpha = 1;
+                _.forEach(this.lifeUnits, function (lifeUnit, id) {
                 });
             };
             PockeyUserGameGraphics.prototype.updateScore = function (score) {
-                var _this = this;
-                _.forEach(this.userLifeBar.lifeUnits, function (lifeUnit, id) {
-                    if (_this.side == "left") {
-                        if (id >= score) {
-                            lifeUnit.alpha = 0.5;
-                        }
-                    }
-                    else {
-                        if (id < 7 - score) {
-                            lifeUnit.alpha = 0.5;
-                        }
+                _.forEach(this.lifeUnits, function (lifeUnit, id) {
+                    if (id < 7 - score) {
+                        lifeUnit.style.opacity = "0.5";
                     }
                 });
             };
             PockeyUserGameGraphics.prototype.tint = function (color) {
-                _.forEach(this.userLifeBar.lifeUnits, function (lifeUnit, id) {
-                    lifeUnit.tint = color;
+                _.forEach(this.lifeUnits, function (lifeUnit, id) {
+                    lifeUnit.style.background = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
                 });
-                this.userNameTextField.tint = color;
             };
-            PockeyUserGameGraphics.prototype.updateAvatar = function (avatar) {
-                this.userAvatar.updateAvatarImage(avatar);
+            PockeyUserGameGraphics.prototype.updateAvatar = function (avatarID) {
+                var avatarPath = "";
+                _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, function (avatarVO, counter) {
+                    if (avatarVO.id == avatarID) {
+                        avatarPath = avatarVO.icon;
+                        return true;
+                    }
+                });
+                this.userAvatar.style.background = "center / contain no-repeat #1a4157 url(" + avatarPath + ")";
             };
             PockeyUserGameGraphics.prototype.setTimerColor = function (tintColor) {
-                if (this.timerText.style.fill = tintColor) {
+                if (this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6)) {
                     return;
                 }
                 else {
-                    this.timerText.style.fill = tintColor;
+                    this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6);
                 }
             };
             PockeyUserGameGraphics.prototype.animateTimer = function () {
                 this.setTimerColor(0xFF0000);
             };
             return PockeyUserGameGraphics;
-        }(Container));
+        }());
         UserInterface.PockeyUserGameGraphics = PockeyUserGameGraphics;
     })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
 })(Pockey || (Pockey = {}));
@@ -7660,37 +8033,21 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
-        var Graphics = PIXI.Graphics;
-        var PockeyUiMatchCircle = (function (_super) {
-            __extends(PockeyUiMatchCircle, _super);
-            function PockeyUiMatchCircle() {
-                var _this = _super.call(this) || this;
-                _this.createMatchCircle();
-                return _this;
+        var PockeyUiMatchCircle = (function () {
+            function PockeyUiMatchCircle(circle) {
+                this.circleBorder = circle;
+                this.circleDot = this.circleBorder.getElementsByClassName("dorScoreBoard")[0];
             }
-            PockeyUiMatchCircle.prototype.createMatchCircle = function () {
-                this.firstCircleGraphics = new Graphics();
-                this.firstCircleGraphics.lineStyle(5, 0xffffff);
-                this.firstCircleGraphics.tint = 0x639db5;
-                this.firstCircleGraphics.drawCircle(0, 0, 12);
-                this.addChild(this.firstCircleGraphics);
-                this.secondCircleGraphics = new Graphics();
-                this.secondCircleGraphics.beginFill(0xffffff);
-                this.secondCircleGraphics.tint = 0x426d7e;
-                this.secondCircleGraphics.drawCircle(0, 0, 6);
-                this.secondCircleGraphics.endFill();
-                this.addChild(this.secondCircleGraphics);
-            };
             PockeyUiMatchCircle.prototype.activate = function (color) {
-                this.firstCircleGraphics.tint = 0xffffff;
-                this.secondCircleGraphics.tint = color;
+                this.circleBorder.style.borderColor = "#ffffff";
+                this.circleDot.style.background = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
             };
             PockeyUiMatchCircle.prototype.reset = function (color) {
-                this.secondCircleGraphics.tint = 0x426d7e;
-                this.firstCircleGraphics.tint = 0x639db5;
+                this.circleBorder.style.borderColor = "#639db5";
+                this.circleDot.style.background = "#426d7e";
             };
             return PockeyUiMatchCircle;
-        }(Container));
+        }());
         UserInterface.PockeyUiMatchCircle = PockeyUiMatchCircle;
     })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
 })(Pockey || (Pockey = {}));
@@ -7698,647 +8055,28 @@ var Pockey;
 (function (Pockey) {
     var UserInterface;
     (function (UserInterface) {
-        var Sprite = PIXI.Sprite;
         var Settings = Framework.Settings;
-        var PockeyUiVersusGraphics = (function (_super) {
-            __extends(PockeyUiVersusGraphics, _super);
+        var PockeyUiVersusGraphics = (function () {
             function PockeyUiVersusGraphics() {
-                var _this = _super.call(this) || this;
-                _this.versusGraphics = new Sprite(PIXI.Texture.fromFrame("vs.png"));
-                _this.addChild(_this.versusGraphics);
+                var _this = this;
                 if (Settings.isMobile) {
                 }
-                _this.leftSideMatchCirclesContainer = new Container();
-                _this.addChild(_this.leftSideMatchCirclesContainer);
-                _this.leftSideMatchCircles = [];
-                _this.rightSideMatchCirclesContainer = new Container();
-                _this.addChild(_this.rightSideMatchCirclesContainer);
-                _this.rightSideMatchCircles = [];
-                var circle1 = new UserInterface.PockeyUiMatchCircle();
-                var circle2 = new UserInterface.PockeyUiMatchCircle();
-                circle1.x = circle2.width + 10;
-                _this.leftSideMatchCirclesContainer.addChild(circle1);
-                _this.leftSideMatchCirclesContainer.addChild(circle2);
-                _this.leftSideMatchCirclesContainer.y = _this.versusGraphics.height / 2 + 6;
-                _this.leftSideMatchCirclesContainer.x = circle1.width;
-                _this.leftSideMatchCircles.push(circle1);
-                _this.leftSideMatchCircles.push(circle2);
-                var circle3 = new UserInterface.PockeyUiMatchCircle();
-                var circle4 = new UserInterface.PockeyUiMatchCircle();
-                circle4.x = circle3.width + 10;
-                _this.rightSideMatchCirclesContainer.addChild(circle3);
-                _this.rightSideMatchCirclesContainer.addChild(circle4);
-                _this.rightSideMatchCirclesContainer.y = _this.leftSideMatchCirclesContainer.y;
-                _this.rightSideMatchCirclesContainer.x = _this.versusGraphics.width - _this.rightSideMatchCirclesContainer.width + 2;
-                _this.rightSideMatchCircles.push(circle3);
-                _this.rightSideMatchCircles.push(circle4);
-                return _this;
+                this.leftSideMatchCircles = [];
+                _.forEach(document.getElementById("ScoreBoardPlayerRoundsLeft").children, function (circle) {
+                    var matchCircle = new UserInterface.PockeyUiMatchCircle(circle);
+                    _this.leftSideMatchCircles.push(matchCircle);
+                });
+                this.rightSideMatchCircles = [];
+                _.forEach(document.getElementById("ScoreBoardPlayerRoundsLeft").children, function (circle) {
+                    var matchCircle = new UserInterface.PockeyUiMatchCircle(circle);
+                    _this.rightSideMatchCircles.push(matchCircle);
+                });
             }
             return PockeyUiVersusGraphics;
-        }(Container));
+        }());
         UserInterface.PockeyUiVersusGraphics = PockeyUiVersusGraphics;
     })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
 })(Pockey || (Pockey = {}));
-var Framework;
-(function (Framework) {
-    var Utils;
-    (function (Utils) {
-        Utils.INTERACTION_EVENTS = [
-            "pointerover",
-            "pointerenter",
-            "pointerdown",
-            "pointermove",
-            "pointerup",
-            "pointercancel",
-            "pointerout",
-            "pointerleave",
-            "gotpointercapture",
-            "lostpointercapture",
-            "mouseover",
-            "mouseenter",
-            "mousedown",
-            "mousemove",
-            "mouseup",
-            "mousecancel",
-            "mouseout",
-            "mouseleave",
-            "touchover",
-            "touchenter",
-            "touchdown",
-            "touchmove",
-            "touchup",
-            "touchcancel",
-            "touchout",
-            "touchleave"
-        ];
-        var MultiStyleText = (function (_super) {
-            __extends(MultiStyleText, _super);
-            function MultiStyleText(text, styles) {
-                var _this = _super.call(this, text) || this;
-                _this.styles = styles;
-                Utils.INTERACTION_EVENTS.forEach(function (event) {
-                    _this.on(event, function (e) { return _this.handleInteraction(e); });
-                });
-                return _this;
-            }
-            MultiStyleText.prototype.handleInteraction = function (e) {
-                var ev = e;
-                var localPoint = e.data.getLocalPosition(this);
-                var targetTag = this.hitboxes.reduce(function (prev, hitbox) { return prev !== undefined ? prev : (hitbox.hitbox.contains(localPoint.x, localPoint.y) ? hitbox : undefined); }, undefined);
-                ev.targetTag = targetTag === undefined ? undefined : targetTag.tag;
-            };
-            Object.defineProperty(MultiStyleText.prototype, "styles", {
-                set: function (styles) {
-                    this.textStyles = {};
-                    this.textStyles["default"] = this.assign({}, MultiStyleText.DEFAULT_TAG_STYLE);
-                    for (var style in styles) {
-                        if (style === "default") {
-                            this.assign(this.textStyles["default"], styles[style]);
-                        }
-                        else {
-                            this.textStyles[style] = this.assign({}, styles[style]);
-                        }
-                    }
-                    this._style = new PIXI.TextStyle(this.textStyles["default"]);
-                    this.dirty = true;
-                },
-                enumerable: true,
-                configurable: true
-            });
-            MultiStyleText.prototype.setStyle = function (style) {
-                this.scale.x = 1;
-                this.scale.y = 1;
-                if (style && !_.isUndefined(style.fontSize) && !_.isNull(style.fontSize)) {
-                    var fontSize = +style.fontSize;
-                    fontSize *= 2;
-                    style.fontSize = fontSize;
-                }
-            };
-            MultiStyleText.prototype.setTagStyle = function (tag, style) {
-                if (tag in this.textStyles) {
-                    this.assign(this.textStyles[tag], style);
-                }
-                else {
-                    this.textStyles[tag] = this.assign({}, style);
-                }
-                this._style = new PIXI.TextStyle(this.textStyles["default"]);
-                this.dirty = true;
-            };
-            MultiStyleText.prototype.deleteTagStyle = function (tag) {
-                if (tag === "default") {
-                    this.textStyles["default"] = this.assign({}, MultiStyleText.DEFAULT_TAG_STYLE);
-                }
-                else {
-                    delete this.textStyles[tag];
-                }
-                this._style = new PIXI.TextStyle(this.textStyles["default"]);
-                this.dirty = true;
-            };
-            MultiStyleText.prototype.getTagRegex = function (captureName, captureMatch) {
-                var tagAlternation = Object.keys(this.textStyles).join("|");
-                if (captureName) {
-                    tagAlternation = "(" + tagAlternation + ")";
-                }
-                else {
-                    tagAlternation = "(?:" + tagAlternation + ")";
-                }
-                var reStr = "<" + tagAlternation + "(?:\\s+[A-Za-z0-9_\\-]+=(?:\"(?:[^\"]+|\\\\\")*\"|'(?:[^']+|\\\\')*'))*\\s*>|</" + tagAlternation + "\\s*>";
-                if (captureMatch) {
-                    reStr = "(" + reStr + ")";
-                }
-                return new RegExp(reStr, "g");
-            };
-            MultiStyleText.prototype.getPropertyRegex = function () {
-                return new RegExp("([A-Za-z0-9_\\-]+)=(?:\"((?:[^\"]+|\\\\\")*)\"|'((?:[^']+|\\\\')*)')", "g");
-            };
-            MultiStyleText.prototype._getTextDataPerLine = function (lines) {
-                var outputTextData = [];
-                var re = this.getTagRegex(true, false);
-                var styleStack = [this.assign({}, this.textStyles["default"])];
-                var tagStack = [{ name: "default", properties: {} }];
-                for (var i = 0; i < lines.length; i++) {
-                    var lineTextData = [];
-                    var matches = [];
-                    var matchArray = void 0;
-                    while (matchArray = re.exec(lines[i])) {
-                        matches.push(matchArray);
-                    }
-                    if (matches.length === 0) {
-                        lineTextData.push(this.createTextData(lines[i], styleStack[styleStack.length - 1], tagStack[tagStack.length - 1]));
-                    }
-                    else {
-                        var currentSearchIdx = 0;
-                        for (var j = 0; j < matches.length; j++) {
-                            if (matches[j].index > currentSearchIdx) {
-                                lineTextData.push(this.createTextData(lines[i].substring(currentSearchIdx, matches[j].index), styleStack[styleStack.length - 1], tagStack[tagStack.length - 1]));
-                            }
-                            if (matches[j][0][1] === "/") {
-                                if (styleStack.length > 1) {
-                                    styleStack.pop();
-                                    tagStack.pop();
-                                }
-                            }
-                            else {
-                                styleStack.push(this.assign({}, styleStack[styleStack.length - 1], this.textStyles[matches[j][1]]));
-                                var properties = {};
-                                var propertyRegex = this.getPropertyRegex();
-                                var propertyMatch = void 0;
-                                while (propertyMatch = propertyRegex.exec(matches[j][0])) {
-                                    properties[propertyMatch[1]] = propertyMatch[2] || propertyMatch[3];
-                                }
-                                tagStack.push({ name: matches[j][1], properties: properties });
-                            }
-                            currentSearchIdx = matches[j].index + matches[j][0].length;
-                        }
-                        if (currentSearchIdx < lines[i].length) {
-                            lineTextData.push(this.createTextData(lines[i].substring(currentSearchIdx), styleStack[styleStack.length - 1], tagStack[tagStack.length - 1]));
-                        }
-                    }
-                    outputTextData.push(lineTextData);
-                }
-                return outputTextData;
-            };
-            MultiStyleText.prototype.getFontString = function (style) {
-                return new PIXI.TextStyle(style).toFontString();
-            };
-            MultiStyleText.prototype.createTextData = function (text, style, tag) {
-                return {
-                    text: text,
-                    style: style,
-                    width: 0,
-                    height: 0,
-                    fontProperties: undefined,
-                    tag: tag
-                };
-            };
-            MultiStyleText.prototype.getDropShadowPadding = function () {
-                var _this = this;
-                var maxDistance = 0;
-                var maxBlur = 0;
-                Object.keys(this.textStyles).forEach(function (styleKey) {
-                    var _a = _this.textStyles[styleKey], dropShadowDistance = _a.dropShadowDistance, dropShadowBlur = _a.dropShadowBlur;
-                    maxDistance = Math.max(maxDistance, dropShadowDistance || 0);
-                    maxBlur = Math.max(maxBlur, dropShadowBlur || 0);
-                });
-                return maxDistance + maxBlur;
-            };
-            MultiStyleText.prototype.updateText = function () {
-                var _this = this;
-                if (!this.dirty) {
-                    return;
-                }
-                this.hitboxes = [];
-                this.texture.baseTexture.resolution = this.resolution;
-                var textStyles = this.textStyles;
-                var outputText = this.text;
-                if (this._style.wordWrap) {
-                    outputText = this.wordWrap(this.text);
-                }
-                var lines = outputText.split(/(?:\r\n|\r|\n)/);
-                var outputTextData = this._getTextDataPerLine(lines);
-                var lineWidths = [];
-                var lineYMins = [];
-                var lineYMaxs = [];
-                var baselines = [];
-                var maxLineWidth = 0;
-                for (var i = 0; i < lines.length; i++) {
-                    var lineWidth = 0;
-                    var lineYMin = 0;
-                    var lineYMax = 0;
-                    var baseline = 0;
-                    for (var j = 0; j < outputTextData[i].length; j++) {
-                        var sty = outputTextData[i][j].style;
-                        this.context.font = this.getFontString(sty);
-                        outputTextData[i][j].width = this.context.measureText(outputTextData[i][j].text).width;
-                        if (outputTextData[i][j].text.length === 0) {
-                            outputTextData[i][j].width += (outputTextData[i][j].text.length - 1) * sty.letterSpacing;
-                            if (j > 0) {
-                                lineWidth += sty.letterSpacing / 2;
-                            }
-                            if (j < outputTextData[i].length - 1) {
-                                lineWidth += sty.letterSpacing / 2;
-                            }
-                        }
-                        lineWidth += outputTextData[i][j].width;
-                        outputTextData[i][j].fontProperties = PIXI.TextMetrics.measureFont(this.context.font);
-                        outputTextData[i][j].height =
-                            outputTextData[i][j].fontProperties.fontSize + outputTextData[i][j].style.strokeThickness;
-                        if (typeof sty.valign === "number") {
-                            lineYMin = Math.min(lineYMin, sty.valign - outputTextData[i][j].fontProperties.descent);
-                            lineYMax = Math.max(lineYMax, sty.valign + outputTextData[i][j].fontProperties.ascent);
-                        }
-                        else {
-                            lineYMin = Math.min(lineYMin, -outputTextData[i][j].fontProperties.descent);
-                            lineYMax = Math.max(lineYMax, outputTextData[i][j].fontProperties.ascent);
-                        }
-                    }
-                    lineWidths[i] = lineWidth;
-                    lineYMins[i] = lineYMin;
-                    lineYMaxs[i] = lineYMax;
-                    maxLineWidth = Math.max(maxLineWidth, lineWidth);
-                }
-                var stylesArray = Object.keys(textStyles).map(function (key) { return textStyles[key]; });
-                var maxStrokeThickness = stylesArray.reduce(function (prev, cur) { return Math.max(prev, cur.strokeThickness || 0); }, 0);
-                var dropShadowPadding = this.getDropShadowPadding();
-                var totalHeight = lineYMaxs.reduce(function (prev, cur) { return prev + cur; }, 0) - lineYMins.reduce(function (prev, cur) { return prev + cur; }, 0);
-                var width = maxLineWidth + maxStrokeThickness + 2 * dropShadowPadding;
-                var height = totalHeight + 2 * dropShadowPadding;
-                this.canvas.width = (width + this.context.lineWidth) * this.resolution;
-                this.canvas.height = height * this.resolution;
-                this.context.scale(this.resolution, this.resolution);
-                this.context.textBaseline = "alphabetic";
-                this.context.lineJoin = "round";
-                var basePositionY = dropShadowPadding;
-                var drawingData = [];
-                for (var i = 0; i < outputTextData.length; i++) {
-                    var line = outputTextData[i];
-                    var linePositionX = void 0;
-                    switch (this._style.align) {
-                        case "left":
-                            linePositionX = dropShadowPadding;
-                            break;
-                        case "center":
-                            linePositionX = dropShadowPadding + (maxLineWidth - lineWidths[i]) / 2;
-                            break;
-                        case "right":
-                            linePositionX = dropShadowPadding + maxLineWidth - lineWidths[i];
-                            break;
-                    }
-                    for (var j = 0; j < line.length; j++) {
-                        var _a = line[j], style = _a.style, text = _a.text, fontProperties = _a.fontProperties, width_1 = _a.width, height_1 = _a.height, tag = _a.tag;
-                        linePositionX += maxStrokeThickness / 2;
-                        var linePositionY = maxStrokeThickness / 2 + basePositionY + fontProperties.ascent;
-                        switch (style.valign) {
-                            case "top":
-                                break;
-                            case "baseline":
-                                linePositionY += lineYMaxs[i] - fontProperties.ascent;
-                                break;
-                            case "middle":
-                                linePositionY += (lineYMaxs[i] - lineYMins[i] - fontProperties.ascent - fontProperties.descent) / 2;
-                                break;
-                            case "bottom":
-                                linePositionY += lineYMaxs[i] - lineYMins[i] - fontProperties.ascent - fontProperties.descent;
-                                break;
-                            default:
-                                linePositionY += lineYMaxs[i] - fontProperties.ascent - style.valign;
-                                break;
-                        }
-                        if (style.letterSpacing === 0) {
-                            drawingData.push({
-                                text: text,
-                                style: style,
-                                x: linePositionX,
-                                y: linePositionY,
-                                width: width_1,
-                                ascent: fontProperties.ascent,
-                                descent: fontProperties.descent,
-                                tag: tag
-                            });
-                            linePositionX += line[j].width;
-                        }
-                        else {
-                            this.context.font = this.getFontString(line[j].style);
-                            for (var k = 0; k < text.length; k++) {
-                                if (k > 0 || j > 0) {
-                                    linePositionX += style.letterSpacing / 2;
-                                }
-                                drawingData.push({
-                                    text: text.charAt(k),
-                                    style: style,
-                                    x: linePositionX,
-                                    y: linePositionY,
-                                    width: width_1,
-                                    ascent: fontProperties.ascent,
-                                    descent: fontProperties.descent,
-                                    tag: tag
-                                });
-                                linePositionX += this.context.measureText(text.charAt(k)).width;
-                                if (k < text.length - 1 || j < line.length - 1) {
-                                    linePositionX += style.letterSpacing / 2;
-                                }
-                            }
-                        }
-                        linePositionX -= maxStrokeThickness / 2;
-                    }
-                    basePositionY += lineYMaxs[i] - lineYMins[i];
-                }
-                this.context.save();
-                drawingData.forEach(function (_a) {
-                    var style = _a.style, text = _a.text, x = _a.x, y = _a.y;
-                    if (!style.dropShadow) {
-                        return;
-                    }
-                    _this.context.font = _this.getFontString(style);
-                    var dropFillStyle = style.dropShadowColor;
-                    if (typeof dropFillStyle === "number") {
-                        dropFillStyle = PIXI.utils.hex2string(dropFillStyle);
-                    }
-                    _this.context.shadowColor = dropFillStyle;
-                    _this.context.shadowBlur = style.dropShadowBlur;
-                    _this.context.shadowOffsetX = Math.cos(style.dropShadowAngle) * style.dropShadowDistance * _this.resolution;
-                    _this.context.shadowOffsetY = Math.sin(style.dropShadowAngle) * style.dropShadowDistance * _this.resolution;
-                    _this.context.fillText(text, x, y);
-                });
-                this.context.restore();
-                drawingData.forEach(function (_a) {
-                    var style = _a.style, text = _a.text, x = _a.x, y = _a.y, width = _a.width, ascent = _a.ascent, descent = _a.descent, tag = _a.tag;
-                    _this.context.font = _this.getFontString(style);
-                    var strokeStyle = style.stroke;
-                    if (typeof strokeStyle === "number") {
-                        strokeStyle = PIXI.utils.hex2string(strokeStyle);
-                    }
-                    _this.context.strokeStyle = strokeStyle;
-                    _this.context.lineWidth = style.strokeThickness;
-                    var fillStyle = style.fill;
-                    if (typeof fillStyle === "number") {
-                        fillStyle = PIXI.utils.hex2string(fillStyle);
-                    }
-                    else if (Array.isArray(fillStyle)) {
-                        for (var i = 0; i < fillStyle.length; i++) {
-                            var fill = fillStyle[i];
-                            if (typeof fill === "number") {
-                                fillStyle[i] = PIXI.utils.hex2string(fill);
-                            }
-                        }
-                    }
-                    _this.context.fillStyle = _this._generateFillStyle(new PIXI.TextStyle(style), [text]);
-                    if (style.stroke && style.strokeThickness) {
-                        _this.context.strokeText(text, x, y);
-                    }
-                    if (style.fill) {
-                        _this.context.fillText(text, x, y);
-                    }
-                    var offset = -_this._style.padding - _this.getDropShadowPadding();
-                    _this.hitboxes.push({
-                        tag: tag,
-                        hitbox: new PIXI.Rectangle(x + offset, y - ascent + offset, width, ascent + descent)
-                    });
-                    var debugSpan = style.debug === undefined
-                        ? MultiStyleText.debugOptions.spans.enabled
-                        : style.debug;
-                    if (debugSpan) {
-                        _this.context.lineWidth = 1;
-                        if (MultiStyleText.debugOptions.spans.bounding) {
-                            _this.context.fillStyle = MultiStyleText.debugOptions.spans.bounding;
-                            _this.context.strokeStyle = MultiStyleText.debugOptions.spans.bounding;
-                            _this.context.beginPath();
-                            _this.context.rect(x, y - ascent, width, ascent + descent);
-                            _this.context.fill();
-                            _this.context.stroke();
-                            _this.context.stroke();
-                        }
-                        if (MultiStyleText.debugOptions.spans.baseline) {
-                            _this.context.strokeStyle = MultiStyleText.debugOptions.spans.baseline;
-                            _this.context.beginPath();
-                            _this.context.moveTo(x, y);
-                            _this.context.lineTo(x + width, y);
-                            _this.context.closePath();
-                            _this.context.stroke();
-                        }
-                        if (MultiStyleText.debugOptions.spans.top) {
-                            _this.context.strokeStyle = MultiStyleText.debugOptions.spans.top;
-                            _this.context.beginPath();
-                            _this.context.moveTo(x, y - ascent);
-                            _this.context.lineTo(x + width, y - ascent);
-                            _this.context.closePath();
-                            _this.context.stroke();
-                        }
-                        if (MultiStyleText.debugOptions.spans.bottom) {
-                            _this.context.strokeStyle = MultiStyleText.debugOptions.spans.bottom;
-                            _this.context.beginPath();
-                            _this.context.moveTo(x, y + descent);
-                            _this.context.lineTo(x + width, y + descent);
-                            _this.context.closePath();
-                            _this.context.stroke();
-                        }
-                        if (MultiStyleText.debugOptions.spans.text) {
-                            _this.context.fillStyle = "#ffffff";
-                            _this.context.strokeStyle = "#000000";
-                            _this.context.lineWidth = 2;
-                            _this.context.font = "8px monospace";
-                            _this.context.strokeText(tag.name, x, y - ascent + 8);
-                            _this.context.fillText(tag.name, x, y - ascent + 8);
-                            _this.context.strokeText(width.toFixed(2) + "x" + (ascent + descent).toFixed(2), x, y - ascent + 16);
-                            _this.context.fillText(width.toFixed(2) + "x" + (ascent + descent).toFixed(2), x, y - ascent + 16);
-                        }
-                    }
-                });
-                if (MultiStyleText.debugOptions.objects.enabled) {
-                    if (MultiStyleText.debugOptions.objects.bounding) {
-                        this.context.fillStyle = MultiStyleText.debugOptions.objects.bounding;
-                        this.context.beginPath();
-                        this.context.rect(0, 0, width, height);
-                        this.context.fill();
-                    }
-                    if (MultiStyleText.debugOptions.objects.text) {
-                        this.context.fillStyle = "#ffffff";
-                        this.context.strokeStyle = "#000000";
-                        this.context.lineWidth = 2;
-                        this.context.font = "8px monospace";
-                        this.context.strokeText(width.toFixed(2) + "x" + height.toFixed(2), 0, 8, width);
-                        this.context.fillText(width.toFixed(2) + "x" + height.toFixed(2), 0, 8, width);
-                    }
-                }
-                this.updateTexture();
-            };
-            MultiStyleText.prototype.wordWrap = function (text) {
-                var result = "";
-                var re = this.getTagRegex(true, true);
-                var lines = text.split("\n");
-                var wordWrapWidth = this._style.wordWrapWidth;
-                var styleStack = [this.assign({}, this.textStyles["default"])];
-                this.context.font = this.getFontString(this.textStyles["default"]);
-                for (var i = 0; i < lines.length; i++) {
-                    var spaceLeft = wordWrapWidth;
-                    var tagSplit = lines[i].split(re);
-                    var firstWordOfLine = true;
-                    for (var j = 0; j < tagSplit.length; j++) {
-                        if (re.test(tagSplit[j])) {
-                            result += tagSplit[j];
-                            if (tagSplit[j][1] === "/") {
-                                j += 2;
-                                styleStack.pop();
-                            }
-                            else {
-                                j++;
-                                styleStack.push(this.assign({}, styleStack[styleStack.length - 1], this.textStyles[tagSplit[j]]));
-                                j++;
-                            }
-                            this.context.font = this.getFontString(styleStack[styleStack.length - 1]);
-                        }
-                        else {
-                            var words = tagSplit[j].split(" ");
-                            for (var k = 0; k < words.length; k++) {
-                                var wordWidth = this.context.measureText(words[k]).width;
-                                if (this._style.breakWords && wordWidth > spaceLeft) {
-                                    var characters = words[k].split('');
-                                    if (k > 0) {
-                                        result += " ";
-                                        spaceLeft -= this.context.measureText(" ").width;
-                                    }
-                                    for (var c = 0; c < characters.length; c++) {
-                                        var characterWidth = this.context.measureText(characters[c]).width;
-                                        if (characterWidth > spaceLeft) {
-                                            result += "\n" + characters[c];
-                                            spaceLeft = wordWrapWidth - characterWidth;
-                                        }
-                                        else {
-                                            result += characters[c];
-                                            spaceLeft -= characterWidth;
-                                        }
-                                    }
-                                }
-                                else if (this._style.breakWords) {
-                                    result += words[k];
-                                    spaceLeft -= wordWidth;
-                                }
-                                else {
-                                    var paddedWordWidth = wordWidth + (k > 0 ? this.context.measureText(" ").width : 0);
-                                    if (paddedWordWidth > spaceLeft) {
-                                        if (!firstWordOfLine) {
-                                            result += "\n";
-                                        }
-                                        result += words[k];
-                                        spaceLeft = wordWrapWidth - wordWidth;
-                                    }
-                                    else {
-                                        spaceLeft -= paddedWordWidth;
-                                        if (k > 0) {
-                                            result += " ";
-                                        }
-                                        result += words[k];
-                                    }
-                                }
-                                firstWordOfLine = false;
-                            }
-                        }
-                    }
-                    if (i < lines.length - 1) {
-                        result += '\n';
-                    }
-                }
-                return result;
-            };
-            MultiStyleText.prototype.updateTexture = function () {
-                var texture = this._texture;
-                var dropShadowPadding = this.getDropShadowPadding();
-                texture.baseTexture.hasLoaded = true;
-                texture.baseTexture.resolution = this.resolution;
-                texture.baseTexture.realWidth = this.canvas.width;
-                texture.baseTexture.realHeight = this.canvas.height;
-                texture.baseTexture.width = this.canvas.width / this.resolution;
-                texture.baseTexture.height = this.canvas.height / this.resolution;
-                texture.trim.width = texture.frame.width = this.canvas.width / this.resolution;
-                texture.trim.height = texture.frame.height = this.canvas.height / this.resolution;
-                texture.trim.x = -this._style.padding - dropShadowPadding;
-                texture.trim.y = -this._style.padding - dropShadowPadding;
-                texture.orig.width = texture.frame.width - (this._style.padding + dropShadowPadding) * 2;
-                texture.orig.height = texture.frame.height - (this._style.padding + dropShadowPadding) * 2;
-                this._onTextureUpdate();
-                texture.baseTexture.emit('update', texture.baseTexture);
-                this.dirty = false;
-            };
-            MultiStyleText.prototype.assign = function (destination) {
-                var sources = [];
-                for (var _i = 1; _i < arguments.length; _i++) {
-                    sources[_i - 1] = arguments[_i];
-                }
-                for (var _a = 0, sources_1 = sources; _a < sources_1.length; _a++) {
-                    var source = sources_1[_a];
-                    for (var key in source) {
-                        destination[key] = source[key];
-                    }
-                }
-                return destination;
-            };
-            MultiStyleText.DEFAULT_TAG_STYLE = {
-                align: "left",
-                breakWords: false,
-                dropShadow: false,
-                dropShadowAngle: Math.PI / 6,
-                dropShadowBlur: 0,
-                dropShadowColor: "#000000",
-                dropShadowDistance: 5,
-                fill: "black",
-                fillGradientType: PIXI.TEXT_GRADIENT.LINEAR_VERTICAL,
-                fontFamily: "Arial",
-                fontSize: 26,
-                fontStyle: "normal",
-                fontVariant: "normal",
-                fontWeight: "normal",
-                letterSpacing: 0,
-                lineHeight: 0,
-                lineJoin: "miter",
-                miterLimit: 10,
-                padding: 0,
-                stroke: "black",
-                strokeThickness: 0,
-                textBaseline: "alphabetic",
-                valign: "baseline",
-                wordWrap: false,
-                wordWrapWidth: 100
-            };
-            MultiStyleText.debugOptions = {
-                spans: {
-                    enabled: false,
-                    baseline: "#44BB44",
-                    top: "#BB4444",
-                    bottom: "#4444BB",
-                    bounding: "rgba(255, 255, 255, 0.1)",
-                    text: true
-                },
-                objects: {
-                    enabled: false,
-                    bounding: "rgba(255, 255, 255, 0.05)",
-                    text: true
-                }
-            };
-            return MultiStyleText;
-        }(PIXI.Text));
-        Utils.MultiStyleText = MultiStyleText;
-    })(Utils = Framework.Utils || (Framework.Utils = {}));
-})(Framework || (Framework = {}));
 var Pockey;
 (function (Pockey) {
     var UserInterface;
@@ -8346,21 +8084,36 @@ var Pockey;
         var BallType = Pockey.GameModule.BallType;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
-        var TextField = Framework.utils.TextField;
-        var MultiStyleText = Framework.Utils.MultiStyleText;
-        var TextStyle = PIXI.TextStyle;
         var Settings = Framework.Settings;
-        var PockeyUiGameScreen = (function (_super) {
-            __extends(PockeyUiGameScreen, _super);
+        var PockeyUiGameScreen = (function () {
             function PockeyUiGameScreen() {
-                var _this = _super.call(this) || this;
-                _this.tipTextWidth = 934;
-                _this.poolTableScaleFactor = 1;
-                _this.subscribeToSignals();
-                _this.defineTextStyles();
-                _this.addElements();
-                return _this;
+                this.tipTextWidth = 934;
+                this.poolTableScaleFactor = 1;
+                this.currentText = "";
+                this.scoreBoard = document.getElementById("ScoreBoard");
+                this.scoreBoard.style.visibility = "hidden";
+                this.scoreBoard.style.display = "flex";
+                this.initialBoardWidth = this.scoreBoard.offsetWidth;
+                this.initialBoardHeight = this.scoreBoard.offsetHeight;
+                console.log("la score board: " + this.initialBoardWidth, this.initialBoardHeight);
+                console.log("la score board2: " + this.scoreBoard.clientWidth, this.scoreBoard.clientHeight);
+                TweenMax.delayedCall(0.1, this.hideScoreBoard.bind(this));
+                this.subscribeToSignals();
+                this.defineTextStyles();
+                this.addElements();
             }
+            PockeyUiGameScreen.prototype.hideScoreBoard = function () {
+                this.scoreBoard.style.display = "none";
+                this.scoreBoard.style.visibility = "visible";
+                console.log("la score board3: " + this.initialBoardWidth, this.initialBoardHeight);
+                console.log("la score board4: " + this.scoreBoard.clientWidth, this.scoreBoard.clientHeight);
+            };
+            PockeyUiGameScreen.prototype.show = function () {
+                this.scoreBoard.style.display = "flex";
+            };
+            PockeyUiGameScreen.prototype.hide = function () {
+                this.scoreBoard.style.display = "none";
+            };
             PockeyUiGameScreen.prototype.subscribeToSignals = function () {
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SET_SIDES_TYPE, this.onSetSides.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
@@ -8399,11 +8152,57 @@ var Pockey;
                 });
             };
             PockeyUiGameScreen.prototype.onUpdateUIText = function (params) {
+                var _this = this;
                 var text = params[0];
-                if (_.includes(text, "{opponent"))
-                    text = text.replace("{opponent}", Pockey.PockeySettings.OPPONENT_NICKNAME);
-                if (text != this.multilineText.text) {
+                if (this.currentText == text) {
+                    return;
                 }
+                this.currentText = text;
+                text = text.replace("{opponent}", Pockey.PockeySettings.OPPONENT_NICKNAME);
+                if (_.includes(text, "#warning#")) {
+                    while (this.tipText.firstChild) {
+                        this.tipText.removeChild(this.tipText.firstChild);
+                    }
+                    var tagArray = text.split("#warning#");
+                    _.forEach(tagArray, function (divText, counter) {
+                        if (divText.length > 0) {
+                            var paragraph = document.createElement("span");
+                            paragraph.innerText = divText;
+                            if (counter == 1) {
+                                paragraph.innerText = " " + divText + " ";
+                                paragraph.classList.add('warning');
+                            }
+                            else {
+                                paragraph.classList.add('normalSpan');
+                            }
+                            _this.tipText.append(paragraph);
+                        }
+                    });
+                    return;
+                }
+                if (_.includes(text, "#opponent#")) {
+                    while (this.tipText.firstChild) {
+                        this.tipText.removeChild(this.tipText.firstChild);
+                    }
+                    var tagArray = text.split("#opponent#");
+                    _.forEach(tagArray, function (divText, counter) {
+                        if (divText.length > 0) {
+                            var paragraph = document.createElement("span");
+                            paragraph.innerText = divText;
+                            if (counter == 1) {
+                                paragraph.innerText = " " + divText + " ";
+                                paragraph.classList.add('opponent');
+                                paragraph.style.color = '#' + ('00000' + (Pockey.PockeySettings.OPPONENT_COLOR | 0).toString(16)).substr(-6);
+                            }
+                            else {
+                                paragraph.classList.add('normalSpan');
+                            }
+                            _this.tipText.append(paragraph);
+                        }
+                    });
+                    return;
+                }
+                this.tipText.innerText = text;
             };
             PockeyUiGameScreen.prototype.onUpdateCurrentPlayerTimer = function (params) {
                 var time = params[0];
@@ -8467,143 +8266,48 @@ var Pockey;
                 if (this.opponentGameGraphics) {
                     this.opponentGameGraphics.tint(color);
                 }
-                this.opponentTextStyle = new TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: this.textFontSize,
-                    fill: color,
-                    dropShadow: true,
-                    dropShadowColor: '#000000',
-                    dropShadowBlur: 1,
-                    dropShadowAngle: Math.PI / 3,
-                    dropShadowDistance: 8
-                });
-                this.multilineText.styles =
-                    {
-                        "default": this.defaultTextStyle,
-                        "warning": this.warningTextStyle,
-                        "opponent": this.opponentTextStyle
-                    };
             };
             PockeyUiGameScreen.prototype.onChangeOpponentAvatar = function (avatarPath) {
                 if (this.opponentGameGraphics)
                     this.opponentGameGraphics.updateAvatar(avatarPath);
             };
             PockeyUiGameScreen.prototype.handleDesktopLandscape = function () {
-                this.graphicsContainer.height = 0.11 * Settings.stageHeight;
-                this.graphicsContainer.scale.x = this.graphicsContainer.scale.y;
-                this.graphicsContainer.x = Settings.stageWidth / 2;
-                this.graphicsContainer.y = 0.05 * Settings.stageHeight;
-                this.tipTextContainer.scale.x = this.tipTextContainer.scale.y = this.poolTableScaleFactor;
-                this.tipTextContainer.y = Settings.stageHeight - Settings.stageHeight * 0.1;
-                this.tipTextContainer.x = Settings.stageWidth / 2 + (this.tipTextWidth / 2) * this.poolTableScaleFactor;
-                this.multilineText.x = -this.multilineText.width;
+                var newHeight = (0.11 * Settings.stageHeight);
+                var scaleFactor = newHeight / this.initialBoardHeight;
+                var scaleString = "translate(-50%, -50%) scale(" + scaleFactor.toString() + ")";
+                console.log("intra la desktop landscape");
+                console.log(scaleString);
+                console.log("------------");
+                this.scoreBoard.style.transform = scaleString;
             };
             PockeyUiGameScreen.prototype.onResizeMobileLandscape = function () {
-                this.rotation = 0;
-                this.tipTextContainer.height = 0.046 * Settings.stageHeight;
-                this.tipTextContainer.scale.x = this.tipTextContainer.scale.y;
-                this.tipTextContainer.y = Settings.stageHeight - Settings.stageHeight * 0.0452;
-                this.tipTextContainer.x = Settings.stageWidth / 2;
-                this.multilineText.x = -this.multilineText.width / 2;
-                this.graphicsContainer.height = 0.13 * Settings.stageHeight;
-                this.graphicsContainer.scale.x = this.graphicsContainer.scale.y;
-                this.graphicsContainer.x = Settings.stageWidth / 2;
-                this.graphicsContainer.y = Settings.stageHeight * 0.008;
             };
             PockeyUiGameScreen.prototype.onResizeMobilePortrait = function () {
-                this.rotation = 90 * Math.PI / 180;
-                this.tipTextContainer.height = 0.0448 * Settings.stageWidth;
-                this.tipTextContainer.scale.x = this.tipTextContainer.scale.y;
-                this.tipTextContainer.x = Settings.stageHeight / 2;
-                this.tipTextContainer.y = -Settings.stageWidth * 0.046;
-                this.multilineText.x = -this.multilineText.width / 2;
-                this.graphicsContainer.height = 0.13 * Settings.stageWidth;
-                this.graphicsContainer.scale.x = this.graphicsContainer.scale.y;
-                this.graphicsContainer.x = Settings.stageHeight / 2;
-                this.graphicsContainer.y = -Settings.stageWidth + 0.008 * Settings.stageWidth;
             };
             PockeyUiGameScreen.prototype.defineTextStyles = function () {
-                this.textFontSize = 56.4;
-                if (Settings.isMobile) {
-                    this.textFontSize = 28;
-                }
-                this.defaultTextStyle = new TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: this.textFontSize,
-                    fill: 0xffffff,
-                    dropShadow: true,
-                    dropShadowColor: '#000000',
-                    dropShadowBlur: 1,
-                    dropShadowAngle: Math.PI / 3,
-                    dropShadowDistance: 8
-                });
-                this.warningTextStyle = new TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: this.textFontSize,
-                    fill: 0xff0000,
-                    dropShadow: true,
-                    dropShadowColor: '#000000',
-                    dropShadowBlur: 1,
-                    dropShadowAngle: Math.PI / 3,
-                    dropShadowDistance: 8
-                });
-                this.opponentTextStyle = new TextStyle({});
             };
             PockeyUiGameScreen.prototype.addElements = function () {
-                this.graphicsContainer = new Container();
-                this.addChild(this.graphicsContainer);
                 this.addVersusGraphics();
                 this.addLeftGameGraphics();
                 this.addRightGameGraphics();
                 this.addTipText();
             };
             PockeyUiGameScreen.prototype.addTipText = function () {
-                this.multilineText = new MultiStyleText("", {
-                    "default": this.defaultTextStyle,
-                    "warning": this.warningTextStyle,
-                    "opponent": this.opponentTextStyle
-                });
-                this.tipTextContainer = new Container();
-                this.tipTextContainer.name = "tipTextContainer";
-                this.addChild(this.tipTextContainer);
-                this.multilineText.scale.x = this.multilineText.scale.y = 0.5;
-                this.addChild(this.multilineText);
-                this.tipTextContainer.addChild(this.multilineText);
+                this.tipText = document.getElementById("SpansHolder");
             };
             PockeyUiGameScreen.prototype.addTipTextMobile = function () {
-                var style = new PIXI.TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: 14,
-                    fill: 0xffffff,
-                    dropShadow: true,
-                    dropShadowColor: '#000000',
-                    dropShadowBlur: 1,
-                    dropShadowAngle: Math.PI / 3,
-                    dropShadowDistance: 6,
-                });
-                this.tipText = new TextField("", style);
-                this.tipTextContainer = new Container();
-                this.addChild(this.tipTextContainer);
-                this.tipTextContainer.addChild(this.tipText);
             };
             PockeyUiGameScreen.prototype.addVersusGraphics = function () {
                 this.versus = new UserInterface.PockeyUiVersusGraphics();
-                this.versus.x -= this.versus.width / 2;
-                this.graphicsContainer.addChild(this.versus);
             };
             PockeyUiGameScreen.prototype.addLeftGameGraphics = function () {
-                this.leftGameGraphics = new UserInterface.PockeyUserGameGraphics("left");
-                this.leftGameGraphics.x = this.versus.x - this.leftGameGraphics.width - 36;
-                this.versus.y = this.leftGameGraphics.height - this.versus.height + 8;
-                this.graphicsContainer.addChild(this.leftGameGraphics);
+                this.leftGameGraphics = new UserInterface.PockeyUserGameGraphics("left", document.getElementById("PlayerScoreBoardLeft"));
             };
             PockeyUiGameScreen.prototype.addRightGameGraphics = function () {
-                this.rightGameGraphics = new UserInterface.PockeyUserGameGraphics("right");
-                this.rightGameGraphics.x = this.versus.x + this.versus.width + 36;
-                this.graphicsContainer.addChild(this.rightGameGraphics);
+                this.rightGameGraphics = new UserInterface.PockeyUserGameGraphics("right", document.getElementById("PlayerScoreBoardRight"));
             };
             return PockeyUiGameScreen;
-        }(Container));
+        }());
         UserInterface.PockeyUiGameScreen = PockeyUiGameScreen;
     })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
 })(Pockey || (Pockey = {}));
@@ -8777,6 +8481,93 @@ var Pockey;
         UserInterface.PockeyUiMainScreenMobile = PockeyUiMainScreenMobile;
     })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
 })(Pockey || (Pockey = {}));
+var Framework;
+(function (Framework) {
+    var UserInterface;
+    (function (UserInterface) {
+        var AbstractScreen = (function () {
+            function AbstractScreen() {
+            }
+            ;
+            AbstractScreen.prototype.show = function () {
+                this.div.style.display = "flex";
+            };
+            ;
+            AbstractScreen.prototype.hide = function () {
+                this.div.style.display = "none";
+            };
+            ;
+            AbstractScreen.prototype.updateText = function (text) {
+            };
+            return AbstractScreen;
+        }());
+        UserInterface.AbstractScreen = AbstractScreen;
+    })(UserInterface = Framework.UserInterface || (Framework.UserInterface = {}));
+})(Framework || (Framework = {}));
+var Pockey;
+(function (Pockey) {
+    var UserInterface;
+    (function (UserInterface) {
+        var AbstractScreen = Framework.UserInterface.AbstractScreen;
+        var PockeyUiOpponentFoundScreen = (function (_super) {
+            __extends(PockeyUiOpponentFoundScreen, _super);
+            function PockeyUiOpponentFoundScreen() {
+                var _this = _super.call(this) || this;
+                _this.div = document.getElementById("PlayerFoundScreen");
+                _this.avatarDiv = document.getElementById("OpponentAvatarImage");
+                _this.nameDiv = document.getElementById("PlayerFoundName");
+                _this.roundBeginsText = document.getElementById("RoundOneStartsText");
+                return _this;
+            }
+            PockeyUiOpponentFoundScreen.prototype.hide = function () {
+                _super.prototype.hide.call(this);
+            };
+            PockeyUiOpponentFoundScreen.prototype.updateText = function (text) {
+                this.roundBeginsText.innerText = "first round starts in " + text;
+            };
+            PockeyUiOpponentFoundScreen.prototype.updateAvatar = function (avatarID) {
+                var avatarPath = "";
+                _.forEach(Pockey.PockeySettings.LARGE_AVATARS_ARRAY, function (avatarVO) {
+                    if (avatarVO.id == avatarID) {
+                        avatarPath = avatarVO.icon;
+                        return true;
+                    }
+                });
+                this.avatarDiv.style.background = "center / contain no-repeat #1a4157 url(" + avatarPath + ")";
+            };
+            PockeyUiOpponentFoundScreen.prototype.updateOpponentName = function () {
+                this.nameDiv.innerText = Pockey.PockeySettings.OPPONENT_NICKNAME;
+            };
+            return PockeyUiOpponentFoundScreen;
+        }(AbstractScreen));
+        UserInterface.PockeyUiOpponentFoundScreen = PockeyUiOpponentFoundScreen;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    var UserInterface;
+    (function (UserInterface) {
+        var AbstractScreen = Framework.UserInterface.AbstractScreen;
+        var RoundCompleteScreen = (function (_super) {
+            __extends(RoundCompleteScreen, _super);
+            function RoundCompleteScreen() {
+                var _this = _super.call(this) || this;
+                _this.textDiv = document.getElementById("RoundCompleteText");
+                _this.div = document.getElementById("RoundCompleteScreen");
+                return _this;
+            }
+            RoundCompleteScreen.prototype.updateText = function (text) {
+                this.textDiv.innerText = "get ready for round two in " + text;
+            };
+            RoundCompleteScreen.prototype.updateLeftPlayerData = function () {
+            };
+            RoundCompleteScreen.prototype.updateRighttPlayerData = function () {
+            };
+            return RoundCompleteScreen;
+        }(AbstractScreen));
+        UserInterface.RoundCompleteScreen = RoundCompleteScreen;
+    })(UserInterface = Pockey.UserInterface || (Pockey.UserInterface = {}));
+})(Pockey || (Pockey = {}));
 var Pockey;
 (function (Pockey) {
     var UserInterface;
@@ -8785,8 +8576,8 @@ var Pockey;
         var SignalsManager = Framework.Signals.SignalsManager;
         var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var SignalsType = Framework.Signals.SignalsType;
-        var PockeySoundNames = Pockey.Sound.PockeySoundNames;
         var Settings = Framework.Settings;
+        var PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
         var PockeyUserInterfaceModule = (function (_super) {
             __extends(PockeyUserInterfaceModule, _super);
             function PockeyUserInterfaceModule() {
@@ -8801,6 +8592,8 @@ var Pockey;
                 }
                 this.searchingScreen = new UserInterface.PockeyUiSearchingScreen();
                 this.gameScreen = new UserInterface.PockeyUiGameScreen();
+                this.roundCompleteScreen = new UserInterface.RoundCompleteScreen();
+                this.opponentFoundScreen = new UserInterface.PockeyUiOpponentFoundScreen();
                 _super.prototype.createElements.call(this);
             };
             PockeyUserInterfaceModule.prototype.registerSignalsHandlers = function () {
@@ -8811,12 +8604,39 @@ var Pockey;
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_GAME_UI, this.onHideGameMenu.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_SEARCHING_SCREEN, this.onShowSearchingScreen.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_SEARCHING_SCREEN, this.onHideSearchingScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN, this.onShowWinningScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN, this.onHideWinningScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN, this.onShowOpponentFoundScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN, this.onHideOpponentFoundScreen.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, this.onChangeOpponentAvatar.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT, this.onUpdateRoundScreenText.bind(this));
+            };
+            PockeyUserInterfaceModule.prototype.onUpdateRoundScreenText = function (params) {
+                this.activeRoundScreen.updateText(params[0]);
+            };
+            PockeyUserInterfaceModule.prototype.onUpdateOpponentName = function (name) {
+                this.opponentFoundScreen.updateOpponentName();
+            };
+            PockeyUserInterfaceModule.prototype.onChangeOpponentAvatar = function (avatarPath) {
+                this.opponentFoundScreen.updateAvatar(avatarPath);
             };
             PockeyUserInterfaceModule.prototype.onShowWinningScreen = function () {
-                this.addChild(this.winningScreen);
+                console.log("se arata on show winning!");
+                this.activeRoundScreen = this.roundCompleteScreen;
+                this.activeRoundScreen.show();
             };
             PockeyUserInterfaceModule.prototype.onHideWinningScreen = function () {
-                this.removeChild(this.winningScreen);
+                console.log("se ascunde winning screen!");
+                this.activeRoundScreen.hide();
+            };
+            PockeyUserInterfaceModule.prototype.onShowOpponentFoundScreen = function () {
+                this.activeRoundScreen = this.opponentFoundScreen;
+                this.activeRoundScreen.show();
+            };
+            PockeyUserInterfaceModule.prototype.onHideOpponentFoundScreen = function () {
+                console.log("intra la onHideOpponentFoundScreen");
+                this.activeRoundScreen.hide();
             };
             PockeyUserInterfaceModule.prototype.onShowSearchingScreen = function () {
                 this.searchingScreen.setVisibleTrue();
@@ -8826,22 +8646,25 @@ var Pockey;
             };
             PockeyUserInterfaceModule.prototype.onShowMainMenu = function () {
                 this.mainScreen.setVisibleTrue();
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundNames.MAIN_MENU_AMBIANCE }]);
-                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundNames.IN_GAME_AMBIANCE }]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundURLS.MAIN_MENU_AMBIANCE }]);
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundURLS.IN_GAME_AMBIANCE }]);
             };
             PockeyUserInterfaceModule.prototype.onHideMainMenu = function () {
                 this.mainScreen.setVisibleFalse();
             };
             PockeyUserInterfaceModule.prototype.onShowGameMenu = function () {
-                this.addChild(this.gameScreen);
-                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundNames.MAIN_MENU_AMBIANCE }]);
-                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{
-                        soundName: PockeySoundNames.IN_GAME_AMBIANCE,
+                this.gameScreen.show();
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundURLS.MAIN_MENU_AMBIANCE }]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundURLS.IN_GAME_AMBIANCE,
                         loop: true
                     }]);
             };
             PockeyUserInterfaceModule.prototype.onHideGameMenu = function () {
-                this.removeChild(this.gameScreen);
+                this.gameScreen.hide();
+                SignalsManager.DispatchSignal(SignalsType.STOP_SOUND, [{ soundName: PockeySoundURLS.IN_GAME_AMBIANCE }]);
+                SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{ soundName: PockeySoundURLS.MAIN_MENU_AMBIANCE,
+                        loop: false
+                    }]);
             };
             PockeyUserInterfaceModule.prototype.onResize = function (params) {
                 _super.prototype.onResize.call(this, params);
@@ -8882,20 +8705,22 @@ var Pockey;
     var PockeyConnectionModule = Pockey.Connection.PockeyConnectionModule;
     var PockeyConnectionSignals = Pockey.SignalsModule.PockeyConnectionSignals;
     var PockeyUserInterfaceModule = Pockey.UserInterface.PockeyUserInterfaceModule;
+    var PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
     var PockeyEntryPoint = (function (_super) {
         __extends(PockeyEntryPoint, _super);
         function PockeyEntryPoint() {
             var _this = _super.call(this) || this;
-            _this.maxSubSteps = 7;
+            _this.fixedTimeStep = 1 / 60;
+            _this.maxSubSteps = 6;
             _this.name = "PockeyEntryPoint";
             return _this;
         }
         PockeyEntryPoint.prototype.checkDevice = function () {
             _super.prototype.checkDevice.call(this);
             if (Settings.isMobile) {
-                this.loadjscssfile("mainMenuScreenMobile.css", "css");
-                this.loadjscssfile("inventoryScreenMobile.css", "css");
-                this.loadjscssfile("leaderboardMobile.css", "css");
+                this.loadjscssfile("css/mainMenuScreenMobile.css", "css");
+                this.loadjscssfile("css/inventoryScreenMobile.css", "css");
+                this.loadjscssfile("css/leaderboardMobile.css", "css");
             }
         };
         PockeyEntryPoint.prototype.loadjscssfile = function (filename, filetype) {
@@ -8923,31 +8748,39 @@ var Pockey;
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-decals.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-sticks.json");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey-sticks.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballTexture.jpg");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls.json");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bottom.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_over.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/color_big_shadow.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_bottom.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_color.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/goalie_top.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballTexture.jpg");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_felt.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bumper.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_border_01.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls/puck2.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ui_versus-main.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_pockeyball-comet.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_sprite-cue.png");
+            gameModule.addAssetToLoad(PockeySoundURLS.MAIN_MENU_AMBIANCE);
+            gameModule.addAssetToLoad(PockeySoundURLS.IN_GAME_AMBIANCE);
+            gameModule.addAssetToLoad(PockeySoundURLS.SHOOT_BALL);
+            gameModule.addAssetToLoad(PockeySoundURLS.LAST_FIVE_SECONDS);
+            gameModule.addAssetToLoad(PockeySoundURLS.OPPONENT_FOUND);
+            gameModule.addAssetToLoad(PockeySoundURLS.BALL_TO_BALL_HIT);
+            gameModule.addAssetToLoad(PockeySoundURLS.GOALKEEPER_HIT);
+            gameModule.addAssetToLoad(PockeySoundURLS.BALL_IN_POCKET);
             gameModule.Layer = this.getLayer(Layers.GameLayer);
             return gameModule;
         };
         PockeyEntryPoint.prototype.getUIModule = function () {
             var uiModule = new PockeyUserInterfaceModule();
             uiModule.Name = "PockeyUIModule";
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.json");
-            uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/pockey_main.png");
             uiModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_background.svg");
             uiModule.Layer = this.getLayer(Layers.UILayer);
             return uiModule;
         };
         PockeyEntryPoint.prototype.getBackgroundModule = function () {
             var backgroundModule = new PockeyBackgroundModule();
-            backgroundModule.registerBackground(Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, Settings.desktopAssetsPath + "/Images/Backgrounds/game_bg.png");
+            backgroundModule.registerBackground(Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, Settings.desktopAssetsPath + "/Images/Backgrounds/game_bg.png", document.getElementById("SecondBackground"));
             backgroundModule.Name = "PockeyBackgroundModule";
             backgroundModule.addAssetToLoad(Settings.desktopAssetsPath + "/Images/Backgrounds/game_bg.png");
             backgroundModule.Layer = this.getLayer(Layers.BackgroundLayer);
@@ -8966,21 +8799,20 @@ var Pockey;
             P2WorldManager.Instance();
         };
         PockeyEntryPoint.prototype.initializePixi = function () {
-            _super.prototype.initializePixi.call(this);
             P2WorldManager.Instance().world = new p2.World({
                 gravity: [0, 0]
             });
-            requestAnimationFrame(this.animate.bind(this));
+            _super.prototype.initializePixi.call(this);
         };
         PockeyEntryPoint.prototype.frameAnimate = function () {
             _super.prototype.frameAnimate.call(this);
+            this.animate(Date.now());
         };
         PockeyEntryPoint.prototype.animate = function (time) {
-            requestAnimationFrame(this.animate.bind(this));
-            var deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
-            if (P2WorldManager.Instance().world)
-                P2WorldManager.Instance().world.step(Pockey.PockeySettings.P2_WORLD_STEP, deltaTime, this.maxSubSteps);
-            this.lastTime = time;
+            var timeSeconds = time / 1000;
+            this.lastTimeMilliseconds = this.lastTimeMilliseconds || timeSeconds;
+            var timeSinceLastCall = timeSeconds - this.lastTimeMilliseconds;
+            P2WorldManager.Instance().world.step(this.fixedTimeStep, timeSinceLastCall, this.maxSubSteps);
         };
         PockeyEntryPoint.prototype.registerSignals = function () {
             _super.prototype.registerSignals.call(this);
@@ -8993,7 +8825,7 @@ var Pockey;
             SignalsManager.CreateNewSignal(PockeySignalTypes.FACEBOOK_SIGN_IN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.FACEBOOK_SIGN_OUT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOOT_BALL);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.NEXT_TURN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.PREPARE_NEXT_TURN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.BALL_IN_POCKET);
             SignalsManager.CreateNewSignal(PockeySignalTypes.WHITE_BALL_IN_POCKET);
             SignalsManager.CreateNewSignal(PockeySignalTypes.FIRST_BALL_FAULT);
@@ -9014,7 +8846,7 @@ var Pockey;
             SignalsManager.CreateNewSignal(PockeyConnectionSignals.SCORE_UPDATE);
             SignalsManager.CreateNewSignal(PockeyConnectionSignals.YOUR_TURN);
             SignalsManager.CreateNewSignal(PockeyConnectionSignals.OPPONENT_SETTINGS);
-            SignalsManager.CreateNewSignal(PockeyConnectionSignals.OPPONENT_RESTART_GAME);
+            SignalsManager.CreateNewSignal(PockeyConnectionSignals.OPPONENT_NEXT_ROUND);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_MAIN_MENU);
             SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_MAIN_MENU);
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_POOLTABLE);
@@ -9024,8 +8856,10 @@ var Pockey;
             SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_GAME_UI);
             SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_GAME_UI);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_WINNING_SCREEN);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_WINNING_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.START_GAME);
             SignalsManager.CreateNewSignal(PockeySignalTypes.RESET_POOLTABLE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.RESET_STICK_POWER);
@@ -9047,17 +8881,23 @@ var Pockey;
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_COLOR);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.ON_WATCH_FINISHED);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CREATE_POOLTABLE_STATE);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
         };
         return PockeyEntryPoint;
     }(AbstractEntryPoint));
     Pockey.PockeyEntryPoint = PockeyEntryPoint;
 })(Pockey || (Pockey = {}));
 var mainModule;
-window.onload = function () {
+document.addEventListener("windowLoaded", function () {
     mainModule = new Pockey.PockeyEntryPoint();
-    this.onresize = function (event) {
+    window.onresize = function (event) {
         mainModule.windowResize(window.innerWidth, window.innerHeight);
     };
-};
+});
 
 //# sourceMappingURL=main.js.map

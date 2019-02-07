@@ -1,0 +1,65 @@
+/* titillium-web-regular - latin */
+@font-face {
+    font-family: 'troika';
+    src: url('../Assets/Desktop/Fonts/troika.otf') format("woff"); /* IE9 Compat Modes */
+    src: local('troika'), local('troika'),
+    url('../Assets/Desktop/Fonts/troika.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../Assets/Desktop/Fonts/troika.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../Assets/Desktop/Fonts/troika.woff') format('woff'), /* Modern Browsers */
+    url('../Assets/Desktop/Fonts/troika.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../Assets/Desktop/Fonts/troika.svg#troika') format('svg');/* Legacy iOS */
+}
+
+
+
+@font-face {
+
+    font-family: 'opensansextrabold';
+    src: url('../Assets/Desktop/Fonts/opensansextrabold.eot'); /* IE9 Compat Modes */
+    src: local('opensansextrabold'), local('opensansextrabold'),
+    url('../Assets/Desktop/Fonts/opensansextrabold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../Assets/Desktop/Fonts/opensansextrabold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../Assets/Desktop/Fonts/opensansextrabold.woff') format('woff'), /* Modern Browsers */
+    url('../Assets/Desktop/Fonts/opensansextrabold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../Assets/Desktop/Fonts/opensansextrabold.svg#opensansextrabold') format('svg');/* Legacy iOS */
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Denk One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Denk One'), local('DenkOne-Regular'), url(https://fonts.gstatic.com/s/denkone/v6/dg4m_pzhrqcFb2IzRNtOr7kVSg.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'denkone';
+    src: url('../Assets/Desktop/Fonts/denkone.eot'); /* IE9 Compat Modes */
+    src: local('denkone'), local('denkone'),
+    url('../Assets/Desktop/Fonts/denkone.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../Assets/Desktop/Fonts/denkone.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../Assets/Desktop/Fonts/denkone.woff') format('woff'), /* Modern Browsers */
+    url('../Assets/Desktop/Fonts/denkone.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../Assets/Desktop/Fonts/denkone.svg#denkone') format('svg');/* Legacy iOS */
+
+    font-style: normal;
+    font-weight: 400;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+    font-family: 'opensans';
+    src: url('../Assets/Desktop/Fonts/opensans.eot'); /* IE9 Compat Modes */
+    src: local('opensans'), local('opensans'),
+    url('../Assets/Desktop/Fonts/opensans.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../Assets/Desktop/Fonts/opensans.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../Assets/Desktop/Fonts/opensans.woff') format('woff'), /* Modern Browsers */
+    url('../Assets/Desktop/Fonts/opensans.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../Assets/Desktop/Fonts/opensans.svg#opensans') format('svg');/* Legacy iOS */
+
+    font-style: normal;
+    font-weight: 400;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

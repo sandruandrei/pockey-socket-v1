@@ -23,39 +23,39 @@ namespace Pockey {
             // public static yourTurnToShootText: string = "YOUR TURN TO SHOOT!";
 
             // Tip State: when a player’s turn starts
-            public static yourTurnToShoot: string = "YOUR TURN! SHOOT <opponent>{opponent}'S</opponent> BALLS INTO POCKETS";
+            public static yourTurnToShoot: string = "YOUR TURN! SHOOT #opponent#{opponent}'S#opponent# BALLS INTO POCKETS";
 
             // Tip State: when you aim at your own ball
-            public static ownBallAiming: string = "<warning>WARNING!</warning> HITTING YOUR OWN BALL FIRST IS A FOUL";
+            public static ownBallAiming: string = "#warning#WARNING!#warning# HITTING YOUR OWN BALL FIRST IS A FOUL";
 
             // State: when you hit your own ball first
-            public static ownBallHit: string = "<opponent>{opponent}</opponent> FOULED!";
+            public static ownBallHit: string = "#opponent#{opponent}#opponent# FOULED!";
 
             // Tip State: when you aim at the puck
             // Result: goalbox of opponent has an arrow hovering of it + arrow indicator around puck
-            public static puckAiming: string = "SHOOT THE PUCK INTO <opponent>{opponent}'S</opponent> GOAL!";
+            public static puckAiming: string = "SHOOT THE PUCK INTO #opponent#{opponent}'S#opponent# GOAL!";
 
             // State: when opponent fouls and
-            public static opponentFault: string = "<opponent>{opponent}</opponent> FOULED! PLACE THE BALL ANYWHERE ON TABLE";
+            public static opponentFault: string = "#opponent#{opponent}#opponent# FOULED! PLACE THE BALL ANYWHERE ON TABLE";
 
             // State: when players scratches on cue ball
-            public static whiteBallFault: string = "YOU FOULED! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
+            public static whiteBallFault: string = "YOU FOULED! #opponent#{opponent}#opponent# GETS BALL-IN-HAND";
 
             // State: when player scores his own ball in
-            public static onOwnBallInPocket: string = "YOU SCORED AN OWN BALL! <opponent>{opponent}’s</opponent> TURN!";
+            public static onOwnBallInPocket: string = "YOU SCORED AN OWN BALL! #opponent#{opponent}’s#opponent# TURN!";
 
             // State: when you score puck in your goal
-            public static puckOwnGoal: string = "PUCK WENT INTO YOUR OWN GOAL! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
+            public static puckOwnGoal: string = "PUCK WENT INTO YOUR OWN GOAL! #opponent#{opponent}#opponent# GETS BALL-IN-HAND";
 
-            public static onTimeUp: string = "YOUR TIME IS UP! <opponent>{opponent}</opponent> GETS BALL-IN-HAND";
-            public static onOpponentsTimeUp: string = "<opponent>{opponent}</opponent> TIME IS UP! PLACE THE BALL ANYWHERE ON TABLE";
+            public static onTimeUp: string = "YOUR TIME IS UP! #opponent#{opponent}#opponent# GETS BALL-IN-HAND";
+            public static onOpponentsTimeUp: string = "#opponent#{opponent}#opponent# TIME IS UP! PLACE THE BALL ANYWHERE ON TABLE";
 
             // State: when you score the puck into opponent goal
             // Result:goal box flashes, some poppy sound is made and
-            public static onPuckGoal: string = "YOU SCORED THE PUCK! -2 HEALTH TO <opponent>{opponent}</opponent>";
+            public static onPuckGoal: string = "YOU SCORED THE PUCK! -2 HEALTH TO #opponent#{opponent}#opponent#";
 
             // State: when you dont hit any balls
-            public static noBallScored: string = "YOU DIDN’T SCORED! <opponent>{opponent}'S</opponent> TURN";
+            public static noBallScored: string = "YOU DIDN’T SCORED! #opponent#{opponent}'S#opponent# TURN";
 
             // State: when you hit two or more balls in
             public static multipleBallsIn: string = "YOU MADE A TRICKSHOT! CONGRATS!";
@@ -70,8 +70,8 @@ namespace Pockey {
             // POWERUP! THIS POCKET WILL BE BLOCKED FOR YOUR OPPONENTS NEXT TURN
             //
             // State: when you score one of your balls in
-            public static opponentBallInPocket: string = "<opponent>{opponent}</opponent> POCKETED A BALL AND CAN SHOOT AGAIN!";
-            public static opponentsTurn: string = "<opponent>{opponent}'s</opponent> turn";
+            public static opponentBallInPocket: string = "#opponent#{opponent}#opponent# POCKETED A BALL AND CAN SHOOT AGAIN!";
+            public static opponentsTurn: string = "#opponent#{opponent}'s#opponent# turn";
         }
     }
 }

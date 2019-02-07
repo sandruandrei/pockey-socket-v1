@@ -1,28 +1,25 @@
 ///<reference path="../../../../GameModule/balls/abstract-ball.ts"/>
-///<reference path="pockey-ui-in-game-avatar.ts"/>
 ///<reference path="../../../../../../Framework/Utils/text-field.ts"/>
-///<reference path="pockey-life-bar.ts"/>
 namespace Pockey {
     export module UserInterface {
         import BallType = Pockey.GameModule.BallType;
-        import TextField = Framework.utils.TextField;
-        import Graphics = PIXI.Graphics;
-        import TextStyle = PIXI.TextStyle;
 
-        export class PockeyUserGameGraphics extends Container {
-            private userAvatar: PockeyUiInGameAvatar;
-            private userLifeBar: PockeyLifeBar;
-            private userNameTextField: TextField;
-            private timerText: TextField;
+        export class PockeyUserGameGraphics {
+            private userAvatar: HTMLDivElement;
+            private userNameTextField: HTMLDivElement;
+            private timerText: HTMLDivElement;
             private timerTween: TweenMax;
 
             public type: BallType;
             private side: string;
+            private lifeUnits: HTMLDivElement[];
+            private gameGraphic: HTMLDivElement;
 
-            constructor(side: string) {
-                super();
+            constructor(side: string, gameGraphic: HTMLDivElement) {
+                // super();
                 this.side = side;
 
+                this.gameGraphic = gameGraphic;
 
                 let style = new PIXI.TextStyle({
                     fontFamily: 'troika',
@@ -42,44 +39,51 @@ namespace Pockey {
                     // wordWrap: true,
                     // wordWrapWidth: 440
                 });
-                let timerTextStyle: TextStyle = style.clone();
-                timerTextStyle.fontSize = 28;
+                // let timerTextStyle: TextStyle = style.clone();
+                // timerTextStyle.fontSize = 28;
 
-                this.userAvatar = new PockeyUiInGameAvatar();
-                this.userLifeBar = new PockeyLifeBar();
-                this.timerText = new TextField("0:" + PockeySettings.ROUND_DURATION_IN_SECONDS.toString(), timerTextStyle);
-                this.timerText.visible = false;
+                this.userAvatar = this.gameGraphic.getElementsByClassName("scoreBoardAvatar")[0] as HTMLDivElement;
+                // this.userLifeBar = this.gameGraphic.getElementsByClassName("scoreBoardLives")[0] as HTMLDivElement;
+                this.lifeUnits = [];
+                _.forEach(this.gameGraphic.getElementsByClassName("scoreBoardLives")[0].children, (life: HTMLDivElement) => {
+                    this.lifeUnits.push(life);
+                });
 
-                if (this.side == "left") {
-                    this.userNameTextField = new TextField("Player", style);
-                    this.userLifeBar.x = this.userAvatar.width + 76;
-                    this.userNameTextField.x = this.userLifeBar.x;
+                this.timerText = this.gameGraphic.getElementsByClassName("scoreBoardTimer")[0] as HTMLDivElement;
+                this.timerText.innerText = "0:" + PockeySettings.ROUND_DURATION_IN_SECONDS.toString();
+                // this.timerText.visible = false;
+                this.userNameTextField = this.gameGraphic.getElementsByClassName("playerName")[0] as HTMLDivElement;
+                // if (this.side == "left") {
+                //     this.userNameTextField.innerText = new TextField("Player", style);
+                //     // this.userLifeBar.x = this.userAvatar.width + 76;
+                //     // this.userNameTextField.x = this.userLifeBar.x;
+                //
+                // }
+                // else {
+                //     this.userNameTextField = new TextField("Opponent", style);
+                //     // this.userAvatar.x = this.userLifeBar.width + 76;// this.userAvatar.width - 60;
+                //     // this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
+                //     // this.timerText.x = this.userLifeBar.width - this.timerText.width;
+                // }
 
-                }
-                else {
-                    this.userNameTextField = new TextField("Opponent", style);
-                    this.userAvatar.x = this.userLifeBar.width + 76;// this.userAvatar.width - 60;
-                    this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
-                    // this.timerText.x = this.userLifeBar.width - this.timerText.width;
-                }
+                // this.timerText.x = this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
 
-                this.timerText.x = this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
+                // this.userLifeBar.y = this.userAvatar.height - this.userLifeBar.height;
+                // this.userNameTextField.y = this.userLifeBar.y - this.userNameTextField.height + 4;
 
-                this.userLifeBar.y = this.userAvatar.height - this.userLifeBar.height;
-                this.userNameTextField.y = this.userLifeBar.y - this.userNameTextField.height + 4;
+                // this.timerText.y = this.userAvatar.y + this.userAvatar.height - 1 - this.timerText.height;
 
-                this.timerText.y = this.userAvatar.y + this.userAvatar.height - 1 - this.timerText.height;
-
-                this.addChild(this.userAvatar);
-                this.addChild(this.userLifeBar);
-                this.addChild(this.userNameTextField);
-                this.addChild(this.timerText);
+                // this.addChild(this.userAvatar);
+                // this.addChild(this.userLifeBar);
+                // this.addChild(this.userNameTextField);
+                // this.addChild(this.timerText);
             }
 
             public resetTimer(): void {
-                this.timerText.visible = false;
-                this.timerText.style.fill = 0xffffff;
-                this.timerText.setText("0:" + PockeySettings.ROUND_DURATION_IN_SECONDS.toString());
+                // this.timerText.visible = false;
+                // this.timerText.style.fill = 0xffffff;
+                this.timerText.style.display = "none";
+                this.timerText.innerText = "0:" + PockeySettings.ROUND_DURATION_IN_SECONDS.toString();
             }
 
             public updateTimer(timeText: string) {
@@ -88,10 +92,11 @@ namespace Pockey {
                     this.resetTimer();
                 }
                 else {
-                    this.timerText.visible = true;
-                    this.timerText.style.fill = 0xffffff;
-                    this.timerText.setText(timeText);
-                    this.timerText.x = 2 + this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
+                    // this.timerText.visible = true;
+                    // this.timerText.style.fill = 0xffffff;
+                    this.timerText.innerText = timeText;
+                    this.timerText.style.display = "flex";
+                    // this.timerText.x = 2 + this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
 
                     /*if (this.side == "right")
                         this.timerText.x = this.userLifeBar.width - this.timerText.width;*/
@@ -100,12 +105,12 @@ namespace Pockey {
             }
 
             public updateUsername(text: string): void {
-                this.userNameTextField.setText(text);
-                if (this.side == "right") {
-                    // this.userNameTextField = new TextField("Opponent", style);
-                    // this.userAvatar.x = this.userLifeBar.width + 76;// this.userAvatar.width - 60;
-                    this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
-                }
+                this.userNameTextField.innerText = text;//.setText(text);
+                // if (this.side == "right") {
+                //     // this.userNameTextField = new TextField("Opponent", style);
+                //     // this.userAvatar.x = this.userLifeBar.width + 76;// this.userAvatar.width - 60;
+                //     // this.userNameTextField.x = this.userLifeBar.width - this.userNameTextField.width;
+                // }
                 // if (type == BallType.Op) {
                 //     this.userNameTextField = new TextField("Player", style);
                 //     this.userLifeBar.x = this.userAvatar.width + 76;
@@ -120,44 +125,53 @@ namespace Pockey {
             }
 
             public reset(): void {
-                _.forEach(this.userLifeBar.lifeUnits, (lifeUnit: Graphics, id: number) => {
-                    lifeUnit.alpha = 1;
+                _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
+                    // lifeUnit.alpha = 1;
                 });
             }
 
             public updateScore(score: number) {
-                _.forEach(this.userLifeBar.lifeUnits, (lifeUnit: Graphics, id: number) => {
-                    if (this.side == "left") {
-                        if (id >= score) {
-                            lifeUnit.alpha = 0.5;
-                        }
-                    } else {
-                        if (id < 7 - score) {
-                            lifeUnit.alpha = 0.5;
-                        }
+                _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
+                    // if (this.side == "left") {
+                    //     if (score >= score) {
+                    //         // lifeUnit.alpha = 0.5;
+                    //     }
+                    // } else {
+                    if (id < 7 - score) {
+                        lifeUnit.style.opacity = "0.5";
                     }
+                    // }
 
                 });
             }
 
             public tint(color: number): void {
-                _.forEach(this.userLifeBar.lifeUnits, (lifeUnit: Graphics, id: number) => {
-                    lifeUnit.tint = color;
+                _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
+                    // lifeUnit.tint = color;
+                    lifeUnit.style.background = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
 
                 });
-                this.userNameTextField.tint = color;
+                // this.userNameTextField.tint = color;
             }
 
-            public updateAvatar(avatar: string): void {
-                this.userAvatar.updateAvatarImage(avatar);
+            public updateAvatar(avatarID: string): void {
+
+                let avatarPath: string = "";
+                _.forEach(PockeySettings.LARGE_AVATARS_ARRAY, (avatarVO: InventoryVO, counter: number) => {
+                    if (avatarVO.id == avatarID) {
+                        avatarPath = avatarVO.icon;
+                        return true;
+                    }
+                });
+                this.userAvatar.style.background = "center / contain no-repeat #1a4157 url(" + avatarPath + ")";
             }
 
             public setTimerColor(tintColor: number): void {
-                if (this.timerText.style.fill = tintColor) {
+                if (this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6)) {
                     return;
                 }
                 else {
-                    this.timerText.style.fill = tintColor;
+                    this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6);
                 }
             }
 

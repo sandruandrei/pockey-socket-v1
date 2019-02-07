@@ -1,0 +1,220 @@
+#ScoreBoard {
+/* background: #E91E63; */
+width: 944px;
+height: 84px;
+justify-content: center;
+background-position: center;
+background-size: contain;
+left: 49.9%;
+top: 10%;
+transform: translate(-50%, -50%);
+position: absolute;
+display: none;
+justify-content: space-between;
+pointer-events: none;
+/* box-shadow: 2px 2px #373737; */
+}
+
+.playerScoreBoard {
+
+width: 36%;
+
+height: 100%;
+
+/* background: aquamarine; */
+
+float: left;
+
+display: flex;
+
+justify-content: space-between;
+
+/* flex-direction: row-reverse; */
+
+/* box-shadow: 2px 2px #373737; */
+}
+
+#PlayerScoreBoardLeft {
+
+/* background: aquamarine; */
+}
+
+#PlayerScoreBoardRight {
+
+flex-direction: row-reverse;
+}
+
+.scoreBoardAvatar {
+
+background: #1a4157;
+
+/* height: 100%; */
+
+/* width: 0; */
+
+height: 100%;
+
+width: 24.72%;
+
+box-sizing: border-box;
+
+border: 3px solid #fff;
+
+border-radius: 4px;
+
+float: left;
+
+display: flex;
+
+justify-content: center;
+
+box-shadow: 2px 2px #373737;
+}
+
+#ScoreBoardAvatarLeft {
+}
+
+#ScoreBoardAvatarRight {
+
+}
+
+.scoreBoardTimer {margin-top: 70%;font-family: "troika";color: white;font-size: 2.8vh;text-shadow: 1px 1px #373737;display: none;}
+
+#ScoreBoardTimerLeft {
+}
+
+#ScoreBoardTimerRight {
+}
+
+.scoreBoardRankSymbol {width: 28px;height: 100%;background: aqua;float: left;/* box-shadow: 2px 2px #373737; *//* width: 27px; */height: 100%;background: beige;float: left;background: url(../Assets/Desktop/Images/rank-tier14.svg) center bottom / 100% no-repeat;}
+
+#ScoreBoardRankSymbolLeft {
+}
+
+#ScoreBoardRankSymbolRight {
+}
+
+.scoreBoardName {height: 60%;width: 60%;/* background: #FFC107; */float: left;display: flex;position: relative;align-self: flex-end;color: white;font-size: 21px;font-family: "troika";text-shadow: 2px 2px #373737;}
+
+#ScoreBoardNameLeft {
+}
+
+#ScoreBoardNameRight {
+    justify-content: flex-end;
+}
+
+.scoreBoardLives {height: 43%;max-height: 50px;width: 100%;box-sizing: border-box;background: #000000;border: white solid 3px;border-radius: 3px;position: absolute; /* Safari 7.0+ */align-self: flex-end;display: flex;justify-content: space-evenly;align-items: center;box-shadow: 2px 2px #373737;}
+
+#ScoreBoardLivesLeft {flex-direction: row-reverse;}
+
+#ScoreBoardLivesRight {
+}
+
+#ScoreBoardVersusDiv {width: 23%;height: 100%;/* background: #8BC34A; */float: left;display: flex;justify-content: space-between;background: "vs.png";background: url(../Assets/Desktop/Images/ui_versus-main.png);background-size: 100%;background-position: center;/* width: 97%; *//* height: 96%; */background-repeat: no-repeat;}
+
+.scoreBoardPlayerRounds {width: 34%;height: 90%;margin-top: 4.5%;/* background: aliceblue; */display: flex;align-items: center;justify-content: space-evenly;/* border: #ffffff solid 3px; */}
+
+#ScoreBoardPlayerRoundsLeft {flex-direction: row-reverse;}
+
+#ScoreBoardPlayerRoundsRight {
+}
+
+.scoreBoardLivesElement
+{
+
+width: calc(100%/7.8);
+
+height: 70%;
+
+background: chartreuse;
+
+float: left;
+
+/* border: black solid 2px; */
+
+box-sizing: border-box;
+
+border-radius: 2px;
+}
+
+.dotBorderScoreBoard {
+    height: 26px;
+    width: 26px;
+    /* background-color: #112F36; */
+    border-radius: 50%;
+    border-color: #639db5;
+    border-style: solid;
+    border-width: 4px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px #373737;
+    /* -webkit-font-smoothing: antialiased; */
+}
+
+span.dorScoreBoard {
+    height: 66%;
+    width: 66%;
+    background-color: #426d7e;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 1px 1px #373737;
+}
+
+.playerName
+{
+/* margin-top: 1%; */
+}
+
+#TipText
+{
+width: 1200px;
+/* height: 34px; */
+/* justify-content: center; */
+background-position: center;
+background-size: contain;
+left: 49.9%;
+bottom: 5%;
+transform: translate(-50%, -50%);
+position: absolute;
+/* display: flex; */
+/* justify-content: space-between; */
+/* background: #5f5f3c; */
+color: white;
+font-size: 2.67vh;
+font-family: "troika";
+text-align: center;
+margin: 0;
+/* display: flex; */
+/* justify-content: start; */
+pointer-events: none; */
+}
+
+.opponent
+{
+    /*color: #e92c5a;*/
+    float: left;
+    margin-left: 0.7vh;
+    margin-right: 0.7vh;
+}
+
+.warning
+{
+    color: #ff3132;
+    float: left;
+    margin-left: 0.7vh;
+    margin-right: 0.7vh;
+}
+
+.normalSpan
+{
+    float: left;
+}
+
+#SpansHolder
+{
+display: flex;
+justify-content: center;
+/* pointer-events: none; */
+}
