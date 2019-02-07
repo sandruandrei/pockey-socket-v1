@@ -133,7 +133,7 @@ namespace Pockey {
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_felt.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bumper.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_border_01.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls/puck2.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballGraphics/puck2.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ui_versus-main.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_pockeyball-comet.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_sprite-cue.png");

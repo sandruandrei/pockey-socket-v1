@@ -48,7 +48,7 @@ namespace Pockey {
 
             protected addTexture(): void {
                 this.radius = 25;
-                this.ballTexture = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/balls/puck2.png"));
+                this.ballTexture = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/ballGraphics/puck2.png"));
                 //@ts-ignore
                 this.ballTexture.pluginName = "picture";
 

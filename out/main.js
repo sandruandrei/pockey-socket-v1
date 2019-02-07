@@ -1606,14 +1606,14 @@ var Pockey;
         var PockeySoundURLS = (function () {
             function PockeySoundURLS() {
             }
-            PockeySoundURLS.MAIN_MENU_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "pockey_main_menu.ogg";
-            PockeySoundURLS.IN_GAME_AMBIANCE = Settings.desktopAssetsPath + "Sounds/" + "ambient.ogg";
-            PockeySoundURLS.SHOOT_BALL = Settings.desktopAssetsPath + "Sounds/" + "shoot_ball.mp3";
-            PockeySoundURLS.LAST_FIVE_SECONDS = Settings.desktopAssetsPath + "Sounds/" + "5sec.ogg";
-            PockeySoundURLS.OPPONENT_FOUND = Settings.desktopAssetsPath + "Sounds/" + "opponent_found.ogg";
-            PockeySoundURLS.BALL_TO_BALL_HIT = Settings.desktopAssetsPath + "Sounds/" + "ball2ball_hit2.mp3";
-            PockeySoundURLS.GOALKEEPER_HIT = Settings.desktopAssetsPath + "Sounds/" + "goalkeeperHit.mp3";
-            PockeySoundURLS.BALL_IN_POCKET = Settings.desktopAssetsPath + "Sounds/" + "ballinpocket.mp3";
+            PockeySoundURLS.MAIN_MENU_AMBIANCE = Settings.desktopAssetsPath + "Audio/" + "pockey_main_menu.ogg";
+            PockeySoundURLS.IN_GAME_AMBIANCE = Settings.desktopAssetsPath + "Audio/" + "ambient.ogg";
+            PockeySoundURLS.SHOOT_BALL = Settings.desktopAssetsPath + "Audio/" + "shoot_ball.mp3";
+            PockeySoundURLS.LAST_FIVE_SECONDS = Settings.desktopAssetsPath + "Audio/" + "5sec.ogg";
+            PockeySoundURLS.OPPONENT_FOUND = Settings.desktopAssetsPath + "Audio/" + "opponent_found.ogg";
+            PockeySoundURLS.BALL_TO_BALL_HIT = Settings.desktopAssetsPath + "Audio/" + "ball2ball_hit2.mp3";
+            PockeySoundURLS.GOALKEEPER_HIT = Settings.desktopAssetsPath + "Audio/" + "goalkeeperHit.mp3";
+            PockeySoundURLS.BALL_IN_POCKET = Settings.desktopAssetsPath + "Audio/" + "ballinpocket.mp3";
             return PockeySoundURLS;
         }());
         Sound.PockeySoundURLS = PockeySoundURLS;
@@ -2943,10 +2943,10 @@ var Pockey;
                                     y: 0,
                                     ease: Linear.easeNone
                                 }), 0);
-                                _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this.sphere, (duration / 2), {
+                                _this.ballInPocketAnimationTimeline.add(TweenMax.to(_this.sphere, (duration / 3), {
                                     visibility: 0,
                                     ease: Linear.easeNone, onComplete: _this.declareAnimationFinished.bind(_this)
-                                }), 0);
+                                }), duration / 8);
                                 return;
                             }
                         }
@@ -3438,7 +3438,7 @@ var Pockey;
             };
             Puck.prototype.addTexture = function () {
                 this.radius = 25;
-                this.ballTexture = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/balls/puck2.png"));
+                this.ballTexture = new Sprite(PIXI.Texture.fromImage(Settings.desktopAssetsPath + "Images/ballGraphics/puck2.png"));
                 this.ballTexture.pluginName = "picture";
                 this.ballTexture.scale.set(0.5);
                 this.ballTexture.anchor.set(0.5);
@@ -8756,7 +8756,7 @@ var Pockey;
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_felt.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_bumper.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/table_border_01.png");
-            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/balls/puck2.png");
+            gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ballGraphics/puck2.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ui_versus-main.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_pockeyball-comet.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_sprite-cue.png");

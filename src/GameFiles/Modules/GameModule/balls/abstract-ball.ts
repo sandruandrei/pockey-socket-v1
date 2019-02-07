@@ -562,10 +562,10 @@ namespace Pockey {
                                     y: 0,
                                     ease: Linear.easeNone
                                 }), 0);
-                                this.ballInPocketAnimationTimeline.add(TweenMax.to(this.sphere, (duration / 2), {
+                                this.ballInPocketAnimationTimeline.add(TweenMax.to(this.sphere, (duration / 3), {
                                     visibility: 0,
                                     ease: Linear.easeNone, onComplete: this.declareAnimationFinished.bind(this)
-                                }), 0);
+                                }), duration / 8);
 
 
                                 return;
