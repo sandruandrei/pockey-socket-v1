@@ -644,7 +644,7 @@ namespace Pockey {
             [1533 - 978, 561 - 12 - 549],
             [1533 - 978, 277 - 12 - 549]];
 
-        public static PLAYER_TOTAL_POINTS: number = 1;
+        public static PLAYER_TOTAL_POINTS: number = 1;//s
 
 
     }

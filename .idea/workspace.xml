@@ -10,91 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/dccal_welcome.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/dccal_welcome.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_astrojunkie.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_astrojunkie.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_blastoff.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_blastoff.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_cthulu.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_cthulu.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_default.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_default.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_dice.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_dice.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_insertcoin.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_insertcoin.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_knucklesandwhich.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_knucklesandwhich.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_looselips.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_looselips.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_oneup.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_oneup.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_playerone.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_playerone.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_pockey.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_pockey.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_ragequit.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_ragequit.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_statTrickshot.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_statTrickshot.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_towerking.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_towerking.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/decal_wingedsword.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_wingedsword.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decals/desktop.ini" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/desktop.ini" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-blue.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-orange.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-orange.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-pink.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-pink.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-purple.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-purple.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-red.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-red.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-silver.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-silver.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-teal.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-tope.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-tope.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/misc/icon_feltcolor-yellow.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/feltColorSkins/icon_feltcolor-yellow.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_locked.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_locked.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-asiimowned.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-asiimowned.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-basic.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-basic.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-bluesteel.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-bluesteel.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-candycane.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-candycane.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-default.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-default.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-dotty.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-dotty.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-empty.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-empty.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-faceybook.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-faceybook.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-faceyou.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-faceyou.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-ivory.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-ivory.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-ninja.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-ninja.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-pinky.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-pinky.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-purplestripe.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-purplestripe.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-ragequit.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-ragequit.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-rawkstar.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-rawkstar.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-rocket.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-rocket.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-snakeeyes.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-snakeeyes.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-tiger.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-tiger.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-tweetybird.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-tweetybird.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/icon_stick-whiteknight.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/icon_stick-whiteknight.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick-metalhead.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick-metalhead.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick-spear.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick-spear.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick-thorned.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick-thorned.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_asiimowned.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_asiimowned.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_basic.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_basic.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_batwing.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_batwing.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_bluesteel.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_bluesteel.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_candycane.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_candycane.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_default.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_default.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_diamondedge.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_diamondedge.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_dotty.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_dotty.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_faceybook.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_faceybook.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_faceyou.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_faceyou.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_gnarly.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_gnarly.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_goldendiamond.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_goldendiamond.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_heartrekt.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_heartrekt.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_icequeen.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_icequeen.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_ivory.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_ivory.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_kingsglaive.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_kingsglaive.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_ninja.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_ninja.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_parokeet.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_parokeet.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_pinky.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_pinky.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_prettyPurpz.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_prettyPurpz.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_purplestripe.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_purplestripe.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_ragequit.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_ragequit.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_rawkstar.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_rawkstar.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_rocket.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_rocket.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_saberBlue.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_saberBlue.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_saberRed.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_saberRed.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_slitherin.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_slitherin.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_snakeeyes.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_snakeeyes.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_tiger.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_tiger.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_tweetybird.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_tweetybird.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_twisted.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_twisted.png" />
-      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolsticks/stick_whiteknight.png" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/poolstickSkins/stick_whiteknight.png" />
-      <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
-      <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
       <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -10869,11 +10786,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="pockey-settings.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="736" column="36" lean-forward="true" selection-start-line="736" selection-start-column="36" selection-end-line="736" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pockey-settings.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="443" column="32" lean-forward="false" selection-start-line="443" selection-start-column="32" selection-end-line="443" selection-end-column="32" />
+            <state relative-caret-position="265">
+              <caret line="648" column="0" lean-forward="true" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pool-table-manager.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="1154" column="37" lean-forward="true" selection-start-line="1154" selection-start-column="37" selection-end-line="1154" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inventory-menu.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="385" column="21" lean-forward="true" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inventory-box.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-box.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-877">
+              <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pockey-entry-point.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="256" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="white-ball.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -10905,13 +10892,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>followermesh.set</find>
-      <find>raycastFollowerMesh.se</find>
-      <find>astFollowerMesh.setEnabl</find>
-      <find>hideBallRayGraphics</find>
-      <find>onrearrang</find>
-      <find>onrearrange</find>
-      <find>apply</find>
       <find>console.lo</find>
       <find>onrearran</find>
       <find>isena</find>
@@ -10935,6 +10915,13 @@
       <find>Images/InventoryScreen/poolsticks/icon_stick-default.png</find>
       <find>poolsticks/</find>
       <find>pockey-decalSkins.json</find>
+      <find>console.log</find>
+      <find>Inventoryscreen</find>
+      <find>Inventoryscreen/decals/</find>
+      <find>reset</find>
+      <find>click</find>
+      <find>onclick</find>
+      <find>InventoryScreen/decals/</find>
     </findStrings>
     <replaceStrings>
       <replace>avatarsArray</replace>
@@ -11028,7 +11015,6 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
         <option value="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" />
@@ -11036,8 +11022,9 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" />
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
       </list>
     </option>
@@ -11341,7 +11328,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="decal&#9;null&#9;null&#10;pockeysett&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;whiteball&#9;null&#9;null&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteb&#9;null&#9;null&#10;manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;vector2&#9;null&#9;null&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;Backgro&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Background/abstract-background-module.ts&#10;pooltablema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;soundvo&#9;null&#9;null&#10;sound&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Sound/abstract-sound-module.ts&#10;soundurl&#9;null&#9;null&#10;signalsma&#9;null&#9;null&#10;p2w&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteba&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts" />
+    <property name="SearchEverywhereHistoryKey" value="invent&#9;null&#9;null&#10;whiteball&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;decal&#9;null&#9;null&#10;pockeysett&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteb&#9;null&#9;null&#10;manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;vector2&#9;null&#9;null&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;Backgro&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Background/abstract-background-module.ts&#10;pooltablema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;soundvo&#9;null&#9;null&#10;sound&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Sound/abstract-sound-module.ts&#10;soundurl&#9;null&#9;null&#10;signalsma&#9;null&#9;null&#10;p2w&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.prettier" value="true" />
@@ -11767,14 +11754,7 @@
       <workItem from="1549405875134" duration="6972000" />
       <workItem from="1549443859107" duration="17309000" />
       <workItem from="1549477153047" duration="22664000" />
-      <workItem from="1549530372769" duration="7536000" />
-    </task>
-    <task id="LOCAL-00074" summary="landscape update 8">
-      <created>1544025128369</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1544025128369</updated>
+      <workItem from="1549530372769" duration="8741000" />
     </task>
     <task id="LOCAL-00075" summary="landscape update 9">
       <created>1544098639444</created>
@@ -12112,11 +12092,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549539164435</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="heroku missing folders added to git 2">
+      <created>1549541273845</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1549541273845</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3249051000" />
+    <option name="totallyTimeSpent" value="3250256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -12132,10 +12119,10 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48925886" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18313642" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.49785176" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.5021482" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36088476" sideWeight="0.50537056" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.6460795" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.6433942" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329753" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -12288,20 +12275,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3850">
@@ -12313,13 +12286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -12477,6 +12443,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="41" column="98" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="98" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -12494,14 +12461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-607">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12557,14 +12516,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="1142" column="55" lean-forward="false" selection-start-line="1142" selection-start-column="55" selection-end-line="1142" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12632,22 +12583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="567" column="50" lean-forward="false" selection-start-line="566" selection-start-column="111" selection-end-line="567" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="135" column="85" lean-forward="false" selection-start-line="135" selection-start-column="85" selection-end-line="135" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Framework/abstract-entry-point.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -12669,10 +12604,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="256" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="736" column="36" lean-forward="true" selection-start-line="736" selection-start-column="36" selection-end-line="736" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="385" column="21" lean-forward="true" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-box.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-877">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="1154" column="37" lean-forward="true" selection-start-line="1154" selection-start-column="37" selection-end-line="1154" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="443" column="32" lean-forward="false" selection-start-line="443" selection-start-column="32" selection-end-line="443" selection-end-column="32" />
+        <state relative-caret-position="265">
+          <caret line="648" column="0" lean-forward="true" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

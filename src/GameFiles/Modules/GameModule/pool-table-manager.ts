@@ -1146,7 +1146,7 @@ namespace Pockey {
                         }
                         if (this.raycastFollowerMesh) {
 
-                            console.log("raycastFollowerMesh la on rearrange");
+                            // console.log("raycastFollowerMesh la on rearrange");
 
                             this.raycastFollowerMesh.setEnabled(true);
 
@@ -1154,7 +1154,7 @@ namespace Pockey {
                         }
                         if (this.ballPositionCircleOnRaycastMesh) {
                             this.ballPositionCircleOnRaycastMesh.setEnabled(true);
-                            console.log("se enable-uie ce plm");
+                            // console.log("se enable-uie ce plm");
 
                             // this.ballPositionCircleOnRaycastMesh.material.unfreeze();
                         }

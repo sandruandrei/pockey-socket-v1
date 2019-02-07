@@ -743,6 +743,7 @@ namespace Pockey {
 
                 this.ballShadow.scale.x = 1;
                 this.ballShadow.scale.y = 1;
+                this.ballShadow.alpha = 1;
                 // this.zIndexSwitched = false;
                 this.canBeRemoved = false;
                 this.animationInProgress = false;
