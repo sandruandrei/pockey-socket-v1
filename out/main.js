@@ -1104,8 +1104,8 @@ var Pockey;
             {
                 category: "DECALS",
                 id: "decal_default",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
                 level: 1
             }
         ];
@@ -1113,110 +1113,110 @@ var Pockey;
             {
                 category: "DECALS",
                 id: "decal_default",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_default.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
                 level: 1
             },
             {
                 category: "DECALS",
                 id: "decal_welcome",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/dccal_welcome.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/dccal_welcome.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/dccal_welcome.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/dccal_welcome.png",
                 level: 1
             },
             {
                 category: "DECALS",
                 id: "decal_astrojunkie",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_astrojunkie.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_astrojunkie.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_astrojunkie.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_astrojunkie.png",
                 level: 2
             }, {
                 category: "DECALS",
                 id: "decal_blastoff",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_blastoff.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_blastoff.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_blastoff.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_blastoff.png",
                 level: 2
             },
             {
                 category: "DECALS",
                 id: "decal_cthulu",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_cthulu.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_cthulu.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_cthulu.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_cthulu.png",
                 level: 3
             },
             {
                 category: "DECALS",
                 id: "decal_dice",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_dice.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_dice.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_dice.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_dice.png",
                 level: 3
             },
             {
                 category: "DECALS",
                 id: "decal_insertcoin",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_insertcoin.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_insertcoin.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_insertcoin.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_insertcoin.png",
                 level: 4
             },
             {
                 category: "DECALS",
                 id: "decal_knucklesandwhich",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_knucklesandwhich.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_knucklesandwhich.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_knucklesandwhich.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_knucklesandwhich.png",
                 level: 4
             }, {
                 category: "DECALS",
                 id: "decal_looselips",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_looselips.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_looselips.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_looselips.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_looselips.png",
                 level: 5
             },
             {
                 category: "DECALS",
                 id: "decal_oneup",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_oneup.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_oneup.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_oneup.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_oneup.png",
                 level: 6
             },
             {
                 category: "DECALS",
                 id: "decal_playerone",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_playerone.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_playerone.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_playerone.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_playerone.png",
                 level: 7
             }, {
                 category: "DECALS",
                 id: "decal_pockey",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_pockey.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_pockey.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_pockey.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_pockey.png",
                 level: 7
             },
             {
                 category: "DECALS",
                 id: "decal_ragequit",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_ragequit.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_ragequit.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_ragequit.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_ragequit.png",
                 level: 8
             },
             {
                 category: "DECALS",
                 id: "decal_statTrickshot",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_statTrickshot.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_statTrickshot.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_statTrickshot.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_statTrickshot.png",
                 level: 9
             },
             {
                 category: "DECALS",
                 id: "decal_towerking",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_towerking.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_towerking.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_towerking.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_towerking.png",
                 level: 10
             },
             {
                 category: "DECALS",
                 id: "decal_wingedsword",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_wingedsword.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/Decals/decal_wingedsword.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_wingedsword.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_wingedsword.png",
                 level: 11
             },
         ];
@@ -1331,55 +1331,55 @@ var Pockey;
             {
                 category: "MISC",
                 id: "feltcolor-blue",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-blue.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-orange",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-orange.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-orange.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-pink",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-pink.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-pink.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-purple",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-purple.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-purple.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-red",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-red.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-red.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-silver",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-silver.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-silver.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-teal",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-teal.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-tope",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-tope.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-tope.png",
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-yellow",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-blue.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
                 level: 1
             }
         ];
@@ -1387,7 +1387,7 @@ var Pockey;
             {
                 category: "MISC",
                 id: "feltcolor-blue",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/misc/icon_feltcolor-blue.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
                 level: 1
             }
         ];
@@ -1396,8 +1396,8 @@ var Pockey;
             {
                 category: "CUES",
                 id: "icon_stick_default",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-default.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_default.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-default.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_default.png",
                 level: 1
             }
         ];
@@ -1405,134 +1405,134 @@ var Pockey;
             {
                 category: "CUES",
                 id: "icon_stick-default",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-default.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_default.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-default.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_default.png",
                 level: 1
             },
             {
                 category: "CUES",
                 id: "stick_basic",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-basic.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_basic.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-basic.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_basic.png",
                 level: 1
             },
             {
                 category: "CUES",
                 id: "stick_asiimowned",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-asiimowned.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_asiimowned.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-asiimowned.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_asiimowned.png",
                 level: 1
             },
             {
                 category: "CUES",
                 id: "stick_bluesteel",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-bluesteel.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_bluesteel.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-bluesteel.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_bluesteel.png",
                 level: 2
             },
             {
                 category: "CUES",
                 id: "stick_candycane",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-candycane.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_candycane.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-candycane.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_candycane.png",
                 level: 2
             },
             {
                 category: "CUES",
                 id: "stick_dotty",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-dotty.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_dotty.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-dotty.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_dotty.png",
                 level: 2
             },
             {
                 category: "CUES",
                 id: "stick_faceybook",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-faceybook.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_faceybook.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-faceybook.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_faceybook.png",
                 level: 3
             },
             {
                 category: "CUES",
                 id: "stick_faceyou",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-faceyou.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_faceyou.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-faceyou.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_faceyou.png",
                 level: 3
             },
             {
                 category: "CUES",
                 id: "stick_ivory",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-ivory.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_ivory.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-ivory.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_ivory.png",
                 level: 4
             },
             {
                 category: "CUES",
                 id: "stick_ninja",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-ninja.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_ninja.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-ninja.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_ninja.png",
                 level: 4
             },
             {
                 category: "CUES",
                 id: "stick_pinky",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-pinky.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_pinky.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-pinky.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_pinky.png",
                 level: 4
             },
             {
                 category: "CUES",
                 id: "stick_purplestripe",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-purplestripe.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_purplestripe.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-purplestripe.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_purplestripe.png",
                 level: 5
             },
             {
                 category: "CUES",
                 id: "stick_ragequit",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-ragequit.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_ragequit.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-ragequit.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_ragequit.png",
                 level: 6
             },
             {
                 category: "CUES",
                 id: "stick_rawkstar",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-rawkstar.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_rawkstar.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-rawkstar.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_rawkstar.png",
                 level: 7
             },
             {
                 category: "CUES",
                 id: "stick_rocket",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-rocket.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_rocket.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-rocket.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_rocket.png",
                 level: 7
             },
             {
                 category: "CUES",
                 id: "stick_snakeeyes",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-snakeeyes.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_snakeeyes.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-snakeeyes.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_snakeeyes.png",
                 level: 8
             },
             {
                 category: "CUES",
                 id: "stick_tiger",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-tiger.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_tiger.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-tiger.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_tiger.png",
                 level: 8
             },
             {
                 category: "CUES",
                 id: "stick_tweetybird",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-tweetybird.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_tweetybird.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-tweetybird.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_tweetybird.png",
                 level: 9
             },
             {
                 category: "CUES",
                 id: "stick_whiteknight",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/icon_stick-whiteknight.png",
-                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolsticks/stick_whiteknight.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/icon_stick-whiteknight.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/poolstickSkins/stick_whiteknight.png",
                 level: 10
             },
         ];
@@ -3125,7 +3125,6 @@ var Pockey;
             function Decal() {
                 var _this = _super.call(this) || this;
                 _this.anchor.set(0.5, 0.5);
-                _this.SetDecalIcon(DecalType.Pockey);
                 return _this;
             }
             Decal.prototype.SetDecalIcon = function (decalType) {

@@ -39,7 +39,7 @@ namespace Pockey {
             constructor() {
                 super();
                 this.anchor.set(0.5, 0.5);
-                this.SetDecalIcon(DecalType.Pockey);
+                // this.SetDecalIcon(DecalType.Pockey);
             }
 
             public SetDecalIcon(decalType: DecalType) {
