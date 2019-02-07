@@ -727,7 +727,7 @@ namespace Pockey {
             }
 
             public reset(): void {
-                console.log(this.name + "se reseteaza mingea!");
+                // console.log(this.name + "se reseteaza mingea!");
                 if (this.ballInPocketAnimationTimeline && this.ballInPocketAnimationTimeline.isActive()) {
                     this.ballInPocketAnimationTimeline.pause();
                     this.ballInPocketAnimationTimeline.kill();
@@ -743,7 +743,7 @@ namespace Pockey {
 
                 this.ballShadow.scale.x = 1;
                 this.ballShadow.scale.y = 1;
-                this.ballShadow.alpha = 1;
+
                 // this.zIndexSwitched = false;
                 this.canBeRemoved = false;
                 this.animationInProgress = false;

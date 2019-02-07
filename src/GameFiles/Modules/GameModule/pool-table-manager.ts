@@ -1308,7 +1308,7 @@ namespace Pockey {
 
 
                     if (this.poolTable.poolStick.rotationEnabled) {
-                        // console.log("aici la 4");
+                        // console.log("aici la 4");;
 
                         if (this.graph) {
                             if (this.graph.parent)

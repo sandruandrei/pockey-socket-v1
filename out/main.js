@@ -4635,12 +4635,10 @@ var Pockey;
                             this.ballPositionCircleMesh.setEnabled(false);
                         }
                         if (this.raycastFollowerMesh) {
-                            console.log("raycastFollowerMesh la on rearrange");
                             this.raycastFollowerMesh.setEnabled(true);
                         }
                         if (this.ballPositionCircleOnRaycastMesh) {
                             this.ballPositionCircleOnRaycastMesh.setEnabled(true);
-                            console.log("se enable-uie ce plm");
                         }
                         this.whiteBallReflectionArrowMesh.setEnabled(false);
                         this.otherBallReflectionArrowMesh.setEnabled(false);
