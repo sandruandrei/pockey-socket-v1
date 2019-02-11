@@ -704,7 +704,6 @@ namespace Pockey {
                     let msg: string = JSON.stringify({gameStates: this.myTimeStates});
 
                     // if(PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall)
-                    console.log("am trimis");
 
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, msg]);
 
@@ -784,7 +783,6 @@ namespace Pockey {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
 
-                    console.log("am primit");
 
                     // console.log("gm, sunt eu, clientul in plm: ");
                     let msg: string = params[0];

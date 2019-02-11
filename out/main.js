@@ -5873,7 +5873,6 @@ var Pockey;
                         this.readyForNextTurn = false;
                     }
                     var msg = JSON.stringify({ gameStates: this.myTimeStates });
-                    console.log("am trimis");
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, msg]);
                     this.myTimeStates = [];
                 }
@@ -5926,7 +5925,6 @@ var Pockey;
             GameManager.prototype.onWatch = function (params) {
                 var _this = this;
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
-                    console.log("am primit");
                     var msg = params[0];
                     var gameStates = JSON.parse(msg).gameStates;
                     _.forEach(gameStates, function (gameState) {

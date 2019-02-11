@@ -8,13 +8,11 @@
     <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" line="686" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="fps smooth test on receive 1">
+    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
       <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
       <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
-      <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -10788,11 +10786,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game-manager.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game-manager.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="797" column="23" lean-forward="false" selection-start-line="797" selection-start-column="23" selection-end-line="797" selection-end-column="23" />
+            <state relative-caret-position="-83">
+              <caret line="706" column="0" lean-forward="true" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -10808,11 +10806,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="300" column="50" lean-forward="false" selection-start-line="300" selection-start-column="50" selection-end-line="300" selection-end-column="50" />
+            <state relative-caret-position="212">
+              <caret line="305" column="26" lean-forward="false" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -10834,7 +10832,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>decal_pocke</find>
       <find>images/inventoryscreen/decal</find>
       <find>SetDecalIcon</find>
       <find>Images/InventoryScreen/poolsticks/icon_stick-default.png</find>
@@ -10864,6 +10861,7 @@
       <find>25</find>
       <find>setstate</find>
       <find>lerp</find>
+      <find>am tr</find>
     </findStrings>
     <replaceStrings>
       <replace>avatarsArray</replace>
@@ -10965,9 +10963,9 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
       </list>
     </option>
   </component>
@@ -11699,14 +11697,7 @@
       <workItem from="1549530372769" duration="13211000" />
       <workItem from="1549619876968" duration="427000" />
       <workItem from="1549875720969" duration="34000" />
-      <workItem from="1549876276604" duration="2451000" />
-    </task>
-    <task id="LOCAL-00078" summary="landscape update 12">
-      <created>1544108464987</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1544108464987</updated>
+      <workItem from="1549876276604" duration="2677000" />
     </task>
     <task id="LOCAL-00079" summary="landscape update 13">
       <created>1544109353678</created>
@@ -12044,11 +12035,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549552177248</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="fps smooth test on receive 1">
+      <created>1549878759076</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1549878759077</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3257805000" />
+    <option name="totallyTimeSpent" value="3258031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -12171,7 +12169,6 @@
     <ignored-roots>
       <path value="D:\edge flow\pockey-socket-v1\pockey-socket-v1" />
     </ignored-roots>
-    <MESSAGE value="inventory landscape update 31 / opera mini - inventory boxes border" />
     <MESSAGE value="inventory landscape update 31. zoom and pinch disabled" />
     <MESSAGE value="back to main menu button fixed" />
     <MESSAGE value="update 32 back btn" />
@@ -12196,7 +12193,8 @@
     <MESSAGE value="heroku missing folders added to git 3" />
     <MESSAGE value="heroku missing folders added to git 5" />
     <MESSAGE value="heroku missing folders added to git 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="heroku missing folders added to git 6" />
+    <MESSAGE value="fps smooth test on receive 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fps smooth test on receive 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -12553,14 +12551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="797" column="23" lean-forward="false" selection-start-line="797" selection-start-column="23" selection-end-line="797" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -12571,8 +12561,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="300" column="50" lean-forward="false" selection-start-line="300" selection-start-column="50" selection-end-line="300" selection-end-column="50" />
+        <state relative-caret-position="212">
+          <caret line="305" column="26" lean-forward="false" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-83">
+          <caret line="706" column="0" lean-forward="true" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
           <folding />
         </state>
       </provider>
