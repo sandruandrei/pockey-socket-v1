@@ -1024,7 +1024,7 @@ var Pockey;
         PockeySettings.OPPONENT_SOCKET_ID = "";
         PockeySettings.OPPONENT_NICKNAME = "SandruOpponent";
         PockeySettings.DELTA = 0.98;
-        PockeySettings.FRAMES_TO_SEND_ON_WATCH = 6;
+        PockeySettings.FRAMES_TO_SEND_ON_WATCH = 5;
         PockeySettings.BALL_RADIUS = 17;
         PockeySettings.P2_WORLD_STEP = 1 / 60;
         PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME = "pockey_custom_background_name";
@@ -1537,7 +1537,7 @@ var Pockey;
             },
         ];
         PockeySettings.PLAYER_CUE_ID = PockeySettings.SMALL_CUES_ARRAY[0].id;
-        PockeySettings.ROUND_DURATION_IN_SECONDS = 25;
+        PockeySettings.ROUND_DURATION_IN_SECONDS = 20;
         PockeySettings.MAIN_COLLISION_POLYGON = [
             [-559, -98],
             [-487, -98],
@@ -2731,6 +2731,9 @@ var Pockey;
                     ballState.alpha = this.sphere.visibility;
                 return ballState;
             };
+            AbstractBall.prototype.lerp = function (min, max, fraction) {
+                return (max - min) * fraction + min;
+            };
             AbstractBall.prototype.setState = function (ballState, animTime) {
                 var time = (animTime + 1 / 60) / 2;
                 this.ballShadow.scale.x = ballState.shadowScaleX;
@@ -2738,27 +2741,14 @@ var Pockey;
                 if (this.sphere) {
                     this.sphere.visibility = ballState.alpha;
                     if (this.sphere.visibility == 0) {
-                        this.sphere.material.freeze();
+                        this.sphere.setEnabled(false);
                     }
-                    else {
-                        this.sphere.material.unfreeze();
-                    }
-                    TweenMax.to(this, time, {
-                        x: ballState.x / 10000,
-                        y: ballState.y / 10000,
-                        onUpdate: this.onWatchUpdate.bind(this),
-                        ease: Linear.easeNone,
-                    });
                 }
                 else {
-                    TweenMax.to(this, time, {
-                        x: ballState.x / 10000,
-                        y: ballState.y / 10000,
-                        rotation: ballState.rotation,
-                        onUpdate: this.onWatchUpdate.bind(this),
-                        ease: Linear.easeNone,
-                    });
                 }
+                this.x = this.lerp(this.x, ballState.x / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                this.y = this.lerp(this.y, ballState.y / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                this.ballPosition = new Vector2(this.x, this.y);
                 if (ballState.canBeRemoved) {
                     this.canBeRemoved = ballState.canBeRemoved;
                     GameModule.P2WorldManager.Instance().world.removeBody(this.p2Body);
@@ -3062,9 +3052,6 @@ var Pockey;
                 this.ballShadow = new Graphics();
                 this.ballShadow.beginFill(0x000000, 0.4);
                 this.ballShadow.drawCircle(this.radius / 4, this.radius / 4, this.radius);
-            };
-            AbstractBall.prototype.lerp = function (min, max, fraction) {
-                return (max - min) * fraction + min;
             };
             return AbstractBall;
         }(PIXI.Container));
@@ -5886,6 +5873,7 @@ var Pockey;
                         this.readyForNextTurn = false;
                     }
                     var msg = JSON.stringify({ gameStates: this.myTimeStates });
+                    console.log("am trimis");
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, msg]);
                     this.myTimeStates = [];
                 }
@@ -5938,12 +5926,13 @@ var Pockey;
             GameManager.prototype.onWatch = function (params) {
                 var _this = this;
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
+                    console.log("am primit");
                     var msg = params[0];
                     var gameStates = JSON.parse(msg).gameStates;
                     _.forEach(gameStates, function (gameState) {
                         _this.opponentGameStates.push(gameState);
                     });
-                    if (!this.timeStatesTimerActive && this.opponentGameStates.length >= Pockey.PockeySettings.FRAMES_TO_SEND_ON_WATCH * 3) {
+                    if (!this.timeStatesTimerActive && this.opponentGameStates.length >= Pockey.PockeySettings.FRAMES_TO_SEND_ON_WATCH * 2) {
                         this.timeStatesTimerActive = true;
                         PIXI.ticker.shared.add(this.applyGameState, this);
                     }

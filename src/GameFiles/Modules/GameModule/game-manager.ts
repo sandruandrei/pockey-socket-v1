@@ -704,6 +704,7 @@ namespace Pockey {
                     let msg: string = JSON.stringify({gameStates: this.myTimeStates});
 
                     // if(PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall)
+                    console.log("am trimis");
 
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.WATCH, msg]);
 
@@ -783,6 +784,8 @@ namespace Pockey {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onWatch) {
 
+                    console.log("am primit");
+
                     // console.log("gm, sunt eu, clientul in plm: ");
                     let msg: string = params[0];
 
@@ -794,7 +797,7 @@ namespace Pockey {
                         this.opponentGameStates.push(gameState);
                     });
 
-                    if (!this.timeStatesTimerActive && this.opponentGameStates.length >= PockeySettings.FRAMES_TO_SEND_ON_WATCH * 3) {
+                    if (!this.timeStatesTimerActive && this.opponentGameStates.length >= PockeySettings.FRAMES_TO_SEND_ON_WATCH * 2) {
                         this.timeStatesTimerActive = true;
                         PIXI.ticker.shared.add(this.applyGameState, this);
                         // console.log("se adauaga o data");

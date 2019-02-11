@@ -261,7 +261,9 @@ namespace Pockey {
             // private lerp(a:number, b:number, n:number):number {
             //     return (1 - n) * a + n * b;
             // }
-
+            private lerp(min:number, max:number, fraction:number):number {
+                return (max - min) * fraction + min;
+            }
 
             public setState(ballState: BallState, animTime: number): void {
 
@@ -275,30 +277,41 @@ namespace Pockey {
                     this.sphere.visibility = ballState.alpha;
                     if(this.sphere.visibility == 0)
                     {
-                        this.sphere.material.freeze();
+                        this.sphere.setEnabled(false);
                     }
-                    else
-                    {
-                        this.sphere.material.unfreeze();
-                    }
-                    TweenMax.to(this, time, {
-                        x: ballState.x / 10000,
-                        y: ballState.y / 10000,
-                        onUpdate: this.onWatchUpdate.bind(this),
-                        ease:Linear.easeNone,
-                    });
+                    // else
+                    // {
+                    //
+                    //     this.sphere.setEnabled(false);
+                    // }
+                    // this.x = this.lerp(this.x, ballState.x, time);
+                    // this.y = this.lerp(this.y, ballState.y, time);
+                    //
+                    // this.ballPosition = new Vector2(this.x, this.y);
+                    // TweenMax.to(this, time, {
+                    //     x: ballState.x / 10000,
+                    //     y: ballState.y / 10000,
+                    //     onUpdate: this.onWatchUpdate.bind(this),
+                    //     ease:Linear.easeNone,
+                    // });
                 }
                 else
                 {
-                    TweenMax.to(this, time, {
-                        x: ballState.x / 10000,
-                        y: ballState.y / 10000,
-                        rotation: ballState.rotation,
-                        onUpdate: this.onWatchUpdate.bind(this),
-                        ease:Linear.easeNone,
-                    });
+                    // TweenMax.to(this, time, {
+                    //     x: ballState.x / 10000,
+                    //     y: ballState.y / 10000,
+                    //     rotation: ballState.rotation,
+                    //     onUpdate: this.onWatchUpdate.bind(this),
+                    //     ease:Linear.easeNone,
+                    // });
                 }
+                // console.log("new x: " + this.lerp(this.x, ballState.x, time));
+                // console.log("normal x: " + this.x);
+                // console.log("ball state x: " + ballState.x);
+                this.x = this.lerp(this.x, ballState.x / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                this.y = this.lerp(this.y, ballState.y / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
 
+                this.ballPosition = new Vector2(this.x, this.y);
                 // this.onWatchTimeline.to(this, time, {
                 //     x: ballState.x / 10000,
                 //     y: ballState.y / 10000
@@ -787,10 +800,6 @@ namespace Pockey {
 
                 return ballData;
             }*/
-
-            protected lerp(min, max, fraction) {
-                return (max - min) * fraction + min;
-            }
 
 
             /*public setBallData(ballData: BallData): void {

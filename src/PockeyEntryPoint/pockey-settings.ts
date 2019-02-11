@@ -39,7 +39,7 @@ namespace Pockey {
         public static OPPONENT_NICKNAME: string = "SandruOpponent";
         public static DELTA: number = 0.98;
 
-        public static FRAMES_TO_SEND_ON_WATCH:number = 6;
+        public static FRAMES_TO_SEND_ON_WATCH:number = 5;
         public static BALL_RADIUS: number = 17;
         public static P2_WORLD_STEP: number = 1 / 60;
         public static POCKEY_CUSTOM_BACKGROUND_NAME: string = "pockey_custom_background_name";
@@ -579,7 +579,7 @@ namespace Pockey {
         public static PLAYER_CUE_ID: string = PockeySettings.SMALL_CUES_ARRAY[0].id;
 
 
-        public static ROUND_DURATION_IN_SECONDS: number = 25;
+        public static ROUND_DURATION_IN_SECONDS: number = 20;
 
         public static MAIN_COLLISION_POLYGON: number[][] = [
             [-559, -98],

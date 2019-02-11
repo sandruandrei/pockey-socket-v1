@@ -8,12 +8,13 @@
     <bookmark url="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" line="686" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
+    <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="fps smooth test on receive 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
       <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
       <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
-      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -10786,12 +10787,12 @@
     <favorites_list name="Pockey - p2 - socket.io" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+    <leaf>
+      <file leaf-file-name="game-manager.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="621" column="28" lean-forward="false" selection-start-line="621" selection-start-column="19" selection-end-line="621" selection-end-column="28" />
+            <state relative-caret-position="124">
+              <caret line="797" column="23" lean-forward="false" selection-start-line="797" selection-start-column="23" selection-end-line="797" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -10800,88 +10801,18 @@
       <file leaf-file-name="pockey-settings.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="648" column="0" lean-forward="false" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
+            <state relative-caret-position="168">
+              <caret line="580" column="0" lean-forward="false" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pool-table-manager.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="1310" column="53" lean-forward="false" selection-start-line="1310" selection-start-column="53" selection-end-line="1310" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventory-menu.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="385" column="21" lean-forward="false" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="inventory-box.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-box.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-877">
-              <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pockey-entry-point.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="white-ball.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="41" lean-forward="false" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="decal.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="300" column="50" lean-forward="false" selection-start-line="300" selection-start-column="50" selection-end-line="300" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -10903,19 +10834,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delta</find>
-      <find>HIDE_BALL_RAY_GRAPHICS</find>
-      <find>rotatio</find>
-      <find>isen</find>
-      <find>babylon.custom</find>
-      <find>babylon</find>
-      <find>cannon</find>
-      <find>earcut</find>
-      <find>Images/balls/puck2.png</find>
-      <find>Sounds/</find>
-      <find>onc</find>
-      <find>InventoryScreen/Decals</find>
-      <find>felt</find>
       <find>decal_pocke</find>
       <find>images/inventoryscreen/decal</find>
       <find>SetDecalIcon</find>
@@ -10933,6 +10851,19 @@
       <find>se enheroku repo:purge_cache -a appname</find>
       <find>console.l</find>
       <find>consol</find>
+      <find>intra aicis</find>
+      <find>console.lo</find>
+      <find>apply</find>
+      <find>applyGameState</find>
+      <find>.stateID</find>
+      <find>onwatch</find>
+      <find>onpoo</find>
+      <find>poolta</find>
+      <find>\</find>
+      <find>FRAMES_TO_SEND_ON_WATCH</find>
+      <find>25</find>
+      <find>setstate</find>
+      <find>lerp</find>
     </findStrings>
     <replaceStrings>
       <replace>avatarsArray</replace>
@@ -11025,7 +10956,6 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
         <option value="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" />
@@ -11034,9 +10964,10 @@
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
       </list>
     </option>
   </component>
@@ -11131,6 +11062,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -11334,12 +11266,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="invent&#9;null&#9;null&#10;whiteball&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;decal&#9;null&#9;null&#10;pockeysett&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteb&#9;null&#9;null&#10;manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;vector2&#9;null&#9;null&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;Backgro&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Background/abstract-background-module.ts&#10;pooltablema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;soundvo&#9;null&#9;null&#10;sound&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Sound/abstract-sound-module.ts&#10;soundurl&#9;null&#9;null&#10;signalsma&#9;null&#9;null&#10;p2w&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
+    <property name="SearchEverywhereHistoryKey" value="abstractb&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;gamemanager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;invent&#9;null&#9;null&#10;whiteball&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;decal&#9;null&#9;null&#10;pockeysett&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteb&#9;null&#9;null&#10;manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;vector2&#9;null&#9;null&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;Backgro&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Background/abstract-background-module.ts&#10;pooltablema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;soundvo&#9;null&#9;null&#10;sound&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Sound/abstract-sound-module.ts&#10;soundurl&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.prettier" value="true" />
@@ -11765,21 +11696,10 @@
       <workItem from="1549405875134" duration="6972000" />
       <workItem from="1549443859107" duration="17309000" />
       <workItem from="1549477153047" duration="22664000" />
-      <workItem from="1549530372769" duration="10118000" />
-    </task>
-    <task id="LOCAL-00076" summary="landscape update 10">
-      <created>1544103528324</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1544103528324</updated>
-    </task>
-    <task id="LOCAL-00077" summary="landscape update 11">
-      <created>1544107975419</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1544107975419</updated>
+      <workItem from="1549530372769" duration="13211000" />
+      <workItem from="1549619876968" duration="427000" />
+      <workItem from="1549875720969" duration="34000" />
+      <workItem from="1549876276604" duration="2451000" />
     </task>
     <task id="LOCAL-00078" summary="landscape update 12">
       <created>1544108464987</created>
@@ -12110,11 +12030,25 @@
       <option name="project" value="LOCAL" />
       <updated>1549550430357</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="heroku missing folders added to git 5">
+      <created>1549551810905</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1549551810905</updated>
+    </task>
+    <task id="LOCAL-00126" summary="heroku missing folders added to git 6">
+      <created>1549552177248</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1549552177248</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3251633000" />
+    <option name="totallyTimeSpent" value="3257805000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -12128,17 +12062,16 @@
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48925886" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18313642" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.5042965" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.49570355" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36088476" sideWeight="0.50322235" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.6380236" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329753" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22502685" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48925886" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48549947" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19119227" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.36734694" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.4935553" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36088476" sideWeight="0.50107414" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.63265306" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31315482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -12148,6 +12081,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48549947" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -12237,8 +12171,6 @@
     <ignored-roots>
       <path value="D:\edge flow\pockey-socket-v1\pockey-socket-v1" />
     </ignored-roots>
-    <MESSAGE value="inventory landscape update 31 - boxes border" />
-    <MESSAGE value="inventory landscape update 31" />
     <MESSAGE value="inventory landscape update 31 / opera mini - inventory boxes border" />
     <MESSAGE value="inventory landscape update 31. zoom and pinch disabled" />
     <MESSAGE value="back to main menu button fixed" />
@@ -12262,17 +12194,12 @@
     <MESSAGE value="heroku missing folders added to git" />
     <MESSAGE value="heroku missing folders added to git 2" />
     <MESSAGE value="heroku missing folders added to git 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="heroku missing folders added to git 3" />
+    <MESSAGE value="heroku missing folders added to git 5" />
+    <MESSAGE value="heroku missing folders added to git 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="heroku missing folders added to git 6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts</url>
-          <line>1379</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -12311,7 +12238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="27" column="60" lean-forward="false" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12319,7 +12245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="66" column="79" lean-forward="true" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12383,14 +12308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="269" column="66" lean-forward="true" selection-start-line="269" selection-start-column="66" selection-end-line="269" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -12398,7 +12315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7260">
           <caret line="338" column="40" lean-forward="false" selection-start-line="338" selection-start-column="40" selection-end-line="338" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12406,7 +12322,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-927">
           <caret line="47" column="37" lean-forward="true" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12414,7 +12329,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="7951" column="27" lean-forward="true" selection-start-line="7951" selection-start-column="27" selection-end-line="7951" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12436,9 +12350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="57" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -12446,7 +12357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12454,7 +12364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="41" column="98" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="98" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12462,9 +12371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -12479,7 +12385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12487,7 +12392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12495,15 +12399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="27795" column="46" lean-forward="false" selection-start-line="27795" selection-start-column="37" selection-end-line="27795" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13288">
-          <caret line="611" column="86" lean-forward="false" selection-start-line="611" selection-start-column="64" selection-end-line="611" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12511,7 +12406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12534,7 +12428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12542,7 +12435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="7" column="46" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="7" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12558,15 +12450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="50" column="132" lean-forward="false" selection-start-line="50" selection-start-column="132" selection-end-line="50" selection-end-column="132" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12574,7 +12457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="695" column="14" lean-forward="false" selection-start-line="695" selection-start-column="14" selection-end-line="695" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12582,7 +12464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12590,7 +12471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="123" column="59" lean-forward="true" selection-start-line="123" selection-start-column="59" selection-end-line="123" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12603,31 +12483,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
+        <state relative-caret-position="8360">
           <caret line="385" column="21" lean-forward="false" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-box.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-877">
+        <state relative-caret-position="396">
           <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12635,15 +12504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="41" lean-forward="false" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="648" column="0" lean-forward="false" selection-start-line="648" selection-start-column="0" selection-end-line="648" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12651,7 +12511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -12663,18 +12522,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="621" column="28" lean-forward="false" selection-start-line="621" selection-start-column="19" selection-end-line="621" selection-end-column="28" />
+        <state relative-caret-position="30184">
+          <caret line="1381" column="23" lean-forward="true" selection-start-line="1381" selection-start-column="23" selection-end-line="1381" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="1310" column="53" lean-forward="false" selection-start-line="1310" selection-start-column="53" selection-end-line="1310" selection-end-column="53" />
+        <state relative-caret-position="1496">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5742">
+          <caret line="261" column="51" lean-forward="false" selection-start-line="261" selection-start-column="51" selection-end-line="261" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5390">
+          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="797" column="23" lean-forward="false" selection-start-line="797" selection-start-column="23" selection-end-line="797" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="580" column="0" lean-forward="false" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="300" column="50" lean-forward="false" selection-start-line="300" selection-start-column="50" selection-end-line="300" selection-end-column="50" />
           <folding />
         </state>
       </provider>
