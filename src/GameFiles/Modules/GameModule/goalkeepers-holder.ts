@@ -9,8 +9,12 @@
  *  Created by Sandru Andrei on 1/28/2019
  */
 
+
 namespace Pockey {
     export module GameModule {
+        import SignalsManager = Framework.Signals.SignalsManager;
+        import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+
         export interface GoalieState {
             direction?: number,
             position?: number,
@@ -30,9 +34,20 @@ namespace Pockey {
                 this.goalies.push(leftGoalie);
                 this.goalies.push(rightGoalie);
 
+                leftGoalie.visible = false;
+                rightGoalie.visible = false;
                 /*P2WorldManager.Instance().world.on("postStep", (evt) => {
                     // this.update();
                 }, this);*/
+
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameUI.bind(this));
+            }
+
+            private onShowGameUI():void
+            {
+                _.forEach(this.goalies, (goalie: Goalie) => {
+                    goalie.visible = true;
+                });
             }
 
             public update(): void {
@@ -45,6 +60,10 @@ namespace Pockey {
                         this.movingDirection *= -1;
                     }
                 }
+            }
+
+            private lerp(min:number, max:number, fraction:number):number {
+                return (max - min) * fraction + min;
             }
 
             private updatePosition(): void {
@@ -72,9 +91,10 @@ namespace Pockey {
             public setState(state: GoalieState, duration: number): void {
                 this.moving = false;
 
-                // let time: number = (duration + 1 / 60) / 2;
+                // let time: number = (duration + 1 / 60) / 2;her
                 this.movingDirection = state.direction;
-                this.y = state.position / 10000;
+                // this.y = ;
+                this.y = this.lerp(this.y, state.position / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
                 this.updatePosition();
                 /*TweenMax.to(this, time, {
                     y: state.position / 10000,

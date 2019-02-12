@@ -198,7 +198,9 @@ namespace Pockey {
                 myMaterial.diffuseTexture = new BABYLON.Texture(Settings.desktopAssetsPath + "Images/ballTexture.jpg", AbstractEntryPoint.scene);
 
                 this.sphere.material = myMaterial;
+                this.sphere.setEnabled(false);
                 TweenMax.to(this.sphere.rotation, 0.1, {x: -2 * Math.PI, y: -2 * Math.PI, z: -2 * Math.PI});
+
                 this.lastPosition = new Vector3(0, 0, 0);
             }
 
@@ -684,6 +686,11 @@ namespace Pockey {
                 P2WorldManager.Instance().world.addBody(this.p2BodyShadow);
             }
 
+            public enableSphere():void
+            {
+                this.sphere.setEnabled(true);
+            }
+
             set ballPosition(positionVector: Vector2) {
                 if (!this.initialPosition) {
                     this.initialPosition = positionVector.clone();
@@ -771,7 +778,7 @@ namespace Pockey {
 
             public createBallShadow() {
                 this.ballShadow = new Graphics();
-                this.ballShadow.beginFill(0x000000, 0.4);
+                this.ballShadow.beginFill(0x000000, 0.5);
                 this.ballShadow.drawCircle(this.radius / 4, this.radius / 4, this.radius);
             }
 

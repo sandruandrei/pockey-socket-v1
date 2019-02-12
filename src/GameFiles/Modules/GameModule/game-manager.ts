@@ -124,9 +124,10 @@ namespace Pockey {
             }
 
             private prepareFirstRound(): void {
-                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
-
                 PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundOne);
+
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
 
                 if (this.player.startedFirst) {
                     this.setCurrentPlayer(this.player);
@@ -154,8 +155,14 @@ namespace Pockey {
                     if (PockeySettings.OPPONENT_COLOR == +PockeySettings.PLAYER_COLOR_ID) {
                         sameColorsUsed = true;
 
-                        let randNumber: number = Math.round(Math.random() * (PockeySettings.LARGE_COLORS_ARRAY.length - 1));
-                        PockeySettings.OPPONENT_COLOR = parseInt("0x" + PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
+                        let itemId: number = 0;//Math.round(Math.random() * (PockeySettings.LARGE_COLORS_ARRAY.length - 1));
+                        _.forEach(PockeySettings.LARGE_COLORS_ARRAY, (item: InventoryVO, counter: number) => {
+                            if (item.id == PockeySettings.PLAYER_COLOR_ID) {
+                                itemId = counter;
+                                return true;
+                            }
+                        });
+                        PockeySettings.OPPONENT_COLOR = PockeySettings.LARGE_COLORS_ARRAY[itemId].complementaryColor;
 
                     }
 
@@ -184,9 +191,16 @@ namespace Pockey {
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [PockeySettings.PLAYER_AVATAR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [PockeySettings.PLAYER_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN, [PockeySettings.PLAYER_CUE_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, [PockeySettings.PLAYER_DECAL_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT, [PockeySettings.POOLTABLE_FELT_ID]);
+
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [PockeySettings.OPPONENT_COLOR]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [PockeySettings.OPPONENT_AVATAR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [PockeySettings.OPPONENT_NICKNAME]);
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_GAME_UI);
+
                 /**/
             }
 
@@ -317,6 +331,7 @@ namespace Pockey {
 
                     //aici punem timer si ascundem partner found
                     SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
+                    // SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
 
                     this.beginPlay();
 
@@ -605,12 +620,10 @@ namespace Pockey {
                 //@ts-ignore
                 // console.log("aicisha: " + AbstractEntryPoint.scene.meshes);
                 //@ts-ignore
-                _.forEach(AbstractEntryPoint.scene.meshes, (mesh: any) => {
-                    mesh.setEnabled(true);
-                });
+
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_MAIN_MENU);
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
-                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_GAME_UI);
+
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_POOLTABLE);
 
                 if (Settings.singlePlayer) {

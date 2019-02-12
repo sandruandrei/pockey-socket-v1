@@ -7,6 +7,7 @@
 ///<reference path="puck-goal.ts"/>
 ///<reference path="goalie.ts"/>
 ///<reference path="Pocket.ts"/>
+///<reference path="table-felt.ts"/>
 
 /**
  *  Edgeflow
@@ -31,6 +32,8 @@ namespace Pockey {
         import Rectangle = PIXI.Rectangle;
         import Settings = Framework.Settings;
         import Circle = PIXI.Circle;
+        import SignalsManager = Framework.Signals.SignalsManager;
+        import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
 
         export class PoolTable extends Container {
 
@@ -83,6 +86,18 @@ namespace Pockey {
                 super();
                 this.name = "poolTable";
                 this.createElements();
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameUi.bind(this))
+            }
+
+            private onShowGameUi(): void {
+                this.shadowsHolder.visible = true;
+                this.puck.visible = true;
+                _.forEach(this.balls, (ball:AbstractBall)=>{
+                   if(ball.ballType != BallType.Puck)
+                   {
+                       ball.enableSphere();
+                   }
+                });
             }
 
             private createElements(): void {
@@ -99,6 +114,7 @@ namespace Pockey {
                 ////end poolTableBackground
 
                 this.shadowsHolder = new Container();
+                this.shadowsHolder.visible = false;
                 this.addChild(this.shadowsHolder);
 
                 PockeySettings.MIDDLE_TABLE_POS = new Vector2(0, 0);
@@ -125,6 +141,7 @@ namespace Pockey {
                 this.poolTableBumper.y = -this.poolTableBumper.height / 2;//300;
                 this.addChild(this.poolTableBumper);
 
+                let tableFeltManager: TableFelt = new TableFelt(this.poolTableBackground, this.poolTableBumper);
                 ////end poolTableBumper
 
 
@@ -153,6 +170,7 @@ namespace Pockey {
 
                 //puck
                 this.puck = new Puck();
+                this.puck.visible = false;
                 this.puck.ballAnimationHolder = this.ballAnimationHolder;
                 this.puck.createBallShadow();
                 this.puck.tintBall(PockeySettings.PUCK_COLOR);
@@ -276,14 +294,14 @@ namespace Pockey {
                 }
                 else {
                     this.poolStick = new Stick();
-                    this.poolStick.x = 844;
-                    this.poolStick.y = 650;
+                    this.poolStick.x = -145;
+                    this.poolStick.y = 110;
                 }
 
                 this.poolStick.initialPosition = new Point(this.poolStick.x, this.poolStick.y);
                 this.poolStick.startPosition = new Point(this.whiteBall.position.x, this.whiteBall.position.y);
 
-                this.poolStick.visible = false;
+                // this.poolStick.visible = false;
                 this.addChild(this.poolStick);
                 //end pool stick
 

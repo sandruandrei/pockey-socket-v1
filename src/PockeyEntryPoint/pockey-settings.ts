@@ -22,7 +22,9 @@ namespace Pockey {
         model?: string,
         category?: string,
         level?: number,
-        color?: number
+        color?: number,
+        complementaryColor?:number,
+        borderColor?:number
     }
 
     export class PockeySettings {
@@ -32,14 +34,14 @@ namespace Pockey {
         public static PLAYER_NICKNAME: string = "";
         public static PLAYER_ID: string = "guest";
         public static PLAYER_LEVEL: number = 1;
-        public static OPPONENT_COLOR: number;
 
+        public static OPPONENT_COLOR: number;
         public static OPPONENT_SOCKET_ID: string = "";
         public static OPPONENT_AVATAR_ID: string;
         public static OPPONENT_NICKNAME: string = "SandruOpponent";
         public static DELTA: number = 0.98;
 
-        public static FRAMES_TO_SEND_ON_WATCH:number = 5;
+        public static FRAMES_TO_SEND_ON_WATCH: number = 4;
         public static BALL_RADIUS: number = 17;
         public static P2_WORLD_STEP: number = 1 / 60;
         public static POCKEY_CUSTOM_BACKGROUND_NAME: string = "pockey_custom_background_name";
@@ -52,73 +54,102 @@ namespace Pockey {
         public static STICK_MAX_POWER: number = 108;
         public static LARGE_GOALIES_ARRAY: number[] = [];
 
-        public static BABYLON_Y_OFFSET:number = 27;
+        public static BABYLON_Y_OFFSET: number = 27;
         public static GOALIE_SPEED: number = 1;
         public static SMALL_GOALIES_ARRAY: number[] = [];
 
         public static LARGE_COLORS_ARRAY: InventoryVO[] = [
             {
                 category: "COLORS",
-                id: "0xe92c5a",
-                color: 0xe92c5a
+                id: "0xf15369",
+                color: 0xf15369,
+                complementaryColor: 0x8fc7ee
             },
             {
                 category: "COLORS",
-                id: "0x16e0f8",
-                color: 0x16e0f8
+                id: "0x8fc7ee",
+                color: 0x8fc7ee,
+                complementaryColor: 0x8fc7ee
             },
             {
                 category: "COLORS",
-                id: "0xd6d72a",
-                color: 0xd6d72a
+                id: "0xff7fc1",
+                color: 0xff7fc1,
+                complementaryColor: 0x8ce1b2
             },
             {
                 category: "COLORS",
-                id: "0xc32ce9",
-                color: 0xc32ce9
+                id: "0xdc94e5",
+                color: 0xdc94e5,
+                complementaryColor: 0xffba57
             },
             {
                 category: "COLORS",
-                id: "0x1584f4",
-                color: 0x1584f4
+                id: "0xb09de0",
+                color: 0xb09de0,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0x15efaf",
-                color: 0x15efaf
+                id: "0x85a6ea",
+                color: 0x85a6ea,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0x24a247",
-                color: 0x24a247
+                id: "0x7bd3de",
+                color: 0x7bd3de,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0x86b009",
-                color: 0x86b009
+                id: "0x74d0c4",
+                color: 0x74d0c4,
+                complementaryColor: 0x74d0c4
             },
             {
                 category: "COLORS",
-                id: "0xff8023",
-                color: 0xff8023
+                id: "0x8ce1b2",
+                color: 0x8ce1b2,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0xe82bc3",
-                color: 0xE82BC3
+                id: "0xbae3b6",
+                color: 0xbae3b6,
+                complementaryColor: 0xf15369
+            },
+            {
+                category: "COLORS",
+                id: "0xe4eebf",
+                color: 0xe4eebf,
+                complementaryColor: 0xf15369
+            },
+            {
+                category: "COLORS",
+                id: "0xf3ce87",
+                color: 0xf3ce87,
+                complementaryColor: 0x74d0c4
+            },
+            {
+                category: "COLORS",
+                id: "0xffba57",
+                color: 0xffba57,
+                complementaryColor: 0x74d0c4
+            },
+            {
+                category: "COLORS",
+                id: "0xef927d",
+                color: 0xef927d,
+                complementaryColor: 0x07b3de
             }
         ];
 
         public static SMALL_COLORS_ARRAY: InventoryVO[] = [
             {
                 category: "COLORS",
-                id: "0xe92c5a",
-                color: 0xe92c5a
-            },
-            {
-                category: "COLORS",
-                id: "0x16e0f8",
-                color: 0x16e0f8
+                id: "0xf15369",
+                color: 0xf15369
             }
         ];
 
@@ -361,60 +392,77 @@ namespace Pockey {
         public static LARGE_MISC_ARRAY: InventoryVO[] = [
             {
                 category: "MISC",
+                id: "feltcolor-teal",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png",
+                color: 0x4ae1d8,
+                borderColor: 0x7e243f,
+                level: 1
+            },
+            {
+                category: "MISC",
                 id: "feltcolor-blue",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
+                color:0x7ab9ff,
+                borderColor:0x7e243f,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-orange",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-orange.png",
+                color: 0xf26b6c,
+                borderColor: 0x1f979b,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-pink",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-pink.png",
+                color: 0xff7ecc,
+                borderColor: 0x4e3b9c,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-purple",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-purple.png",
+                color: 0xfc7af8,
+                borderColor: 0x2d9c9d,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-red",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-red.png",
+                color: 0xdc4e4e,
+                borderColor: 0x704b8c,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-silver",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-silver.png",
-                level: 1
-            },
-            {
-                category: "MISC",
-                id: "feltcolor-teal",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png",
+                color: 0x99b3be,
+                borderColor: 0x284263,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-tope",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-tope.png",
+                color:0xc5aa85,
+                borderColor:0x305d72,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-yellow",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-yellow.png",
+                color: 0xdad249,
+                borderColor: 0x257f6d,
                 level: 1
             }
         ];
-
 
         public static SMALL_MISC_ARRAY: InventoryVO[] = [
             {
@@ -425,7 +473,7 @@ namespace Pockey {
             }
         ];
 
-        public static PLAYER_MISC_ID: string = PockeySettings.SMALL_MISC_ARRAY[0].id;
+        public static POOLTABLE_FELT_ID: string = PockeySettings.LARGE_MISC_ARRAY[0].id;
 
         //////////////////
 

@@ -9,10 +9,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50277220-da09-48c0-86de-31dd5d16e763" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/colors.psd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/table-felt.ts" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/Assets/Desktop/Images/ballTexture.jpg" afterPath="$PROJECT_DIR$/out/Assets/Desktop/Images/ballTexture.jpg" />
+      <change beforePath="$PROJECT_DIR$/out/css/inventoryScreen.css" afterPath="$PROJECT_DIR$/out/css/inventoryScreen.css" />
+      <change beforePath="$PROJECT_DIR$/out/css/mainMenuScreen.css" afterPath="$PROJECT_DIR$/out/css/mainMenuScreen.css" />
+      <change beforePath="$PROJECT_DIR$/out/css/scoreBoard.css" afterPath="$PROJECT_DIR$/out/css/scoreBoard.css" />
+      <change beforePath="$PROJECT_DIR$/out/index.html" afterPath="$PROJECT_DIR$/out/index.html" />
       <change beforePath="$PROJECT_DIR$/out/main.js" afterPath="$PROJECT_DIR$/out/main.js" />
       <change beforePath="$PROJECT_DIR$/out/main.js.map" afterPath="$PROJECT_DIR$/out/main.js.map" />
+      <change beforePath="$PROJECT_DIR$/src/Framework/Signals/signals-manager.ts" afterPath="$PROJECT_DIR$/src/Framework/Signals/signals-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pockey-login-handler.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pockey-login-handler.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/Pocket.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/Pocket.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" />
       <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" />
+      <change beforePath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" afterPath="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
+      <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
+      <change beforePath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" afterPath="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -10785,22 +10808,42 @@
     <favorites_list name="Pockey - p2 - socket.io" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="game-manager.ts" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="game-manager.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-83">
-              <caret line="706" column="0" lean-forward="true" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
+            <state relative-caret-position="22">
+              <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pockey-settings.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
+      <file leaf-file-name="goalkeepers-holder.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="580" column="0" lean-forward="false" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
+            <state relative-caret-position="256">
+              <caret line="93" column="65" lean-forward="false" selection-start-line="93" selection-start-column="65" selection-end-line="93" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pockey-user-interface-module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stick.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="98" column="82" lean-forward="false" selection-start-line="98" selection-start-column="82" selection-end-line="98" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -10809,8 +10852,38 @@
       <file leaf-file-name="abstract-ball.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="305" column="26" lean-forward="false" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
+            <state relative-caret-position="392">
+              <caret line="312" column="103" lean-forward="false" selection-start-line="312" selection-start-column="64" selection-end-line="312" selection-end-column="103" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pockey-user-game-graphics.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53">
+              <caret line="70" column="77" lean-forward="false" selection-start-line="70" selection-start-column="77" selection-end-line="70" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pool-table-manager.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="2042" column="36" lean-forward="false" selection-start-line="2042" selection-start-column="36" selection-end-line="2042" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pool-table.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="293" column="17" lean-forward="false" selection-start-line="293" selection-start-column="17" selection-end-line="293" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -10832,39 +10905,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>images/inventoryscreen/decal</find>
-      <find>SetDecalIcon</find>
-      <find>Images/InventoryScreen/poolsticks/icon_stick-default.png</find>
-      <find>poolsticks/</find>
-      <find>pockey-decalSkins.json</find>
-      <find>console.log</find>
-      <find>Inventoryscreen</find>
-      <find>Inventoryscreen/decals/</find>
-      <find>click</find>
-      <find>onclick</find>
-      <find>InventoryScreen/decals/</find>
+      <find>HIDE_OPPONENT_FOUND_SCREEN</find>
+      <find>UPDATE_CURRENT_ROUND_SCREEN_TEXT</find>
+      <find>UPDATE_CURRENT_PLAYER_TIMER</find>
+      <find>beginPlay</find>
+      <find>setTimerColor</find>
+      <find>imerText.style.bor</find>
+      <find>setsta</find>
+      <find>setstae</find>
+      <find>show_pool</find>
+      <find>SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_POOLTABLE)</find>
+      <find>onopp</find>
+      <find>prepareFirstRound</find>
+      <find>ballsh</find>
+      <find>ballshado</find>
+      <find>hide_poolta</find>
+      <find>ballshadow.v</find>
+      <find>showpoolta</find>
+      <find>shadowsHolder</find>
+      <find>show_pooltab</find>
+      <find>game_ui</find>
+      <find>puck</find>
       <find>reset</find>
-      <find>se enabl</find>
-      <find>se enheroku repo:purge_cache -a appname</find>
-      <find>console.l</find>
-      <find>consol</find>
-      <find>intra aicis</find>
-      <find>console.lo</find>
-      <find>apply</find>
-      <find>applyGameState</find>
-      <find>.stateID</find>
-      <find>onwatch</find>
-      <find>onpoo</find>
-      <find>poolta</find>
-      <find>\</find>
-      <find>FRAMES_TO_SEND_ON_WATCH</find>
-      <find>25</find>
-      <find>setstate</find>
+      <find>GoToStartPosition</find>
+      <find>startPosition</find>
+      <find>startpos</find>
+      <find>gotost</find>
+      <find>stick</find>
+      <find>createsp</find>
       <find>lerp</find>
-      <find>am tr</find>
+      <find>updatePosition</find>
     </findStrings>
     <replaceStrings>
-      <replace>avatarsArray</replace>
       <replace>console.log</replace>
       <replace>&quot;Assets/Desktop/Images/stat-wins-color.png&quot;</replace>
       <replace>stat-wins-color.svg</replace>
@@ -10894,6 +10966,7 @@
       <replace>Audio/</replace>
       <replace>InventoryScreen/decalSkins</replace>
       <replace>poolstickSkins/</replace>
+      <replace>- 6)</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\edge flow\pockey-socket-v1\lib\types</dir>
@@ -10915,9 +10988,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-ui-in-game-avatar.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-texts.ts" />
-        <option value="$PROJECT_DIR$/out/css/scoreBoard.css" />
         <option value="$PROJECT_DIR$/src/Framework/Utils/Rect.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/BackgroundModule/pockey-background-module.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Utils/Line.ts" />
@@ -10926,46 +10996,49 @@
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalie.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Utils/Timer.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts" />
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-preloader.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Loaders/assets-loader.ts" />
         <option value="$PROJECT_DIR$/out/Assets/Desktop/Images/CodePen - Starcade Preloader6.html" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/RoundCompleteScreen/round-complete-screen.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-connection-channels-and-messages.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pocket-socket-client.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/player.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/abstract-screen.ts" />
         <option value="$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-screen.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-round-complete-screen.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
         <option value="$PROJECT_DIR$/out/css/mainMenuScreen.css" />
         <option value="$PROJECT_DIR$/out/css/fonts.css" />
-        <option value="$PROJECT_DIR$/out/index.html" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Utils/CountdownTimer.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" />
         <option value="$PROJECT_DIR$/src/Framework/Utils/mouse-handler.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/white-ball.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/p2-world-manager.ts" />
-        <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
         <option value="$PROJECT_DIR$/src/Framework/abstract-entry-point.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts" />
-        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Settings.ts" />
+        <option value="$PROJECT_DIR$/src/Framework/Signals/signals-manager.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts" />
+        <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts" />
+        <option value="$PROJECT_DIR$/out/index.html" />
         <option value="$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts" />
-        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/Pocket.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/table-felt.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts" />
         <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts" />
+        <option value="$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts" />
       </list>
     </option>
   </component>
@@ -11059,8 +11132,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -11161,6 +11234,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ConnectionModule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
               <item name="GameModule" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -11248,6 +11329,17 @@
               <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
               <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="UserInterface" type="462c0819:PsiDirectoryNode" />
+              <item name="Screens" type="462c0819:PsiDirectoryNode" />
+              <item name="MainScreen" type="462c0819:PsiDirectoryNode" />
+              <item name="DesignElements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pockey-socket-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pockey-socket-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PockeyEntryPoint" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -11268,7 +11360,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="abstractb&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;gamemanager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;invent&#9;null&#9;null&#10;whiteball&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;decal&#9;null&#9;null&#10;pockeysett&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;p2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;whiteb&#9;null&#9;null&#10;manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;vector2&#9;null&#9;null&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;Backgro&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Background/abstract-background-module.ts&#10;pooltablema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;soundvo&#9;null&#9;null&#10;sound&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/AbstractModules/Sound/abstract-sound-module.ts&#10;soundurl&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="goal&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts&#10;abstract&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;pooltable&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;goalke&#9;null&#9;null&#10;stick&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/stick.ts&#10;pooltable manager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;pool&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table.ts&#10;index.&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;abstra&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;inventory&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;signals&#9;null&#9;null&#10;pockeyse&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;entrypo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;pocke&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;setti&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;game&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;poolta&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table.ts&#10;inventorymen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;settings&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Settings.ts&#10;abstractb&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts&#10;gamemanager&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;invent&#9;null&#9;null&#10;whiteball&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;decal&#9;null&#9;null&#10;pockeysett&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;entry&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/abstract-entry-point.ts&#10;Pockey&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;white&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/white-ball.ts&#10;pockeyen&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;countdo&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Utils/CountdownTimer.ts&#10;oppon&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts&#10;pooltab&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;statema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts&#10;gamema&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts&#10;index&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;pockey-ent&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-entry-point.ts&#10;state&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/StateMachine/typestate.ts&#10;inventorymenu&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts&#10;pockeygam&#9;null&#9;null&#10;pockeyset&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/PockeyEntryPoint/pockey-settings.ts&#10;index.htm&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/out/index.html&#10;loader&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/Framework/Loaders/assets-loader.ts&#10;abstracten&#9;null&#9;null&#10;P2&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/p2-world-manager.ts&#10;goalie&#9;null&#9;null&#10;states&#9;null&#9;null&#10;pooltabl&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/pool-table-manager.ts&#10;puck.ts&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;puck&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/balls/puck.ts&#10;gamemana&#9;FILE&#9;file://D:/edge flow/pockey-socket-v1/src/GameFiles/Modules/GameModule/game-manager.ts" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.prettier" value="true" />
@@ -11279,7 +11371,7 @@
     <property name="node.js.selected.package.tslint" value="C:\Users\sandru\AppData\Roaming\npm\node_modules\tslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.1.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
@@ -11697,14 +11789,8 @@
       <workItem from="1549530372769" duration="13211000" />
       <workItem from="1549619876968" duration="427000" />
       <workItem from="1549875720969" duration="34000" />
-      <workItem from="1549876276604" duration="2677000" />
-    </task>
-    <task id="LOCAL-00079" summary="landscape update 13">
-      <created>1544109353678</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1544109353678</updated>
+      <workItem from="1549876276604" duration="22559000" />
+      <workItem from="1549914959647" duration="15620000" />
     </task>
     <task id="LOCAL-00080" summary="landscape update 14">
       <created>1544133449986</created>
@@ -12042,13 +12128,20 @@
       <option name="project" value="LOCAL" />
       <updated>1549878759077</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="fps smooth test on receive 2 - no logs">
+      <created>1549878991697</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1549878991698</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3258031000" />
+    <option name="totallyTimeSpent" value="3293533000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -12060,16 +12153,17 @@
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22502685" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48925886" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11385607" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.5085929" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.4914071" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36088476" sideWeight="0.57196563" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.6272825" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
+      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33444816" sideWeight="0.47959185" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23039742" sideWeight="0.49487555" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Quick Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19119227" sideWeight="0.599665" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.36734694" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39348078" sideWeight="0.4935553" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36088476" sideWeight="0.50107414" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48549947" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2619325" sideWeight="0.63265306" order="4" side_tool="false" content_ui="tabs" x="29" y="342" width="1862" height="357" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31315482" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -12079,7 +12173,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20838185" sideWeight="0.45584348" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.48549947" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -12169,7 +12262,6 @@
     <ignored-roots>
       <path value="D:\edge flow\pockey-socket-v1\pockey-socket-v1" />
     </ignored-roots>
-    <MESSAGE value="inventory landscape update 31. zoom and pinch disabled" />
     <MESSAGE value="back to main menu button fixed" />
     <MESSAGE value="update 32 back btn" />
     <MESSAGE value="back btn update 31" />
@@ -12194,7 +12286,8 @@
     <MESSAGE value="heroku missing folders added to git 5" />
     <MESSAGE value="heroku missing folders added to git 6" />
     <MESSAGE value="fps smooth test on receive 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="fps smooth test on receive 1" />
+    <MESSAGE value="fps smooth test on receive 2 - no logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fps smooth test on receive 2 - no logs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -12206,113 +12299,15 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pockey-game-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3850">
-          <caret line="181" column="73" lean-forward="false" selection-start-line="181" selection-start-column="73" selection-end-line="181" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/player.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/typestate.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="125" column="13" lean-forward="false" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager-mobile.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="27" column="60" lean-forward="false" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/StateMachine/pockey-state-machine.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="66" column="79" lean-forward="true" selection-start-line="66" selection-start-column="79" selection-end-line="66" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Signals/signals-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-searching-screen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169">
-          <caret line="4" column="44" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-screen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-round-complete-screen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/css/mainMenuScreen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25674">
-          <caret line="1169" column="41" lean-forward="false" selection-start-line="1169" selection-start-column="41" selection-end-line="1169" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/css/fonts.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="61" column="23" lean-forward="false" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Utils/CountdownTimer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="212" column="49" lean-forward="false" selection-start-line="212" selection-start-column="49" selection-end-line="212" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/pockey-ui-opponent-found-screen.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7260">
-          <caret line="338" column="40" lean-forward="false" selection-start-line="338" selection-start-column="40" selection-end-line="338" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -12344,13 +12339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/types/pixi/pixi.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -12379,31 +12367,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/babylonjs/babylon.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="403">
           <caret line="27795" column="46" lean-forward="false" selection-start-line="27795" selection-start-column="37" selection-end-line="27795" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="63" column="68" lean-forward="false" selection-start-line="63" selection-start-column="68" selection-end-line="63" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -12412,20 +12379,6 @@
         <state relative-caret-position="1386">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/gulp-typescript/release/output.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -12451,13 +12404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="695" column="14" lean-forward="false" selection-start-line="695" selection-start-column="14" selection-end-line="695" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/SoundModule/pockey-sound-names.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -12475,20 +12421,6 @@
     <entry file="file://$PROJECT_DIR$/out/Assets/Desktop/Images/InventoryScreen/decalSkins/decal_pockey.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8360">
-          <caret line="385" column="21" lean-forward="false" selection-start-line="385" selection-start-column="21" selection-end-line="385" selection-end-column="21" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-box.ts">
@@ -12520,14 +12452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30184">
-          <caret line="1381" column="23" lean-forward="true" selection-start-line="1381" selection-start-column="23" selection-end-line="1381" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/puck.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
@@ -12540,37 +12464,230 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5742">
           <caret line="261" column="51" lean-forward="false" selection-start-line="261" selection-start-column="51" selection-end-line="261" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/client_secret_934645713517-lueaoo6vn5hkctduvptpekbvo42q1im6.apps.googleusercontent.com.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="93" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pockey-connection-module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-213">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Settings.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/gulp-typescript/release/output.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="34" column="15" lean-forward="true" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/pockey-ui-main-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="51" column="100" lean-forward="false" selection-start-line="51" selection-start-column="100" selection-end-line="51" selection-end-column="100" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Signals/signals-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Connection/login-handler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/decal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="44" lean-forward="false" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/SignalsModule/pockey-signal-types.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/MainScreen/DesignElements/inventory-menu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9966">
+          <caret line="458" column="56" lean-forward="false" selection-start-line="458" selection-start-column="56" selection-end-line="458" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Connection/database-connector.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/Connection/socket-client.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="45" column="81" lean-forward="false" selection-start-line="45" selection-start-column="81" selection-end-line="45" selection-end-column="81" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-entry-point.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5390">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+        <state relative-caret-position="6754">
+          <caret line="431" column="84" lean-forward="false" selection-start-line="431" selection-start-column="84" selection-end-line="431" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="890" column="0" lean-forward="false" selection-start-line="890" selection-start-column="0" selection-end-line="890" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PockeyEntryPoint/pockey-settings.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="580" column="0" lean-forward="false" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
+        <state relative-caret-position="95">
+          <caret line="74" column="35" lean-forward="false" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/Pocket.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="305" column="26" lean-forward="false" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
+        <state relative-caret-position="71">
+          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/ConnectionModule/pockey-login-handler.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="91" column="37" lean-forward="false" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/AbstractModules/UserInterface/abstract-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/pockey-user-interface-module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/table-felt.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/pockey-ui-game-screen.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="254" column="52" lean-forward="false" selection-start-line="254" selection-start-column="52" selection-end-line="254" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/UserInterface/Screens/GameScreen/DesignElements/pockey-user-game-graphics.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="70" column="77" lean-forward="false" selection-start-line="70" selection-start-column="77" selection-end-line="70" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table-manager.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="2042" column="36" lean-forward="false" selection-start-line="2042" selection-start-column="36" selection-end-line="2042" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/pool-table.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="293" column="17" lean-forward="false" selection-start-line="293" selection-start-column="17" selection-end-line="293" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/stick.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="98" column="82" lean-forward="false" selection-start-line="98" selection-start-column="82" selection-end-line="98" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/game-manager.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="706" column="0" lean-forward="true" selection-start-line="706" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
+        <state relative-caret-position="22">
+          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/balls/abstract-ball.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="312" column="103" lean-forward="false" selection-start-line="312" selection-start-column="64" selection-end-line="312" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFiles/Modules/GameModule/goalkeepers-holder.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="93" column="65" lean-forward="false" selection-start-line="93" selection-start-column="65" selection-end-line="93" selection-end-column="65" />
           <folding />
         </state>
       </provider>

@@ -120,6 +120,7 @@ body {
     left: 300px;
     width: 770px;
     height: 420px;
+    /* padding-top: 20%; */
     background: url("../Assets/Desktop/Images/menu_background.svg");
     background-size: 770px 420px;
     /* margin-left: 28px; */
@@ -788,46 +789,27 @@ input[type=text]:hover {
 }
 
 #MainMenuElementsHolder {
-
-    width: 1012px;
-
-    height: 420px;
-
-    /* overflow: hidden; */
-
-    /* background: green; */
-
-    /* float: left; */
-
-    left: 50%;
-
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    position: absolute;
-
-    /* margin: auto; */
-
-    /* top: 0; */
-
-    /* right: 0; */
-
-    /* bottom: 0; */
-
-    /* left: 0; */
-
-    /* position: absolute; */
-
-    /* left:50%; */
-
-    /* top:50%; */
-
-    /* margin: auto; */
-
-    /* width: 60%; */
-
-    display: none;
+width: 1012px;
+height: 420px;
+/* overflow: hidden; */
+/* background: green; */
+/* float: left; */
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+position: absolute;
+/* margin: auto; */
+/* top: 0; */
+/* right: 0; */
+/* bottom: 0; */
+/* left: 0; */
+/* position: absolute; */
+/* left:50%; */
+/* top:50%; */
+/* margin: auto; */
+/* width: 60%; */
+display: none;
+/* padding-top: 33%; */
 }
 
 /*.notVs {*/

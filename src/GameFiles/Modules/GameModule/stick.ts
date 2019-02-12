@@ -75,19 +75,60 @@ namespace Pockey {
             protected stickPowerFactor: number = 3.8;
             protected mouseReleased: boolean = false;
 
+            protected textureWidth:number = 0;
+            protected textureHeight:number = 0;
+
+            protected graphicsHolder:Sprite;
+            // private colorsArray: InventoryVO[];
+
             constructor() {
                 super();
-                this.SetStickSkin(StickType.Default);
-                this.initialPivotPoint = new Point(this.texture.width + 8, this.texture.height / 2);
+                this.graphicsHolder = new Sprite();
+                this.addChild(this.graphicsHolder);
+                this.graphicsHolder.scale.x = 0.5;
+                this.graphicsHolder.scale.y = 0.5;
+                this.graphicsHolder.anchor.y = 0.5;
+
+                this.onUpdatePlayerStickSkin(PockeySettings.PLAYER_CUE_ID);
+
+                this.initialPivotPoint = new Point();
+                // console.log("la setare initial pivot");
                 this.pivot = this.initialPivotPoint;
                 this.defineShootTimeline();
 
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN, this.onUpdatePlayerStickSkin.bind(this));
+                this.onUpdatePlayerStickSkin(PockeySettings.PLAYER_CUE_ID);
+                // this.GoToStartPosition();
             }
 
-            public SetStickSkin(stickType: StickType) {
+            private onUpdatePlayerStickSkin(skinID:string): void
+            {
+                let idCounter:number = 0;
+                _.forEach(PockeySettings.LARGE_CUES_ARRAY, (item: InventoryVO, counter: number) => {
+                    if (item.id == skinID) {
+                       idCounter = counter;
+                        return true;
+                    }
+                });
+
+                this.graphicsHolder.texture = PIXI.Texture.fromImage(PockeySettings.LARGE_CUES_ARRAY[idCounter].model);
+                this.textureWidth = this.graphicsHolder.width;
+                this.textureHeight = this.graphicsHolder.height;
+
+                this.initialPivotPoint = new Point();
+                this.initialPivotPoint.x = this.textureWidth + 8;
+                this.pivot = this.initialPivotPoint;
+                // console.log("la setare initial pivot");
+                // console.log("la change skin texture width: " + this.textureWidth);
+                // console.log("la change skin texture height: " + this.textureHeight);
+            }
+
+           /* public SetStickSkin(stickType: StickType) {
 
                 this.texture = PIXI.Texture.fromFrame(stickType.toString());
-            }
+                this.textureWidth = this.texture.width;
+                this.textureHeight = this.texture.height;
+            }*/
 
             public getStickState(): StickState {
                 let stickState: StickState = {
@@ -101,6 +142,10 @@ namespace Pockey {
                 return stickState;
             }
 
+            private lerp(min:number, max:number, fraction:number):number {
+                return (max - min) * fraction + min;
+            }
+
             public setState(stickState: StickState, duration:number): void {
                 this.x = stickState.x;
                 this.y = stickState.y;
@@ -110,10 +155,12 @@ namespace Pockey {
 
                 let time: number = (duration + 1 / 60) / 2;
 
-                TweenMax.to(this, time, {
-                    rotation: stickState.rotation,
-                    ease:Linear.easeNone,
-                });
+                this.rotation = this.lerp(this.rotation, stickState.rotation, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                // this.y = this.lerp(this.y, ballState.y / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                // TweenMax.to(this, time, {
+                //     rotation: stickState.rotation,
+                //     ease:Linear.easeNone,
+                // });
                 // this.reset();
 
             }

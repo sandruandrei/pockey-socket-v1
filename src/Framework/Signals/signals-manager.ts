@@ -13,8 +13,6 @@
 namespace Framework {
     export module Signals {
 
-        //CONSOLE COLORS FOR SIGNALS MANAGER: ORANGE
-        import sign = PIXI.utils.sign;
 
         export class SignalsManager {
             private static instance: SignalsManager;

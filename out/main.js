@@ -20,11 +20,11 @@ var Pockey;
             }
             PockeySignalTypes.PLAYER_SIGNED_OUT = "PockeySignalTypes." + "PLAYER_SIGNED_OUT";
             PockeySignalTypes.PLAYER_SIGNED_IN = "PockeySignalTypes." + "PLAYER_SIGNED_IN";
+            PockeySignalTypes.GET_PLAYER_INFO = "PockeySignalTypes." + "GET_PLAYER_INFO";
             PockeySignalTypes.GOOGLE_SIGN_IN = "PockeySignalTypes." + "GOOGLE_SIGN_IN";
             PockeySignalTypes.GOOGLE_SIGN_OUT = "PockeySignalTypes." + "GOOGLE_SIGN_OUT";
             PockeySignalTypes.FACEBOOK_SIGN_IN = "PockeySignalTypes." + "FACEBOOK_SIGN_IN";
             PockeySignalTypes.FACEBOOK_SIGN_OUT = "PockeySignalTypes." + "FACEBOOK_SIGN_OUT";
-            PockeySignalTypes.GET_PLAYER_INFO = "PockeySignalTypes." + "GET_PLAYER_INFO";
             PockeySignalTypes.SHOOT_BALL = "PockeySignalTypes." + "SHOOT_BALL";
             PockeySignalTypes.PREPARE_NEXT_TURN = "PockeySignalTypes." + "PREPARE_NEXT_TURN";
             PockeySignalTypes.BALL_IN_POCKET = "PockeySignalTypes." + "BALL_IN_POCKET";
@@ -57,6 +57,8 @@ var Pockey;
             PockeySignalTypes.UPDATE_PLAYER_NAME = "PockeySignalTypes." + "UPDATE_PLAYER_NAME";
             PockeySignalTypes.UPDATE_PLAYER_SCORE = "PockeySignalTypes." + "UPDATE_PLAYER_SCORE";
             PockeySignalTypes.CHANGE_PLAYER_COLOR = "PockeySignalTypes." + "CHANGE_PLAYER_COLOR";
+            PockeySignalTypes.CHANGE_POOLTABLE_DECAL = "PockeySignalTypes." + "CHANGE_POOLTABLE_DECAL";
+            PockeySignalTypes.CHANGE_POOLTABLE_FELT = "PockeySignalTypes." + "CHANGE_POOLTABLE_FELT";
             PockeySignalTypes.UPDATE_OPPONENT_NAME = "PockeySignalTypes." + "UPDATE_OPPONENT_NAME";
             PockeySignalTypes.UPDATE_OPPONENT_SCORE = "PockeySignalTypes." + "UPDATE_OPPONENT_SCORE";
             PockeySignalTypes.CHANGE_OPPONENT_COLOR = "PockeySignalTypes." + "CHANGE_OPPONENT_COLOR";
@@ -73,6 +75,7 @@ var Pockey;
             PockeySignalTypes.UPDATE_STATE_TEXT = "PockeySignalTypes." + "UPDATE_GAME_TEXT";
             PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER = "PockeySignalTypes." + "UPDATE_CURRENT_PLAYER_TIMER";
             PockeySignalTypes.UPDATE_MY_TIMER = "PockeySignalTypes." + "UPDATE_MY_TIMER";
+            PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN = "PockeySignalTypes." + "UPDATE_PLAYER_STICK_SKIN";
             PockeySignalTypes.UPDATE_UI_TEXT = "PockeySignalTypes." + "UPDATE_UI_TEXT";
             PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH = "PockeySignalTypes." + "UPDATE_UI_TEXT_ON_WATCH";
             PockeySignalTypes.ANIMATE_PUCK_GOAL = "PockeySignalTypes." + "ANIMATE_PUCK_GOAL";
@@ -1024,7 +1027,7 @@ var Pockey;
         PockeySettings.OPPONENT_SOCKET_ID = "";
         PockeySettings.OPPONENT_NICKNAME = "SandruOpponent";
         PockeySettings.DELTA = 0.98;
-        PockeySettings.FRAMES_TO_SEND_ON_WATCH = 5;
+        PockeySettings.FRAMES_TO_SEND_ON_WATCH = 4;
         PockeySettings.BALL_RADIUS = 17;
         PockeySettings.P2_WORLD_STEP = 1 / 60;
         PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME = "pockey_custom_background_name";
@@ -1038,65 +1041,94 @@ var Pockey;
         PockeySettings.LARGE_COLORS_ARRAY = [
             {
                 category: "COLORS",
-                id: "0xe92c5a",
-                color: 0xe92c5a
+                id: "0xf15369",
+                color: 0xf15369,
+                complementaryColor: 0x8fc7ee
             },
             {
                 category: "COLORS",
-                id: "0x16e0f8",
-                color: 0x16e0f8
+                id: "0x8fc7ee",
+                color: 0x8fc7ee,
+                complementaryColor: 0x8fc7ee
             },
             {
                 category: "COLORS",
-                id: "0xd6d72a",
-                color: 0xd6d72a
+                id: "0xff7fc1",
+                color: 0xff7fc1,
+                complementaryColor: 0x8ce1b2
             },
             {
                 category: "COLORS",
-                id: "0xc32ce9",
-                color: 0xc32ce9
+                id: "0xdc94e5",
+                color: 0xdc94e5,
+                complementaryColor: 0xffba57
             },
             {
                 category: "COLORS",
-                id: "0x1584f4",
-                color: 0x1584f4
+                id: "0xb09de0",
+                color: 0xb09de0,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0x15efaf",
-                color: 0x15efaf
+                id: "0x85a6ea",
+                color: 0x85a6ea,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0x24a247",
-                color: 0x24a247
+                id: "0x7bd3de",
+                color: 0x7bd3de,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0x86b009",
-                color: 0x86b009
+                id: "0x74d0c4",
+                color: 0x74d0c4,
+                complementaryColor: 0x74d0c4
             },
             {
                 category: "COLORS",
-                id: "0xff8023",
-                color: 0xff8023
+                id: "0x8ce1b2",
+                color: 0x8ce1b2,
+                complementaryColor: 0xf15369
             },
             {
                 category: "COLORS",
-                id: "0xe82bc3",
-                color: 0xE82BC3
+                id: "0xbae3b6",
+                color: 0xbae3b6,
+                complementaryColor: 0xf15369
+            },
+            {
+                category: "COLORS",
+                id: "0xe4eebf",
+                color: 0xe4eebf,
+                complementaryColor: 0xf15369
+            },
+            {
+                category: "COLORS",
+                id: "0xf3ce87",
+                color: 0xf3ce87,
+                complementaryColor: 0x74d0c4
+            },
+            {
+                category: "COLORS",
+                id: "0xffba57",
+                color: 0xffba57,
+                complementaryColor: 0x74d0c4
+            },
+            {
+                category: "COLORS",
+                id: "0xef927d",
+                color: 0xef927d,
+                complementaryColor: 0x07b3de
             }
         ];
         PockeySettings.SMALL_COLORS_ARRAY = [
             {
                 category: "COLORS",
-                id: "0xe92c5a",
-                color: 0xe92c5a
-            },
-            {
-                category: "COLORS",
-                id: "0x16e0f8",
-                color: 0x16e0f8
+                id: "0xf15369",
+                color: 0xf15369
             }
         ];
         PockeySettings.PLAYER_COLOR_ID = PockeySettings.SMALL_COLORS_ARRAY[0].id;
@@ -1330,56 +1362,74 @@ var Pockey;
         PockeySettings.LARGE_MISC_ARRAY = [
             {
                 category: "MISC",
+                id: "feltcolor-teal",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png",
+                color: 0x4ae1d8,
+                borderColor: 0x7e243f,
+                level: 1
+            },
+            {
+                category: "MISC",
                 id: "feltcolor-blue",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
+                color: 0x7ab9ff,
+                borderColor: 0x7e243f,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-orange",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-orange.png",
+                color: 0xf26b6c,
+                borderColor: 0x1f979b,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-pink",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-pink.png",
+                color: 0xff7ecc,
+                borderColor: 0x4e3b9c,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-purple",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-purple.png",
+                color: 0xfc7af8,
+                borderColor: 0x2d9c9d,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-red",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-red.png",
+                color: 0xdc4e4e,
+                borderColor: 0x704b8c,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-silver",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-silver.png",
-                level: 1
-            },
-            {
-                category: "MISC",
-                id: "feltcolor-teal",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png",
+                color: 0x99b3be,
+                borderColor: 0x284263,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-tope",
                 icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-tope.png",
+                color: 0xc5aa85,
+                borderColor: 0x305d72,
                 level: 1
             },
             {
                 category: "MISC",
                 id: "feltcolor-yellow",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-yellow.png",
+                color: 0xdad249,
+                borderColor: 0x257f6d,
                 level: 1
             }
         ];
@@ -1391,7 +1441,7 @@ var Pockey;
                 level: 1
             }
         ];
-        PockeySettings.PLAYER_MISC_ID = PockeySettings.SMALL_MISC_ARRAY[0].id;
+        PockeySettings.POOLTABLE_FELT_ID = PockeySettings.LARGE_MISC_ARRAY[0].id;
         PockeySettings.SMALL_CUES_ARRAY = [
             {
                 category: "CUES",
@@ -2689,6 +2739,7 @@ var Pockey;
                 var myMaterial = new BABYLON.StandardMaterial("myMaterial", AbstractEntryPoint.scene);
                 myMaterial.diffuseTexture = new BABYLON.Texture(Settings.desktopAssetsPath + "Images/ballTexture.jpg", AbstractEntryPoint.scene);
                 this.sphere.material = myMaterial;
+                this.sphere.setEnabled(false);
                 TweenMax.to(this.sphere.rotation, 0.1, { x: -2 * Math.PI, y: -2 * Math.PI, z: -2 * Math.PI });
                 this.lastPosition = new Vector3(0, 0, 0);
             };
@@ -2994,6 +3045,9 @@ var Pockey;
                 this.p2BodyShadow.position[1] = this.y;
                 GameModule.P2WorldManager.Instance().world.addBody(this.p2BodyShadow);
             };
+            AbstractBall.prototype.enableSphere = function () {
+                this.sphere.setEnabled(true);
+            };
             Object.defineProperty(AbstractBall.prototype, "ballPosition", {
                 get: function () {
                     return new Vector2(this.x, this.y);
@@ -3050,7 +3104,7 @@ var Pockey;
             };
             AbstractBall.prototype.createBallShadow = function () {
                 this.ballShadow = new Graphics();
-                this.ballShadow.beginFill(0x000000, 0.4);
+                this.ballShadow.beginFill(0x000000, 0.5);
                 this.ballShadow.drawCircle(this.radius / 4, this.radius / 4, this.radius);
             };
             return AbstractBall;
@@ -3088,6 +3142,8 @@ var Pockey;
     var GameModule;
     (function (GameModule) {
         var Sprite = PIXI.Sprite;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        var SignalsManager = Framework.Signals.SignalsManager;
         var DecalType;
         (function (DecalType) {
             DecalType["Welcome"] = "dccal_welcome.png";
@@ -3110,13 +3166,20 @@ var Pockey;
             __extends(Decal, _super);
             function Decal() {
                 var _this = _super.call(this) || this;
+                _this.alpha = 0.2;
                 _this.anchor.set(0.5, 0.5);
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, _this.onChangePooltableDecal.bind(_this));
                 return _this;
             }
-            Decal.prototype.SetDecalIcon = function (decalType) {
-                var texture = PIXI.Texture.fromFrame(decalType.toString());
-                this.texture = texture;
-                this.alpha = 0.4;
+            Decal.prototype.onChangePooltableDecal = function (decalID) {
+                var idCounter = 0;
+                _.forEach(Pockey.PockeySettings.LARGE_DECALS_ARRAY, function (item, counter) {
+                    if (item.id == decalID) {
+                        idCounter = counter;
+                        return true;
+                    }
+                });
+                this.texture = PIXI.Texture.fromImage(Pockey.PockeySettings.LARGE_DECALS_ARRAY[idCounter].model);
             };
             return Decal;
         }(Sprite));
@@ -3190,14 +3253,35 @@ var Pockey;
                 _this.clickPointRegistered = false;
                 _this.stickPowerFactor = 3.8;
                 _this.mouseReleased = false;
-                _this.SetStickSkin(StickType.Default);
-                _this.initialPivotPoint = new Point(_this.texture.width + 8, _this.texture.height / 2);
+                _this.textureWidth = 0;
+                _this.textureHeight = 0;
+                _this.graphicsHolder = new Sprite();
+                _this.addChild(_this.graphicsHolder);
+                _this.graphicsHolder.scale.x = 0.5;
+                _this.graphicsHolder.scale.y = 0.5;
+                _this.graphicsHolder.anchor.y = 0.5;
+                _this.onUpdatePlayerStickSkin(Pockey.PockeySettings.PLAYER_CUE_ID);
+                _this.initialPivotPoint = new Point();
                 _this.pivot = _this.initialPivotPoint;
                 _this.defineShootTimeline();
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN, _this.onUpdatePlayerStickSkin.bind(_this));
+                _this.onUpdatePlayerStickSkin(Pockey.PockeySettings.PLAYER_CUE_ID);
                 return _this;
             }
-            Stick.prototype.SetStickSkin = function (stickType) {
-                this.texture = PIXI.Texture.fromFrame(stickType.toString());
+            Stick.prototype.onUpdatePlayerStickSkin = function (skinID) {
+                var idCounter = 0;
+                _.forEach(Pockey.PockeySettings.LARGE_CUES_ARRAY, function (item, counter) {
+                    if (item.id == skinID) {
+                        idCounter = counter;
+                        return true;
+                    }
+                });
+                this.graphicsHolder.texture = PIXI.Texture.fromImage(Pockey.PockeySettings.LARGE_CUES_ARRAY[idCounter].model);
+                this.textureWidth = this.graphicsHolder.width;
+                this.textureHeight = this.graphicsHolder.height;
+                this.initialPivotPoint = new Point();
+                this.initialPivotPoint.x = this.textureWidth + 8;
+                this.pivot = this.initialPivotPoint;
             };
             Stick.prototype.getStickState = function () {
                 var stickState = {
@@ -3209,16 +3293,16 @@ var Pockey;
                 };
                 return stickState;
             };
+            Stick.prototype.lerp = function (min, max, fraction) {
+                return (max - min) * fraction + min;
+            };
             Stick.prototype.setState = function (stickState, duration) {
                 this.x = stickState.x;
                 this.y = stickState.y;
                 this.visible = stickState.visible;
                 this.pivot.x = stickState.pivotX;
                 var time = (duration + 1 / 60) / 2;
-                TweenMax.to(this, time, {
-                    rotation: stickState.rotation,
-                    ease: Linear.easeNone,
-                });
+                this.rotation = this.lerp(this.rotation, stickState.rotation, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
             };
             Stick.prototype.hide = function () {
                 TweenMax.to(this, 0.1, { alpha: 0 });
@@ -3778,43 +3862,43 @@ var Pockey;
             var angle;
             angle = 90 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = 45 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = 0 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = -45 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = -90 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = -135 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = 180 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             angle = 135 * Math.PI / 180;
             point = new Vector2();
-            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
-            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 3);
+            point.x = _this.position.x + Math.cos(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
+            point.y = _this.position.y + Math.sin(angle) * (_this.radius - Pockey.PockeySettings.BALL_RADIUS - 6);
             _this.touchPoints.push(point);
             return _this;
         }
@@ -3826,6 +3910,39 @@ var Pockey;
         return Pocket;
     }(Circle));
     Pockey.Pocket = Pocket;
+})(Pockey || (Pockey = {}));
+var Pockey;
+(function (Pockey) {
+    var GameModule;
+    (function (GameModule) {
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        var TableFelt = (function () {
+            function TableFelt(felt, border) {
+                this.felt = felt;
+                this.border = border;
+                var tableMatrix = new PIXI.filters.ColorMatrixFilter();
+                this.felt.filters = [tableMatrix];
+                this.border.filters = [tableMatrix];
+                tableMatrix.brightness(1.6);
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_POOLTABLE_FELT, this.setTint.bind(this));
+                this.setTint(Pockey.PockeySettings.POOLTABLE_FELT_ID);
+            }
+            TableFelt.prototype.setTint = function (tintID) {
+                var idCounter = 0;
+                _.forEach(Pockey.PockeySettings.LARGE_MISC_ARRAY, function (item, counter) {
+                    if (item.id == tintID) {
+                        idCounter = counter;
+                        return true;
+                    }
+                });
+                this.felt.tint = Pockey.PockeySettings.LARGE_MISC_ARRAY[idCounter].color;
+                this.border.tint = Pockey.PockeySettings.LARGE_MISC_ARRAY[idCounter].color;
+            };
+            return TableFelt;
+        }());
+        GameModule.TableFelt = TableFelt;
+    })(GameModule = Pockey.GameModule || (Pockey.GameModule = {}));
 })(Pockey || (Pockey = {}));
 var Container = PIXI.Container;
 var Pockey;
@@ -3840,6 +3957,8 @@ var Pockey;
         var Rectangle = PIXI.Rectangle;
         var Settings = Framework.Settings;
         var Circle = PIXI.Circle;
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var PoolTable = (function (_super) {
             __extends(PoolTable, _super);
             function PoolTable() {
@@ -3847,8 +3966,18 @@ var Pockey;
                 _this.ballsDistance = 108;
                 _this.name = "poolTable";
                 _this.createElements();
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, _this.onShowGameUi.bind(_this));
                 return _this;
             }
+            PoolTable.prototype.onShowGameUi = function () {
+                this.shadowsHolder.visible = true;
+                this.puck.visible = true;
+                _.forEach(this.balls, function (ball) {
+                    if (ball.ballType != GameModule.BallType.Puck) {
+                        ball.enableSphere();
+                    }
+                });
+            };
             PoolTable.prototype.createElements = function () {
                 var _this = this;
                 this.balls = [];
@@ -3858,6 +3987,7 @@ var Pockey;
                 this.poolTableBackground.y = -this.poolTableBackground.height / 2;
                 this.addChild(this.poolTableBackground);
                 this.shadowsHolder = new Container();
+                this.shadowsHolder.visible = false;
                 this.addChild(this.shadowsHolder);
                 Pockey.PockeySettings.MIDDLE_TABLE_POS = new Vector2(0, 0);
                 Pockey.PockeySettings.MIDDLE_TABLE_LEFT_POS = new Vector2(Pockey.PockeySettings.MIDDLE_TABLE_POS.x - 244, Pockey.PockeySettings.MIDDLE_TABLE_POS.y);
@@ -3874,6 +4004,7 @@ var Pockey;
                 this.poolTableBumper.x = -this.poolTableBumper.width / 2;
                 this.poolTableBumper.y = -this.poolTableBumper.height / 2;
                 this.addChild(this.poolTableBumper);
+                var tableFeltManager = new GameModule.TableFelt(this.poolTableBackground, this.poolTableBumper);
                 this.playGround = new Rectangle(-970 / 2, -484 / 2, 970, 484);
                 this.setTableLimits();
                 this.addPocketsAndBlockers();
@@ -3886,6 +4017,7 @@ var Pockey;
                 this.ballsHolder.name = "ballsHolder";
                 this.addChild(this.ballsHolder);
                 this.puck = new GameModule.Puck();
+                this.puck.visible = false;
                 this.puck.ballAnimationHolder = this.ballAnimationHolder;
                 this.puck.createBallShadow();
                 this.puck.tintBall(Pockey.PockeySettings.PUCK_COLOR);
@@ -3966,12 +4098,11 @@ var Pockey;
                 }
                 else {
                     this.poolStick = new GameModule.Stick();
-                    this.poolStick.x = 844;
-                    this.poolStick.y = 650;
+                    this.poolStick.x = -145;
+                    this.poolStick.y = 110;
                 }
                 this.poolStick.initialPosition = new Point(this.poolStick.x, this.poolStick.y);
                 this.poolStick.startPosition = new Point(this.whiteBall.position.x, this.whiteBall.position.y);
-                this.poolStick.visible = false;
                 this.addChild(this.poolStick);
                 this.createUpperCollisionPolygon();
                 this.createUpperCollisionShadowPolygon();
@@ -4100,6 +4231,8 @@ var Pockey;
 (function (Pockey) {
     var GameModule;
     (function (GameModule) {
+        var SignalsManager = Framework.Signals.SignalsManager;
+        var PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         var GoalkeepersHolder = (function () {
             function GoalkeepersHolder(leftGoalie, rightGoalie) {
                 this.yLimit = 50;
@@ -4110,7 +4243,15 @@ var Pockey;
                 this.goalies = [];
                 this.goalies.push(leftGoalie);
                 this.goalies.push(rightGoalie);
+                leftGoalie.visible = false;
+                rightGoalie.visible = false;
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_GAME_UI, this.onShowGameUI.bind(this));
             }
+            GoalkeepersHolder.prototype.onShowGameUI = function () {
+                _.forEach(this.goalies, function (goalie) {
+                    goalie.visible = true;
+                });
+            };
             GoalkeepersHolder.prototype.update = function () {
                 if (this.moving) {
                     this.y += this.movingDirection * this.movingSpeed;
@@ -4119,6 +4260,9 @@ var Pockey;
                         this.movingDirection *= -1;
                     }
                 }
+            };
+            GoalkeepersHolder.prototype.lerp = function (min, max, fraction) {
+                return (max - min) * fraction + min;
             };
             GoalkeepersHolder.prototype.updatePosition = function () {
                 var _this = this;
@@ -4141,7 +4285,7 @@ var Pockey;
             GoalkeepersHolder.prototype.setState = function (state, duration) {
                 this.moving = false;
                 this.movingDirection = state.direction;
-                this.y = state.position / 10000;
+                this.y = this.lerp(this.y, state.position / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
                 this.updatePosition();
             };
             return GoalkeepersHolder;
@@ -5582,8 +5726,8 @@ var Pockey;
                 return GameManager.instance;
             };
             GameManager.prototype.prepareFirstRound = function () {
-                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
                 PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundOne);
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN);
                 if (this.player.startedFirst) {
                     this.setCurrentPlayer(this.player);
                     SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
@@ -5601,8 +5745,14 @@ var Pockey;
                     var sameColorsUsed = false;
                     if (Pockey.PockeySettings.OPPONENT_COLOR == +Pockey.PockeySettings.PLAYER_COLOR_ID) {
                         sameColorsUsed = true;
-                        var randNumber = Math.round(Math.random() * (Pockey.PockeySettings.LARGE_COLORS_ARRAY.length - 1));
-                        Pockey.PockeySettings.OPPONENT_COLOR = parseInt("0x" + Pockey.PockeySettings.LARGE_COLORS_ARRAY[randNumber].color);
+                        var itemId_1 = 0;
+                        _.forEach(Pockey.PockeySettings.LARGE_COLORS_ARRAY, function (item, counter) {
+                            if (item.id == Pockey.PockeySettings.PLAYER_COLOR_ID) {
+                                itemId_1 = counter;
+                                return true;
+                            }
+                        });
+                        Pockey.PockeySettings.OPPONENT_COLOR = Pockey.PockeySettings.LARGE_COLORS_ARRAY[itemId_1].complementaryColor;
                     }
                     var playerSettings = {
                         opponentAvatarId: Pockey.PockeySettings.PLAYER_AVATAR_ID,
@@ -5620,9 +5770,13 @@ var Pockey;
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR, [+Pockey.PockeySettings.PLAYER_COLOR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR, [Pockey.PockeySettings.PLAYER_AVATAR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_NAME, [Pockey.PockeySettings.PLAYER_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN, [Pockey.PockeySettings.PLAYER_CUE_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, [Pockey.PockeySettings.PLAYER_DECAL_ID]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT, [Pockey.PockeySettings.POOLTABLE_FELT_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR, [Pockey.PockeySettings.OPPONENT_COLOR]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, [Pockey.PockeySettings.OPPONENT_AVATAR_ID]);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME, [Pockey.PockeySettings.OPPONENT_NICKNAME]);
+                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_GAME_UI);
             };
             GameManager.prototype.resetPooltable = function () {
                 SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE);
@@ -5807,12 +5961,8 @@ var Pockey;
             };
             GameManager.prototype.onStartGame = function () {
                 SignalsManager.DispatchSignal(SignalsType.CHANGE_BACKGROUND, [Pockey.PockeySettings.POCKEY_CUSTOM_BACKGROUND_NAME, 1]);
-                _.forEach(AbstractEntryPoint.scene.meshes, function (mesh) {
-                    mesh.setEnabled(true);
-                });
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_MAIN_MENU);
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS);
-                SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_GAME_UI);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_POOLTABLE);
                 if (Settings.singlePlayer) {
                     this.setCurrentPlayer(this.player);
@@ -6333,8 +6483,8 @@ var Pockey;
                     Pockey.PockeySettings.PLAYER_CUE_ID = Pockey.PockeySettings.SMALL_CUES_ARRAY[0].id;
                     dataChanged = true;
                 }
-                if (Pockey.PockeySettings.PLAYER_MISC_ID != Pockey.PockeySettings.SMALL_MISC_ARRAY[0].id) {
-                    Pockey.PockeySettings.PLAYER_MISC_ID = Pockey.PockeySettings.SMALL_MISC_ARRAY[0].id;
+                if (Pockey.PockeySettings.POOLTABLE_FELT_ID != Pockey.PockeySettings.SMALL_MISC_ARRAY[0].id) {
+                    Pockey.PockeySettings.POOLTABLE_FELT_ID = Pockey.PockeySettings.SMALL_MISC_ARRAY[0].id;
                     dataChanged = true;
                 }
                 if (Pockey.PockeySettings.PLAYER_LEVEL != 1) {
@@ -7635,7 +7785,15 @@ var Pockey;
                                 return;
                             }
                             case "MISC": {
+                                Pockey.PockeySettings.POOLTABLE_FELT_ID = _this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
                                 _this.checkIfCurrentItemCanBeUsed();
+                                var dbObject = {
+                                    userID: Pockey.PockeySettings.PLAYER_ID,
+                                    column: "misc",
+                                    value: Pockey.PockeySettings.POOLTABLE_FELT_ID
+                                };
+                                DatabaseConnector.updateUserData(dbObject, null);
                                 return;
                             }
                         }
@@ -7706,7 +7864,8 @@ var Pockey;
                     }
                     if (_this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_AVATAR_ID
                         || _this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_DECAL_ID
-                        || _this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_CUE_ID) {
+                        || _this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.PLAYER_CUE_ID
+                        || _this.boxes[counter].inventoryVO.id == Pockey.PockeySettings.POOLTABLE_FELT_ID) {
                         _this.boxes[counter].iconDiv.querySelector(".inventoryItemBoxSelected").style.display = "block";
                     }
                     else {
@@ -7764,6 +7923,12 @@ var Pockey;
                         return;
                     }
                     case "MISC": {
+                        if (Pockey.PockeySettings.POOLTABLE_FELT_ID != this.currentActiveItem.id) {
+                            this.enableEquipBtn();
+                        }
+                        else {
+                            this.disableEquipBtn();
+                        }
                         return;
                     }
                 }
@@ -7949,7 +8114,9 @@ var Pockey;
                 this.userNameTextField = this.gameGraphic.getElementsByClassName("playerName")[0];
             }
             PockeyUserGameGraphics.prototype.resetTimer = function () {
+                this.userAvatar.style.border = "3px solid #fff";
                 this.timerText.style.display = "none";
+                this.timerText.style.color = "white";
                 this.timerText.innerText = "0:" + Pockey.PockeySettings.ROUND_DURATION_IN_SECONDS.toString();
             };
             PockeyUserGameGraphics.prototype.updateTimer = function (timeText) {
@@ -7959,6 +8126,7 @@ var Pockey;
                 else {
                     this.timerText.innerText = timeText;
                     this.timerText.style.display = "flex";
+                    this.userAvatar.style.border = "3px solid red";
                 }
             };
             PockeyUserGameGraphics.prototype.updateUsername = function (text) {
@@ -7976,9 +8144,11 @@ var Pockey;
                 });
             };
             PockeyUserGameGraphics.prototype.tint = function (color) {
+                var tintColor = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
                 _.forEach(this.lifeUnits, function (lifeUnit, id) {
-                    lifeUnit.style.background = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
+                    lifeUnit.style.background = tintColor;
                 });
+                this.userNameTextField.style.color = tintColor;
             };
             PockeyUserGameGraphics.prototype.updateAvatar = function (avatarID) {
                 var avatarPath = "";
@@ -7990,16 +8160,13 @@ var Pockey;
                 });
                 this.userAvatar.style.background = "center / contain no-repeat #1a4157 url(" + avatarPath + ")";
             };
-            PockeyUserGameGraphics.prototype.setTimerColor = function (tintColor) {
-                if (this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6)) {
+            PockeyUserGameGraphics.prototype.animateTimer = function () {
+                if (this.timerText.style.color = '#' + ('00000' + (0xFF0000 | 0).toString(16)).substr(-6)) {
                     return;
                 }
                 else {
-                    this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6);
+                    this.timerText.style.color = '#' + ('00000' + (0xFF0000 | 0).toString(16)).substr(-6);
                 }
-            };
-            PockeyUserGameGraphics.prototype.animateTimer = function () {
-                this.setTimerColor(0xFF0000);
             };
             return PockeyUserGameGraphics;
         }());
@@ -8179,6 +8346,7 @@ var Pockey;
                     });
                     return;
                 }
+                console.log("intra aicisha");
                 this.tipText.innerText = text;
             };
             PockeyUiGameScreen.prototype.onUpdateCurrentPlayerTimer = function (params) {
@@ -8737,6 +8905,10 @@ var Pockey;
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/ui_versus-main.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_pockeyball-comet.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_sprite-cue.png");
+            _.forEach(Pockey.PockeySettings.LARGE_CUES_ARRAY, function (vo) {
+                gameModule.addAssetToLoad(vo.icon);
+                gameModule.addAssetToLoad(vo.model);
+            });
             gameModule.addAssetToLoad(PockeySoundURLS.MAIN_MENU_AMBIANCE);
             gameModule.addAssetToLoad(PockeySoundURLS.IN_GAME_AMBIANCE);
             gameModule.addAssetToLoad(PockeySoundURLS.SHOOT_BALL);
@@ -8864,6 +9036,9 @@ var Pockey;
             SignalsManager.CreateNewSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT);
         };
         return PockeyEntryPoint;
     }(AbstractEntryPoint));

@@ -15,13 +15,13 @@ namespace Pockey {
 
             public static PLAYER_SIGNED_OUT: string = "PockeySignalTypes." + "PLAYER_SIGNED_OUT";
             public static PLAYER_SIGNED_IN: string = "PockeySignalTypes." + "PLAYER_SIGNED_IN";
+            public static GET_PLAYER_INFO: string = "PockeySignalTypes." + "GET_PLAYER_INFO";
 
             public static GOOGLE_SIGN_IN: string = "PockeySignalTypes." + "GOOGLE_SIGN_IN";
             public static GOOGLE_SIGN_OUT: string = "PockeySignalTypes." + "GOOGLE_SIGN_OUT";
             public static FACEBOOK_SIGN_IN: string = "PockeySignalTypes." + "FACEBOOK_SIGN_IN";
             public static FACEBOOK_SIGN_OUT: string = "PockeySignalTypes." + "FACEBOOK_SIGN_OUT";
 
-            public static GET_PLAYER_INFO: string = "PockeySignalTypes." + "GET_PLAYER_INFO";
 
             public static SHOOT_BALL: string = "PockeySignalTypes." + "SHOOT_BALL";
             public static PREPARE_NEXT_TURN: string = "PockeySignalTypes." + "PREPARE_NEXT_TURN";
@@ -60,6 +60,8 @@ namespace Pockey {
             public static UPDATE_PLAYER_NAME: string = "PockeySignalTypes." + "UPDATE_PLAYER_NAME";
             public static UPDATE_PLAYER_SCORE: string = "PockeySignalTypes." + "UPDATE_PLAYER_SCORE";
             public static CHANGE_PLAYER_COLOR: string = "PockeySignalTypes." + "CHANGE_PLAYER_COLOR";
+            public static CHANGE_POOLTABLE_DECAL: string = "PockeySignalTypes." + "CHANGE_POOLTABLE_DECAL";
+            public static CHANGE_POOLTABLE_FELT: string = "PockeySignalTypes." + "CHANGE_POOLTABLE_FELT";
 
             public static UPDATE_OPPONENT_NAME: string = "PockeySignalTypes." + "UPDATE_OPPONENT_NAME";
             public static UPDATE_OPPONENT_SCORE: string = "PockeySignalTypes." + "UPDATE_OPPONENT_SCORE";
@@ -80,6 +82,7 @@ namespace Pockey {
             public static UPDATE_CURRENT_PLAYER_TIMER: string = "PockeySignalTypes." + "UPDATE_CURRENT_PLAYER_TIMER";
             public static UPDATE_MY_TIMER: string = "PockeySignalTypes." + "UPDATE_MY_TIMER";
 
+            public static UPDATE_PLAYER_STICK_SKIN: string = "PockeySignalTypes." + "UPDATE_PLAYER_STICK_SKIN";
             public static UPDATE_UI_TEXT: string = "PockeySignalTypes." + "UPDATE_UI_TEXT";
             public static UPDATE_UI_TEXT_ON_WATCH: string = "PockeySignalTypes." + "UPDATE_UI_TEXT_ON_WATCH";
             public static ANIMATE_PUCK_GOAL: string = "PockeySignalTypes." + "ANIMATE_PUCK_GOAL";

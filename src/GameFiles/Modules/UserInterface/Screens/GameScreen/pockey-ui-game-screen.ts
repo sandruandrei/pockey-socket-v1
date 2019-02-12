@@ -191,6 +191,7 @@ namespace Pockey {
                     return;
                 }
 
+                console.log("intra aicisha");
 
                 this.tipText.innerText = text;
                 // if(multistyleUsed)

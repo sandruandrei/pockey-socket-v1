@@ -1,10 +1,14 @@
 ///<reference path="../../../../../Framework/Utils/pixi-button.ts"/>
 ///<reference path="DesignElements/play-game-menu.ts"/>
 ///<reference path="DesignElements/inventory-menu.ts"/>
+///<reference path="../../../SignalsModule/pockey-signal-types.ts"/>
 
 
 namespace Pockey {
     export module UserInterface {
+
+        import SignalsManager = Framework.Signals.SignalsManager;
+        import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
 
         export class PockeyUiMainScreen   {
 
@@ -116,6 +120,10 @@ namespace Pockey {
                 );
 
                 this.pockeyHelmetAndStick = document.getElementById("PockeyHatAndStick") as HTMLDivElement;
+
+                // this.showInventoryMenu();
+                // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_POOLTABLE);
+
             }
 
             protected showElement(element: HTMLDivElement): void {

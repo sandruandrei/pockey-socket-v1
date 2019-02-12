@@ -500,15 +500,15 @@ namespace Pockey {
                                 return;
                             }
                             case "MISC": {
-                                /*PockeySettings.PLAYER_DECAL_ID = this.currentActiveItem.id;
-                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);*/
+                                PockeySettings.POOLTABLE_FELT_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
                                 this.checkIfCurrentItemCanBeUsed();
-                                /*let dbObject: DatabaseObject = {
+                                let dbObject: DatabaseObject = {
                                     userID: PockeySettings.PLAYER_ID,
-                                    column: "decal",
-                                    value: PockeySettings.PLAYER_DECAL_ID
+                                    column: "misc",
+                                    value: PockeySettings.POOLTABLE_FELT_ID
                                 };
-                                DatabaseConnector.updateUserData(dbObject, null);*/
+                                DatabaseConnector.updateUserData(dbObject, null);
                                 return;
                             }
                         }
@@ -633,7 +633,8 @@ namespace Pockey {
 
                     if (this.boxes[counter].inventoryVO.id == PockeySettings.PLAYER_AVATAR_ID
                         || this.boxes[counter].inventoryVO.id == PockeySettings.PLAYER_DECAL_ID
-                        || this.boxes[counter].inventoryVO.id == PockeySettings.PLAYER_CUE_ID) {
+                        || this.boxes[counter].inventoryVO.id == PockeySettings.PLAYER_CUE_ID
+                        || this.boxes[counter].inventoryVO.id == PockeySettings.POOLTABLE_FELT_ID) {
                         (this.boxes[counter].iconDiv.querySelector(".inventoryItemBoxSelected") as HTMLDivElement).style.display = "block";
                     }
                     else {
@@ -703,14 +704,12 @@ namespace Pockey {
                         return;
                     }
                     case "MISC": {
-                        /*
-                        if (PockeySettings.PLAYER_DECAL_ID != this.currentActiveItem.id) {
+                        if (PockeySettings.POOLTABLE_FELT_ID != this.currentActiveItem.id) {
                             this.enableEquipBtn();
                         }
                         else {
                             this.disableEquipBtn();
                         }
-                        */
                         return;
                     }
                 }

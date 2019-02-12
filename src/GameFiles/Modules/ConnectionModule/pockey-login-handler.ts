@@ -59,8 +59,8 @@ namespace Pockey {
                     PockeySettings.PLAYER_CUE_ID = PockeySettings.SMALL_CUES_ARRAY[0].id;
                     dataChanged = true;
                 }
-                if (PockeySettings.PLAYER_MISC_ID != PockeySettings.SMALL_MISC_ARRAY[0].id) {
-                    PockeySettings.PLAYER_MISC_ID = PockeySettings.SMALL_MISC_ARRAY[0].id;
+                if (PockeySettings.POOLTABLE_FELT_ID != PockeySettings.SMALL_MISC_ARRAY[0].id) {
+                    PockeySettings.POOLTABLE_FELT_ID = PockeySettings.SMALL_MISC_ARRAY[0].id;
                     dataChanged = true;
                 }
                 if (PockeySettings.PLAYER_LEVEL != 1) {

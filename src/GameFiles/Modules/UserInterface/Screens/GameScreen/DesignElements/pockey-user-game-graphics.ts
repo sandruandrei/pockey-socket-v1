@@ -82,7 +82,9 @@ namespace Pockey {
             public resetTimer(): void {
                 // this.timerText.visible = false;
                 // this.timerText.style.fill = 0xffffff;
+                this.userAvatar.style.border = "3px solid #fff";
                 this.timerText.style.display = "none";
+                this.timerText.style.color = "white";
                 this.timerText.innerText = "0:" + PockeySettings.ROUND_DURATION_IN_SECONDS.toString();
             }
 
@@ -94,8 +96,10 @@ namespace Pockey {
                 else {
                     // this.timerText.visible = true;
                     // this.timerText.style.fill = 0xffffff;
+
                     this.timerText.innerText = timeText;
                     this.timerText.style.display = "flex";
+                    this.userAvatar.style.border = "3px solid red";
                     // this.timerText.x = 2 + this.userAvatar.x + this.userAvatar.width / 2 - this.timerText.width / 2;
 
                     /*if (this.side == "right")
@@ -146,12 +150,14 @@ namespace Pockey {
             }
 
             public tint(color: number): void {
+                let tintColor: string = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
+
                 _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
                     // lifeUnit.tint = color;
-                    lifeUnit.style.background = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
+                    lifeUnit.style.background = tintColor;
 
                 });
-                // this.userNameTextField.tint = color;
+                this.userNameTextField.style.color = tintColor;
             }
 
             public updateAvatar(avatarID: string): void {
@@ -166,17 +172,19 @@ namespace Pockey {
                 this.userAvatar.style.background = "center / contain no-repeat #1a4157 url(" + avatarPath + ")";
             }
 
-            public setTimerColor(tintColor: number): void {
-                if (this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6)) {
+            // public setTimerColor(tintColor: number): void {
+            //
+            // }
+
+            public animateTimer(): void {
+                // this.setTimerColor(0xFF0000);
+
+                if (this.timerText.style.color = '#' + ('00000' + (0xFF0000 | 0).toString(16)).substr(-6)) {
                     return;
                 }
                 else {
-                    this.timerText.style.color = '#' + ('00000' + (tintColor | 0).toString(16)).substr(-6);
+                    this.timerText.style.color = '#' + ('00000' + (0xFF0000 | 0).toString(16)).substr(-6);
                 }
-            }
-
-            public animateTimer(): void {
-                this.setTimerColor(0xFF0000);
                 // this.timerText.style.dropShadowColor = 0xffffff;//0xCA4A5C);
                 // this.timerText.style.dropShadowDistance = 6;//0xCA4A5C);
 

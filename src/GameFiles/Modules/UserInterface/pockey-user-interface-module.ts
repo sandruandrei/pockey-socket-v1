@@ -151,6 +151,7 @@ this.opponentFoundScreen.updateAvatar(avatarPath);
             private onHideOpponentFoundScreen(): void {
                 console.log("intra la onHideOpponentFoundScreen");
                 this.activeRoundScreen.hide();
+                // this.
             }
 
             private onShowSearchingScreen(): void {

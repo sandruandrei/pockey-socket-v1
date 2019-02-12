@@ -13,6 +13,8 @@
 namespace Pockey {
     export module GameModule {
         import Sprite = PIXI.Sprite;
+        import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
+        import SignalsManager = Framework.Signals.SignalsManager;
 
         export enum DecalType {
             Welcome = "dccal_welcome.png",
@@ -38,15 +40,26 @@ namespace Pockey {
 
             constructor() {
                 super();
+                this.alpha = 0.2;
+
                 this.anchor.set(0.5, 0.5);
                 // this.SetDecalIcon(DecalType.Pockey);
+                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, this.onChangePooltableDecal.bind(this));
             }
 
-            public SetDecalIcon(decalType: DecalType) {
-                let texture = PIXI.Texture.fromFrame(decalType.toString());
-                this.texture = texture;
-                this.alpha = 0.4;
+            private onChangePooltableDecal(decalID:string):void
+            {
+                let idCounter:number = 0;
+                _.forEach(PockeySettings.LARGE_DECALS_ARRAY, (item: InventoryVO, counter: number) => {
+                    if (item.id == decalID) {
+                        idCounter = counter;
+                        return true;
+                    }
+                });
+
+                this.texture = PIXI.Texture.fromImage(PockeySettings.LARGE_DECALS_ARRAY[idCounter].model);
             }
+
         }
     }
 }

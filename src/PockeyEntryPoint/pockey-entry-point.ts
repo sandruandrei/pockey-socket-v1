@@ -138,6 +138,11 @@ namespace Pockey {
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_pockeyball-comet.png");
             gameModule.addAssetToLoad(Settings.desktopAssetsPath + "Images/menu_sprite-cue.png");
 
+            _.forEach(PockeySettings.LARGE_CUES_ARRAY, (vo: InventoryVO) => {
+                gameModule.addAssetToLoad(vo.icon);
+                gameModule.addAssetToLoad(vo.model);
+            });
+
             gameModule.addAssetToLoad(PockeySoundURLS.MAIN_MENU_AMBIANCE);
             gameModule.addAssetToLoad(PockeySoundURLS.IN_GAME_AMBIANCE);
             gameModule.addAssetToLoad(PockeySoundURLS.SHOOT_BALL);
@@ -422,6 +427,9 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT);
 
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL_STOP);
@@ -445,7 +453,7 @@ let mainModule: Pockey.PockeyEntryPoint;
 //     };
 // };
 
-document.addEventListener("windowLoaded", function(){
+document.addEventListener("windowLoaded", function () {
     // this.createPreloader();
 
     mainModule = new Pockey.PockeyEntryPoint();
