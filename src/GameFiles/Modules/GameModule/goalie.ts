@@ -1,6 +1,7 @@
 ///<reference path="../../../Framework/Settings.ts"/>
 ///<reference path="../../../Framework/Signals/signals-manager.ts"/>
 ///<reference path="../StateMachine/pockey-state-texts.ts"/>
+///<reference path="balls/abstract-ball.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -17,14 +18,7 @@ namespace Pockey {
     export module GameModule {
         import Sprite = PIXI.Sprite;
         import Settings = Framework.Settings;
-        import SignalsManager = Framework.Signals.SignalsManager;
-        import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
-        import PockeyStateTexts = Pockey.StateMachineModule.PockeyStateTexts;
         import Vector2 = Framework.Utils.Vector2;
-        import Graphics = PIXI.Graphics;
-        import Point = PIXI.Point;
-        import DisplayObject = PIXI.DisplayObject;
-        import DisplayObjectContainer = PIXI.core.DisplayObjectContainer;
 
         export class Goalie extends PIXI.Container {
 
@@ -36,7 +30,7 @@ namespace Pockey {
 
             public isGoing: string = "down"; //"up" or "down"
 
-            public type: string;
+            public type: BallType;
             public moving: boolean = false;
             // private gr: Graphics;
 

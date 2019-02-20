@@ -38,10 +38,13 @@ namespace Pockey {
         public static OPPONENT_COLOR: number;
         public static OPPONENT_SOCKET_ID: string = "";
         public static OPPONENT_AVATAR_ID: string;
+        public static OPPONENT_CUE_ID: string;
+        public static OPPONENT_POOLTABLE_FELT_ID: string;
+        public static OPPONENT_DECAL_ID: string;
         public static OPPONENT_NICKNAME: string = "SandruOpponent";
         public static DELTA: number = 0.98;
 
-        public static FRAMES_TO_SEND_ON_WATCH: number = 4;
+        public static FRAMES_TO_SEND_ON_WATCH: number = 6;
         public static BALL_RADIUS: number = 17;
         public static P2_WORLD_STEP: number = 1 / 60;
         public static POCKEY_CUSTOM_BACKGROUND_NAME: string = "pockey_custom_background_name";
@@ -467,10 +470,12 @@ namespace Pockey {
         public static SMALL_MISC_ARRAY: InventoryVO[] = [
             {
                 category: "MISC",
-                id: "feltcolor-blue",
-                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-blue.png",
+                id: "feltcolor-teal",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/feltColorSkins/icon_feltcolor-teal.png",
+                color: 0x4ae1d8,
+                borderColor: 0x7e243f,
                 level: 1
-            }
+            },
         ];
 
         public static POOLTABLE_FELT_ID: string = PockeySettings.LARGE_MISC_ARRAY[0].id;

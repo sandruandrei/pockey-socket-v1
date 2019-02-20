@@ -7,7 +7,6 @@ namespace Framework {
     export module Connection {
         import SignalsManager = Framework.Signals.SignalsManager;
         import ConnectionSignalsType = Framework.Signals.ConnectionSignalsType;
-        import PockeySettings = Pockey.PockeySettings;
 
         export class SocketClient {
             protected socket: any;
@@ -32,19 +31,34 @@ namespace Framework {
                 // this.initializeSearchingSocket();
             }
 
-            public getUserFromDataBase(username: string, callback:Function): void {
+            public getUserFromDataBase(username: string, callback: Function): void {
                 this.socket.on(FrameworkSocketEvents.getUserFromDatabase, (usernameData: JSON) => {
                     callback(usernameData);
                 });
                 this.socket.emit(FrameworkSocketEvents.getUserFromDatabase, username);
             }
 
-            public updateUserData( dbObject:DatabaseObject, callback:Function): void {
+            public updateUserData(dbObject: DatabaseObject, callback: Function): void {
                 this.socket.on(FrameworkSocketEvents.updateUserData, (data) => {
                     callback(data);
+                    console.log("intra la socket client updateUserData");
                 });
                 this.socket.emit(FrameworkSocketEvents.updateUserData, dbObject);
                 console.log("intra la socket client updateUserData");
+            }
+
+            public disconnect(): void {
+                this.socketConnectionCreated = false;
+
+                if(this.playingSocket)
+                    this.playingSocket.disconnect();
+                // this.playingSocket.emit(FrameworkSocketEvents.disconnectMySocket, this.connectionID);
+                // if (this.playingSocket)
+                //     this.playingSocket.disconnect();
+                // this.playingSocket.leave();
+                // if (this.searchingSocket)
+                //     this.searchingSocket.disconnect();
+                // this.searchingSocket.leave();
             }
 
             public initializeSearchingSocket(): void {
@@ -103,9 +117,18 @@ namespace Framework {
                         // SignalsManager.DispatchSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED, [this.myID, this.partnerID, this.connectionID]);
                     });
 
+                    this.playingSocket.on(FrameworkSocketEvents.leftRoom, (socketID) => {
+                        SignalsManager.DispatchSignal(ConnectionSignalsType.OPPONENT_DISCONNECTED);
+                        this.socketConnectionCreated = false;
+                        this.playingSocket.disconnect();
+                        // console.log("sunt conectat pe playing room: " + room + " as " + this.myID);
+                        console.log("s-a deconectat oponentul bagamiaspula: " + socketID);
+                        // this.playingSocket.emit(FrameworkSocketEvents.privateMessage, this.connectionID, FrameworkSocketMessages.HELLO, this.myID, this.partnerID);
+                        // SignalsManager.DispatchSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED, [this.myID, this.partnerID, this.connectionID]);
+                    });
+
                     this.playingSocket.on(FrameworkSocketEvents.privateMessage, (messageType, messageData) => {
                         this.handlePrivateMessage(messageType, messageData);
-
                     });
                 });
             }

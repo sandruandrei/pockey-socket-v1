@@ -2,8 +2,6 @@ namespace Pockey {
 
     export module UserInterface {
 
-        import Graphics = PIXI.Graphics;
-
         export class PockeyUiMatchCircle {
             private circleBorder: HTMLDivElement;
             private circleDot: HTMLDivElement;
@@ -31,12 +29,14 @@ namespace Pockey {
             // }
 
             public activate(color: number): void {
+                console.log("intra la match circle");
+
                 this.circleBorder.style.borderColor = "#ffffff";
 
                 this.circleDot.style.background = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
             }
 
-            public reset(color: number): void {
+            public reset(): void {
                 this.circleBorder.style.borderColor = "#639db5";
                 this.circleDot.style.background = "#426d7e";
             }

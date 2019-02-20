@@ -22,7 +22,7 @@ namespace Pockey {
                 });
 
                 this.rightSideMatchCircles = [];
-                _.forEach(document.getElementById("ScoreBoardPlayerRoundsLeft").children, (circle:HTMLDivElement)=>
+                _.forEach(document.getElementById("ScoreBoardPlayerRoundsRight").children, (circle:HTMLDivElement)=>
                 {
                     let matchCircle:PockeyUiMatchCircle = new PockeyUiMatchCircle(circle);
                     this.rightSideMatchCircles.push(matchCircle);

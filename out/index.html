@@ -695,11 +695,6 @@ function signOut() {
 
 <div id="SearchingScreen">
     <div class="searchingAnimation">
-        <div class="search searchDiv"></div>
-        <div class="search searchDiv"></div>
-        <div class="search searchDiv"></div>
-        <div class="search searchDiv"></div>
-        <div class="search searchDiv"></div>
         <div class="searchtext">SEARCHING FOR OPPONENT</div>
     </div>
 </div>
@@ -762,9 +757,9 @@ function signOut() {
     </div>
 </div>
 
-<div id="RoundCompleteScreen">
-    <div id="RoundCompleteTitle">Round complete</div>
-    <div id="RoundCompletePlayers">
+<div id="RoundCompleteScreen" class="roundScreen">
+    <div id="RoundCompleteTitle" class="screenTitle">Round complete</div>
+    <div id="RoundCompletePlayers" class="screenPlayers">
         <div class="roundCompletePlayersHolder">
             <div class="roundCompletePlayer">
                 <div class="roundCompletePlayerNameAndAvatarHolder">
@@ -802,15 +797,18 @@ function signOut() {
                 </div>
             </div>
             <div class="roundCompletePlayer">
-                <div class="roundCompletePlayerNameAndAvatarHolder" id="RoundCompletePlayerNameAndAvatarHolderRight">
+                <div class="roundCompletePlayerNameAndAvatarHolder screenPlayerNameAndAvatarHolderRight"
+                     id="RoundCompletePlayerNameAndAvatarHolderRight">
                     <div class="avatarHolder roundCompletePlayerAvatarHolder">
                         <div class="avatarImage"></div>
                     </div>
-                    <div class="roundCompletePlayerNameRankAndStatusHolder"
-                         id="roundCompletePlayerNameRankAndStatusHolderRight">
-                        <div class="roundCompletePlayerNameAndRank" id="RoundCompletePlayerNameAndRankRight">
+                    <div class="roundCompletePlayerNameRankAndStatusHolder roundCompletePlayerNameRankAndStatusHolderRight"
+                         id="RoundCompletePlayerNameRankAndStatusHolderRight">
+                        <div class="roundCompletePlayerNameAndRank screenPlayerNameAndRankRight"
+                             id="RoundCompletePlayerNameAndRankRight">
                             <div class="roundCompletePlayerRank"></div>
-                            <div class="roundCompletePlayerNameHolder" id="RoundCompletePlayerNameHolderRight">
+                            <div class="roundCompletePlayerNameHolder screenPlayerNameHolderRight"
+                                 id="RoundCompletePlayerNameHolderRight">
                                 <div class="roundCompletePlayerName">player name</div>
                                 <div class="roundCompletePlayerLogStatus">Guest</div>
                                 <div class="roundCompletePlayerLine">
@@ -838,23 +836,42 @@ function signOut() {
                     </div>
                 </div>
             </div>
-            <div id="RoundCompleteGraphics">
-                <div id="RoundCompleteMatchBanner"></div>
-                <div id="RoundCompleteVS"></div>
-                <div id="RoundCompleteRoundNumber"></div>
+            <div id="RoundCompleteGraphics" class="screenGraphics">
+                <div id="RoundCompleteMatchBanner" class="screenBanner"></div>
+                <div id="RoundCompleteVS" class="screenVS"></div>
+                <div id="RoundCompleteRoundNumber" class="screenRoundNumber"></div>
             </div>
         </div>
-        <div id="RoundCompleteBottomText">
+        <div id="RoundCompleteBottomText" class="screenBottomText">
             <div class="roundCompleteLineHolder">
                 <div class="line"></div>
             </div>
-            <div id="RoundCompleteText"></div>
+
+            <div class="screenBottomHolder">
+                <div id="RoundCompleteText" class="screenText">playa disconnected</div>
+                <div id="ScreenMainMenuButton" class="screenButton">main menu</div>
+                <div id="ScreenRematchButton" class="screenButton">rematch</div>
+                <div id="ScreenNewOpponentButton" class="screenButton">new opponent</div>
+            </div>
+
             <div class="roundCompleteLineHolder">
                 <div class="line"></div>
             </div>
         </div>
     </div>
+    <div id="RematchAsked" class="screenTitle">
+        <div id="RematchText">
+your opponent wants revenge:
+        </div>
+        <div id="RematchYes" class="screenButton">
+YES
+        </div>
+        <div id="RematchNo" class="screenButton">
+NO
+        </div>
+    </div>
 </div>
+
 <div id="PlayerFoundScreen">
     <div id="PlayerFoundTitleAndImageHolder">
         <div id="PlayerFoundImage"></div>

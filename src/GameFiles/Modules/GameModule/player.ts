@@ -18,10 +18,12 @@ namespace Pockey {
             public nickname: string;
             public type: BallType;
             public score: number;
-            public matchesWon: number = 0;
+            public roundsWon: number = 0;
             public color: number;
             public side: string;
             public startedFirst:boolean = false;
+            public avatarID:string = '';
+            public feltID:string = '';
 
             constructor(id: string, type: BallType) {
                 this.id = id;

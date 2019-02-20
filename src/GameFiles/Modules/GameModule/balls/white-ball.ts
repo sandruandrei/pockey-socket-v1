@@ -41,7 +41,8 @@ namespace Pockey {
                 {
                     // console.log("intra la enabled false!");
                     this.sphere.setEnabled(false);
-                    this.ballShadow.alpha = 0;
+                    this.ballShadow.scale.x = 0;
+                    this.ballShadow.scale.y = 0;
                 }
             }
 

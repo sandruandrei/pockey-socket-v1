@@ -209,6 +209,8 @@ namespace Pockey {
             private statesCreated: number = 0;
             private statesReceived: number = 0;
             private graphicsHidden: boolean = false;
+            private player: Player;
+            private opponent: Player;
             // State previous;
             // State current;
 
@@ -386,18 +388,35 @@ namespace Pockey {
 
             }
 
+            private onDefinePlayerInterface(params: Player[]): void {
+                console.log("aicisha e playerul");
+                if (params[0].type == BallType.Player) {
+                    this.player = params[0];
+                    // this.opponentGraphicsInterface.player = params[1];
+                    // console.log("playerGraphicsInterface: " + this.playerGraphicsInterface);
+                }
+                else {
+                    this.opponent = params[0];
+                    // this.playerGraphicsInterface.player = params[1];
+                    // console.log("opponentGraphicsInterface: " + this.opponentGraphicsInterface);
+                }
+            }
+
             private registerSignalsHandlers(): void {
 
+                SignalsManager.AddSignalCallback(PockeySignalTypes.ASSIGN_PLAYER, this.onDefinePlayerInterface.bind(this));
+
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOW_POOLTABLE, this.onShowPoolTable.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_POOLTABLE, this.onHidePoolTable.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_POOLTABLE, this.onResetPoolTable.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_STICK_POWER, this.onResetStickPower.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.HIDE_BALL_RAY_GRAPHICS, this.hideBallRayGraphics.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.REACTIVATE_STICK, this.reactivateStick.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SHOOT_BALL, this.onShoot.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.APPLY_POOLTABLE_STATE, this.applyTimeState.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.SET_SIDES_TYPE, this.onSetPuckGoalsSides.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.SET_SIDES_TYPE, this.onSetSides.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, this.onUpdateUITextOnWatch.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CREATE_POOLTABLE_STATE, this.onCreatePoolTableTimeState.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS, this.changeWhiteBallStatus.bind(this));
@@ -499,17 +518,25 @@ namespace Pockey {
                 this.uiTextOnWatch = params["0"];
             }
 
-            protected onSetPuckGoalsSides(params: any[]): void {
-                this.poolTable.leftGoal.type = params[0];
-                this.poolTable.leftGoalie.type = params[0];
+            protected onSetSides(): void {
+
+                let leftSideType: BallType = (this.player.side == "left") ? this.player.type : this.opponent.type;
+
+                let rightSideType: BallType = (leftSideType == BallType.Player) ? this.opponent.type : this.player.type;
+                this.poolTable.leftGoal.type = leftSideType;
+                this.poolTable.leftGoalie.type = leftSideType;
                 // console.log("leftGoal.type: " + this.poolTable.leftGoal.type);
-                this.poolTable.rightGoal.type = params[1];
-                this.poolTable.rightGoalie.type = params[1];
+                this.poolTable.rightGoal.type = rightSideType;
+                this.poolTable.rightGoalie.type = rightSideType;
                 // console.log("rightGoal.type: " + this.poolTable.rightGoal.type);
 
                 _.forEach(this.poolTable.leftBallsArray, (ball: AbstractBall) => {
                     // if (ball.side == "left") {
-                    ball.ballType = params[0];
+                    // console.log("salam se seteaza onSetSides in pool manager");
+                    console.log("%c salam se seteaza onSetSides in pool manager", "color: #ff9900");
+
+                    ball.ballType = leftSideType;
+
                     // }
                     // else if (ball.side == "right") {
                     //     ball.ballType = params[1];
@@ -518,12 +545,15 @@ namespace Pockey {
 
                 _.forEach(this.poolTable.rightBallsArray, (ball: AbstractBall) => {
                     // if (ball.side == "left") {
-                    ball.ballType = params[1];
+                    ball.ballType = rightSideType;
                     // }
                     // else if (ball.side == "right") {
                     //     ball.ballType = params[1];
                     // }
                 });
+
+                this.onChangePlayerColor(this.player.color);
+                this.onChangeOpponentColor(this.opponent.color);
             }
 
             protected onChangeOpponentColor(color: number): void {
@@ -549,23 +579,23 @@ namespace Pockey {
                 // this.poolTable.rightGoalTop.tint = color;
             }
 
-            protected onChangePlayerColor(color: string): void {
+            protected onChangePlayerColor(color: number): void {
                 if (this.poolTable.leftGoal.type == BallType.Player) {
-                    this.poolTable.leftGoal.tint = +color;
+                    this.poolTable.leftGoal.tint = color;
                 }
                 else {
-                    this.poolTable.rightGoal.tint = +color;
+                    this.poolTable.rightGoal.tint = color;
                 }
 
                 if (this.poolTable.leftGoalie.type == BallType.Player) {
-                    this.poolTable.leftGoalie.goalieMiddleLayer.tint = +color;
+                    this.poolTable.leftGoalie.goalieMiddleLayer.tint = color;
                 }
                 else {
-                    this.poolTable.rightGoalie.goalieMiddleLayer.tint = +color;
+                    this.poolTable.rightGoalie.goalieMiddleLayer.tint = color;
                 }
                 _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
                     if (ball.ballType == BallType.Player) {
-                        ball.tintBall(+color);
+                        ball.tintBall(color);
                     }
                 });
                 // this.poolTable.rightGoalTop.tint = color;
@@ -575,10 +605,15 @@ namespace Pockey {
                 this.poolTable.visible = true;
             }
 
+            protected onHidePoolTable(): void {
+                this.poolTable.visible = false;
+            }
+
             protected onResetPoolTable(): void {
                 // console.log("intra la p");
                 // this.poolTable.visible = true;
                 this.isFirstShoot = true;
+
                 this.poolTable.reset();
             }
 
@@ -622,33 +657,81 @@ namespace Pockey {
                 // console.log("mumu !!!!: " + this.expectedCollisionPoint.x, this.expectedCollisionPoint.y);
             }
 
+            protected onRearrangeStick(): void {
+                this.graphicsHidden = false;
+
+                if (!this.goaliesHolder.moving)
+                    this.goaliesHolder.moving = true;
+
+                if (!this.poolTable.whiteBall.isOnRearrange) {
+                    this.poolTable.whiteBall.isOnRearrange = true;
+                }
+                this.poolTable.whiteBall.ballPosition = new Vector2(this.poolTable.whiteBall.x, this.poolTable.whiteBall.y);
+
+                if (this.poolTable.poolStick.rotationEnabled) {
+
+                    if (this.whiteBallDirectionMesh) {
+                        this.whiteBallDirectionMesh.setEnabled(false);//();
+                    }
+                    if (this.whiteBallPostCollisionDirectionMesh) {
+                        this.whiteBallPostCollisionDirectionMesh.setEnabled(false);//();
+                    }
+                    if (this.otherBallPostCollisionDirectionMesh) {
+                        this.otherBallPostCollisionDirectionMesh.setEnabled(false);
+                    }
+                    if (this.whiteBallDashedMesh) {
+                        this.whiteBallDashedMesh.setEnabled(false);//();
+                    }
+                    if (this.ballPositionCircleMesh) {
+                        this.ballPositionCircleMesh.setEnabled(false);
+                    }
+                    if (this.raycastFollowerMesh) {
+
+                        this.raycastFollowerMesh.setEnabled(true);
+                    }
+                    if (this.ballPositionCircleOnRaycastMesh) {
+                        this.ballPositionCircleOnRaycastMesh.setEnabled(true);
+                    }
+
+                    this.whiteBallReflectionArrowMesh.setEnabled(false);
+                    this.otherBallReflectionArrowMesh.setEnabled(false);
+
+                    let localPoint = this.poolTable.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
+
+                    let opposite: number = localPoint.y - this.poolTable.whiteBall.y;
+                    let adjacent: number = localPoint.x - this.poolTable.whiteBall.x;
+                    let rot: number = Math.atan2(opposite, adjacent);
+
+                    let dir: Vector2 = new Vector2(Math.cos(rot), Math.sin(rot)).multiply(1100);
+
+                    this.newPos = new Vector2(this.poolTable.whiteBall.x + dir.x, this.poolTable.whiteBall.y + dir.y);
+                    this.shortestContactDistance = this.newPos.distanceTo(this.poolTable.whiteBall.position);
+                    //===================
+                    this.startRayCastPoint[0] = this.poolTable.whiteBall.x;
+                    this.startRayCastPoint[1] = this.poolTable.whiteBall.y;
+                    this.endRayCastPoint[0] = this.newPos.x;
+                    this.endRayCastPoint[1] = this.newPos.y;
+
+                    p2.vec2.copy(this.rayClosest.from, this.startRayCastPoint);
+                    p2.vec2.copy(this.rayClosest.to, this.endRayCastPoint);
+                    // this.rayClosest.
+                    this.rayClosest.update();
+                    this.raycastResult.reset();
+                    P2WorldManager.Instance().world.raycast(this.raycastResult, this.rayClosest);
+                    this.drawRayResult(this.raycastResult, this.rayClosest);
+                }
+            }
+
             protected onRepositionWhiteBall(): void {
 
                 if (!this.poolTable.whiteBall.isOnReposition) {
-                    // this.poolTable.whiteBall.hid
-                    // console.log("intra aicisha");
                     this.poolTable.whiteBall.isOnReposition = true;
                 }
-                // else {
-                //     console.log("intra aicisha pe dracu");
-                // }
 
                 this.graphicsHidden = false;
                 if (!this.goaliesHolder.moving)
                     this.goaliesHolder.moving = true;
-                // console.log("%c Pool T Manager: intra la onRepositionWhiteBall", "background: red; color: white; font-weight:bold; ");
 
-                /*       console.log("ball repos started");
-
-                       this.poolTable.whiteBallReflectionArrow.visible = false;
-                       this.poolTable.otherBallReflectionArrow.visible = false;
-                       this.poolTable.ballPositionCircleOnRaycast.visible = false;
-                       this.poolTable.ballPositionCircle.visible = false;
-                       // let localPoint = this.poolTable.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
-                       // this.poolTable.ballPositionCircle.x = localPoint.x;
-                       // this.poolTable.ballPositionCircle.y = localPoint.y;
-                       this.lastGoodRepositionPoint = new Vector2();
-                       this.repositionWhiteBallEnabled = true;*/
                 if (this.ballPositionCircleMesh) {
                     this.ballPositionCircleMesh.setEnabled(true);
                 }
@@ -664,107 +747,6 @@ namespace Pockey {
                 if (_.isNull(this.lastGoodRepositionPoint) || _.isUndefined(this.lastGoodRepositionPoint)) {
                     this.lastGoodRepositionPoint = new Vector2();
                 }
-
-                // if (this.graph) {
-                //     if (this.graph.parent)
-                //         this.graph.parent.removeChild(this.graph);
-                //     this.graph.clear();
-                //     this.graph = null;
-                // }
-
-                // if (localPoint.x < this.poolTable.rightLimit &&
-                //     localPoint.x > this.poolTable.leftLimit &&
-                //     localPoint.y < this.poolTable.downLimit &&
-                //     localPoint.y > this.poolTable.upLimit) {
-                //todo vezi ca mouse-ul sa fie in limita tablei de joc
-                //vezi ca daca-i white ball penalty si e la margine, poti sa pui acolo follower-ul. nu-i ok boss
-
-                /////////////////////////aicisha!!!!!!!!!!!!
-
-                /*let ballPositionCirclePosition: Vector2 = new Vector2(localPoint.x, localPoint.y);
-                if (ballPositionCirclePosition.x + PockeySettings.BALL_RADIUS > this.poolTable.rightLimit)
-                    ballPositionCirclePosition.x = this.poolTable.rightLimit - PockeySettings.BALL_RADIUS;
-                if (ballPositionCirclePosition.x - PockeySettings.BALL_RADIUS < this.poolTable.leftLimit)
-                    ballPositionCirclePosition.x = this.poolTable.leftLimit + PockeySettings.BALL_RADIUS;
-
-                if (ballPositionCirclePosition.y + PockeySettings.BALL_RADIUS > this.poolTable.downLimit)
-                    ballPositionCirclePosition.y = this.poolTable.downLimit - PockeySettings.BALL_RADIUS;
-                if (ballPositionCirclePosition.y - PockeySettings.BALL_RADIUS < this.poolTable.upLimit)
-                    ballPositionCirclePosition.y = this.poolTable.upLimit + PockeySettings.BALL_RADIUS;
-
-                this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-
-                let ballPosition: Vector2;// = new Vector2(this.poolTable.ballPositionCircle.x,this.poolTable.ballPositionCircle.y)
-
-                _.forEach(this.poolTable.goalkeepersCircles, (circle: Circle) => {
-                    ballPosition = new Vector2(circle.x, circle.y);
-                    if (ballPositionCirclePosition.distanceTo(ballPosition) < circle.radius + PockeySettings.BALL_RADIUS) {
-                        let opposite: number = ballPositionCirclePosition.y - ballPosition.y;
-                        let adjacent: number = ballPositionCirclePosition.x - ballPosition.x;
-                        let rotAngle: number = Math.atan2(opposite, adjacent);
-
-                        ballPositionCirclePosition.x = ballPosition.x + (PockeySettings.BALL_RADIUS + circle.radius) * Math.cos(rotAngle);
-                        ballPositionCirclePosition.y = ballPosition.y + (PockeySettings.BALL_RADIUS + circle.radius) * Math.sin(rotAngle);
-                        this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                        this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-                    }
-
-                    // this.ballPositionCircleMesh.position.x = ballPositionCirclePosition.x;
-                    // this.ballPositionCircleMesh.position.y = -ballPositionCirclePosition.y - PockeySettings.BABYLON_Y_OFFSET;
-
-                });
-
-                _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
-                    ballPosition = new Vector2(ball.x, ball.y);
-                    if (ballPositionCirclePosition.distanceTo(ballPosition) < ball.radius + PockeySettings.BALL_RADIUS) {
-                        let opposite: number = ballPositionCirclePosition.y - ballPosition.y;
-                        let adjacent: number = ballPositionCirclePosition.x - ballPosition.x;
-                        let rotAngle: number = Math.atan2(opposite, adjacent);
-
-                        ballPositionCirclePosition.x = ballPosition.x + (PockeySettings.BALL_RADIUS + ball.radius) * Math.cos(rotAngle);
-                        ballPositionCirclePosition.y = ballPosition.y + (PockeySettings.BALL_RADIUS + ball.radius) * Math.sin(rotAngle);
-                        let isInteresectingWithOthers: boolean = false;
-                        _.forEach(this.poolTable.balls, (ball2: AbstractBall) => {
-                            if (ball2 != ball) {
-                                let ball2Position: Vector2 = new Vector2(ball2.x, ball2.y);
-                                if (ball2Position.distanceTo(ballPositionCirclePosition) < PockeySettings.BALL_RADIUS + ball2.radius) {
-                                    isInteresectingWithOthers = true;
-                                    return;
-                                }
-                            }
-                        });
-
-                        _.forEach(this.poolTable.goalkeepersCircles, (ball2: Circle) => {
-                            let ball2Position: Vector2 = new Vector2(ball2.x, ball2.y);
-                            if (ball2Position.distanceTo(ballPositionCirclePosition) < PockeySettings.BALL_RADIUS + ball2.radius) {
-                                isInteresectingWithOthers = true;
-                                return;
-                            }
-                        });
-
-                        if (isInteresectingWithOthers) {
-                            ballPositionCirclePosition.x = this.lastGoodRepositionPoint.x;
-                            ballPositionCirclePosition.y = this.lastGoodRepositionPoint.y;
-                        }
-                        else {
-                            this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                            this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-                        }
-                    }
-
-                    // this.poolTable.ballPositionCircle.x = ballPositionCirclePosition.x;
-                    // this.poolTable.ballPositionCircle.y = ballPositionCirclePosition.y;
-
-                    /!* TweenMax.to(this.poolTable.ballPositionCircle, 0.1, {
-                         x: ballPositionCirclePosition.x,
-                         y: ballPositionCirclePosition.y
-                     });*!/
-                    // this.poolTable.ballPositionCircle.visible = true;
-
-                });
-                this.ballPositionCircleMesh.position.x = ballPositionCirclePosition.x;
-                this.ballPositionCircleMesh.position.y = -ballPositionCirclePosition.y - PockeySettings.BABYLON_Y_OFFSET;*/
 
                 /////////////////////////aicisha!!!!!!!!!!!!
 
@@ -793,25 +775,8 @@ namespace Pockey {
 
                         ballPositionCirclePosition.x = ballPosition.x + (PockeySettings.BALL_RADIUS + ball.radius) * Math.cos(rotAngle);
                         ballPositionCirclePosition.y = ballPosition.y + (PockeySettings.BALL_RADIUS + ball.radius) * Math.sin(rotAngle);
-                        // _.forEach(this.poolTable.balls, (ball2: AbstractBall) => {
-                        //     // if (ball2 != ball) {
-                        //         let ball2Position: Vector2 = new Vector2(ball2.x, ball2.y);
-                        //         if (ball2Position.distanceTo(ballPositionCirclePosition) < PockeySettings.BALL_RADIUS + ball2.radius) {
-                        //             isInteresectingWithOthers = true;
-                        //             return;
-                        //         }
-                        //     // }
-                        // });
                     }
 
-                    // aici verifici daca noul mouse e aproape de vreo minge sau cercul la portari sau perete daca e, nu-l muti si gata, cred
-                    // this.poolTable.ballPositionCircle.x = ballPositionCirclePosition.x;
-                    // this.poolTable.ballPositionCircle.y = ballPositionCirclePosition.y;
-                    /* TweenMax.to(this.poolTable.ballPositionCircle, 0.1, {
-                         x: ballPositionCirclePosition.x,
-                         y: ballPositionCirclePosition.y
-                     });*/
-                    // this.poolTable.ballPositionCircle.visible = true;
                 });
 
                 _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
@@ -833,25 +798,8 @@ namespace Pockey {
                             }
                         });
                     }
-
-                    // aici verifici daca noul mouse e aproape de vreo minge sau cercul la portari sau perete daca e, nu-l muti si gata, cred
-                    // this.poolTable.ballPositionCircle.x = ballPositionCirclePosition.x;
-                    // this.poolTable.ballPositionCircle.y = ballPositionCirclePosition.y;
-                    /* TweenMax.to(this.poolTable.ballPositionCircle, 0.1, {
-                         x: ballPositionCirclePosition.x,
-                         y: ballPositionCirclePosition.y
-                     });*/
-                    // this.poolTable.ballPositionCircle.visible = true;
                 });
 
-
-                /* _.forEach(this.poolTable.goalkeepersCircles, (circle: Circle) => {
-                     let circlePosition:Vector2 = new Vector2(circle.x, circle.y);
-                     if (circlePosition.distanceTo(ballPositionCirclePosition) < PockeySettings.BALL_RADIUS + circle.radius) {
-                         isInteresectingWithOthers = true;
-                         return;
-                     }
-                 });*/
                 _.forEach(this.poolTable.goalkeepersCircles, (ball: Circle) => {
                     ballPosition = new Vector2(ball.x, ball.y);
                     if (ballPositionCirclePosition.distanceTo(ballPosition) < ball.radius + PockeySettings.BALL_RADIUS) {
@@ -895,17 +843,7 @@ namespace Pockey {
                 if (this.repositionStarted && !MouseHandler.Instance().left.down) {
                     this.repositionStarted = false;
 
-                    // SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
                     this.repositionWhiteBallEnabled = false;
-                    // this.poolTable.ballPositionCircle.visible = false;
-                    // this.poolTable.whiteBall.canBeRemoved = false;
-                    // this.poolTable.whiteBall.x = ballPositionCirclePosition.x;
-                    // P2WorldManager.Instance().world.addBody(this.poolTable.whiteBall.p2Body);
-                    // this.poolTable.whiteBall.p2Body.velocity[0] = 0;
-                    // this.poolTable.whiteBall.p2Body.velocity[1] = 0;
-                    // this.poolTable.whiteBall.addShadowBody();
-
-                    // this.poolTable.whiteBall.alpha = 1;
                     this.poolTable.whiteBall.isOnReposition = false;
                     this.poolTable.whiteBall.reset();
                     this.poolTable.whiteBall.ballPosition = ballPositionCirclePosition;
@@ -1036,50 +974,12 @@ namespace Pockey {
 
             protected update(): void {
 
-                // if (this.poolTable.leftGoalie.moving) {
-                //     this.poolTable.rightGoalie.y = this.poolTable.leftGoalie.y;
-                //     this.poolTable.rightGoalie.setBodyPosition();//. = this.poolTable.leftGoalie.y;
-                // }
-
-//                 if (this.enableUpdateOnWatch && this.opponentTimeStates.length > 1) {
-// //                     console.log("opp states before applying: " + this.opponentTimeStates.length);
-// //                     TweenMax.delayedCall(this.opponentTimeStates[0].time, this.applyTimeState.bind(this));
-//                     this.applyTimeState();
-//                     /* let _currentTime:number = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
-//
-//                      this.interpolateStates(_currentTime);*/
-// //                     console.log("opp states after applying: " + this.opponentTimeStates.length);
-//
-//                 }
-//                 else if (this.enableUpdateOnWatch && this.opponentTimeStates.length == 0) {
-//                     this.enableUpdateOnWatch = false;
-//                     SignalsManager.DispatchSignal("")
-//                     // this.updatesReceivedOnWatch = 0;
-//                 }
-
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRepositionWhiteBall) {
-                    // if (this.onWatchInProgress()) {
-                    //     return;
-                    // }
-                    // console.log("intra la repo ball");
-
-                    // this.framesCounter = 0;
-                    // if (!this.goaliesHolder.moving)
-                    //     this.goaliesHolder.moving = true;
-
-                    // if (!this.poolTable.rightGoalie.moving)
-                    //     this.poolTable.rightGoalie.startMoving();
-
                     this.onRepositionWhiteBall();
 
                     return;
                 }
-
                 else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onShoot) {
-                    // console.log("intra la onshoot");
-                    // if (this.onWatchInProgress()) {
-                    //     return;
-                    // }
 
                     if (!this.ballsAreMoving()) {
                         SignalsManager.DispatchSignal(PockeySignalTypes.PREPARE_NEXT_TURN);
@@ -1087,284 +987,20 @@ namespace Pockey {
                     else {
                         this.handleCollisions();
 
-                        // this.sendElementsDataToManager();
                     }
                 }
+                else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
 
-                if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onRearrangeStick) {
-                    this.graphicsHidden = false;
-                    /*if (this.onWatchInProgress()) {
-                        return;
-                    }*/
-                    // this.framesCounter = 0;
-//                     console.log("intra la rearrange");
-                    if (!this.goaliesHolder.moving)
-                        this.goaliesHolder.moving = true;
+                    this.onRearrangeStick();
 
-
-                    // P2WorldManager.Instance().world.addBody(this.poolTable.whiteBall.p2Body);
-                    // this.poolTable.whiteBall.p2Body.velocity[0] = 0;
-                    // this.poolTable.whiteBall.p2Body.velocity[1] = 0;
-                    // this.poolTable.whiteBall.addShadowBody();
-
-                    // this.poolTable.whiteBall.alpha = 1;
-                    if (!this.poolTable.whiteBall.isOnRearrange) {
-                        this.poolTable.whiteBall.isOnRearrange = true;
-                    }
-                    this.poolTable.whiteBall.ballPosition = new Vector2(this.poolTable.whiteBall.x, this.poolTable.whiteBall.y);
-
-                    if (this.poolTable.poolStick.rotationEnabled) {
-
-
-                        // if (!this.poolTable.rightGoalie.moving)
-                        //     this.poolTable.rightGoalie.startMoving();
-
-
-                        /*if (this.graph) {
-                            if (this.graph.parent)
-                                this.graph.parent.removeChild(this.graph);
-                            this.graph.clear();
-                            this.graph = null;
-
-                        }
-                        this.graph = new Graphics();*/
-                        if (this.whiteBallDirectionMesh) {
-                            this.whiteBallDirectionMesh.setEnabled(false);//();
-                        }
-                        if (this.whiteBallPostCollisionDirectionMesh) {
-                            this.whiteBallPostCollisionDirectionMesh.setEnabled(false);//();
-                        }
-                        if (this.otherBallPostCollisionDirectionMesh) {
-                            this.otherBallPostCollisionDirectionMesh.setEnabled(false);
-                        }
-                        if (this.whiteBallDashedMesh) {
-                            this.whiteBallDashedMesh.setEnabled(false);//();
-                        }
-                        if (this.ballPositionCircleMesh) {
-                            this.ballPositionCircleMesh.setEnabled(false);
-                            // this.ballPositionCircleMesh.material.freeze();
-                        }
-                        if (this.raycastFollowerMesh) {
-
-                            // console.log("raycastFollowerMesh la on rearrange");
-
-                            this.raycastFollowerMesh.setEnabled(true);
-
-                            // this.raycastFollowerMesh.material.unfreeze();
-                        }
-                        if (this.ballPositionCircleOnRaycastMesh) {
-                            this.ballPositionCircleOnRaycastMesh.setEnabled(true);
-                            // console.log("se enable-uie ce plm");
-
-                            // this.ballPositionCircleOnRaycastMesh.material.unfreeze();
-                        }
-
-                        // if (this.whiteBallReflectionArrowMesh.material.isFrozen) {
-                        //     // this.ballPositionCircleOnRaycastMesh.material.unfreeze();
-                        // }
-                        this.whiteBallReflectionArrowMesh.setEnabled(false);
-
-                        // if (this.otherBallReflectionArrowMesh.material.isFrozen) {
-                        //     this.otherBallReflectionArrowMesh.material.unfreeze();
-                        // }
-                        this.otherBallReflectionArrowMesh.setEnabled(false);
-
-                        let localPoint = this.poolTable.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
-
-                        let opposite: number = localPoint.y - this.poolTable.whiteBall.y;
-                        let adjacent: number = localPoint.x - this.poolTable.whiteBall.x;
-                        let rot: number = Math.atan2(opposite, adjacent);
-
-                        let dir: Vector2 = new Vector2(Math.cos(rot), Math.sin(rot)).multiply(1100);
-
-                        this.newPos = new Vector2(this.poolTable.whiteBall.x + dir.x, this.poolTable.whiteBall.y + dir.y);
-                        this.shortestContactDistance = this.newPos.distanceTo(this.poolTable.whiteBall.position);
-                        //===================
-                        this.startRayCastPoint[0] = this.poolTable.whiteBall.x;
-                        this.startRayCastPoint[1] = this.poolTable.whiteBall.y;
-                        this.endRayCastPoint[0] = this.newPos.x;
-                        this.endRayCastPoint[1] = this.newPos.y;
-                        // P2WorldManager.Instance().world.removeBody(this.poolTable.whiteBall.p2Body);
-
-                        p2.vec2.copy(this.rayClosest.from, this.startRayCastPoint);
-                        p2.vec2.copy(this.rayClosest.to, this.endRayCastPoint);
-                        // this.rayClosest.
-                        this.rayClosest.update();
-                        this.raycastResult.reset();
-                        P2WorldManager.Instance().world.raycast(this.raycastResult, this.rayClosest);
-                        this.drawRayResult(this.raycastResult, this.rayClosest);
-                    }
-
-                    // this.sendElementsDataToManager();
-                    // }
-                }
-                /*// this.graph.lineStyle(2, 0xffffff);
-                // this.graph.moveTo(localPoint.x, localPoint.y);
-                if (this.repositionWhiteBallEnabled) {
-                    if (this.graph) {
-                        if (this.graph.parent)
-                            this.graph.parent.removeChild(this.graph);
-                        this.graph.clear();
-                        this.graph = null;
-                    }
-
-                    // if (localPoint.x < this.poolTable.rightLimit &&
-                    //     localPoint.x > this.poolTable.leftLimit &&
-                    //     localPoint.y < this.poolTable.downLimit &&
-                    //     localPoint.y > this.poolTable.upLimit) {
-
-                    let ballPositionCirclePosition: Vector2 = new Vector2(localPoint.x, localPoint.y);
-                    if (ballPositionCirclePosition.x + PockeySettings.BALL_RADIUS > this.poolTable.rightLimit)
-                        ballPositionCirclePosition.x = this.poolTable.rightLimit - PockeySettings.BALL_RADIUS;
-                    if (ballPositionCirclePosition.x - PockeySettings.BALL_RADIUS < this.poolTable.leftLimit)
-                        ballPositionCirclePosition.x = this.poolTable.leftLimit + PockeySettings.BALL_RADIUS;
-
-                    if (ballPositionCirclePosition.y + PockeySettings.BALL_RADIUS > this.poolTable.downLimit)
-                        ballPositionCirclePosition.y = this.poolTable.downLimit - PockeySettings.BALL_RADIUS;
-                    if (ballPositionCirclePosition.y - PockeySettings.BALL_RADIUS < this.poolTable.upLimit)
-                        ballPositionCirclePosition.y = this.poolTable.upLimit + PockeySettings.BALL_RADIUS;
-
-                    let ballPosition: Vector2;// = new Vector2(this.poolTable.ballPositionCircle.x,this.poolTable.ballPositionCircle.y)
-
-                    _.forEach(this.poolTable.balls, (ball: AbstractBall) => {
-                        ballPosition = new Vector2(ball.x, ball.y);
-                        if (ballPositionCirclePosition.distanceTo(ballPosition) < ball.radius + PockeySettings.BALL_RADIUS) {
-                            let opposite: number = ballPositionCirclePosition.y - ballPosition.y;
-                            let adjacent: number = ballPositionCirclePosition.x - ballPosition.x;
-                            let rotAngle: number = Math.atan2(opposite, adjacent);
-
-                            ballPositionCirclePosition.x = ballPosition.x + (PockeySettings.BALL_RADIUS + ball.radius) * Math.cos(rotAngle);
-                            ballPositionCirclePosition.y = ballPosition.y + (PockeySettings.BALL_RADIUS + ball.radius) * Math.sin(rotAngle);
-                            let isInteresectingWithOthers: boolean = false;
-                            _.forEach(this.poolTable.balls, (ball2: AbstractBall) => {
-                                if (ball2 != ball) {
-                                    let ball2Position: Vector2 = new Vector2(ball2.x, ball2.y);
-                                    if (ball2Position.distanceTo(ballPositionCirclePosition) < PockeySettings.BALL_RADIUS + ball2.radius) {
-                                        isInteresectingWithOthers = true;
-                                        return;
-                                    }
-                                }
-                            });
-
-                            if (isInteresectingWithOthers) {
-                                ballPositionCirclePosition.x = this.lastGoodRepositionPoint.x;
-                                ballPositionCirclePosition.y = this.lastGoodRepositionPoint.y;
-                            }
-                            else {
-                                this.lastGoodRepositionPoint.x = ballPositionCirclePosition.x;
-                                this.lastGoodRepositionPoint.y = ballPositionCirclePosition.y;
-                            }
-                        }
-
-                        TweenMax.to(this.poolTable.ballPositionCircle, 0.1, {
-                            x: ballPositionCirclePosition.x,
-                            y: ballPositionCirclePosition.y
-                        });
-                        this.poolTable.ballPositionCircle.visible = true;
-
-
-                    });
-
-                    if (MouseHandler.Instance().left.pressed) {
-                        // SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
-                        this.repositionWhiteBallEnabled = false;
-                        this.poolTable.ballPositionCircle.visible = false;
-                        // this.poolTable.whiteBall.canBeRemoved = false;
-                        // this.poolTable.whiteBall.x = ballPositionCirclePosition.x;
-                        // P2WorldManager.Instance().world.addBody(this.poolTable.whiteBall.p2Body);
-                        // this.poolTable.whiteBall.p2Body.velocity[0] = 0;
-                        // this.poolTable.whiteBall.p2Body.velocity[1] = 0;
-                        // this.poolTable.whiteBall.addShadowBody();
-
-                        // this.poolTable.whiteBall.alpha = 1;
-                        this.poolTable.whiteBall.reset();
-                        this.poolTable.whiteBall.ballPosition = ballPositionCirclePosition;
-                        this.poolTable.balls.push(this.poolTable.whiteBall);
-                        this.poolTable.addChild(this.poolTable.whiteBall);
-                        this.repositionStick();
-                        // SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_REPOSITIONED);
-
-                        // this.poolTable.whiteBall.y = ballPositionCirclePosition.y;
-                        // this.ticker.add(this.poolTable.whiteBall.update);
-
-                    }
-
-                    return;
-                }
-                // else {
-                if (this.ballsAreMoving()) {
-                    // console.log("aici la 1");
-                    this.handleCollisions();
                 }
                 else {
-                    if (this.whiteBallInThePocket) {
-                        // console.log("aici la 2");
-
-                        SignalsManager.DispatchSignal(PockeySignalTypes.WHITE_BALL_IN_POCKET);
-                        this.whiteBallInThePocket = false;
-
-                        return;
-                    }
-
-
-                    if (this.poolTable.poolStick.rotationEnabled) {
-                        // console.log("aici la 4");;
-
-                        if (this.graph) {
-                            if (this.graph.parent)
-                                this.graph.parent.removeChild(this.graph);
-                            this.graph.clear();
-                            this.graph = null;
-
-                        }
-                        this.graph = new Graphics();
-
-                        let localPoint = this.poolTable.toLocal(new Point(MouseHandler.Instance().position.x, MouseHandler.Instance().position.y));
-
-                        let opposite: number = localPoint.y - this.poolTable.whiteBall.y;
-                        let adjacent: number = localPoint.x - this.poolTable.whiteBall.x;
-                        let rot: number = Math.atan2(opposite, adjacent);
-
-                        let dir: Vector2 = new Vector2(Math.cos(rot), Math.sin(rot)).multiply(1100);
-
-                        this.newPos = new Vector2(this.poolTable.whiteBall.x + dir.x, this.poolTable.whiteBall.y + dir.y);
-                        this.shortestContactDistance = this.newPos.distanceTo(this.poolTable.whiteBall.position);
-                        //===================
-                        this.startRayCastPoint[0] = this.poolTable.whiteBall.x;
-                        this.startRayCastPoint[1] = this.poolTable.whiteBall.y;
-                        this.endRayCastPoint[0] = this.newPos.x;
-                        this.endRayCastPoint[1] = this.newPos.y;
-                        // P2WorldManager.Instance().world.removeBody(this.poolTable.whiteBall.p2Body);
-
-                        p2.vec2.copy(this.rayClosest.from, this.startRayCastPoint);
-                        p2.vec2.copy(this.rayClosest.to, this.endRayCastPoint);
-                        // this.rayClosest.
-                        this.rayClosest.update();
-                        this.raycastResult.reset();
-                        P2WorldManager.Instance().world.raycast(this.raycastResult, this.rayClosest);
-                        this.drawRayResult(this.raycastResult, this.rayClosest);
-
-                    }
-
-                    if (this.ballWasShot && this.playerTurnStarted) {
-                        this.ballWasShot = false;
-                        this.playerTurnStarted = false;
-                        // if (this.playerTurnStarted)
-                        // {
-                        //     this.playerTurnStarted = false;
-                        SignalsManager.DispatchSignal(PockeySignalTypes.NEXT_TURN);
-                        //
-                        // }
-                    }
-                }*/
+                    // this.changeWhiteBallStatus();
+                    this.onResetStickPower();
+                }
 
                 // console.log("==============");
             }
-
-            // Entity Interpolation In General
-            // The principle is pretty simple. Server sends updates containing positions of all entities (other players). Client waits a few updates before moving the entity while interpolating between the individual updates.
-            //
-            // As an example, if server sends updates every 100 ms, client can wait until it receives 3rd update (i.e. 200 ms since the first) and then starts moving the entity, while interpolating between the states. Code for interpolation is very simple:
 
 
             protected applyTimeState(params: any): void {
@@ -2225,6 +1861,10 @@ namespace Pockey {
 
 
             protected ballsAreMoving(): boolean {
+                // if(this.poolTable.balls.length <= 0)
+                // {
+                //     return false;
+                // }
                 let areMoving: boolean = false;
                 _.forEach(this.poolTable.balls, (ball: AbstractBall, id: number) => {
                     if (ball.moving || ball.animationInProgress) {

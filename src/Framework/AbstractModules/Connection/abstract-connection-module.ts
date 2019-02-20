@@ -26,9 +26,8 @@ namespace Framework {
                 this.createLoginHandler();
             }
 
-            protected createLoginHandler():void
-            {
-                let loginHandler:LoginHandler = new LoginHandler();
+            protected createLoginHandler(): void {
+                let loginHandler: LoginHandler = new LoginHandler();
                 console.log("%c AbstractConnectionModule -> login handler", "color: white; background:green");
 
             }
@@ -48,14 +47,14 @@ namespace Framework {
                 super.registerSignalsHandlers();
                 if (!Settings.singlePlayer) {
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION, this.onCreateSearchForPartnerConnection.bind(this));
-                    SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_DISCONNECTED, this.onSocketIoDisconnected.bind(this));
+                    // SignalsManager.AddSignalCallback(ConnectionSignalsType.SOCKET_IO_DISCONNECTED, this.onSocketIoDisconnected.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.PRIVATE_MESSAGE, this.onPrivateMessage.bind(this));
                     SignalsManager.AddSignalCallback(ConnectionSignalsType.UPDATE_SOCKET_ID, this.onUpdateSocketID.bind(this));
+                    SignalsManager.AddSignalCallback(ConnectionSignalsType.DISCONNECT_MY_SOCKET, this.onDisconnectMySocket.bind(this));
                 }
             }
 
-            protected onCreateSearchForPartnerConnection():void
-            {
+            protected onCreateSearchForPartnerConnection(): void {
                 this.socketClient.initializeSearchingSocket();
             }
 
@@ -63,8 +62,8 @@ namespace Framework {
                 Settings.socketID = params[0];
             }
 
-            protected onSocketIoDisconnected(): void {
-
+            protected onDisconnectMySocket(): void {
+                this.socketClient.disconnect();
             }
 
             protected onPrivateMessage(params: any[]): void {
@@ -82,8 +81,8 @@ namespace Framework {
             protected onSocketInitiliazed(): void {
                 console.log("%c AbstractConnectionModule -> Socket Initiliazed", "color: white; background:green");
                 console.log("%c" + this.Name + " Elements Created!", "color: green");
-               this.ElementsCreated = true;
-               SignalsManager.DispatchSignal(SignalsType.MODULE_ELEMENTS_CREATED);
+                this.ElementsCreated = true;
+                SignalsManager.DispatchSignal(SignalsType.MODULE_ELEMENTS_CREATED);
             }
 
             protected getSocketIoClient(): SocketClient {

@@ -41,6 +41,7 @@ namespace Pockey {
             public static POCKEY_POOL_TABLE_RESIZED: string = "PockeySignalTypes." + "RESIZE_BACKGROUND";
             public static START_GAME: string = "PockeySignalTypes." + "START_GAME";
             public static SHOW_MAIN_MENU: string = "PockeySignalTypes." + "SHOW_MAIN_MENU";
+            public static MAIN_MENU_BUTTON_CLICKED: string = "PockeySignalTypes." + "MAIN_MENU_BUTTON_CLICKED";
             public static HIDE_MAIN_MENU: string = "PockeySignalTypes." + "HIDE_MAIN_MENU";
 
             public static SHOW_POOLTABLE: string = "PockeySignalTypes." + "SHOW_POOLTABLE";
@@ -51,27 +52,22 @@ namespace Pockey {
 
             public static SHOW_SEARCHING_SCREEN: string = "PockeySignalTypes." + "SHOW_SEARCHING_SCREEN";
             public static HIDE_SEARCHING_SCREEN: string = "PockeySignalTypes." + "HIDE_SEARCHING_SCREEN";
-
             public static SHOW_ROUND_COMPLETE_SCREEN: string = "PockeySignalTypes." + "SHOW_ROUND_COMPLETE_SCREEN";
             public static HIDE_ROUND_COMPLETE_SCREEN: string = "PockeySignalTypes." + "HIDE_ROUND_COMPLETE_SCREEN";
             public static SHOW_OPPONENT_FOUND_SCREEN: string = "PockeySignalTypes." + "SHOW_OPPONENT_FOUND_SCREEN";
             public static HIDE_OPPONENT_FOUND_SCREEN: string = "PockeySignalTypes." + "HIDE_OPPONENT_FOUND_SCREEN";
 
-            public static UPDATE_PLAYER_NAME: string = "PockeySignalTypes." + "UPDATE_PLAYER_NAME";
-            public static UPDATE_PLAYER_SCORE: string = "PockeySignalTypes." + "UPDATE_PLAYER_SCORE";
-            public static CHANGE_PLAYER_COLOR: string = "PockeySignalTypes." + "CHANGE_PLAYER_COLOR";
             public static CHANGE_POOLTABLE_DECAL: string = "PockeySignalTypes." + "CHANGE_POOLTABLE_DECAL";
+            public static UPDATE_UI_SCORE: string = "PockeySignalTypes." + "UPDATE_UI_SCORE";
             public static CHANGE_POOLTABLE_FELT: string = "PockeySignalTypes." + "CHANGE_POOLTABLE_FELT";
-
-            public static UPDATE_OPPONENT_NAME: string = "PockeySignalTypes." + "UPDATE_OPPONENT_NAME";
-            public static UPDATE_OPPONENT_SCORE: string = "PockeySignalTypes." + "UPDATE_OPPONENT_SCORE";
-            public static CHANGE_OPPONENT_COLOR: string = "PockeySignalTypes." + "CHANGE_OPPONENT_COLOR";
 
             public static SET_SIDES_TYPE: string = "PockeySignalTypes." + "SET_SIDES_TYPE";
 
             public static SEND_ELEMENTS_DATA_TO_MANAGER: string = "PockeySignalTypes." + "SEND_ELEMENTS_DATA_TO_MANAGER";
             public static UPDATE_WINNING_MESSAGE: string = "PockeySignalTypes." + "UPDATE_WINNING_MESSAGE";
-            public static RESTART_GAME: string = "PockeySignalTypes." + "RESTART_GAME";
+
+            public static RESTART_GAME_BUTTON_CLICKED: string = "PockeySignalTypes." + "RESTART_GAME_BUTTON_CLICKED";
+
             public static RESET_POOLTABLE: string = "PockeySignalTypes." + "RESET_POOLTABLE";
             public static RESET_STICK_POWER: string = "PockeySignalTypes." + "RESET_STICK_POWER";
             public static RESET_GAME_SCREEN: string = "PockeySignalTypes." + "RESET_GAME_SCREEN";
@@ -82,7 +78,7 @@ namespace Pockey {
             public static UPDATE_CURRENT_PLAYER_TIMER: string = "PockeySignalTypes." + "UPDATE_CURRENT_PLAYER_TIMER";
             public static UPDATE_MY_TIMER: string = "PockeySignalTypes." + "UPDATE_MY_TIMER";
 
-            public static UPDATE_PLAYER_STICK_SKIN: string = "PockeySignalTypes." + "UPDATE_PLAYER_STICK_SKIN";
+            public static UPDATE_STICK_SKIN: string = "PockeySignalTypes." + "UPDATE_STICK_SKIN";
             public static UPDATE_UI_TEXT: string = "PockeySignalTypes." + "UPDATE_UI_TEXT";
             public static UPDATE_UI_TEXT_ON_WATCH: string = "PockeySignalTypes." + "UPDATE_UI_TEXT_ON_WATCH";
             public static ANIMATE_PUCK_GOAL: string = "PockeySignalTypes." + "ANIMATE_PUCK_GOAL";
@@ -91,15 +87,24 @@ namespace Pockey {
             public static UPDATE_PLAYER_COLOR: string = "PockeySignalTypes." + "UPDATE_PLAYER_COLOR";
             public static CHECK_USER_DATA: string = "PockeySignalTypes." + "CHECK_USER_DATA";
             public static INVENTORY_ITEM_UPDATED: string = "PockeySignalTypes." + "INVENTORY_ITEM_UPDATED";
-            public static CHANGE_PLAYER_AVATAR: string = "PockeySignalTypes." + "CHANGE_PLAYER_AVATAR";
-            public static CHANGE_OPPONENT_AVATAR: string = "PockeySignalTypes." + "CHANGE_OPPONENT_AVATAR";
-            public static SET_TIMESTAMP_ON_WATCH: string = "PockeySignalTypes." + "SET_TIMESTAMP_ON_WATCH";
+            // public static SET_TIMESTAMP_ON_WATCH: string = "PockeySignalTypes." + "SET_TIMESTAMP_ON_WATCH";
             public static ON_WATCH_FINISHED: string = "PockeySignalTypes." + "ON_WATCH_FINISHED";
             public static CREATE_POOLTABLE_STATE: string = "PockeySignalTypes." + "CREATE_POOLTABLE_STATE";
             public static APPLY_POOLTABLE_STATE: string = "PockeySignalTypes." + "APPLY_POOLTABLE_STATE";
             public static UPDATE_CURRENT_ROUND_SCREEN_TEXT: string = "PockeySignalTypes." + "UPDATE_CURRENT_ROUND_SCREEN_TEXT";
             public static CHANGE_WHITE_BALL_STATUS: string = "PockeySignalTypes." + "CHANGE_WHITE_BALL_STATUS";
+            public static ASSIGN_PLAYER: string = "PockeySignalTypes." + "ASSIGN_PLAYER";
+            public static REMATCH_CONFIRM_BUTTON_CLICKED: string = "PockeySignalTypes." + "REMATCH_CONFIRM_BUTTON_CLICKED";
 
+            // public static UPDATE_OPPONENT_NAME: string = "PockeySignalTypes." + "UPDATE_OPPONENT_NAME";
+            // public static UPDATE_OPPONENT_SCORE: string = "PockeySignalTypes." + "UPDATE_OPPONENT_SCORE";
+            // public static CHANGE_OPPONENT_COLOR: string = "PockeySignalTypes." + "CHANGE_OPPONENT_COLOR";
+            // public static CHANGE_PLAYER_COLOR: string = "PockeySignalTypes." + "CHANGE_PLAYER_COLOR";
+            // public static UPDATE_PLAYER_NAME: string = "PockeySignalTypes." + "UPDATE_PLAYER_NAME";
+
+            // public static CHANGE_PLAYER_AVATAR: string = "PockeySignalTypes." + "CHANGE_PLAYER_AVATAR";
+            // public static CHANGE_OPPONENT_AVATAR: string = "PockeySignalTypes." + "CHANGE_OPPONENT_AVATAR";
+            // public static SHOW_MATCH_COMPLETE_SCREEN: string = "PockeySignalTypes." + "SHOW_MATCH_COMPLETE_SCREEN";
             // public static UPDATE_PLAYERS_NAMES: string = "PockeySignalTypes." + "UPDATE_PLAYERS_NAMES";
 
             // static UPDATE_PLAYERS_NAMES: string;

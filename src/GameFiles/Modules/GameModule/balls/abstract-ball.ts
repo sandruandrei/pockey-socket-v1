@@ -127,6 +127,7 @@ namespace Pockey {
                 this.addTexture();
 
                 this.addP2Body();
+                this.p2Body.world.frictionGravity = 0;
 
                 this.onWatchTimeline = new TimelineMax({
                     smoothChildTiming: true,
@@ -149,7 +150,7 @@ namespace Pockey {
                 this.p2Body.angularForce = 0;
                 this.p2Body.angularVelocity = 0;
 
-                this.p2Body.damping = 0.2;
+                this.p2Body.damping = 0.18;
                 this.p2Body.boundingRadius = this.radius;
                 this.p2Body.allowSleep = true;
                 this.p2Body.sleepSpeedLimit = 2; // Body will feel sleepy if speed<1 (speed is the norm of velocity)
@@ -310,8 +311,8 @@ namespace Pockey {
                 // console.log("new x: " + this.lerp(this.x, ballState.x, time));
                 // console.log("normal x: " + this.x);
                 // console.log("ball state x: " + ballState.x);
-                this.x = this.lerp(this.x, ballState.x / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
-                this.y = this.lerp(this.y, ballState.y / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                this.x = this.lerp(this.x, ballState.x / 10000, 0.9);//1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                this.y = this.lerp(this.y, ballState.y / 10000, 0.9);//1 - 0.25 * PIXI.ticker.shared.deltaTime);
 
                 this.ballPosition = new Vector2(this.x, this.y);
                 // this.onWatchTimeline.to(this, time, {
@@ -321,9 +322,21 @@ namespace Pockey {
 
                 if(ballState.canBeRemoved)
                 {
+                    // console.log("salam la apply game state canberemoved abstract ball: " + this.name);
+                    // console.log("%c salam apply gamestate removable abstract ball: " + this.name, "color: #0000ff");
+
                     this.canBeRemoved = ballState.canBeRemoved;
                     P2WorldManager.Instance().world.removeBody(this.p2Body);
                     P2WorldManager.Instance().world.removeBody(this.p2BodyShadow);
+                }
+                else
+                {
+                    if(this.ballType == BallType.White)
+                    {
+                        this.sphere.visibilily = 1;
+                        this.sphere.setEnabled(true);
+                    }
+
                 }
                /* if(this.ballType == BallType.White)
                                 {
@@ -703,6 +716,9 @@ namespace Pockey {
                 // this.ballShadow.scale.x = 1;
                 // this.ballShadow.scale.y = 1;
 
+                // this.ballShadow.scale.x = 1;
+                // this.ballShadow.scale.y = 1;
+
                 this.ballShadow.x = this.x;
                 this.ballShadow.y = this.y;
 
@@ -761,11 +777,15 @@ namespace Pockey {
                     this.sphere.setEnabled(true);
                 }
 
-                this.ballShadow.scale.x = 1;
-                this.ballShadow.scale.y = 1;
+                this.ballShadow.scale.x = 0.9;
+                this.ballShadow.scale.y = 0.9;
 
                 // this.zIndexSwitched = false;
+
                 this.canBeRemoved = false;
+                // console.log("salam la reset abstract ball: " + this.name);
+                // console.log("%c salam la reset abstract ball: " + this.name, "color: #00ff00");
+
                 this.animationInProgress = false;
                 this.p2Body.velocity[0] = 0;
                 this.p2Body.velocity[1] = 0;
@@ -778,8 +798,11 @@ namespace Pockey {
 
             public createBallShadow() {
                 this.ballShadow = new Graphics();
-                this.ballShadow.beginFill(0x000000, 0.5);
-                this.ballShadow.drawCircle(this.radius / 4, this.radius / 4, this.radius);
+                this.ballShadow.name = this.name + "_ballShadow";
+                this.ballShadow.beginFill(0x000000, 0.68);
+                this.ballShadow.drawCircle(this.radius / 3, this.radius / 3, this.radius);
+                this.ballShadow.scale.x = 0.9;
+                this.ballShadow.scale.y = 0.9;
             }
 
             /*public getBallData(): BallData {

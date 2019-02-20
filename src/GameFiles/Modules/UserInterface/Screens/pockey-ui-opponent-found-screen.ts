@@ -22,21 +22,39 @@ namespace Pockey {
 
             constructor() {
                 super();
+            }
+
+
+            protected assignDivs(): void {
+                super.assignDivs();
 
                 this.div = document.getElementById("PlayerFoundScreen") as HTMLDivElement;
                 this.avatarDiv = document.getElementById("OpponentAvatarImage") as HTMLDivElement;
                 this.nameDiv = document.getElementById("PlayerFoundName") as HTMLDivElement;
                 this.roundBeginsText = document.getElementById("RoundOneStartsText") as HTMLDivElement;
+                this.titleDiv = document.getElementById("PlayerFoundTitle") as HTMLDivElement;
             }
 
-            // public show(): void {
+            public show(params: RoundCompleteType): void {
+                super.show(params);
+
+                if(params == RoundCompleteType.rematch)
+                {
+                    this.titleDiv.innerText = "rematch";
+                }
+                else
+                {
+                    this.titleDiv.innerText = "opponent found";
+                }
+            }
+
+// public show(): void {
             //     this.div.style.display = "flex";
             // }
             //
             // public hide(): void {
             //     this.div.style.display = "none";
             // }
-
 
             public hide(): void {
                 super.hide();

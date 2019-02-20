@@ -2,6 +2,7 @@
 ///<reference path="./DesignElements/pockey-ui-versus-graphics.ts"/>
 ///<reference path="../../../StateMachine/pockey-state-texts.ts"/>
 ///<reference path="../../../../../Framework/Settings.ts"/>
+///<reference path="../../../GameModule/player.ts"/>
 
 namespace Pockey {
     export module UserInterface {
@@ -10,26 +11,32 @@ namespace Pockey {
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import Settings = Framework.Settings;
+        import Player = Pockey.GameModule.Player;
+
+        export interface PlayerGraphicsInterface {
+            player ?: Player,
+            graphics ?: PockeyUserGameGraphics,
+            versusGraphics ?: any
+        }
 
         export class PockeyUiGameScreen {
 
             private leftGameGraphics: PockeyUserGameGraphics;
             private rightGameGraphics: PockeyUserGameGraphics;
-            private playerGameGraphics: PockeyUserGameGraphics;
-            private opponentGameGraphics: PockeyUserGameGraphics;
+            // private playerGameGraphics: PockeyUserGameGraphics;
+            // private opponentGameGraphics: PockeyUserGameGraphics;
 
-            private versus: PockeyUiVersusGraphics;
 
             // private multilineText: MultiStyleText;
             private tipText: HTMLDivElement;
 
             // private graphicsContainer: Container;
-            private tipTextWidth: number = 934;
+            // private tipTextWidth: number = 934;
 
             private poolTableScaleFactor: number = 1;
 
 
-            private textFontSize: number;
+            // private textFontSize: number;
 
 
             private scoreBoard: HTMLDivElement;
@@ -38,6 +45,8 @@ namespace Pockey {
 
             private currentText: string = "";
 
+            private playerGraphicsInterface: PlayerGraphicsInterface;
+            private opponentGraphicsInterface: PlayerGraphicsInterface;
 
             constructor() {
                 // super();
@@ -53,8 +62,26 @@ namespace Pockey {
                 this.defineTextStyles();
                 this.addElements();
 
+                this.playerGraphicsInterface = {};
+                this.opponentGraphicsInterface = {};
+                // this.definePlayersInterface();
+                // this.playerGraphicsInterface.player =
                 // this.playerGameGraphics = new PockeyUserGameGraphics("left");
                 // this.opponentGameGraphics = new PockeyUserGameGraphics("right");
+            }
+
+            private onDefinePlayerInterface(params: Player[]): void {
+                console.log("aicisha e playerul");
+                if (params[0].type == BallType.Player) {
+                    this.playerGraphicsInterface.player = params[0];
+                    // this.opponentGraphicsInterface.player = params[1];
+                    console.log("playerGraphicsInterface: " + this.playerGraphicsInterface);
+                }
+                else {
+                    this.opponentGraphicsInterface.player = params[0];
+                    // this.playerGraphicsInterface.player = params[1];
+                    console.log("opponentGraphicsInterface: " + this.opponentGraphicsInterface);
+                }
             }
 
             private hideScoreBoard(): void {
@@ -65,64 +92,76 @@ namespace Pockey {
             }
 
             public show(): void {
+                console.log("player: " + this.playerGraphicsInterface.player);
+                console.log("opponent: " + this.opponentGraphicsInterface.player);
                 this.scoreBoard.style.display = "flex";
             }
 
             public hide(): void {
+                this.tipText.innerText = "";
                 this.scoreBoard.style.display = "none";
             }
 
             private subscribeToSignals(): void {
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onPoolTableResize.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.ASSIGN_PLAYER, this.onDefinePlayerInterface.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.SET_SIDES_TYPE, this.onSetSides.bind(this));
-
-
-                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_SCORE, this.onUpdatePlayerScore.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_AVATAR, this.onChangePlayerAvatar.bind(this));
-
-                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_SCORE, this.onUpdateOpponentScore.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, this.onChangeOpponentAvatar.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_GAME_SCREEN, this.onReset.bind(this));
+
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_UI_SCORE, this.onUpdateScore.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_SCORE, this.onUpdateOpponentScore.bind(this));
+
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_CURRENT_PLAYER_TIMER, this.onUpdateCurrentPlayerTimer.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_UI_TEXT, this.onUpdateUIText.bind(this));
 
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_MATCH_CIRCLES, this.onUpdateMatchCircles.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onResizeBackground.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
 
+
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onPoolTableResize.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_AVATAR, this.onChangePlayerAvatar.bind(this));
+
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_SCORE, this.onUpdateOpponentScore.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_AVATAR, this.onChangeOpponentAvatar.bind(this));
 
                 // SignalsManager.DispatchSignal(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, [backgroundScaleFactor, newPos, this.levelManager.poolTable.rotation]);
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_SCORE, this.onUpdateOpponentScore.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onResizeBackground.bind(this));
-                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_UI_TEXT, this.onUpdateUIText.bind(this));
+
+
             }
 
-            private onUpdateMatchCircles(params: any[]) {
-                let leftSideColor: number;
-                let rightSideColor: number;
+            private onUpdateMatchCircles() {
 
-                if (this.leftGameGraphics.type == BallType.Player) {
-                    leftSideColor = +PockeySettings.PLAYER_COLOR_ID;
-                    rightSideColor = PockeySettings.OPPONENT_COLOR;
-                }
-                else {
-                    leftSideColor = PockeySettings.OPPONENT_COLOR;
-                    rightSideColor = +PockeySettings.PLAYER_COLOR_ID;
-                }
+                this.playerGraphicsInterface.graphics.updateMatchCircles(this.playerGraphicsInterface.player.roundsWon);
+                this.opponentGraphicsInterface.graphics.updateMatchCircles(this.opponentGraphicsInterface.player.roundsWon);
 
-                let leftSideMatchesWon: number = params[0];
-                let rightSideMatchesWon: number = params[1];
-
-                _.forEach(_.range(leftSideMatchesWon), (i: number) => {
-                    this.versus.leftSideMatchCircles[i].activate(leftSideColor);
-                });
-
-                _.forEach(_.range(rightSideMatchesWon), (i: number) => {
-                    this.versus.rightSideMatchCircles[i].activate(rightSideColor);
-                });
+                // let leftSideColor: number;
+                // let rightSideColor: number;
+                //
+                // if (this.leftGameGraphics.type == BallType.Player) {
+                //     leftSideColor = +PockeySettings.PLAYER_COLOR_ID;
+                //     rightSideColor = PockeySettings.OPPONENT_COLOR;
+                // }
+                // else {
+                //     leftSideColor = PockeySettings.OPPONENT_COLOR;
+                //     rightSideColor = +PockeySettings.PLAYER_COLOR_ID;
+                // }
+                //
+                // let leftSideMatchesWon: number = params[0];
+                // let rightSideMatchesWon: number = params[1];
+                //
+                // console.log("intra la update circle");
+                // _.forEach(_.range(leftSideMatchesWon), (i: number) => {
+                //     // this.versus.leftSideMatchCircles[i].activate(leftSideColor);
+                // });
+                //
+                // _.forEach(_.range(rightSideMatchesWon), (i: number) => {
+                //     // this.versus.rightSideMatchCircles[i].activate(rightSideColor);
+                // });
             }
 
             private onUpdateUIText(params: any[]) {
@@ -191,7 +230,7 @@ namespace Pockey {
                     return;
                 }
 
-                console.log("intra aicisha");
+                // console.log("intra aicisha");
 
                 this.tipText.innerText = text;
                 // if(multistyleUsed)
@@ -248,17 +287,20 @@ namespace Pockey {
                 let playerType: BallType = params[1];
                 let animateText: boolean = params[2];
 
-                if (this.leftGameGraphics.type == playerType) {
-                    this.leftGameGraphics.updateTimer(time);
+                if (this.playerGraphicsInterface.player.type == playerType) {
+                    this.playerGraphicsInterface.graphics.updateTimer(time);
+                    this.opponentGraphicsInterface.graphics.resetTimer();
                     // this.leftGameGraphics.setTimerColor(tintColor);
                     if (animateText)
-                        this.leftGameGraphics.animateTimer();// = this.leftGameGraphics;
+                        this.playerGraphicsInterface.graphics.animateTimer();// = this.leftGameGraphics;
                     // this.opponentGameGraphics = this.rightGameGraphics;
                 }
                 else {
-                    this.rightGameGraphics.updateTimer(time);
+                    this.opponentGraphicsInterface.graphics.updateTimer(time);
+                    this.playerGraphicsInterface.graphics.resetTimer();
+
                     if (animateText)
-                        this.rightGameGraphics.animateTimer();
+                        this.opponentGraphicsInterface.graphics.animateTimer();
                     // this.playerGameGraphics = this.rightGameGraphics;
                     // this.opponentGameGraphics = this.leftGameGraphics;
                 }
@@ -279,79 +321,83 @@ namespace Pockey {
             }
 
             private onSetSides(params: any) {
-                // let leftSide:BallType = params[0] as BallType;
-                this.leftGameGraphics.type = params[0] as BallType;
-                this.rightGameGraphics.type = params[1] as BallType;
-                if (this.leftGameGraphics.type == BallType.Player) {
-                    this.playerGameGraphics = this.leftGameGraphics;
-                    this.opponentGameGraphics = this.rightGameGraphics;
+
+                // this.leftGameGraphics.updateScore(PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER);
+                // this.rightGameGraphics.updateScore(PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER);
+
+                if (this.playerGraphicsInterface.player.side == 'left') {
+                    this.playerGraphicsInterface.graphics = this.leftGameGraphics;
+                    this.opponentGraphicsInterface.graphics = this.rightGameGraphics;
                 }
                 else {
-                    this.playerGameGraphics = this.rightGameGraphics;
-                    this.opponentGameGraphics = this.leftGameGraphics;
+                    this.playerGraphicsInterface.graphics = this.rightGameGraphics;
+                    this.opponentGraphicsInterface.graphics = this.leftGameGraphics;
                 }
+
+                this.playerGraphicsInterface.graphics.updateUsername(this.playerGraphicsInterface.player.nickname);
+                this.playerGraphicsInterface.graphics.tint(this.playerGraphicsInterface.player.color);
+                this.playerGraphicsInterface.graphics.updateScore(this.playerGraphicsInterface.player.score);
+                this.playerGraphicsInterface.graphics.updateAvatar(this.playerGraphicsInterface.player.avatarID);
+
+                console.log("intra la set sides");
+
+                this.opponentGraphicsInterface.graphics.updateUsername(this.opponentGraphicsInterface.player.nickname);
+                this.opponentGraphicsInterface.graphics.tint(this.opponentGraphicsInterface.player.color);
+                this.opponentGraphicsInterface.graphics.updateScore(this.opponentGraphicsInterface.player.score);
+                this.opponentGraphicsInterface.graphics.updateAvatar(this.opponentGraphicsInterface.player.avatarID);
+
+                this.onUpdateMatchCircles();
+                // this.opponentGraphicsInterface.graphics.updateScore(this.opponentGraphicsInterface.player.score);
+
+                // this.onUpdatePlayerName(this.playerGraphicsInterface.player.nickname);
+                // this.onUpdateOpponentName(this.opponentGraphicsInterface.player.nickname);
+                // let leftSide:BallType = params[0] as BallType;
+                // this.leftGameGraphics.type = params[0] as BallType;
+                // this.rightGameGraphics.type = params[1] as BallType;
+                // if (this.leftGameGraphics.type == BallType.Player) {
+                //     this.playerGameGraphics = this.leftGameGraphics;
+                //     this.opponentGameGraphics = this.rightGameGraphics;
+                // }
+                // else {
+                //     this.playerGameGraphics = this.rightGameGraphics;
+                //     this.opponentGameGraphics = this.leftGameGraphics;
+                // }
             }
 
-            private onUpdatePlayerScore(score: number) {
-                if (this.playerGameGraphics)
-                    this.playerGameGraphics.updateScore(score);
+            private onUpdateScore() {
+                // if (this.playerGameGraphics)
+                this.playerGraphicsInterface.graphics.updateScore(this.playerGraphicsInterface.player.score);
+                this.opponentGraphicsInterface.graphics.updateScore(this.opponentGraphicsInterface.player.score);
             }
 
-            public onUpdatePlayerName(name: string): void {
-                if (this.playerGameGraphics)
-                    this.playerGameGraphics.updateUsername(name);
-            }
-
-            public onChangePlayerColor(color: number): void {
-                if (this.playerGameGraphics)
-                    this.playerGameGraphics.tint(+color);
-            }
-
-            public onChangePlayerAvatar(avatarPath: string): void {
-                if (this.playerGameGraphics)
-                    this.playerGameGraphics.updateAvatar(avatarPath);
-            }
+            // public onUpdatePlayerName(name: string): void {
+            //     this.playerGraphicsInterface.graphics.updateUsername(name);
+            // }
+            //
+            // public onChangePlayerColor(color: number): void {
+            //     this.playerGraphicsInterface.graphics.tint(+color);
+            // }
+            //
+            // public onChangePlayerAvatar(avatarID: string): void {
+            //     this.playerGraphicsInterface.graphics.updateAvatar(avatarID);
+            // }
 
             private onUpdateOpponentScore(score: number) {
-                if (this.opponentGameGraphics)
-                    this.opponentGameGraphics.updateScore(score);
+                this.opponentGraphicsInterface.graphics.updateScore(score);
             }
 
-            public onUpdateOpponentName(name: string): void {
-                if (this.opponentGameGraphics)
-                    this.opponentGameGraphics.updateUsername(name);
-            }
-
-            public onChangeOpponentColor(color: number): void {
-                if (this.opponentGameGraphics) {
-                    this.opponentGameGraphics.tint(color);
-
-                    // this.opponentTextStyle.fill = color;
-                }
-                // this.opponentTextStyle = new TextStyle({
-                //     fontFamily: 'troika',
-                //     fontSize: this.textFontSize,
-                //     fill: color,
-                //     dropShadow: true,
-                //     dropShadowColor: '#000000',
-                //     dropShadowBlur: 1,
-                //     dropShadowAngle: Math.PI / 3,
-                //     dropShadowDistance: 8
-                // });
-                // this.multilineText.styles =
-                //     {
-                //         "default": this.defaultTextStyle,
-                //         "warning": this.warningTextStyle,
-                //         "opponent": this.opponentTextStyle
-                //     };
-            }
-
-            public onChangeOpponentAvatar(avatarPath: string): void {
-
-
-                if (this.opponentGameGraphics)
-                    this.opponentGameGraphics.updateAvatar(avatarPath);
-            }
+            // public onUpdateOpponentName(name: string): void {
+            //     this.opponentGraphicsInterface.graphics.updateUsername(name);
+            // }
+            //
+            // public onChangeOpponentColor(color: number): void {
+            //     this.opponentGraphicsInterface.graphics.tint(color);
+            //
+            // }
+            //
+            // public onChangeOpponentAvatar(avatarPath: string): void {
+            //     this.opponentGraphicsInterface.graphics.updateAvatar(avatarPath);
+            // }
 
 
             // public onChangeColors(COLORS: number[]): void {
@@ -385,9 +431,9 @@ namespace Pockey {
                 let newHeight: number = (0.11 * Settings.stageHeight);
                 let scaleFactor: number = newHeight / this.initialBoardHeight;
                 let scaleString: string = "translate(-50%, -50%) scale(" + scaleFactor.toString() + ")";
-                console.log("intra la desktop landscape");
-                console.log(scaleString);
-                console.log("------------");
+//                 console.log("intra la desktop landscape");
+//                 console.log(scaleString);
+//                 console.log("------------");
 
                 this.scoreBoard.style.transform = scaleString;
             }
@@ -406,7 +452,7 @@ namespace Pockey {
                 // this.usersUIHolder = new Container();
                 // this.graphicsContainer = new Container();
                 // this.addChild(this.graphicsContainer);
-                this.addVersusGraphics();
+                // this.addVersusGraphics();
                 this.addLeftGameGraphics();
                 this.addRightGameGraphics();
 
@@ -464,11 +510,6 @@ namespace Pockey {
                 // this.tipTextContainer.addChild(this.tipText);
             }
 
-            private addVersusGraphics() {
-                this.versus = new PockeyUiVersusGraphics();
-                // this.versus.x -= this.versus.width / 2;
-                // this.graphicsContainer.addChild(this.versus);
-            }
 
             private addLeftGameGraphics() {
                 this.leftGameGraphics = new PockeyUserGameGraphics("left", document.getElementById("PlayerScoreBoardLeft") as HTMLDivElement);

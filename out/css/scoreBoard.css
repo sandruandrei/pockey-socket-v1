@@ -110,7 +110,7 @@ box-shadow: 2px 2px #373737;
 #ScoreBoardLivesRight {
 }
 
-#ScoreBoardVersusDiv {width: 26%;height: 100%;/* background: #8BC34A; */float: left;display: flex;justify-content: space-between;background: "vs.png";background: url(../Assets/Desktop/Images/ui_versus-main.png);background-size: 100%;background-position: center;/* width: 97%; *//* height: 96%; */background-repeat: no-repeat;}
+#ScoreBoardVersusDiv {width: 23%;height: 100%;/* background: #8BC34A; */float: left;display: flex;justify-content: space-between;background: "vs.png";background: url(../Assets/Desktop/Images/ui_versus-main.png);background-size: 100%;background-position: center;/* width: 97%; *//* height: 96%; */background-repeat: no-repeat;}
 
 .scoreBoardPlayerRounds {width: 34%;height: 90%;margin-top: 4.5%;/* background: aliceblue; */display: flex;align-items: center;justify-content: space-evenly;/* border: #ffffff solid 3px; */}
 

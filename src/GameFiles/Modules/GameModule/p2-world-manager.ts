@@ -42,11 +42,6 @@ namespace Pockey {
             public world: p2.World;
             public frameStep: number = 1 / 60;
 
-            private ballToBallCollisionMaterial: p2.ContactMaterial;
-            private ballToPuckOnlyLineCollisionMaterial: p2.ContactMaterial;
-            private puckToBallOnlyLineCollisionMaterial: p2.ContactMaterial;
-
-
             constructor() {
                 this.name = "P2WorldManager";
                 this.materials = {};
@@ -59,11 +54,10 @@ namespace Pockey {
                     if (!P2WorldManager.Instance().initialized) {
                         P2WorldManager.Instance().world = new p2.World({
                             gravity: [0, 0],
-
                         });
 
                         P2WorldManager.Instance().world.stepping = true;
-                        P2WorldManager.Instance().world.frictionGravity = 0.6;
+
                         // P2WorldManager.Instance().world.stepping = true;
                         // P2WorldManager.Instance().world.frictionGravity = 0;
                         // P2WorldManager.Instance().world.useFrictionGravityOnZeroGravity = false;

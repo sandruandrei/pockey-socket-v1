@@ -11,9 +11,11 @@ namespace Framework {
             public static letsConnect: string = "FrameworkSocketEvents" + "letsConnect";
             public static joinRoom: string = "FrameworkSocketEvents" + "joinRoom";
             public static joinedRoom: string = "FrameworkSocketEvents" + "joinedRoom";
+            public static leftRoom: string = "FrameworkSocketEvents" + "leftRoom";
             public static privateMessage: string = "FrameworkSocketEvents" + "privateMessage";
             public static getUserFromDatabase: string = "FrameworkSocketEvents" + "getUserFromDatabase";
             public static updateUserData: string = "FrameworkSocketEvents" + "updateUserData";
+            public static disconnectMySocket: string = "FrameworkSocketEvents" + "disconnectMySocket";
             // public static partnerFoundChannel: string = "partnerFoundChannel";
         }
 
@@ -125,24 +127,24 @@ export module PockeyServer {
                 connectCounter++;
                 console.log('a user connected. users connected: ' + connectCounter);
                 //todo aici trebuie sa te ocupi de disconnect dar si pe celalalte socketuri
-                socket.on('disconnect', function () {
-                    // console.log('user disconnected');
-                    connectCounter--;
-                    console.log('a user left. users connected: ' + connectCounter);
-                });
+
                 socket.on(FrameworkSocketEvents.getUserFromDatabase, (username) => {
                     console.log('someone wants some db in');
                     if (this.databaseConnected) {
-                        this.checkForUserID(username);
+                        this.checkForUserID(socket, username);
                     }
                 });
                 socket.on(FrameworkSocketEvents.updateUserData, (data) => {
                     if (this.databaseConnected) {
-                        this.updateUserDb(data);
+                        this.updateUserDb(socket, data);
                     }
                 });
             });
-
+            this.socketIo.on('disconnect', function () {
+                // console.log('user disconnected');
+                connectCounter--;
+                console.log('a user left. users connected: ' + connectCounter);
+            });
             // this.socketIo.on('disconnect', (socket) => {
             //
             // });
@@ -156,6 +158,14 @@ export module PockeyServer {
                     // socket.emit(FrameworkSocketEvents.letsConnect, msg, id, partnerID);
                     // console.log("partnerNamespaceID, socket: " +partnerNamespaceID, socket);
                 });
+
+                // socket.on('disconnect', () => {
+                //     socket.disconnect();
+                //     // socket.broadcast.emit(Framewor
+                //     // kSocketEvents.letsConnect, msg, id, partnerID);
+                //     // socket.emit(FrameworkSocketEvents.letsConnect, msg, id, partnerID);
+                //     // console.log("partnerNamespaceID, socket: " +partnerNamespaceID, socket);
+                // });
                 // socket.emit(FrameworkSocketEvents.)
             });
 
@@ -170,6 +180,16 @@ export module PockeyServer {
                     socket.emit(FrameworkSocketEvents.joinedRoom, room);
 
                     console.log("on join room. room nickname: " + room);
+
+                    socket.on('disconnect', function () {
+                        // connectCounter--;
+                        // console.log('a user left. users connected: ' + connectCounter);
+
+                        console.log("a iesit de pe canalul pacii: " + socket.id);
+
+                        socket.to(room).emit(FrameworkSocketEvents.leftRoom, socket.id);
+                        socket.disconnect();
+                    });
                 });
 
                 // socket.on(FrameworkSocketEvents.joinRoom, (room, id) => {
@@ -181,12 +201,50 @@ export module PockeyServer {
                 // });
 
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {
+                    if(messageType == FrameworkSocketMessages.HELLO)
+                        console.log("se face helloul");
                     /*socket.join(room);
                     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
                     socket.broadcast.to(room).emit(FrameworkSocketEvents.privateMessage, messageType, messageData);
                     // console.log("private message sent: " + messageType, messageData);
+                });
+
+                socket.on(FrameworkSocketEvents.disconnectMySocket, (room) => {
+                    /*socket.join(room);
+                    // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
+                    console.log("cineva intra in main menu: " + playingNamespace);
+                    // socket.on('disconnect', function() {
+                    /*socket.to(room).emit(FrameworkSocketEvents.leftRoom, socket.id);
+
+                    let users = playingNamespace.clients(room);
+
+                    for(let i = 0; i < users.length; i++) {
+                        playingNamespace.sockets.socket(users[i]).leave(room);
+                    }*/
+
+                    // let clients = io.of('/chat').clients('room');
+
+                    // socket.rooms.forEach((room) => {
+                    //     playingNamespace.in(room).leave(room);
+                    // });
+
+                    // });
+
+                    // socket.leave(room);
+                    // console.log("private message sent: " + messageType, messageData);
 
                 });
+
+                // socket.on('room-leave', (room) => {
+                //     /*socket.join(room);
+                //     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
+                //     console.log("m-o scos opponentu fmm");
+                //     socket.leave(room);
+                //     // console.log("private message sent: " + messageType, messageData);
+                //
+                // });
+
+
                 // socket.emit(FrameworkSocketEvents.)
             });
             //-------------------------------------------------
@@ -249,15 +307,16 @@ export module PockeyServer {
 
         }
 
-        private updateUserDb(data): void {
+        private updateUserDb(socket, data): void {
             let sqlText: string = "UPDATE pockey_table SET " + data["column"] + "='" + data["value"] + "' WHERE user_id='" + data["userID"] + "'";
             console.log("sqlText: " + sqlText);
 
             (async () => {
-                const client = await this.databasePool.connect()
+                const client = await this.databasePool.connect();
                 try {
                     const res = await client.query(sqlText);
-                    this.socketIo.emit(FrameworkSocketEvents.updateUserData);
+                    // console.log("acum se face");
+                    socket.emit(FrameworkSocketEvents.updateUserData);
                     // console.log(res.rows[0]);
 
 
@@ -282,8 +341,7 @@ export module PockeyServer {
                 })*!/*/
         }
 
-
-        private checkForUserID(username): void {
+        private checkForUserID(socket, username): void {
             console.log("checking db for user_id: " + username);
             const query = {
                 // give the query a unique nickname
@@ -297,10 +355,10 @@ export module PockeyServer {
                     console.log("user retrieved: " + res.rows[0]);
 
                     if (res.rows[0] == undefined || res.rows[0] == "undefined" || res.rows[0] == null) {
-                        this.createNewUser(username);
+                        this.createNewUser(socket, username);
                     }
                     else {
-                        this.socketIo.emit(FrameworkSocketEvents.getUserFromDatabase, res.rows[0]);
+                        socket.emit(FrameworkSocketEvents.getUserFromDatabase, res.rows[0]);
                     }
                     // console.log(res.rows[0]); // ['Brian', 'Carlson']
 
@@ -313,7 +371,7 @@ export module PockeyServer {
                 })
         }
 
-        private createNewUser(username): void {
+        private createNewUser(socket, username): void {
             console.log("creating new user: " + username);
             const createNewUserQuery =
                 {
@@ -326,7 +384,7 @@ export module PockeyServer {
                 .then(res => {
                     /* console.log("new user created. user saved into db");
                      this.socketIo.emit(FrameworkSocketEvents.getUserFromDatabase, res.rows[0]);*/
-                    this.checkForUserID(username);
+                    this.checkForUserID(socket, username);
                 })
                 .catch(e => {
                     console.error(e.stack)

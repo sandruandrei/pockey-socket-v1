@@ -449,18 +449,17 @@ namespace Framework {
             SignalsManager.CreateNewSignal(SignalsType.MODULE_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.ALL_MODULES_ELEMENTS_CREATED);
             SignalsManager.CreateNewSignal(SignalsType.WINDOW_RESIZE);
-            SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
             SignalsManager.CreateNewSignal(SignalsType.CREATE_SOUND_CACHE);
             SignalsManager.CreateNewSignal(SignalsType.PLAY_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.STOP_SOUND);
             SignalsManager.CreateNewSignal(SignalsType.CHANGE_BACKGROUND);
-            /*SignalsManager.CreateNewSignal(SignalsType.REGISTER_MAIN_BACKGROUND);
-            SignalsManager.CreateNewSignal(SignalsType.REGISTER_CUSTOM_BACKGROUND);*/
             SignalsManager.CreateNewSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_CONNECTION_CREATED);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.SOCKET_IO_DISCONNECTED);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.PRIVATE_MESSAGE);
             SignalsManager.CreateNewSignal(ConnectionSignalsType.UPDATE_SOCKET_ID);
+            SignalsManager.CreateNewSignal(ConnectionSignalsType.OPPONENT_DISCONNECTED);
+            SignalsManager.CreateNewSignal(ConnectionSignalsType.DISCONNECT_MY_SOCKET);
 
             SignalsManager.AddSignalCallback(SignalsType.USER_DATA_CHECKED, this.userDataChecked.bind(this));
         }

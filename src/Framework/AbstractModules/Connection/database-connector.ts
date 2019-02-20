@@ -14,7 +14,7 @@
 
 namespace Framework {
     export module Connection {
-        import PockeySettings = Pockey.PockeySettings;
+
 
         export interface DatabaseObject {
             userID: string,

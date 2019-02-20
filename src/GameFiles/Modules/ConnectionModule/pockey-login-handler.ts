@@ -53,14 +53,18 @@ namespace Pockey {
                 }
                 if (PockeySettings.PLAYER_DECAL_ID != PockeySettings.SMALL_DECALS_ARRAY[0].id) {
                     PockeySettings.PLAYER_DECAL_ID = PockeySettings.SMALL_DECALS_ARRAY[0].id;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, [PockeySettings.PLAYER_DECAL_ID]);
+                    console.log("de aici se trimite salam decal");
                     dataChanged = true;
                 }
                 if (PockeySettings.PLAYER_CUE_ID != PockeySettings.SMALL_CUES_ARRAY[0].id) {
                     PockeySettings.PLAYER_CUE_ID = PockeySettings.SMALL_CUES_ARRAY[0].id;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_STICK_SKIN, [PockeySettings.PLAYER_CUE_ID]);
                     dataChanged = true;
                 }
                 if (PockeySettings.POOLTABLE_FELT_ID != PockeySettings.SMALL_MISC_ARRAY[0].id) {
                     PockeySettings.POOLTABLE_FELT_ID = PockeySettings.SMALL_MISC_ARRAY[0].id;
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT, [PockeySettings.POOLTABLE_FELT_ID]);
                     dataChanged = true;
                 }
                 if (PockeySettings.PLAYER_LEVEL != 1) {
@@ -85,7 +89,6 @@ namespace Pockey {
             protected onCheckUserData(): void {
                 console.log("on POCKEY LOGIN HANDLER: onCheckUserData");
                 // PockeySettings.PLAYER_CUE_ID = PockeySettings.SMALL_CUES_ARRAY[0].id;
-
                 let pockeyID: string = readCookie('PockeyID');
                 console.log("intra la get cookie");
 
@@ -153,9 +156,18 @@ namespace Pockey {
 
                 if (!_.isUndefined(usernameData["decal"]) && !_.isNull(usernameData["decal"])) {
                     PockeySettings.PLAYER_DECAL_ID = usernameData["decal"];
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, [PockeySettings.PLAYER_DECAL_ID]);
+                    console.log("de aici se trimite salam decal");
                     console.log("%c PLAYER_DECAL_ID updated from db", "background: #ff9900; color: black; font-weight:bold;");
                     inventoryItemUpdated = true;
 
+                }
+
+                if (!_.isUndefined(usernameData["felt"]) && !_.isNull(usernameData["felt"])) {
+                    PockeySettings.POOLTABLE_FELT_ID = usernameData["felt"];
+                    SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT, [PockeySettings.POOLTABLE_FELT_ID]);
+                    console.log("%c PLAYER_FELT_ID updated from db", "background: #ff9900; color: black; font-weight:bold;");
+                    inventoryItemUpdated = true;
                 }
 
                 if (!_.isUndefined(usernameData["player_level"]) && !_.isNull(usernameData["player_level"])) {
@@ -165,6 +177,7 @@ namespace Pockey {
 
                 if (!_.isUndefined(usernameData["stick"]) && !_.isNull(usernameData["stick"])) {
                     PockeySettings.PLAYER_CUE_ID = usernameData["stick"];
+                    SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_STICK_SKIN, [PockeySettings.PLAYER_CUE_ID]);
                     console.log("%c PLAYER_CUE_ID" +
                         "                    inventoryItemUpdated = true;\n updated from db", "background: #ff9900; color: black; font-weight:bold; ");
                     inventoryItemUpdated = true;

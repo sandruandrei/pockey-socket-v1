@@ -467,6 +467,7 @@ namespace Pockey {
                                 //     this.disableEquipBtn();
                                 // }
                                 PockeySettings.PLAYER_CUE_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_STICK_SKIN, [PockeySettings.PLAYER_CUE_ID]);
                                 SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
                                 this.checkIfCurrentItemCanBeUsed();
                                 let dbObject: DatabaseObject = {
@@ -486,6 +487,8 @@ namespace Pockey {
                                 //     this.disableEquipBtn();
                                 // }
                                 PockeySettings.PLAYER_DECAL_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, [PockeySettings.PLAYER_DECAL_ID]);
+console.log("de aici se trimite salam decal");
                                 SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
                                 this.checkIfCurrentItemCanBeUsed();
                                 let dbObject: DatabaseObject = {
@@ -501,11 +504,12 @@ namespace Pockey {
                             }
                             case "MISC": {
                                 PockeySettings.POOLTABLE_FELT_ID = this.currentActiveItem.id;
+                                SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT, [PockeySettings.POOLTABLE_FELT_ID]);
                                 SignalsManager.DispatchSignal(PockeySignalTypes.INVENTORY_ITEM_UPDATED);
                                 this.checkIfCurrentItemCanBeUsed();
                                 let dbObject: DatabaseObject = {
                                     userID: PockeySettings.PLAYER_ID,
-                                    column: "misc",
+                                    column: "felt",
                                     value: PockeySettings.POOLTABLE_FELT_ID
                                 };
                                 DatabaseConnector.updateUserData(dbObject, null);

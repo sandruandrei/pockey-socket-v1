@@ -23,7 +23,9 @@ namespace Pockey {
             public static OPPONENT: string = "PockeySocketMessages." + "OPPONENT";
             public static YOUR_TURN: string = "PockeySocketMessages." + "YOUR_TURN";
             public static OPPONENT_SETTINGS: string = "PockeySocketMessages." + "OPPONENT_SETTINGS";
-            public static OPPONENT_RESTART_ROUND: any = "PockeySocketMessages." + "OPPONENT_RESTART_ROUND";
+            public static OPPONENT_REMATCH: string = "PockeySocketMessages." + "OPPONENT_REMATCH";
+            public static DISCONNECT_MY_SOCKET: string = "ConnectionSignalsType." + 'DISCONNECT_MY_SOCKET';
+
             // public static OPPONENT_RESTART: any;
 
         }

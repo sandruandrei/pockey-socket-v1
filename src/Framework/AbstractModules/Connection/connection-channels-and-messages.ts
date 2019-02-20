@@ -11,9 +11,11 @@ namespace Framework {
             public static letsConnect: string = "FrameworkSocketEvents" + "letsConnect";
             public static joinRoom: string = "FrameworkSocketEvents" + "joinRoom";
             public static joinedRoom: string = "FrameworkSocketEvents" + "joinedRoom";
+            public static leftRoom: string = "FrameworkSocketEvents" + "leftRoom";
             public static privateMessage: string = "FrameworkSocketEvents" + "privateMessage";
             public static getUserFromDatabase: string = "FrameworkSocketEvents" + "getUserFromDatabase";
             public static updateUserData: string = "FrameworkSocketEvents" + "updateUserData";
+            public static disconnectMySocket: string = "FrameworkSocketEvents" + "disconnectMySocket";
             // public static partnerFoundChannel: string = "partnerFoundChannel";
         }
 

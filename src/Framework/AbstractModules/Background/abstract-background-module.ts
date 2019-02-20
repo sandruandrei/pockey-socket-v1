@@ -9,7 +9,7 @@ namespace Framework {
             initialWidth?:number,
             initialHeight?:number,
             path:string,
-            div:HTMLDivElement
+            div:HTMLDivElement,
         }
 
         export class AbstractBackgroundModule extends AbstractModule {
@@ -67,8 +67,13 @@ namespace Framework {
             }
 
             private changeBackground(id: string, fadeTime: number) {
+
                 if (this.backgrounds[id]) {
                     let newBackground: iBackground = this.backgrounds[id];
+                    if(this.currentBackground == newBackground)
+                    {
+                        return;
+                    }
                     newBackground.div.style.opacity = "0";
                     newBackground.div.style.display = "block";
                     // this.addChild(newBackground);

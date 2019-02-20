@@ -2,6 +2,8 @@
 ///<reference path="../../../Framework/Signals/signal-types.ts"/>
 ///<reference path="../ConnectionModule/pocket-connection-channels-and-messages.ts"/>
 ///<reference path="../SoundModule/pockey-sound-names.ts"/>
+///<reference path="../StateMachine/pockey-state-machine.ts"/>
+///<reference path="../StateMachine/typestate.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -25,6 +27,8 @@ namespace Pockey {
         import MouseHandler = Framework.Utils.MouseHandler;
         import SignalsType = Framework.Signals.SignalsType;
         import PockeySoundURLS = Pockey.Sound.PockeySoundURLS;
+        import PockeyStateMachine = Pockey.StateMachineModule.PockeyStateMachine;
+        import PockeyStates = Pockey.StateMachineModule.PockeyStates;
 
         export enum StickType {
             Basic = "stick_basic.png",
@@ -96,7 +100,7 @@ namespace Pockey {
                 this.pivot = this.initialPivotPoint;
                 this.defineShootTimeline();
 
-                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN, this.onUpdatePlayerStickSkin.bind(this));
+                SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_STICK_SKIN, this.onUpdatePlayerStickSkin.bind(this));
                 this.onUpdatePlayerStickSkin(PockeySettings.PLAYER_CUE_ID);
                 // this.GoToStartPosition();
             }
@@ -155,7 +159,7 @@ namespace Pockey {
 
                 let time: number = (duration + 1 / 60) / 2;
 
-                this.rotation = this.lerp(this.rotation, stickState.rotation, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
+                this.rotation = this.lerp(this.rotation, stickState.rotation, 0.8);
                 // this.y = this.lerp(this.y, ballState.y / 10000, 1 - 0.25 * PIXI.ticker.shared.deltaTime);
                 // TweenMax.to(this, time, {
                 //     rotation: stickState.rotation,
@@ -339,10 +343,12 @@ namespace Pockey {
 
             }
 
-
             private shoot(): void {
                 // this.power = 0;
                 // console.log("stick power: " + this.power);
+                if (PockeyStateMachine.Instance().fsm.currentState != PockeyStates.onRearrangeStick) {
+                    return;
+                }
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOOT_BALL);
                 SignalsManager.DispatchSignal(SignalsType.PLAY_SOUND, [{soundName: PockeySoundURLS.SHOOT_BALL}]);
                 this.visible = false;

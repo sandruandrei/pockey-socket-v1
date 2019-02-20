@@ -77,6 +77,10 @@ namespace Pockey {
                 this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onPrepareRoundTwo);
                 this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onRearrangeStick);
                 this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onWatch);
+
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onPrepareRoundThree);
+                this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onWatch);
                 // this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onRearrangeStick);
 
                 // this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onWatch);
@@ -89,6 +93,21 @@ namespace Pockey {
                 this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onRearrangeStick);
 
                 this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onRearrangeStick);
+
+                this.fsm.from(PockeyStates.onWatch).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onRearrangeStick).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onRepositionWhiteBall).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onShoot).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onPrepareRoundOne).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onPrepareRoundTwo).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onEndTurn).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onEndMatch);
+                this.fsm.from(PockeyStates.onSearchForPartner).to(PockeyStates.onEndMatch);
+
+                this.fsm.from(PockeyStates.onEndMatch).to(PockeyStates.onMainMenu);
+                this.fsm.from(PockeyStates.onEndMatch).to(PockeyStates.onPrepareRoundOne);
+                this.fsm.from(PockeyStates.onEndMatch).to(PockeyStates.onSearchForPartner);
 
                 this.fsm.from(PockeyStates.onRearrangeStick).to(PockeyStates.onShoot);
                 this.fsm.from(PockeyStates.onRearrangeStick).to(PockeyStates.onWatch);
@@ -145,7 +164,7 @@ namespace Pockey {
                 let s: string = "";
 
                 if (this.fsm) {
-                    _.forEach(this.fsm, (state) => {
+                    _.forEach(this.fsm, (state:any) => {
                         if (state == this.fsm.currentState) {
                             // s = state.toString();
                             s = PockeyStates[state];

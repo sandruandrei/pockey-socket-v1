@@ -31,7 +31,7 @@ namespace Pockey {
                         SignalsManager.DispatchSignal(PockeyConnectionSignals.YOUR_TURN, [messageData]);
                         break;
                     }
-                    case PockeySocketMessages.OPPONENT_RESTART_ROUND: {
+                    case PockeySocketMessages.OPPONENT_REMATCH: {
                         SignalsManager.DispatchSignal(PockeyConnectionSignals.OPPONENT_NEXT_ROUND, [messageData]);
                         break;
                     }

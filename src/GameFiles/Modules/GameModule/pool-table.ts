@@ -106,10 +106,13 @@ namespace Pockey {
                 //poolTableBackground
                 this.poolTableBackground = new Sprite(PIXI.Texture.fromFrame(Settings.desktopAssetsPath + "Images/table_felt.png"));
 
-
                 this.poolTableBackground.name = "poolTableBackground";
-                this.poolTableBackground.x = -this.poolTableBackground.width / 2;//472;
-                this.poolTableBackground.y = -this.poolTableBackground.height / 2;//284;
+                // this.poolTableBackground.x = -this.poolTableBackground.width / 2;//472;
+                // this.poolTableBackground.y = -this.poolTableBackground.height / 2;//284;
+                this.poolTableBackground.scale.x = 0.5;
+                this.poolTableBackground.scale.y = 0.5;
+                this.poolTableBackground.anchor.x = 0.5;
+                this.poolTableBackground.anchor.y = 0.5;
                 this.addChild(this.poolTableBackground);
                 ////end poolTableBackground
 
@@ -470,8 +473,8 @@ namespace Pockey {
             }
 
             public reset(): void {
-                // console.log("intra la reset in pooltable");
-
+                // console.log("salam intra la reset in pooltable");
+                console.log("%c salam intra la reset in pooltable", "color: #ff0000");
                 this.balls = [];
 
                 this.whiteBall.reset();
@@ -487,6 +490,7 @@ namespace Pockey {
                     ball.ballPosition = ball.initialPosition;//.x;
                     this.balls.push(ball);
                 });
+
                 _.forEach(this.rightBallsArray, (ball: AbstractBall) => {
                     ball.reset();
                     ball.ballPosition = ball.initialPosition;

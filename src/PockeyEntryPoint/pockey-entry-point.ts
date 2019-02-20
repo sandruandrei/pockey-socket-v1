@@ -397,19 +397,19 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.RESET_POOLTABLE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.RESET_STICK_POWER);
             SignalsManager.CreateNewSignal(PockeySignalTypes.RESET_GAME_SCREEN);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.RESTART_GAME);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.RESTART_GAME_BUTTON_CLICKED);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.SET_SIDES_TYPE);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_UI_SCORE);
 
-            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_NAME);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_SCORE);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_NAME);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_COLOR);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_PLAYER_AVATAR);
 
-            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_NAME);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_OPPONENT_SCORE);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_COLOR);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_OPPONENT_AVATAR);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.SEND_ELEMENTS_DATA_TO_MANAGER);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_STATE_TEXT);
@@ -420,16 +420,20 @@ namespace Pockey {
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_COLOR);
 
-            SignalsManager.CreateNewSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH);
             SignalsManager.CreateNewSignal(PockeySignalTypes.ON_WATCH_FINISHED);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CREATE_POOLTABLE_STATE);
 
             SignalsManager.CreateNewSignal(PockeySignalTypes.APPLY_POOLTABLE_STATE);
             SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_CURRENT_ROUND_SCREEN_TEXT);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_WHITE_BALL_STATUS);
-            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_PLAYER_STICK_SKIN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.UPDATE_STICK_SKIN);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL);
             SignalsManager.CreateNewSignal(PockeySignalTypes.CHANGE_POOLTABLE_FELT);
+            // SignalsManager.CreateNewSignal(PockeySignalTypes.SHOW_MATCH_COMPLETE_SCREEN);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.ASSIGN_PLAYER);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.MAIN_MENU_BUTTON_CLICKED);
+            SignalsManager.CreateNewSignal(PockeySignalTypes.REMATCH_CONFIRM_BUTTON_CLICKED);
 
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL);
             // SignalsManager.CreateNewSignal(PockeySignalTypes.ANIMATE_PUCK_GOAL_STOP);

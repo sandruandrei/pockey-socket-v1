@@ -37,6 +37,8 @@ namespace Pockey {
         export class Decal extends Sprite {
 
             // private decalIcon: Sprite;
+            private currentDecalIDCounter: number = 0;
+            private decalsArray: InventoryVO[];
 
             constructor() {
                 super();
@@ -44,11 +46,52 @@ namespace Pockey {
 
                 this.anchor.set(0.5, 0.5);
                 // this.SetDecalIcon(DecalType.Pockey);
+                // this.decalsArray = PockeySettings.SMALL_DECALS_ARRAY;
+
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_POOLTABLE_FELT, this.setTint.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, this.onChangePooltableDecal.bind(this));
+
+                    this.onChangePooltableDecal(PockeySettings.PLAYER_DECAL_ID);
+
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_IN, this.onPlayerSignedIn.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.PLAYER_SIGNED_OUT, this.onPlayerSignedOut.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.INVENTORY_ITEM_UPDATED, this.onInventoryItemUpdated.bind(this));
             }
 
+            // private onPlayerSignedIn(): void {
+            //     this.decalsArray = PockeySettings.LARGE_MISC_ARRAY;
+            //
+            //     console.log("decal change player signed in");
+            //     this.onChangePooltableDecal(PockeySettings.PLAYER_DECAL_ID);
+            //
+            //     // this.currentAvatarCounter = 0;
+            //     // PockeySettings.PLAYER_AVATAR_ID = this.currentAvatarCounter;
+            //     // this.avatarHolder.style.background = "center / contain no-repeat url(" + this.avatarsArray[this.currentAvatarCounter] + ")";
+            // }
+            //
+            // private onPlayerSignedOut(): void {
+            //     this.decalsArray = PockeySettings.SMALL_MISC_ARRAY;
+            //     if (this.currentDecalIDCounter > this.decalsArray.length - 1) {
+            //         this.currentDecalIDCounter = 0;
+            //         PockeySettings.POOLTABLE_FELT_ID = this.decalsArray[this.currentDecalIDCounter].id;
+            //     }
+            //
+            //     this.onChangePooltableDecal(PockeySettings.PLAYER_DECAL_ID);
+            //
+            //     // this.updateCookieOrDatabase();
+            // }
+            
+            // private onInventoryItemUpdated():void
+            // {
+            //     if(this.decalsArray[this.currentDecalIDCounter].id != PockeySettings.PLAYER_DECAL_ID)
+            //     {
+            //         this.onChangePooltableDecal(PockeySettings.PLAYER_DECAL_ID);
+            //     }
+            // }
+            
             private onChangePooltableDecal(decalID:string):void
             {
+                // console.log("cacat in ploaie salam");
                 let idCounter:number = 0;
                 _.forEach(PockeySettings.LARGE_DECALS_ARRAY, (item: InventoryVO, counter: number) => {
                     if (item.id == decalID) {

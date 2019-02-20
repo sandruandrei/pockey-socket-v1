@@ -26,10 +26,13 @@ namespace Framework {
 
         export class ConnectionSignalsType {
             public static CREATE_SEARCH_FOR_PARTNER_CONNECTION: string = "ConnectionSignalsType." + 'CREATE_SEARCH_FOR_PARTNER_CONNECTION';
+            public static DISCONNECT_MY_SOCKET: string = "ConnectionSignalsType." + 'DISCONNECT_MY_SOCKET';
             public static SOCKET_IO_CONNECTION_CREATED: string = "ConnectionSignalsType." + 'SOCKET_IO_CONNECTION_CREATED';
             public static SOCKET_IO_DISCONNECTED: string = "ConnectionSignalsType." + "SOCKET_IO_DISCONNECTED";
             public static PRIVATE_MESSAGE: string = "ConnectionSignalsType." + "PRIVATE_MESSAGE";
             public static UPDATE_SOCKET_ID: string = "ConnectionSignalsType." + "UPDATE_SOCKET_ID";
+
+            public static OPPONENT_DISCONNECTED: string = "ConnectionSignalsType." + "OPPONENT_DISCONNECTED";
         }
     }
 }

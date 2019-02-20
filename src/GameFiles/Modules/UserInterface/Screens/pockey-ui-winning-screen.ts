@@ -13,7 +13,6 @@ namespace Pockey {
     export module UserInterface {
         import Sprite = PIXI.Sprite;
         import Settings = Framework.Settings;
-        import PixiButton = Framework.UserInterface.PixiButton;
         import SignalsManager = Framework.Signals.SignalsManager;
         import PockeySignalTypes = Pockey.SignalsModule.PockeySignalTypes;
         import TextField = Framework.utils.TextField;
@@ -72,7 +71,7 @@ namespace Pockey {
                 });
                 pixiBtn.setText("RESTART", style);
                 pixiBtn.clicked = () => {
-                    SignalsManager.DispatchSignal(PockeySignalTypes.RESTART_GAME);
+                    SignalsManager.DispatchSignal(PockeySignalTypes.RESTART_GAME_BUTTON_CLICKED);
                 };
 
 

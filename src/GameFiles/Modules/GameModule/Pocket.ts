@@ -37,8 +37,8 @@ namespace Pockey {
             angle = 90 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
             /*g = new Graphics();
             g.beginFill(0xff9900);
@@ -50,8 +50,8 @@ namespace Pockey {
             angle = 45 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
 
             /* g = new Graphics();
@@ -64,8 +64,8 @@ namespace Pockey {
             angle = 0 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
 
             /*g = new Graphics();
@@ -78,8 +78,8 @@ namespace Pockey {
             angle = -45 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
             /* g = new Graphics();
              g.beginFill(0xff9900);
@@ -91,8 +91,8 @@ namespace Pockey {
             angle = -90 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
             /*g = new Graphics();
             g.beginFill(0xff9900);
@@ -104,8 +104,8 @@ namespace Pockey {
             angle = -135 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
 
             /* g = new Graphics();
@@ -119,8 +119,8 @@ namespace Pockey {
             angle = 180 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
 
             /*g = new Graphics();
@@ -134,8 +134,8 @@ namespace Pockey {
             angle = 135 * Math.PI / 180;
             point = new Vector2();
 
-            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
-            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 6);
+            point.x = this.position.x + Math.cos(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
+            point.y = this.position.y + Math.sin(angle) * (this.radius - PockeySettings.BALL_RADIUS - 3);
             this.touchPoints.push(point);
 
             /*g = new Graphics();

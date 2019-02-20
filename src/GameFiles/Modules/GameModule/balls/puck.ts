@@ -33,11 +33,11 @@ namespace Pockey {
 
             protected addP2Body(): void {
                 super.addP2Body();
-                this.p2Body.damping = 0.1;
+                this.p2Body.damping = 0.12;
                 this.p2Body.boundingRadius = this.radius;
                 this.p2Body.allowSleep = true;
                 this.p2Body.sleepSpeedLimit = 1; // Body will feel sleepy if speed<1 (speed is the norm of velocity)
-                this.p2Body.sleepTimeLimit = 0.07;
+                this.p2Body.sleepTimeLimit = 0.08;
 
 
             }
@@ -72,6 +72,12 @@ namespace Pockey {
             public update(): void {
 
                 this.moving = this.p2Body.sleepState != p2.Body.SLEEPING;
+
+                if (this.canBeRemoved) {
+                    this.moving = false;
+                    return;
+                }
+
                 if(!this.moving)
                     return;
 // console.log("puck angle: " + this.p2Body.angle);
@@ -198,6 +204,7 @@ namespace Pockey {
 
             protected declareAnimationFinished(): void {
                 this.animationInProgress = false;
+                console.log("se termina la puck");
                 // this.visible = false;
                 // if (this.parent)
                 //     this.parent.removeChild(this);

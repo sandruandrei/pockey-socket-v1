@@ -93,7 +93,7 @@ namespace Framework {
             private handleMouseDown(e): void {
                 // this.handleMouseMove(e);
 
-                console.log("intra la mouse down");
+                // console.log("intra la mouse down");
                 if (e.data && e.data.button == 0) {
 
                     if (!MouseHandler.Instance().left.down) {

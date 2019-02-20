@@ -3,6 +3,7 @@
 namespace Pockey {
     export module UserInterface {
         import BallType = Pockey.GameModule.BallType;
+        import Player = Pockey.GameModule.Player;
 
         export class PockeyUserGameGraphics {
             private userAvatar: HTMLDivElement;
@@ -14,6 +15,9 @@ namespace Pockey {
             private side: string;
             private lifeUnits: HTMLDivElement[];
             private gameGraphic: HTMLDivElement;
+            private matchCircles: PockeyUiMatchCircle[];
+
+            private defaultColor: number;
 
             constructor(side: string, gameGraphic: HTMLDivElement) {
                 // super();
@@ -21,24 +25,7 @@ namespace Pockey {
 
                 this.gameGraphic = gameGraphic;
 
-                let style = new PIXI.TextStyle({
-                    fontFamily: 'troika',
-                    fontSize: 22,
-                    fill: 0xffffff,
 
-                    // fontStyle: 'italic',
-                    // fontWeight: 'bold',
-                    // fill: ['#ffffff', '#00ff99'], // gradient
-                    stroke: '#ffffff',
-                    // strokeThickness: 5,
-                    dropShadow: true,
-                    dropShadowColor: '#000000',
-                    dropShadowBlur: 1,
-                    dropShadowAngle: Math.PI / 3,
-                    dropShadowDistance: 10,
-                    // wordWrap: true,
-                    // wordWrapWidth: 440
-                });
                 // let timerTextStyle: TextStyle = style.clone();
                 // timerTextStyle.fontSize = 28;
 
@@ -77,6 +64,27 @@ namespace Pockey {
                 // this.addChild(this.userLifeBar);
                 // this.addChild(this.userNameTextField);
                 // this.addChild(this.timerText);
+
+                this.getMatchCircles();
+            }
+
+            private getMatchCircles() {
+                let versus: PockeyUiVersusGraphics = new PockeyUiVersusGraphics();
+
+                if (this.side == "left")
+                    this.matchCircles = versus.leftSideMatchCircles;
+                else
+                    this.matchCircles = versus.rightSideMatchCircles;
+
+                // this.updateMatchCircles(new Player("bla", BallType.Player));
+                // this.versus.x -= this.versus.width / 2;
+                // this.graphicsContainer.addChild(this.versus);
+            }
+
+            public updateMatchCircles(roundsWon:number): void {
+                _.forEach(_.range(roundsWon), (i: number) => {
+                    this.matchCircles[i].activate(this.defaultColor);
+                });
             }
 
             public resetTimer(): void {
@@ -129,9 +137,15 @@ namespace Pockey {
             }
 
             public reset(): void {
-                _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
-                    // lifeUnit.alpha = 1;
-                });
+                // let score:number = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
+                // _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
+                //
+                //     if(id > score - 1)
+                //     {
+                //         lifeUnit.style.opacity = "0.5";
+                //     }
+                //
+                // });
             }
 
             public updateScore(score: number) {
@@ -141,23 +155,40 @@ namespace Pockey {
                     //         // lifeUnit.alpha = 0.5;
                     //     }
                     // } else {
-                    if (id < 7 - score) {
+                    // if (id < 7 - score) {
+                    //     lifeUnit.style.opacity = "0.5";
+                    // }
+
+                    if (id > score - 1) {
                         lifeUnit.style.opacity = "0.5";
                     }
+
                     // }
 
                 });
             }
 
             public tint(color: number): void {
-                let tintColor: string = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
+                let hexColor:string = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
+                this.defaultColor = color;
 
                 _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
                     // lifeUnit.tint = color;
-                    lifeUnit.style.background = tintColor;
+                    lifeUnit.style.background = hexColor;
 
+                    if (id > PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER - 1) {
+                        lifeUnit.style.opacity = "0.5";
+                    }
+                    else
+                    {
+                        lifeUnit.style.opacity = "1";
+                    }
                 });
-                this.userNameTextField.style.color = tintColor;
+
+                _.forEach(this.matchCircles, (matchCircle: PockeyUiMatchCircle) => {
+                    matchCircle.reset();
+                });
+                this.userNameTextField.style.color = hexColor;
             }
 
             public updateAvatar(avatarID: string): void {
@@ -169,7 +200,7 @@ namespace Pockey {
                         return true;
                     }
                 });
-                this.userAvatar.style.background = "center / contain no-repeat #1a4157 url(" + avatarPath + ")";
+                this.userAvatar.style.background = "center / 97% no-repeat #1a4157 url(" + avatarPath + ")";
             }
 
             // public setTimerColor(tintColor: number): void {

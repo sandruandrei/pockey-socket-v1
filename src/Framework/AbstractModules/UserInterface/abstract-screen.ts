@@ -13,10 +13,15 @@ namespace Framework {
     export module UserInterface {
         export class AbstractScreen {
             protected div: HTMLDivElement;
+            protected titleDiv: HTMLDivElement;
 
-            constructor(){};
+            constructor(){
+                this.assignDivs();
+            };
 
-            public show(): void {
+            protected assignDivs():void{};
+
+            public show(params:any = null): void {
                 this.div.style.display = "flex";
             };
 
