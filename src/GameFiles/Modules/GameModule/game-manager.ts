@@ -7,6 +7,7 @@
 ///<reference path="../SoundModule/pockey-sound-names.ts"/>
 ///<reference path="../../../Framework/Utils/CountdownTimer.ts"/>
 ///<reference path="../UserInterface/Screens/pockey-ui-round-complete-screen.ts"/>
+///<reference path="../../../Framework/AbstractModules/Connection/database-connector.ts"/>
 /**
  *  Edgeflow
  *  Copyright 2018 EdgeFlow
@@ -36,6 +37,8 @@ namespace Pockey {
         import AbstractEntryPoint = Framework.AbstractEntryPoint;
         import RoundCompleteVO = Pockey.UserInterface.RoundCompleteVO;
         import RoundCompleteType = Pockey.UserInterface.RoundCompleteType;
+        import DatabaseObject = Framework.Connection.DatabaseObject;
+        import DatabaseConnector = Framework.Connection.DatabaseConnector;
 
         export interface PlayerSettings {
             opponentNickname?: string,
@@ -1194,6 +1197,15 @@ namespace Pockey {
 
             private onAllModuleElementsCreated(): void {
                 GameManager.Instance().InitializeOthers();
+
+                let dbObject: DatabaseObject = {
+                    userID: PockeySettings.PLAYER_ID,
+                    column: "points",
+                    value: WinStatus.WIN,
+                    type: "winStatus"
+                };
+
+                DatabaseConnector.updateUserData(dbObject, null);
 
                 PockeyStateMachine.Instance().changeState(PockeyStates.onMainMenu);
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_MAIN_MENU);

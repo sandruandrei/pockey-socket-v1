@@ -19,7 +19,8 @@ namespace Framework {
         export interface DatabaseObject {
             userID: string,
             column: string,
-            value: any
+            value: any,
+            type?:string
         }
 
         export class DatabaseConnector {
