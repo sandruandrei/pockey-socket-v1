@@ -19,6 +19,11 @@ export module PockeyServer {
     //@ts-ignore
     import FrameworkSocketEvents = Framework.Connection.FrameworkSocketEvents;
 
+    export enum WinStatus {
+        WIN,
+        LOST
+    }
+
     export class Server {
         protected file;
         protected httpServer;
@@ -26,6 +31,7 @@ export module PockeyServer {
         protected socketIsFree: boolean = true;
         protected databaseConnected: boolean = false;
         protected databasePool: pg.Pool;
+        protected databaseWinsPool: pg.Pool;
 
         // protected lookingForPartner: boolean = true;
 
@@ -172,7 +178,7 @@ export module PockeyServer {
                 // });
 
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {
-                    if(messageType == FrameworkSocketMessages.HELLO)
+                    if (messageType == FrameworkSocketMessages.HELLO)
                         console.log("se face helloul");
                     /*socket.join(room);
                     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
@@ -274,13 +280,34 @@ export module PockeyServer {
                      });
                  });*!/
              });*/
-
-
         }
 
         private updateUserDb(socket, data): void {
             let sqlText: string = "UPDATE pockey_table SET " + data["column"] + "='" + data["value"] + "' WHERE user_id='" + data["userID"] + "'";
-            console.log("sqlText: " + sqlText);
+
+            /*
+            * UPDATE public."USER_TABLE" SET "points" = "points" +10 WHERE
+ "USER_TABLE"."GID" = 'Yojimbo'
+            * */
+
+            if (data["type"] == "winStatus") {
+                if (data["value"] == WinStatus.WIN) {
+                    // sqlText = "UPDATE USER_TABLE SET " + data["column"] + "='points' + 10 WHERE GID='Yojimbo'";
+                    sqlText = 'UPDATE public."USER_TABLE" SET "points" = "points" + 10 WHERE "USER_TABLE"."GID" = ' + "'Yojimbo'";
+                    // console.log("sqlText la win: " + sqlText);
+                }
+                else if (data["value"] == WinStatus.LOST) {
+                    sqlText = 'UPDATE public."USER_TABLE" SET "points" = "points" + 10 WHERE "USER_TABLE"."GID" = ' + "'Yojimbo'";
+                }
+            }
+
+            console.log("sqlText: " + sqlText, "type: " + data["type"], "value: " + data["value"]);
+
+            /*UPDATE public."USER_TABLE"
+            SET "points" = "points" +10
+            WHERE
+            "USER_TABLE"."GID" = 'Yojimbo';//Yojimbo = id-ul pe care il
+*/
 
             (async () => {
                 const client = await this.databasePool.connect();
@@ -332,7 +359,6 @@ export module PockeyServer {
                         socket.emit(FrameworkSocketEvents.getUserFromDatabase, res.rows[0]);
                     }
                     // console.log(res.rows[0]); // ['Brian', 'Carlson']
-
 
                 })
                 .catch(e => {
