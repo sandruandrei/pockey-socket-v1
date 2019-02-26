@@ -80,6 +80,7 @@ namespace Pockey {
 
                 this.fsm.from(PockeyStates.onRoundEnd).to(PockeyStates.onPrepareRoundThree);
                 this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onRearrangeStick);
+                this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onRepositionWhiteBall);
                 this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onWatch);
                 // this.fsm.from(PockeyStates.onPrepareRoundThree).to(PockeyStates.onRearrangeStick);
 

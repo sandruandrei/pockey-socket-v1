@@ -180,6 +180,18 @@ namespace Pockey {
                 }, this);*/
             }
 
+            public hide():void
+            {
+                P2WorldManager.Instance().world.removeBody(this.p2Body);
+                P2WorldManager.Instance().world.removeBody(this.p2BodyShadow);
+                this.ballShadow.scale.x = 0;
+                this.ballShadow.scale.y = 0;
+                if(this.ballType != BallType.Puck)
+                {
+                    this.sphere.setEnabled(false);
+                }
+            }
+
             protected worldPreSolveHandler(): void {
 
                 // if (this.speed() < 50)

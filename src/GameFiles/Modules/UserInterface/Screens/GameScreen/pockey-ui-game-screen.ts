@@ -48,6 +48,8 @@ namespace Pockey {
             private playerGraphicsInterface: PlayerGraphicsInterface;
             private opponentGraphicsInterface: PlayerGraphicsInterface;
 
+            private isThirdRound:boolean = false;
+
             constructor() {
                 // super();
                 this.scoreBoard = document.getElementById("ScoreBoard") as HTMLDivElement;
@@ -115,8 +117,10 @@ namespace Pockey {
 
                 SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_MATCH_CIRCLES, this.onUpdateMatchCircles.bind(this));
                 SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onResizeBackground.bind(this));
-                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.RESET_POOLTABLE, this.onResetPooltable.bind(this));
 
+
+                // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_PLAYER_NAME, this.onUpdatePlayerName.bind(this));
 
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, this.onPoolTableResize.bind(this));
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_PLAYER_COLOR, this.onChangePlayerColor.bind(this));
@@ -130,9 +134,20 @@ namespace Pockey {
                 // SignalsManager.DispatchSignal(PockeySignalTypes.POCKEY_POOL_TABLE_RESIZED, [backgroundScaleFactor, newPos, this.levelManager.poolTable.rotation]);
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.UPDATE_OPPONENT_NAME, this.onUpdateOpponentName.bind(this));
                 // SignalsManager.AddSignalCallback(PockeySignalTypes.CHANGE_OPPONENT_COLOR, this.onChangeOpponentColor.bind(this));
-
-
             }
+
+           /* private onResetPooltable(params:boolean[]):void
+            {
+                this.isThirdRound = params[0];
+
+                if()
+                {
+                    // this.playerGraphicsInterface.graphics.hideLives();
+                    // this.opponentGraphicsInterface.graphics.hideLives();
+                    this.playerGraphicsInterface.graphics.hideLives();//this.playerGraphicsInterface.player.score, this.isThirdRound);
+                    this.opponentGraphicsInterface.graphics.hideLives();//this.opponentGraphicsInterface.player.score, this.isThirdRound);
+                }
+            }*/
 
             private onUpdateMatchCircles() {
 

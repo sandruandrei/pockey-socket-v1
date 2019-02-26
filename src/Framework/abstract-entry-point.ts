@@ -11,6 +11,7 @@
 ///<reference path="AbstractModules/Sound/abstract-sound-module.ts"/>
 ///<reference path="../../node_modules/babylonjs/babylon.d.ts"/>
 ///<reference path="../../lib/types/pixi/pixi.d.ts"/>
+///<reference path="../../lib/types/lodash/index.d.ts"/>
 
 // Created by: Sandru Andrei for Edgeflow on 7/11/2018
 
@@ -28,7 +29,6 @@ namespace Framework {
     import Settings = Framework.Settings;
     import AbstractSoundModule = Framework.Sound.AbstractSoundModule;
     import PockeySettings = Pockey.PockeySettings;
-
 
     export class AbstractEntryPoint {
         //array holding all the modules that the framework will use
@@ -48,7 +48,6 @@ namespace Framework {
         public static camera: any;
         public static scene: BABYLON.Scene;
         protected isWebGL1: boolean;
-
 
         constructor() {
             this.name = "AbstractEntryPoint";

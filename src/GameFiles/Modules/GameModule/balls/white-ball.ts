@@ -21,13 +21,12 @@ namespace Pockey {
                     this.ballWasShot = false;
                     this.p2Body.velocity = [this.velocity.x, this.velocity.y];
                 }
-                super.worldPreSolveHandler();
 
+                super.worldPreSolveHandler();
 
                 // if (this.speed() < 100)
                 //     this.p2Body.velocity = [this.p2Body.velocity[0] * PockeySettings.DELTA, this.p2Body.velocity[1] * PockeySettings.DELTA]
             }
-
 
             onShoot(rotation: number, power: number): void {
 

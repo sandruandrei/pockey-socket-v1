@@ -46,6 +46,11 @@ var PockeyServer;
     var FrameworkSocketNamespaces = Framework.Connection.FrameworkSocketNamespaces;
     var FrameworkSocketMessages = Framework.Connection.FrameworkSocketMessages;
     var FrameworkSocketEvents = Framework.Connection.FrameworkSocketEvents;
+    let WinStatus;
+    (function (WinStatus) {
+        WinStatus[WinStatus["WIN"] = 0] = "WIN";
+        WinStatus[WinStatus["LOST"] = 1] = "LOST";
+    })(WinStatus = PockeyServer.WinStatus || (PockeyServer.WinStatus = {}));
     class Server {
         constructor() {
             this.socketIsFree = true;
@@ -138,13 +143,20 @@ var PockeyServer;
                     socket.broadcast.to(room).emit(FrameworkSocketEvents.privateMessage, messageType, messageData);
                 });
                 socket.on(FrameworkSocketEvents.disconnectMySocket, (room) => {
-                    console.log("cineva intra in main menu: " + playingNamespace);
                 });
             });
         }
         updateUserDb(socket, data) {
             let sqlText = "UPDATE pockey_table SET " + data["column"] + "='" + data["value"] + "' WHERE user_id='" + data["userID"] + "'";
-            console.log("sqlText: " + sqlText);
+            if (data["type"] == "winStatus") {
+                if (data["value"] == WinStatus.WIN) {
+                    sqlText = 'UPDATE public."USER_TABLE" SET "points" = "points" + 10 WHERE "USER_TABLE"."GID" = ' + "'Yojimbo'";
+                }
+                else if (data["value"] == WinStatus.LOST) {
+                    sqlText = 'UPDATE public."USER_TABLE" SET "points" = "points" + 10 WHERE "USER_TABLE"."GID" = ' + "'Yojimbo'";
+                }
+            }
+            console.log("sqlText: " + sqlText, "type: " + data["type"], "value: " + data["value"]);
             (() => __awaiter(this, void 0, void 0, function* () {
                 const client = yield this.databasePool.connect();
                 try {

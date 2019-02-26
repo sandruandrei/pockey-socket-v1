@@ -28,7 +28,8 @@ gulp.task('defaultMain', function () {
         .pipe(ts({
             outFile: 'main.js',
             sourceMap: true,
-            target: "es5",
+            target: "es6",
+            // lib: ["es6"],
             // noImplicitAny: false,
             removeComments: true
         }))
@@ -44,8 +45,8 @@ gulp.task('deleteMainJS', function () {
 });
 
 gulp.task('defaultApp', function () {
-    gulp.start('concatenateToApp');
     gulp.start('deleteAppJS');
+    gulp.start('concatenateToApp');
     return gulp.src('index.ts')
         .pipe(sourcemaps.init()) // This means sourcemaps will be generated
         .pipe(ts({

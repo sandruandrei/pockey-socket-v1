@@ -24,6 +24,7 @@ namespace Pockey {
             public startedFirst:boolean = false;
             public avatarID:string = '';
             public feltID:string = '';
+            public shootouts:number = 3;
 
             constructor(id: string, type: BallType) {
                 this.id = id;

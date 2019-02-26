@@ -19,7 +19,7 @@ namespace Framework {
 
             constructor() {
                 super();
-
+//cl
                 this.addAssetToLoad(Settings.desktopAssetsPath + Settings.backgroundsPath + "main_bg.png");
                 this.registerBackground(Settings.mainBackgroundName, Settings.desktopAssetsPath + Settings.backgroundsPath + "main_bg.png", document.getElementById("MainBackground") as HTMLDivElement);
             }

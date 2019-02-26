@@ -34,8 +34,6 @@ import http            = require( "http" );
 //@ts-ignore
 import socketIO        = require( 'socket.io' );
 //@ts-ignore
-import express        = require( 'express' );
-//@ts-ignore
 import pg        = require( 'pg' );
 
 
@@ -47,6 +45,11 @@ export module PockeyServer {
     import FrameworkSocketMessages = Framework.Connection.FrameworkSocketMessages;
     //@ts-ignore
     import FrameworkSocketEvents = Framework.Connection.FrameworkSocketEvents;
+
+    export enum WinStatus {
+        WIN,
+        LOST
+    }
 
     export class Server {
         protected file;
@@ -155,18 +158,7 @@ export module PockeyServer {
 
                 socket.on(FrameworkSocketEvents.letsConnect, (msg, id, partnerID) => {
                     socket.broadcast.emit(FrameworkSocketEvents.letsConnect, msg, id, partnerID);
-                    // socket.emit(FrameworkSocketEvents.letsConnect, msg, id, partnerID);
-                    // console.log("partnerNamespaceID, socket: " +partnerNamespaceID, socket);
                 });
-
-                // socket.on('disconnect', () => {
-                //     socket.disconnect();
-                //     // socket.broadcast.emit(Framewor
-                //     // kSocketEvents.letsConnect, msg, id, partnerID);
-                //     // socket.emit(FrameworkSocketEvents.letsConnect, msg, id, partnerID);
-                //     // console.log("partnerNamespaceID, socket: " +partnerNamespaceID, socket);
-                // });
-                // socket.emit(FrameworkSocketEvents.)
             });
 
             let playingNamespace = this.socketIo.of(FrameworkSocketNamespaces.PLAY);
@@ -182,8 +174,6 @@ export module PockeyServer {
                     console.log("on join room. room nickname: " + room);
 
                     socket.on('disconnect', function () {
-                        // connectCounter--;
-                        // console.log('a user left. users connected: ' + connectCounter);
 
                         console.log("a iesit de pe canalul pacii: " + socket.id);
 
@@ -192,125 +182,39 @@ export module PockeyServer {
                     });
                 });
 
-                // socket.on(FrameworkSocketEvents.joinRoom, (room, id) => {
-                //     socket.join(room);
-                //     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);
-                //     socket.emit(FrameworkSocketEvents.joinedRoom, room, id);
-                //
-                //     console.log("on join room. room nickname: " + room);
-                // });
-
                 socket.on(FrameworkSocketEvents.privateMessage, (room, messageType, messageData) => {
-                    if(messageType == FrameworkSocketMessages.HELLO)
+                    if (messageType == FrameworkSocketMessages.HELLO)
                         console.log("se face helloul");
-                    /*socket.join(room);
-                    // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
+
                     socket.broadcast.to(room).emit(FrameworkSocketEvents.privateMessage, messageType, messageData);
-                    // console.log("private message sent: " + messageType, messageData);
+
                 });
 
                 socket.on(FrameworkSocketEvents.disconnectMySocket, (room) => {
-                    /*socket.join(room);
-                    // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
-                    console.log("cineva intra in main menu: " + playingNamespace);
-                    // socket.on('disconnect', function() {
-                    /*socket.to(room).emit(FrameworkSocketEvents.leftRoom, socket.id);
 
-                    let users = playingNamespace.clients(room);
-
-                    for(let i = 0; i < users.length; i++) {
-                        playingNamespace.sockets.socket(users[i]).leave(room);
-                    }*/
-
-                    // let clients = io.of('/chat').clients('room');
-
-                    // socket.rooms.forEach((room) => {
-                    //     playingNamespace.in(room).leave(room);
-                    // });
-
-                    // });
-
-                    // socket.leave(room);
-                    // console.log("private message sent: " + messageType, messageData);
 
                 });
-
-                // socket.on('room-leave', (room) => {
-                //     /*socket.join(room);
-                //     // socket.broadcast.emit(FrameworkSocketEvents.joinRoom, room, id);*/
-                //     console.log("m-o scos opponentu fmm");
-                //     socket.leave(room);
-                //     // console.log("private message sent: " + messageType, messageData);
-                //
-                // });
-
-
-                // socket.emit(FrameworkSocketEvents.)
             });
-            //-------------------------------------------------
-
-            /*let sleepNamespace = socketIO()
-                .of("/" + FrameworkSocketNamespaces.SEARCH)
-                .on("connection", function (socket) {
-                    console.log("salam");
-
-                  /!*  socket.on(FrameworkSocketEvents.onNewConnection, () => {
-
-                    })*!/
-                    // socket.emit('a message', {
-                    //     that: 'only'
-                    //     , '/chat': 'will get'
-                    // });
-                    // chat.emit('a message', {
-                    //     everyone: 'in'
-                    //     , '/chat': 'will get'
-                    // });
-                });*/
-
-            // this.socketIo = socketIO();
-            // this.socketIo.serveClient(true); // the server will serve the client js file
-            // this.socketIo.attach(this.httpServer);
-
-// listen for a connection
-            /* this.socketIo.on('connection', (socket) => {
-
-                 console.log('User ' + socket.id + ' connected');
-                /!* socket.emit(FrameworkSocketChannels.newConnectionChannel, socket.id);
-                 // socket.broadcast.emit(FrameworkSocketChannels.lookingForPartnerChannel, ["New ID: ", socket.id]);
-
-                 socket.on(FrameworkSocketChannels.lookingForPartnerChannel, (id) => {
-                     console.log(FrameworkSocketChannels.lookingForPartnerChannel + " -> " + id);
-
-                     socket.broadcast.emit(FrameworkSocketChannels.lookingForPartnerChannel, id);
-                 });
-
-                 socket.on(FrameworkSocketChannels.letsConnectChannel, (id) => {
-                     console.log(FrameworkSocketChannels.letsConnectChannel + " -> " + id);
-
-                     socket.broadcast.emit(FrameworkSocketChannels.letsConnectChannel, id);
-                 });
-
-                 socket.on(FrameworkSocketChannels.partnerFoundChannel, (clientId, id, connectionID) => {
-                     console.log(FrameworkSocketChannels.partnerFoundChannel + " -> " + id);
-
-                     socket.broadcast.emit(FrameworkSocketChannels.partnerFoundChannel, clientId, id, connectionID);
-
-                     socket.on(connectionID, (message) =>
-                     {
-                         socket.broadcast.emit(connectionID, message);
-                         console.log("intra la custom");
-
-                     });
-                 });*!/
-             });*/
-
-
         }
 
         private updateUserDb(socket, data): void {
             let sqlText: string = "UPDATE pockey_table SET " + data["column"] + "='" + data["value"] + "' WHERE user_id='" + data["userID"] + "'";
-            console.log("sqlText: " + sqlText);
 
+            if (data["type"] == "winStatus") {
+                if (data["value"] == WinStatus.WIN) {
+                    // sqlText = "UPDATE USER_TABLE SET " + data["column"] + "='points' + 10 WHERE GID='Yojimbo'";
+                    sqlText = 'UPDATE public."USER_TABLE" SET "points" = "points" + 10 WHERE "USER_TABLE"."GID" = ' + "'Yojimbo'";
+                    // console.log("sqlText la win: " + sqlText);
+                }
+                else if (data["value"] == WinStatus.LOST) {
+                    sqlText = 'UPDATE public."USER_TABLE" SET "points" = "points" + 10 WHERE "USER_TABLE"."GID" = ' + "'Yojimbo'";
+                }
+            }
+
+            console.log("sqlText: " + sqlText, "type: " + data["type"], "value: " + data["value"]);
+
+
+            //@ts-ignore
             (async () => {
                 const client = await this.databasePool.connect();
                 try {
@@ -319,26 +223,13 @@ export module PockeyServer {
                     socket.emit(FrameworkSocketEvents.updateUserData);
                     // console.log(res.rows[0]);
 
-
                 } finally {
                     client.release();
                     console.log("client");
                 }
             })().catch(e => console.log(e.stack))
 
-            /*const query = {
-                // give the query a unique nickname
-                nickname: 'update-user',
-                text: sqlText
-            };
 
-            this.databasePool.query(query)
-                /!*.then(res => {
-                    console.log("user updated: " + res.rows[0]);
-                })
-                .catch(e => {
-                    console.error(e.stack)
-                })*!/*/
         }
 
         private checkForUserID(socket, username): void {
@@ -362,11 +253,9 @@ export module PockeyServer {
                     }
                     // console.log(res.rows[0]); // ['Brian', 'Carlson']
 
-
                 })
                 .catch(e => {
-                    // console.log("intra la error");
-                    /* mysqli_query($con, "INSERT INTO proteste_table (email, rated, poza".$image.") VALUES ('" . $email . "', '" . $image . "', '" . $rating . "')");*/
+
                     console.error(e.stack)
                 })
         }

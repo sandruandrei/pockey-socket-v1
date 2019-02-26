@@ -3,9 +3,9 @@
 namespace Pockey {
     export module UserInterface {
         import BallType = Pockey.GameModule.BallType;
-        import Player = Pockey.GameModule.Player;
 
         export class PockeyUserGameGraphics {
+
             private userAvatar: HTMLDivElement;
             private userNameTextField: HTMLDivElement;
             private timerText: HTMLDivElement;
@@ -18,6 +18,7 @@ namespace Pockey {
             private matchCircles: PockeyUiMatchCircle[];
 
             private defaultColor: number;
+            private isThirdRound:boolean = false;
 
             constructor(side: string, gameGraphic: HTMLDivElement) {
                 // super();
@@ -148,7 +149,7 @@ namespace Pockey {
                 // });
             }
 
-            public updateScore(score: number) {
+            public updateScore(score: number, isThirdRound?:boolean) {
                 _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
                     // if (this.side == "left") {
                     //     if (score >= score) {
@@ -161,12 +162,76 @@ namespace Pockey {
 
                     if (id > score - 1) {
                         lifeUnit.style.opacity = "0.5";
+                        // if(isThirdRound)
+                        // {
+                        //     lifeUnit.style.display = "none";
+                        // }
+                        // else
+                        // {
+                        //     lifeUnit.style.display = "flex";
+                        // }
+                    }
+                    else
+                    {
+                        // if(isThirdRound)
+                        // {
+                        //     lifeUnit.style.width = "calc(100%/3.8)";
+                        // }
+                        // else
+                        // {
+                        //     lifeUnit.style.width = "calc(100%/7.8)";
+                        // }
+                    }
+
+                    if(PockeySettings.CURRENT_ROUND == 3)
+                    {
+                        if(PockeySettings.CURRENT_SHOOTOUT_ROUND > 3)
+                        {
+                            if(id > 0){
+                                lifeUnit.style.display = "none";
+                            }
+
+                            lifeUnit.style.width = "98%";
+
+                        }
+                        else
+                        {
+                            if(id > 2){
+                                lifeUnit.style.display = "none";
+                            }
+
+                            lifeUnit.style.width = "calc(100%/3.2)";
+                        }
+
+
+
+
+                    }
+                    else
+                    {
+                        lifeUnit.style.display = "flex";
+                        //         }
+                        //         else
+                        //         {
+                        lifeUnit.style.width = "calc(100%/7.8)";
                     }
 
                     // }
 
                 });
             }
+
+            // public hideLives() {
+            //     _.forEach(this.lifeUnits, (lifeUnit: HTMLDivElement, id: number) => {
+            //         if (id > PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER - 1) {
+            //             lifeUnit.style.display = "none";
+            //         }
+            //         else
+            //         {
+            //             lifeUnit.style.width = "calc(100%/3.2)";
+            //         }
+            //     });
+            // }
 
             public tint(color: number): void {
                 let hexColor:string = '#' + ('00000' + (color | 0).toString(16)).substr(-6);
@@ -210,7 +275,7 @@ namespace Pockey {
             public animateTimer(): void {
                 // this.setTimerColor(0xFF0000);
 
-                if (this.timerText.style.color = '#' + ('00000' + (0xFF0000 | 0).toString(16)).substr(-6)) {
+                if (this.timerText.style.color == '#' + ('00000' + (0xFF0000 | 0).toString(16)).substr(-6)) {
                     return;
                 }
                 else {

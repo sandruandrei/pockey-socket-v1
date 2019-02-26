@@ -199,6 +199,8 @@ namespace Pockey {
 
             protected _fpsThresholdInMs: number = 1000 / 60; // 60 fps in ms ~16.66666ms
             protected _accumulator: number = 0;
+
+            // protected isThirdRound:boolean = false;
             ////////////////////
 
             private t: number = 0.0;
@@ -525,10 +527,9 @@ namespace Pockey {
                 let rightSideType: BallType = (leftSideType == BallType.Player) ? this.opponent.type : this.player.type;
                 this.poolTable.leftGoal.type = leftSideType;
                 this.poolTable.leftGoalie.type = leftSideType;
-                // console.log("leftGoal.type: " + this.poolTable.leftGoal.type);
+
                 this.poolTable.rightGoal.type = rightSideType;
                 this.poolTable.rightGoalie.type = rightSideType;
-                // console.log("rightGoal.type: " + this.poolTable.rightGoal.type);
 
                 _.forEach(this.poolTable.leftBallsArray, (ball: AbstractBall) => {
                     // if (ball.side == "left") {
@@ -609,11 +610,15 @@ namespace Pockey {
                 this.poolTable.visible = false;
             }
 
-            protected onResetPoolTable(): void {
+            protected onResetPoolTable(params:boolean[]): void {
                 // console.log("intra la p");
                 // this.poolTable.visible = true;
                 this.isFirstShoot = true;
-
+                // this.isThirdRound = params[0];
+                // if(this.isThirdRound)
+                // {
+                //
+                // }
                 this.poolTable.reset();
             }
 
@@ -729,8 +734,30 @@ namespace Pockey {
                 }
 
                 this.graphicsHidden = false;
+
                 if (!this.goaliesHolder.moving)
+                {
+                    if(PockeySettings.CURRENT_ROUND == 3)
+                    {
+                        if(this.player.side == 'left')
+                        {
+                            this.goaliesHolder.goalies[0].blocked = true;
+                            this.goaliesHolder.goalies[1].blocked = false;
+                        }
+                        else
+                        {
+                            this.goaliesHolder.goalies[0].blocked = false;
+                            this.goaliesHolder.goalies[1].blocked = true;
+                        }
+                    }
+                    else
+                    {
+                        this.goaliesHolder.goalies[0].blocked = false;
+                        this.goaliesHolder.goalies[1].blocked = false;
+                    }
+
                     this.goaliesHolder.moving = true;
+                }
 
                 if (this.ballPositionCircleMesh) {
                     this.ballPositionCircleMesh.setEnabled(true);
@@ -752,6 +779,34 @@ namespace Pockey {
 
                 let ballPositionCirclePosition: Vector2 = new Vector2(localPoint.x, localPoint.y);
                 let isInteresectingWithOthers: boolean = false;
+
+                if(PockeySettings.CURRENT_ROUND == 3)
+                {
+                    this.poolTable.rightLimit = this.poolTable.playGround.x + this.poolTable.playGround.width;
+                    this.poolTable.downLimit = this.poolTable.playGround.y + this.poolTable.playGround.height;
+
+                    if(this.player.side == 'left')
+                    {
+                        this.poolTable.rightLimit = PockeySettings.MIDDLE_TABLE_LEFT_POS.x + PockeySettings.BALL_RADIUS;
+                        this.poolTable.leftLimit = PockeySettings.MIDDLE_TABLE_LEFT_POS.x - PockeySettings.BALL_RADIUS;
+                        ballPositionCirclePosition.x = PockeySettings.MIDDLE_TABLE_LEFT_POS.x;
+                    }
+                    else
+                    {
+                        this.poolTable.leftLimit = PockeySettings.MIDDLE_TABLE_RIGHT_POS.x - PockeySettings.BALL_RADIUS;
+                        this.poolTable.rightLimit = PockeySettings.MIDDLE_TABLE_RIGHT_POS.x + PockeySettings.BALL_RADIUS;
+                        // this.poolTable.whiteBall.ballPosition = new Vector2(this.poolTable.leftLimit, this.poolTable.whiteBall.y);
+                        ballPositionCirclePosition.x = PockeySettings.MIDDLE_TABLE_RIGHT_POS.x;
+                    }
+                }
+                else
+                {
+                    this.poolTable.leftLimit = this.poolTable.playGround.x;
+                    this.poolTable.upLimit = this.poolTable.playGround.y;
+                    this.poolTable.rightLimit = this.poolTable.playGround.x + this.poolTable.playGround.width;
+                    this.poolTable.downLimit = this.poolTable.playGround.y + this.poolTable.playGround.height;
+                }
+
 
                 if (ballPositionCirclePosition.x + PockeySettings.BALL_RADIUS > this.poolTable.rightLimit)
                     ballPositionCirclePosition.x = this.poolTable.rightLimit - PockeySettings.BALL_RADIUS;

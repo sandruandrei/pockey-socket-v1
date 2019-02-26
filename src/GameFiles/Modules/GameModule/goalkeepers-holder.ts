@@ -22,7 +22,7 @@ namespace Pockey {
         }
 
         export class GoalkeepersHolder {
-            private goalies: Goalie[];
+            public goalies: Goalie[];
             private yLimit: number = 50;
             public movingDirection: number = 1;//1 - for down, -1 for top
             public movingSpeed: number = 2;
@@ -69,6 +69,12 @@ namespace Pockey {
             private updatePosition(): void {
                 _.forEach(this.goalies, (goalie: Goalie) => {
                     goalie.y = this.y;
+
+                    if(goalie.blocked)
+                    {
+                        goalie.y = 0;
+                    }
+
                     goalie.goalieBody.position[1] = this.y;
                     goalie.goalieBodyShadow.position[1] = this.y;
                 });

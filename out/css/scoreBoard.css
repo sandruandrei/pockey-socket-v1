@@ -121,20 +121,15 @@ box-shadow: 2px 2px #373737;
 
 .scoreBoardLivesElement
 {
-
-width: calc(100%/7.8);
-
-height: 70%;
-
-background: chartreuse;
-
-float: left;
-
-/* border: black solid 2px; */
-
-box-sizing: border-box;
-
-border-radius: 2px;
+/* width: calc(100%/3); */
+width: calc(100%/7.8);
+width: calc(100%/3.2);
+height: 70%;
+background: chartreuse;
+float: left;
+/* border: black solid 2px; */
+box-sizing: border-box;
+border-radius: 2px;
 }
 
 .dotBorderScoreBoard {

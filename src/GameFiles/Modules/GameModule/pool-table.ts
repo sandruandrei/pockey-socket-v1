@@ -54,7 +54,7 @@ namespace Pockey {
 
             public balls: AbstractBall[];
 
-            private playGround: Rectangle;
+            public playGround: Rectangle;
             public leftLimit: number;
             public rightLimit: number;
             public upLimit: number;
@@ -123,7 +123,7 @@ namespace Pockey {
                 PockeySettings.MIDDLE_TABLE_POS = new Vector2(0, 0);
 
                 PockeySettings.MIDDLE_TABLE_LEFT_POS = new Vector2(PockeySettings.MIDDLE_TABLE_POS.x - 244, PockeySettings.MIDDLE_TABLE_POS.y);
-                PockeySettings.MIDDLE_TABLE_RIGHT_POS = new Vector2(PockeySettings.MIDDLE_TABLE_POS.x + 400, PockeySettings.MIDDLE_TABLE_POS.y);
+                PockeySettings.MIDDLE_TABLE_RIGHT_POS = new Vector2(PockeySettings.MIDDLE_TABLE_POS.x + 244, PockeySettings.MIDDLE_TABLE_POS.y);
 
                 //poolTableOverFrame
                 this.poolTableOverFrame = new Sprite(PIXI.Texture.fromFrame(Settings.desktopAssetsPath + "Images/table_border_01.png"));
@@ -475,6 +475,10 @@ namespace Pockey {
             public reset(): void {
                 // console.log("salam intra la reset in pooltable");
                 console.log("%c salam intra la reset in pooltable", "color: #ff0000");
+                _.forEach(this.balls, (ball: AbstractBall) => {
+                    ball.hide();
+                });
+
                 this.balls = [];
 
                 this.whiteBall.reset();
@@ -485,6 +489,16 @@ namespace Pockey {
                 this.puck.ballPosition = this.puck.initialPosition;//.x;
                 this.balls.push(this.puck);
 
+                if(PockeySettings.CURRENT_ROUND == 3)
+                {
+                    // this.puck.ballValue = 1;
+
+                    return;
+                }
+                // else
+                // {
+                //     this.puck.ballValue = 2;
+                // }
                 _.forEach(this.leftBallsArray, (ball: AbstractBall) => {
                     ball.reset();
                     ball.ballPosition = ball.initialPosition;//.x;

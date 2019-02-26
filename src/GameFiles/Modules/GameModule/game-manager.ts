@@ -71,12 +71,15 @@ namespace Pockey {
             stateTime?: number,
             timerText?: string,
             timerTextAnimate?: boolean,
-            playerScore ?: number,
+            playerScore?: number,
             opponentScore?: number,
             whiteBallPenalty?: boolean,
             ballsHit?: number,
             opponentScreenTimer?: number,
-            popupRemoved?: boolean
+            popupRemoved?: boolean,
+            playerShootouts?: number,
+            opponentShootouts?: number,
+            currentShootoutRound?: number
             // timerColored?:boolean
         }
 
@@ -119,7 +122,7 @@ namespace Pockey {
 
             private currentTableFeltID: string = '';
 
-            private roundCounter: number = 0;
+            // private roundCounter: number = 0;
 
             private screenPopupTime: number = 0;
             private popupRemoved: boolean = false;
@@ -142,14 +145,14 @@ namespace Pockey {
             }
 
             private gotoNextRound(): void {
-                this.roundCounter++;
+                PockeySettings.CURRENT_ROUND++;
                 this.availableForRestart = false;
                 // this.myTimeStates = [];
                 // this.opponentGameStates = [];
-                // console.log("%c ////////////////salam round: " + this.roundCounter, "color: #00bcd4");
+                // console.log("%c ////////////////salam round: " + PockeySettings.CURRENT_ROUND, "color: #00bcd4");
 
                 // console.log("////////////////salam");
-                switch (this.roundCounter) {
+                switch (PockeySettings.CURRENT_ROUND) {
                     case (1): {
                         this.prepareFirstRound();
                         break;
@@ -166,12 +169,13 @@ namespace Pockey {
             }
 
             private prepareFirstRound(): void {
+                PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 2;
+
                 PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundOne);
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_SEARCHING_SCREEN);
 
-                let matchType:RoundCompleteType = RoundCompleteType.matchComplete;
-                if(this.isRematch)
-                {
+                let matchType: RoundCompleteType = RoundCompleteType.matchComplete;
+                if (this.isRematch) {
                     matchType = RoundCompleteType.rematch;
                 }
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_OPPONENT_FOUND_SCREEN, [matchType]);
@@ -190,8 +194,7 @@ namespace Pockey {
                     PIXI.ticker.shared.add(this.createState, this);
                     this.roundTimer.restart();
                     this.onRoundScreenTimerUpdate();
-                }
-                else {
+                } else {
 
                     this.setCurrentPlayer(this.opponent);
 
@@ -210,9 +213,8 @@ namespace Pockey {
                         // sau aicisha tre sa bagi treaba cu change pooltable decal
                         SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_SETTINGS, this.getMySettings()]);
                         console.log("NU e rematch");
-                    }
-                    else
-                    console.log("e rematch");
+                    } else
+                        console.log("e rematch");
 
                 }
 
@@ -254,18 +256,25 @@ namespace Pockey {
             }
 
             private resetPooltable(): void {
-                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE);
+                // let isThirdRound: boolean = false;
+                //
+                // if (PockeySettings.CURRENT_ROUND == 3) {
+                //     isThirdRound = true;
+                // }
+
+                SignalsManager.DispatchSignal(PockeySignalTypes.RESET_POOLTABLE, []);
             }
 
-// tre sa adaugi roundcounter ceva
             private prepareSecondRound(): void {
 
-                console.log("intra la prepare SecondRound");
+                PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 2;
+
+                // console.log("intra la prepare SecondRound");
 
                 PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundTwo);
                 let roundVO: RoundCompleteVO =
                     {
-                        roundNumber: this.roundCounter - 1,
+                        roundNumber: PockeySettings.CURRENT_ROUND - 1,
                         type: RoundCompleteType.roundComplete
                     };
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN, [roundVO]);
@@ -273,7 +282,6 @@ namespace Pockey {
                 this.resetPlayersData();
 
                 TweenMax.delayedCall(1, this.resetPooltable.bind(this));
-
 
 
                 if (this.playerStartedFirst) {
@@ -287,8 +295,7 @@ namespace Pockey {
                     this.currentTableFeltID = this.opponent.feltID;
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_STICK_SKIN, [PockeySettings.OPPONENT_CUE_ID]);
                     SignalsManager.DispatchSignal(PockeySignalTypes.CHANGE_POOLTABLE_DECAL, [PockeySettings.OPPONENT_DECAL_ID]);
-                }
-                else {
+                } else {
 
                     this.opponent.side = "right";
                     this.player.side = "left";
@@ -311,13 +318,16 @@ namespace Pockey {
             }
 
             private prepareThirdRound(): void {
+                PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 3;
                 // console.log("%c salam preparethird round opponentGameStates: " + this.opponentGameStates.length, "color: #bb3344");
                 // console.log("%c salam preparethird round my time states: " + this.myTimeStates.length, "color: #ddbb44");
 
+                // PockeySettings.CURRENT_SHOOTOUT_ROUND++;
+                // console.log("CURRENT SHOOT OUT ROUND: " + PockeySettings.CURRENT_SHOOTOUT_ROUND);
                 PockeyStateMachine.Instance().changeState(PockeyStates.onPrepareRoundThree);
                 let roundVO: RoundCompleteVO =
                     {
-                        roundNumber: this.roundCounter - 1,
+                        roundNumber: PockeySettings.CURRENT_ROUND - 1,
                         type: RoundCompleteType.roundComplete
                     };
                 SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN, [roundVO]);
@@ -340,8 +350,7 @@ namespace Pockey {
                         this.onRoundScreenTimerUpdate();
                         PIXI.ticker.shared.add(this.createState, this);
                     }
-                }
-                else {
+                } else {
                     if (!Settings.singlePlayer) {
                         // this.opponentGameStates = [];
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
@@ -360,6 +369,7 @@ namespace Pockey {
 
             private updateRoundGraphics(): void {
                 SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN);
+
                 SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE);
 
                 console.log("table felt ce plm: " + this.currentTableFeltID);
@@ -414,7 +424,7 @@ namespace Pockey {
                     SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
                     // SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_ROUND_COMPLETE_SCREEN);
                     // SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_OPPONENT_FOUND_SCREEN);
-                    // if(this.roundCounter == 2)
+                    // if(PockeySettings.CURRENT_ROUND == 2)
                     // {
                     //     SignalsManager.DispatchSignal(PockeySignalTypes.RESET_GAME_SCREEN);
                     //     this.updateRoundGraphics();
@@ -501,7 +511,7 @@ namespace Pockey {
 
             }
 
-            private onRematchConfirmButtonClicked(params:string[]): void {
+            private onRematchConfirmButtonClicked(params: string[]): void {
 
                 console.log("rematchAsked confirm button clicked");
                 // this.rematchAsked = true;
@@ -509,16 +519,13 @@ namespace Pockey {
                     return;
                 }
 
-                if(params[0] == 'accept')
-                {
+                if (params[0] == 'accept') {
                     this.isRematch = true;
                     this.gotoNextRound();
                     console.log("la rematch goes to next round");
 
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_REMATCH, 'accept']);
-                }
-                else
-                {
+                } else {
 
                     SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.OPPONENT_REMATCH, 'reject']);
                     SignalsManager.DispatchSignal(ConnectionSignalsType.DISCONNECT_MY_SOCKET);
@@ -676,9 +683,37 @@ namespace Pockey {
                     this.onCounterUpdate();
 
                     // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
-                }
-                else if (state == PockeyStates.onRepositionWhiteBall) {
+                } else if (state == PockeyStates.onRepositionWhiteBall) {
 
+                    if (PockeySettings.CURRENT_ROUND == 3) {
+
+                        this.player.shootouts--;
+
+                        if(this.player.shootouts == this.opponent.shootouts && this.player.shootouts >= 0)
+                        {
+                            PockeySettings.CURRENT_SHOOTOUT_ROUND++;
+
+                            console.log("CURRENT SHOOT OUT ROUND: " + PockeySettings.CURRENT_SHOOTOUT_ROUND);
+                        }
+                        else
+                        {
+                            if(this.player.shootouts < 0)
+                            {
+                                PockeySettings.CURRENT_SHOOTOUT_ROUND++;
+
+                                if(PockeySettings.CURRENT_SHOOTOUT_ROUND > 3)
+                                {
+                                    PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER = 1;
+                                    this.player.score = 1;
+                                    this.opponent.score = 1;
+
+                                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE);
+                                }
+                            }
+                        }
+
+                        this.resetPooltable();
+                    }
                     // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
 
                     // SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
@@ -690,8 +725,7 @@ namespace Pockey {
                     if (Settings.isMobile) {
                         SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
                     }
-                }
-                else if (state == PockeyStates.onRoundEnd) {
+                } else if (state == PockeyStates.onRoundEnd) {
 
                     PockeyStateMachine.Instance().changeState(state);
                     // this.prepareSecondRound();
@@ -812,11 +846,10 @@ namespace Pockey {
                     SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_SEARCHING_SCREEN);
                     SignalsManager.DispatchSignal(PockeySignalTypes.HIDE_GAME_UI);
                     SignalsManager.DispatchSignal(ConnectionSignalsType.CREATE_SEARCH_FOR_PARTNER_CONNECTION);
-                }
-                else {
+                } else {
                     this.setCurrentPlayer(this.player);
                     this.beginPlay();
-                    SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
+                    // SignalsManager.DispatchSignal(PockeySignalTypes.SET_SIDES_TYPE, [this.player.type, this.opponent.type]);
                     this.player.side = "left";
                     this.opponent.side = "right";
 
@@ -830,14 +863,11 @@ namespace Pockey {
 
                 if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundOne) {
                     this.onPooltableStateCreated(null);
-                }
-                else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundTwo) {
+                } else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundTwo) {
                     this.onPooltableStateCreated(null);
-                }
-                else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundThree) {
+                } else if (PockeyStateMachine.Instance().fsm.currentState == PockeyStates.onPrepareRoundThree) {
                     this.onPooltableStateCreated(null);
-                }
-                else {
+                } else {
                     SignalsManager.DispatchSignal(PockeySignalTypes.CREATE_POOLTABLE_STATE, [this.onPooltableStateCreated.bind(this)]);
                 }
             }
@@ -884,6 +914,10 @@ namespace Pockey {
                     this.popupRemovedSent = true;
                     // console.log("aici se inregistreaza");
                 }
+
+                gameState.playerShootouts = this.player.shootouts;
+                gameState.opponentShootouts = this.opponent.shootouts;
+                gameState.currentShootoutRound = PockeySettings.CURRENT_SHOOTOUT_ROUND;
 
                 this.myTimeStates.push(gameState);
 
@@ -934,6 +968,24 @@ namespace Pockey {
                 console.log("score -> player: " + this.player.score, " - Opponent: " + this.opponent.score);
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_SCORE);
 
+                if(PockeySettings.CURRENT_SHOOTOUT_ROUND >= 3)
+                {
+                    if(this.player.shootouts == this.opponent.shootouts)
+                    {
+                        if(this.player.score < this.opponent.score)
+                        {
+                            this.player.score = 0;
+                        }
+
+                        if(this.opponent.score < this.player.score)
+                        {
+                            this.opponent.score = 0;
+                        }
+
+                    }
+                }
+
+
                 if (this.player.score <= 0) {
 
                     // PockeyStateMachine.Instance().changeState(PockeyStates.onRoundEnd);
@@ -973,8 +1025,7 @@ namespace Pockey {
                     // console.log("la ball in pocket: " + this.winStatus);
 
 
-                }
-                else if (this.opponent.score <= 0) {
+                } else if (this.opponent.score <= 0) {
                     // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_WINNING_MESSAGE, ["you lost!"]);
                     // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_ROUND_COMPLETE_SCREEN);
 
@@ -1007,8 +1058,7 @@ namespace Pockey {
                 if (this.player.side == "left") {
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES,
                         [this.player.roundsWon, this.opponent.roundsWon]);
-                }
-                else {
+                } else {
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_MATCH_CIRCLES,
                         [this.opponent.roundsWon, this.player.roundsWon]);
                 }
@@ -1033,6 +1083,26 @@ namespace Pockey {
                 this.whiteBallPenalty = gameState.whiteBallPenalty;
                 this.ballsHit = gameState.ballsHit;
 
+                if (this.opponent.shootouts != gameState.playerShootouts) {
+                    this.opponent.shootouts = gameState.playerShootouts;
+                }
+
+                if (this.player.shootouts != gameState.opponentShootouts) {
+                    // PockeySettings.CURRENT_SHOOTOUT_ROUND = gameState.shootoutRound;
+                    // console.log("CURRENT SHOOT OUT ROUND: " + PockeySettings.CURRENT_SHOOTOUT_ROUND);
+                    this.player.shootouts = gameState.opponentShootouts;
+                    // console.log("");
+                }
+
+
+                if(PockeySettings.CURRENT_SHOOTOUT_ROUND != gameState.currentShootoutRound)
+                {
+                    PockeySettings.CURRENT_SHOOTOUT_ROUND = gameState.currentShootoutRound;
+                    // PockeySettings.CURRENT_SHOOTOUT_ROUND++;
+                    console.log("CURRENT SHOOT OUT ROUND: " + PockeySettings.CURRENT_SHOOTOUT_ROUND);
+                }
+
+
                 if (this.player.score != gameState.opponentScore) {
                     this.player.score = gameState.opponentScore;
                     // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_SCORE, [this.player.score]);
@@ -1042,6 +1112,8 @@ namespace Pockey {
                     //     this.handleMatchFinished();
                     // }
                 }
+
+
 
                 if (this.opponent.score != gameState.playerScore) {
                     this.opponent.score = gameState.playerScore;
@@ -1135,16 +1207,21 @@ namespace Pockey {
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.whiteBallFault]);
 
                         console.log("%c GameManager -> White ball PENALTY for " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
-                    }
-                    else if (ballType == BallType.Puck) {
+                    } else if (ballType == BallType.Puck) {
                         this.ballsHit++;
                         // this.whiteBallPenalty = true;
                         let goalType: BallType = params[1];
+
                         if (goalType == this.player.type) {
-                            this.player.score -= 2;
-                        }
-                        else if (goalType == this.opponent.type) {
-                            this.opponent.score -= 2;
+                            if (PockeySettings.CURRENT_ROUND < 3)
+                                this.player.score -= 2;
+                            else
+                                this.player.score -= 1;
+                        } else if (goalType == this.opponent.type) {
+                            if (PockeySettings.CURRENT_ROUND < 3)
+                                this.opponent.score -= 2;
+                            else
+                                this.opponent.score -= 1;
                         }
                         console.log("intra la puck gol: " + goalType);
 
@@ -1159,8 +1236,7 @@ namespace Pockey {
                         // else {
                         //     this.currentPlayer.score -= 2;
                         // }
-                    }
-                    else if (ballType == this.currentPlayer.type) {
+                    } else if (ballType == this.currentPlayer.type) {
                         this.ballsHit++;
                         this.currentPlayer.score--;
                         this.ownBallInPocketFault = true;
@@ -1176,13 +1252,11 @@ namespace Pockey {
                         // }
                         /*this.whiteBallPenalty = true;
                         */
-                    }
-                    else if (ballType != this.currentPlayer.type) {
+                    } else if (ballType != this.currentPlayer.type) {
                         this.ballsHit++;
                         if (this.currentPlayer == this.player) {
                             this.opponent.score--;
-                        }
-                        else {
+                        } else {
                             this.player.score--;
                         }
                         // this.whiteBallPenalty = true;
@@ -1350,9 +1424,14 @@ namespace Pockey {
 
                     console.log("onNextTurn: intra la countdown");
                     // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStateMachine.Instance().fsm.currentState]);
+
                     if (gameState) {
                         PIXI.ticker.shared.remove(this.createState, this);
                         gameState.changeMyState = [PockeyStateMachine.Instance().fsm.currentState];
+                        if (PockeySettings.CURRENT_ROUND == 3) {
+                            // PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
+                            gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+                        }
                     }
                     // let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
                     // SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
@@ -1363,6 +1442,14 @@ namespace Pockey {
                     return;
                 }
 
+                /*if(PockeySettings.CURRENT_ROUND == 3)
+                {
+                    if(this.player.shootouts == 0 && this.opponent.shootouts == 0)
+                    {
+
+                    }
+                }*/
+
                 if (this.matchFinished) {
                     console.log("intra la match finished la on next turn");
                     // SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_MATCH_COMPLETE_SCREEN);//todo refactor screen ;)
@@ -1370,8 +1457,7 @@ namespace Pockey {
                     gameState.changeMyState = [PockeyStates.onEndMatch];
 
                     return;
-                }
-                else if (this.roundFinished) {
+                } else if (this.roundFinished) {
                     console.log("onNextTurn: intra la gamefinished");
 
                     PockeyStateMachine.Instance().changeState(PockeyStates.onRoundEnd);
@@ -1385,8 +1471,7 @@ namespace Pockey {
                     this.gotoNextRound();
 
                     return;
-                }
-                else {
+                } else {
                     console.log("onNextTurn: intra la onEndTurn");
 
                     // console.log("inainte de on end turn");
@@ -1421,8 +1506,7 @@ namespace Pockey {
                         // if (Settings.isMobile) {
                         //     SignalsManager.DispatchSignal(PockeySignalTypes.SHOW_WHITE_BALL_POSITION_CONFIRMER);
                         // }
-                    }
-                    else {
+                    } else {
 
                         PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
                         if (Settings.isMobile) {
@@ -1433,19 +1517,23 @@ namespace Pockey {
                     // PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
 
                     //     SignalsManager.DispatchSignal(PockeySignalTypes.REPOSITION_WHITE_BALL);
-                }
-                else if (this.ownBallInPocketFault) {
+                } else if (this.ownBallInPocketFault) {
                     console.log("onNextTurn: ownBallInPocketFault");
 
                     console.log("%c GameManager -> Fault! Own ball in pocket! " + this.currentPlayer.id.toUpperCase(), "color: #00bcd4");
                     this.changePlayer();
                     this.ownBallInPocketFault = false;
                     if (!Settings.singlePlayer) {
-                        let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
+                        // let currentTime = window.performance.now ? (performance.now() + performance.timing.navigationStart) : Date.now();
                         // SignalsManager.DispatchSignal(PockeySignalTypes.SET_TIMESTAMP_ON_WATCH, [currentTime]);
 
                         PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
                         gameState.changeMyState = [PockeyStates.onRearrangeStick];
+                        if (PockeySettings.CURRENT_ROUND == 3) {
+                            // PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
+
+                            gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+                        }
                         PIXI.ticker.shared.remove(this.createState, this);
                         // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
                         SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onOwnBallInPocket]);
@@ -1455,17 +1543,24 @@ namespace Pockey {
                         // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.noBallScored]);
                         // this.whiteBall
 
-                    }
-                    else {
+                    } else {
 
-                        this.timer.restart();
-                        this.onCounterUpdate();
-                        SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                        PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                        if (PockeySettings.CURRENT_ROUND == 3) {
 
+                            PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+                            gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+
+                            PIXI.ticker.shared.remove(this.createState, this);
+                            // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                            // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onOwnBallInPocket]);
+                        } else {
+                            this.timer.restart();
+                            this.onCounterUpdate();
+                            SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+                            PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                        }
                     }
-                }
-                else {
+                } else {
                     if (this.ballsHit == 0) {
                         console.log("onNextTurn: balls hit 0");
 
@@ -1479,6 +1574,11 @@ namespace Pockey {
                             PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
                             // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
                             gameState.changeMyState = [PockeyStates.onRearrangeStick];
+                            if (PockeySettings.CURRENT_ROUND == 3) {
+                                // PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
+
+                                gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+                            }
                             PIXI.ticker.shared.remove(this.createState, this);
                             SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.noBallScored]);
                             // this.noBallsHitOnWatch = true;
@@ -1486,30 +1586,51 @@ namespace Pockey {
                             // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.noBallScored]);
                             // this.whiteBall
 
-                        }
-                        else {
-                            this.timer.restart();
-                            this.onCounterUpdate();
+                        } else {
 
-                            SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
 
-                            PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                            // SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+
+                            // PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+
+                            if (PockeySettings.CURRENT_ROUND == 3) {
+
+                                PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+                                gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+
+                                PIXI.ticker.shared.remove(this.createState, this);
+                                // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                                // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onOwnBallInPocket]);
+                            } else {
+                                this.timer.restart();
+                                this.onCounterUpdate();
+                                SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+                                PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                            }
                         }
                         return;
-                    }
-                    else {
+                    } else {
                         this.ballsHit = 0;
                     }
 
                     // this.startCountdown(PockeySettings.ROUND_DURATION_IN_SECONDS);
                     // this.timer.restart();
-                    console.log("onNextTurn: ajunge in capat");
+                    // console.log("onNextTurn: ajunge in capat");
 
-                    this.timer.restart();
-                    this.onCounterUpdate();
+                    if (PockeySettings.CURRENT_ROUND == 3) {
 
-                    SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                    PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                        PockeyStateMachine.Instance().changeState(PockeyStates.onWatch);
+                        gameState.changeMyState = [PockeyStates.onRepositionWhiteBall];
+
+                        PIXI.ticker.shared.remove(this.createState, this);
+                        // SignalsManager.DispatchSignal(ConnectionSignalsType.PRIVATE_MESSAGE, [PockeySocketMessages.YOUR_TURN, PockeyStates.onRearrangeStick]);
+                        // SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT_ON_WATCH, [PockeyStateTexts.onOwnBallInPocket]);
+                    } else {
+                        this.timer.restart();
+                        this.onCounterUpdate();
+                        SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+                        PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                    }
 
                 }
                 // if()
@@ -1526,6 +1647,8 @@ namespace Pockey {
                 this.roundFinished = false;
                 this.player.score = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
                 this.opponent.score = PockeySettings.BALLS_NUMBER_FOR_EACH_PLAYER;
+                this.player.shootouts = 3;
+                this.opponent.shootouts = 3;
                 // this.isRematch = false;
 
                 if (clearRounds) {
@@ -1547,7 +1670,8 @@ namespace Pockey {
                 this.isRematch = false;
                 this.gameTimeStatesIdentifier = 0;
                 this.currentTableFeltID = PockeySettings.POOLTABLE_FELT_ID;
-                this.roundCounter = 0;
+                PockeySettings.CURRENT_ROUND = 0;
+                PockeySettings.CURRENT_SHOOTOUT_ROUND = 0;
                 this.timeStatesTimerActive = false;
             }
 
@@ -1576,7 +1700,7 @@ namespace Pockey {
 
                 let roundVO: RoundCompleteVO =
                     {
-                        roundNumber: this.roundCounter,
+                        roundNumber: PockeySettings.CURRENT_ROUND,
                         type: RoundCompleteType.matchComplete
                     };
 
@@ -1626,8 +1750,7 @@ namespace Pockey {
                 if (this.currentPlayer == this.opponent) {
                     this.currentPlayer = this.player;
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_STICK_SKIN, [PockeySettings.PLAYER_CUE_ID]);
-                }
-                else {
+                } else {
                     this.currentPlayer = this.opponent;
                     SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_STICK_SKIN, [PockeySettings.OPPONENT_CUE_ID]);
 
@@ -1672,8 +1795,17 @@ namespace Pockey {
                 /*  this.onRestartGame();*/
                 SignalsManager.DispatchSignal(PockeySignalTypes.UPDATE_UI_TEXT, [PockeyStateTexts.beginGame]);
 
-                SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
-                PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                if (PockeySettings.CURRENT_ROUND == 3) {
+                    this.player.shootouts--;
+                    // PockeySettings.CURRENT_SHOOTOUT_ROUND++;
+                    // console.log("CURRENT SHOOT OUT ROUND: " + PockeySettings.CURRENT_SHOOTOUT_ROUND);
+
+                    PockeyStateMachine.Instance().changeState(PockeyStates.onRepositionWhiteBall);
+                } else {
+                    SignalsManager.DispatchSignal(PockeySignalTypes.REACTIVATE_STICK);
+                    PockeyStateMachine.Instance().changeState(PockeyStates.onRearrangeStick);
+                }
+
                 // PockeyStateMachine.Instance().changeState(PockeyStates.onStartVersusGame);
                 // this.printFsmCurrentState();
             }

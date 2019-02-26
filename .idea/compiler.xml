@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TypeScriptCompiler">
+    <option name="enableServiceForProjectsWithoutConfig" value="false" />
+    <option name="hasOutDirectory" value="true" />
+    <option name="mainFilePath" value="C:\Users\sandru\WebstormProjects\sondaj\ts\main.ts" />
+    <option name="outDirectory" value="C:\Users\sandru\WebstormProjects\sondaj\src" />
+    <option name="useMainFile" value="true" />
+  </component>
+</project>

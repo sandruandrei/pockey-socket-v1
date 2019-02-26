@@ -26,13 +26,12 @@ namespace Pockey {
             public goalieMiddleLayer: Sprite;
             private goalieTopLayer: Sprite;
             private animationTimeline: TimelineMax;
-
+            public blocked:boolean = false;
 
             public isGoing: string = "down"; //"up" or "down"
 
             public type: BallType;
             public moving: boolean = false;
-            // private gr: Graphics;
 
             private goaliePolygonCoord: number[][] = [
                 [-25 - 2, 13 + 2],

@@ -53,13 +53,15 @@ namespace Pockey {
         public static MIDDLE_TABLE_POS: Vector2;
         public static MIDDLE_TABLE_LEFT_POS: Vector2;
         public static MIDDLE_TABLE_RIGHT_POS: Vector2;
-        public static BALLS_NUMBER_FOR_EACH_PLAYER: number = 7;
+        public static BALLS_NUMBER_FOR_EACH_PLAYER: number = 2;
         public static STICK_MAX_POWER: number = 108;
         public static LARGE_GOALIES_ARRAY: number[] = [];
 
         public static BABYLON_Y_OFFSET: number = 27;
         public static GOALIE_SPEED: number = 1;
         public static SMALL_GOALIES_ARRAY: number[] = [];
+        public static CURRENT_ROUND:number = 0;
+        public static CURRENT_SHOOTOUT_ROUND:number = 0;
 
         public static LARGE_COLORS_ARRAY: InventoryVO[] = [
             {
@@ -281,6 +283,137 @@ namespace Pockey {
         ];
 
         public static PLAYER_DECAL_ID: string = PockeySettings.SMALL_DECALS_ARRAY[0].id;
+
+        /////////////////
+        /*public static SMALL_BALL_SKINS_ARRAY: InventoryVO[] = [
+            {
+                category: "DECALS",
+                id: "decal_default",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
+                level: 1
+            }
+        ];
+
+        public static LARGE_BALL_SKINS_ARRAY: InventoryVO[] = [
+            {
+                category: "DECALS",
+                id: "decal_default",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_default.png",
+                level: 1
+            },
+            {
+                category: "DECALS",
+                id: "decal_welcome",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/dccal_welcome.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/dccal_welcome.png",
+                level: 1
+            },
+            {
+                category: "DECALS",
+                id: "decal_astrojunkie",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_astrojunkie.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_astrojunkie.png",
+                level: 2
+            }, {
+                category: "DECALS",
+                id: "decal_blastoff",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_blastoff.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_blastoff.png",
+                level: 2
+            },
+            {
+                category: "DECALS",
+                id: "decal_cthulu",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_cthulu.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_cthulu.png",
+                level: 3
+            },
+            {
+                category: "DECALS",
+                id: "decal_dice",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_dice.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_dice.png",
+                level: 3
+            },
+            {
+                category: "DECALS",
+                id: "decal_insertcoin",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_insertcoin.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_insertcoin.png",
+                level: 4
+            },
+            {
+                category: "DECALS",
+                id: "decal_knucklesandwhich",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_knucklesandwhich.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_knucklesandwhich.png",
+                level: 4
+            }, {
+                category: "DECALS",
+                id: "decal_looselips",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_looselips.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_looselips.png",
+                level: 5
+            },
+            {
+                category: "DECALS",
+                id: "decal_oneup",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_oneup.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_oneup.png",
+                level: 6
+            },
+            {
+                category: "DECALS",
+                id: "decal_playerone",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_playerone.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_playerone.png",
+                level: 7
+            }, {
+                category: "DECALS",
+                id: "decal_pockey",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_pockey.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_pockey.png",
+                level: 7
+            },
+            {
+                category: "DECALS",
+                id: "decal_ragequit",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_ragequit.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_ragequit.png",
+                level: 8
+            },
+            {
+                category: "DECALS",
+                id: "decal_statTrickshot",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_statTrickshot.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_statTrickshot.png",
+                level: 9
+            },
+            {
+                category: "DECALS",
+                id: "decal_towerking",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_towerking.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_towerking.png",
+                level: 10
+            },
+            {
+                category: "DECALS",
+                id: "decal_wingedsword",
+                icon: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_wingedsword.png",
+                model: Settings.desktopAssetsPath + "Images/InventoryScreen/decalSkins/decal_wingedsword.png",
+                level: 11
+            },
+        ];
+
+        public static PLAYER_DECAL_ID: string = PockeySettings.SMALL_DECALS_ARRAY[0].id;*/
+
+        //////////////
+
+
+
+
 
         public static LARGE_AVATARS_ARRAY: InventoryVO[] = [
             {
