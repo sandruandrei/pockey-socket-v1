@@ -34,11 +34,11 @@ export module PockeyServer {
 
         constructor() {
             this.databasePool = new pg.Pool({
-                user: 'npvswhggxgsgxk',
-                host: 'ec2-54-225-98-131.compute-1.amazonaws.com',
-                database: 'd1uk2vnpdjl28q',
-                password: '556e5013ea1dec59d2daa5d7bff223ec028c16da4ac577db94e78dbc75471965',
-                port: 5432,
+                user: 'pockey-server',
+                password: 'ehp347digvltz8h9',
+                host: 'pockey-db-do-user-4906649-0.db.ondigitalocean.com',
+                database: 'pockey',
+                port: 25060,
                 ssl: true
             });
 
